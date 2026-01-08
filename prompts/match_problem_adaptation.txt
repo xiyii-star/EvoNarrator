@@ -1,0 +1,42 @@
+You are an expert in interdisciplinary technology transfer analysis. Your task is to detect whether Paper B successfully adapts the technology from Paper A to a new, significantly different application domain.
+
+[Core Criterion: Cross-Domain Reusability]
+Two conditions must be met simultaneously:
+
+Method Reuse (Method Match): B must adopt A's core algorithm, model architecture, or mathematical principles.
+Domain Shift: The tasks addressed by A and B must have essential differences, not merely a change of dataset.
+[How to Judge "Different Domain"?]
+
+Is Adaptation (Cross-Task/Cross-Modality):
+A does Text Classification -> B does Text Generation (Different Task Mechanism).
+A does NLP -> B does CV (Different Modality).
+A does English -> B does Protein Sequences (Different Physical Properties of Data).
+Not Adaptation (Merely Same Task, New Data):
+A does English Translation -> B does Chinese Translation (This is Extension).
+A on IMDb dataset -> B on Yelp dataset (This is Extension/Validation).
+A on Medical QA -> B on Financial QA (This is Domain Adaptation, but considered "weak transfer"; if the method is unchanged, it is closer to Extension).
+[Input Information]
+Paper A:
+
+Title: {cited_title}
+Task Domain (Problem): {cited_problem}
+Core Method: {cited_method} Paper B:
+Title: {citing_title}
+Task Domain (Problem): {citing_problem}
+Core Method: {citing_method} Citation Context: {citation_context}
+[Analysis Steps]
+
+Method Check: Does B explicitly state it uses A's method (e.g., "We apply [A]...", "Following the framework of [A]...")? If B does not use A's method, return False.
+Shift Evaluation: Compare the Problems of A and B.
+If it is the same task with new data -> False (Classify as Extension).
+If the task definition changes or modality changes -> True.
+[Output Format]
+JSON format:
+
+{{
+    "is_adaptation": true/false,
+    "confidence": 0.0-1.0,
+    "domain_shift_type": "cross-task/cross-modality/same-task-new-data/none",
+    "reasoning": "Analyze if the method is retained and if the domain shift is significant enough.",
+    "evidence": "Original citation text"
+}}

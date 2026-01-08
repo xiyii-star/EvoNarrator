@@ -1,0 +1,451 @@
+{
+  "topic": "natural language processing",
+  "timestamp": "2025-12-18T03:26:08.610435",
+  "epochs": [
+    {
+      "epoch_id": 1,
+      "name": "Epoch 1: information & data",
+      "year_range": "2005-2017",
+      "papers": [
+        "W2126276057",
+        "W2168905447",
+        "W2101727078",
+        "W2040610660",
+        "W2100751507",
+        "W2145383760",
+        "W2032069669",
+        "W2190333735",
+        "W2174775663",
+        "W2230749025",
+        "W2736047977"
+      ],
+      "paper_count": 11,
+      "core_problems": [
+        "information",
+        "efficiently",
+        "literature"
+      ],
+      "dominant_methods": [
+        "data",
+        "text",
+        "information"
+      ],
+      "bottlenecks": [
+        "which",
+        "未找到明确的局限性描述",
+        "articles",
+        "**从论文章节提取的局限性:**",
+        "data"
+      ],
+      "summary": "",
+      "key_challenges": "",
+      "main_approaches": "",
+      "limitations_summary": "",
+      "representative_papers": [
+        {
+          "paper_id": "W2168905447",
+          "title": "A survey of current work in biomedical text mining",
+          "year": 2005
+        },
+        {
+          "paper_id": "W2126276057",
+          "title": "Overview of BioCreAtIvE: critical assessment of information extraction for biology",
+          "year": 2005
+        },
+        {
+          "paper_id": "W2230749025",
+          "title": "Weakly supervised learning of biomedical information extraction from curated data",
+          "year": 2016
+        }
+      ],
+      "avg_year": 2011.1818181818182
+    },
+    {
+      "epoch_id": 2,
+      "name": "Epoch 2: data & corpus",
+      "year_range": "2004-2022",
+      "papers": [
+        "W2131243403",
+        "W1604834089",
+        "W4253067820",
+        "W2140406733",
+        "W2155870214",
+        "W2345398358",
+        "W2044688197",
+        "W1662133657",
+        "W2070205520",
+        "W2067130497",
+        "W2012976256",
+        "W2614620964",
+        "W3089323922",
+        "W4205802268"
+      ],
+      "paper_count": 14,
+      "core_problems": [
+        "data",
+        "comprehensive",
+        "corpus"
+      ],
+      "dominant_methods": [
+        "**explanation:**",
+        "data",
+        "corpus"
+      ],
+      "bottlenecks": [
+        "**从论文章节提取的局限性:**",
+        "未找到明确的局限性描述",
+        "which",
+        "language",
+        "analysis"
+      ],
+      "summary": "",
+      "key_challenges": "",
+      "main_approaches": "",
+      "limitations_summary": "",
+      "representative_papers": [
+        {
+          "paper_id": "W1662133657",
+          "title": "From Frequency to Meaning: Vector Space Models of Semantics",
+          "year": 2010
+        },
+        {
+          "paper_id": "W2070205520",
+          "title": "The Sketch Engine",
+          "year": 2014
+        },
+        {
+          "paper_id": "W2155870214",
+          "title": "The WaCky wide web: a collection of very large linguistically processed web-crawled corpora",
+          "year": 2009
+        }
+      ],
+      "avg_year": 2011.5714285714287
+    },
+    {
+      "epoch_id": 3,
+      "name": "Epoch 3: models & language",
+      "year_range": "2008-2024",
+      "papers": [
+        "W2117130368",
+        "W1562955078",
+        "W2950577311",
+        "W2250539671",
+        "W2963143606",
+        "W2612228435",
+        "W2347127863",
+        "W2786464815",
+        "W2963716420",
+        "W2911489562",
+        "W2970771982",
+        "W2971258845",
+        "W2955483668",
+        "W2970183140",
+        "W2950601686",
+        "W2981852735",
+        "W3106340866",
+        "W3034850762",
+        "W3046375318",
+        "W3156333129",
+        "W3175225269",
+        "W3202729335",
+        "W3176690085",
+        "W3209721572",
+        "W4385574029",
+        "W2747680751",
+        "W3180181113",
+        "W4309674289",
+        "W4285294723",
+        "W4382246105",
+        "W4384561707",
+        "W4387425757",
+        "W4385570444",
+        "W4392193048",
+        "W4390919701",
+        "W4401834466",
+        "W4404239715",
+        "W4391759824",
+        "W4412664660",
+        "W4403383742"
+      ],
+      "paper_count": 40,
+      "core_problems": [
+        "models",
+        "language",
+        "tasks"
+      ],
+      "dominant_methods": [
+        "**explanation:**",
+        "models",
+        "language"
+      ],
+      "bottlenecks": [
+        "**从论文章节提取的局限性:**",
+        "which",
+        "tasks",
+        "data",
+        "models"
+      ],
+      "summary": "",
+      "key_challenges": "",
+      "main_approaches": "",
+      "limitations_summary": "",
+      "representative_papers": [
+        {
+          "paper_id": "W2250539671",
+          "title": "Glove: Global Vectors for Word Representation",
+          "year": 2014
+        },
+        {
+          "paper_id": "W2950577311",
+          "title": "Efficient Estimation of Word Representations in Vector Space",
+          "year": 2013
+        },
+        {
+          "paper_id": "W2911489562",
+          "title": "BioBERT: a pre-trained biomedical language representation model for biomedical text mining",
+          "year": 2019
+        }
+      ],
+      "avg_year": 2020.1
+    },
+    {
+      "epoch_id": 4,
+      "name": "Epoch 4: models & language",
+      "year_range": "2022-2025",
+      "papers": [
+        "W2593831809",
+        "W4317823603",
+        "W4385292983",
+        "W4366989525",
+        "W4385571817",
+        "W4384484700",
+        "W4367397709",
+        "W4388691863",
+        "W4389636360",
+        "W4390602553",
+        "W4399528455",
+        "W4391855109",
+        "W4402665833",
+        "W4392340173",
+        "W4403637392",
+        "W4394828653",
+        "W4393097350",
+        "W4395025834",
+        "W4406658975"
+      ],
+      "paper_count": 19,
+      "core_problems": [
+        "language",
+        "models",
+        "large"
+      ],
+      "dominant_methods": [
+        "**explanation:**",
+        "data",
+        "models"
+      ],
+      "bottlenecks": [
+        "which",
+        "**从论文章节提取的局限性:**",
+        "llms",
+        "models",
+        "study"
+      ],
+      "summary": "",
+      "key_challenges": "",
+      "main_approaches": "",
+      "limitations_summary": "",
+      "representative_papers": [
+        {
+          "paper_id": "W4366989525",
+          "title": "ChatGPT and the rise of large language models: the new AI-driven infodemic threat in public health",
+          "year": 2023
+        },
+        {
+          "paper_id": "W2593831809",
+          "title": "Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing",
+          "year": 2022
+        },
+        {
+          "paper_id": "W4391855109",
+          "title": "A Review on Large Language Models: Architectures, Applications, Taxonomies, Open Issues and Challenges",
+          "year": 2024
+        }
+      ],
+      "avg_year": 2023.4736842105262
+    }
+  ],
+  "pivotal_papers": [],
+  "survey_report": {
+    "title": "Deep Survey: natural language processing",
+    "abstract": "A comprehensive survey on natural language processing evolution covering 4 major epochs.",
+    "epochs_summary": [
+      {
+        "epoch_id": 1,
+        "name": "Epoch 1: information & data",
+        "year_range": "2005-2017",
+        "paper_count": 11,
+        "key_problems": [
+          "information",
+          "efficiently",
+          "literature"
+        ],
+        "key_methods": [
+          "data",
+          "text",
+          "information"
+        ],
+        "bottlenecks": [
+          "which",
+          "未找到明确的局限性描述",
+          "articles",
+          "**从论文章节提取的局限性:**",
+          "data"
+        ],
+        "representative_papers": [
+          {
+            "paper_id": "W2168905447",
+            "title": "A survey of current work in biomedical text mining",
+            "year": 2005
+          },
+          {
+            "paper_id": "W2126276057",
+            "title": "Overview of BioCreAtIvE: critical assessment of information extraction for biology",
+            "year": 2005
+          },
+          {
+            "paper_id": "W2230749025",
+            "title": "Weakly supervised learning of biomedical information extraction from curated data",
+            "year": 2016
+          }
+        ]
+      },
+      {
+        "epoch_id": 2,
+        "name": "Epoch 2: data & corpus",
+        "year_range": "2004-2022",
+        "paper_count": 14,
+        "key_problems": [
+          "data",
+          "comprehensive",
+          "corpus"
+        ],
+        "key_methods": [
+          "**explanation:**",
+          "data",
+          "corpus"
+        ],
+        "bottlenecks": [
+          "**从论文章节提取的局限性:**",
+          "未找到明确的局限性描述",
+          "which",
+          "language",
+          "analysis"
+        ],
+        "representative_papers": [
+          {
+            "paper_id": "W1662133657",
+            "title": "From Frequency to Meaning: Vector Space Models of Semantics",
+            "year": 2010
+          },
+          {
+            "paper_id": "W2070205520",
+            "title": "The Sketch Engine",
+            "year": 2014
+          },
+          {
+            "paper_id": "W2155870214",
+            "title": "The WaCky wide web: a collection of very large linguistically processed web-crawled corpora",
+            "year": 2009
+          }
+        ]
+      },
+      {
+        "epoch_id": 3,
+        "name": "Epoch 3: models & language",
+        "year_range": "2008-2024",
+        "paper_count": 40,
+        "key_problems": [
+          "models",
+          "language",
+          "tasks"
+        ],
+        "key_methods": [
+          "**explanation:**",
+          "models",
+          "language"
+        ],
+        "bottlenecks": [
+          "**从论文章节提取的局限性:**",
+          "which",
+          "tasks",
+          "data",
+          "models"
+        ],
+        "representative_papers": [
+          {
+            "paper_id": "W2250539671",
+            "title": "Glove: Global Vectors for Word Representation",
+            "year": 2014
+          },
+          {
+            "paper_id": "W2950577311",
+            "title": "Efficient Estimation of Word Representations in Vector Space",
+            "year": 2013
+          },
+          {
+            "paper_id": "W2911489562",
+            "title": "BioBERT: a pre-trained biomedical language representation model for biomedical text mining",
+            "year": 2019
+          }
+        ]
+      },
+      {
+        "epoch_id": 4,
+        "name": "Epoch 4: models & language",
+        "year_range": "2022-2025",
+        "paper_count": 19,
+        "key_problems": [
+          "language",
+          "models",
+          "large"
+        ],
+        "key_methods": [
+          "**explanation:**",
+          "data",
+          "models"
+        ],
+        "bottlenecks": [
+          "which",
+          "**从论文章节提取的局限性:**",
+          "llms",
+          "models",
+          "study"
+        ],
+        "representative_papers": [
+          {
+            "paper_id": "W4366989525",
+            "title": "ChatGPT and the rise of large language models: the new AI-driven infodemic threat in public health",
+            "year": 2023
+          },
+          {
+            "paper_id": "W2593831809",
+            "title": "Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing",
+            "year": 2022
+          },
+          {
+            "paper_id": "W4391855109",
+            "title": "A Review on Large Language Models: Architectures, Applications, Taxonomies, Open Issues and Challenges",
+            "year": 2024
+          }
+        ]
+      }
+    ],
+    "transition_points": [],
+    "conclusion": ""
+  },
+  "summary": {
+    "total_epochs": 4,
+    "total_pivots": 0
+  }
+}

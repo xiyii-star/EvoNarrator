@@ -1,0 +1,425 @@
+{
+  "topic": "natural language processing",
+  "timestamp": "2025-12-18T15:27:41.352342",
+  "epochs": [
+    {
+      "epoch_id": 1,
+      "name": "Epoch 1: knowledge & information",
+      "year_range": "1970-2024",
+      "papers": [
+        "W2035032881",
+        "W2063915530",
+        "W4245349101",
+        "W2092308848",
+        "W1990689692",
+        "W2035967403",
+        "W1604834089",
+        "W1969245183",
+        "W2250021433",
+        "W2046787075",
+        "W2570968448",
+        "W2810342010",
+        "W3165785783",
+        "W4285182233",
+        "W4390717095",
+        "W4404565057"
+      ],
+      "paper_count": 16,
+      "core_problems": [
+        "systems",
+        "language",
+        "information"
+      ],
+      "dominant_methods": [
+        "knowledge",
+        "information",
+        "model"
+      ],
+      "bottlenecks": [
+        "learning",
+        "information",
+        "ability",
+        "different",
+        "sentences"
+      ],
+      "summary": "",
+      "key_challenges": "",
+      "main_approaches": "",
+      "limitations_summary": "",
+      "representative_papers": [
+        {
+          "paper_id": "W1990689692",
+          "title": "Constructing inferences during narrative text comprehension.",
+          "year": 1994
+        },
+        {
+          "paper_id": "W2063915530",
+          "title": "A Grammar of Contemporary English",
+          "year": 1974
+        },
+        {
+          "paper_id": "W2035032881",
+          "title": "Transition network grammars for natural language analysis",
+          "year": 1970
+        }
+      ],
+      "avg_year": 2004.8125
+    },
+    {
+      "epoch_id": 2,
+      "name": "Epoch 2: data & linguistic",
+      "year_range": "2001-2025",
+      "papers": [
+        "W2115983295",
+        "W2131243403",
+        "W1496253462",
+        "W2106121453",
+        "W2155870214",
+        "W2345398358",
+        "W2044688197",
+        "W2005179178",
+        "W2157206904",
+        "W2070205520",
+        "W2067130497",
+        "W314203818",
+        "W2012976256",
+        "W2614620964",
+        "W2894763782",
+        "W4205802268",
+        "W4414464139"
+      ],
+      "paper_count": 17,
+      "core_problems": [
+        "linguistic",
+        "language",
+        "lack"
+      ],
+      "dominant_methods": [
+        "data",
+        "analysis",
+        "word"
+      ],
+      "bottlenecks": [
+        "text",
+        "require",
+        "data",
+        "human",
+        "complex"
+      ],
+      "summary": "",
+      "key_challenges": "",
+      "main_approaches": "",
+      "limitations_summary": "",
+      "representative_papers": [
+        {
+          "paper_id": "W2070205520",
+          "title": "The Sketch Engine",
+          "year": 2014
+        },
+        {
+          "paper_id": "W2155870214",
+          "title": "The WaCky wide web: a collection of very large linguistically processed web-crawled corpora",
+          "year": 2009
+        },
+        {
+          "paper_id": "W2614620964",
+          "title": "CORPUS LINGUISTICS: METHOD, THEORY, AND PRACTICE",
+          "year": 2017
+        }
+      ],
+      "avg_year": 2012.1176470588234
+    },
+    {
+      "epoch_id": 3,
+      "name": "Epoch 3: nlp & language",
+      "year_range": "1993-2024",
+      "papers": [
+        "W1982228897",
+        "W1840896605",
+        "W2152898500",
+        "W2042978285",
+        "W1964664729",
+        "W2154004094",
+        "W1992994712",
+        "W3034723486",
+        "W3111333709",
+        "W3165629202",
+        "W3195340476",
+        "W3164210270",
+        "W3159434093",
+        "W4311556468",
+        "W3167361329",
+        "W4388447618",
+        "W4391326667",
+        "W4403637392",
+        "W4392564782"
+      ],
+      "paper_count": 19,
+      "core_problems": [
+        "nlp",
+        "language",
+        "lack"
+      ],
+      "dominant_methods": [
+        "nlp",
+        "language",
+        "students"
+      ],
+      "bottlenecks": [
+        "language",
+        "still",
+        "nlp",
+        "fully",
+        "provide"
+      ],
+      "summary": "",
+      "key_challenges": "",
+      "main_approaches": "",
+      "limitations_summary": "",
+      "representative_papers": [
+        {
+          "paper_id": "W3034723486",
+          "title": "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data",
+          "year": 2020
+        },
+        {
+          "paper_id": "W1982228897",
+          "title": "Language and Computers",
+          "year": 1993
+        },
+        {
+          "paper_id": "W2042978285",
+          "title": "Using GATE as an environment for teaching NLP",
+          "year": 2002
+        }
+      ],
+      "avg_year": 2014.842105263158
+    },
+    {
+      "epoch_id": 4,
+      "name": "Epoch 4: data & nlp",
+      "year_range": "2002-2024",
+      "papers": [
+        "W2123504579",
+        "W3133702157",
+        "W4317823603",
+        "W4367397709",
+        "W4394828653",
+        "W4393097350"
+      ],
+      "paper_count": 6,
+      "core_problems": [
+        "data",
+        "due",
+        "processes"
+      ],
+      "dominant_methods": [
+        "data",
+        "nlp",
+        "tasks"
+      ],
+      "bottlenecks": [
+        "data",
+        "cost",
+        "quality",
+        "nlp",
+        "models"
+      ],
+      "summary": "",
+      "key_challenges": "",
+      "main_approaches": "",
+      "limitations_summary": "",
+      "representative_papers": [
+        {
+          "paper_id": "W2123504579",
+          "title": "Data mining",
+          "year": 2002
+        },
+        {
+          "paper_id": "W3133702157",
+          "title": "On the Dangers of Stochastic Parrots",
+          "year": 2021
+        },
+        {
+          "paper_id": "W4317823603",
+          "title": "Natural Language Processing for Policymaking",
+          "year": 2022
+        }
+      ],
+      "avg_year": 2019.3333333333333
+    }
+  ],
+  "pivotal_papers": [],
+  "survey_report": {
+    "title": "Deep Survey: natural language processing",
+    "abstract": "A comprehensive survey on natural language processing evolution covering 4 major epochs.",
+    "epochs_summary": [
+      {
+        "epoch_id": 1,
+        "name": "Epoch 1: knowledge & information",
+        "year_range": "1970-2024",
+        "paper_count": 16,
+        "key_problems": [
+          "systems",
+          "language",
+          "information"
+        ],
+        "key_methods": [
+          "knowledge",
+          "information",
+          "model"
+        ],
+        "bottlenecks": [
+          "learning",
+          "information",
+          "ability",
+          "different",
+          "sentences"
+        ],
+        "representative_papers": [
+          {
+            "paper_id": "W1990689692",
+            "title": "Constructing inferences during narrative text comprehension.",
+            "year": 1994
+          },
+          {
+            "paper_id": "W2063915530",
+            "title": "A Grammar of Contemporary English",
+            "year": 1974
+          },
+          {
+            "paper_id": "W2035032881",
+            "title": "Transition network grammars for natural language analysis",
+            "year": 1970
+          }
+        ]
+      },
+      {
+        "epoch_id": 2,
+        "name": "Epoch 2: data & linguistic",
+        "year_range": "2001-2025",
+        "paper_count": 17,
+        "key_problems": [
+          "linguistic",
+          "language",
+          "lack"
+        ],
+        "key_methods": [
+          "data",
+          "analysis",
+          "word"
+        ],
+        "bottlenecks": [
+          "text",
+          "require",
+          "data",
+          "human",
+          "complex"
+        ],
+        "representative_papers": [
+          {
+            "paper_id": "W2070205520",
+            "title": "The Sketch Engine",
+            "year": 2014
+          },
+          {
+            "paper_id": "W2155870214",
+            "title": "The WaCky wide web: a collection of very large linguistically processed web-crawled corpora",
+            "year": 2009
+          },
+          {
+            "paper_id": "W2614620964",
+            "title": "CORPUS LINGUISTICS: METHOD, THEORY, AND PRACTICE",
+            "year": 2017
+          }
+        ]
+      },
+      {
+        "epoch_id": 3,
+        "name": "Epoch 3: nlp & language",
+        "year_range": "1993-2024",
+        "paper_count": 19,
+        "key_problems": [
+          "nlp",
+          "language",
+          "lack"
+        ],
+        "key_methods": [
+          "nlp",
+          "language",
+          "students"
+        ],
+        "bottlenecks": [
+          "language",
+          "still",
+          "nlp",
+          "fully",
+          "provide"
+        ],
+        "representative_papers": [
+          {
+            "paper_id": "W3034723486",
+            "title": "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data",
+            "year": 2020
+          },
+          {
+            "paper_id": "W1982228897",
+            "title": "Language and Computers",
+            "year": 1993
+          },
+          {
+            "paper_id": "W2042978285",
+            "title": "Using GATE as an environment for teaching NLP",
+            "year": 2002
+          }
+        ]
+      },
+      {
+        "epoch_id": 4,
+        "name": "Epoch 4: data & nlp",
+        "year_range": "2002-2024",
+        "paper_count": 6,
+        "key_problems": [
+          "data",
+          "due",
+          "processes"
+        ],
+        "key_methods": [
+          "data",
+          "nlp",
+          "tasks"
+        ],
+        "bottlenecks": [
+          "data",
+          "cost",
+          "quality",
+          "nlp",
+          "models"
+        ],
+        "representative_papers": [
+          {
+            "paper_id": "W2123504579",
+            "title": "Data mining",
+            "year": 2002
+          },
+          {
+            "paper_id": "W3133702157",
+            "title": "On the Dangers of Stochastic Parrots",
+            "year": 2021
+          },
+          {
+            "paper_id": "W4317823603",
+            "title": "Natural Language Processing for Policymaking",
+            "year": 2022
+          }
+        ]
+      }
+    ],
+    "transition_points": [],
+    "conclusion": ""
+  },
+  "summary": {
+    "total_epochs": 4,
+    "total_pivots": 0
+  }
+}

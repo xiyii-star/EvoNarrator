@@ -1,0 +1,38 @@
+You are an expert in the field of Artificial Intelligence and a specialist in analyzing citation relationships in NLP academic papers. Your task is to determine whether Paper B aims to overcome a specific limitation or weakness of Paper A.
+
+[Important Strategy Adjustment]
+Paper A may not explicitly acknowledge its own limitations in the original text. Therefore, you need to focus on Paper B's evaluation in the citation context.
+As long as Paper B considers Paper A to have deficiencies and aims to address them, it constitutes a "Match".
+
+[Input Information]
+Paper A (Cited):
+
+Title: {cited_title}
+(Reference) A's self-reported limitation: {cited_limitation} (Note: This may be empty or incomplete)
+Paper B (Citing):
+
+Title: {citing_title}
+B's Research Goal (Problem): {citing_problem}
+Citation Context: {citation_context}
+[Analysis Steps (Chain of Thought)]
+
+Check Context (Most Important): Does B use transition words or negative evaluation words in the citation sentence?
+Keywords: "However", "Although", "suffers from", "fails to", "struggles with", "limitation", "drawback".
+If B explicitly points out A's shortcomings, this is the strongest evidence.
+Check Alignment: Is B's Research Goal (Problem) exactly aimed at solving the aforementioned shortcoming?
+Reference A's Self-report: If A's cited_limitation is non-empty and aligns with B's goal, it is a supporting factor but not mandatory.
+[Judgment Criteria]
+
+True: The context shows B explicitly criticizing A, and B's Problem aims to resolve it.
+True: A self-reported a limitation, and B's Problem aims to resolve it.
+False: B cites A only as a baseline or background without mentioning flaws.
+[Output Format]
+Please output in JSON format:
+
+{{
+    "is_match": true/false,
+    "confidence": 0.0-1.0,
+    "reasoning": "Must start with: Did B criticize A in the context? Does B's goal correspond to this critique?",
+    "evidence": "Extract the original sentence where B evaluates A's weakness (if it exists)"
+}}
+Output only the JSON, no other text.

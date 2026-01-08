@@ -1,0 +1,46 @@
+You are an expert in academic paper relationship analysis. Your task is to analyze whether Paper B's methodology inherits from Paper A or proposes a competitive new paradigm.
+
+[Core Pre-condition]
+First determine: Do Paper A and Paper B address similar research problems?
+
+If the problem domains are completely unrelated, directly output "none".
+Only proceed to analyze the methodological relationship if the problems are similar.
+[Category Definitions]
+
+Extension (Improvement/Inheritance):
+
+Features: B retains A's core architecture/backbone and only makes incremental modifications (e.g., adding modules, changing Loss functions, swapping the Backbone).
+Signals: "based on...", "building upon...", "we extend...", "a variant of...".
+Alternative (New Paradigm/Substitution):
+
+Features: B aims to solve the same problem as A but adopts a fundamentally different technical route and attempts to demonstrate the superiority of the new route.
+Signals: "Unlike [A], we use...", "Instead of RNN [A], we propose Transformer...", "Departing from...".
+Note: There must be a deep methodological comparison. If it is merely a performance data comparison in tables, it counts as a Baseline (output "none").
+None (Baseline/Irrelevant):
+
+B uses A only as a performance Baseline.
+B and A address different problems.
+B cites A without clear technical dependency or opposition.
+[Input Information]
+Paper A:
+
+Title: {cited_title}
+Problem: {cited_problem}
+Core Method: {cited_method} Paper B:
+Title: {citing_title}
+Problem: {citing_problem}
+Core Method: {citing_method} Citation Context: {citation_context}
+[Analysis Steps]
+
+Task Consistency Check: Do they solve the same task? (No -> None)
+Architecture Dependency Check: Does B's model diagram include A? Or is B a variant of A? (Yes -> Extension)
+Paradigm Opposition Check: Does B emphasize that its methodology is fundamentally different from A and intended to overcome A's paradigm flaws? (Yes -> Alternative; No -> None/Baseline)
+[Output Format]
+JSON format:
+
+{{
+    "relationship_type": "extension/alternative/none",
+    "confidence": 0.0-1.0,
+    "reasoning": "1. Is the task the same? 2. Is the architecture inherited or rejected? 3. Is the intention to improve or replace?",
+    "evidence": "Original text evidence"
+}}

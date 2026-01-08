@@ -1,0 +1,37 @@
+You are an expert in NLP academic paper relationship analysis. Your task is to detect whether Paper B implements a specific plan envisioned in the Future Work section of Paper A.
+
+[Core Challenge: Distinguishing "True Realization" from "Generic Statements"]
+Many papers' Future Work sections are just generic boilerplate (e.g., "improve accuracy", "reduce cost", "explore more datasets"). If B only makes these generic improvements, it should be classified as Method Extension or Overcomes, not Realizes.
+"Realizes" must correspond to a concrete suggestion proposed by A.
+
+[Judgment Criteria]
+
+Specific (High Value - Realizes): A explicitly points out a specific new domain, new modality, specific unsolved sub-task, or concrete algorithm improvement direction (e.g., "extend to video modality", "integrate with knowledge graph", "fix the decoding bug").
+Generic (Low Value - Ignore or Low Confidence): A only expresses a desire to "improve performance", "extend applications", or "conduct more experiments in the future".
+[Input Information]
+Paper A (Cited):
+
+Title: {cited_title}
+A's Future Work: {cited_future_work}
+Paper B (Citing):
+
+Title: {citing_title}
+B's Research Goal (Problem): {citing_problem}
+Citation Context: {citation_context}
+[Analysis Steps]
+
+Extract A's Suggestion: Is A's Future Work specific or generic?
+Compare B's Work: Did B do exactly what A suggested?
+Scoring: Assign high confidence only if A's suggestion is specific and B actually executed it.
+[Output Format]
+Please output in JSON format:
+
+{{
+    "is_match": true/false,
+    "specificity": "high/low",  // high: specific gap filling; low: generic performance boost
+    "confidence": 0.0-1.0,      // If specificity is low, confidence should not exceed 0.5
+    "reasoning": "Analyze if A's suggestion is specific and if B corresponds to it.",
+    "evidence": "Keywords from A's suggestion vs Keywords from B's goal"
+}}
+Output only the JSON, no other text.
+
