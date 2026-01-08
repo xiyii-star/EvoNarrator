@@ -1,0 +1,140 @@
+{
+  "total_ideas": 4,
+  "evaluated_ideas": 4,
+  "statistics": {
+    "novelty": {
+      "average": 4.4,
+      "count": 4
+    },
+    "feasibility": {
+      "average": 4.425,
+      "count": 4
+    },
+    "theoretical_support": {
+      "average": 4.4,
+      "count": 4
+    },
+    "logical_alignment": {
+      "average": 4.4,
+      "count": 4
+    },
+    "average": {
+      "average": 4.40625,
+      "count": 4
+    }
+  },
+  "results": [
+    {
+      "title": "Idea 1",
+      "abstract": "**Title:** SYNTH-ALIGN: A Unified Framework for Enhancing Large Language Model Problem-Solving through Symbolic Reasoning and Program Synthesis\n\n**Origins and Motivation:**\nThe research on improving large language model (LLM) problem-solving capabilities has primarily focused on two directions: enhancing logical reasoning through symbolic feedback and automating vulnerability detection via neuro-symbolic frameworks. While these approaches have made significant strides, they often remain siloed within specific domains and lack a unified framework for integrating symbolic reasoning with broader problem-solving tasks. For instance, RLSF provides token-level feedback for logical alignment but is limited to symbolic reasoning tools, while MoCQ excels at vulnerability detection but does not generalize to other problem-solving contexts. UntrustVul, though effective at filtering untrustworthy predictions, remains confined to the domain of vulnerability detection. These works highlight a critical gap: the need for a unified, domain-agnostic approach that combines symbolic reasoning with program synthesis to enhance LLMs' ability to solve complex, real-world tasks. This research aims to bridge this gap by proposing a novel framework that integrates symbolic reasoning and program synthesis, enabling LLMs to generate accurate, logically consistent code while ensuring alignment with domain-specific constraints.\n\n**Novelty and Difference from Previous Works:**\nOur proposed method, **SYNTH-ALIGN**, stands out from existing approaches by explicitly combining symbolic reasoning with program synthesis to enhance LLM problem-solving capabilities. Unlike RLSF, which focuses on token-level feedback for logical alignment, SYNTH-ALIGN leverages symbolic reasoning to guide the synthesis of code, ensuring that the generated outputs are not only syntactically correct but also logically consistent with domain-specific constraints. Additionally, it goes beyond MoCQ's neuro-symbolic approach for vulnerability detection by extending the concept to general program synthesis tasks. Finally, it improves upon UntrustVul by incorporating symbolic validation during the synthesis process, ensuring that the generated code is both functionally correct and free from untrustworthy patterns. The three key contributions of this work are: (1) a unified framework for integrating symbolic reasoning and program synthesis to enhance LLM problem-solving; (2) a method to ensure logical consistency between generated code and domain-specific constraints; and (3) an automated validation mechanism that eliminates untrustworthy predictions during code generation, thus improving the reliability and accuracy of LLM outputs.\n\n**Challenges and Solutions:**\nOne of the main challenges in integrating symbolic reasoning with program synthesis is ensuring that the LLM’s generated code adheres to both syntactic and logical constraints while maintaining flexibility. Traditional symbolic reasoning tools are often too rigid or complex to be integrated directly with LLMs, and existing methods like RLSF and MoCQ are domain-specific, limiting their generalizability.\n\nTo overcome these challenges, SYNTH-ALIGN introduces a **Symbolic Feedback Module** that provides token-level feedback to align the LLM’s output with domain-specific constraints, ensuring logical consistency. The **Program Synthesis Module** generates code based on the LLM’s initial input and the symbolic feedback, incorporating both the model’s initial output and the constraints. Finally, the **Automated Validation Module** uses symbolic reasoning to verify the correctness of the synthesized code and filter out untrustworthy patterns, ensuring that the final output is both functionally correct and logically consistent.\n\nBy combining these components, SYNTH-ALIGN enhances the reliability and accuracy of LLM outputs in complex problem-solving tasks, making them more robust and applicable across various domains.",
+      "modification": "",
+      "reasoning": "",
+      "limitation": "",
+      "method": "",
+      "rationale": "",
+      "evaluation": {
+        "novelty": {
+          "score": 4.7,
+          "reasoning": "The idea presents a significant advancement by proposing a unified, domain-agnostic framework that integrates symbolic reasoning with program synthesis to enhance LLM problem-solving capabilities. This is a meaningful innovation beyond existing domain-specific methods like RLSF, MoCQ, and UntrustVul, providing a broader applicability and improved logical consistency during code generation. While not paradigm-shifting, it is highly novel in combining these directions explicitly and systematically."
+        },
+        "feasibility": {
+          "score": 4.5,
+          "reasoning": "The proposal outlines concrete modules (Symbolic Feedback, Program Synthesis, Automated Validation) that build on existing symbolic reasoning tools and LLM capabilities. The path to implementation is plausible using current technologies such as symbolic validators, token-level feedback, and synthesis algorithms, though integration complexity exists. The feasibility is very good with a clear overall approach, but detailed engineering challenges remain unaddressed."
+        },
+        "theoretical_support": {
+          "score": 4.4,
+          "reasoning": "No explicit 'Step 1:', 'Step 2:', or 'Step 3:' labels were found in the reasoning text, which imposes a hard cap of 4.4 regardless of rationale depth. The provided rationale is solid and well-explained, discussing challenges and module roles, but lacks the required stepwise structured methodology to allow higher scoring."
+        },
+        "logical_alignment": {
+          "score": 4.4,
+          "reasoning": "The reasoning clearly describes the limitation, compatibility with symbolic reasoning tools, the gap in existing approaches, the proposed multi-module solution, and expected outcomes enhancing reliability and accuracy. However, it does not formally present a complete multi-step logical chain labeled or structured as limitation→compatibility→gap→solution→outcome. Due to this absence of explicit, structured chain, the score is capped at 4.4 despite good explanation."
+        }
+      },
+      "average_score": 4.5
+    },
+    {
+      "title": "Idea 2",
+      "abstract": "{A Multi-Scale Simulation and In-Line Testing Framework to Investigate the Impact of Sidewall Damage on Luminous Efficiency and Lifetime of Micro-GaN LED Devices}",
+      "modification": "",
+      "reasoning": "",
+      "limitation": "",
+      "method": "",
+      "rationale": "",
+      "evaluation": {
+        "novelty": {
+          "score": 3.5,
+          "reasoning": "The idea of using multi-scale simulation combined with in-line testing to study sidewall damage effects on micro-GaN LEDs is somewhat novel but largely incremental. Multi-scale simulation and in-line testing are established techniques, and applying them to sidewall damage in micro-LEDs is a logical extension rather than a paradigm shift."
+        },
+        "feasibility": {
+          "score": 4.0,
+          "reasoning": "The approach is feasible with current technology since multi-scale simulations and in-line testing setups exist. However, the abstract and reasoning lack detailed implementation steps or resource considerations, so feasibility is assessed as moderate to good but not comprehensive."
+        },
+        "theoretical_support": {
+          "score": 4.4,
+          "reasoning": "No 'Step 1:', 'Step 2:', or 'Step 3:' labels were found in the reasoning field. Therefore, the maximum theoretical support score is capped at 4.4 despite any reasoning quality. The rationale is moderately well explained but lacks systematic stepwise structure."
+        },
+        "logical_alignment": {
+          "score": 4.4,
+          "reasoning": "The reasoning does not present a complete multi-step logical chain linking limitation → compatibility → gap → solution → outcome explicitly. Thus, the maximum logical alignment score is capped at 4.4. The explanation of how the framework addresses the problem is clear but not systematically chained."
+        }
+      },
+      "average_score": 4.075
+    },
+    {
+      "title": "Idea 3",
+      "abstract": "**Title:** Synergistic Integration of N-polar AlN/β-Ga2O3 HEMTs with 3D Monolithic a-IGZO TFTs for Enhanced High-Voltage GaN HEMT Performance  \n\n**Origins and Motivation:**  \nRecent advancements in high-voltage GaN HEMT technology have focused on two main strategies: (1) 3D monolithic integration of a-IGZO TFTs with GaN HEMTs to achieve high breakdown voltage, and (2) polarization-induced HEMT structures on β-Ga2O3 to improve 2DEG concentration and DC performance. While both approaches show promise, they face limitations. The 3D integration method, as demonstrated in Paper 0 and 1, achieves high breakdown voltage but lacks long-term reliability and scalability for mass production. The polarization-induced HEMT structure, as described in Paper 2, offers better 2DEG concentration and DC performance but has not been integrated with 3D techniques for optimizing vertical breakdown field distribution and terminal structure. This research idea is motivated by the need to combine the strengths of these two methods to create a more robust and scalable solution for high-voltage GaN HEMT applications.  \n\n**Novelty and Innovation:**  \nThis research introduces a novel approach that integrates N-polar AlN/β-Ga2O3 heterostructures with 3D monolithic integration of a-IGZO TFTs. This is distinct from previous studies that focused on either a-IGZO TFT integration or polarization-induced HEMTs in isolation. The synergy between these two approaches enables precise control over vertical breakdown field distribution and terminal structure, which has not been explored in prior works. By combining these technologies, this method offers three key advantages: (1) Enhanced control over vertical breakdown field distribution through the conduction band difference and spontaneous polarization, leading to higher breakdown voltage and improved thermal management; (2) Improved DC output performance and stability via polarization-induced charge accumulation and δ-doping techniques; and (3) A scalable and reliable design for high-voltage applications by integrating both 3D monolithic integration and polarization-induced HEMT structures.  \n\n**Difference from Previous Works:**  \nPrevious studies, such as Paper 0 and 1, focused on the 3D integration of a-IGZO TFTs with GaN HEMTs but did not explore the integration of polarization-induced charge accumulation or β-Ga2O3-based structures. Similarly, Paper 2 introduced a polarization-induced HEMT structure on β-Ga2O3 but did not consider the benefits of 3D monolithic integration for optimizing vertical breakdown field distribution and terminal structure. This research idea bridges this gap by combining both technologies into a single, integrated system, which has not been previously attempted.  \n\n**Challenges and Solutions:**  \nThe main challenges of this idea include: (1) the integration of two different material systems (GaN HEMT and β-Ga2O3) without compromising device performance; (2) the precise alignment and electrical connectivity between a-IGZO TFTs and GaN HEMTs in a 3D monolithic configuration; and (3) the optimization of vertical breakdown field distribution and terminal structure. To address these, the research will use advanced epitaxial growth techniques to fabricate N-polar AlN/β-Ga2O3 heterostructures with δ-doping, ensuring high 2DEG concentration. The 3D monolithic integration will be achieved through precise alignment and bonding techniques to ensure electrical connectivity. Finally, the vertical breakdown field distribution will be optimized by engineering the conduction band difference and spontaneous polarization, which will be validated through electrical testing and simulation.  \n\nThis approach directly addresses the limitations of previous methods by offering a holistic solution to the challenges of high-voltage GaN HEMT design.",
+      "modification": "",
+      "reasoning": "",
+      "limitation": "",
+      "method": "",
+      "rationale": "",
+      "evaluation": {
+        "novelty": {
+          "score": 4.7,
+          "reasoning": "The idea proposes a highly novel integration of N-polar AlN/β-Ga2O3 polarization-induced HEMTs with 3D monolithic a-IGZO TFTs, a combination not previously explored. This synergistic approach extends beyond prior art by merging two complementary technologies to leverage their strengths—high 2DEG concentration and improved vertical breakdown control from polarization effects alongside the scalable 3D integration of TFTs. While the individual elements are known, their integration to precisely engineer vertical field distribution and terminal structure in a scalable, reliable design is a significant advancement, justifying a score in the highly novel range."
+        },
+        "feasibility": {
+          "score": 4.5,
+          "reasoning": "The feasibility is very good, with clear pathways outlined such as advanced epitaxial growth for N-polar AlN/β-Ga2O3 heterostructures with δ-doping and precise alignment and bonding for 3D monolithic integration ensuring electrical connectivity. The approach considers current technological capabilities realistically. Nonetheless, challenges related to heterogeneous integration of different material systems and scalability remain complex but not insurmountable, placing feasibility solidly at a very feasible level rather than perfect."
+        },
+        "theoretical_support": {
+          "score": 4.4,
+          "reasoning": "No exact strings 'Step 1:', 'Step 2:', or 'Step 3:' were found in the reasoning field, so the mandatory scoring cap applies. Although the rationale is well-explained and detailed, it lacks an explicit stepwise methodological structure, which restricts the score to a maximum of 4.4 despite strong theoretical grounding in heterostructure engineering, polarization effects, and integration challenges."
+        },
+        "logical_alignment": {
+          "score": 4.4,
+          "reasoning": "The reasoning clearly explains the limitation (lack of combined 3D and polarization-based approaches), compatibility analysis (integration of materials and device architectures), the gap (absence of scalable, reliable high-voltage design combining both methods), the solution (synergistic integration with advanced epitaxy and alignment), and expected outcomes (enhanced breakdown voltage, performance, and scalability). However, this chain is explained in prose without a clearly defined multi-step logical chain (limitation → compatibility → gap → solution → outcome) labeled or explicitly segmented, enforcing the hard cap of 4.4 on logical alignment despite solid coherence."
+        }
+      },
+      "average_score": 4.5
+    },
+    {
+      "title": "Idea 4",
+      "abstract": "**Title: Integrated Radiation-Hardened Gate Structures with Dual-Layer SiNₓ Stressors and Thermal-Aware Surface Passivation for Enhanced Reliability of AlGaN/GaN HEMTs**\n\n**Origins and Motivation:**  \nThe existing research on AlGaN/GaN HEMTs has made significant progress in improving reliability through surface passivation, strain engineering, and non-destructive defect detection methods. However, current approaches face limitations in addressing the combined effects of multiple environmental stressors, such as radiation and thermal cycling, which are critical for long-term performance in harsh environments like space. While Papers 0 and 1 introduced dual-layer stressors to enable normally-off operation and improve reliability, and Papers 2 and 3 focused on defect analysis and radiation-induced degradation, none have integrated these approaches to simultaneously address radiation-induced charge trapping, surface recombination, and thermal degradation. This gap highlights the need for a comprehensive strategy that combines radiation-hardened gate structures with advanced surface passivation and thermal management to ensure consistent performance under extreme conditions. This research idea aims to fill this gap by proposing a novel method that integrates pGaN gates with dual-layer SiNₓ stressors and thermal-aware surface passivation techniques, offering a more robust solution for long-term reliability in power devices.\n\n**Novelty:**  \nThis research idea introduces a novel integration of three key components—radiation-hardened pGaN gates, dual-layer SiNₓ stressors, and thermal-aware surface passivation—that have not been combined in prior studies. This combination allows for a more holistic approach to reliability, addressing radiation-induced charge trapping, surface recombination, and thermal degradation simultaneously. Unlike previous methods that focused on individual aspects of reliability, this approach synergizes multiple strategies to enhance overall device performance and longevity.\n\n**Difference from Previous Works:**  \n- **Paper 0 and 1:** Focus on surface passivation and strain engineering to improve threshold voltage and enable normally-off operation. These studies do not address radiation-induced degradation or thermal effects.\n- **Paper 2 and 3:** Focus on defect analysis and radiation-induced degradation, but do not combine these with advanced surface passivation or strain engineering techniques.\n- **Paper 4:** Focuses on ultra-high-resistance states in AuTip-GaN junctions, but does not integrate these with radiation-hardened gate structures or thermal management.\n\nThis research idea builds on these prior works by combining them into a single, integrated solution that addresses multiple reliability challenges simultaneously.\n\n**Challenges and How They Were Overcome:**  \n1. **Radiation-Induced Charge Trapping:**  \n   - **Challenge:** Radiation, such as X-rays, can cause charge trapping in dielectric and interface regions, leading to threshold voltage shifts and performance degradation.  \n   - **Solution:** The use of pGaN gates, as demonstrated in Paper 3, provides a stable interface that minimizes Vth drift under X-ray exposure.\n\n2. **Surface Recombination and Gate Injection Current:**  \n   - **Challenge:** Surface recombination and gate injection current can reduce the performance and reliability of HEMTs.  \n   - **Solution:** The use of dual-layer SiNₓ stressors, as detailed in Paper 1, helps control electric field distribution and reduce gate injection current, ensuring consistent normally-off operation.\n\n3. **Thermal Degradation:**  \n   - **Challenge:** High operating temperatures can lead to thermal degradation, affecting device performance and lifespan.  \n   - **Solution:** The integration of thermal-aware surface passivation, such as high-temperature stable dielectrics or passivation layers with low thermal expansion coefficients, minimizes thermal degradation and surface recombination.\n\n**Conclusion:**  \nBy integrating pGaN gates with dual-layer SiNₓ stressors and thermal-aware surface passivation, this research idea offers a comprehensive and innovative approach to improving the reliability of AlGaN/GaN HEMTs in harsh environments. This method is feasible and practical, as each component has been validated individually in previous studies, and the integration has not been explored in prior literature. This approach represents a significant step forward in ensuring consistent performance and longevity of power devices under extreme conditions.",
+      "modification": "",
+      "reasoning": "",
+      "limitation": "",
+      "method": "",
+      "rationale": "",
+      "evaluation": {
+        "novelty": {
+          "score": 4.7,
+          "reasoning": "This research idea presents a highly novel approach by integrating three distinct yet complementary strategies—radiation-hardened pGaN gates, dual-layer SiNₓ stressors, and thermal-aware surface passivation—to address multiple reliability challenges of AlGaN/GaN HEMTs simultaneously. Prior works focused on separate elements (either strain engineering or radiation effects, but not both combined with thermal concerns). This integration enables a more holistic reliability enhancement under harsh environments, which is a significant advancement beyond incremental improvements."
+        },
+        "feasibility": {
+          "score": 4.7,
+          "reasoning": "The idea is highly feasible since each individual component (pGaN gates, dual-layer stressors, thermal passivation) has been previously validated in the literature. The proposed integration leverages existing technologies and materials, suggesting a clear and practical path for implementation. The feasibility is underscored by using established approaches and combining them strategically, minimizing unknown risks."
+        },
+        "theoretical_support": {
+          "score": 4.4,
+          "reasoning": "The reasoning section does not contain the exact step labels 'Step 1:', 'Step 2:', or 'Step 3:' required to qualify for a 4.5+ score. Although the rationale is comprehensive and logically structured, the mandatory rule caps the score at 4.4 without explicit step-wise methodology. Therefore, despite strong theoretical connections and problem-solution explanations, the maximum allowed theoretical support score is 4.4."
+        },
+        "logical_alignment": {
+          "score": 4.4,
+          "reasoning": "The reasoning clearly outlines the limitation (radiation, thermal, and surface reliability issues), compatibility with prior studies, gap in combined treatment, proposed integrated solution, and predicted outcome. However, it does not explicitly present a labeled or fully articulated multi-step logical chain (limitation → compatibility → gap → solution → outcome) in a formal manner to satisfy the criteria for scores above 4.4. Consequently, the score must be capped at 4.4 as per evaluation rules."
+        }
+      },
+      "average_score": 4.550000000000001
+    }
+  ]
+}

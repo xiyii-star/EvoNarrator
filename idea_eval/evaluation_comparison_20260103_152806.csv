@@ -1,0 +1,6 @@
+preset_name,description,ideas_count,novelty,feasibility,theoretical_support,logical_alignment,average,duration_seconds
+CoIresult,CoI 方法生成的创意,4,4.4,4.425,4.4,4.4,4.40625,21.0
+MOOSEChem,MOOSEChem 方法生成的创意（硅光调制器领域）,1,4.6,4.5,4.4,4.4,4.475,5.0
+mymethod,mymethod,17,4.758823529411765,4.670588235294118,4.882352941176471,4.876470588235295,4.7970588235294125,79.1
+naive_llm,Naive LLM 方法生成的创意（NLP领域）,11,4.663636363636363,4.536363636363636,4.4,4.4,4.5,47.9
+ablation,no_track,20,4.6450000000000005,4.6049999999999995,4.6899999999999995,4.655,4.64875,89.5

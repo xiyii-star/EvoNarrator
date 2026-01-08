@@ -1,0 +1,56 @@
+# 科研创意评估配置文件
+# 用于管理多个输入文件预设，方便切换评估对象
+
+# 默认使用的预设（直接运行时使用）
+default_preset: papers
+
+# 输入文件预设
+# 每个预设包含：
+#   - input_file: 输入文件路径（相对于项目根目录）
+#   - context_file: 上下文文件路径（可选）
+#   - description: 预设描述
+input_presets:
+  # 测试数据
+  # mymethod:
+  #   input_file: idea_eval/data/mymethod_result.json
+  #   context_file: 226_survey_Natural_Language_Processing_20251218_202205.json
+  #   description: 测试用创意生成结果（NLP领域）
+
+  # CoI 方法生成的创意
+  CoIresult:
+    input_file: idea_eval/data/ideas/CoI_ideas.json
+    context_file:
+    description: CoI 方法生成的创意
+
+  MOOSEChem:
+    input_file: idea_eval/data/ideas/MOOSEChem_ideas.json
+    context_file:
+    description: MOOSEChem 方法生成的创意（硅光调制器领域）
+
+  mymethod:
+    input_file: idea_eval/data/ideas/mymethod_ideas.json
+    context_file: 226_survey_Natural_Language_Processing_20251218_202205.json
+    description: mymethod
+
+  naive_llm:
+    input_file: idea_eval/data/ideas/naive_llm.json
+    context_file:
+    description: Naive LLM 方法生成的创意（NLP领域）
+
+  ablation:
+    input_file: /home/lexy/下载/CLwithRAG/KGdemo/idea_eval/data/ideas/no_track.json
+    context_file: 226_survey_Natural_Language_Processing_20251218_202205.json
+    description: no_track
+
+  papers:
+    input_file: idea_eval/data/ideas/generated_from_papers_rag.json
+    context_file:
+    description: 从论文生成的创意
+
+# 评估输出配置
+output:
+  # 输出目录（相对于 idea_eval 目录）
+  directory: ./output
+
+  # 输出文件名模板（{input_name} 会被替换为输入文件名）
+  filename_template: "{input_name}_evaluation_result.json"

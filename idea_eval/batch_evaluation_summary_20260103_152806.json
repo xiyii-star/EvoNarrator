@@ -1,0 +1,90 @@
+{
+  "timestamp": "2026-01-03T15:28:06.412662",
+  "total_presets": 5,
+  "table_data": [
+    {
+      "preset_name": "CoIresult",
+      "description": "CoI 方法生成的创意",
+      "ideas_count": 4,
+      "novelty": 4.4,
+      "feasibility": 4.425,
+      "theoretical_support": 4.4,
+      "logical_alignment": 4.4,
+      "average": 4.40625,
+      "duration": 21.0
+    },
+    {
+      "preset_name": "MOOSEChem",
+      "description": "MOOSEChem 方法生成的创意（硅光调制器领域）",
+      "ideas_count": 1,
+      "novelty": 4.6,
+      "feasibility": 4.5,
+      "theoretical_support": 4.4,
+      "logical_alignment": 4.4,
+      "average": 4.475,
+      "duration": 5.0
+    },
+    {
+      "preset_name": "mymethod",
+      "description": "mymethod",
+      "ideas_count": 17,
+      "novelty": 4.758823529411765,
+      "feasibility": 4.670588235294118,
+      "theoretical_support": 4.882352941176471,
+      "logical_alignment": 4.876470588235295,
+      "average": 4.7970588235294125,
+      "duration": 79.1
+    },
+    {
+      "preset_name": "naive_llm",
+      "description": "Naive LLM 方法生成的创意（NLP领域）",
+      "ideas_count": 11,
+      "novelty": 4.663636363636363,
+      "feasibility": 4.536363636363636,
+      "theoretical_support": 4.4,
+      "logical_alignment": 4.4,
+      "average": 4.5,
+      "duration": 47.9
+    },
+    {
+      "preset_name": "ablation",
+      "description": "no_track",
+      "ideas_count": 20,
+      "novelty": 4.6450000000000005,
+      "feasibility": 4.6049999999999995,
+      "theoretical_support": 4.6899999999999995,
+      "logical_alignment": 4.655,
+      "average": 4.64875,
+      "duration": 89.5
+    }
+  ],
+  "max_scores": {
+    "novelty": 4.758823529411765,
+    "feasibility": 4.670588235294118,
+    "theoretical_support": 4.882352941176471,
+    "logical_alignment": 4.876470588235295,
+    "average": 4.7970588235294125
+  },
+  "max_presets": {
+    "novelty": [
+      "mymethod"
+    ],
+    "feasibility": [
+      "mymethod"
+    ],
+    "theoretical_support": [
+      "mymethod"
+    ],
+    "logical_alignment": [
+      "mymethod"
+    ],
+    "average": [
+      "mymethod"
+    ]
+  },
+  "files": {
+    "markdown": "/home/lexy/下载/CLwithRAG/KGdemo/idea_eval/evaluation_comparison_20260103_152806.md",
+    "csv": "/home/lexy/下载/CLwithRAG/KGdemo/idea_eval/evaluation_comparison_20260103_152806.csv",
+    "json": "/home/lexy/下载/CLwithRAG/KGdemo/idea_eval/batch_evaluation_summary_20260103_152806.json"
+  }
+}
