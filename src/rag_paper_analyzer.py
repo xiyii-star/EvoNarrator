@@ -1,6 +1,6 @@
 """
-RAG-based Paper Analyzer
-Uses Retrieval-Augmented Generation technology to extract structured information from PDF full text
+基于RAG的论文分析器
+使用检索增强生成技术从PDF全文中提取结构化信息
 """
 
 import re
@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class PaperSection:
-    """Paper section data structure"""
+    """论文章节数据结构"""
     title: str
     content: str
     page_num: int
@@ -44,93 +44,88 @@ class PaperSection:
 
 @dataclass
 class ExtractionQuery:
-    """Information extraction query"""
+    """信息提取查询"""
     query_text: str
-    target_sections: List[str]  # Priority search section types
-    keywords: List[str]  # Keywords
+    target_sections: List[str]  # 优先搜索的章节类型
+    keywords: List[str]  # 关键词
     max_results: int = 3
 
 
 class RAGPaperAnalyzer:
     """
-    RAG-based Paper Analyzer
-    Intelligently extracts key information from papers through semantic retrieval and section recognition
+    基于RAG的论文分析器
+    通过语义检索和章节识别，智能提取论文中的关键信息
     """
 
     def __init__(self, model_name: str = "all-MiniLM-L6-v2", use_modelscope: bool = True):
         """
-        Initialize RAG paper analyzer
+        初始化RAG论文分析器
 
         Args:
-            model_name: Embedding model name to use
-            use_modelscope: Whether to use ModelScope to download model (default True)
+            model_name: 使用的embedding模型名称
+            use_modelscope: 是否使用ModelScope下载模型（默认True）
         """
         self.model_name = model_name
         self.embedder = None
         self.use_modelscope = use_modelscope
 
-        # Check dependencies
+        # 检查依赖
         if SentenceTransformer is None:
-            logger.warning("sentence-transformers not installed, will use rule-based method")
+            logger.warning("sentence-transformers未安装，将使用基于规则的方法")
             self.use_embeddings = False
         else:
             try:
-                logger.info(f"Loading embedding model: {model_name}")
+                logger.info(f"加载embedding模型: {model_name}")
 
-                # Check local model path first
+                # 优先检查本地模型路径
                 local_model_path = self._get_local_model_path(model_name)
                 if local_model_path and os.path.exists(local_model_path):
-                    logger.info(f"  Using local model: {local_model_path}")
+                    logger.info(f"  使用本地模型: {local_model_path}")
                     self.embedder = SentenceTransformer(local_model_path)
-                # Use ModelScope to download model
+                # 使用ModelScope下载模型
                 elif self.use_modelscope and snapshot_download is not None:
                     try:
-                        logger.info("  Using ModelScope to download model...")
+                        logger.info("  使用ModelScope下载模型...")
                         model_dir = snapshot_download(
                             f'sentence-transformers/{model_name}',
                             cache_dir='./model',
                             revision='master'
                         )
-                        logger.info(f"  Model downloaded to: {model_dir}")
+                        logger.info(f"  模型已下载到: {model_dir}")
                         self.embedder = SentenceTransformer(model_dir)
                     except Exception as e:
-                        logger.warning(f"  ModelScope download failed: {e}, trying direct load...")
-                        # Fallback to direct load
+                        logger.warning(f"  ModelScope下载失败: {e}，尝试直接加载...")
+                        # 降级到直接加载
                         self.embedder = SentenceTransformer(model_name)
                 else:
-                    # Use HuggingFace directly (if ModelScope unavailable)
+                    # 直接使用HuggingFace（如果ModelScope不可用）
                     if self.use_modelscope and snapshot_download is None:
-                        logger.warning("  modelscope not installed, using HuggingFace to download model")
+                        logger.warning("  modelscope未安装，使用HuggingFace下载模型")
                     self.embedder = SentenceTransformer(model_name)
 
                 self.use_embeddings = True
-                logger.info("RAG mode enabled")
+                logger.info("✅ RAG模式已启用")
             except Exception as e:
-                logger.warning(f"Failed to load embedding model: {e}, will use rule-based method")
+                logger.warning(f"加载embedding模型失败: {e}，将使用基于规则的方法")
                 self.use_embeddings = False
-
-        # Initialize patterns and queries
-        self._initialize_patterns()
-
-        logger.info("RAG paper analyzer initialization complete")
 
     def _get_local_model_path(self, model_name: str) -> Optional[str]:
         """
-        Check if local model path exists
-
+        检查本地模型路径是否存在
+        
         Args:
-            model_name: Model name, e.g., 'all-MiniLM-L6-v2'
-
+            model_name: 模型名称，如 'all-MiniLM-L6-v2'
+            
         Returns:
-            Local model path, or None if it doesn't exist
+            本地模型路径，如果不存在则返回 None
         """
-        # Try multiple possible local paths
+        # 尝试多个可能的本地路径
         possible_paths = [
-            # Path relative to current file
+            # 相对于当前文件的路径
             Path(__file__).parent.parent / "model" / "sentence-transformers" / model_name,
-            # Path relative to project root
+            # 相对于项目根目录的路径
             Path(__file__).parent.parent.parent / "KGdemo" / "model" / "sentence-transformers" / model_name,
-            # Absolute path
+            # 绝对路径
             Path("/home/lexy/下载/CLwithRAG/KGdemo/model/sentence-transformers") / model_name,
         ]
         
@@ -140,9 +135,7 @@ class RAGPaperAnalyzer:
         
         return None
 
-    def _initialize_patterns(self):
-        """Initialize section patterns and extraction queries"""
-        # Define section recognition patterns
+        # 定义章节识别模式
         self.section_patterns = {
             'abstract': [
                 r'^abstract\s*$',
@@ -151,7 +144,7 @@ class RAGPaperAnalyzer:
             'introduction': [
                 r'^1\.?\s*introduction',
                 r'^introduction\s*$',
-                r'^1\.?\s*background',
+                r'^1\.?\s*背景',
             ],
             'related_work': [
                 r'^2\.?\s*related\s+work',
@@ -196,7 +189,7 @@ class RAGPaperAnalyzer:
             ],
         }
 
-        # Define extraction queries
+        # 定义提取查询
         self.extraction_queries = {
             'problem': ExtractionQuery(
                 query_text="What is the main problem or challenge this paper addresses?",
@@ -224,41 +217,41 @@ class RAGPaperAnalyzer:
             ),
         }
 
-        logger.info("RAG paper analyzer initialization complete")
+        logger.info("RAG论文分析器初始化完成")
 
     def analyze_paper(self, paper: Dict, pdf_path: Optional[str] = None) -> Dict:
         """
-        Analyze paper and extract deep information
+        分析论文并提取深层信息
 
-        Automatically extracts four fields: Problem, Contribution, Limitation, Future Work
-        If section splitting fails or target sections are not found, automatically uses abstract
+        自动提取四个字段：Problem, Contribution, Limitation, Future Work
+        如果章节切割失败或没有找到目标章节，自动使用摘要
 
         Args:
-            paper: Basic paper information
-            pdf_path: PDF file path
+            paper: 基础论文信息
+            pdf_path: PDF文件路径
 
         Returns:
-            Paper dictionary containing analysis results
+            包含分析结果的论文字典
         """
         paper_id = paper.get('id', 'unknown')
-        logger.info(f"Starting RAG analysis of paper: {paper_id}")
+        logger.info(f"开始RAG分析论文: {paper_id}")
 
-        # Extract PDF content and identify sections
+        # 提取PDF内容和识别章节
         sections = []
         if pdf_path and Path(pdf_path).exists():
             sections = self._extract_sections_from_pdf(pdf_path)
             if sections:
-                logger.info(f"Extracted {len(sections)} sections from PDF")
+                logger.info(f"从PDF提取了 {len(sections)} 个章节")
             else:
-                logger.warning(f"PDF section extraction failed, falling back to abstract")
+                logger.warning(f"PDF章节提取失败，降级使用摘要")
                 sections = self._create_sections_from_abstract(paper)
         else:
-            logger.info("PDF does not exist, building sections from abstract")
+            logger.info("PDF不存在，使用摘要构建章节")
             sections = self._create_sections_from_abstract(paper)
 
-        # If there's no abstract either, create a minimal section based on title
+        # 如果连摘要都没有，创建一个基于标题的最小章节
         if not sections:
-            logger.warning("No abstract available, analyzing using title only")
+            logger.warning("无摘要，仅使用标题进行分析")
             if paper.get('title'):
                 sections = [PaperSection(
                     title='Title',
@@ -267,46 +260,46 @@ class RAGPaperAnalyzer:
                     section_type='title'
                 )]
 
-        # If using embeddings, pre-compute section vectors
+        # 如果使用embeddings，预计算章节向量
         section_embeddings = None
         if self.use_embeddings and sections and self.embedder:
             try:
                 section_texts = [f"{s.title} {s.content}" for s in sections]
                 section_embeddings = self.embedder.encode(section_texts)
-                logger.info("Section vectorization complete")
+                logger.info("章节向量化完成")
             except Exception as e:
-                logger.warning(f"Section vectorization failed: {e}, will use keyword retrieval")
+                logger.warning(f"章节向量化失败: {e}，将使用关键词检索")
                 section_embeddings = None
 
-        # Execute RAG retrieval and information extraction
-        # Automatically extract all four fields
+        # 执行RAG检索和信息提取
+        # 自动提取所有四个字段
         analysis_result = {}
         extraction_fields = ['problem', 'method', 'limitation', 'future_work']
 
         for field in extraction_fields:
             if field in self.extraction_queries:
-                logger.info(f"Extracting {field}...")
+                logger.info(f"正在提取 {field}...")
                 try:
                     analysis_result[field] = self._extract_with_rag(
                         sections, section_embeddings, self.extraction_queries[field]
                     )
                 except Exception as e:
-                    logger.error(f"Failed to extract {field}: {e}")
-                    analysis_result[field] = f"Extraction failed: {str(e)}"
+                    logger.error(f"提取 {field} 失败: {e}")
+                    analysis_result[field] = f"提取失败: {str(e)}"
 
-        # Create enriched paper data
+        # 创建增强的论文数据
         enriched_paper = paper.copy()
         enriched_paper['rag_analysis'] = analysis_result
         enriched_paper['sections_extracted'] = len(sections)
         enriched_paper['analysis_method'] = 'rag' if self.use_embeddings else 'rule_based'
 
-        logger.info(f"RAG paper analysis complete: {paper_id}")
+        logger.info(f"RAG论文分析完成: {paper_id}")
         return enriched_paper
 
     def _extract_sections_from_pdf(self, pdf_path: str) -> List[PaperSection]:
-        """Extract and identify sections from PDF"""
+        """从PDF中提取并识别章节"""
         if PyPDF2 is None:
-            logger.error("PyPDF2 not installed, cannot extract PDF content")
+            logger.error("PyPDF2未安装，无法提取PDF内容")
             return []
 
         sections = []
@@ -316,9 +309,9 @@ class RAGPaperAnalyzer:
                 pdf_reader = PyPDF2.PdfReader(file)
                 total_pages = len(pdf_reader.pages)
 
-                logger.info(f"PDF total pages: {total_pages}")
+                logger.info(f"PDF总页数: {total_pages}")
 
-                # Extract text page by page
+                # 逐页提取文本
                 full_text = ""
                 page_texts = []
 
@@ -329,21 +322,21 @@ class RAGPaperAnalyzer:
                         page_texts.append((page_num, page_text))
                         full_text += page_text + "\n"
                     except Exception as e:
-                        logger.warning(f"Failed to extract page {page_num}: {e}")
+                        logger.warning(f"提取第{page_num}页失败: {e}")
                         continue
 
-                # Identify sections
+                # 识别章节
                 sections = self._identify_sections(full_text, page_texts)
 
-                logger.info(f"Identified {len(sections)} sections")
+                logger.info(f"识别到 {len(sections)} 个章节")
                 return sections
 
         except Exception as e:
-            logger.error(f"PDF processing failed {pdf_path}: {e}")
+            logger.error(f"PDF处理失败 {pdf_path}: {e}")
             return []
 
     def _identify_sections(self, full_text: str, page_texts: List[Tuple[int, str]]) -> List[PaperSection]:
-        """Identify sections in text"""
+        """识别文本中的章节"""
         sections = []
         lines = full_text.split('\n')
 
@@ -357,11 +350,11 @@ class RAGPaperAnalyzer:
             if not line_stripped:
                 continue
 
-            # Check if it's a section title
+            # 检查是否是章节标题
             section_type = self._match_section_type(line_stripped)
 
             if section_type:
-                # Save previous section
+                # 保存前一个章节
                 if current_section:
                     content = '\n'.join(current_content).strip()
                     if content:
@@ -372,15 +365,15 @@ class RAGPaperAnalyzer:
                             section_type=section_type
                         ))
 
-                # Start new section
+                # 开始新章节
                 current_section = line_stripped
                 current_content = []
             else:
-                # Add to current section content
+                # 添加到当前章节内容
                 if current_section:
                     current_content.append(line_stripped)
 
-        # Save last section
+        # 保存最后一个章节
         if current_section and current_content:
             content = '\n'.join(current_content).strip()
             if content:
@@ -394,7 +387,7 @@ class RAGPaperAnalyzer:
         return sections
 
     def _match_section_type(self, line: str) -> Optional[str]:
-        """Match section type"""
+        """匹配章节类型"""
         line_lower = line.lower().strip()
 
         for section_type, patterns in self.section_patterns.items():
@@ -405,7 +398,7 @@ class RAGPaperAnalyzer:
         return None
 
     def _create_sections_from_abstract(self, paper: Dict) -> List[PaperSection]:
-        """Create simple sections from abstract"""
+        """从摘要创建简单章节"""
         sections = []
 
         if paper.get('title'):
@@ -433,33 +426,33 @@ class RAGPaperAnalyzer:
         query: ExtractionQuery
     ) -> str:
         """
-        Extract information using RAG method
+        使用RAG方法提取信息
 
-        If target sections or keyword-matched sentences are not found, automatically falls back to using abstract
+        如果没有找到目标章节或关键词匹配的句子，自动降级使用摘要
         """
 
         if not sections:
-            return "No content available"
+            return "无可用内容"
 
-        # Step 1: Filter target sections
+        # 第一步：过滤目标章节
         target_sections = [
             s for s in sections
             if s.section_type in query.target_sections
         ]
 
-        # If target sections are empty, try using all sections
+        # 如果目标章节为空，尝试使用所有章节
         if not target_sections:
-            logger.warning(f"Target sections {query.target_sections} not found, using all available sections")
+            logger.warning(f"未找到目标章节 {query.target_sections}，使用所有可用章节")
             target_sections = sections
 
-        # Step 2: Filter sentences based on keywords
+        # 第二步：基于关键词过滤句子
         relevant_sentences = []
 
         for section in target_sections:
             sentences = self._split_into_sentences(section.content)
 
             for sentence in sentences:
-                # Check keyword matching
+                # 检查关键词匹配
                 keyword_count = sum(
                     1 for keyword in query.keywords
                     if keyword.lower() in sentence.lower()
@@ -472,34 +465,34 @@ class RAGPaperAnalyzer:
                         'keyword_count': keyword_count
                     })
 
-        # Step 3: If embeddings are enabled, use semantic retrieval
+        # 第三步：如果启用了embeddings，使用语义检索
         if self.use_embeddings and relevant_sentences and self.embedder:
-            # Vectorize candidate sentences
+            # 对候选句子进行向量化
             sentence_texts = [s['text'] for s in relevant_sentences]
             sentence_embeddings = self.embedder.encode(sentence_texts)
 
-            # Vectorize query
+            # 对查询进行向量化
             query_embedding = self.embedder.encode([query.query_text])
 
-            # Calculate similarity
+            # 计算相似度
             similarities = cosine_similarity(query_embedding, sentence_embeddings)[0]
 
-            # Add similarity scores
+            # 添加相似度分数
             for i, sent_dict in enumerate(relevant_sentences):
                 sent_dict['similarity'] = similarities[i]
 
-            # Comprehensive sorting: keyword count + semantic similarity
+            # 综合排序：关键词数量 + 语义相似度
             relevant_sentences.sort(
                 key=lambda x: x['keyword_count'] * 0.3 + x['similarity'] * 0.7,
                 reverse=True
             )
         else:
-            # Sort based on keywords only
+            # 仅基于关键词排序
             relevant_sentences.sort(key=lambda x: x['keyword_count'], reverse=True)
 
-        # Step 4: Extract top-k results
+        # 第四步：提取top-k结果
         if not relevant_sentences:
-            return "No relevant information found"
+            return "未找到相关信息"
 
         top_sentences = relevant_sentences[:query.max_results]
         result_text = ' '.join([s['text'] for s in top_sentences])
@@ -507,11 +500,11 @@ class RAGPaperAnalyzer:
         return result_text
 
     def _split_into_sentences(self, text: str) -> List[str]:
-        """Split text into sentences"""
-        # Use regular expression to split sentences
+        """将文本分割为句子"""
+        # 使用正则表达式分割句子
         sentences = re.split(r'[.!?]+\s+', text)
 
-        # Filter out sentences that are too short
+        # 过滤太短的句子
         sentences = [s.strip() for s in sentences if len(s.strip()) > 20]
 
         return sentences
@@ -521,20 +514,20 @@ class RAGPaperAnalyzer:
         papers: List[Dict],
         pdf_dir: Optional[str] = None
     ) -> List[Dict]:
-        """Batch analyze papers"""
-        logger.info(f"Starting batch RAG analysis of {len(papers)} papers")
+        """批量分析论文"""
+        logger.info(f"开始批量RAG分析 {len(papers)} 篇论文")
 
         enriched_papers = []
 
         for i, paper in enumerate(papers):
             try:
-                # Find corresponding PDF file
+                # 查找对应的PDF文件
                 pdf_path = None
                 if pdf_dir:
                     paper_id = paper.get('id', '')
                     pdf_dir_path = Path(pdf_dir)
 
-                    # Find matching PDF file
+                    # 查找匹配的PDF文件
                     for pdf_file in pdf_dir_path.glob(f"{paper_id}*.pdf"):
                         pdf_path = str(pdf_file)
                         break
@@ -542,22 +535,22 @@ class RAGPaperAnalyzer:
                 enriched_paper = self.analyze_paper(paper, pdf_path)
                 enriched_papers.append(enriched_paper)
 
-                logger.info(f"Progress: {i+1}/{len(papers)}")
+                logger.info(f"进度: {i+1}/{len(papers)}")
 
             except Exception as e:
-                logger.error(f"Failed to analyze paper {paper.get('id', 'unknown')}: {e}")
+                logger.error(f"分析论文失败 {paper.get('id', 'unknown')}: {e}")
                 failed_paper = paper.copy()
                 failed_paper['rag_analysis'] = {
                     'error': str(e)
                 }
                 enriched_papers.append(failed_paper)
 
-        logger.info(f"Batch RAG analysis complete")
+        logger.info(f"批量RAG分析完成")
         return enriched_papers
 
 
 if __name__ == "__main__":
-    # Test code
+    # 测试代码
     import logging
     logging.basicConfig(
         level=logging.INFO,
@@ -566,7 +559,7 @@ if __name__ == "__main__":
 
     analyzer = RAGPaperAnalyzer()
 
-    # Test paper data
+    # 测试论文数据
     test_paper = {
         'id': 'W2741809807',
         'title': 'Attention Is All You Need',
@@ -581,16 +574,16 @@ if __name__ == "__main__":
         'year': 2017,
     }
 
-    # Test analysis
+    # 测试分析
     result = analyzer.analyze_paper(test_paper)
 
     print("\n" + "="*80)
-    print("RAG Analysis Results:")
+    print("RAG分析结果:")
     print("="*80)
-    print(f"\nProblem:\n{result['rag_analysis']['problem']}\n")
-    print(f"Contribution:\n{result['rag_analysis']['contribution']}\n")
-    print(f"Limitation:\n{result['rag_analysis']['limitation']}\n")
-    print(f"Future Work:\n{result['rag_analysis']['future_work']}\n")
-    print(f"Analysis method: {result['analysis_method']}")
-    print(f"Sections extracted: {result['sections_extracted']}")
+    print(f"\n问题 (Problem):\n{result['rag_analysis']['problem']}\n")
+    print(f"贡献 (Contribution):\n{result['rag_analysis']['contribution']}\n")
+    print(f"局限性 (Limitation):\n{result['rag_analysis']['limitation']}\n")
+    print(f"未来工作 (Future Work):\n{result['rag_analysis']['future_work']}\n")
+    print(f"分析方法: {result['analysis_method']}")
+    print(f"提取章节数: {result['sections_extracted']}")
     print("="*80)

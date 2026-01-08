@@ -1,6 +1,6 @@
 """
-Simplified OpenAlex API client
-For paper retrieval and citation relationship acquisition
+简化的OpenAlex API客户端
+用于论文检索和引用关系获取
 """
 
 import requests
@@ -12,14 +12,14 @@ from urllib.parse import urlencode
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# OpenAlex concept ID constants
-CONCEPT_COMPUTER_SCIENCE = "C41008148"  # Computer Science
-CONCEPT_ARTIFICIAL_INTELLIGENCE = "C154945302"  # Artificial Intelligence
+# OpenAlex概念ID常量
+CONCEPT_COMPUTER_SCIENCE = "C41008148"  # 计算机科学
+CONCEPT_ARTIFICIAL_INTELLIGENCE = "C154945302"  # 人工智能
 
 
 class OpenAlexClient:
     """
-    OpenAlex API client - simplified version
+    OpenAlex API客户端 - 简化版本
     """
 
     def __init__(
@@ -36,19 +36,19 @@ class OpenAlexClient:
         if email:
             self.session.params = {'mailto': email}
 
-        logger.info(f"OpenAlex client initialized (email: {email})")
+        logger.info(f"OpenAlex客户端初始化完成 (email: {email})")
 
     def _make_request(self, endpoint: str, params: Dict = None, silent_404: bool = False) -> Dict:
         """
-        Send API request
+        发送API请求
 
         Args:
-            endpoint: API endpoint
-            params: Request parameters
-            silent_404: Whether to silence 404 errors (default False)
+            endpoint: API端点
+            params: 请求参数
+            silent_404: 是否静默404错误（默认False）
 
         Returns:
-            Response JSON data
+            响应JSON数据
         """
         url = f"{self.base_url}/{endpoint.lstrip('/')}"
         params = params or {}
@@ -59,15 +59,15 @@ class OpenAlexClient:
             response.raise_for_status()
             return response.json()
         except requests.exceptions.HTTPError as e:
-            # 404 errors can be silenced (many new papers not existing in OpenAlex is normal)
+            # 404错误可以选择静默（很多新论文在OpenAlex中不存在是正常的）
             if e.response.status_code == 404 and silent_404:
-                logger.debug(f"Paper not found (404): {endpoint}")
+                logger.debug(f"论文不存在(404): {endpoint}")
                 return {}
             else:
-                logger.error(f"Request failed: {e.response.status_code} {e.response.reason} for url: {e.response.url}")
+                logger.error(f"请求失败: {e.response.status_code} {e.response.reason} for url: {e.response.url}")
                 return {}
         except Exception as e:
-            logger.error(f"Request failed: {e}")
+            logger.error(f"请求失败: {e}")
             return {}
 
     def search_papers(
@@ -82,42 +82,42 @@ class OpenAlexClient:
         concept_filter: Optional[str] = None
     ) -> List[Dict]:
         """
-        Search papers (supports advanced filtering)
+        搜索论文（支持高级过滤）
 
         Args:
-            topic: Search topic
-            max_results: Maximum number of results
-            sort_by: Sort method
-            min_citations: Minimum citation count
-            year_filter: Year filter (e.g., "<2023", ">2022", "2020-2023")
-            additional_filters: List of additional filter conditions
-            require_cs_ai: Whether to restrict to CS/AI domain (default False, no restriction)
-                          When set to True, filters CS OR AI, as long as one of the tags is present
-            concept_filter: Custom concept filter (e.g., "C41008148" for Computer Science)
-                          When specified, overrides the default CS OR AI filter
-                          Supported concepts:
-                          - C41008148: Computer Science
-                          - C154945302: Artificial Intelligence
+            topic: 搜索主题
+            max_results: 最大结果数
+            sort_by: 排序方式
+            min_citations: 最小引用数
+            year_filter: 年份过滤（如 "<2023", ">2022", "2020-2023"）
+            additional_filters: 额外的过滤条件列表
+            require_cs_ai: 是否限定CS/AI领域（默认False，不限制）
+                          设置为True时会过滤CS OR AI,只要有其中一个标签即可
+            concept_filter: 自定义概念过滤（如 "C41008148" 表示Computer Science）
+                          指定后会覆盖默认的CS OR AI过滤
+                          支持的概念：
+                          - C41008148: Computer Science（计算机科学）
+                          - C154945302: Artificial Intelligence（人工智能）
 
         Returns:
-            List of papers
+            论文列表
         """
-        logger.info(f"Searching papers: '{topic}' (max {max_results} papers)")
+        logger.info(f"搜索论文: '{topic}' (最多{max_results}篇)")
 
-        # Build filter conditions
+        # 构建过滤条件
         filters = [f'cited_by_count:>{min_citations}']
 
-        # Enforce CS/AI domain restriction
+        # 强制限定CS/AI领域
         if require_cs_ai:
             if concept_filter:
-                # Use custom concept filter
+                # 使用自定义概念过滤
                 filters.append(f'concepts.id:{concept_filter}')
-                logger.info(f"Applying concept filter: {concept_filter}")
+                logger.info(f"应用概念过滤: {concept_filter}")
             else:
-                # Default to Computer Science OR Artificial Intelligence concept
-                # Papers need only one of CS or AI tags (using | for OR logic)
+                # 默认使用Computer Science OR Artificial Intelligence概念
+                # 只要论文有CS或AI标签之一即可(使用|表示OR逻辑)
                 filters.append('concepts.id:C41008148|C154945302')
-                logger.info("Applying default filter: Computer Science (C41008148) OR Artificial Intelligence (C154945302)")
+                logger.info("应用默认过滤: Computer Science (C41008148) OR Artificial Intelligence (C154945302)")
 
         if year_filter:
             filters.append(f'publication_year:{year_filter}')
@@ -141,31 +141,31 @@ class OpenAlexClient:
                 paper = self._parse_paper(result)
                 papers.append(paper)
 
-            logger.info(f"Found {len(papers)} papers")
+            logger.info(f"找到 {len(papers)} 篇论文")
             return papers
 
         except Exception as e:
-            logger.error(f"Paper search failed: {e}")
+            logger.error(f"搜索论文失败: {e}")
             return []
 
     def get_citations(self, paper_id: str, max_results: int = 5) -> List[Dict]:
         """
-        Get papers that cite this paper (forward snowballing)
+        获取引用该论文的论文（正向滚雪球）
 
         Args:
-            paper_id: Paper ID (OpenAlex Work ID)
-            max_results: Maximum number of results
+            paper_id: 论文ID（OpenAlex Work ID）
+            max_results: 最大结果数
 
         Returns:
-            List of papers that cite this paper
+            引用该论文的论文列表
         """
-        logger.info(f"Getting papers that cite this paper: {paper_id}")
+        logger.info(f"获取引用该论文的论文: {paper_id}")
 
-        # Ensure paper_id format is correct
+        # 确保paper_id格式正确
         if not paper_id.startswith('W'):
             paper_id = f"W{paper_id}"
 
-        # Use cites filter: find papers that cite this paper
+        # 使用cites过滤器：找到引用了该论文的论文
         params = {
             'filter': f'cites:{paper_id}',
             'per-page': max_results,
@@ -181,54 +181,54 @@ class OpenAlexClient:
                 citation = self._parse_paper(result)
                 citations.append(citation)
 
-            logger.info(f"  → Found {len(citations)} papers that cite this paper")
+            logger.info(f"  → 找到 {len(citations)} 篇引用该论文的论文")
             return citations
 
         except Exception as e:
-            logger.error(f"Failed to get citing papers: {e}")
+            logger.error(f"获取引用论文失败: {e}")
             return []
 
     def get_references(self, paper_id: str, max_results: int = 5) -> List[Dict]:
         """
-        Get references cited by this paper (backward snowballing)
+        获取该论文引用的参考文献（反向滚雪球）
 
         Args:
-            paper_id: Paper ID (OpenAlex Work ID)
-            max_results: Maximum number of results
+            paper_id: 论文ID（OpenAlex Work ID）
+            max_results: 最大结果数
 
         Returns:
-            List of references cited by this paper
+            该论文引用的参考文献列表
         """
-        logger.info(f"Getting references for this paper: {paper_id}")
+        logger.info(f"获取该论文的参考文献: {paper_id}")
 
-        # Ensure paper_id format is correct
+        # 确保paper_id格式正确
         if not paper_id.startswith('W'):
             paper_id = f"W{paper_id}"
 
         try:
-            # Method 1: First get paper details, extract ID list from referenced_works field
+            # 方法1：先获取论文详情，从referenced_works字段中提取ID列表
             paper_data = self._make_request(f'works/{paper_id}', silent_404=True)
 
             if not paper_data:
-                logger.debug(f"  Paper details not found or unavailable: {paper_id}")
+                logger.debug(f"  论文详情不存在或无法获取: {paper_id}")
                 return []
 
-            # Get referenced_works ID list
+            # 获取referenced_works ID列表
             referenced_work_ids = paper_data.get('referenced_works', [])
 
             if not referenced_work_ids:
-                logger.debug(f"  This paper has no references")
+                logger.debug(f"  该论文没有参考文献")
                 return []
 
-            # Take first max_results items
+            # 截取前max_results个
             referenced_work_ids = referenced_work_ids[:max_results]
 
-            logger.debug(f"  → Found {len(referenced_work_ids)} reference IDs, fetching details...")
+            logger.debug(f"  → 找到 {len(referenced_work_ids)} 个参考文献ID，正在获取详情...")
 
-            # Batch fetch detailed information for these papers
+            # 批量获取这些论文的详细信息
             references = []
             for ref_id in referenced_work_ids:
-                # Extract clean ID (remove URL prefix)
+                # 提取干净的ID（去掉URL前缀）
                 clean_ref_id = ref_id.split('/')[-1] if '/' in ref_id else ref_id
 
                 try:
@@ -237,31 +237,31 @@ class OpenAlexClient:
                         ref_paper = self._parse_paper(ref_data)
                         references.append(ref_paper)
                 except Exception as e:
-                    logger.debug(f"    Skipping reference {clean_ref_id}: {e}")
+                    logger.debug(f"    跳过参考文献 {clean_ref_id}: {e}")
                     continue
 
-            logger.info(f"  → Successfully fetched {len(references)} reference details")
+            logger.info(f"  → 成功获取 {len(references)} 篇参考文献详情")
             return references
 
         except Exception as e:
-            logger.error(f"Failed to get references: {e}")
+            logger.error(f"获取参考文献失败: {e}")
             return []
 
     def _parse_paper(self, raw_data: Dict) -> Dict:
-        """Parse paper data to standard format"""
-        # Extract author information
+        """解析论文数据为标准格式"""
+        # 提取作者信息
         authors = []
-        for authorship in raw_data.get('authorships', [])[:3]:  # Only take first 3 authors
+        for authorship in raw_data.get('authorships', [])[:3]:  # 只取前3个作者
             author = authorship.get('author', {})
             authors.append(author.get('display_name', 'Unknown'))
 
-        # Extract PDF link
+        # 提取PDF链接
         pdf_url = None
         open_access = raw_data.get('open_access', {})
         if open_access.get('is_oa') and open_access.get('oa_url'):
             pdf_url = open_access.get('oa_url')
 
-        # Standardize paper data
+        # 标准化论文数据
         paper = {
             'id': raw_data.get('id', '').split('/')[-1] if raw_data.get('id') else '',
             'title': raw_data.get('title', 'Untitled'),
@@ -279,13 +279,13 @@ class OpenAlexClient:
 
     def get_work_with_concepts(self, work_id: str) -> Optional[Dict]:
         """
-        Get detailed information for a single paper (including complete concept tags)
+        获取单篇论文的详细信息（包含完整的概念标签）
 
         Args:
-            work_id: Paper ID
+            work_id: 论文ID
 
         Returns:
-            Paper details dictionary containing concepts field
+            包含concepts字段的论文详细信息字典
         """
         if not work_id.startswith('W'):
             work_id = f"W{work_id}"
@@ -293,28 +293,28 @@ class OpenAlexClient:
         try:
             data = self._make_request(f'works/{work_id}')
             if data:
-                # Return complete data (including concepts)
+                # 返回完整数据（包含concepts）
                 paper = self._parse_paper(data)
-                # Add concepts field
+                # 添加concepts字段
                 paper['concepts'] = data.get('concepts', [])
                 paper['primary_topic'] = data.get('primary_topic', {})
                 return paper
             return None
         except Exception as e:
-            logger.error(f"Failed to get paper details: {e}")
+            logger.error(f"获取论文详情失败: {e}")
             return None
 
     def search_by_arxiv_id(self, arxiv_id: str) -> Optional[Dict]:
         """
-        Search paper by arXiv ID
+        通过arXiv ID搜索论文
 
         Args:
-            arxiv_id: arXiv ID (e.g., "2301.12345" or "2301.12345v2")
+            arxiv_id: arXiv ID（如 "2301.12345" 或 "2301.12345v2"）
 
         Returns:
-            Paper information dictionary
+            论文信息字典
         """
-        # Clean arXiv ID (remove version number)
+        # 清理arXiv ID（去除版本号）
         clean_id = arxiv_id.split('v')[0]
 
         params = {
@@ -333,20 +333,20 @@ class OpenAlexClient:
             return None
 
         except Exception as e:
-            logger.error(f"Search by arXiv ID failed: {e}")
+            logger.error(f"通过arXiv ID搜索失败: {e}")
             return None
 
     def search_by_doi(self, doi: str) -> Optional[Dict]:
         """
-        Search paper by DOI
+        通过DOI搜索论文
 
         Args:
-            doi: DOI string
+            doi: DOI字符串
 
         Returns:
-            Paper information dictionary
+            论文信息字典
         """
-        # Clean DOI (remove prefix)
+        # 清理DOI（移除前缀）
         clean_doi = doi.replace('https://doi.org/', '').replace('http://dx.doi.org/', '')
 
         params = {
@@ -363,7 +363,7 @@ class OpenAlexClient:
             return None
 
         except Exception as e:
-            logger.error(f"Search by DOI failed: {e}")
+            logger.error(f"通过DOI搜索失败: {e}")
             return None
 
     def filter_by_concepts(
@@ -373,22 +373,22 @@ class OpenAlexClient:
         min_score: float = 0.3
     ) -> List[Dict]:
         """
-        Filter papers by concept tags
+        根据概念标签过滤论文
 
         Args:
-            papers: List of papers
-            required_concepts: List of required concepts (concept names)
-            min_score: Minimum confidence score
+            papers: 论文列表
+            required_concepts: 必需的概念列表（概念名称）
+            min_score: 最小置信度分数
 
         Returns:
-            Filtered list of papers
+            过滤后的论文列表
         """
         filtered = []
 
         for paper in papers:
             paper_id = paper['id']
 
-            # Get complete concept information
+            # 获取完整概念信息
             full_paper = self.get_work_with_concepts(paper_id)
             if not full_paper:
                 continue
@@ -397,7 +397,7 @@ class OpenAlexClient:
             if not concepts:
                 continue
 
-            # Check if required concepts are matched
+            # 检查是否匹配必需概念
             matched = False
             for concept in concepts:
                 concept_name = concept.get('display_name', '')
@@ -415,50 +415,50 @@ class OpenAlexClient:
             if matched:
                 filtered.append(full_paper)
 
-        logger.info(f"Concept filtering: {len(papers)} -> {len(filtered)} papers")
+        logger.info(f"概念过滤: {len(papers)} -> {len(filtered)} 篇")
         return filtered
 
     def get_work_details(self, work_id: str) -> Optional[Dict]:
         """
-        Get detailed information for a single paper (compatible with old code)
+        获取单篇论文的详细信息（兼容旧代码）
 
         Args:
-            work_id: Paper ID
+            work_id: 论文ID
 
         Returns:
-            Paper details dictionary
+            论文详细信息字典
         """
         return self.get_work_with_concepts(work_id)
 
     def get_paper_by_id(self, paper_id: str) -> Optional[Dict]:
         """
-        Get a single paper by ID (alias method)
+        通过ID获取单篇论文（别名方法）
 
         Args:
-            paper_id: Paper ID
+            paper_id: 论文ID
 
         Returns:
-            Paper information dictionary
+            论文信息字典
         """
         return self.get_work_with_concepts(paper_id)
 
     def _reconstruct_abstract(self, inverted_index: Dict) -> str:
-        """Reconstruct abstract text"""
+        """重构摘要文本"""
         if not inverted_index:
             return ""
 
         try:
-            # Convert inverted index to text
+            # 将倒排索引转换为文本
             words_with_pos = []
             for word, positions in inverted_index.items():
                 for pos in positions:
                     words_with_pos.append((pos, word))
 
-            # Sort by position and join
+            # 按位置排序并连接
             words_with_pos.sort(key=lambda x: x[0])
             abstract = ' '.join([word for pos, word in words_with_pos])
 
-            # Truncate overly long abstracts
+            # 截断过长的摘要
             if len(abstract) > 500:
                 abstract = abstract[:500] + "..."
 
@@ -468,42 +468,42 @@ class OpenAlexClient:
 
 
 if __name__ == "__main__":
-    # Test code
+    # 测试代码
     client = OpenAlexClient()
 
     print("=" * 60)
-    print("Example 1: Search 'Attention Mechanism' (default CS OR AI filter)")
+    print("示例1: 搜索 'Attention Mechanism'（默认CS OR AI过滤）")
     print("=" * 60)
     papers = client.search_papers("Attention Mechanism", max_results=3)
 
     for i, paper in enumerate(papers, 1):
         print(f"\n[{i}] {paper['title']}")
-        print(f"    Authors: {', '.join(paper['authors'])}")
-        print(f"    Year: {paper['year']}")
-        print(f"    Citations: {paper['cited_by_count']}")
+        print(f"    作者: {', '.join(paper['authors'])}")
+        print(f"    年份: {paper['year']}")
+        print(f"    引用数: {paper['cited_by_count']}")
         if paper['pdf_url']:
             print(f"    PDF: {paper['pdf_url']}")
 
     print("\n" + "=" * 60)
-    print("Example 2: Search 'Machine Learning' (AI domain only)")
+    print("示例2: 搜索 'Machine Learning'（只过滤AI领域）")
     print("=" * 60)
-    # Use only AI concept for filtering
+    # 只使用AI概念进行过滤
     papers = client.search_papers(
         "Machine Learning",
         max_results=3,
-        concept_filter="C154945302"  # Artificial Intelligence only
+        concept_filter="C154945302"  # 只要Artificial Intelligence
     )
 
     for i, paper in enumerate(papers, 1):
         print(f"\n[{i}] {paper['title']}")
-        print(f"    Authors: {', '.join(paper['authors'])}")
-        print(f"    Year: {paper['year']}")
-        print(f"    Citations: {paper['cited_by_count']}")
+        print(f"    作者: {', '.join(paper['authors'])}")
+        print(f"    年份: {paper['year']}")
+        print(f"    引用数: {paper['cited_by_count']}")
 
     print("\n" + "=" * 60)
-    print("Example 3: Search 'Neural Network' (no domain restriction)")
+    print("示例3: 搜索 'Neural Network'（不限定领域）")
     print("=" * 60)
-    # Disable CS/AI filtering
+    # 关闭CS/AI过滤
     papers = client.search_papers(
         "Neural Network",
         max_results=3,
@@ -512,5 +512,5 @@ if __name__ == "__main__":
 
     for i, paper in enumerate(papers, 1):
         print(f"\n[{i}] {paper['title']}")
-        print(f"    Year: {paper['year']}")
-        print(f"    Citations: {paper['cited_by_count']}")
+        print(f"    年份: {paper['year']}")
+        print(f"    引用数: {paper['cited_by_count']}")

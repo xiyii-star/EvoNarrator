@@ -1,14 +1,14 @@
 """
-Advanced Paper Retrieval Module - Multi-stage Retrieval Strategy Based on Snowball Method
+高级论文检索模块 - 基于滚雪球方法的多阶段检索策略
 
-Implements optimized six-step retrieval process (based on arXiv seeds + OpenAlex expansion):
-1. High-Quality Seed Retrieval - Using arXiv API + Categories filtering
-2. ID Mapping - arXiv -> OpenAlex, strict Concept verification
-3. Forward Snowballing - Seed -> Who cited Seed? -> Get child nodes
-4. Backward Snowballing - Who was cited by Seed? <- Seed -> Get parent nodes/ancestors
-5. Lateral Supplement/Co-citation Mining - Among child and parent nodes, who is repeatedly mentioned but not yet in the library?
-6. Add Recent Frontiers (Add Recent SOTA) - Latest arXiv papers (6-12 months) + similarity filtering
-7. Closure Construction - Establish connections
+实现优化的六步检索流程（基于arXiv种子 + OpenAlex扩展）：
+1. 高质量种子获取 (High-Quality Seed Retrieval) - 使用arXiv API + Categories过滤
+2. 跨库ID映射 (ID Mapping) - arXiv -> OpenAlex，严格Concept验证
+3. 正向滚雪球 (Forward Snowballing) - Seed -> 谁引用了Seed? -> 得到子节点
+4. 反向滚雪球 (Backward Snowballing) - 谁被Seed引用了? <- Seed -> 得到父节点/祖先
+5. 横向补充/共引挖掘 (Co-citation Mining) - 在子节点和父节点中，谁被大家反复提及但还不在库里?
+6. 补充SOTA (Add Recent Frontiers) - arXiv最新论文（6-12个月）+ 相似度过滤
+7. 构建闭包 (Closure Construction) - 建立连接
 """
 
 import logging
@@ -27,8 +27,8 @@ logger = logging.getLogger(__name__)
 
 class SnowballRetrieval:
     """
-    Snowball Paper Retrieval System
-    Multi-stage paper discovery and relationship construction based on citation relationships
+    滚雪球论文检索系统
+    基于引用关系的多阶段论文发现和关系构建
     """
 
     def __init__(
@@ -46,31 +46,31 @@ class SnowballRetrieval:
         config_path: str = './config/config.yaml'
     ):
         """
-        Initialize snowball retrieval system
+        初始化滚雪球检索系统
 
-        Priority: passed parameters > config.yaml settings > default values
+        优先级：传入参数 > config.yaml配置 > 默认值
 
         Args:
-            client: OpenAlex API client
-            seed_count: Number of foundational seed papers (default: 5)
-            citations_per_seed: Number of citation papers to select per seed paper (default: 8)
-            recent_count: Number of recent papers (default: 10)
-            seed_keywords: List of seed keywords for relevance filtering (default: [])
-            enable_second_round: Whether to enable second round snowballing (default: True)
-            second_round_limit: Expansion limit per paper in second round (default: 3)
-            use_arxiv_seeds: Whether to use arXiv seed retrieval (default: True)
-            arxiv_years_back: Number of years to look back for arXiv seeds (default: 5)
-            llm_client: LLM client (for intelligent query generation)
-            config_path: Configuration file path (default: './config/config.yaml')
+            client: OpenAlex API客户端
+            seed_count: 基石种子论文数量（默认: 5）
+            citations_per_seed: 每个种子论文选取的引用论文数量（默认: 8）
+            recent_count: 最新论文数量（默认: 10）
+            seed_keywords: 种子关键词列表，用于相关性过滤（默认: []）
+            enable_second_round: 是否启用第二轮滚雪球（默认: True）
+            second_round_limit: 第二轮每篇论文的扩展数量限制（默认: 3）
+            use_arxiv_seeds: 是否使用arXiv种子检索（默认: True）
+            arxiv_years_back: arXiv种子回溯年数（默认: 5）
+            llm_client: LLM客户端（用于智能查询生成）
+            config_path: 配置文件路径（默认: './config/config.yaml'）
         """
-        # Load configuration file
+        # 加载配置文件
         snowball_config = self._load_config(config_path)
 
-        # Initialize clients
+        # 初始化客户端
         self.client = client or OpenAlexClient()
         self.llm_client = llm_client
 
-        # Parameter priority: passed parameters > config.yaml > default values
+        # 参数优先级：传入参数 > config.yaml > 默认值
         self.seed_count = seed_count if seed_count is not None else snowball_config.get('seed_count', 5)
         self.citations_per_seed = citations_per_seed if citations_per_seed is not None else snowball_config.get('citations_per_seed', 8)
         self.recent_count = recent_count if recent_count is not None else snowball_config.get('recent_count', 10)
@@ -78,18 +78,18 @@ class SnowballRetrieval:
         self.enable_second_round = enable_second_round if enable_second_round is not None else snowball_config.get('enable_second_round', True)
         self.second_round_limit = second_round_limit if second_round_limit is not None else snowball_config.get('second_round_limit', 3)
 
-        # New: arXiv seed retrieval parameters
+        # 新增：arXiv种子检索参数
         self.use_arxiv_seeds = use_arxiv_seeds if use_arxiv_seeds is not None else snowball_config.get('use_arxiv_seeds', True)
         self.arxiv_years_back = arxiv_years_back if arxiv_years_back is not None else snowball_config.get('arxiv_years_back', 5)
 
-        # Initialize arXiv retriever and cross-database mapper (if enabled)
+        # 初始化arXiv检索器和跨库映射器（如果启用）
         if self.use_arxiv_seeds:
             self.arxiv_retriever = ArxivSeedRetriever(
-                max_results_per_query=self.seed_count * 2,  # Retrieve more, may decrease after mapping
+                max_results_per_query=self.seed_count * 2,  # 多取一些，映射后可能会减少
                 years_back=self.arxiv_years_back,
                 min_relevance_score=0.6,
-                llm_client=self.llm_client,  # Pass LLM client
-                use_llm_query_generation=True  # Enable LLM query generation
+                llm_client=self.llm_client,  # 传递LLM客户端
+                use_llm_query_generation=True  # 启用LLM查询生成
             )
             self.cross_mapper = CrossDatabaseMapper(
                 client=self.client,
@@ -100,18 +100,18 @@ class SnowballRetrieval:
             self.arxiv_retriever = None
             self.cross_mapper = None
 
-        # Store retrieved papers
+        # 存储检索到的论文
         self.seed_papers: List[Dict] = []
-        self.citing_papers: List[Dict] = []  # Child nodes: papers citing seeds
-        self.ancestor_papers: List[Dict] = []  # Parent nodes: papers cited by seeds
-        self.cocitation_papers: List[Dict] = []  # Co-citation papers: repeatedly mentioned papers
+        self.citing_papers: List[Dict] = []  # 子节点：引用种子的论文
+        self.ancestor_papers: List[Dict] = []  # 父节点：被种子引用的论文
+        self.cocitation_papers: List[Dict] = []  # 共引论文：被反复提及的论文
         self.recent_papers: List[Dict] = []
         self.all_papers: Dict[str, Dict] = {}  # paper_id -> paper_data
 
-        # Store citation relationships
+        # 存储引用关系
         self.citation_edges: Set[Tuple[str, str]] = set()  # (citing_id, cited_id)
 
-        # Second round statistics (for report generation)
+        # 第二轮统计（用于报告生成）
         self.first_round_citing_count: int = 0
         self.first_round_ancestor_count: int = 0
         self.first_round_cocitation_count: int = 0
@@ -119,9 +119,9 @@ class SnowballRetrieval:
         self.second_round_ancestor_count: int = 0
         self.second_round_cocitation_count: int = 0
 
-        logger.info("Snowball retrieval system initialization complete")
-        logger.info(f"  Configuration source: {config_path if Path(config_path).exists() else 'default values'}")
-        logger.info(f"  Seed retrieval mode: {'arXiv priority' if self.use_arxiv_seeds else 'OpenAlex direct search'}")
+        logger.info("滚雪球检索系统初始化完成")
+        logger.info(f"  配置来源: {config_path if Path(config_path).exists() else '默认值'}")
+        logger.info(f"  种子检索模式: {'arXiv优先' if self.use_arxiv_seeds else 'OpenAlex直接搜索'}")
         logger.info(f"  seed_count={self.seed_count}, citations_per_seed={self.citations_per_seed}")
         logger.info(f"  recent_count={self.recent_count}, enable_second_round={self.enable_second_round}")
         if self.enable_second_round:
@@ -131,18 +131,18 @@ class SnowballRetrieval:
 
     def _load_config(self, config_path: str) -> Dict:
         """
-        Load snowball retrieval configuration from config file
+        从配置文件加载滚雪球检索配置
 
         Args:
-            config_path: Configuration file path
+            config_path: 配置文件路径
 
         Returns:
-            Snowball configuration dictionary (snowball section)
+            滚雪球配置字典（snowball部分）
         """
         config_file = Path(config_path)
 
         if not config_file.exists():
-            logger.debug(f"Configuration file does not exist: {config_path}, will use default configuration")
+            logger.debug(f"配置文件不存在: {config_path}，将使用默认配置")
             return {}
 
         try:
@@ -150,11 +150,11 @@ class SnowballRetrieval:
                 full_config = yaml.safe_load(f)
 
             snowball_config = full_config.get('snowball', {}) if full_config else {}
-            logger.debug(f"Successfully loaded snowball configuration: {config_path}")
+            logger.debug(f"成功加载滚雪球配置: {config_path}")
             return snowball_config
 
         except Exception as e:
-            logger.warning(f"Failed to load configuration file: {e}, will use default configuration")
+            logger.warning(f"加载配置文件失败: {e}，将使用默认配置")
             return {}
 
     def execute_full_pipeline(
@@ -164,21 +164,21 @@ class SnowballRetrieval:
         seed_year_threshold: int = 2023
     ) -> Dict:
         """
-        Execute complete six-step retrieval pipeline
+        执行完整的六步检索流程
 
         Args:
-            topic: Topic keyword
-            content_keyword: Content keyword
-            seed_year_threshold: Year threshold for seed papers (less than this year)
+            topic: 主题关键词
+            content_keyword: 内容关键词
+            seed_year_threshold: 种子论文的年份阈值（小于此年份）
 
         Returns:
-            Dictionary containing all papers and citation relationships
+            包含所有论文和引用关系的字典
         """
-        logger.info(f"Starting complete retrieval pipeline: topic='{topic}', content='{content_keyword}'")
+        logger.info(f"开始执行完整检索流程: topic='{topic}', content='{content_keyword}'")
 
-        # Step 1: Foundational seeds
+        # 第一步：基石种子
         logger.info("\n" + "=" * 60)
-        logger.info("Step 1: Foundational Seeds (Seed Papers)")
+        logger.info("第一步：基石种子 (Seed Papers)")
         logger.info("=" * 60)
         self.seed_papers = self._select_seed_papers(
             topic=topic,
@@ -186,45 +186,45 @@ class SnowballRetrieval:
             year_threshold=seed_year_threshold
         )
 
-        # Step 2: Forward snowballing - find child nodes
+        # 第二步：正向滚雪球 - 找子节点
         logger.info("\n" + "=" * 60)
-        logger.info("Step 2: Forward Snowballing")
-        logger.info("Seed -> Who cited Seed? -> Get child nodes")
+        logger.info("第二步：正向滚雪球 (Forward Snowballing)")
+        logger.info("Seed -> 谁引用了Seed? -> 得到子节点")
         logger.info("=" * 60)
         self.citing_papers = self._forward_snowballing(self.seed_papers)
 
-        # Step 3: Backward snowballing - find parent nodes/ancestors
+        # 第三步：反向滚雪球 - 找父节点/祖先
         logger.info("\n" + "=" * 60)
-        logger.info("Step 3: Backward Snowballing")
-        logger.info("Who was cited by Seed? <- Seed -> Get parent nodes/ancestors")
+        logger.info("第三步：反向滚雪球 (Backward Snowballing)")
+        logger.info("谁被Seed引用了? <- Seed -> 得到父节点/祖先")
         logger.info("=" * 60)
         self.ancestor_papers = self._backward_snowballing(self.seed_papers)
 
-        # Step 4: Lateral supplement/co-citation mining
+        # 第四步：横向补充/共引挖掘
         logger.info("\n" + "=" * 60)
-        logger.info("Step 4: Lateral Supplement/Co-citation Mining")
-        logger.info("Among child and parent nodes, who is repeatedly mentioned but not yet in the library?")
+        logger.info("第四步：横向补充/共引挖掘 (Co-citation Mining)")
+        logger.info("在子节点和父节点中，谁被大家反复提及但还不在库里?")
         logger.info("=" * 60)
         self.cocitation_papers = self._cocitation_mining(
             self.citing_papers,
             self.ancestor_papers
         )
 
-        # Record first round statistics
+        # 记录第一轮统计
         self.first_round_citing_count = len(self.citing_papers)
         self.first_round_ancestor_count = len(self.ancestor_papers)
         self.first_round_cocitation_count = len(self.cocitation_papers)
 
-        # Second round snowballing (if enabled)
+        # 第二轮滚雪球（如果启用）
         if self.enable_second_round:
             logger.info("\n" + "=" * 80)
-            logger.info("Starting second round snowballing expansion")
+            logger.info("🔄 开始第二轮滚雪球扩展")
             logger.info("=" * 80)
             self._execute_second_round_snowballing()
 
-        # Step 5: Add recent SOTA
+        # 第五步：补充最新SOTA
         logger.info("\n" + "=" * 60)
-        logger.info("Step 5: Add Recent SOTA (Recent Frontiers)")
+        logger.info("第五步：补充最新SOTA (Recent Frontiers)")
         logger.info("=" * 60)
         self.recent_papers = self._add_recent_frontiers(
             topic=topic,
@@ -232,15 +232,15 @@ class SnowballRetrieval:
             year_threshold=seed_year_threshold
         )
 
-        # Step 6: Build closure
+        # 第六步：构建闭包
         logger.info("\n" + "=" * 60)
-        logger.info("Step 6: Build Citation Closure (Closure Construction)")
+        logger.info("第六步：构建引用闭包 (Closure Construction)")
         logger.info("=" * 60)
         self._build_closure()
 
-        # Generate statistics report
+        # 生成统计报告
         result = self._generate_report()
-        logger.info("\nRetrieval pipeline complete!")
+        logger.info("\n检索流程完成！")
         return result
 
     def _select_seed_papers(
@@ -250,25 +250,25 @@ class SnowballRetrieval:
         year_threshold: int
     ) -> List[Dict]:
         """
-        Step 1: Select foundational seed papers (optimized version)
+        第一步：选定基石种子论文（优化版）
 
-        Strategy:
-        - If arXiv enabled: Use arXiv Categories + keywords -> Map to OpenAlex -> Concept verification
-        - If not enabled: Direct OpenAlex search (traditional mode)
+        策略：
+        - 如果启用arXiv：使用arXiv Categories + 关键词 -> 映射到OpenAlex -> Concept验证
+        - 如果不启用：直接在OpenAlex搜索（传统模式）
 
         Args:
-            topic: Topic keyword
-            content_keyword: Content keyword
-            year_threshold: Year threshold (will be overridden in arXiv mode)
+            topic: 主题关键词
+            content_keyword: 内容关键词
+            year_threshold: 年份阈值（arXiv模式下会被覆盖）
 
         Returns:
-            List of seed papers
+            种子论文列表
         """
         if self.use_arxiv_seeds:
-            logger.info("Using arXiv priority seed retrieval strategy")
+            logger.info("🎯 使用arXiv优先种子检索策略")
             return self._select_seeds_from_arxiv(topic, content_keyword)
         else:
-            logger.info("Using OpenAlex direct search strategy")
+            logger.info("🔍 使用OpenAlex直接搜索策略")
             return self._select_seeds_from_openalex(topic, content_keyword, year_threshold)
 
     def _select_seeds_from_arxiv(
@@ -277,56 +277,56 @@ class SnowballRetrieval:
         content_keyword: str
     ) -> List[Dict]:
         """
-        Retrieve seed papers from arXiv and map to OpenAlex
+        从arXiv检索种子论文并映射到OpenAlex
 
-        Process:
-        1. arXiv retrieval (using Categories + keywords)
-        2. Cross-database mapping (arXiv -> OpenAlex)
-        3. Concept filtering (ensure CS/AI domain)
+        流程：
+        1. arXiv检索（使用Categories + 关键词）
+        2. 跨库映射（arXiv -> OpenAlex）
+        3. Concept过滤（确保CS/AI领域）
 
         Args:
-            topic: Topic
-            content_keyword: Content keyword
+            topic: 主题
+            content_keyword: 内容关键词
 
         Returns:
-            Mapped seed paper list (OpenAlex format)
+            映射后的种子论文列表（OpenAlex格式）
         """
-        logger.info("Step 1a: Retrieve high-quality seeds from arXiv")
-        logger.info(f"  Topic: '{topic}', Keyword: '{content_keyword}'")
-        logger.info(f"  Years back: {self.arxiv_years_back} years")
+        logger.info("步骤1a: 从arXiv检索高质量种子")
+        logger.info(f"  主题: '{topic}', 关键词: '{content_keyword}'")
+        logger.info(f"  回溯年数: {self.arxiv_years_back}年")
 
-        # 1. Retrieve arXiv papers
+        # 1. 检索arXiv论文
         keywords = [content_keyword] + self.seed_keywords if self.seed_keywords else [content_keyword]
         arxiv_papers = self.arxiv_retriever.retrieve_seed_papers(
             topic=topic,
             keywords=keywords,
-            max_seeds=self.seed_count * 2  # Retrieve more, will decrease after mapping
+            max_seeds=self.seed_count * 2  # 多取一些，映射后会减少
         )
 
-        logger.info(f"  Retrieved {len(arxiv_papers)} candidate papers from arXiv")
+        logger.info(f"  ✓ arXiv检索到 {len(arxiv_papers)} 篇候选论文")
 
-        # 2. Map to OpenAlex
-        logger.info("\nStep 1b: Cross-database mapping (arXiv -> OpenAlex)")
+        # 2. 映射到OpenAlex
+        logger.info("\n步骤1b: 跨库映射（arXiv -> OpenAlex）")
         mapped_papers, stats = self.cross_mapper.map_arxiv_to_openalex(
             arxiv_papers,
-            verify_concepts=False  # Already filtered by category in arXiv stage, no need to verify concepts again
+            verify_concepts=False  # arXiv阶段已通过类别过滤，无需再验证概念
         )
 
-        logger.info(f"  Successfully mapped {len(mapped_papers)} papers")
+        logger.info(f"  ✓ 成功映射 {len(mapped_papers)} 篇论文")
         if stats.get('filtered_by_concept', 0) > 0:
-            logger.info(f"  Concept filtering: {stats.get('filtered_by_concept', 0)} papers (disabled)")
+            logger.info(f"  ℹ️ 概念过滤: {stats.get('filtered_by_concept', 0)} 篇（已禁用）")
 
-        # 3. Store to all_papers
+        # 3. 存储到all_papers
         seeds = []
         for paper in mapped_papers[:self.seed_count]:
             self.all_papers[paper['id']] = paper
             seeds.append(paper)
             logger.info(
-                f"  [{paper['year']}] {paper['title'][:60]}... "
-                f"(citations: {paper['cited_by_count']}, arXiv: {paper.get('arxiv_id', 'N/A')})"
+                f"  ✓ [{paper['year']}] {paper['title'][:60]}... "
+                f"(引用数: {paper['cited_by_count']}, arXiv: {paper.get('arxiv_id', 'N/A')})"
             )
 
-        logger.info(f"\nSelected {len(seeds)} high-quality seed papers (arXiv verified)")
+        logger.info(f"\n✅ 共选定 {len(seeds)} 篇高质量种子论文（arXiv验证）")
         return seeds
 
     def _select_seeds_from_openalex(
@@ -336,19 +336,19 @@ class SnowballRetrieval:
         year_threshold: int
     ) -> List[Dict]:
         """
-        Retrieve seed papers directly from OpenAlex (traditional mode)
+        从OpenAlex直接检索种子论文（传统模式）
 
         Args:
-            topic: Topic keyword
-            content_keyword: Content keyword
-            year_threshold: Year threshold
+            topic: 主题关键词
+            content_keyword: 内容关键词
+            year_threshold: 年份阈值
 
         Returns:
-            List of seed papers
+            种子论文列表
         """
         query = f"{topic} {content_keyword}"
-        logger.info(f"Search query: '{query}'")
-        logger.info(f"Filter criteria: publication_year < {year_threshold}, sorted by citations")
+        logger.info(f"搜索查询: '{query}'")
+        logger.info(f"筛选条件: publication_year < {year_threshold}, sorted by citations")
 
         params = {
             'search': query,
@@ -367,15 +367,15 @@ class SnowballRetrieval:
                 seeds.append(paper)
                 self.all_papers[paper['id']] = paper
                 logger.info(
-                    f"  [{paper['year']}] {paper['title'][:60]}... "
-                    f"(citations: {paper['cited_by_count']})"
+                    f"  ✓ [{paper['year']}] {paper['title'][:60]}... "
+                    f"(引用数: {paper['cited_by_count']})"
                 )
 
-            logger.info(f"Found {len(seeds)} foundational papers")
+            logger.info(f"共找到 {len(seeds)} 篇基石论文")
             return seeds
 
         except Exception as e:
-            logger.error(f"Failed to select foundational papers: {e}")
+            logger.error(f"选定基石论文失败: {e}")
             return []
 
     def _deduplicate_and_log(
@@ -385,15 +385,15 @@ class SnowballRetrieval:
         paper_type: str
     ) -> Tuple[List[Dict], int, int]:
         """
-        Deduplicate and log statistics
+        去重并记录统计信息
 
         Args:
-            new_papers: Newly retrieved paper list
-            existing_dict: Existing paper dictionary {paper_id: paper_data}
-            paper_type: Paper type description (for logging)
+            new_papers: 新检索到的论文列表
+            existing_dict: 已存在的论文字典 {paper_id: paper_data}
+            paper_type: 论文类型描述（用于日志）
 
         Returns:
-            (Deduplicated new paper list, original count, duplicate count)
+            (去重后的新论文列表, 原始数量, 重复数量)
         """
         original_count = len(new_papers)
         duplicates = 0
@@ -409,10 +409,10 @@ class SnowballRetrieval:
 
         final_count = len(deduplicated)
 
-        logger.info(f"{paper_type} deduplication statistics:")
-        logger.info(f"   Original count: {original_count} papers")
-        logger.info(f"   Duplicates detected: {duplicates} papers")
-        logger.info(f"   After deduplication: {final_count} papers")
+        logger.info(f"📊 {paper_type}去重统计:")
+        logger.info(f"   原本数量: {original_count} 篇")
+        logger.info(f"   检测到重复: {duplicates} 篇")
+        logger.info(f"   去重后进入下一步: {final_count} 篇")
 
         return deduplicated, original_count, duplicates
 
@@ -422,29 +422,29 @@ class SnowballRetrieval:
         max_per_paper: Optional[int] = None
     ) -> List[Dict]:
         """
-        Step 2: Forward snowballing - find successors
-        Find out who cited these foundational papers
+        第二步：正向滚雪球 - 找继承者
+        找出谁引用了这些基石论文
 
         Args:
-            seed_papers: List of seed papers
-            max_per_paper: Maximum expansion count per paper (None means use default value)
+            seed_papers: 种子论文列表
+            max_per_paper: 每篇论文最多扩展的数量（None表示使用默认值）
 
         Returns:
-            List of citing papers
+            引用论文列表
         """
         if max_per_paper is None:
             max_per_paper = self.citations_per_seed
 
-        citing_papers_list = []  # Collect all papers
+        citing_papers_list = []  # 收集所有论文
 
         for seed in seed_papers:
             seed_id = seed['id']
             seed_year = seed['year']
 
-            logger.info(f"\nProcessing seed paper: {seed['title'][:50]}...")
-            logger.info(f"  Seed ID: {seed_id}, Year: {seed_year}")
+            logger.info(f"\n处理种子论文: {seed['title'][:50]}...")
+            logger.info(f"  种子ID: {seed_id}, 年份: {seed_year}")
 
-            # Get all papers citing this paper
+            # 获取引用此论文的所有文献
             citing = self._get_filtered_citations(
                 work_id=seed_id,
                 min_year=seed_year,
@@ -452,21 +452,21 @@ class SnowballRetrieval:
                 max_results=max_per_paper
             )
 
-            logger.info(f"  Found {len(citing)} related citing papers")
+            logger.info(f"  找到 {len(citing)} 篇相关引用论文")
 
             for paper in citing:
                 citing_papers_list.append(paper)
-                # Record citation relationship
+                # 记录引用关系
                 self.citation_edges.add((paper['id'], seed_id))
 
-        # Unified deduplication
+        # 统一去重
         result, _, _ = self._deduplicate_and_log(
             citing_papers_list,
             self.all_papers,
-            "Forward snowballing"
+            "正向滚雪球"
         )
 
-        logger.info(f"\nForward snowballing complete, collected {len(result)} successor papers (after deduplication)")
+        logger.info(f"\n正向滚雪球完成，共收集 {len(result)} 篇继承者论文（去重后）")
         return result
 
     def _backward_snowballing(
@@ -475,47 +475,47 @@ class SnowballRetrieval:
         max_per_paper: Optional[int] = None
     ) -> List[Dict]:
         """
-        Step 3: Backward snowballing - find parent nodes/ancestors
-        Find out who these foundational papers cited (their references)
+        第三步：反向滚雪球 - 找父节点/祖先
+        找出这些基石论文引用了谁（它们的参考文献）
 
         Args:
-            seed_papers: List of seed papers
-            max_per_paper: Maximum expansion count per paper (None means use default value)
+            seed_papers: 种子论文列表
+            max_per_paper: 每篇论文最多扩展的数量（None表示使用默认值）
 
         Returns:
-            List of ancestor papers
+            祖先论文列表
         """
         if max_per_paper is None:
             max_per_paper = self.citations_per_seed
 
-        ancestor_papers_list = []  # Collect all papers
+        ancestor_papers_list = []  # 收集所有论文
 
         for seed in seed_papers:
             seed_id = seed['id']
-            logger.info(f"\nProcessing seed paper: {seed['title'][:50]}...")
-            logger.info(f"  Seed ID: {seed_id}")
+            logger.info(f"\n处理种子论文: {seed['title'][:50]}...")
+            logger.info(f"  种子ID: {seed_id}")
 
-            # Get references cited by this paper
+            # 获取此论文引用的参考文献
             references = self._get_references(
                 work_id=seed_id,
                 max_results=max_per_paper
             )
 
-            logger.info(f"  Found {len(references)} references (parent nodes)")
+            logger.info(f"  找到 {len(references)} 篇参考文献（父节点）")
 
             for ref in references:
                 ancestor_papers_list.append(ref)
-                # Record citation relationship: seed cited ancestor
+                # 记录引用关系：种子引用了祖先
                 self.citation_edges.add((seed_id, ref['id']))
 
-        # Unified deduplication
+        # 统一去重
         result, _, _ = self._deduplicate_and_log(
             ancestor_papers_list,
             self.all_papers,
-            "Backward snowballing"
+            "反向滚雪球"
         )
 
-        logger.info(f"\nBackward snowballing complete, collected {len(result)} parent/ancestor papers (after deduplication)")
+        logger.info(f"\n反向滚雪球完成，共收集 {len(result)} 篇父节点/祖先论文（去重后）")
         return result
 
     def _cocitation_mining(
@@ -524,20 +524,20 @@ class SnowballRetrieval:
         ancestor_papers: List[Dict]
     ) -> List[Dict]:
         """
-        Step 4: Lateral supplement/co-citation mining
-        Among child and parent nodes, find papers repeatedly mentioned but not yet in the library
+        第四步：横向补充/共引挖掘
+        在子节点和父节点中，找出被大家反复提及但还不在库里的论文
 
         Args:
-            citing_papers: List of child node papers
-            ancestor_papers: List of parent node papers
+            citing_papers: 子节点论文列表
+            ancestor_papers: 父节点论文列表
 
         Returns:
-            List of co-citation papers
+            共引论文列表
         """
-        reference_counter = Counter()  # Count how many times each reference is cited
+        reference_counter = Counter()  # 统计每篇参考文献被引用的次数
         all_references = []
 
-        # Merge child and parent nodes (deduplicate)
+        # 合并子节点和父节点（去重）
         seen_ids = set()
         all_nodes = []
         for paper in citing_papers + ancestor_papers:
@@ -545,12 +545,12 @@ class SnowballRetrieval:
                 all_nodes.append(paper)
                 seen_ids.add(paper['id'])
 
-        logger.info(f"Analyzing co-citation patterns of {len(all_nodes)} papers (deduplicated)...")
+        logger.info(f"分析 {len(all_nodes)} 篇论文的共引模式（已去重）...")
 
-        # Collect references from all papers
-        analysis_limit = min(30, len(all_nodes))  # Limit count to control API calls
+        # 收集所有论文的参考文献
+        analysis_limit = min(30, len(all_nodes))  # 限制数量以控制API调用
         for i, paper in enumerate(all_nodes[:analysis_limit], 1):
-            logger.info(f"  [{i}/{analysis_limit}] Analyzing: {paper['title'][:40]}...")
+            logger.info(f"  [{i}/{analysis_limit}] 分析: {paper['title'][:40]}...")
 
             refs = self._get_references(paper['id'], max_results=10)
             for ref in refs:
@@ -558,38 +558,38 @@ class SnowballRetrieval:
                 all_references.append(ref)
                 reference_counter[ref_id] += 1
 
-        # Find papers cited multiple times
+        # 找出被多次引用的论文
         cocitation_papers_list = []
-        threshold = 3  # Cited by at least 3 papers
+        threshold = 3  # 至少被3篇论文引用
 
-        logger.info(f"\nCo-citation analysis: Find frequently mentioned papers (threshold: {threshold} times)")
+        logger.info(f"\n共引分析: 找出被频繁提及的论文（阈值: {threshold}次）")
         for ref_id, count in reference_counter.most_common(30):
             if count >= threshold:
-                # Find corresponding paper details
+                # 找到对应的论文详情
                 ref_paper = next((r for r in all_references if r['id'] == ref_id), None)
                 if ref_paper:
                     cocitation_papers_list.append(ref_paper)
                     logger.info(
-                        f"  Candidate co-citation paper: {ref_paper['title'][:50]}... "
-                        f"(cited {count} times, total citations: {ref_paper['cited_by_count']})"
+                        f"  ✓ 候选共引论文: {ref_paper['title'][:50]}... "
+                        f"(被引用{count}次, 总引用数: {ref_paper['cited_by_count']})"
                     )
 
-        # Unified deduplication
+        # 统一去重
         result, _, _ = self._deduplicate_and_log(
             cocitation_papers_list,
             self.all_papers,
-            "Co-citation mining"
+            "共引挖掘"
         )
 
-        logger.info(f"\nCo-citation mining complete, found {len(result)} repeatedly mentioned papers (after deduplication)")
+        logger.info(f"\n共引挖掘完成，找到 {len(result)} 篇被反复提及的论文（去重后）")
         return result
 
     def _execute_second_round_snowballing(self):
         """
-        Execute second round snowballing: perform another round of expansion on papers from first round
-        Includes: citing_papers, ancestor_papers, cocitation_papers
+        执行第二轮滚雪球：对第一轮得到的论文再进行一轮扩展
+        包括：citing_papers, ancestor_papers, cocitation_papers
         """
-        # Merge all papers from first round (deduplicate)
+        # 合并第一轮得到的所有论文（去重）
         seen_ids = set()
         first_round_papers = []
         for paper in self.citing_papers + self.ancestor_papers + self.cocitation_papers:
@@ -597,37 +597,37 @@ class SnowballRetrieval:
                 first_round_papers.append(paper)
                 seen_ids.add(paper['id'])
 
-        logger.info(f"First round obtained {len(first_round_papers)} papers (deduplicated)")
-        logger.info(f"Maximum {self.second_round_limit} citations per paper")
+        logger.info(f"第一轮共得到 {len(first_round_papers)} 篇论文（已去重）")
+        logger.info(f"每篇论文最多扩展 {self.second_round_limit} 个引用")
 
-        # Second round forward snowballing
+        # 第二轮正向滚雪球
         logger.info("\n" + "-" * 60)
-        logger.info("Second round forward snowballing: Find child nodes from first round papers")
+        logger.info("第二轮正向滚雪球：从第一轮论文找子节点")
         logger.info("-" * 60)
 
-        # Use unified method with limit parameter
+        # 使用统一的方法，传入限制参数
         second_citing = self._forward_snowballing(
             first_round_papers,
             max_per_paper=self.second_round_limit
         )
         self.second_round_citing_count = len(second_citing)
 
-        # Merge with first round (deduplicate using dictionary)
+        # 合并到第一轮（使用字典去重）
         citing_dict = {p['id']: p for p in self.citing_papers}
         before_merge = len(citing_dict)
         citing_dict.update({p['id']: p for p in second_citing})
         after_merge = len(citing_dict)
         self.citing_papers = list(citing_dict.values())
 
-        logger.info(f"Second round forward snowballing merge statistics:")
-        logger.info(f"   First round child nodes: {len(self.citing_papers) - len(second_citing)} papers")
-        logger.info(f"   Second round new: {self.second_round_citing_count} papers")
-        logger.info(f"   Duplicates during merge: {before_merge + self.second_round_citing_count - after_merge} papers")
-        logger.info(f"   Total after merge: {len(self.citing_papers)} papers")
+        logger.info(f"📊 第二轮正向滚雪球与第一轮合并统计:")
+        logger.info(f"   第一轮子节点: {len(self.citing_papers) - len(second_citing)} 篇")
+        logger.info(f"   第二轮新增: {self.second_round_citing_count} 篇")
+        logger.info(f"   合并时重复: {before_merge + self.second_round_citing_count - after_merge} 篇")
+        logger.info(f"   合并后总计: {len(self.citing_papers)} 篇")
 
-        # Second round backward snowballing
+        # 第二轮反向滚雪球
         logger.info("\n" + "-" * 60)
-        logger.info("Second round backward snowballing: Find parent nodes from first round papers")
+        logger.info("第二轮反向滚雪球：从第一轮论文找父节点")
         logger.info("-" * 60)
 
         second_ancestor = self._backward_snowballing(
@@ -636,22 +636,22 @@ class SnowballRetrieval:
         )
         self.second_round_ancestor_count = len(second_ancestor)
 
-        # Merge with first round
+        # 合并到第一轮
         ancestor_dict = {p['id']: p for p in self.ancestor_papers}
         before_merge = len(ancestor_dict)
         ancestor_dict.update({p['id']: p for p in second_ancestor})
         after_merge = len(ancestor_dict)
         self.ancestor_papers = list(ancestor_dict.values())
 
-        logger.info(f"Second round backward snowballing merge statistics:")
-        logger.info(f"   First round parent nodes: {len(self.ancestor_papers) - len(second_ancestor)} papers")
-        logger.info(f"   Second round new: {self.second_round_ancestor_count} papers")
-        logger.info(f"   Duplicates during merge: {before_merge + self.second_round_ancestor_count - after_merge} papers")
-        logger.info(f"   Total after merge: {len(self.ancestor_papers)} papers")
+        logger.info(f"📊 第二轮反向滚雪球与第一轮合并统计:")
+        logger.info(f"   第一轮父节点: {len(self.ancestor_papers) - len(second_ancestor)} 篇")
+        logger.info(f"   第二轮新增: {self.second_round_ancestor_count} 篇")
+        logger.info(f"   合并时重复: {before_merge + self.second_round_ancestor_count - after_merge} 篇")
+        logger.info(f"   合并后总计: {len(self.ancestor_papers)} 篇")
 
-        # Second round co-citation mining
+        # 第二轮共引挖掘
         logger.info("\n" + "-" * 60)
-        logger.info("Second round co-citation mining: Analyze co-citation patterns of second round papers")
+        logger.info("第二轮共引挖掘：分析第二轮论文的共引模式")
         logger.info("-" * 60)
 
         second_cocitation = self._cocitation_mining(
@@ -660,26 +660,26 @@ class SnowballRetrieval:
         )
         self.second_round_cocitation_count = len(second_cocitation)
 
-        # Merge with first round
+        # 合并到第一轮
         cocitation_dict = {p['id']: p for p in self.cocitation_papers}
         before_merge = len(cocitation_dict)
         cocitation_dict.update({p['id']: p for p in second_cocitation})
         after_merge = len(cocitation_dict)
         self.cocitation_papers = list(cocitation_dict.values())
 
-        logger.info(f"Second round co-citation mining merge statistics:")
-        logger.info(f"   First round co-citation: {len(self.cocitation_papers) - len(second_cocitation)} papers")
-        logger.info(f"   Second round new: {self.second_round_cocitation_count} papers")
-        logger.info(f"   Duplicates during merge: {before_merge + self.second_round_cocitation_count - after_merge} papers")
-        logger.info(f"   Total after merge: {len(self.cocitation_papers)} papers")
+        logger.info(f"📊 第二轮共引挖掘与第一轮合并统计:")
+        logger.info(f"   第一轮共引: {len(self.cocitation_papers) - len(second_cocitation)} 篇")
+        logger.info(f"   第二轮新增: {self.second_round_cocitation_count} 篇")
+        logger.info(f"   合并时重复: {before_merge + self.second_round_cocitation_count - after_merge} 篇")
+        logger.info(f"   合并后总计: {len(self.cocitation_papers)} 篇")
 
         logger.info("\n" + "=" * 80)
-        logger.info(f"Second round snowballing complete (deduplicated and merged with first round)")
-        logger.info(f"   Final paper count (after deduplication):")
-        logger.info(f"     - Child nodes: {len(self.citing_papers)} papers")
-        logger.info(f"     - Parent nodes: {len(self.ancestor_papers)} papers")
-        logger.info(f"     - Co-citation papers: {len(self.cocitation_papers)} papers")
-        logger.info(f"     - Total: {len(self.citing_papers) + len(self.ancestor_papers) + len(self.cocitation_papers)} papers")
+        logger.info(f"✅ 第二轮滚雪球完成（已与第一轮去重合并）")
+        logger.info(f"   最终论文总数（去重后）:")
+        logger.info(f"     - 子节点: {len(self.citing_papers)} 篇")
+        logger.info(f"     - 父节点: {len(self.ancestor_papers)} 篇")
+        logger.info(f"     - 共引论文: {len(self.cocitation_papers)} 篇")
+        logger.info(f"     - 合计: {len(self.citing_papers) + len(self.ancestor_papers) + len(self.cocitation_papers)} 篇")
         logger.info("=" * 80)
 
     def _add_recent_frontiers(
@@ -689,25 +689,25 @@ class SnowballRetrieval:
         year_threshold: int
     ) -> List[Dict]:
         """
-        Step 5: Add recent SOTA papers (optimized version)
+        第五步：补充最新SOTA论文（优化版）
 
-        Strategy:
-        - If arXiv enabled: Use arXiv to retrieve recent papers (6-12 months) -> Map to OpenAlex
-        - If not enabled: Use OpenAlex to search for recent papers
+        策略：
+        - 如果启用arXiv：使用arXiv检索最新论文（6-12个月）-> 映射到OpenAlex
+        - 如果不启用：使用OpenAlex搜索最新论文
 
         Args:
-            topic: Topic keyword
-            content_keyword: Content keyword
-            year_threshold: Year threshold (greater than or equal to this year)
+            topic: 主题关键词
+            content_keyword: 内容关键词
+            year_threshold: 年份阈值（大于等于此年份）
 
         Returns:
-            List of recent papers
+            最新论文列表
         """
         if self.use_arxiv_seeds:
-            logger.info("Using arXiv to retrieve recent SOTA papers")
+            logger.info("🎯 使用arXiv检索最新SOTA论文")
             return self._add_recent_from_arxiv(topic, content_keyword)
         else:
-            logger.info("Using OpenAlex to retrieve recent papers")
+            logger.info("🔍 使用OpenAlex检索最新论文")
             return self._add_recent_from_openalex(topic, content_keyword, year_threshold)
 
     def _add_recent_from_arxiv(
@@ -716,53 +716,53 @@ class SnowballRetrieval:
         content_keyword: str
     ) -> List[Dict]:
         """
-        Retrieve recent papers from arXiv and map to OpenAlex
+        从arXiv检索最新论文并映射到OpenAlex
 
         Args:
-            topic: Topic
-            content_keyword: Content keyword
+            topic: 主题
+            content_keyword: 内容关键词
 
         Returns:
-            List of recent papers (OpenAlex format)
+            最新论文列表（OpenAlex格式）
         """
-        logger.info("  Retrieving recent frontier papers from arXiv (6-12 months)")
+        logger.info("  从arXiv检索最新6-12个月的前沿论文")
 
-        # 1. Retrieve recent arXiv papers
+        # 1. 检索arXiv最新论文
         keywords = [content_keyword] + self.seed_keywords if self.seed_keywords else [content_keyword]
         arxiv_recent = self.arxiv_retriever.retrieve_recent_papers(
             topic=topic,
             keywords=keywords,
-            max_results=self.recent_count * 2,  # Retrieve more
+            max_results=self.recent_count * 2,  # 多取一些
             months_back=12
         )
 
-        logger.info(f"  Retrieved {len(arxiv_recent)} recent papers from arXiv")
+        logger.info(f"  ✓ arXiv检索到 {len(arxiv_recent)} 篇最新论文")
 
-        # 2. Map to OpenAlex (no forced Concept verification, new papers may not be annotated yet)
+        # 2. 映射到OpenAlex（不强制Concept验证，新论文可能还未被标注）
         mapped_recent, stats = self.cross_mapper.map_arxiv_to_openalex(
             arxiv_recent,
-            verify_concepts=False  # Relax verification for recent papers
+            verify_concepts=False  # 最新论文放宽验证
         )
 
-        logger.info(f"  Successfully mapped {len(mapped_recent)} recent papers")
+        logger.info(f"  ✓ 成功映射 {len(mapped_recent)} 篇最新论文")
 
-        # 3. Deduplicate and store
+        # 3. 去重并存储
         recent_papers_list = []
         for paper in mapped_recent[:self.recent_count]:
             recent_papers_list.append(paper)
             logger.info(
-                f"  Recent: [{paper.get('published_date', paper['year'])}] "
+                f"  ✓ 最新: [{paper.get('published_date', paper['year'])}] "
                 f"{paper['title'][:60]}... (arXiv: {paper.get('arxiv_id', 'N/A')})"
             )
 
-        # Deduplicate
+        # 去重
         result, _, _ = self._deduplicate_and_log(
             recent_papers_list,
             self.all_papers,
-            "Recent SOTA papers (arXiv)"
+            "最新SOTA论文（arXiv）"
         )
 
-        logger.info(f"Added {len(result)} recent SOTA papers (arXiv)")
+        logger.info(f"✅ 共添加 {len(result)} 篇最新SOTA论文（arXiv）")
         return result
 
     def _add_recent_from_openalex(
@@ -772,24 +772,24 @@ class SnowballRetrieval:
         year_threshold: int
     ) -> List[Dict]:
         """
-        Retrieve recent papers from OpenAlex (traditional mode)
+        从OpenAlex检索最新论文（传统模式）
 
         Args:
-            topic: Topic keyword
-            content_keyword: Content keyword
-            year_threshold: Year threshold (greater than or equal to this year)
+            topic: 主题关键词
+            content_keyword: 内容关键词
+            year_threshold: 年份阈值（大于等于此年份）
 
         Returns:
-            List of recent papers
+            最新论文列表
         """
         query = f"{topic} {content_keyword}"
-        logger.info(f"Searching for recent papers: '{query}'")
-        logger.info(f"Filter criteria: publication_year >= {year_threshold}")
+        logger.info(f"搜索最新论文: '{query}'")
+        logger.info(f"筛选条件: publication_year >= {year_threshold}")
 
         params = {
             'search': query,
             'per-page': self.recent_count,
-            'sort': 'cited_by_count:desc',  # Select highly cited papers among recent papers
+            'sort': 'cited_by_count:desc',  # 在最新论文中选引用数高的
             'filter': f'publication_year:>{year_threshold},cited_by_count:>5'
         }
 
@@ -802,54 +802,54 @@ class SnowballRetrieval:
                 paper = self.client._parse_paper(result)
                 recent_papers_list.append(paper)
                 logger.info(
-                    f"  Candidate recent paper: [{paper['year']}] {paper['title'][:60]}... "
-                    f"(citations: {paper['cited_by_count']})"
+                    f"  ✓ 候选最新论文: [{paper['year']}] {paper['title'][:60]}... "
+                    f"(引用数: {paper['cited_by_count']})"
                 )
 
-            # Unified deduplication
+            # 统一去重
             result, _, _ = self._deduplicate_and_log(
                 recent_papers_list,
                 self.all_papers,
-                "Recent SOTA papers"
+                "最新SOTA论文"
             )
 
-            logger.info(f"Added {len(result)} recent SOTA papers (after deduplication)")
+            logger.info(f"共添加 {len(result)} 篇最新SOTA论文（去重后）")
             return result
 
         except Exception as e:
-            logger.error(f"Failed to add recent papers: {e}")
+            logger.error(f"补充最新论文失败: {e}")
             return []
 
     def _build_closure(self):
         """
-        Step 5: Build citation closure
-        Build complete citation relationship network for all papers
+        第五步：构建引用闭包
+        为所有论文构建完整的引用关系网络
         """
         paper_ids = list(self.all_papers.keys())
         total_papers = len(paper_ids)
 
-        logger.info(f"Starting to build citation closure for {total_papers} papers...")
+        logger.info(f"开始为 {total_papers} 篇论文构建引用闭包...")
 
-        # Get citation relationships for each paper
+        # 为每篇论文获取其引用关系
         for i, paper_id in enumerate(paper_ids, 1):
             paper = self.all_papers[paper_id]
             logger.info(
-                f"  [{i}/{total_papers}] Processing: {paper['title'][:40]}..."
+                f"  [{i}/{total_papers}] 处理: {paper['title'][:40]}..."
             )
 
-            # Get other papers cited by this paper (within our collection)
+            # 获取该论文引用的其他论文（在我们的集合中）
             cited_papers = self._get_references(paper_id, max_results=20)
 
             for cited in cited_papers:
                 cited_id = cited['id']
-                # Only record citation relationships within the collection
+                # 只记录集合内的引用关系
                 if cited_id in self.all_papers and cited_id != paper_id:
                     edge = (paper_id, cited_id)
                     if edge not in self.citation_edges:
                         self.citation_edges.add(edge)
-                        logger.debug(f"    Add edge: {paper_id} -> {cited_id}")
+                        logger.debug(f"    添加边: {paper_id} -> {cited_id}")
 
-        logger.info(f"Citation closure construction complete! Established {len(self.citation_edges)} citation relationships")
+        logger.info(f"引用闭包构建完成！共建立 {len(self.citation_edges)} 条引用关系")
 
     def _get_filtered_citations(
         self,
@@ -859,21 +859,21 @@ class SnowballRetrieval:
         max_results: int
     ) -> List[Dict]:
         """
-        Get filtered citing papers
+        获取经过过滤的引用论文
 
         Args:
-            work_id: Paper ID
-            min_year: Minimum year
-            keywords: Keyword list (for relevance filtering)
-            max_results: Maximum number of results
+            work_id: 论文ID
+            min_year: 最小年份
+            keywords: 关键词列表（用于相关性过滤）
+            max_results: 最大结果数
 
         Returns:
-            Filtered citing paper list
+            过滤后的引用论文列表
         """
         if not work_id.startswith('W'):
             work_id = f"W{work_id}"
 
-        # Build filter conditions
+        # 构建过滤条件
         filters = [
             f'cites:{work_id}',
             f'publication_year:>{min_year}'
@@ -881,7 +881,7 @@ class SnowballRetrieval:
 
         params = {
             'filter': ','.join(filters),
-            'per-page': max_results * 2,  # Retrieve more, filter later
+            'per-page': max_results * 2,  # 多取一些，后续再过滤
             'sort': 'cited_by_count:desc'
         }
 
@@ -889,12 +889,12 @@ class SnowballRetrieval:
             data = self.client._make_request('works', params)
             results = data.get('results', [])
 
-            # Parse and filter papers
+            # 解析并过滤论文
             filtered = []
             for result in results:
                 paper = self.client._parse_paper(result)
 
-                # If keywords are required, perform relevance filtering
+                # 如果有关键词要求，进行相关性过滤
                 if keywords and not self._is_relevant(paper, keywords):
                     continue
 
@@ -905,11 +905,11 @@ class SnowballRetrieval:
             return filtered
 
         except Exception as e:
-            logger.error(f"Failed to get filtered citations: {e}")
+            logger.error(f"获取过滤后的引用失败: {e}")
             return []
 
     def _get_references(self, work_id: str, max_results: int = 10) -> List[Dict]:
-        """Get references of a paper"""
+        """获取论文的参考文献"""
         if not work_id.startswith('W'):
             work_id = f"W{work_id}"
 
@@ -931,32 +931,32 @@ class SnowballRetrieval:
             return references
 
         except Exception as e:
-            logger.error(f"Failed to get references: {e}")
+            logger.error(f"获取参考文献失败: {e}")
             return []
 
     def _is_relevant(self, paper: Dict, keywords: List[str]) -> bool:
         """
-        Check if paper is relevant to keywords
+        检查论文是否与关键词相关
 
         Args:
-            paper: Paper data
-            keywords: Keyword list
+            paper: 论文数据
+            keywords: 关键词列表
 
         Returns:
-            Whether relevant
+            是否相关
         """
-        # Combine title and abstract for matching
+        # 合并标题和摘要进行匹配
         text = (paper.get('title', '') + ' ' + paper.get('abstract', '')).lower()
 
-        # Match at least one keyword
+        # 至少匹配一个关键词
         return any(keyword.lower() in text for keyword in keywords)
 
     def _generate_report(self) -> Dict:
         """
-        Generate retrieval report
+        生成检索报告
 
         Returns:
-            Dictionary containing all data and statistics
+            包含所有数据和统计信息的字典
         """
         report = {
             'statistics': {
@@ -967,15 +967,15 @@ class SnowballRetrieval:
                 'cocitation_papers': len(self.cocitation_papers),
                 'recent_papers': len(self.recent_papers),
                 'total_edges': len(self.citation_edges),
-                # First round statistics
+                # 第一轮统计
                 'first_round_citing': self.first_round_citing_count,
                 'first_round_ancestor': self.first_round_ancestor_count,
                 'first_round_cocitation': self.first_round_cocitation_count,
-                # Second round statistics
+                # 第二轮统计
                 'second_round_citing': self.second_round_citing_count,
                 'second_round_ancestor': self.second_round_ancestor_count,
                 'second_round_cocitation': self.second_round_cocitation_count,
-                # Whether second round is enabled
+                # 第二轮是否启用
                 'second_round_enabled': self.enable_second_round
             },
             'papers': self.all_papers,
@@ -987,41 +987,41 @@ class SnowballRetrieval:
             'recent_ids': [p['id'] for p in self.recent_papers]
         }
 
-        # Print statistics
+        # 打印统计信息
         logger.info("\n" + "=" * 60)
-        logger.info("Retrieval Statistics Report")
+        logger.info("检索统计报告")
         logger.info("=" * 60)
-        logger.info(f"Total papers: {report['statistics']['total_papers']}")
-        logger.info(f"  1. Foundational seeds: {report['statistics']['seed_papers']}")
-        logger.info(f"  2. Child nodes (citing seeds): {report['statistics']['citing_papers']}")
-        logger.info(f"     - First round: {report['statistics']['first_round_citing']}")
+        logger.info(f"总论文数: {report['statistics']['total_papers']}")
+        logger.info(f"  1. 基石种子: {report['statistics']['seed_papers']}")
+        logger.info(f"  2. 子节点(引用种子): {report['statistics']['citing_papers']}")
+        logger.info(f"     - 第一轮: {report['statistics']['first_round_citing']}")
         if self.enable_second_round:
-            logger.info(f"     - Second round: {report['statistics']['second_round_citing']}")
-        logger.info(f"  3. Parent nodes (cited by seeds): {report['statistics']['ancestor_papers']}")
-        logger.info(f"     - First round: {report['statistics']['first_round_ancestor']}")
+            logger.info(f"     - 第二轮: {report['statistics']['second_round_citing']}")
+        logger.info(f"  3. 父节点(被种子引用): {report['statistics']['ancestor_papers']}")
+        logger.info(f"     - 第一轮: {report['statistics']['first_round_ancestor']}")
         if self.enable_second_round:
-            logger.info(f"     - Second round: {report['statistics']['second_round_ancestor']}")
-        logger.info(f"  4. Co-citation papers (lateral supplement): {report['statistics']['cocitation_papers']}")
-        logger.info(f"     - First round: {report['statistics']['first_round_cocitation']}")
+            logger.info(f"     - 第二轮: {report['statistics']['second_round_ancestor']}")
+        logger.info(f"  4. 共引论文(横向补充): {report['statistics']['cocitation_papers']}")
+        logger.info(f"     - 第一轮: {report['statistics']['first_round_cocitation']}")
         if self.enable_second_round:
-            logger.info(f"     - Second round: {report['statistics']['second_round_cocitation']}")
-        logger.info(f"  5. Recent SOTA: {report['statistics']['recent_papers']}")
-        logger.info(f"Total citation relationships: {report['statistics']['total_edges']}")
-        logger.info(f"Average connections per paper: {report['statistics']['total_edges'] / max(report['statistics']['total_papers'], 1):.2f}")
+            logger.info(f"     - 第二轮: {report['statistics']['second_round_cocitation']}")
+        logger.info(f"  5. 最新SOTA: {report['statistics']['recent_papers']}")
+        logger.info(f"总引用关系数: {report['statistics']['total_edges']}")
+        logger.info(f"平均每篇论文的连接数: {report['statistics']['total_edges'] / max(report['statistics']['total_papers'], 1):.2f}")
         logger.info("=" * 60)
 
         return report
 
     def export_to_graph_format(self) -> Dict:
         """
-        Export to graph data format (for visualization)
+        导出为图数据格式（便于可视化）
 
         Returns:
-            Dictionary containing nodes and edges
+            包含节点和边的字典
         """
         nodes = []
         for paper_id, paper in self.all_papers.items():
-            # Determine node type (priority order)
+            # 确定节点类型（优先级顺序）
             if paper_id in [p['id'] for p in self.seed_papers]:
                 node_type = 'seed'
             elif paper_id in [p['id'] for p in self.ancestor_papers]:
@@ -1056,10 +1056,10 @@ class SnowballRetrieval:
 
 
 if __name__ == "__main__":
-    # Test code
-    logger.info("Starting snowball retrieval system test...")
+    # 测试代码
+    logger.info("开始测试滚雪球检索系统...")
 
-    # Create retrieval system
+    # 创建检索系统
     retrieval = SnowballRetrieval(
         seed_count=5,
         citations_per_seed=6,
@@ -1067,19 +1067,19 @@ if __name__ == "__main__":
         seed_keywords=["reasoning", "chain of thought", "prompting", "thinking"]
     )
 
-    # Execute complete pipeline
+    # 执行完整流程
     result = retrieval.execute_full_pipeline(
         topic="Large Language Models",
         content_keyword="Reasoning",
         seed_year_threshold=2023
     )
 
-    # Export graph data
+    # 导出图数据
     graph_data = retrieval.export_to_graph_format()
-    logger.info(f"\nGraph data export complete: {len(graph_data['nodes'])} nodes, {len(graph_data['edges'])} edges")
+    logger.info(f"\n图数据导出完成：{len(graph_data['nodes'])} 个节点，{len(graph_data['edges'])} 条边")
 
-    # Display partial results
-    logger.info("\nExample papers (first 5):")
+    # 显示部分结果
+    logger.info("\n示例论文（前5篇）：")
     for i, (paper_id, paper) in enumerate(list(result['papers'].items())[:5], 1):
         logger.info(f"{i}. [{paper['year']}] {paper['title']}")
-        logger.info(f"   Citations: {paper['cited_by_count']}, Authors: {', '.join(paper['authors'])}")
+        logger.info(f"   引用数: {paper['cited_by_count']}, 作者: {', '.join(paper['authors'])}")

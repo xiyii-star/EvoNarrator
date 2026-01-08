@@ -1,40 +1,40 @@
 """
 Complete 8-Step Literature Retrieval Pipeline with Citation Network Construction
 
-Complete 8-step literature retrieval process and citation network construction
+完整的8步文献检索流程与引用网络构建
 
 8-Step Pipeline:
 ---------------
-Step 1+2: Seed Retrieval & OpenAlex Mapping (Combined)
-    Strategy Optimization: Relaxed Retrieval + Ensure Mapping
-    - Phase 1: Use arXiv API with relaxed retrieval conditions, get 3x target number of candidate papers (no year limit)
-    - Phase 2: Batch map all candidate papers to OpenAlex
-    - Phase 3: Keep only successfully mapped papers, sort by quality (citation count + relevance) to select best seeds
-    - Advantage: Ensure all seeds can be used in OpenAlex citation network while maintaining high recall
+步骤 1+2: 种子检索与OpenAlex映射 (Seed Retrieval & OpenAlex Mapping - Combined)
+    策略优化：放宽检索 + 确保映射
+    - 阶段1: 使用arXiv API放宽检索条件，获取3倍于目标数量的候选论文（无年份限制）
+    - 阶段2: 对所有候选论文批量进行OpenAlex映射
+    - 阶段3: 只保留映射成功的论文，按质量(引用数+相关性)排序选择最佳种子
+    - 优势: 确保所有种子都能在OpenAlex引用网络中使用，同时保持高召回率
 
-Step 3: Forward Snowballing
-    - Seed -> Who cited the Seed? -> Child nodes
-    - Get detailed information of citing papers
+步骤 3: 正向滚雪球 (Forward Snowballing)
+    - Seed -> 谁引用了Seed? -> 子节点
+    - 获取被引用论文的详细信息
 
-Step 4: Backward Snowballing
-    - Who was cited by Seed? <- Seed -> Parent nodes/Ancestors
-    - Get detailed information of cited papers
+步骤 4: 反向滚雪球 (Backward Snowballing)
+    - 谁被Seed引用了? <- Seed -> 父节点/祖先
+    - 获取引用论文的详细信息
 
-Step 5: Lateral Supplementation/Co-citation Mining
-    - Among child and parent nodes, who is repeatedly mentioned?
-    - Filter high-value papers by co-citation threshold
+步骤 5: 横向补充/共引挖掘 (Co-citation Mining)
+    - 在子节点和父节点中，谁被大家反复提及?
+    - 共引阈值过滤高价值论文
 
-Step 6 [Optional]: Second-Round Snowballing
-    - Perform controlled expansion on first-round papers
-    - Control expansion scale
+步骤 6 [可选]: 第二轮滚雪球 (Second-Round Snowballing)
+    - 对第一轮论文再进行一轮受控扩展
+    - 控制扩展规模
 
-Step 7: Recent Frontiers Supplementation
-    - arXiv papers from recent 6-12 months
-    - Similarity filtering
+步骤 7: 补充最新SOTA (Recent Frontiers Supplementation)
+    - arXiv最近6-12个月论文
+    - 相似度过滤
 
-Step 8: Citation Closure Construction
-    - Build complete network
-    - Fill missing citation relationships and connect citations
+步骤 8: 构建引用闭包 (Citation Closure Construction)
+    - 建立完整网络
+    - 填补缺失的引用关系连接引用
 
 Date: 2025-12-09
 Version: 2.0 (Combined Step 1+2 for better seed quality)
@@ -48,7 +48,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 import yaml
 
-# Import dependency modules
+# 导入依赖模块
 from openalex_client import OpenAlexClient
 from arxiv_seed_retriever import ArxivSeedRetriever
 from cross_database_mapper import CrossDatabaseMapper
@@ -62,12 +62,12 @@ logger = logging.getLogger(__name__)
 
 class PaperSearchPipeline:
     """
-    Complete 8-step literature retrieval process (optimized version: steps 1+2 combined)
+    完整的8步文献检索流程（优化版：步骤1+2合并）
 
-    Strategy optimization:
-    - Steps 1+2 combined: Relax arXiv retrieval → Batch OpenAlex mapping → Ensure all seeds are available
-    - Integrate arXiv seed retrieval, OpenAlex citation expansion, co-citation mining
-    - Ensure all seed papers have OpenAlex mapping for citation network expansion
+    策略优化：
+    - 步骤1+2合并：放宽arXiv检索 → 批量OpenAlex映射 → 确保所有种子可用
+    - 整合arXiv种子检索、OpenAlex引用扩展、共引挖掘
+    - 确保所有种子论文都在OpenAlex有映射，可进行引用网络扩展
     """
 
     def __init__(
@@ -77,40 +77,40 @@ class PaperSearchPipeline:
         llm_client = None
     ):
         """
-        Initialize pipeline
+        初始化流程
 
         Args:
-            openalex_client: OpenAlex client
-            config_path: Configuration file path
-            llm_client: LLM client (for query generation)
+            openalex_client: OpenAlex客户端
+            config_path: 配置文件路径
+            llm_client: LLM客户端(用于查询生成)
         """
-        # Initialize clients
+        # 初始化客户端
         self.openalex_client = openalex_client or OpenAlexClient()
         self.llm_client = llm_client
 
-        # Load configuration
+        # 加载配置
         self.config = self._load_config(config_path)
 
-        # Initialize retrievers
+        # 初始化检索器
         self._init_retrievers()
 
-        # Data storage structures
+        # 数据存储结构
         self.papers = {}  # paper_id -> paper_dict
         self.citation_edges = []  # [(source_id, target_id), ...]
 
-        # Result cache for each step (for debugging and statistics)
-        self.seed_papers = []  # Step 1: Seed papers
-        self.mapped_seeds = []  # Step 2: Successfully mapped seeds
-        self.unmapped_seeds = []  # Step 2: Failed to map seeds
-        self.forward_papers = []  # Step 3: Forward citation papers
-        self.backward_papers = []  # Step 4: Backward citation papers
-        self.cocitation_papers = []  # Step 5: Co-citation papers
-        self.second_round_papers = []  # Step 6: Second-round expansion papers (total)
-        self.second_round_citing = []  # Step 6: Second-round forward citation papers
-        self.second_round_ancestor = []  # Step 6: Second-round backward citation papers
-        self.recent_papers = []  # Step 7: Recent papers
+        # 各步骤结果缓存(用于调试和统计)
+        self.seed_papers = []  # 步骤1: 种子论文
+        self.mapped_seeds = []  # 步骤2: 映射成功的种子
+        self.unmapped_seeds = []  # 步骤2: 映射失败的种子
+        self.forward_papers = []  # 步骤3: 正向引用论文
+        self.backward_papers = []  # 步骤4: 反向引用论文
+        self.cocitation_papers = []  # 步骤5: 共引论文
+        self.second_round_papers = []  # 步骤6: 第二轮扩展论文（总计）
+        self.second_round_citing = []  # 步骤6: 第二轮正向引用论文
+        self.second_round_ancestor = []  # 步骤6: 第二轮反向引用论文
+        self.recent_papers = []  # 步骤7: 最新论文
 
-        # Statistics information
+        # 统计信息
         self.statistics = {
             'seed_papers': 0,
             'arxiv_mapped': 0,
@@ -128,22 +128,22 @@ class PaperSearchPipeline:
         }
 
         logger.info("="*70)
-        logger.info("Initializing paper search pipeline")
+        logger.info("初始化论文检索流程")
         logger.info("="*70)
-        logger.info(f"Configuration parameters:")
-        logger.info(f"  - Seed count: {self.config['seed_count']}")
-        logger.info(f"  - Citations per seed: {self.config['citations_per_seed']}")
-        logger.info(f"  - Co-citation threshold: {self.config['cocitation_threshold']}")
-        logger.info(f"  - Second round expansion: {'Enabled' if self.config['enable_second_round'] else 'Disabled'}")
-        logger.info(f"  - Recent papers count: {self.config['recent_count']}")
+        logger.info(f"配置参数:")
+        logger.info(f"  - 种子数量: {self.config['seed_count']}")
+        logger.info(f"  - 每种子引用数: {self.config['citations_per_seed']}")
+        logger.info(f"  - 共引阈值: {self.config['cocitation_threshold']}")
+        logger.info(f"  - 第二轮扩展: {'启用' if self.config['enable_second_round'] else '禁用'}")
+        logger.info(f"  - 最新论文数: {self.config['recent_count']}")
         logger.info("="*70)
 
     def _load_config(self, config_path: str) -> Dict:
-        """Load configuration file"""
+        """加载配置文件"""
         try:
             config_file = Path(config_path)
             if not config_file.exists():
-                logger.warning(f"Configuration file does not exist: {config_path}, using default configuration")
+                logger.warning(f"配置文件不存在: {config_path}，使用默认配置")
                 return self._default_config()
 
             with open(config_file, 'r', encoding='utf-8') as f:
@@ -151,46 +151,46 @@ class PaperSearchPipeline:
                 snowball_config = full_config.get('snowball', {})
 
                 config = {
-                    # Seed retrieval
+                    # 种子检索
                     'seed_count': snowball_config.get('seed_count', 10),
                     'arxiv_years_back': snowball_config.get('arxiv_years_back', 5),
 
-                    # Citation counts
+                    # 引用数量
                     'citations_per_seed': snowball_config.get('citations_per_seed', 15),
                     'references_per_seed': snowball_config.get('references_per_seed', 10),
 
-                    # Co-citation
+                    # 共引
                     'cocitation_threshold': snowball_config.get('cocitation_threshold', 3),
                     'max_cocitation_papers': snowball_config.get('max_cocitation_papers', 20),
 
-                    # Second round expansion
+                    # 第二轮扩展
                     'enable_second_round': snowball_config.get('enable_second_round', True),
                     'second_round_limit': snowball_config.get('second_round_limit', 5),
                     'second_round_max_papers': snowball_config.get('second_round_max_papers', 50),
 
-                    # Recent papers
+                    # 最新论文
                     'recent_months': snowball_config.get('recent_months', 12),
                     'recent_count': snowball_config.get('recent_count', 10),
 
-                    # Other
+                    # 其他
                     'use_llm_query': snowball_config.get('use_llm_query', True),
                     'min_citation_count': snowball_config.get('min_citation_count', 5),
 
-                    # LLM semantic expansion
+                    # LLM语义扩展
                     'llm_semantic_expansion': snowball_config.get('llm_semantic_expansion', True),
                     'expansion_max_topics': snowball_config.get('expansion_max_topics', 4),
                     'expansion_max_keywords': snowball_config.get('expansion_max_keywords', 8),
                 }
 
-                logger.info(f"Successfully loaded configuration file: {config_path}")
+                logger.info(f"成功加载配置文件: {config_path}")
                 return config
 
         except Exception as e:
-            logger.warning(f"Failed to load configuration: {e}, using default configuration")
+            logger.warning(f"加载配置失败: {e}，使用默认配置")
             return self._default_config()
 
     def _default_config(self) -> Dict:
-        """Default configuration"""
+        """默认配置"""
         return {
             'seed_count': 10,
             'arxiv_years_back': 5,
@@ -211,8 +211,8 @@ class PaperSearchPipeline:
         }
 
     def _init_retrievers(self):
-        """Initialize retrievers"""
-        # arXiv seed retriever
+        """初始化检索器"""
+        # arXiv种子检索器
         self.arxiv_retriever = ArxivSeedRetriever(
             max_results_per_query=self.config['seed_count'] * 2,
             years_back=self.config['arxiv_years_back'],
@@ -224,14 +224,14 @@ class PaperSearchPipeline:
             expansion_max_keywords=self.config.get('expansion_max_keywords', 8)
         )
 
-        # Cross-database mapper
+        # 跨库映射器
         self.cross_mapper = CrossDatabaseMapper(
             client=self.openalex_client,
             min_concept_score=0.3,
             required_concepts=["Computer Science"]
         )
 
-        logger.info("Retrievers initialized successfully")
+        logger.info("检索器初始化完成")
 
     def execute_full_pipeline(
         self,
@@ -240,12 +240,12 @@ class PaperSearchPipeline:
         categories: Optional[List[str]] = None
     ) -> Dict:
         """
-        Execute complete 8-step retrieval pipeline
+        执行完整的8步检索流程
 
         Args:
-            topic: Research topic
-            keywords: Keyword list (optional)
-            categories: arXiv category list (optional)
+            topic: 研究主题
+            keywords: 关键词列表(可选)
+            categories: arXiv分类列表(可选)
 
         Returns:
             {
@@ -255,43 +255,43 @@ class PaperSearchPipeline:
             }
         """
         logger.info("\n" + "="*70)
-        logger.info(f"Starting 8-step literature retrieval pipeline")
-        logger.info(f"Topic: {topic}")
+        logger.info(f"开始执行8步文献检索流程")
+        logger.info(f"主题: {topic}")
         logger.info("="*70 + "\n")
 
         start_time = time.time()
 
-        # Step 1: High-quality seed retrieval
+        # 步骤1: 高质量种子获取
         self._step1_seed_retrieval(topic, keywords, categories)
 
-        # Step 2: Cross-database ID mapping
+        # 步骤2: 跨库ID映射
         self._step2_cross_database_mapping()
 
-        # Step 3: Forward snowballing
+        # 步骤3: 正向滚雪球
         self._step3_forward_snowballing()
 
-        # Step 4: Backward snowballing
+        # 步骤4: 反向滚雪球
         self._step4_backward_snowballing()
 
-        # Step 5: Co-citation mining
+        # 步骤5: 共引挖掘
         self._step5_cocitation_mining()
 
-        # Step 6: Second round expansion (optional)
+        # 步骤6: 第二轮扩展(可选)
         if self.config['enable_second_round']:
             self._step6_second_round_snowballing()
 
-        # Step 7: Recent SOTA supplementation
+        # 步骤7: 补充最新SOTA
         self._step7_recent_frontiers(topic, keywords, categories)
 
-        # Step 8: Citation closure construction
+        # 步骤8: 构建引用闭包
         self._step8_citation_closure()
 
-        # Update statistics
+        # 更新统计信息
         self._finalize_statistics()
 
         elapsed_time = time.time() - start_time
         logger.info("\n" + "="*70)
-        logger.info(f"8-step retrieval pipeline completed, time elapsed: {elapsed_time:.2f}s")
+        logger.info(f"8步检索流程完成，耗时: {elapsed_time:.2f}秒")
         logger.info("="*70)
         self._print_summary()
 
@@ -308,35 +308,35 @@ class PaperSearchPipeline:
         categories: Optional[List[str]]
     ):
         """
-        Step 1: High-quality seed retrieval (combined with Step 2: ensure OpenAlex mapping)
+        步骤1: 高质量种子获取（结合步骤2：确保OpenAlex映射）
 
-        Strategy:
-        1. Relax arXiv retrieval conditions, get more candidate papers (expand initial retrieval scope, no year limit)
-        2. Map all candidate papers to OpenAlex
-        3. Keep only successfully mapped papers as final seeds
-        4. Sort by quality (citation count + relevance) to select best seeds
+        策略：
+        1. 放宽arXiv检索条件，获取更多候选论文（扩大初始检索范围，无年份限制）
+        2. 对所有候选论文进行OpenAlex映射
+        3. 只保留映射成功的论文作为最终种子
+        4. 按质量排序（引用数+相关性）选择最佳种子
         """
         logger.info("\n" + "="*70)
-        logger.info("Step 1+2: Seed Retrieval & OpenAlex Mapping (Combined Process)")
+        logger.info("步骤1+2: 种子检索与OpenAlex映射（组合流程）")
         logger.info("="*70)
-        logger.info("Strategy: Relax arXiv retrieval → Batch OpenAlex mapping → Keep successfully mapped papers")
+        logger.info("策略: 放宽arXiv检索 → 批量OpenAlex映射 → 保留映射成功的论文")
 
         target_seed_count = self.config['seed_count']
 
-        # Relax retrieval conditions: retrieve more candidate papers (3x target count)
-        # Because considering mapping success rate, need more candidates
+        # 放宽检索条件：检索更多候选论文（3倍于目标数量）
+        # 因为考虑到映射成功率，需要更多候选
         candidate_count = target_seed_count * 3
 
-        logger.info(f"\nPhase 1: arXiv Candidate Paper Retrieval (Relaxed Conditions)")
-        logger.info(f"  - Target seed count: {target_seed_count}")
-        logger.info(f"  - Candidate retrieval count: {candidate_count}")
+        logger.info(f"\n阶段1: arXiv候选论文检索（放宽条件）")
+        logger.info(f"  - 目标种子数: {target_seed_count}")
+        logger.info(f"  - 候选检索数: {candidate_count}")
 
         try:
-            # Temporarily lower relevance threshold to get more candidates
+            # 临时降低相关性阈值以获取更多候选
             original_threshold = self.arxiv_retriever.min_relevance_score
-            self.arxiv_retriever.min_relevance_score = 0.3  # Relax to 0.3
+            self.arxiv_retriever.min_relevance_score = 0.3  # 放宽到0.3
 
-            # Use arXiv retriever to get candidate papers
+            # 使用arXiv检索器获取候选论文
             arxiv_candidates = self.arxiv_retriever.retrieve_seed_papers(
                 topic=topic,
                 keywords=keywords,
@@ -344,104 +344,104 @@ class PaperSearchPipeline:
                 max_seeds=candidate_count
             )
 
-            # Restore original threshold
+            # 恢复原阈值
             self.arxiv_retriever.min_relevance_score = original_threshold
 
-            # No longer filter by year, accept all candidate papers
+            # 不再过滤年份，接受所有候选论文
             filtered_candidates = arxiv_candidates
 
-            logger.info(f"  ✓ Retrieved {len(filtered_candidates)} candidate papers from arXiv (all years)")
+            logger.info(f"  ✓ arXiv检索到 {len(filtered_candidates)} 篇候选论文（所有年份）")
 
             if not filtered_candidates:
-                logger.warning("  ⚠️ No qualifying arXiv candidate papers found")
+                logger.warning("  ⚠️ 没有找到符合条件的arXiv候选论文")
                 self.seed_papers = []
                 self.mapped_seeds = []
                 self.unmapped_seeds = []
                 return
 
-            # Phase 2: Batch mapping to OpenAlex
-            logger.info(f"\nPhase 2: Batch Mapping to OpenAlex")
-            logger.info(f"  - Candidate paper count: {len(filtered_candidates)}")
+            # 阶段2: 批量映射到OpenAlex
+            logger.info(f"\n阶段2: 批量映射到OpenAlex")
+            logger.info(f"  - 候选论文数: {len(filtered_candidates)}")
 
-            # Use mapper for ID mapping (disable concept verification, as arXiv stage already filtered)
+            # 使用映射器进行ID映射（禁用概念验证，因为arXiv阶段已过滤）
             mapped_papers, mapping_stats = self.cross_mapper.map_arxiv_to_openalex(
                 arxiv_papers=filtered_candidates,
-                verify_concepts=False  # arXiv papers already filtered
+                verify_concepts=False  # arXiv论文已经过滤
             )
 
-            logger.info(f"\nMapping results:")
-            logger.info(f"  - Successfully mapped: {len(mapped_papers)} papers")
-            logger.info(f"  - Failed to map: {mapping_stats['failed']} papers")
-            logger.info(f"  - Success rate: {mapping_stats.get('success_rate', 0):.1%}")
+            logger.info(f"\n映射结果:")
+            logger.info(f"  - 映射成功: {len(mapped_papers)} 篇")
+            logger.info(f"  - 映射失败: {mapping_stats['failed']} 篇")
+            logger.info(f"  - 成功率: {mapping_stats.get('success_rate', 0):.1%}")
 
-            # Phase 3: Sort by quality, select best seeds
-            logger.info(f"\nPhase 3: Select High-Quality Seeds")
+            # 阶段3: 按质量排序，选择最佳种子
+            logger.info(f"\n阶段3: 选择高质量种子")
 
-            # Sort by combined citation count and relevance
+            # 按引用数和相关性综合排序
             for paper in mapped_papers:
-                # Combined score = normalized citation count * 0.6 + relevance score * 0.4
+                # 综合得分 = 归一化引用数 * 0.6 + 相关性得分 * 0.4
                 cited_count = paper.get('cited_by_count', 0)
                 relevance = paper.get('relevance_score', 0.5)
 
-                # Simple normalization (log scale)
+                # 简单归一化（log scale）
                 normalized_citation = min(1.0, cited_count / 100.0) if cited_count > 0 else 0
                 paper['quality_score'] = normalized_citation * 0.6 + relevance * 0.4
 
-            # Sort
+            # 排序
             mapped_papers.sort(key=lambda x: x.get('quality_score', 0), reverse=True)
 
-            # Select top N as final seeds
+            # 选择top N作为最终种子
             final_seeds = mapped_papers[:target_seed_count]
 
-            logger.info(f"  - Selected top {len(final_seeds)} papers as final seeds")
+            logger.info(f"  - 选择前 {len(final_seeds)} 篇作为最终种子")
 
-            # Update seed lists
-            self.seed_papers = filtered_candidates  # Keep original arXiv retrieval results for statistics
-            self.mapped_seeds = final_seeds  # Successfully mapped seeds (for subsequent processes)
+            # 更新种子列表
+            self.seed_papers = filtered_candidates  # 保留原始arXiv检索结果用于统计
+            self.mapped_seeds = final_seeds  # 映射成功的种子（用于后续流程）
             self.unmapped_seeds = [
                 p for p in filtered_candidates
                 if not any(m.get('arxiv_id') == p.get('arxiv_id') for m in mapped_papers)
             ]
 
-            # Add successfully mapped seed papers to papers dict and mark as seed nodes
+            # 将映射成功的种子论文加入papers字典，并标记为种子节点
             for paper in self.mapped_seeds:
                 paper_id = paper['id']
-                paper['is_seed'] = True  # Add seed node marker
+                paper['is_seed'] = True  # 添加种子节点标记
                 self.papers[paper_id] = paper
 
-            logger.info(f"\nFinal seed statistics:")
-            logger.info(f"  - arXiv candidate count: {len(filtered_candidates)} (all years)")
-            logger.info(f"  - OpenAlex mapping successful: {len(mapped_papers)}")
-            logger.info(f"  - Final seed count: {len(final_seeds)}")
-            logger.info(f"  - Mapping failed (discarded): {len(self.unmapped_seeds)}")
+            logger.info(f"\n最终种子统计:")
+            logger.info(f"  - arXiv候选数: {len(filtered_candidates)} （所有年份）")
+            logger.info(f"  - OpenAlex映射成功: {len(mapped_papers)}")
+            logger.info(f"  - 最终种子数: {len(final_seeds)}")
+            logger.info(f"  - 映射失败(丢弃): {len(self.unmapped_seeds)}")
 
-            # Print seed paper information and IDs
-            logger.info(f"\nFinal seed papers (Top {min(5, len(final_seeds))}):")
+            # 打印种子论文信息和ID
+            logger.info(f"\n🌱 最终种子论文（Top {min(5, len(final_seeds))}）:")
             for i, paper in enumerate(final_seeds[:5], 1):
                 logger.info(
                     f"  [{i}] {paper['title'][:60]}... "
                     f"({paper.get('year', 'N/A')}, "
-                    f"citations:{paper.get('cited_by_count', 0)}, "
-                    f"quality:{paper.get('quality_score', 0):.2f})"
+                    f"引用:{paper.get('cited_by_count', 0)}, "
+                    f"质量分:{paper.get('quality_score', 0):.2f})"
                 )
                 logger.info(f"      ID: {paper['id']}")
             if len(final_seeds) > 5:
-                logger.info(f"  ... and {len(final_seeds) - 5} more")
+                logger.info(f"  ... 还有 {len(final_seeds) - 5} 篇")
 
-            # Record all seed node IDs
+            # 记录所有种子节点ID
             seed_ids = [p['id'] for p in final_seeds]
-            logger.info(f"\nSeed node ID list: {seed_ids}")
+            logger.info(f"\n🔑 种子节点ID列表: {seed_ids}")
 
-            # If seed count is insufficient, issue warning
+            # 如果种子数量不足，发出警告
             if len(final_seeds) < target_seed_count:
                 logger.warning(
-                    f"\n⚠️ Warning: Final seed count ({len(final_seeds)}) "
-                    f"is less than target count ({target_seed_count}), "
-                    f"recommend relaxing retrieval conditions or adjusting year limits"
+                    f"\n⚠️ 警告: 最终种子数({len(final_seeds)}) "
+                    f"少于目标数({target_seed_count})，"
+                    f"建议放宽检索条件或调整年份限制"
                 )
 
         except Exception as e:
-            logger.error(f"Seed retrieval and mapping failed: {e}")
+            logger.error(f"种子检索与映射失败: {e}")
             import traceback
             logger.error(traceback.format_exc())
             self.seed_papers = []
@@ -450,26 +450,26 @@ class PaperSearchPipeline:
 
     def _step2_cross_database_mapping(self):
         """
-        Step 2: Cross-database ID mapping (already integrated into Step 1)
+        步骤2: 跨库ID映射（已整合到步骤1）
 
-        Note: This step has been merged with Step 1, this method is kept as placeholder only
-        Actual mapping logic has been completed in _step1_seed_retrieval
+        注意：此步骤已与步骤1合并，此方法仅作为占位符保留
+        实际映射逻辑已在 _step1_seed_retrieval 中完成
         """
         logger.info("\n" + "-"*70)
-        logger.info("Step 2: Cross-database ID Mapping (integrated into Step 1)")
+        logger.info("步骤2: 跨库ID映射 (已整合到步骤1)")
         logger.info("-"*70)
-        logger.info("✓ Mapping completed in Step 1, skipping")
+        logger.info("✓ 映射已在步骤1完成，跳过")
 
-        # Statistics already updated in Step 1, no additional operations needed here
+        # 统计信息已在步骤1更新，这里无需额外操作
         pass
 
     def _handle_unmapped_seeds(self):
-        """Handle seed papers that failed to map"""
+        """处理映射失败的种子论文"""
         manual_count = 0
 
         for seed in self.unmapped_seeds:
             try:
-                # Try to search in OpenAlex
+                # 尝试在OpenAlex中搜索
                 title = seed.get('title', '')
                 if not title:
                     continue
@@ -485,165 +485,165 @@ class PaperSearchPipeline:
                     paper_id = paper['id']
                     self.papers[paper_id] = paper
                     manual_count += 1
-                    logger.info(f"  Manual search successful: {title[:50]}")
+                    logger.info(f"  手动搜索成功: {title[:50]}")
 
             except Exception as e:
-                logger.debug(f"  Manual search failed: {seed.get('title', 'Unknown')[:50]} - {e}")
+                logger.debug(f"  手动搜索失败: {seed.get('title', 'Unknown')[:50]} - {e}")
 
         self.statistics['manual_citations_built'] = manual_count
-        logger.info(f"  - Manual search successful: {manual_count} papers")
+        logger.info(f"  - 手动搜索成功: {manual_count} 篇")
 
     def _step3_forward_snowballing(self):
         """
-        Step 3: Forward snowballing
-        Find detailed information of papers that cited the seed papers
+        步骤3: 正向滚雪球
+        找到哪些论文引用了种子论文的详细信息
         """
         logger.info("\n" + "-"*70)
-        logger.info("Step 3: Forward Snowballing")
+        logger.info("步骤3: 正向滚雪球 (Forward Snowballing)")
         logger.info("-"*70)
-        logger.info("Strategy: Seed -> Who cited the Seed? -> Child nodes")
+        logger.info("策略: Seed -> 谁引用了Seed? -> 子节点")
 
         if not self.mapped_seeds:
-            logger.warning("No available mapped seeds, skipping forward snowballing")
+            logger.warning("没有可用的映射种子，跳过正向滚雪球")
             return
 
         citing_papers = []
         citations_per_seed = self.config['citations_per_seed']
 
-        logger.info(f"Starting to process {len(self.mapped_seeds)} seed papers, getting up to {citations_per_seed} citations each...")
+        logger.info(f"开始处理 {len(self.mapped_seeds)} 个种子论文，每个获取最多 {citations_per_seed} 篇引用...")
 
         for i, seed in enumerate(self.mapped_seeds, 1):
             seed_id = seed['id']
             seed_title = seed.get('title', 'Unknown')
 
             try:
-                # Get papers that cite this seed paper
+                # 获取引用该种子论文的论文
                 citations = self.openalex_client.get_citations(
                     paper_id=seed_id,
                     max_results=citations_per_seed
                 )
 
-                # Add citing papers
+                # 添加引用论文
                 new_papers_count = 0
                 for citation in citations:
                     citation_id = citation['id']
 
-                    # Add to paper collection
+                    # 添加到论文集合
                     if citation_id not in self.papers:
                         self.papers[citation_id] = citation
                         citing_papers.append(citation)
                         new_papers_count += 1
 
-                    # Add citation edge: citation -> seed
+                    # 添加引用边: citation -> seed
                     edge = (citation_id, seed_id)
                     if edge not in self.citation_edges:
                         self.citation_edges.append(edge)
 
-                # Simplified output: only show key information
-                logger.info(f"  [{i}/{len(self.mapped_seeds)}] {seed_title[:50]}... → +{new_papers_count} new papers (total {len(citations)} citations)")
+                # 简化输出：只显示关键信息
+                logger.info(f"  [{i}/{len(self.mapped_seeds)}] {seed_title[:50]}... → +{new_papers_count} 新论文 (共{len(citations)}篇引用)")
 
             except Exception as e:
-                logger.warning(f"  [{i}/{len(self.mapped_seeds)}] Failed to get citations: {seed_title[:40]}... - {e}")
+                logger.warning(f"  [{i}/{len(self.mapped_seeds)}] 获取引用失败: {seed_title[:40]}... - {e}")
 
         self.forward_papers = citing_papers
-        logger.info(f"\n✅ Forward snowballing completed: added {len(citing_papers)} citing papers")
+        logger.info(f"\n✅ 正向滚雪球完成: 新增 {len(citing_papers)} 篇引用论文")
 
     def _step4_backward_snowballing(self):
         """
-        Step 4: Backward snowballing
-        Find which papers were cited by the seed papers
+        步骤4: 反向滚雪球
+        找到种子论文引用了哪些论文
         """
         logger.info("\n" + "-"*70)
-        logger.info("Step 4: Backward Snowballing")
+        logger.info("步骤4: 反向滚雪球 (Backward Snowballing)")
         logger.info("-"*70)
-        logger.info("Strategy: Who was cited by Seed? <- Seed -> Parent nodes/Ancestors")
+        logger.info("策略: 谁被Seed引用了? <- Seed -> 父节点/祖先")
 
         if not self.mapped_seeds:
-            logger.warning("No available mapped seeds, skipping backward snowballing")
+            logger.warning("没有可用的映射种子，跳过反向滚雪球")
             return
 
         referenced_papers = []
         references_per_seed = self.config['references_per_seed']
 
-        logger.info(f"Starting to process {len(self.mapped_seeds)} seed papers, getting up to {references_per_seed} references each...")
+        logger.info(f"开始处理 {len(self.mapped_seeds)} 个种子论文，每个获取最多 {references_per_seed} 篇参考文献...")
 
         for i, seed in enumerate(self.mapped_seeds, 1):
             seed_id = seed['id']
             seed_title = seed.get('title', 'Unknown')
 
             try:
-                # Get papers cited by this seed paper
+                # 获取该种子论文引用的论文
                 references = self.openalex_client.get_references(
                     paper_id=seed_id,
                     max_results=references_per_seed
                 )
 
-                # Add cited papers
+                # 添加引用论文
                 new_papers_count = 0
                 for reference in references:
                     reference_id = reference['id']
 
-                    # Add to paper collection
+                    # 添加到论文集合
                     if reference_id not in self.papers:
                         self.papers[reference_id] = reference
                         referenced_papers.append(reference)
                         new_papers_count += 1
 
-                    # Add citation edge: seed -> reference
+                    # 添加引用边: seed -> reference
                     edge = (seed_id, reference_id)
                     if edge not in self.citation_edges:
                         self.citation_edges.append(edge)
 
-                # Simplified output: only show key information
-                logger.info(f"  [{i}/{len(self.mapped_seeds)}] {seed_title[:50]}... → +{new_papers_count} new papers (total {len(references)} references)")
+                # 简化输出：只显示关键信息
+                logger.info(f"  [{i}/{len(self.mapped_seeds)}] {seed_title[:50]}... → +{new_papers_count} 新论文 (共{len(references)}篇参考)")
 
             except Exception as e:
-                logger.warning(f"  [{i}/{len(self.mapped_seeds)}] Failed to get references: {seed_title[:40]}... - {e}")
+                logger.warning(f"  [{i}/{len(self.mapped_seeds)}] 获取参考文献失败: {seed_title[:40]}... - {e}")
 
         self.backward_papers = referenced_papers
-        logger.info(f"\n✅ Backward snowballing completed: added {len(referenced_papers)} ancestor papers")
+        logger.info(f"\n✅ 反向滚雪球完成: 新增 {len(referenced_papers)} 篇祖先论文")
 
     def _step5_cocitation_mining(self):
         """
-        Step 5: Co-citation mining
-        Find high-value papers that are repeatedly mentioned in child and parent nodes
+        步骤5: 共引挖掘
+        找到在子节点和父节点中被反复提及的高价值论文
         """
         logger.info("\n" + "-"*70)
-        logger.info("Step 5: Co-citation Mining")
+        logger.info("步骤5: 共引挖掘 (Co-citation Mining)")
         logger.info("-"*70)
-        logger.info("Strategy: Count co-cited papers")
+        logger.info("策略: 统计共同引用的论文")
 
-        # Merge first-round seed papers + citation papers
+        # 合并第一轮的种子论文 + 引用论文
         first_round_papers = self.forward_papers + self.backward_papers
 
         if not first_round_papers:
-            logger.warning("No available first-round papers, skipping co-citation mining")
+            logger.warning("没有可用的第一轮论文，跳过共引挖掘")
             return
 
-        # Count how many times papers are cited
+        # 统计论文被引用的次数
         cocitation_counter = Counter()
 
         for paper in first_round_papers:
             paper_id = paper['id']
 
             try:
-                # Get references of this paper
+                # 获取该论文的参考文献
                 references = self.openalex_client.get_references(
                     paper_id=paper_id,
                     max_results=20
                 )
 
-                # Count citation frequency of references
+                # 统计参考文献被引用次数
                 for ref in references:
                     ref_id = ref['id']
-                    # Only count papers not in current paper collection
+                    # 只统计不在当前论文集合中的论文
                     if ref_id not in self.papers:
                         cocitation_counter[ref_id] += 1
 
             except Exception as e:
-                logger.debug(f"  Failed to get references: {paper['title'][:50]} - {e}")
+                logger.debug(f"  获取参考文献失败: {paper['title'][:50]} - {e}")
 
-        # Filter papers by co-citation count
+        # 根据共引次数过滤论文
         threshold = self.config['cocitation_threshold']
         max_papers = self.config['max_cocitation_papers']
 
@@ -652,9 +652,9 @@ class PaperSearchPipeline:
             if count >= threshold
         ][:max_papers]
 
-        logger.info(f"Found {len(cocited_paper_ids)} co-cited papers (threshold≥{threshold})")
+        logger.info(f"找到 {len(cocited_paper_ids)} 个共引论文(阈值≥{threshold})")
 
-        # Get detailed information of co-cited papers
+        # 获取共引论文的详细信息
         cocitation_papers = []
         for paper_id in cocited_paper_ids:
             try:
@@ -663,7 +663,7 @@ class PaperSearchPipeline:
                     self.papers[paper_id] = paper
                     cocitation_papers.append(paper)
 
-                    # Add citation edges (from papers citing co-cited papers to co-cited papers)
+                    # 添加引用边(从引用共引论文的论文到共引论文)
                     for citing_paper in first_round_papers:
                         citing_id = citing_paper['id']
                         try:
@@ -676,27 +676,27 @@ class PaperSearchPipeline:
                             pass
 
             except Exception as e:
-                logger.debug(f"  Failed to get co-cited paper: {paper_id} - {e}")
+                logger.debug(f"  获取共引论文失败: {paper_id} - {e}")
 
         self.cocitation_papers = cocitation_papers
-        logger.info(f"Co-citation mining retrieved {len(cocitation_papers)} co-cited papers")
+        logger.info(f"共引挖掘获取 {len(cocitation_papers)} 篇共引论文")
 
     def _step6_second_round_snowballing(self):
         """
-        Step 6: Second-round snowballing (optional)
-        Perform controlled expansion on first-round papers
+        步骤6: 第二轮滚雪球(可选)
+        对第一轮论文再进行一轮受控扩展
         """
         logger.info("\n" + "-"*70)
-        logger.info("Step 6: Second-Round Snowballing")
+        logger.info("步骤6: 第二轮滚雪球 (Second-Round Snowballing)")
         logger.info("-"*70)
-        logger.info("Strategy: Perform controlled expansion on first-round papers")
+        logger.info("策略: 对第一轮论文再进行一轮受控扩展")
 
         self.statistics['second_round_enabled'] = True
 
-        # Select high-quality first-round papers for expansion
+        # 选择高质量的第一轮论文进行扩展
         first_round_papers = self.forward_papers + self.backward_papers + self.cocitation_papers
 
-        # Select top papers with highest citation counts
+        # 选择引用量最高的top论文
         sorted_papers = sorted(
             first_round_papers,
             key=lambda p: p.get('cited_by_count', 0),
@@ -706,7 +706,7 @@ class PaperSearchPipeline:
         max_expand = self.config['second_round_max_papers']
         papers_to_expand = sorted_papers[:max_expand]
 
-        logger.info(f"Selected {len(papers_to_expand)} highly-cited papers for second-round expansion")
+        logger.info(f"选择 {len(papers_to_expand)} 篇高引用论文进行第二轮扩展")
 
         second_round_citing = []
         second_round_ancestor = []
@@ -717,7 +717,7 @@ class PaperSearchPipeline:
             paper_title = paper.get('title', 'Unknown')
 
             try:
-                # Forward snowballing (get papers citing this paper)
+                # 正向滚雪球(获取引用该论文的论文)
                 citations = self.openalex_client.get_citations(
                     paper_id=paper_id,
                     max_results=limit_per_paper
@@ -733,7 +733,7 @@ class PaperSearchPipeline:
                     if edge not in self.citation_edges:
                         self.citation_edges.append(edge)
 
-                # Backward snowballing (get papers cited by this paper)
+                # 反向滚雪球(获取该论文引用的论文)
                 references = self.openalex_client.get_references(
                     paper_id=paper_id,
                     max_results=limit_per_paper
@@ -750,19 +750,19 @@ class PaperSearchPipeline:
                         self.citation_edges.append(edge)
 
                 if i <= 5 or i % 10 == 0:
-                    logger.info(f"  [{i}/{len(papers_to_expand)}] {paper_title[:50]}... -> {len(citations)} citations + {len(references)} references")
+                    logger.info(f"  [{i}/{len(papers_to_expand)}] {paper_title[:50]}... -> {len(citations)}引用 + {len(references)}参考")
 
             except Exception as e:
-                logger.debug(f"  Second-round expansion failed: {paper_title[:50]} - {e}")
+                logger.debug(f"  第二轮扩展失败: {paper_title[:50]} - {e}")
 
-        # Save second-round results
+        # 保存第二轮结果
         self.second_round_citing = second_round_citing
         self.second_round_ancestor = second_round_ancestor
         self.second_round_papers = second_round_citing + second_round_ancestor
 
-        logger.info(f"Second-round snowballing results:")
-        logger.info(f"  - Forward child nodes: {len(second_round_citing)} papers")
-        logger.info(f"  - Backward ancestors: {len(second_round_ancestor)} papers")
+        logger.info(f"第二轮滚雪球结果:")
+        logger.info(f"  - 正向子节点: {len(second_round_citing)} 篇")
+        logger.info(f"  - 反向祖先: {len(second_round_ancestor)} 篇")
 
     def _step7_recent_frontiers(
         self,
@@ -771,129 +771,129 @@ class PaperSearchPipeline:
         categories: Optional[List[str]]
     ):
         """
-        Step 7: Recent SOTA supplementation
-        Get recent papers from arXiv from the last 6-12 months
+        步骤7: 补充最新SOTA
+        从arXiv获取最近6-12个月的最新论文
         """
         logger.info("\n" + "-"*70)
-        logger.info("Step 7: Recent Frontiers Supplementation")
+        logger.info("步骤7: 补充最新SOTA (Recent Frontiers Supplementation)")
         logger.info("-"*70)
-        logger.info(f"Strategy: arXiv papers from recent {self.config['recent_months']} months")
+        logger.info(f"策略: arXiv最近{self.config['recent_months']}个月论文")
 
         try:
-            # Use arXiv retriever to get recent papers
+            # 使用arXiv检索器获取最新论文
             try:
                 import arxiv
             except ImportError:
-                logger.warning("arxiv package not installed, skipping recent papers supplementation")
+                logger.warning("arxiv包未安装，跳过最新论文补充")
                 self.recent_papers = []
                 return
 
-            # Calculate date range
+            # 计算日期范围
             months_back = self.config['recent_months']
             start_date = datetime.now() - timedelta(days=30 * months_back)
 
-            logger.info(f"  - Time range: >= {start_date.strftime('%Y-%m-%d')}")
-            logger.info(f"  - Target count: {self.config['recent_count']} papers")
+            logger.info(f"  - 时间范围: >= {start_date.strftime('%Y-%m-%d')}")
+            logger.info(f"  - 目标数量: {self.config['recent_count']} 篇")
 
-            # Temporarily lower relevance threshold to get more recent papers
+            # 临时降低相关性阈值以获取更多最新论文
             original_threshold = self.arxiv_retriever.min_relevance_score
-            self.arxiv_retriever.min_relevance_score = 0.25  # Further relax to 0.25 (recent papers may have lower relevance scores)
+            self.arxiv_retriever.min_relevance_score = 0.25  # 进一步放宽到0.25（最新论文可能相关性评分偏低）
 
             recent_papers_raw = self.arxiv_retriever.retrieve_seed_papers(
                 topic=topic,
                 keywords=keywords,
                 categories=categories,
-                max_seeds=self.config['recent_count'] * 3,  # Get more
-                sort_by=arxiv.SortCriterion.SubmittedDate  # Sort by submission date
+                max_seeds=self.config['recent_count'] * 3,  # 多取一些
+                sort_by=arxiv.SortCriterion.SubmittedDate  # 按提交日期排序
             )
 
-            # Restore original threshold
+            # 恢复原阈值
             self.arxiv_retriever.min_relevance_score = original_threshold
 
-            logger.info(f"  → Retrieved {len(recent_papers_raw)} candidate papers from arXiv")
+            logger.info(f"  → arXiv检索到 {len(recent_papers_raw)} 篇候选论文")
 
-            # Filter to keep only recent papers
+            # 过滤只保留最近时间的论文
             recent_filtered = []
             for paper in recent_papers_raw:
-                # Use published_date field for precise time filtering
+                # 使用published_date字段进行精确的时间过滤
                 published_date = paper.get('published_date')
 
                 if published_date:
-                    # If published_date is a datetime object
+                    # 如果published_date是datetime对象
                     if isinstance(published_date, datetime):
                         pub_date = published_date
                     else:
-                        # Try to parse string
+                        # 尝试解析字符串
                         try:
                             pub_date = datetime.fromisoformat(str(published_date).replace('Z', '+00:00'))
                         except:
-                            # Fall back to year comparison
+                            # 回退到年份比较
                             pub_year = paper.get('year', 0)
                             if pub_year >= start_date.year:
                                 recent_filtered.append(paper)
                             continue
 
-                    # Ensure pub_date is naive datetime (remove timezone info for comparison with start_date)
+                    # 确保pub_date是naive datetime（移除时区信息以便与start_date比较）
                     if pub_date.tzinfo is not None:
                         pub_date = pub_date.replace(tzinfo=None)
 
-                    # Compare complete date
+                    # 比较完整的日期
                     if pub_date >= start_date:
                         recent_filtered.append(paper)
-                        logger.debug(f"  ✓ Kept: {paper['title'][:50]}... ({pub_date.strftime('%Y-%m-%d')})")
+                        logger.debug(f"  ✓ 保留: {paper['title'][:50]}... ({pub_date.strftime('%Y-%m-%d')})")
                     else:
-                        logger.debug(f"  × Filtered: {paper['title'][:50]}... ({pub_date.strftime('%Y-%m-%d')}, earlier than {start_date.strftime('%Y-%m-%d')})")
+                        logger.debug(f"  × 过滤: {paper['title'][:50]}... ({pub_date.strftime('%Y-%m-%d')}，早于{start_date.strftime('%Y-%m-%d')})")
                 else:
-                    # No date information, use year as fallback
+                    # 没有日期信息，使用年份作为后备
                     pub_year = paper.get('year', 0)
                     if pub_year >= start_date.year:
                         recent_filtered.append(paper)
-                        logger.debug(f"  ✓ Kept: {paper['title'][:50]}... (year:{pub_year})")
+                        logger.debug(f"  ✓ 保留: {paper['title'][:50]}... (年份:{pub_year})")
 
             recent_filtered = recent_filtered[:self.config['recent_count']]
 
-            logger.info(f"  → After filtering, kept {len(recent_filtered)} papers from recent {months_back} months")
+            logger.info(f"  → 过滤后保留 {len(recent_filtered)} 篇最近{months_back}个月的论文")
 
-            # Map to OpenAlex
+            # 映射到OpenAlex
             if recent_filtered:
-                logger.info(f"\nStarting mapping to OpenAlex...")
+                logger.info(f"\n开始映射到OpenAlex...")
                 mapped_recent, _ = self.cross_mapper.map_arxiv_to_openalex(
                     arxiv_papers=recent_filtered,
                     verify_concepts=False
                 )
 
-                logger.info(f"  → Successfully mapped {len(mapped_recent)} papers")
+                logger.info(f"  → 映射成功 {len(mapped_recent)} 篇")
 
-                # Add to paper collection
+                # 添加到论文集合
                 for paper in mapped_recent:
                     paper_id = paper['id']
                     if paper_id not in self.papers:
                         self.papers[paper_id] = paper
                         self.recent_papers.append(paper)
 
-                        # Try to connect citation relationships
+                        # 尝试连接引用关系论文
                         self._connect_recent_paper(paper)
 
-            logger.info(f"\n✅ Recent papers supplementation: added {len(self.recent_papers)} recent papers")
+            logger.info(f"\n✅ 补充最新论文: 新增 {len(self.recent_papers)} 篇最新论文")
 
         except Exception as e:
-            logger.error(f"Recent papers supplementation failed: {e}")
+            logger.error(f"补充最新论文失败: {e}")
             import traceback
             logger.error(traceback.format_exc())
             self.recent_papers = []
 
     def _connect_recent_paper(self, paper: Dict):
-        """Connect recent papers to citation network"""
+        """将最新论文连接到引用论文网络"""
         paper_id = paper['id']
 
         try:
-            # Get references of this paper
+            # 获取该论文的参考文献
             references = self.openalex_client.get_references(
                 paper_id=paper_id,
                 max_results=20
             )
 
-            # If references are in our paper collection, add citation edges
+            # 如果参考文献在我们的论文集合中，添加引用边
             for ref in references:
                 ref_id = ref['id']
                 if ref_id in self.papers:
@@ -902,33 +902,33 @@ class PaperSearchPipeline:
                         self.citation_edges.append(edge)
 
         except Exception as e:
-            logger.debug(f"  Failed to connect recent paper: {paper['title'][:50]} - {e}")
+            logger.debug(f"  连接最新论文失败: {paper['title'][:50]} - {e}")
 
     def _step8_citation_closure(self):
         """
-        Step 8: Citation closure construction
-        Fill missing citation relationships between papers to build complete network
+        步骤8: 构建引用闭包
+        填补论文集合之间缺失的引用关系，构建完整网络
         """
         logger.info("\n" + "-"*70)
-        logger.info("Step 8: Citation Closure Construction")
+        logger.info("步骤8: 构建引用闭包 (Citation Closure Construction)")
         logger.info("-"*70)
-        logger.info("Strategy: Complete citation relationships between papers")
+        logger.info("策略: 补全论文集合之间引用关系")
 
         initial_edges = len(self.citation_edges)
         paper_ids = list(self.papers.keys())
 
-        # Optimization: use set to speed up lookup
+        # 优化: 使用集合加速查找
         paper_ids_set = set(paper_ids)
         citation_edges_set = set(self.citation_edges)
 
-        logger.info(f"  Current paper count: {len(paper_ids)}")
-        logger.info(f"  Current citation edge count: {initial_edges}")
+        logger.info(f"  当前论文数: {len(paper_ids)}")
+        logger.info(f"  当前引用边数: {initial_edges}")
 
-        # Calculate actual check count
+        # 计算实际检查数量
         max_check = min(50, len(paper_ids))
-        logger.info(f"  Will check citation relationships of top {max_check} papers\n")
+        logger.info(f"  将检查前 {max_check} 篇论文的引用关系\n")
 
-        # Check for missing citation relationships between papers
+        # 检查论文之间的引用关系缺失引用关系
         new_edges = 0
         checked_papers = 0
         failed_papers = 0
@@ -936,13 +936,13 @@ class PaperSearchPipeline:
 
         for i, source_id in enumerate(paper_ids[:max_check]):
             try:
-                # Get references of this paper
+                # 获取该论文的参考文献
                 references = self.openalex_client.get_references(
                     paper_id=source_id,
                     max_results=50
                 )
 
-                # Batch check citation relationships
+                # 批量检查引用关系
                 for ref in references:
                     ref_id = ref['id']
                     if ref_id in paper_ids_set:
@@ -954,7 +954,7 @@ class PaperSearchPipeline:
 
                 checked_papers += 1
 
-                # Optimize output frequency: output every 20% or every 10 papers
+                # 优化输出频率: 每20%或每10篇输出一次
                 if checked_papers % max(1, max_check // 5) == 0 or checked_papers % 10 == 0:
                     progress = (checked_papers / max_check) * 100
                     elapsed = time.time() - start_time
@@ -962,37 +962,37 @@ class PaperSearchPipeline:
                     eta = (max_check - checked_papers) / rate if rate > 0 else 0
 
                     logger.info(
-                        f"  Progress: [{checked_papers}/{max_check}] {progress:.0f}% | "
-                        f"New edges: {new_edges} | "
-                        f"Failed: {failed_papers} | "
-                        f"Speed: {rate:.1f} papers/s | "
-                        f"ETA: {eta:.0f}s"
+                        f"  进度: [{checked_papers}/{max_check}] {progress:.0f}% | "
+                        f"新增边: {new_edges} | "
+                        f"失败: {failed_papers} | "
+                        f"速度: {rate:.1f}篇/s | "
+                        f"预计剩余: {eta:.0f}s"
                     )
 
             except Exception as e:
                 failed_papers += 1
-                logger.debug(f"  Skipped paper {source_id[:20]}... : {str(e)[:50]}")
+                logger.debug(f"  跳过论文 {source_id[:20]}... : {str(e)[:50]}")
 
-        # Final statistics
+        # 最终统计
         elapsed_total = time.time() - start_time
-        logger.info(f"\n✅ Citation closure construction completed (time elapsed {elapsed_total:.1f}s):")
-        logger.info(f"  Checked papers: {checked_papers}/{max_check}")
-        logger.info(f"  Failed papers: {failed_papers}")
-        logger.info(f"  Initial citation edges: {initial_edges}")
-        logger.info(f"  New citation edges: {new_edges}")
-        logger.info(f"  Final citation edges: {len(self.citation_edges)}")
+        logger.info(f"\n✅ 引用闭包构建完成 (耗时 {elapsed_total:.1f}s):")
+        logger.info(f"  检查论文: {checked_papers}/{max_check}")
+        logger.info(f"  失败论文: {failed_papers}")
+        logger.info(f"  初始引用边: {initial_edges}")
+        logger.info(f"  新增引用边: {new_edges}")
+        logger.info(f"  最终引用边: {len(self.citation_edges)}")
 
         if new_edges > 0:
-            logger.info(f"  Growth rate: +{(new_edges/initial_edges*100):.1f}%")
+            logger.info(f"  增长率: +{(new_edges/initial_edges*100):.1f}%")
 
-        # Calculate network density
+        # 计算网络密度
         if len(paper_ids) > 1:
             max_possible_edges = len(paper_ids) * (len(paper_ids) - 1)
             density = len(self.citation_edges) / max_possible_edges * 100
-            logger.info(f"  Network density: {density:.2f}%")
+            logger.info(f"  网络密度: {density:.2f}%")
 
     def _finalize_statistics(self):
-        """Update final statistics"""
+        """更新最终统计信息"""
         self.statistics.update({
             'seed_papers': len(self.seed_papers),
             'arxiv_mapped': len(self.mapped_seeds),
@@ -1000,90 +1000,90 @@ class PaperSearchPipeline:
             'first_round_citing': len(self.forward_papers),
             'first_round_ancestor': len(self.backward_papers),
             'first_round_cocitation': len(self.cocitation_papers),
-            # Fix: use separately cached lists
+            # 修复：使用单独缓存的列表
             'second_round_citing': len(self.second_round_citing),
             'second_round_ancestor': len(self.second_round_ancestor),
             'recent_papers': len(self.recent_papers),
             'total_papers': len(self.papers),
             'total_edges': len(self.citation_edges),
-            # Add seed node ID list
+            # 添加种子节点ID列表
             'seed_ids': [p['id'] for p in self.mapped_seeds]
         })
 
     def _print_summary(self):
-        """Print final statistics summary"""
+        """打印最终统计摘要"""
         stats = self.statistics
 
         logger.info("\n" + "="*70)
-        logger.info("8-Step Retrieval Pipeline Statistics Summary")
+        logger.info("8步检索流程统计摘要")
         logger.info("="*70)
-        logger.info(f"Seed Papers")
-        logger.info(f"  - Total seeds: {stats['seed_papers']}")
-        logger.info(f"  - arXiv mapping successful: {stats['arxiv_mapped']}")
-        logger.info(f"  - arXiv mapping failed: {stats['arxiv_unmapped']}")
+        logger.info(f"种子论文")
+        logger.info(f"  - 总种子数: {stats['seed_papers']}")
+        logger.info(f"  - arXiv映射成功: {stats['arxiv_mapped']}")
+        logger.info(f"  - arXiv映射失败: {stats['arxiv_unmapped']}")
         if stats.get('seed_ids'):
-            logger.info(f"  - Seed node IDs: {stats['seed_ids'][:3]}{'...' if len(stats['seed_ids']) > 3 else ''}")
+            logger.info(f"  - 种子节点ID: {stats['seed_ids'][:3]}{'...' if len(stats['seed_ids']) > 3 else ''}")
         if stats['manual_citations_built'] > 0:
-            logger.info(f"  - Manual search supplementation: {stats['manual_citations_built']}")
+            logger.info(f"  - 手动搜索补充: {stats['manual_citations_built']}")
 
-        logger.info(f"First-Round Snowballing")
-        logger.info(f"  - Forward child nodes: {stats['first_round_citing']}")
-        logger.info(f"  - Backward ancestors: {stats['first_round_ancestor']}")
-        logger.info(f"  - Co-citation papers: {stats['first_round_cocitation']}")
+        logger.info(f"第一轮滚雪球")
+        logger.info(f"  - 正向子节点: {stats['first_round_citing']}")
+        logger.info(f"  - 反向祖先: {stats['first_round_ancestor']}")
+        logger.info(f"  - 共引论文: {stats['first_round_cocitation']}")
 
         if stats['second_round_enabled']:
-            logger.info(f"Second-Round Snowballing")
-            logger.info(f"  - Forward child nodes: {stats['second_round_citing']}")
-            logger.info(f"  - Backward ancestors: {stats['second_round_ancestor']}")
+            logger.info(f"第二轮滚雪球")
+            logger.info(f"  - 正向子节点: {stats['second_round_citing']}")
+            logger.info(f"  - 反向祖先: {stats['second_round_ancestor']}")
 
-        logger.info(f"Recent SOTA")
-        logger.info(f"  - Recent papers: {stats['recent_papers']}")
+        logger.info(f"最新SOTA")
+        logger.info(f"  - 最新论文: {stats['recent_papers']}")
 
-        logger.info(f"Final Results")
-        logger.info(f"  - Total papers: {stats['total_papers']}")
-        logger.info(f"  - Citation relationships: {stats['total_edges']}")
+        logger.info(f"最终结果")
+        logger.info(f"  - 总论文数: {stats['total_papers']}")
+        logger.info(f"  - 引用关系数: {stats['total_edges']}")
 
         if stats['total_papers'] > 0:
             avg_degree = stats['total_edges'] / stats['total_papers']
-            logger.info(f"  - Average connectivity: {avg_degree:.2f}")
+            logger.info(f"  - 平均连接度: {avg_degree:.2f}")
 
         logger.info("="*70)
 
     def get_statistics(self) -> Dict:
-        """Return statistics information"""
+        """返回统计信息"""
         return self.statistics.copy()
 
     def get_papers(self) -> Dict[str, Dict]:
-        """Return all papers"""
+        """返回所有论文"""
         return self.papers.copy()
 
     def get_citation_edges(self) -> List[Tuple[str, str]]:
-        """Return all citation relationships"""
+        """返回所有引用关系"""
         return self.citation_edges.copy()
 
 
 # ============================================================================
-# Main Function
+# 主函数
 # ============================================================================
 
 if __name__ == "__main__":
-    # Initialize pipeline
+    # 初始化流程
     pipeline = PaperSearchPipeline(
         config_path='./config/config.yaml'
     )
 
-    # Execute complete 8-step retrieval
+    # 执行完整的8步检索
     result = pipeline.execute_full_pipeline(
         topic="Natural Language Processing",
         keywords=["transformer", "attention", "BERT", "GPT"],
         categories=["cs.CL", "cs.AI"]
     )
 
-    # Output results
+    # 输出结果
     print("\n" + "="*70)
-    print("Final Retrieval Results:")
+    print("最终检索结果:")
     print("="*70)
-    print(f"Total papers: {len(result['papers'])}")
-    print(f"Citation relationships: {len(result['citation_edges'])}")
-    print(f"Average connectivity: {len(result['citation_edges']) / len(result['papers']):.2f}")
+    print(f"总论文数: {len(result['papers'])}")
+    print(f"引用关系数: {len(result['citation_edges'])}")
+    print(f"平均连接度: {len(result['citation_edges']) / len(result['papers']):.2f}")
     print("="*70)

@@ -1,35 +1,35 @@
 """
-PDF Downloader Module - Multi-source Intelligent PDF Download
+PDF下载器模块 - 多源智能PDF下载
 
-Supports two download strategies:
+支持两种下载方案：
 
-[Strategy 1] Direct URL Download (Highest Priority)
-- Extract multiple possible PDF URLs from paper metadata
-- Data sources include: pdf_url field, OpenAlex, DOI inference, etc.
-- Support multiple URLs with sequential attempts and retry mechanism
-- Supported PDF sources:
+【方案一】直接URL下载（优先级最高）
+- 从论文元数据中提取多个可能的PDF URL
+- 数据源包括：pdf_url字段、OpenAlex、DOI推断等
+- 支持多个URL按顺序尝试，带重试机制
+- 支持的PDF源：
   * arXiv (https://arxiv.org/pdf/...)
   * PubMed Central (PMC)
-  * PLOS and other publishers
-  * OpenAlex open access links
+  * PLOS等出版商
+  * OpenAlex开放获取链接
 
-[Strategy 2] arXiv Title Search (Fallback Strategy)
-- When Strategy 1 fails, search arXiv using paper title
-- Intelligent similarity matching to select best candidate paper
-- Depends on python-arxiv library (optional)
+【方案二】arXiv标题搜索（降级方案）
+- 当方案一失败时，使用论文标题在arXiv搜索
+- 智能相似度匹配，选择最佳候选论文
+- 依赖python-arxiv库 (可选)
 
-Features:
-- Automatic retry mechanism (up to 3 attempts)
-- PDF format validation
-- File size checking
-- Content-Type validation
-- Exponential backoff strategy
-- Batch download support
-- Complete download statistics
+特性：
+- 自动重试机制（最多3次）
+- PDF格式验证
+- 文件大小检查
+- Content-Type验证
+- 指数退避策略
+- 批量下载支持
+- 完整的下载统计
 
-Dependencies:
-- requests (required)
-- arxiv (optional, for Strategy 2)
+依赖：
+- requests (必需)
+- arxiv (可选，用于方案二)
 """
 
 import requests
@@ -52,30 +52,30 @@ logger = logging.getLogger(__name__)
 
 class PDFDownloader:
     """
-    Intelligent PDF Downloader
+    智能PDF下载器
 
-    Two download strategies with automatic switching:
-    1. Strategy 1 (Direct URL): Extract PDF links from paper metadata and download directly
-    2. Strategy 2 (arXiv Search): When Strategy 1 fails, search arXiv using title
+    两种下载方案自动切换：
+    1. 方案一（直接URL）：从论文元数据提取PDF链接直接下载
+    2. 方案二（arXiv搜索）：当方案一失败时，使用标题在arXiv搜索下载
 
-    Core Functions:
-    - download_paper(): Download a single paper
-    - batch_download(): Batch download multiple papers
-    - get_download_stats(): Get download statistics
-    - list_downloaded_papers(): List downloaded papers
+    核心功能：
+    - download_paper(): 下载单篇论文
+    - batch_download(): 批量下载多篇论文
+    - get_download_stats(): 获取下载统计
+    - list_downloaded_papers(): 列出已下载论文
 
-    Internal Methods:
-    - _find_pdf_urls(): Extract all possible PDF links from metadata (Strategy 1)
-    - _download_arxiv_by_title(): Search and download from arXiv by title (Strategy 2)
-    - _download_file_with_retry(): File download with retry
-    - _is_valid_pdf_url(): URL validity check
-    - _generate_filename(): Generate safe filename
+    内部方法：
+    - _find_pdf_urls(): 从元数据提取所有可能的PDF链接（方案一）
+    - _download_arxiv_by_title(): 通过标题在arXiv搜索下载（方案二）
+    - _download_file_with_retry(): 带重试的文件下载
+    - _is_valid_pdf_url(): URL有效性检查
+    - _generate_filename(): 生成安全的文件名
 
-    Usage Example:
+    使用示例：
         >>> downloader = PDFDownloader(download_dir='./pdfs')
         >>> paper = {'id': 'W123', 'title': 'Some Paper', 'pdf_url': 'https://...'}
         >>> result = downloader.download_paper(paper)
-        >>> print(result['status'])  # 'downloaded', 'exists', or 'failed'
+        >>> print(result['status'])  # 'downloaded', 'exists', 或 'failed'
     """
 
     def __init__(self, download_dir: str = "./data/papers", max_retries: int = 3):
@@ -84,7 +84,7 @@ class PDFDownloader:
         self.max_retries = max_retries
         self.session = requests.Session()
 
-        # Set request headers to simulate browser
+        # 设置请求头，模拟浏览器
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
             'Accept': 'application/pdf,*/*',
@@ -94,50 +94,50 @@ class PDFDownloader:
             'Upgrade-Insecure-Requests': '1',
         })
 
-        logger.info(f"PDF downloader initialized, download directory: {self.download_dir}")
+        logger.info(f"PDF下载器初始化完成，下载目录: {self.download_dir}")
 
     def download_paper(self, paper: Dict, overwrite: bool = False) -> Dict:
         """
-        Download PDF for a single paper
+        下载单篇论文的PDF
 
-        Uses two download strategies (tried in order):
+        采用两种下载方案（按顺序尝试）：
 
-        [Strategy 1] Direct URL Download (Highest Priority)
-        ├─ 1.1 pdf_url field provided by paper
-        ├─ 1.2 OpenAlex open_access.oa_url field
-        ├─ 1.3 url_for_pdf in OpenAlex oa_locations list
-        └─ 1.4 Multiple possible links inferred from DOI:
-            ├─ arXiv PDF link (https://arxiv.org/pdf/XXXX.XXXXX.pdf)
-            ├─ PubMed Central PDF link
-            └─ Publisher-specific links (e.g., PLOS)
+        【方案一】直接URL下载（优先级最高）
+        ├─ 1.1 论文提供的pdf_url字段
+        ├─ 1.2 OpenAlex的open_access.oa_url字段
+        ├─ 1.3 OpenAlex的oa_locations列表中的url_for_pdf
+        └─ 1.4 从DOI推断的多个可能链接：
+            ├─ arXiv PDF链接 (https://arxiv.org/pdf/XXXX.XXXXX.pdf)
+            ├─ PubMed Central PDF链接
+            └─ 出版商特定链接 (如PLOS)
 
-        [Strategy 2] arXiv Title Search Download (Fallback Strategy)
-        ├─ 2.1 Exact search by title using python-arxiv library
-        ├─ 2.2 If exact search fails, use keyword search
-        └─ 2.3 Use similarity matching to select best candidate paper
+        【方案二】arXiv标题搜索下载（降级方案）
+        ├─ 2.1 使用python-arxiv库按标题精确搜索
+        ├─ 2.2 如果精确搜索无结果，使用关键词搜索
+        └─ 2.3 使用相似度匹配选择最佳候选论文下载
 
         Args:
-            paper: Paper information dictionary, must contain id, title, etc.
-            overwrite: Whether to overwrite existing files
+            paper: 论文信息字典，需包含id、title等字段
+            overwrite: 是否覆盖已存在的文件
 
         Returns:
-            Download result dictionary containing status, filepath, size, etc.
+            下载结果字典，包含status、filepath、size等信息
 
-        Status codes:
-        - 'exists': File already exists, skipped download
-        - 'downloaded': Successfully downloaded
-        - 'failed': All strategies failed
+        状态码说明：
+        - 'exists': 文件已存在，跳过下载
+        - 'downloaded': 成功下载
+        - 'failed': 所有方案都失败
         """
-        paper_id = paper.get('id', 'unknown_only_supports_OpenAlex_id')
+        paper_id = paper.get('id', 'unknown现只支持OpenAlex的id')
         title = paper.get('title', 'untitled')
 
-        # Generate safe filename
+        # 生成安全的文件名
         safe_filename = self._generate_filename(paper_id, title)
         filepath = self.download_dir / safe_filename
 
-        # If file exists and not overwriting
+        # 如果文件已存在且不覆盖
         if filepath.exists() and not overwrite:
-            logger.info(f"PDF already exists, skipping: {safe_filename}")
+            logger.info(f"PDF已存在，跳过: {safe_filename}")
             return {
                 'paper_id': paper_id,
                 'filename': safe_filename,
@@ -146,20 +146,20 @@ class PDFDownloader:
                 'size': filepath.stat().st_size
             }
 
-        # Record all attempted error messages
+        # 记录所有尝试的错误信息
         all_errors = []
 
-        # --------------------Strategy 1: Use discovered PDF download URLs---------------------
-        # Priority attempt: If arxiv_id exists, use arXiv API directly (most reliable)
+        # --------------------方案一：利用搜索到的pdf下载url---------------------
+        # 优先尝试：如果有arxiv_id，直接使用arxiv API下载（最可靠）
         if paper.get('arxiv_id'):
-            logger.info(f"[Strategy 1-arXiv Priority] Detected arXiv ID: {paper['arxiv_id']}")
+            logger.info(f"[方案一-arXiv优先] 检测到arXiv ID: {paper['arxiv_id']}")
             arxiv_success, arxiv_url, arxiv_error = self._download_arxiv_by_id(
                 paper['arxiv_id'],
                 filepath
             )
             if arxiv_success:
                 file_size = filepath.stat().st_size
-                logger.info(f"[Strategy 1-arXiv Priority] Download successful using arXiv API: {safe_filename} ({file_size} bytes)")
+                logger.info(f"[方案一-arXiv优先] 使用arXiv API下载成功: {safe_filename} ({file_size} bytes)")
                 return {
                     'paper_id': paper_id,
                     'filename': safe_filename,
@@ -170,30 +170,30 @@ class PDFDownloader:
                     'method': 'arxiv_api_direct'
                 }
             else:
-                all_errors.append(f"Strategy 1-arXiv API: {arxiv_error}")
-                logger.warning(f"[Strategy 1-arXiv Priority] arXiv API download failed: {arxiv_error}, trying other strategies")
+                all_errors.append(f"方案一-arXiv API: {arxiv_error}")
+                logger.warning(f"[方案一-arXiv优先] arXiv API下载失败: {arxiv_error}，尝试其他方案")
 
-        # Continue trying other PDF links
-        pdf_urls = self._find_pdf_urls(paper)  # Returns multiple possible URLs
+        # 继续尝试其他PDF链接
+        pdf_urls = self._find_pdf_urls(paper)  # 返回多个可能的URL
 
         if pdf_urls:
-            # Display priority information
+            # 显示优先级信息
             if paper.get('arxiv_id'):
-                logger.info(f"[Strategy 1] Found {len(pdf_urls)} PDF links (including arXiv priority link), starting download attempts")
+                logger.info(f"[方案一] 找到 {len(pdf_urls)} 个PDF链接（含arXiv优先链接），开始尝试下载")
             else:
-                logger.info(f"[Strategy 1] Found {len(pdf_urls)} PDF links, starting download attempts")
+                logger.info(f"[方案一] 找到 {len(pdf_urls)} 个PDF链接，开始尝试下载")
 
-            # Try downloading from multiple URLs
+            # 尝试从多个URL下载
             for i, pdf_url in enumerate(pdf_urls):
                 try:
-                    logger.info(f"[Strategy 1] Attempting download {i+1}/{len(pdf_urls)}: {safe_filename} from: {pdf_url}")
+                    logger.info(f"[方案一] 尝试下载 {i+1}/{len(pdf_urls)}: {safe_filename} 来源: {pdf_url}")
 
-                    # Download with retry mechanism
+                    # 带重试机制的下载
                     success, error_msg = self._download_file_with_retry(pdf_url, filepath)
 
                     if success:
                         file_size = filepath.stat().st_size
-                        logger.info(f"[Strategy 1] Download successful: {safe_filename} ({file_size} bytes)")
+                        logger.info(f"[方案一] 下载成功: {safe_filename} ({file_size} bytes)")
                         return {
                             'paper_id': paper_id,
                             'filename': safe_filename,
@@ -204,30 +204,30 @@ class PDFDownloader:
                             'method': 'direct_url'
                         }
                     else:
-                        all_errors.append(f"Strategy 1-URL{i+1}: {error_msg}")
-                        logger.warning(f"[Strategy 1] Source {i+1} download failed: {error_msg}")
-                        time.sleep(1)  # Brief delay before trying next source
+                        all_errors.append(f"方案一-URL{i+1}: {error_msg}")
+                        logger.warning(f"[方案一] 来源 {i+1} 下载失败: {error_msg}")
+                        time.sleep(1)  # 稍微延迟后尝试下一个源
 
                 except Exception as e:
-                    all_errors.append(f"Strategy 1-URL{i+1}: {str(e)}")
-                    logger.warning(f"[Strategy 1] Source {i+1} download exception: {e}")
+                    all_errors.append(f"方案一-URL{i+1}: {str(e)}")
+                    logger.warning(f"[方案一] 来源 {i+1} 下载异常: {e}")
                     continue
 
-            logger.warning(f"[Strategy 1] All {len(pdf_urls)} PDF sources failed to download")
+            logger.warning(f"[方案一] 所有 {len(pdf_urls)} 个PDF源都下载失败")
         else:
-            logger.warning(f"[Strategy 1] No PDF links found: {paper_id}")
-            all_errors.append("Strategy 1: No PDF links found")
+            logger.warning(f"[方案一] 未找到PDF链接: {paper_id}")
+            all_errors.append("方案一: 未找到PDF链接")
 
-        # -------------------Strategy 2: Download using arXiv based on paper title--------------------
+        # -------------------方案二：根据论文名称利用arxiv下载--------------------
         if paper.get('title'):
-            logger.info(f"[Strategy 2] Attempting download via arXiv title search")
+            logger.info(f"[方案二] 尝试通过arXiv标题搜索下载")
             arxiv_success, arxiv_url, arxiv_error = self._download_arxiv_by_title(
                 paper.get('title', ''),
                 filepath
             )
             if arxiv_success:
                 file_size = filepath.stat().st_size
-                logger.info(f"[Strategy 2] Download successful via arXiv title search: {safe_filename} ({file_size} bytes)")
+                logger.info(f"[方案二] 通过arXiv标题搜索下载成功: {safe_filename} ({file_size} bytes)")
                 return {
                     'paper_id': paper_id,
                     'filename': safe_filename,
@@ -238,14 +238,14 @@ class PDFDownloader:
                     'method': 'arxiv_title_search'
                 }
             else:
-                all_errors.append(f"Strategy 2: {arxiv_error}")
-                logger.warning(f"[Strategy 2] Download via arXiv title failed: {arxiv_error}")
+                all_errors.append(f"方案二: {arxiv_error}")
+                logger.warning(f"[方案二] 通过arXiv标题下载失败: {arxiv_error}")
         else:
-            logger.info(f"[Strategy 2] Skipped (paper has no title information)")
-            all_errors.append("Strategy 2: Paper has no title information")
+            logger.info(f"[方案二] 跳过（论文无标题信息）")
+            all_errors.append("方案二: 论文无标题信息")
 
-        # All strategies failed
-        logger.error(f"All download strategies failed: {paper_id}")
+        # 所有方案都失败
+        logger.error(f"所有下载方案都失败: {paper_id}")
         return {
             'paper_id': paper_id,
             'filename': safe_filename,
@@ -255,23 +255,23 @@ class PDFDownloader:
 
     def batch_download(self, papers: List[Dict], max_downloads: int = 5) -> Dict:
         """
-        Batch download PDFs
+        批量下载PDF
 
         Args:
-            papers: List of papers
-            max_downloads: Maximum number of downloads
+            papers: 论文列表
+            max_downloads: 最大下载数量
 
         Returns:
-            Download statistics result
+            下载统计结果
         """
-        logger.info(f"Starting batch download of {len(papers)} papers' PDFs (max {max_downloads})")
+        logger.info(f"开始批量下载 {len(papers)} 篇论文的PDF (最多{max_downloads}篇)")
 
         results = []
         downloaded = 0
 
         for i, paper in enumerate(papers):
             if downloaded >= max_downloads:
-                logger.info(f"Reached maximum download count {max_downloads}, stopping download")
+                logger.info(f"已达到最大下载数量 {max_downloads}，停止下载")
                 break
 
             result = self.download_paper(paper)
@@ -280,12 +280,12 @@ class PDFDownloader:
             if result['status'] == 'downloaded':
                 downloaded += 1
 
-            # Add delay to avoid rate limiting
+            # 添加延迟避免被限制
             time.sleep(1)
 
-            logger.info(f"Progress: {i+1}/{len(papers)}, Downloaded: {downloaded}")
+            logger.info(f"进度: {i+1}/{len(papers)}, 已下载: {downloaded}")
 
-        # Statistics result
+        # 统计结果
         stats = {
             'total_papers': len(papers),
             'attempted': len(results),
@@ -295,7 +295,7 @@ class PDFDownloader:
             'results': results
         }
 
-        logger.info(f"Batch download completed: {stats['downloaded']} successful, {stats['failed']} failed")
+        logger.info(f"批量下载完成: {stats['downloaded']} 成功, {stats['failed']} 失败")
         return stats
 
 
@@ -305,99 +305,99 @@ class PDFDownloader:
         filepath: Path
     ) -> Tuple[bool, Optional[str], Optional[str]]:
         """
-        Download PDF directly via arXiv ID using arxiv API
+        直接通过arXiv ID使用arxiv API下载PDF
 
-        This is the most reliable way to download arXiv papers, using the python-arxiv library to fetch PDFs directly.
+        这是最可靠的arXiv论文下载方式，利用python-arxiv库直接获取PDF。
 
         Args:
-            arxiv_id: arXiv ID (e.g., "2301.12345" or "2301.12345v2")
-            filepath: Target file path
+            arxiv_id: arXiv ID（如 "2301.12345" 或 "2301.12345v2"）
+            filepath: 目标文件路径
 
         Returns:
-            (success, url, error_message) tuple
+            (success, url, error_message) 元组
         """
         if not arxiv_id:
             return False, None, "Empty arXiv ID"
 
         if arxiv is None:
-            return False, None, "python-arxiv library not installed"
+            return False, None, "python-arxiv库未安装"
 
-        # Clean arXiv ID (remove possible version number)
+        # 清理arXiv ID（移除可能的版本号）
         clean_id = arxiv_id.split('v')[0] if 'v' in arxiv_id else arxiv_id
 
-        logger.info(f"Downloading directly using arXiv API: {arxiv_id}")
+        logger.info(f"使用arXiv API直接下载: {arxiv_id}")
 
         try:
-            # Use arxiv library's Client to search for paper
+            # 使用arxiv库的Client搜索论文
             client = arxiv.Client()
             search = arxiv.Search(id_list=[clean_id])
 
-            # Get paper object
+            # 获取论文对象
             paper = next(client.results(search), None)
 
             if not paper:
-                return False, None, f"arXiv ID not found: {arxiv_id}"
+                return False, None, f"arXiv未找到ID: {arxiv_id}"
 
-            # Use arxiv library's download_pdf method to download
-            # Note: This method automatically handles retries and errors
+            # 使用arxiv库的download_pdf方法下载
+            # 注意：这个方法会自动处理重试和错误
             try:
                 paper.download_pdf(dirpath=str(filepath.parent), filename=filepath.name)
 
-                # Verify downloaded file
+                # 验证下载的文件
                 if not filepath.exists():
-                    return False, None, "Download completed but file does not exist"
+                    return False, None, "下载完成但文件不存在"
 
                 if filepath.stat().st_size < 1024:
                     filepath.unlink(missing_ok=True)
-                    return False, None, f"Downloaded file too small ({filepath.stat().st_size} bytes)"
+                    return False, None, f"下载的文件太小 ({filepath.stat().st_size} bytes)"
 
-                # Verify PDF format
+                # 验证PDF格式
                 with open(filepath, 'rb') as f:
                     header = f.read(5)
                     if not header.startswith(b'%PDF-'):
                         filepath.unlink(missing_ok=True)
-                        return False, None, "Downloaded file is not a valid PDF"
+                        return False, None, "下载的文件不是有效的PDF"
 
                 return True, paper.pdf_url, None
 
             except Exception as download_error:
-                return False, None, f"arXiv API download failed: {str(download_error)}"
+                return False, None, f"arXiv API下载失败: {str(download_error)}"
 
         except Exception as e:
-            logger.error(f"Error occurred during arXiv API download: {e}")
+            logger.error(f"arXiv API下载过程中发生错误: {e}")
             return False, None, str(e)
 
     def _download_arxiv_by_title(self, title_query: str, filepath: Path, max_results: int = 5) -> Tuple[bool, Optional[str], Optional[str]]:
         """
-        Search arXiv by paper title and attempt to download PDF (core method for Strategy 2)
+        根据论文标题在arXiv搜索并尝试下载PDF（方案二的核心方法）
 
-        Intelligent search strategy:
-        1. First attempt exact title search (ti:"exact title")
-        2. If no results, downgrade to keyword search (all:"title keywords")
-        3. Use SequenceMatcher to calculate similarity and select best matching candidate paper
-        4. Try downloading in order from highest to lowest similarity
+        智能搜索策略：
+        1. 首先尝试精确标题搜索 (ti:"exact title")
+        2. 如果无结果，降级为关键词搜索 (all:"title keywords")
+        3. 使用SequenceMatcher计算相似度，选择最匹配的候选论文
+        4. 按相似度从高到低依次尝试下载
 
-        Dependency: Requires python-arxiv library (pip install arxiv)
+        依赖：需要安装 python-arxiv 库 (pip install arxiv)
 
         Args:
-            title_query: Paper title or keywords
-            filepath: Target file path
-            max_results: Maximum number of search results (default 5)
+            title_query: 论文标题或关键词
+            filepath: 目标文件路径
+            max_results: 搜索返回的最大结果数（默认5）
 
         Returns:
-            (success, url, error_message) tuple
-            - success: Whether download succeeded
-            - url: PDF URL of successful download (None if failed)
-            - error_message: Error message if failed (None if successful)
+            (success, url, error_message) 元组
+            - success: 是否下载成功
+            - url: 成功下载的PDF URL（失败时为None）
+            - error_message: 失败时的错误信息（成功时为None）
         """
         if not title_query:
             return False, None, "Empty title query"
 
         if arxiv is None:
-            return False, None, "python-arxiv library not installed, cannot execute Strategy 2"
+            return False, None, "python-arxiv库未安装，无法执行方案二"
 
         title_query = title_query.strip()
-        logger.info(f"Attempting download via arXiv title search: {title_query}")
+        logger.info(f"尝试通过arXiv标题搜索下载: {title_query}")
 
         try:
             search = arxiv.Search(
@@ -408,7 +408,7 @@ class PDFDownloader:
             results_list = list(search.results())
 
             if not results_list:
-                logger.info("Exact title search found no matches, trying keyword search")
+                logger.info("精确标题搜索未找到匹配，尝试关键词搜索")
                 search_broad = arxiv.Search(
                     query=f'all:"{title_query}"',
                     max_results=max_results,
@@ -417,7 +417,7 @@ class PDFDownloader:
                 results_list = list(search_broad.results())
 
             if not results_list:
-                return False, None, f"No papers matching '{title_query}' found in arXiv"
+                return False, None, f"未在arXiv中搜索到与 '{title_query}' 匹配的论文"
 
             def result_score(result):
                 return SequenceMatcher(None, result.title.lower(), title_query.lower()).ratio()
@@ -432,76 +432,76 @@ class PDFDownloader:
                         pdf_url = entry_id.replace('/abs/', '/pdf/') + '.pdf'
 
                 if not pdf_url:
-                    logger.debug(f"Candidate result missing PDF link, skipping: {candidate.title}")
+                    logger.debug(f"候选结果缺少PDF链接，跳过: {candidate.title}")
                     continue
 
                 success, error_msg = self._download_file_with_retry(pdf_url, filepath)
                 if success:
                     return True, pdf_url, None
 
-                logger.warning(f"Download via arXiv candidate {candidate.entry_id} failed: {error_msg}")
+                logger.warning(f"通过arXiv候选 {candidate.entry_id} 下载失败: {error_msg}")
 
-            return False, None, "All arXiv candidates failed to download"
+            return False, None, "所有arXiv候选下载失败"
         except Exception as e:
-            logger.error(f"Error occurred during arXiv search or download: {e}")
+            logger.error(f"arXiv搜索或下载过程中发生错误: {e}")
             return False, None, str(e)
 
     def _find_pdf_urls(self, paper: Dict) -> List[str]:
         """
-        Find all possible PDF links for a paper (core method for Strategy 1)
+        查找论文的所有可能PDF链接（方案一的核心方法）
 
-        Extract PDF links from multiple data sources by priority:
+        按优先级从多个数据源提取PDF链接：
 
-        0. [Priority] Direct construction from arXiv ID (from cross-database mapping)
-        1. Paper's own pdf_url field
-        2. OpenAlex's open_access.oa_url
-        3. OpenAlex's open_access.oa_locations list
-        4. Links inferred from DOI:
-           - arXiv PDF (extract arxiv ID from DOI)
-           - PubMed Central PDF (extract PMC ID from DOI)
-           - Publisher-specific links (e.g., PLOS printable version)
+        0. 【优先】arXiv ID直接构建（来自跨库映射）
+        1. 论文自带的pdf_url字段
+        2. OpenAlex的open_access.oa_url
+        3. OpenAlex的open_access.oa_locations列表
+        4. 从DOI推断的链接：
+           - arXiv PDF (从DOI中提取arxiv ID)
+           - PubMed Central PDF (从DOI中提取PMC ID)
+           - 出版商特定链接 (如PLOS的printable版本)
 
         Args:
-            paper: Paper information dictionary
+            paper: 论文信息字典
 
         Returns:
-            Deduplicated list of valid PDF URLs
+            去重后的有效PDF URL列表
         """
         pdf_urls = []
 
-        # 0. [Highest Priority] If paper has arxiv_id (from cross-database mapping), directly construct arXiv PDF link
-        # This is the core of cross-database mapping optimization: use verified arXiv ID to download directly
+        # 0. 【最高优先级】如果论文有arxiv_id（来自跨库映射），直接构建arXiv PDF链接
+        # 这是跨库映射优化的核心：利用验证过的arXiv ID直接下载
         if paper.get('arxiv_id'):
             arxiv_id = paper['arxiv_id']
-            # Clean arxiv_id (remove possible version number)
+            # 清理arxiv_id（移除可能的版本号）
             clean_arxiv_id = arxiv_id.split('v')[0] if 'v' in arxiv_id else arxiv_id
             arxiv_pdf = f"https://arxiv.org/pdf/{clean_arxiv_id}.pdf"
             pdf_urls.append(arxiv_pdf)
-            logger.debug(f"Priority using cross-database mapped arXiv ID: {arxiv_id} -> {arxiv_pdf}")
+            logger.debug(f"优先使用跨库映射的arXiv ID: {arxiv_id} -> {arxiv_pdf}")
 
-        # 1. PDF link provided by paper (second priority)
+        # 1. 论文提供的PDF链接（第二优先级）
         if paper.get('pdf_url'):
-            # Avoid duplicate addition (if pdf_url is already an arXiv link)
+            # 避免重复添加（如果pdf_url已经是arXiv链接）
             if paper['pdf_url'] not in pdf_urls:
                 pdf_urls.append(paper['pdf_url'])
 
-        # 2. Try to get more PDF links from OpenAlex
+        # 2. 尝试从OpenAlex获取更多PDF链接
         open_access = paper.get('open_access', {})
         if isinstance(open_access, dict):
-            # OpenAlex's oa_url
+            # OpenAlex的oa_url
             if open_access.get('oa_url'):
                 pdf_urls.append(open_access['oa_url'])
 
-            # If has oa_locations, extract all PDF links
+            # 如果有oa_locations，提取所有PDF链接
             oa_locations = open_access.get('oa_locations', [])
             for location in oa_locations:
                 if isinstance(location, dict) and location.get('url_for_pdf'):
                     pdf_urls.append(location['url_for_pdf'])
 
-        # 3. Try to construct PDF links from DOI
+        # 3. 尝试从DOI构建PDF链接
         doi = paper.get('doi', '')
         if doi:
-            # Try arXiv link
+            # 尝试arXiv链接
             if 'arxiv' in doi.lower():
                 arxiv_id = re.search(r'(\d{4}\.\d{4,5})', doi)
                 if arxiv_id:
@@ -509,7 +509,7 @@ class PDFDownloader:
                     if arxiv_pdf not in pdf_urls:
                         pdf_urls.append(arxiv_pdf)
 
-            # Try PubMed Central link
+            # 尝试PubMed Central链接
             if 'pmc' in doi.lower() or 'pubmed' in doi.lower():
                 pmc_match = re.search(r'pmc(\d+)', doi.lower())
                 if pmc_match:
@@ -517,34 +517,34 @@ class PDFDownloader:
                     if pmc_pdf not in pdf_urls:
                         pdf_urls.append(pmc_pdf)
 
-            # Try DOI resolution service
+            # 尝试DOI解析服务
             if doi.startswith('10.'):
-                # Some publishers provide direct PDF access
+                # 某些发布商提供直接PDF访问
                 if '10.1371/journal' in doi:  # PLOS
                     plos_pdf = f"https://journals.plos.org/plosone/article/file?id={doi}&type=printable"
                     if plos_pdf not in pdf_urls:
                         pdf_urls.append(plos_pdf)
 
-        # 5. Deduplication and filtering
+        # 5. 去重和过滤
         unique_urls = []
         for url in pdf_urls:
             if url and url not in unique_urls and self._is_valid_pdf_url(url):
                 unique_urls.append(url)
 
-        logger.debug(f"Found {len(unique_urls)} PDF sources for paper {paper.get('id')}")
+        logger.debug(f"为论文 {paper.get('id')} 找到 {len(unique_urls)} 个PDF源")
         return unique_urls
 
     def _is_valid_pdf_url(self, url: str) -> bool:
-        """Check if URL is likely a valid PDF link"""
+        """检查URL是否可能是有效的PDF链接"""
         if not url:
             return False
 
-        # Basic URL format check
+        # 基本URL格式检查
         parsed = urlparse(url)
         if not parsed.scheme or not parsed.netloc:
             return False
 
-        # Exclude URLs that are obviously not PDFs
+        # 排除明显不是PDF的URL
         exclude_patterns = [
             'javascript:', 'mailto:', '#', 'facebook.com', 'twitter.com',
             'linkedin.com', 'youtube.com', 'instagram.com'
@@ -558,52 +558,52 @@ class PDFDownloader:
         return True
 
     def _download_file_with_retry(self, url: str, filepath: Path, timeout: int = 60) -> tuple[bool, str]:
-        """File download with retry mechanism"""
+        """带重试机制的文件下载"""
         for attempt in range(self.max_retries):
             try:
-                # Add extra request headers for each request
+                # 为每个请求添加额外的请求头
                 headers = self.session.headers.copy()
 
-                # Add Referer (pretend to click from article page)
+                # 添加 Referer (假装从文章页面点击过来)
                 parsed_url = urlparse(url)
                 if 'journal-of-hepatology' in url:
-                    # For this journal, add Referer
+                    # 针对这个期刊，添加 Referer
                     referer = url.replace('/pdf', '').replace('/pdfExtended', '')
                     headers['Referer'] = referer
                 elif parsed_url.netloc:
-                    # General strategy: set Referer to same domain homepage
+                    # 通用策略：设置 Referer 为同域名首页
                     headers['Referer'] = f"{parsed_url.scheme}://{parsed_url.netloc}/"
 
                 response = self.session.get(url, headers=headers, stream=True, timeout=timeout)
 
-                # Check status code
+                # 检查状态码
                 if response.status_code == 403:
                     return False, f"Access forbidden (403) - {url}"
                 elif response.status_code == 404:
                     return False, f"File not found (404) - {url}"
                 elif response.status_code != 200:
                     if attempt < self.max_retries - 1:
-                        logger.warning(f"Status code {response.status_code}, retry {attempt + 1}/{self.max_retries}")
-                        time.sleep(2 ** attempt)  # Exponential backoff
+                        logger.warning(f"状态码 {response.status_code}，重试 {attempt + 1}/{self.max_retries}")
+                        time.sleep(2 ** attempt)  # 指数退避
                         continue
                     else:
                         return False, f"HTTP {response.status_code} - {url}"
 
                 response.raise_for_status()
 
-                # Check Content-Type
+                # 检查Content-Type
                 content_type = response.headers.get('content-type', '').lower()
                 content_length = response.headers.get('content-length')
 
-                # If explicitly not PDF, skip
+                # 如果明确不是PDF，跳过
                 if 'text/html' in content_type and 'application/pdf' not in content_type:
                     return False, f"Content-Type is HTML, not PDF - {url}"
 
-                # If file too small, might be error page
+                # 如果文件太小，可能是错误页面
                 if content_length and int(content_length) < 1024:
                     return False, f"File too small ({content_length} bytes) - {url}"
 
-                # Start download
+                # 开始下载
                 downloaded_size = 0
                 with open(filepath, 'wb') as f:
                     for chunk in response.iter_content(chunk_size=8192):
@@ -611,12 +611,12 @@ class PDFDownloader:
                             f.write(chunk)
                             downloaded_size += len(chunk)
 
-                # Verify downloaded file
+                # 验证下载的文件
                 if filepath.stat().st_size < 1024:
                     filepath.unlink(missing_ok=True)
                     return False, f"Downloaded file too small ({filepath.stat().st_size} bytes)"
 
-                # Simple PDF format validation
+                # 简单的PDF格式验证
                 with open(filepath, 'rb') as f:
                     header = f.read(5)
                     if not header.startswith(b'%PDF-'):
@@ -627,7 +627,7 @@ class PDFDownloader:
 
             except requests.exceptions.Timeout:
                 if attempt < self.max_retries - 1:
-                    logger.warning(f"Download timeout, retry {attempt + 1}/{self.max_retries}")
+                    logger.warning(f"下载超时，重试 {attempt + 1}/{self.max_retries}")
                     time.sleep(2 ** attempt)
                     continue
                 else:
@@ -635,35 +635,35 @@ class PDFDownloader:
 
             except requests.exceptions.RequestException as e:
                 if attempt < self.max_retries - 1:
-                    logger.warning(f"Request exception, retry {attempt + 1}/{self.max_retries}: {e}")
+                    logger.warning(f"请求异常，重试 {attempt + 1}/{self.max_retries}: {e}")
                     time.sleep(2 ** attempt)
                     continue
                 else:
                     return False, f"Request failed after {self.max_retries} attempts: {str(e)}"
 
             except Exception as e:
-                logger.error(f"Unknown error occurred while downloading file: {e}")
+                logger.error(f"下载文件时发生未知错误: {e}")
                 filepath.unlink(missing_ok=True)
                 return False, f"Unknown error: {str(e)}"
 
         return False, f"Max retries ({self.max_retries}) exceeded"
 
     def _generate_filename(self, paper_id: str, title: str) -> str:
-        """Generate safe filename"""
-        # Clean title, remove special characters
+        """生成安全的文件名"""
+        # 清理标题，移除特殊字符
         safe_title = re.sub(r'[^\w\s-]', '', title).strip()
         safe_title = re.sub(r'[\s]+', '_', safe_title)
 
-        # Truncate overly long title
+        # 截断过长的标题
         if len(safe_title) > 50:
             safe_title = safe_title[:50]
 
-        # Combine filename
+        # 组合文件名
         filename = f"{paper_id}_{safe_title}.pdf"
         return filename
 
     def get_download_stats(self) -> Dict:
-        """Get download statistics"""
+        """获取下载统计"""
         if not self.download_dir.exists():
             return {'total_files': 0, 'total_size': 0}
 
@@ -678,7 +678,7 @@ class PDFDownloader:
         }
 
     def list_downloaded_papers(self) -> List[Dict]:
-        """List downloaded papers"""
+        """列出已下载的论文"""
         if not self.download_dir.exists():
             return []
 
@@ -686,7 +686,7 @@ class PDFDownloader:
 
         papers = []
         for pdf_file in pdf_files:
-            # Parse paper_id from filename
+            # 从文件名解析paper_id
             filename = pdf_file.stem
             parts = filename.split('_', 1)
             paper_id = parts[0] if parts else filename
@@ -703,20 +703,20 @@ class PDFDownloader:
 
 
 if __name__ == "__main__":
-    # Test code
+    # 测试代码
     downloader = PDFDownloader()
 
-    # Create test paper data
+    # 创建测试论文数据
     test_paper = {
         'id': 'W2741809807',
         'title': 'Attention Is All You Need',
         'pdf_url': 'https://arxiv.org/pdf/1706.03762.pdf'
     }
 
-    # Test download
+    # 测试下载
     result = downloader.download_paper(test_paper)
-    print(f"Download result: {result}")
+    print(f"下载结果: {result}")
 
-    # View statistics
+    # 查看统计
     stats = downloader.get_download_stats()
-    print(f"Download statistics: {stats}")
+    print(f"下载统计: {stats}")

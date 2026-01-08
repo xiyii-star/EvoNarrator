@@ -1,10 +1,10 @@
 """
-LLM-Enhanced RAG Paper Analyzer (Refactored Version)
+基于LLM增强的RAG论文分析器（重构版）
 
-Clear and easy-to-understand version:
-- Uses independent LLM configuration manager
-- Uses independent prompt manager
-- Clear module separation
+结构清晰、易于理解的版本：
+- 使用独立的LLM配置管理器
+- 使用独立的提示词管理器
+- 清晰的模块划分
 """
 
 import logging
@@ -12,19 +12,19 @@ from typing import Dict, List, Optional
 from pathlib import Path
 from dataclasses import dataclass
 
-# PDF processing
+# PDF处理
 try:
     import PyPDF2
 except ImportError:
     PyPDF2 = None
 
-# Embedding model - sentence-transformers
+# Embedding模型 - sentence-transformers
 try:
     from sentence_transformers import SentenceTransformer
 except ImportError:
     SentenceTransformer = None
 
-# Numerical computation libraries - numpy and sklearn (independent import, not affected by sentence-transformers)
+# 数值计算库 - numpy 和 sklearn（独立导入，不受 sentence-transformers 影响）
 try:
     import numpy as np
 except ImportError:
@@ -35,7 +35,7 @@ try:
 except ImportError:
     cosine_similarity = None
 
-# For local model loading
+# 用于本地模型加载
 try:
     import torch
     from transformers import AutoTokenizer, AutoModel
@@ -44,19 +44,19 @@ except ImportError:
     AutoTokenizer = None
     AutoModel = None
 
-# ModelScope (China mirror)
+# ModelScope（国内镜像）
 try:
     from modelscope.hub.snapshot_download import snapshot_download
 except ImportError:
     snapshot_download = None
 
-# Local modules
+# 本地模块
 try:
     from llm_config import LLMClient, LLMConfig
     from prompt_manager import PromptManager
     from grobid_parser import GrobidPDFParser
 except ImportError:
-    # If direct import fails, try importing from src module
+    # 如果直接导入失败，尝试从src模块导入
     from src.llm_config import LLMClient, LLMConfig
     from src.prompt_manager import PromptManager
     from src.grobid_parser import GrobidPDFParser
@@ -66,7 +66,7 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class PaperSection:
-    """Paper section data structure"""
+    """论文章节数据结构"""
     title: str
     content: str
     page_num: int
@@ -75,13 +75,13 @@ class PaperSection:
 
 class LLMRAGPaperAnalyzer:
     """
-    LLM-Enhanced RAG Paper Analyzer
+    LLM增强的RAG论文分析器
 
-    Main features:
-    1. Extract paper sections from PDF or abstract
-    2. Use RAG to retrieve relevant content
-    3. Use LLM to generate high-quality analysis
-    4. Automatically extract four key fields: Problem, Contribution, Limitation, Future Work
+    主要功能：
+    1. 从PDF或摘要中提取论文章节
+    2. 使用RAG检索相关内容
+    3. 使用LLM生成高质量分析
+    4. 自动提取四个关键字段：Problem, Contribution, Limitation, Future Work
     """
 
     def __init__(
@@ -95,160 +95,160 @@ class LLMRAGPaperAnalyzer:
         local_model_path: Optional[str] = None
     ):
         """
-        Initialize analyzer
+        初始化分析器
 
         Args:
-            llm_config_path: LLM configuration file path
-            embedding_model: Embedding model name
-            use_modelscope: Whether to use ModelScope to download models
-            prompts_dir: Prompts folder path
-            max_context_length: LLM context maximum length
-            grobid_url: GROBID service URL (optional, e.g. http://localhost:8070)
-            local_model_path: Local model path (optional, e.g. ./model/sentence-transformers/all-MiniLM-L6-v2)
+            llm_config_path: LLM配置文件路径
+            embedding_model: Embedding模型名称
+            use_modelscope: 是否使用ModelScope下载模型
+            prompts_dir: 提示词文件夹路径
+            max_context_length: LLM上下文最大长度
+            grobid_url: GROBID服务URL（可选，如 http://localhost:8070）
+            local_model_path: 本地模型路径（可选，如 ./model/sentence-transformers/all-MiniLM-L6-v2）
         """
         logger.info("="*60)
-        logger.info("Initializing LLM RAG Paper Analyzer")
+        logger.info("初始化LLM RAG论文分析器")
         logger.info("="*60)
 
-        # Basic configuration
+        # 基本配置
         self.embedding_model_name = embedding_model
         self.use_modelscope = use_modelscope
         self.max_context_length = max_context_length
         self.grobid_url = grobid_url
         self.local_model_path = local_model_path
 
-        # Initialize GROBID parser (if URL provided)
+        # 初始化GROBID解析器（如果提供了URL）
         self.grobid_parser = None
         if grobid_url:
             self._init_grobid_parser()
 
-        # Initialize embedding model
+        # 初始化embedding模型
         self.embedder = None
         self.use_embeddings = False
         self._init_embedding_model()
 
-        # Initialize LLM client
+        # 初始化LLM客户端
         self.llm_client = self._init_llm_client(llm_config_path)
 
-        # Initialize prompt manager
+        # 初始化提示词管理器
         self.prompt_manager = PromptManager(prompts_dir)
 
-        # Section recognition patterns
+        # 章节识别模式
         self.section_patterns = self._get_section_patterns()
 
-        # Fields to extract
+        # 要提取的字段
         self.extraction_fields = ['problem', 'method', 'limitation', 'future_work']
 
         logger.info("="*60)
-        logger.info("LLM RAG Paper Analyzer initialization completed")
+        logger.info("✅ LLM RAG论文分析器初始化完成")
         logger.info("="*60)
 
     def _init_embedding_model(self):
-        """Initialize Embedding model"""
-        # Check if sentence-transformers is installed
+        """初始化Embedding模型"""
+        # 检查 sentence-transformers 是否安装
         if SentenceTransformer is None:
-            logger.warning("sentence-transformers not installed, will use pure keyword retrieval")
-            logger.warning("   Install command: pip install sentence-transformers")
+            logger.warning("⚠️ sentence-transformers未安装，将使用纯关键词检索")
+            logger.warning("   安装命令: pip install sentence-transformers")
             self.use_embeddings = False
             return
 
-        # If no local model path, try auto-detection
+        # 如果没有本地模型路径，尝试自动检测
         if not self.local_model_path:
             self.local_model_path = self._get_local_model_path(self.embedding_model_name)
 
-        # Prioritize using local model path
+        # 优先使用本地模型路径
         if self.local_model_path:
             try:
                 import os
                 if os.path.exists(self.local_model_path):
-                    logger.info(f"  Detected local model: {self.local_model_path}")
-                    logger.info(f"  Loading local Embedding model...")
+                    logger.info(f"  🔍 检测到本地模型: {self.local_model_path}")
+                    logger.info(f"  📦 正在加载本地Embedding模型...")
                     self.embedder = SentenceTransformer(self.local_model_path)
                     self.use_embeddings = True
-                    logger.info(f"  Local Embedding model loaded successfully!")
+                    logger.info(f"  ✅ 本地Embedding模型加载成功!")
                     return
                 else:
-                    logger.warning(f"  Local model path does not exist: {self.local_model_path}")
+                    logger.warning(f"  ⚠️ 本地模型路径不存在: {self.local_model_path}")
             except Exception as e:
-                logger.warning(f"  Local model loading failed: {e}, trying to download...")
+                logger.warning(f"  ❌ 本地模型加载失败: {e}，尝试下载...")
 
-        # If local model loading failed, try downloading
+        # 如果本地模型加载失败，尝试下载
 
         try:
-            logger.info(f"Loading Embedding model: {self.embedding_model_name}")
+            logger.info(f"加载Embedding模型: {self.embedding_model_name}")
 
-            # Use ModelScope mirror (faster in China)
+            # 使用ModelScope镜像（国内更快）
             if self.use_modelscope and snapshot_download is not None:
                 try:
-                    logger.info("  Using ModelScope mirror...")
+                    logger.info("  使用ModelScope镜像...")
                     model_dir = snapshot_download(
                         f'sentence-transformers/{self.embedding_model_name}',
                         cache_dir='./model',
                         revision='master'
                     )
                     self.embedder = SentenceTransformer(model_dir)
-                    logger.info(f"  Model downloaded from ModelScope: {model_dir}")
+                    logger.info(f"  ✅ 模型已从ModelScope下载: {model_dir}")
                 except Exception as e:
-                    logger.warning(f"  ModelScope download failed: {e}, trying HuggingFace...")
+                    logger.warning(f"  ModelScope下载失败: {e}，尝试HuggingFace...")
                     self.embedder = SentenceTransformer(self.embedding_model_name)
             else:
                 self.embedder = SentenceTransformer(self.embedding_model_name)
 
             self.use_embeddings = True
-            logger.info("  Embedding model loaded successfully")
+            logger.info("  ✅ Embedding模型加载成功")
 
         except Exception as e:
-            logger.warning(f"  Embedding model loading failed: {e}, will use pure keyword retrieval")
+            logger.warning(f"  ❌ Embedding模型加载失败: {e}，将使用纯关键词检索")
             self.use_embeddings = False
 
     def _get_local_model_path(self, model_name: str) -> Optional[str]:
         """
-        Check if local model path exists
-
+        检查本地模型路径是否存在
+        
         Args:
-            model_name: Model name, e.g. 'all-MiniLM-L6-v2'
-
+            model_name: 模型名称，如 'all-MiniLM-L6-v2'
+            
         Returns:
-            Local model path, or None if not exists
+            本地模型路径，如果不存在则返回 None
         """
         import os
         from pathlib import Path
-
-        # Try multiple possible local paths
+        
+        # 尝试多个可能的本地路径
         possible_paths = [
-            # Path relative to current file
+            # 相对于当前文件的路径
             Path(__file__).parent.parent / "model" / "sentence-transformers" / model_name,
-            # Path relative to project root
+            # 相对于项目根目录的路径
             Path(__file__).parent.parent.parent / "KGdemo" / "model" / "sentence-transformers" / model_name,
-            # Absolute path
+            # 绝对路径
             Path("/home/lexy/下载/CLwithRAG/KGdemo/model/sentence-transformers") / model_name,
         ]
-
+        
         for path in possible_paths:
             if path.exists() and (path / "modules.json").exists():
                 return str(path)
-
+        
         return None
 
     def _init_grobid_parser(self):
-        """Initialize GROBID parser"""
+        """初始化GROBID解析器"""
         try:
-            logger.info(f"Initializing GROBID parser: {self.grobid_url}")
+            logger.info(f"初始化GROBID解析器: {self.grobid_url}")
             self.grobid_parser = GrobidPDFParser(self.grobid_url)
-            logger.info("GROBID parser enabled")
+            logger.info("✅ GROBID解析器已启用")
         except Exception as e:
-            logger.warning(f"GROBID parser initialization failed: {e}, will use regex method")
+            logger.warning(f"⚠️ GROBID解析器初始化失败: {e}，将使用正则表达式方法")
             self.grobid_parser = None
 
     def _init_llm_client(self, config_path: Optional[str]) -> Optional[LLMClient]:
-        """Initialize LLM client"""
-        # If config path is None, don't use LLM
+        """初始化LLM客户端"""
+        # 如果配置路径为None，则不使用LLM
         if config_path is None:
-            logger.info("LLM config path is None, skipping LLM initialization (will use basic analysis mode)")
+            logger.info("⚠️ LLM配置路径为None，跳过LLM初始化（将使用基础分析模式）")
             return None
 
         try:
-            logger.info(f"Loading LLM config: {config_path}")
+            logger.info(f"加载LLM配置: {config_path}")
             config = LLMConfig.from_file(config_path)
 
             logger.info(f"  Provider: {config.provider}")
@@ -258,14 +258,14 @@ class LLMRAGPaperAnalyzer:
             return client
 
         except FileNotFoundError:
-            logger.warning(f"LLM config file not found: {config_path}")
+            logger.warning(f"⚠️ LLM配置文件不存在: {config_path}")
             return None
         except Exception as e:
-            logger.error(f"Failed to initialize LLM client: {e}")
+            logger.error(f"❌ 初始化LLM客户端失败: {e}")
             return None
 
     def _get_section_patterns(self) -> Dict[str, List[str]]:
-        """Define regex patterns for section recognition"""
+        """定义章节识别的正则表达式模式"""
         import re
         return {
             'abstract': [
@@ -308,45 +308,45 @@ class LLMRAGPaperAnalyzer:
             ],
         }
 
-    # ========== Core Analysis Methods ==========
+    # ========== 核心分析方法 ==========
 
     def analyze_paper(self, paper: Dict, pdf_path: Optional[str] = None) -> Dict:
         """
-        Analyze paper and extract key information
+        分析论文并提取关键信息
 
-        Automatically extract four fields: Problem, Contribution, Limitation, Future Work
-        Support multi-level fallback strategy: PDF → Abstract → Title
+        自动提取四个字段：Problem, Contribution, Limitation, Future Work
+        支持多级降级策略：PDF → 摘要 → 标题
 
         Args:
-            paper: Paper basic information dictionary
-            pdf_path: PDF file path (optional)
+            paper: 论文基础信息字典
+            pdf_path: PDF文件路径（可选）
 
         Returns:
-            Enhanced paper dictionary with analysis results
+            包含分析结果的增强论文字典
         """
         paper_id = paper.get('id', 'unknown')
         logger.info(f"\n{'='*60}")
-        logger.info(f"Starting paper analysis: {paper_id}")
+        logger.info(f"📄 开始分析论文: {paper_id}")
         logger.info(f"{'='*60}")
 
-        # Step 1: Extract sections and determine if PDF extraction succeeded
+        # 步骤1: 提取章节内容并判断是否成功提取PDF
         sections, pdf_extracted = self._extract_paper_sections(paper, pdf_path)
 
-        # Determine if sections were successfully extracted from PDF
+        # 判断是否成功从PDF提取了章节
         if pdf_extracted:
-            logger.info("  PDF extraction successful, using RAG retrieval mode")
+            logger.info("  ✅ PDF提取成功，使用RAG检索模式")
         else:
-            logger.info("  PDF not extracted, using abstract direct generation mode")
+            logger.info("  ⚠️ PDF未提取，使用摘要直接生成模式")
 
-        # Step 2: Calculate section embeddings (only when PDF extraction succeeded)
+        # 步骤2: 计算章节向量（仅当PDF提取成功时）
         section_embeddings = None
         if pdf_extracted:
             section_embeddings = self._compute_section_embeddings(sections)
 
-        # Step 3: Extract all fields (pass pdf_extracted flag)
+        # 步骤3: 提取所有字段（传入pdf_extracted标志）
         analysis_result = self._extract_all_fields(sections, section_embeddings, pdf_extracted, paper)
 
-        # Step 4: Build result
+        # 步骤4: 构建结果
         enriched_paper = paper.copy()
         enriched_paper['rag_analysis'] = analysis_result
         enriched_paper['sections_extracted'] = len(sections)
@@ -354,53 +354,53 @@ class LLMRAGPaperAnalyzer:
         enriched_paper['pdf_extracted'] = pdf_extracted
         enriched_paper['analysis_method'] = f'llm_rag_{self.llm_client.config.provider if self.llm_client else "none"}'
 
-        logger.info(f"Paper analysis completed: {paper_id}")
-        logger.info(f"   Extracted fields: {len(analysis_result)}")
-        logger.info(f"   Sections: {len(sections)}")
-        logger.info(f"   Analysis mode: {'RAG retrieval' if pdf_extracted else 'Abstract direct generation'}")
+        logger.info(f"✅ 论文分析完成: {paper_id}")
+        logger.info(f"   提取字段数: {len(analysis_result)}")
+        logger.info(f"   章节数: {len(sections)}")
+        logger.info(f"   分析模式: {'RAG检索' if pdf_extracted else '摘要直接生成'}")
         logger.info(f"{'='*60}\n")
 
         return enriched_paper
 
     def _extract_paper_sections(self, paper: Dict, pdf_path: Optional[str]) -> tuple[List[PaperSection], bool]:
         """
-        Extract paper sections (support multi-level fallback)
+        提取论文章节（支持多级降级）
 
-        Fallback strategy:
-        1. Try to extract sections from PDF
-        2. If failed, use abstract to build sections
-        3. If no abstract, use title
+        降级策略:
+        1. 尝试从PDF提取章节
+        2. 如果失败，使用摘要构建章节
+        3. 如果连摘要都没有，使用标题
 
         Args:
-            paper: Paper information
-            pdf_path: PDF path
+            paper: 论文信息
+            pdf_path: PDF路径
 
         Returns:
-            (Section list, flag indicating if PDF extraction succeeded)
+            (章节列表, PDF是否成功提取的标志)
         """
         sections = []
 
-        # Level 1: Try PDF extraction
+        # Level 1: 尝试PDF提取
         if pdf_path and Path(pdf_path).exists():
-            logger.info("  [1/3] Trying to extract sections from PDF...")
+            logger.info("  [1/3] 尝试从PDF提取章节...")
             sections = self._extract_sections_from_pdf(pdf_path)
 
             if sections:
-                logger.info(f"  Extracted {len(sections)} sections from PDF")
-                return sections, True  # PDF extraction succeeded
+                logger.info(f"  ✅ 从PDF提取了 {len(sections)} 个章节")
+                return sections, True  # PDF提取成功
             else:
-                logger.warning("  PDF section extraction failed")
+                logger.warning("  ❌ PDF章节提取失败")
 
-        # Level 2: Fallback to abstract
-        logger.info("  [2/3] Falling back to abstract...")
+        # Level 2: 降级到摘要
+        logger.info("  [2/3] 降级使用摘要...")
         sections = self._create_sections_from_abstract(paper)
 
         if sections:
-            logger.info(f"  Built {len(sections)} sections from abstract")
-            return sections, False  # Using abstract, PDF not extracted
+            logger.info(f"  ✅ 从摘要构建了 {len(sections)} 个章节")
+            return sections, False  # 使用摘要,PDF未提取
 
-        # Level 3: Fallback to title
-        logger.info("  [3/3] Falling back to title...")
+        # Level 3: 降级到标题
+        logger.info("  [3/3] 降级使用标题...")
         if paper.get('title'):
             sections = [PaperSection(
                 title='Title',
@@ -408,38 +408,38 @@ class LLMRAGPaperAnalyzer:
                 page_num=0,
                 section_type='title'
             )]
-            logger.info("  Using title as minimal content")
+            logger.info("  ✅ 使用标题作为最小内容")
 
-        return sections, False  # Using title or empty, PDF not extracted
+        return sections, False  # 使用标题或空,PDF未提取
 
     def _encode_texts(self, texts):
         """
-        Unified text encoding interface
-        Supports sentence-transformers and local transformers models
+        统一的文本编码接口
+        支持 sentence-transformers 和本地 transformers 模型
         """
         if self.embedder:
-            # Use sentence-transformers
+            # 使用 sentence-transformers
             return self.embedder.encode(texts)
         elif hasattr(self, 'tokenizer') and hasattr(self, 'model'):
-            # Use local transformers model
+            # 使用本地 transformers 模型
             import torch
 
-            # Mean Pooling - take average pooling
+            # Mean Pooling - 取平均池化
             def mean_pooling(model_output, attention_mask):
                 token_embeddings = model_output[0]
                 input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
                 return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
 
-            # Encode text
+            # 编码文本
             encoded_input = self.tokenizer(texts, padding=True, truncation=True, return_tensors='pt', max_length=512)
 
             with torch.no_grad():
                 model_output = self.model(**encoded_input)
 
-            # Perform pooling
+            # 执行池化
             embeddings = mean_pooling(model_output, encoded_input['attention_mask'])
 
-            # Normalize
+            # 归一化
             embeddings = torch.nn.functional.normalize(embeddings, p=2, dim=1)
 
             return embeddings.numpy()
@@ -447,24 +447,24 @@ class LLMRAGPaperAnalyzer:
             return None
 
     def _compute_section_embeddings(self, sections: List[PaperSection]) -> Optional[any]:
-        """Calculate section embeddings"""
+        """计算章节向量"""
         if not self.use_embeddings or not sections:
             return None
 
         try:
-            logger.info("  Calculating section embeddings...")
+            logger.info("  🔄 计算章节向量...")
             section_texts = [f"{s.title} {s.content}" for s in sections]
             embeddings = self._encode_texts(section_texts)
 
             if embeddings is not None:
-                logger.info(f"  Section embeddings calculated ({len(embeddings)} vectors)")
+                logger.info(f"  ✅ 章节向量计算完成 ({len(embeddings)} 个向量)")
                 return embeddings
             else:
-                logger.warning("  Encoder not properly initialized")
+                logger.warning("  ❌ 编码器未正确初始化")
                 return None
 
         except Exception as e:
-            logger.warning(f"  Section embeddings calculation failed: {e}")
+            logger.warning(f"  ❌ 章节向量计算失败: {e}")
             return None
 
     def _extract_all_fields(
@@ -475,33 +475,33 @@ class LLMRAGPaperAnalyzer:
         paper: Dict
     ) -> Dict[str, str]:
         """
-        Automatically extract all four fields
+        自动提取所有四个字段
 
         Args:
-            sections: Paper section list
-            section_embeddings: Section embeddings (optional)
-            pdf_extracted: Whether PDF extraction succeeded
-            paper: Original paper information (for getting abstract)
+            sections: 论文章节列表
+            section_embeddings: 章节向量（可选）
+            pdf_extracted: PDF是否成功提取
+            paper: 原始论文信息（用于获取摘要）
 
         Returns:
             {field: extracted_value}
         """
-        logger.info("  Starting key field extraction...")
+        logger.info("  🔍 开始提取关键字段...")
 
         results = {}
 
         for field in self.extraction_fields:
-            logger.info(f"     • Extracting {field}...")
+            logger.info(f"     • 提取 {field}...")
 
             try:
                 value = self._extract_single_field(field, sections, section_embeddings, pdf_extracted, paper)
                 results[field] = value
 
             except Exception as e:
-                logger.error(f"     Failed to extract {field}: {e}")
-                results[field] = f"Extraction failed: {str(e)}"
+                logger.error(f"     ❌ 提取 {field} 失败: {e}")
+                results[field] = f"提取失败: {str(e)}"
 
-        logger.info(f"  Field extraction completed, successfully extracted {len(results)} fields")
+        logger.info(f"  ✅ 字段提取完成，成功提取 {len(results)} 个字段")
         return results
 
     def _extract_single_field(
@@ -513,73 +513,73 @@ class LLMRAGPaperAnalyzer:
         paper: Dict
     ) -> str:
         """
-        Extract single field
+        提取单个字段
 
-        Process:
-        - If PDF extraction succeeded: Use RAG to retrieve relevant context → LLM generation
-        - If PDF not extracted: Directly use abstract as context → LLM generation
+        流程:
+        - 如果PDF提取成功: 使用RAG检索相关上下文 → LLM生成
+        - 如果PDF未提取: 直接使用摘要作为上下文 → LLM生成
 
         Args:
-            field: Field name
-            sections: Section list
-            section_embeddings: Section embeddings
-            pdf_extracted: Whether PDF extraction succeeded
-            paper: Original paper information
+            field: 字段名
+            sections: 章节列表
+            section_embeddings: 章节向量
+            pdf_extracted: PDF是否成功提取
+            paper: 原始论文信息
 
         Returns:
-            Extracted content
+            提取的内容
         """
         if not sections:
-            return "No content available"
+            return "无可用内容"
 
-        # Choose different strategy based on whether PDF extraction succeeded
+        # 根据PDF是否提取成功选择不同策略
         if pdf_extracted:
-            # Strategy 1: PDF extraction succeeded -> Use RAG retrieval
-            logger.info(f"       Using RAG retrieval mode to extract {field}")
+            # 策略1: PDF提取成功 -> 使用RAG检索
+            logger.info(f"       使用RAG检索模式提取 {field}")
             relevant_context = self._retrieve_relevant_content(
                 field, sections, section_embeddings
             )
 
-            if not relevant_context or relevant_context == "No relevant information found":
-                # RAG retrieval failed, fallback to abstract
-                logger.warning(f"       RAG retrieval found no relevant information, falling back to abstract")
+            if not relevant_context or relevant_context == "未找到相关信息":
+                # RAG检索失败,降级到摘要
+                logger.warning(f"       RAG检索未找到相关信息,降级使用摘要")
                 relevant_context = self._get_abstract_context(paper)
         else:
-            # Strategy 2: PDF not extracted -> Directly use abstract
-            logger.info(f"       Using abstract direct generation mode to extract {field}")
+            # 策略2: PDF未提取 -> 直接使用摘要
+            logger.info(f"       使用摘要直接生成模式提取 {field}")
             relevant_context = self._get_abstract_context(paper)
 
-        if not relevant_context or relevant_context == "No abstract available":
-            return "No relevant information found"
+        if not relevant_context or relevant_context == "无摘要可用":
+            return "未找到相关信息"
 
-        # Use LLM to generate
+        # 使用LLM生成
         if self.llm_client:
             return self._generate_with_llm(field, relevant_context)
         else:
-            logger.warning("     LLM not configured, returning raw retrieval content")
-            return relevant_context[:200]  # Return first 200 characters of retrieval content
+            logger.warning("     ⚠️ LLM未配置，返回原始检索内容")
+            return relevant_context[:200]  # 返回检索内容的前200字符
 
     def _get_abstract_context(self, paper: Dict) -> str:
         """
-        Get abstract as context
+        获取摘要作为上下文
 
         Args:
-            paper: Paper information
+            paper: 论文信息
 
         Returns:
-            Abstract text
+            摘要文本
         """
         abstract = paper.get('abstract', '')
         title = paper.get('title', '')
 
         if not abstract:
-            return "No abstract available"
+            return "无摘要可用"
 
-        # Build context
+        # 构建上下文
         context = f"Title: {title}\n\nAbstract: {abstract}" if title else f"Abstract: {abstract}"
         return context
 
-    # ========== RAG Retrieval ==========
+    # ========== RAG检索 ==========
 
     def _retrieve_relevant_content(
         self,
@@ -588,23 +588,23 @@ class LLMRAGPaperAnalyzer:
         section_embeddings: Optional[any]
     ) -> str:
         """
-        Retrieve content relevant to field (RAG core)
+        检索与字段相关的内容（RAG核心）
 
-        Supports:
-        - Target section filtering
-        - Keyword retrieval
-        - Semantic similarity ranking (if embeddings available)
-        - Fallback to abstract (if retrieval fails)
+        支持:
+        - 目标章节过滤
+        - 关键词检索
+        - 语义相似度排序（如果有embeddings）
+        - 降级到摘要（如果检索失败）
 
         Args:
-            field: Field name
-            sections: Section list
-            section_embeddings: Section embeddings
+            field: 字段名
+            sections: 章节列表
+            section_embeddings: 章节向量
 
         Returns:
-            Relevant content text
+            相关内容文本
         """
-        # Define target sections and keywords
+        # 定义目标章节和关键词
         target_sections_map = {
             'problem': ['abstract', 'introduction'],
             'method': ['abstract', 'introduction', 'method', 'conclusion'],
@@ -622,24 +622,24 @@ class LLMRAGPaperAnalyzer:
         target_section_types = target_sections_map.get(field, [])
         keywords = keywords_map.get(field, [])
 
-        # Step 1: Filter target sections
+        # 步骤1: 过滤目标章节
         filtered_sections = [
             s for s in sections
             if s.section_type in target_section_types
         ] if target_section_types else sections
 
         if not filtered_sections:
-            logger.info(f"       Target sections {target_section_types} not found, using all sections")
+            logger.info(f"       未找到目标章节 {target_section_types}，使用所有章节")
             filtered_sections = sections
 
-        # Step 2: Keyword retrieval
+        # 步骤2: 关键词检索
         relevant_chunks = []
 
         for section in filtered_sections:
             paragraphs = self._split_into_paragraphs(section.content)
 
             for paragraph in paragraphs:
-                # Calculate keyword match count
+                # 计算关键词匹配数
                 keyword_count = sum(
                     1 for kw in keywords
                     if kw.lower() in paragraph.lower()
@@ -652,22 +652,22 @@ class LLMRAGPaperAnalyzer:
                         'keyword_count': keyword_count
                     })
 
-        # Step 3: If not found, fallback to abstract
+        # 步骤3: 如果没找到，降级到摘要
         if not relevant_chunks:
-            logger.info(f"       Keyword retrieval found no matches, falling back to abstract")
+            logger.info(f"       关键词检索未找到匹配，降级使用摘要")
             abstract_sections = [s for s in sections if s.section_type == 'abstract']
 
             if abstract_sections:
                 abstract_text = abstract_sections[0].content
                 return f"[Abstract (Fallback)]\n{abstract_text[:self.max_context_length]}"
             else:
-                # Use first two sections
+                # 使用前两个章节
                 all_content = "\n\n".join([f"[{s.title}]\n{s.content}" for s in sections[:2]])
-                return all_content[:self.max_context_length] if all_content else "No relevant information found"
+                return all_content[:self.max_context_length] if all_content else "未找到相关信息"
 
-        # Step 4: Sort (keyword or semantic similarity)
+        # 步骤4: 排序（关键词 or 语义相似度）
         if self.use_embeddings and section_embeddings is not None:
-            # Use semantic similarity ranking
+            # 使用语义相似度排序
             query_text = f"extract {field} from paper"
             chunk_texts = [c['text'] for c in relevant_chunks]
 
@@ -681,27 +681,27 @@ class LLMRAGPaperAnalyzer:
                     for i, chunk in enumerate(relevant_chunks):
                         chunk['similarity'] = similarities[i]
 
-                    # Combined ranking (keyword 30% + semantic 70%)
+                    # 综合排序（关键词30% + 语义70%）
                     relevant_chunks.sort(
                         key=lambda x: x['keyword_count'] * 0.3 + x['similarity'] * 0.7,
                         reverse=True
                     )
                 else:
-                    # Encoding failed, fallback to keyword ranking
+                    # 编码失败，降级到关键词排序
                     relevant_chunks.sort(key=lambda x: x['keyword_count'], reverse=True)
             except Exception as e:
-                # Fallback to keyword ranking
-                logger.warning(f"      Semantic similarity calculation failed: {e}, using keyword ranking")
+                # 降级到关键词排序
+                logger.warning(f"      语义相似度计算失败: {e}，使用关键词排序")
                 relevant_chunks.sort(key=lambda x: x['keyword_count'], reverse=True)
         else:
-            # Only keyword-based ranking
+            # 仅基于关键词排序
             relevant_chunks.sort(key=lambda x: x['keyword_count'], reverse=True)
 
-        # Step 5: Build context
+        # 步骤5: 构建上下文
         context_parts = []
         current_length = 0
 
-        for chunk in relevant_chunks[:5]:  # Take top 5
+        for chunk in relevant_chunks[:5]:  # 取top 5
             chunk_text = f"[{chunk['section']}]\n{chunk['text']}"
             chunk_length = len(chunk_text)
 
@@ -711,31 +711,31 @@ class LLMRAGPaperAnalyzer:
             context_parts.append(chunk_text)
             current_length += chunk_length
 
-        return "\n\n".join(context_parts) if context_parts else "No relevant information found"
+        return "\n\n".join(context_parts) if context_parts else "未找到相关信息"
 
-    # ========== LLM Generation ==========
+    # ========== LLM生成 ==========
 
     def _generate_with_llm(self, field: str, context: str) -> str:
         """
-        Use LLM to generate analysis result
+        使用LLM生成分析结果
 
         Args:
-            field: Field name
-            context: Retrieved context
+            field: 字段名
+            context: 检索到的上下文
 
         Returns:
-            LLM-generated analysis
+            LLM生成的分析
         """
         if not self.llm_client:
-            return "LLM not configured"
+            return "LLM未配置"
 
-        # Build full prompt
+        # 构建完整提示词
         full_prompt = self.prompt_manager.build_full_prompt(field, context)
 
-        # Get system prompt
+        # 获取系统提示词
         system_prompt = self.prompt_manager.get_system_prompt()
 
-        # Call LLM
+        # 调用LLM
         result = self.llm_client.generate(
             prompt=full_prompt,
             system_prompt=system_prompt
@@ -743,47 +743,47 @@ class LLMRAGPaperAnalyzer:
 
         return result
 
-    # ========== PDF Processing ==========
+    # ========== PDF处理 ==========
 
     def _extract_sections_from_pdf(self, pdf_path: str) -> List[PaperSection]:
         """
-        Extract sections from PDF or TXT file (hybrid strategy)
+        从PDF或TXT文件中提取章节（混合策略）
 
-        Strategy:
-        1. If .txt file, read text directly
-        2. If PDF: Prioritize GROBID (if available)
-        3. Fallback to PyPDF2+regex
+        策略:
+        1. 如果是.txt文件，直接读取文本
+        2. 如果是PDF：优先使用GROBID（如果可用）
+        3. 降级到PyPDF2+正则表达式
         """
-        # Check file extension
+        # 检查文件扩展名
         file_ext = Path(pdf_path).suffix.lower()
 
-        # Strategy 0: If .txt file, read directly
+        # 策略0: 如果是.txt文件，直接读取
         if file_ext == '.txt':
-            logger.info("  Detected .txt file, reading text directly...")
+            logger.info("  检测到.txt文件，直接读取文本...")
             return self._extract_sections_from_txt(pdf_path)
 
-        # Strategy 1: Try GROBID (for PDF only)
+        # 策略1: 尝试GROBID（仅对PDF）
         if self.grobid_parser:
             try:
-                logger.info("  Trying to parse PDF with GROBID...")
+                logger.info("  尝试使用GROBID解析PDF...")
                 sections = self.grobid_parser.extract_sections_from_pdf(pdf_path)
 
                 if sections:
-                    logger.info(f"  GROBID successfully extracted {len(sections)} sections")
+                    logger.info(f"  ✅ GROBID成功提取 {len(sections)} 个章节")
                     return sections
                 else:
-                    logger.warning("  GROBID extracted no sections, falling back to regex method")
+                    logger.warning("  ⚠️ GROBID未提取到章节，降级到正则方法")
             except Exception as e:
-                logger.warning(f"  GROBID parsing failed: {e}, falling back to regex method")
+                logger.warning(f"  ⚠️ GROBID解析失败: {e}，降级到正则方法")
 
-        # Strategy 2: Fallback to PyPDF2+regex
-        logger.info("  Using PyPDF2+regex to parse PDF...")
+        # 策略2: 降级到PyPDF2+正则表达式
+        logger.info("  使用PyPDF2+正则表达式解析PDF...")
         return self._extract_sections_with_pypdf2(pdf_path)
 
     def _extract_sections_with_pypdf2(self, pdf_path: str) -> List[PaperSection]:
-        """Extract sections using PyPDF2 (regex method)"""
+        """使用PyPDF2提取章节（正则表达式方法）"""
         if PyPDF2 is None:
-            logger.error("  PyPDF2 not installed, cannot extract PDF")
+            logger.error("  PyPDF2未安装，无法提取PDF")
             return []
 
         sections = []
@@ -805,42 +805,42 @@ class LLMRAGPaperAnalyzer:
                 sections = self._identify_sections(full_text)
 
         except Exception as e:
-            logger.error(f"  PDF processing failed: {e}")
+            logger.error(f"  PDF处理失败: {e}")
 
         return sections
 
     def _extract_sections_from_txt(self, txt_path: str) -> List[PaperSection]:
-        """Read directly from .txt file and extract sections"""
+        """从.txt文件直接读取并提取章节"""
         sections = []
 
         try:
             with open(txt_path, 'r', encoding='utf-8') as file:
                 full_text = file.read()
 
-            logger.info(f"  Successfully read .txt file, total {len(full_text)} characters")
+            logger.info(f"  ✅ 成功读取.txt文件，共 {len(full_text)} 个字符")
 
-            # Use same section recognition logic
+            # 使用相同的章节识别逻辑
             sections = self._identify_sections(full_text)
 
             if sections:
-                logger.info(f"  Identified {len(sections)} sections from .txt file")
+                logger.info(f"  ✅ 从.txt文件识别出 {len(sections)} 个章节")
             else:
-                logger.warning("  No clear sections identified, treating entire text as one section")
-                # If no sections identified, treat entire text as one section
+                logger.warning("  ⚠️ 未识别到明确章节，将整个文本作为一个章节")
+                # 如果没有识别到章节，将整个文本作为一个章节
                 sections = [PaperSection(
                     title='Full Text',
-                    content=full_text[:10000],  # Limit length
+                    content=full_text[:10000],  # 限制长度
                     page_num=0,
                     section_type='other'
                 )]
 
         except Exception as e:
-            logger.error(f"  .txt file processing failed: {e}")
+            logger.error(f"  .txt文件处理失败: {e}")
 
         return sections
 
     def _identify_sections(self, full_text: str) -> List[PaperSection]:
-        """Identify sections in text"""
+        """识别文本中的章节"""
         import re
 
         sections = []
@@ -855,11 +855,11 @@ class LLMRAGPaperAnalyzer:
             if not line_stripped:
                 continue
 
-            # Check if it's a section title
+            # 检查是否是章节标题
             section_type = self._match_section_type(line_stripped)
 
             if section_type:
-                # Save previous section
+                # 保存前一个章节
                 if current_section and current_content:
                     content = '\n'.join(current_content).strip()
                     if content:
@@ -870,16 +870,16 @@ class LLMRAGPaperAnalyzer:
                             section_type=current_type
                         ))
 
-                # Start new section
+                # 开始新章节
                 current_section = line_stripped
                 current_content = []
                 current_type = section_type
             else:
-                # Add to current section
+                # 添加到当前章节
                 if current_section:
                     current_content.append(line_stripped)
 
-        # Save last section
+        # 保存最后一个章节
         if current_section and current_content:
             content = '\n'.join(current_content).strip()
             if content:
@@ -893,7 +893,7 @@ class LLMRAGPaperAnalyzer:
         return sections
 
     def _match_section_type(self, line: str) -> Optional[str]:
-        """Match section type"""
+        """匹配章节类型"""
         import re
 
         line_lower = line.lower().strip()
@@ -906,7 +906,7 @@ class LLMRAGPaperAnalyzer:
         return None
 
     def _create_sections_from_abstract(self, paper: Dict) -> List[PaperSection]:
-        """Create sections from abstract"""
+        """从摘要创建章节"""
         sections = []
 
         if paper.get('title'):
@@ -927,10 +927,10 @@ class LLMRAGPaperAnalyzer:
 
         return sections
 
-    # ========== Utility Methods ==========
+    # ========== 工具方法 ==========
 
     def _split_into_paragraphs(self, text: str) -> List[str]:
-        """Split text into paragraphs"""
+        """将文本分割为段落"""
         import re
 
         paragraphs = re.split(r'\n\s*\n|\n', text)
@@ -938,7 +938,7 @@ class LLMRAGPaperAnalyzer:
 
         return paragraphs
 
-    # ========== Batch Analysis ==========
+    # ========== 批量分析 ==========
 
     def batch_analyze_papers(
         self,
@@ -946,24 +946,24 @@ class LLMRAGPaperAnalyzer:
         pdf_dir: Optional[str] = None
     ) -> List[Dict]:
         """
-        Batch analyze papers
+        批量分析论文
 
         Args:
-            papers: Paper list
-            pdf_dir: PDF folder path
+            papers: 论文列表
+            pdf_dir: PDF文件夹路径
 
         Returns:
-            Enhanced paper list
+            增强的论文列表
         """
         logger.info(f"\n{'='*60}")
-        logger.info(f"Batch analyzing {len(papers)} papers")
+        logger.info(f"📚 批量分析 {len(papers)} 篇论文")
         logger.info(f"{'='*60}\n")
 
         enriched_papers = []
 
         for i, paper in enumerate(papers):
             try:
-                # Find PDF file
+                # 查找PDF文件
                 pdf_path = None
                 if pdf_dir:
                     paper_id = paper.get('id', '')
@@ -973,34 +973,34 @@ class LLMRAGPaperAnalyzer:
                         pdf_path = str(pdf_file)
                         break
 
-                # Analyze paper
+                # 分析论文
                 enriched_paper = self.analyze_paper(paper, pdf_path)
                 enriched_papers.append(enriched_paper)
 
-                logger.info(f"Progress: {i+1}/{len(papers)}\n")
+                logger.info(f"进度: {i+1}/{len(papers)}\n")
 
             except Exception as e:
-                logger.error(f"Paper analysis failed {paper.get('id', 'unknown')}: {e}")
+                logger.error(f"分析论文失败 {paper.get('id', 'unknown')}: {e}")
 
-                # Add failed paper
+                # 添加失败的论文
                 failed_paper = paper.copy()
                 failed_paper['rag_analysis'] = {
-                    'problem': f'Analysis failed: {str(e)}',
-                    'method': f'Analysis failed: {str(e)}',
-                    'limitation': f'Analysis failed: {str(e)}',
-                    'future_work': f'Analysis failed: {str(e)}'
+                    'problem': f'分析失败: {str(e)}',
+                    'method': f'分析失败: {str(e)}',
+                    'limitation': f'分析失败: {str(e)}',
+                    'future_work': f'分析失败: {str(e)}'
                 }
                 enriched_papers.append(failed_paper)
 
         logger.info(f"{'='*60}")
-        logger.info(f"Batch analysis completed")
+        logger.info(f"✅ 批量分析完成")
         logger.info(f"{'='*60}\n")
 
         return enriched_papers
 
 
 if __name__ == "__main__":
-    # Test code
+    # 测试代码
     import logging
     logging.basicConfig(
         level=logging.INFO,
@@ -1008,10 +1008,10 @@ if __name__ == "__main__":
     )
 
     print("\n" + "="*60)
-    print("Testing LLM RAG Paper Analyzer (Refactored Version)")
+    print("测试LLM RAG论文分析器（重构版）")
     print("="*60)
 
-    # Test paper data
+    # 测试论文数据
     test_paper = {
         'id': 'W2741809807',
         'title': 'Attention Is All You Need',
@@ -1023,26 +1023,26 @@ if __name__ == "__main__":
     }
 
     try:
-        # Create analyzer
+        # 创建分析器
         analyzer = LLMRAGPaperAnalyzer(
             llm_config_path='../llm_config_ollama.json',
             prompts_dir='../prompts'
         )
 
-        # Analyze paper
+        # 分析论文
         result = analyzer.analyze_paper(test_paper)
 
-        # Display results
+        # 显示结果
         print("\n" + "="*60)
-        print("Analysis Results:")
+        print("分析结果:")
         print("="*60)
         for field, value in result['rag_analysis'].items():
             print(f"\n{field.upper()}:")
             print(value)
 
         print("\n" + "="*60)
-        print("Test completed")
+        print("✅ 测试完成")
         print("="*60)
 
     except Exception as e:
-        print(f"Test failed: {e}")
+        print(f"❌ 测试失败: {e}")

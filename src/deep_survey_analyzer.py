@@ -1,22 +1,22 @@
 """
-Deep Survey Generation Module
+深度综述生成模块
 Deep Survey Analyzer
 
-Core Methodology: Relation-Based Graph Pruning + Critical Evolutionary Path Identification
+核心方法论：基于关系的图谱剪枝 + 关键演化路径识别
 
-Responsible for generating deep academic surveys based on knowledge graphs, including:
-1. Relation-Based Graph Pruning - Solving "Data Noise"
-   - Retain Seed Papers
-   - Only retain papers connected to Seeds through strong logical relations (Overcomes, Realizes, Extends)
-   - Remove papers only connected by Baselines or isolated papers
-2. Critical Evolutionary Path Identification - Solving "Fragmentation"
-   - Identify linear chains (The Chain): A -> Overcomes -> B -> Extends -> C
-   - Identify divergence patterns (The Divergence): Seed -> [Multiple Routes]
-   - Identify convergence patterns (The Convergence): [Multiple Sources] -> Integration Point
-   - Generate narrative units for each evolutionary path
-3. Structured Deep Survey Report (Structured Survey Report)
-   - Display evolutionary stories in Thread format
-   - Combine visualization graphs with textual interpretation
+负责基于知识图谱生成深度学术综述，包括：
+1. 基于关系的图谱剪枝 (Relation-Based Graph Pruning) - 解决"数据噪音"
+   - 保留 Seed Papers
+   - 只保留通过强逻辑关系（Overcomes, Realizes, Extends）与 Seed 连通的论文
+   - 剔除仅由 Baselines 连接或孤立的论文
+2. 关键演化路径识别 (Critical Evolutionary Paths) - 解决"碎片化"
+   - 识别线性链条 (The Chain): A -> Overcomes -> B -> Extends -> C
+   - 识别分化模式 (The Divergence): Seed -> [Multiple Routes]
+   - 识别汇聚模式 (The Convergence): [Multiple Sources] -> Integration Point
+   - 为每个演化路径生成叙事单元
+3. 结构化 Deep Survey 报告 (Structured Survey Report)
+   - Thread 形式展示各个演化故事
+   - 配合可视化图和文字解读
 """
 
 import logging
@@ -26,64 +26,64 @@ from datetime import datetime
 try:
     import networkx as nx
 except ImportError:
-    raise ImportError("Need to install networkx: pip install networkx")
+    raise ImportError("需要安装networkx: pip install networkx")
 
 logger = logging.getLogger(__name__)
 
 
 class DeepSurveyAnalyzer:
     """
-    Deep Survey Analyzer
+    深度综述分析器
 
-    Generate deep academic surveys based on knowledge graphs
-    Using relation pruning + evolutionary path identification methodology
+    基于知识图谱生成深度学术综述
+    采用关系剪枝 + 演化路径识别方法论
     """
 
     def __init__(self, config: Dict = None):
         """
-        Initialize Deep Survey Analyzer
+        初始化深度综述分析器
 
         Args:
-            config: Configuration parameter dictionary, supports:
-                - llm_config_path: LLM configuration file path
-                - strong_relations: List of strong logical relation types
-                - weak_relations: List of weak relation types
-                - min_chain_length: Minimum chain length
-                - max_threads: Maximum number of evolutionary stories
-                - pruning_mode: Pruning mode ('seed_centric' or 'comprehensive')
-                - min_component_size: Minimum connected component size (for filtering noise clusters)
+            config: 配置参数字典，支持:
+                - llm_config_path: LLM配置文件路径
+                - strong_relations: 强逻辑关系类型列表
+                - weak_relations: 弱关系类型列表
+                - min_chain_length: 最小链条长度
+                - max_threads: 最大演化故事数量
+                - pruning_mode: 剪枝模式 ('seed_centric' 或 'comprehensive')
+                - min_component_size: 最小连通分量大小（用于过滤噪音簇）
         """
         self.config = config or {}
 
-        # Define strong logical relations (for pruning retention) - 6 relation types based on Socket Matching
+        # 定义强逻辑关系（用于剪枝保留）- 基于Socket Matching的6种关系类型
         self.strong_relations = self.config.get('strong_relations', [
-            'Overcomes',   # Overcome/Optimize (Vertical Deepening) - Match 1: Limitation→Problem
-            'Realizes',    # Realize Vision (Research Inheritance) - Match 2: Future_Work→Problem
-            'Extends',     # Method Extension (Incremental Innovation) - Match 3: Method Extension
-            'Alternative', # Alternative Route (Disruptive Innovation) - Match 3: Alternative Route
-            'Adapts_to'    # Technology Transfer (Horizontal Diffusion) - Match 4: Problem→Problem Cross-domain
+            'Overcomes',   # 攻克/优化（纵向深化）- Match 1: Limitation→Problem
+            'Realizes',    # 实现愿景（科研传承）- Match 2: Future_Work→Problem
+            'Extends',     # 方法扩展（微创新）- Match 3: Method Extension
+            'Alternative', # 另辟蹊径（颠覆创新）- Match 3: Alternative Route
+            'Adapts_to'    # 技术迁移（横向扩散）- Match 4: Problem→Problem跨域
         ])
 
-        # Define weak relations (for pruning removal)
+        # 定义弱关系（用于剪枝删除）
         self.weak_relations = self.config.get('weak_relations', [
-            'Baselines'    # Baseline Comparison (Background Noise) - No Match
+            'Baselines'    # 基线对比（背景噪音）- 无匹配
         ])
 
-        # Pruning mode configuration
+        # 剪枝模式配置
         self.pruning_mode = self.config.get('pruning_mode', 'comprehensive')
-        # 'seed_centric': Only retain strong relation subgraph connected to Seeds (original implementation)
-        # 'comprehensive': Retain all strong relation connected components (new implementation)
+        # 'seed_centric': 仅保留与Seed连通的强关系子图（原实现）
+        # 'comprehensive': 保留所有强关系连通分量（新实现）
 
-        # Minimum connected component size (for filtering noise clusters)
+        # 最小连通分量大小（用于过滤噪音簇）
         self.min_component_size = self.config.get('min_component_size', 3)
 
-        # Evolutionary path exploration depth (for divergence and convergence patterns)
+        # 演化路径探索深度（用于分化和汇聚模式）
         self.exploration_depth = self.config.get('exploration_depth', 5)
 
-        # Store connected component metadata (for subsequent deduplication)
+        # 存储连通分量元数据（用于后续去重）
         self.strong_components = []
 
-        # Initialize LLM client (for generating narrative text)
+        # 初始化LLM客户端（用于生成叙事文本）
         self.llm_client = None
         llm_config_path = self.config.get('llm_config_path')
         if llm_config_path:
@@ -91,59 +91,59 @@ class DeepSurveyAnalyzer:
                 from llm_config import LLMClient, LLMConfig
                 llm_config = LLMConfig.from_file(llm_config_path)
                 self.llm_client = LLMClient(llm_config)
-                logger.info("LLM client initialized successfully")
+                logger.info("✅ LLM客户端初始化成功")
             except Exception as e:
-                logger.warning(f"LLM client initialization failed: {e}, will use template to generate text")
+                logger.warning(f"LLM客户端初始化失败: {e}，将使用模板生成文本")
 
-        logger.info("DeepSurveyAnalyzer initialization complete")
-        logger.info(f"  Pruning mode: {self.pruning_mode}")
-        logger.info(f"  Strong logical relations: {self.strong_relations}")
-        logger.info(f"  Weak relations: {self.weak_relations}")
-        logger.info(f"  Minimum connected component size: {self.min_component_size}")
-        logger.info(f"  Evolutionary path exploration depth: {self.exploration_depth}")
+        logger.info("DeepSurveyAnalyzer 初始化完成")
+        logger.info(f"  剪枝模式: {self.pruning_mode}")
+        logger.info(f"  强逻辑关系: {self.strong_relations}")
+        logger.info(f"  弱关系: {self.weak_relations}")
+        logger.info(f"  最小连通分量大小: {self.min_component_size}")
+        logger.info(f"  演化路径探索深度: {self.exploration_depth}")
 
     def analyze(self, graph: nx.DiGraph, topic: str) -> Dict:
         """
-        Execute deep survey analysis
+        执行深度综述分析
 
         Args:
-            graph: Knowledge graph (NetworkX directed graph)
-            topic: Research topic
+            graph: 知识图谱（NetworkX有向图）
+            topic: 研究主题
 
         Returns:
-            Deep survey analysis results
+            深度综述分析结果
         """
-        logger.info(f"Starting deep survey analysis: {topic}")
-        logger.info(f"  Original graph: {len(graph.nodes())} nodes, {len(graph.edges())} edges")
+        logger.info(f"开始深度综述分析: {topic}")
+        logger.info(f"  原始图谱: {len(graph.nodes())} 个节点, {len(graph.edges())} 条边")
 
         if len(graph.nodes()) == 0:
-            logger.warning("Knowledge graph is empty, cannot generate deep survey")
+            logger.warning("知识图谱为空，无法生成深度综述")
             return self._empty_result(topic)
 
-        # ========== Step 1: Relation-Based Graph Pruning ==========
+        # ========== 第一步：基于关系的图谱剪枝 (Relation-Based Pruning) ==========
         logger.info("\n" + "="*60)
-        logger.info("Step 1: Relation-Based Graph Pruning")
+        logger.info("步骤1: 基于关系的图谱剪枝 (Relation-Based Pruning)")
         logger.info("="*60)
         pruned_graph, pruning_stats = self._prune_graph_by_relations(graph)
-        logger.info(f"  After pruning: {len(pruned_graph.nodes())} nodes (retention rate: {len(pruned_graph.nodes())/len(graph.nodes())*100:.1f}%)")
-        logger.info(f"  After pruning: {len(pruned_graph.edges())} edges (retention rate: {len(pruned_graph.edges())/len(graph.edges())*100:.1f}%)")
+        logger.info(f"  剪枝后: {len(pruned_graph.nodes())} 个节点 (保留率: {len(pruned_graph.nodes())/len(graph.nodes())*100:.1f}%)")
+        logger.info(f"  剪枝后: {len(pruned_graph.edges())} 条边 (保留率: {len(pruned_graph.edges())/len(graph.edges())*100:.1f}%)")
 
         if len(pruned_graph.nodes()) == 0:
-            logger.warning("Graph is empty after pruning, cannot generate survey")
+            logger.warning("剪枝后图谱为空，无法生成综述")
             return self._empty_result(topic)
 
-        # ========== Step 2: Critical Evolutionary Path Identification ==========
+        # ========== 第二步：关键演化路径识别 (Critical Evolutionary Paths) ==========
         logger.info("\n" + "="*60)
-        logger.info("Step 2: Critical Evolutionary Path Identification")
+        logger.info("步骤2: 关键演化路径识别 (Critical Evolutionary Paths)")
         logger.info("="*60)
         evolutionary_paths = self._identify_evolutionary_paths(pruned_graph)
-        logger.info(f"  Identified {len(evolutionary_paths)} evolutionary paths")
+        logger.info(f"  识别出 {len(evolutionary_paths)} 条演化路径")
         for i, path in enumerate(evolutionary_paths, 1):
-            logger.info(f"    Thread {i}: {path['pattern_type']} - {len(path['papers'])} papers")
+            logger.info(f"    Thread {i}: {path['pattern_type']} - {len(path['papers'])} 篇论文")
 
-        # ========== Step 3: Generate Structured Deep Survey Report ==========
+        # ========== 第三步：生成结构化 Deep Survey 报告 ==========
         logger.info("\n" + "="*60)
-        logger.info("Step 3: Generate Structured Deep Survey Report")
+        logger.info("步骤3: 生成结构化 Deep Survey 报告")
         logger.info("="*60)
         survey_report = self._generate_survey_report(
             topic=topic,
@@ -165,11 +165,11 @@ class DeepSurveyAnalyzer:
             }
         }
 
-        logger.info("\nDeep survey analysis complete")
+        logger.info("\n深度综述分析完成 ✅")
         return result
 
     def _empty_result(self, topic: str) -> Dict:
-        """Return empty result"""
+        """返回空结果"""
         return {
             'topic': topic,
             'timestamp': datetime.now().isoformat(),
@@ -185,86 +185,86 @@ class DeepSurveyAnalyzer:
 
     def _prune_graph_by_relations(self, graph: nx.DiGraph) -> Tuple[nx.DiGraph, Dict]:
         """
-        Step 1: Relation-Based Graph Pruning
+        第一步：基于关系的图谱剪枝
 
-        Supports two modes:
-        - comprehensive: Retain all strong relation connected components
-        - seed_centric: Only retain papers connected to Seeds (original implementation)
+        支持两种模式：
+        - comprehensive: 保留所有强关系连通分量
+        - seed_centric: 只保留与Seed连通的论文（原实现）
 
         Args:
-            graph: Original knowledge graph
+            graph: 原始知识图谱
 
         Returns:
-            (Pruned graph, statistics)
+            (剪枝后的图谱, 统计信息)
         """
-        logger.info("  Executing graph pruning...")
-        logger.info(f"    Pruning mode: {self.pruning_mode}")
+        logger.info("  正在执行图谱剪枝...")
+        logger.info(f"    剪枝模式: {self.pruning_mode}")
 
-        # Create new graph (preserve original graph structure)
+        # 创建新图（保留原图结构）
         pruned_graph = nx.DiGraph()
 
-        # Step 1: Identify all Seed Papers (needed for both modes)
+        # Step 1: 识别所有 Seed Papers（两种模式都需要）
         seed_papers = set()
         for node_id in graph.nodes():
             node_data = graph.nodes[node_id]
             if node_data.get('is_seed', False):
                 seed_papers.add(node_id)
 
-        logger.info(f"    Identified {len(seed_papers)} Seed Papers")
+        logger.info(f"    识别到 {len(seed_papers)} 个 Seed Papers")
 
-        # Step 2: Determine papers to retain based on pruning mode
+        # Step 2: 根据剪枝模式确定要保留的论文
         if self.pruning_mode == 'comprehensive':
-            # New mode: Retain all strong relation connected components
+            # 新模式：保留所有强关系连通分量
             papers_to_keep = self._find_all_strong_components(graph)
         else:
-            # Original mode: Only retain papers connected to Seeds
+            # 原模式：只保留与Seed连通的论文
             if len(seed_papers) == 0:
-                logger.warning("    No Seed Papers found, will use top 5 paper nodes as seeds")
-                # Fallback strategy: Select top 5 paper nodes as seeds
+                logger.warning("    未找到 Seed Papers，将使用前5个论文节点作为种子")
+                # 降级策略：选择前5个论文节点作为种子
                 all_nodes = list(graph.nodes())
                 seed_papers = set(all_nodes[:5])
-                logger.info(f"    Fallback strategy: Selected {len(seed_papers)} paper nodes as seeds")
+                logger.info(f"    降级策略：选择了 {len(seed_papers)} 个论文节点作为种子")
 
             papers_to_keep = self._find_seed_connected_papers(graph, seed_papers)
 
-        # Step 3: Build pruned subgraph
+        # Step 3: 构建剪枝后的子图
         for node_id in papers_to_keep:
             node_data = graph.nodes[node_id]
             pruned_graph.add_node(node_id, **node_data)
 
-        # Step 4: Add edges (only retain strong relation edges) and count relation type distribution
+        # Step 4: 添加边（只保留强关系边）并统计关系类型分布
         strong_edges = 0
         weak_edges_removed = 0
-        relation_type_count = {}  # Count the number of each relation type
+        relation_type_count = {}  # 统计各种关系类型的数量
 
         for u, v, edge_data in graph.edges(data=True):
             if u in papers_to_keep and v in papers_to_keep:
                 edge_type = edge_data.get('type') or edge_data.get('edge_type', '')
 
-                # Count relation types
+                # 统计关系类型
                 if edge_type:
                     relation_type_count[edge_type] = relation_type_count.get(edge_type, 0) + 1
 
                 if edge_type in self.strong_relations or edge_type == '':
-                    # Retain strong relation edges (empty type retained by default)
+                    # 保留强关系边（空类型默认保留）
                     pruned_graph.add_edge(u, v, **edge_data)
                     strong_edges += 1
                 else:
                     weak_edges_removed += 1
 
-        # Statistics
+        # 统计信息
         pruning_stats = {
             'original_papers': len(graph.nodes()),
             'pruned_papers': len(pruned_graph.nodes()),
             'removed_papers': len(graph.nodes()) - len(pruned_graph.nodes()),
             'pruning_mode': self.pruning_mode,
 
-            # New: Connected component statistics
+            # 新增：连通分量统计
             'strong_components_count': len(self.strong_components) if hasattr(self, 'strong_components') else 0,
             'components_with_seed': sum(1 for c in getattr(self, 'strong_components', []) if c['has_seed']),
             'largest_component_size': max((c['size'] for c in getattr(self, 'strong_components', [])), default=0),
 
-            # Original statistics
+            # 原有统计
             'seed_papers': len(seed_papers),
             'original_edges': len(graph.edges()),
             'strong_edges': strong_edges,
@@ -273,27 +273,27 @@ class DeepSurveyAnalyzer:
             'relation_type_distribution': relation_type_count
         }
 
-        logger.info(f"    Pruning complete:")
-        logger.info(f"       - Retained papers: {pruning_stats['pruned_papers']} / {pruning_stats['original_papers']}")
-        logger.info(f"       - Removed papers: {pruning_stats['removed_papers']}")
-        logger.info(f"       - Retained strong relation edges: {strong_edges}")
-        logger.info(f"       - Removed weak relation edges: {weak_edges_removed}")
+        logger.info(f"    ✅ 剪枝完成:")
+        logger.info(f"       - 保留论文: {pruning_stats['pruned_papers']} / {pruning_stats['original_papers']}")
+        logger.info(f"       - 剔除论文: {pruning_stats['removed_papers']}")
+        logger.info(f"       - 保留强关系边: {strong_edges}")
+        logger.info(f"       - 剔除弱关系边: {weak_edges_removed}")
 
-        # Output connected component statistics (comprehensive mode only)
+        # 输出连通分量统计（仅comprehensive模式）
         if self.pruning_mode == 'comprehensive' and hasattr(self, 'strong_components'):
-            logger.info(f"    Strong relation connected component statistics:")
-            logger.info(f"       - Total connected components: {len(self.strong_components)}")
-            logger.info(f"       - Components with seeds: {sum(1 for c in self.strong_components if c['has_seed'])}")
-            logger.info(f"       - Largest component size: {max((c['size'] for c in self.strong_components), default=0)}")
+            logger.info(f"    📊 强关系连通分量统计:")
+            logger.info(f"       - 连通分量总数: {len(self.strong_components)}")
+            logger.info(f"       - 包含种子的分量: {sum(1 for c in self.strong_components if c['has_seed'])}")
+            logger.info(f"       - 最大分量大小: {max((c['size'] for c in self.strong_components), default=0)}")
 
-            # List top 5 largest connected components
+            # 列出前5个最大的连通分量
             sorted_components = sorted(self.strong_components, key=lambda x: x['size'], reverse=True)
             for i, comp in enumerate(sorted_components[:5], 1):
-                logger.info(f"       - Component {i}: {comp['size']} papers, total citations {comp['total_citations']}")
+                logger.info(f"       - 分量{i}: {comp['size']}篇论文, 总引用{comp['total_citations']}")
 
-        # Output relation type distribution
+        # 输出关系类型分布
         if relation_type_count:
-            logger.info(f"    Relation type distribution:")
+            logger.info(f"    📊 关系类型分布:")
             for rel_type, count in sorted(relation_type_count.items(), key=lambda x: x[1], reverse=True):
                 percentage = count / sum(relation_type_count.values()) * 100
                 logger.info(f"       - {rel_type}: {count} ({percentage:.1f}%)")
@@ -307,15 +307,15 @@ class DeepSurveyAnalyzer:
         direction: str = 'forward'
     ) -> Set[str]:
         """
-        Use BFS to traverse graph from start node along strong logical relations
+        使用 BFS 从起始节点出发，沿强逻辑关系遍历图
 
         Args:
-            graph: Graph
-            start_node: Start node
-            direction: 'forward' (successors) or 'backward' (predecessors)
+            graph: 图谱
+            start_node: 起始节点
+            direction: 'forward' (后继) 或 'backward' (前驱)
 
         Returns:
-            Set of reachable nodes
+            可达节点集合
         """
         visited = set()
         queue = [start_node]
@@ -326,7 +326,7 @@ class DeepSurveyAnalyzer:
                 continue
             visited.add(current)
 
-            # Get neighbor nodes
+            # 获取邻居节点
             if direction == 'forward':
                 neighbors = graph.successors(current)
             else:
@@ -336,7 +336,7 @@ class DeepSurveyAnalyzer:
                 if neighbor in visited:
                     continue
 
-                # Check edge type
+                # 检查边的类型
                 if direction == 'forward':
                     edge_data = graph.edges[current, neighbor]
                 else:
@@ -344,7 +344,7 @@ class DeepSurveyAnalyzer:
 
                 edge_type = edge_data.get('type') or edge_data.get('edge_type', '')
 
-                # Only traverse along strong relation edges
+                # 只沿强关系边遍历
                 if edge_type in self.strong_relations or edge_type == '':
                     queue.append(neighbor)
 
@@ -356,55 +356,55 @@ class DeepSurveyAnalyzer:
         start_node: str
     ) -> Set[str]:
         """
-        Bidirectional BFS from start node to find all nodes connected by strong relations
+        从起始节点双向BFS，找到所有强关系连通的节点
 
         Args:
-            graph: Graph
-            start_node: Start node
+            graph: 图谱
+            start_node: 起始节点
 
         Returns:
-            Set of reachable nodes (union of forward + backward)
+            可达节点集合（正向+反向的并集）
         """
-        # Forward traversal: Find successor nodes
+        # 正向遍历：找到后继节点
         forward = self._bfs_strong_relations(graph, start_node, 'forward')
-        # Backward traversal: Find predecessor nodes
+        # 反向遍历：找到前驱节点
         backward = self._bfs_strong_relations(graph, start_node, 'backward')
 
-        # Return union of both
+        # 返回两者的并集
         return forward | backward
 
     def _find_all_strong_components(self, graph: nx.DiGraph) -> Set[str]:
         """
-        Find all strong relation connected components
+        找到所有强关系连通分量
 
-        Strategy:
-        1. Traverse all nodes, use bidirectional BFS to find strong relation connected components
-        2. Only retain connected components with size >= min_component_size
-        3. Record metadata for each connected component (for subsequent deduplication)
+        策略：
+        1. 遍历所有节点，使用双向BFS找到强关系连通分量
+        2. 只保留大小 >= min_component_size 的连通分量
+        3. 记录每个连通分量的元数据（用于后续去重）
 
         Args:
-            graph: Original graph
+            graph: 原始图谱
 
         Returns:
-            Set of all paper nodes to retain
+            所有应保留的论文节点集合
         """
         visited = set()
         papers_to_keep = set()
-        self.strong_components = []  # Clear and re-record
+        self.strong_components = []  # 清空并重新记录
 
         for node in graph.nodes():
             if node in visited:
                 continue
 
-            # Bidirectional BFS to find strong relation connected component of this node
+            # 双向BFS找到该节点的强关系连通分量
             component = self._bfs_strong_relations_bidirectional(graph, node)
             visited.update(component)
 
-            # Filter small clusters (may be noise)
+            # 过滤小簇（可能是噪音）
             if len(component) >= self.min_component_size:
                 papers_to_keep.update(component)
 
-                # Record connected component metadata
+                # 记录连通分量元数据
                 total_citations = sum(
                     graph.nodes[p].get('cited_by_count', 0)
                     for p in component
@@ -422,8 +422,8 @@ class DeepSurveyAnalyzer:
                     'has_seed': has_seed
                 })
 
-        logger.info(f"    Identified {len(self.strong_components)} strong relation connected components")
-        logger.info(f"    Retained {len(papers_to_keep)} papers (connected component size >= {self.min_component_size})")
+        logger.info(f"    识别到 {len(self.strong_components)} 个强关系连通分量")
+        logger.info(f"    保留 {len(papers_to_keep)} 篇论文（连通分量大小 >= {self.min_component_size}）")
 
         return papers_to_keep
 
@@ -433,32 +433,32 @@ class DeepSurveyAnalyzer:
         seed_papers: Set[str]
     ) -> Set[str]:
         """
-        Original logic: Only retain papers connected to seeds (for seed_centric mode)
+        原有逻辑：只保留与种子连通的论文（用于 seed_centric 模式）
 
         Args:
-            graph: Graph
-            seed_papers: Set of seed papers
+            graph: 图谱
+            seed_papers: 种子论文集合
 
         Returns:
-            Set of papers connected to seeds
+            与种子连通的论文集合
         """
         papers_to_keep = set(seed_papers)
 
-        # Forward traversal: Seed -> subsequent papers (through strong relations)
+        # 正向遍历：Seed -> 后续论文（通过强关系）
         for seed in seed_papers:
             reachable_forward = self._bfs_strong_relations(
                 graph, seed, direction='forward'
             )
             papers_to_keep.update(reachable_forward)
 
-        # Backward traversal: Seed <- predecessor papers (through strong relations)
+        # 反向遍历：Seed <- 前驱论文（通过强关系）
         for seed in seed_papers:
             reachable_backward = self._bfs_strong_relations(
                 graph, seed, direction='backward'
             )
             papers_to_keep.update(reachable_backward)
 
-        logger.info(f"    Through strong relation connectivity analysis, retained {len(papers_to_keep)} papers")
+        logger.info(f"    通过强关系连通性分析，保留 {len(papers_to_keep)} 篇论文")
 
         return papers_to_keep
 
@@ -470,18 +470,18 @@ class DeepSurveyAnalyzer:
         max_depth: int = 5
     ) -> Set[str]:
         """
-        Lightweight chain exploration (for pre-evaluation)
+        轻量级链条探索（用于预评估）
 
-        Performs BFS along strong relation edges with depth limit
+        沿强关系边进行BFS，限制深度
 
         Args:
-            graph: Graph
-            start_node: Starting node
-            scope: Allowed node scope
-            max_depth: Maximum exploration depth
+            graph: 图谱
+            start_node: 起始节点
+            scope: 允许的节点范围
+            max_depth: 最大探索深度
 
         Returns:
-            Set of reachable nodes
+            可达节点集合
         """
         visited = set([start_node])
         current_layer = {start_node}
@@ -489,7 +489,7 @@ class DeepSurveyAnalyzer:
         for _ in range(max_depth):
             next_layer = set()
             for node in current_layer:
-                # Explore successor nodes
+                # 探索后继节点
                 for successor in graph.successors(node):
                     if successor not in scope or successor in visited:
                         continue
@@ -513,22 +513,22 @@ class DeepSurveyAnalyzer:
         max_depth: int = 5
     ) -> Set[str]:
         """
-        Lightweight divergence exploration (for pre-evaluation)
+        轻量级分化探索（用于预评估）
 
-        Explores from center node towards predecessors direction
+        从中心节点向predecessors方向探索
 
         Args:
-            graph: Graph
-            center_node: Center node
-            scope: Allowed node scope
-            max_depth: Maximum exploration depth
+            graph: 图谱
+            center_node: 中心节点
+            scope: 允许的节点范围
+            max_depth: 最大探索深度
 
         Returns:
-            Set of reachable nodes
+            可达节点集合
         """
         visited = set([center_node])
 
-        # Get all predecessors that reference center node through strong relations
+        # 获取所有通过强关系引用中心节点的前驱
         predecessors = [
             p for p in graph.predecessors(center_node)
             if p in scope
@@ -543,7 +543,7 @@ class DeepSurveyAnalyzer:
 
             visited.add(predecessor)
 
-            # Continue exploring backwards (with depth limit)
+            # 继续向后探索（限制深度）
             current = predecessor
             for _ in range(max_depth - 1):
                 next_predecessors = [
@@ -554,7 +554,7 @@ class DeepSurveyAnalyzer:
                 if not next_predecessors:
                     break
 
-                # Select strong relation predecessors
+                # 选择强关系前驱
                 valid_predecessors = [
                     np for np in next_predecessors
                     if (graph.edges[np, current].get('type') or
@@ -564,7 +564,7 @@ class DeepSurveyAnalyzer:
                 if not valid_predecessors:
                     break
 
-                # Select the one with highest citation count
+                # 选择引用数最高的
                 next_node = max(
                     valid_predecessors,
                     key=lambda x: graph.nodes[x].get('cited_by_count', 0)
@@ -582,22 +582,22 @@ class DeepSurveyAnalyzer:
         max_depth: int = 5
     ) -> Set[str]:
         """
-        Lightweight convergence exploration (for pre-evaluation)
+        轻量级汇聚探索（用于预评估）
 
-        Explores from center node towards successors direction
+        从中心节点向successors方向探索
 
         Args:
-            graph: Graph
-            center_node: Center node
-            scope: Allowed node scope
-            max_depth: Maximum exploration depth
+            graph: 图谱
+            center_node: 中心节点
+            scope: 允许的节点范围
+            max_depth: 最大探索深度
 
         Returns:
-            Set of reachable nodes
+            可达节点集合
         """
         visited = set([center_node])
 
-        # Get all successors referenced by center node through strong relations
+        # 获取所有被中心节点通过强关系引用的后继
         successors = [
             s for s in graph.successors(center_node)
             if s in scope
@@ -612,7 +612,7 @@ class DeepSurveyAnalyzer:
 
             visited.add(successor)
 
-            # Continue exploring forward (with depth limit)
+            # 继续向后探索（限制深度）
             current = successor
             for _ in range(max_depth - 1):
                 next_successors = [
@@ -623,7 +623,7 @@ class DeepSurveyAnalyzer:
                 if not next_successors:
                     break
 
-                # Select strong relation successors
+                # 选择强关系后继
                 valid_successors = [
                     ns for ns in next_successors
                     if (graph.edges[current, ns].get('type') or
@@ -633,7 +633,7 @@ class DeepSurveyAnalyzer:
                 if not valid_successors:
                     break
 
-                # Select the one with highest citation count
+                # 选择引用数最高的
                 next_node = max(
                     valid_successors,
                     key=lambda x: graph.nodes[x].get('cited_by_count', 0)
@@ -650,33 +650,33 @@ class DeepSurveyAnalyzer:
         scope: Set[str]
     ) -> int:
         """
-        Pre-evaluate the number of papers a node can cover
+        预评估节点能覆盖的论文数
 
-        Considers chain, divergence, and convergence directions comprehensively
+        综合考虑链条、分化、汇聚三个方向
 
         Args:
-            graph: Graph
-            node_id: Candidate node ID
-            scope: Allowed node scope (connected component)
+            graph: 图谱
+            node_id: 候选节点ID
+            scope: 允许的节点范围（连通分量）
 
         Returns:
-            Estimated total number of papers that can be covered
+            预计能覆盖的论文总数
         """
         all_papers = set()
 
-        # 1. Chain direction coverage
+        # 1. 链条方向覆盖
         chain_papers = self._lightweight_explore_chains(
             graph, node_id, scope, self.exploration_depth
         )
         all_papers.update(chain_papers)
 
-        # 2. Divergence direction coverage
+        # 2. 分化方向覆盖
         divergence_papers = self._lightweight_explore_divergence(
             graph, node_id, scope, self.exploration_depth
         )
         all_papers.update(divergence_papers)
 
-        # 3. Convergence direction coverage
+        # 3. 汇聚方向覆盖
         convergence_papers = self._lightweight_explore_convergence(
             graph, node_id, scope, self.exploration_depth
         )
@@ -690,35 +690,35 @@ class DeepSurveyAnalyzer:
         component_papers: Set[str]
     ) -> List[str]:
         """
-        Find key nodes in connected component
+        找到连通分量的关键节点
 
-        Priority:
-        1. Seed nodes (if any)
-        2. Pre-evaluation to select top 3 nodes with highest coverage
+        优先级：
+        1. 种子节点（如果有）
+        2. 预评估选择覆盖率最高的前3个节点
 
         Args:
-            graph: Graph
-            component_papers: Set of papers in connected component
+            graph: 图谱
+            component_papers: 连通分量的论文集合
 
         Returns:
-            List of key node IDs
+            关键节点ID列表
         """
         key_nodes = []
 
-        # Prioritize seed nodes
+        # 优先选择种子节点
         seed_nodes = [
             node_id for node_id in component_papers
             if graph.nodes[node_id].get('is_seed', False)
         ]
         key_nodes.extend(seed_nodes)
 
-        # If no seeds, use pre-evaluation mechanism
+        # 如果没有种子，使用预评估机制
         if len(key_nodes) == 0:
             component_size = len(component_papers)
 
-            # Performance optimization: large components (>50 nodes) use fallback strategy
+            # 性能优化：大连通分量（>50节点）使用降级策略
             if component_size > 50:
-                logger.info(f"    Component too large ({component_size} nodes), using degree centrality fallback strategy")
+                logger.info(f"    连通分量过大({component_size}节点)，使用度中心性降级策略")
                 subgraph = graph.subgraph(component_papers)
                 centrality = nx.degree_centrality(subgraph)
                 top_nodes = sorted(
@@ -728,29 +728,29 @@ class DeepSurveyAnalyzer:
                 )[:3]
                 key_nodes = [node_id for node_id, _ in top_nodes]
             else:
-                # Pre-evaluation strategy: calculate coverage for top 10 candidates by degree centrality
+                # 预评估策略：计算度中心性前10个候选节点的覆盖率
                 subgraph = graph.subgraph(component_papers)
                 centrality = nx.degree_centrality(subgraph)
                 top_candidates = sorted(
                     centrality.items(),
                     key=lambda x: x[1],
                     reverse=True
-                )[:10]  # Candidate pool: top 10
+                )[:10]  # 候选池：前10个
 
-                # Pre-evaluate paper coverage for each candidate node
+                # 预评估每个候选节点的论文覆盖数
                 candidate_scores = []
                 for node_id, _ in top_candidates:
                     coverage = self._pre_evaluate_node_coverage(
                         graph, node_id, component_papers
                     )
                     candidate_scores.append((node_id, coverage))
-                    logger.info(f"      Pre-evaluating node {node_id[:20]}...: estimated coverage {coverage} papers")
+                    logger.info(f"      预评估节点 {node_id[:20]}...: 预计覆盖 {coverage} 篇论文")
 
-                # Sort by coverage count, select top 3
+                # 按覆盖数排序，选择前3个
                 candidate_scores.sort(key=lambda x: x[1], reverse=True)
                 key_nodes = [node_id for node_id, _ in candidate_scores[:3]]
 
-                logger.info(f"    Pre-evaluation complete, selected 3 optimal nodes")
+                logger.info(f"    预评估选择完成，选出3个最优节点")
 
         return key_nodes
 
@@ -761,36 +761,36 @@ class DeepSurveyAnalyzer:
         scope: Set[str]
     ) -> List[List[str]]:
         """
-        Identify linear chains within specified scope (avoid cross-component identification)
+        在指定范围内识别线性链条（避免跨连通分量识别）
 
         Args:
-            graph: Graph
-            start_node: Starting node
-            scope: Allowed node scope (nodes within connected component)
+            graph: 图谱
+            start_node: 起始节点
+            scope: 允许的节点范围（连通分量内的节点）
 
         Returns:
-            List of chains, each chain is a list of node IDs
+            链条列表，每个链条是节点ID列表
         """
         chains = []
         min_chain_length = self.config.get('min_chain_length', 3)
 
         def dfs_chain(current_path: List[str]):
-            """DFS search for chains (limited to scope)"""
+            """DFS 搜索链条（限制在scope内）"""
             current = current_path[-1]
             successors = list(graph.successors(current))
 
             if len(successors) == 0:
-                # Reached endpoint
+                # 到达终点
                 if len(current_path) >= min_chain_length:
                     chains.append(current_path.copy())
                 return
 
-            # Prioritize continuing along strong relations
+            # 优先沿着强关系继续
             for successor in successors:
-                # Key modification: only consider nodes within scope
+                # 关键修改：只考虑scope内的节点
                 if successor not in scope:
                     continue
-                if successor in current_path:  # Avoid cycles
+                if successor in current_path:  # 避免环
                     continue
 
                 edge_data = graph.edges[current, successor]
@@ -801,7 +801,7 @@ class DeepSurveyAnalyzer:
                     dfs_chain(current_path)
                     current_path.pop()
 
-            # If no strong relations found, record current chain
+            # 如果没有找到强关系，记录当前链条
             if len(current_path) >= min_chain_length:
                 chains.append(current_path.copy())
 
@@ -816,55 +816,55 @@ class DeepSurveyAnalyzer:
         scope: Set[str]
     ) -> Optional[Dict]:
         """
-        Identify divergence structure within specified scope (avoid cross-component identification)
+        在指定范围内识别分化结构（避免跨连通分量识别）
 
-        Divergence definition: a center node is referenced/extended by multiple subsequent papers
-        Direction: center node -> multiple branches (explore towards predecessors)
+        分化定义：一个中心节点被多篇后续论文引用/扩展
+        方向：中心节点 -> 多条分支（向predecessors探索）
 
         Args:
-            graph: Graph
-            center_node: Center node
-            scope: Allowed node scope (nodes within connected component)
+            graph: 图谱
+            center_node: 中心节点
+            scope: 允许的节点范围（连通分量内的节点）
 
         Returns:
-            Divergence structure dictionary containing center node and routes
+            分化结构字典，包含中心节点和各条路线
         """
-        # Use predecessors to find papers that reference center node (Bug Fix #6)
+        # 使用 predecessors 找引用中心节点的论文（Bug Fix #6）
         predecessors = list(graph.predecessors(center_node))
 
-        # Key modification: only consider predecessor nodes within scope
+        # 关键修改：只考虑scope内的前驱节点
         predecessors = [p for p in predecessors if p in scope]
 
         if len(predecessors) < 2:
             return None
 
-        # For each predecessor node, identify its evolution route
+        # 对每个前驱节点，识别其演化路线
         routes = []
         for predecessor in predecessors:
             edge_data = graph.edges[predecessor, center_node]
             edge_type = edge_data.get('type') or edge_data.get('edge_type', '')
 
-            # Only keep strong relation routes
+            # 只保留强关系路线
             if edge_type not in self.strong_relations:
                 continue
 
-            # Initialize route
+            # 初始化路线
             route = {
                 'relation_type': edge_type,
                 'papers': [predecessor]
             }
 
-            # Continue exploring backwards (up to exploration_depth layers) - find newer papers
+            # 继续向后探索（最多exploration_depth层）- 找更新的论文
             current = predecessor
             for _ in range(self.exploration_depth):
                 next_predecessors = list(graph.predecessors(current))
-                # Key modification: only consider nodes within scope
+                # 关键修改：只考虑scope内的节点
                 next_predecessors = [np for np in next_predecessors if np in scope]
 
                 if len(next_predecessors) == 0:
                     break
 
-                # Select predecessor with highest citation count (and strong relation)
+                # 选择引用数最高的前驱（且是强关系）
                 valid_predecessors = []
                 for np in next_predecessors:
                     edge_data = graph.edges[np, current]
@@ -885,7 +885,7 @@ class DeepSurveyAnalyzer:
 
             routes.append(route)
 
-        # At least 2 valid routes required for divergence
+        # 至少有2条有效路线才算分化
         if len(routes) < 2:
             return None
 
@@ -900,30 +900,30 @@ class DeepSurveyAnalyzer:
         component: Dict
     ) -> List[Dict]:
         """
-        Identify linear chains and divergence structures for a connected component
+        为一个连通分量识别线性链条和分化结构
 
-        Strategy:
-        1. Find "key nodes" in connected component (high centrality or seed nodes)
-        2. Identify chains and divergence from key nodes
-        3. Mark component ID for deduplication
+        策略：
+        1. 找到连通分量的"关键节点"（高中心性或种子节点）
+        2. 从关键节点识别链条和分化
+        3. 标记连通分量ID，用于去重
 
         Args:
-            graph: Graph
-            component: Connected component dictionary (contains papers, size, total_citations, etc.)
+            graph: 图谱
+            component: 连通分量字典（包含papers, size, total_citations等）
 
         Returns:
-            List of evolution paths
+            演化路径列表
         """
         paths = []
         component_papers = component['papers']
 
-        # Find key nodes in connected component
+        # 找到连通分量的关键节点
         key_nodes = self._find_key_nodes_in_component(graph, component_papers)
 
         for node_id in key_nodes:
             node_data = graph.nodes[node_id]
 
-            # Identify linear chains (limited to current connected component)
+            # 识别线性链条（限制在当前连通分量内）
             chains = self._find_linear_chains_in_scope(
                 graph,
                 node_id,
@@ -931,10 +931,10 @@ class DeepSurveyAnalyzer:
             )
             for chain in chains:
                 path = self._create_chain_narrative(graph, chain, node_data)
-                path['component_id'] = id(component)  # Mark belonging component
+                path['component_id'] = id(component)  # 标记所属连通分量
                 paths.append(path)
 
-            # Identify divergence structure (limited to current connected component)
+            # 识别分化结构（限制在当前连通分量内）
             divergence = self._find_divergence_pattern_in_scope(
                 graph,
                 node_id,
@@ -945,7 +945,7 @@ class DeepSurveyAnalyzer:
                 path['component_id'] = id(component)
                 paths.append(path)
 
-            # Identify convergence structure (limited to current connected component)
+            # 识别汇聚结构（限制在当前连通分量内）
             convergence = self._find_convergence_pattern_in_scope(
                 graph,
                 node_id,
@@ -955,50 +955,50 @@ class DeepSurveyAnalyzer:
                 path = self._create_convergence_narrative(graph, convergence, node_data)
                 path['component_id'] = id(component)
                 paths.append(path)
-                logger.info(f"      Identified convergence structure: {len(convergence['routes'])} routes converging")
+                logger.info(f"      识别到汇聚结构: {len(convergence['routes'])} 条路线汇聚")
 
         return paths
 
     def _calculate_path_priority(self, path: Dict) -> float:
         """
-        Calculate path priority
+        计算路径优先级
 
-        Scoring dimensions:
-        1. Paper count (weight: 30%)
-        2. Total citations (weight: 30%)
-        3. Path type diversity (weight: 20%)
-        4. Key relation types (weight: 20%)
+        评分维度：
+        1. 论文数量（权重：30%）
+        2. 总引用数（权重：30%）
+        3. 路径类型多样性（权重：20%）
+        4. 关键关系类型（权重：20%）
 
         Args:
-            path: Evolution path
+            path: 演化路径
 
         Returns:
-            Priority score
+            优先级分数
         """
-        # 1. Paper count (weight: 30%)
+        # 1. 论文数量（权重：30%）
         paper_count_score = len(path['papers']) * 10
 
-        # 2. Total citations (weight: 30%)
-        citation_score = path.get('total_citations', 0) / 100  # Normalize
+        # 2. 总引用数（权重：30%）
+        citation_score = path.get('total_citations', 0) / 100  # 归一化
 
-        # 3. Path type diversity (weight: 20%)
+        # 3. 路径类型多样性（权重：20%）
         diversity_score = 0
         if path['thread_type'] in ['divergence', 'convergence']:
-            # Divergence/convergence structure: more diverse relation types, higher score
+            # 分化/汇聚结构：关系类型越多样，分数越高
             route_types = set(r['relation_type'] for r in path.get('routes', []))
             diversity_score = len(route_types) * 20
-            # Special bonus: contains both Alternative and Extends
+            # 特别加分：同时包含 Alternative 和 Extends
             if 'Alternative' in route_types and 'Extends' in route_types:
                 diversity_score += 30
         else:
-            # Chain structure: length itself represents evolution depth
+            # 链条结构：长度本身就代表演化深度
             diversity_score = len(path['papers']) * 5
 
-        # 4. Contains key relations (weight: 20%)
+        # 4. 是否包含关键关系（权重：20%）
         key_relation_score = 0
         if path['thread_type'] in ['divergence', 'convergence']:
             route_types = set(r['relation_type'] for r in path.get('routes', []))
-            # Overcomes and Alternative are the most valuable relations
+            # Overcomes 和 Alternative 是最有价值的关系
             if 'Overcomes' in route_types:
                 key_relation_score += 25
             if 'Alternative' in route_types:
@@ -1010,29 +1010,29 @@ class DeepSurveyAnalyzer:
 
     def _identify_evolutionary_paths(self, graph: nx.DiGraph) -> List[Dict]:
         """
-        Step 2: Key evolutionary path identification
+        第二步：关键演化路径识别
 
-        Supports two modes:
-        - comprehensive: Identify paths for each connected component
-        - seed_centric: Identify paths based on seed nodes (original implementation)
+        支持两种模式：
+        - comprehensive: 为每个连通分量识别路径
+        - seed_centric: 基于种子节点识别路径（原实现）
 
-        Identifies two core evolution patterns:
-        1. Linear chain (The Chain): A -> Overcomes -> B -> Extends -> C
-        2. Divergence pattern (The Divergence): Seed -> [Multiple Routes]
+        识别两种核心演化模式：
+        1. 线性链条 (The Chain): A -> Overcomes -> B -> Extends -> C
+        2. 分化模式 (The Divergence): Seed -> [Multiple Routes]
 
         Args:
-            graph: Pruned graph
+            graph: 剪枝后的图谱
 
         Returns:
-            List of evolutionary paths
+            演化路径列表
         """
-        logger.info("  Identifying evolutionary paths...")
+        logger.info("  正在识别演化路径...")
 
         evolutionary_paths = []
 
         if self.pruning_mode == 'comprehensive':
-            # New strategy: identify paths for each connected component
-            logger.info(f"    comprehensive mode: identifying paths for {len(self.strong_components)} connected components")
+            # 新策略：为每个连通分量识别路径
+            logger.info(f"    comprehensive模式：为 {len(self.strong_components)} 个连通分量识别路径")
 
             for component in self.strong_components:
                 component_paths = self._identify_paths_in_component(
@@ -1042,80 +1042,80 @@ class DeepSurveyAnalyzer:
                 evolutionary_paths.extend(component_paths)
 
         else:
-            # Original strategy: identify based on seed nodes
-            # Identify Seed Papers
+            # 原策略：基于种子节点识别
+            # 识别 Seed Papers
             seed_papers = [node_id for node_id in graph.nodes()
                           if graph.nodes[node_id].get('is_seed', False)]
 
             if len(seed_papers) == 0:
-                logger.warning("    No Seed Papers found, using high centrality nodes")
-                # Fallback: use degree centrality
+                logger.warning("    未找到 Seed Papers，使用高中心性节点")
+                # 降级：使用度中心性
                 centrality = nx.degree_centrality(graph)
                 top_nodes = sorted(centrality.items(), key=lambda x: x[1], reverse=True)[:5]
                 seed_papers = [node_id for node_id, _ in top_nodes]
 
-            logger.info(f"    seed_centric mode: identifying evolutionary paths based on {len(seed_papers)} seed nodes")
+            logger.info(f"    seed_centric模式：基于 {len(seed_papers)} 个种子节点识别演化路径")
 
-            # Identify evolutionary paths for each Seed
+            # 为每个 Seed 识别演化路径
             for seed_id in seed_papers:
                 seed_data = graph.nodes[seed_id]
 
-                # Pattern 1: Identify linear chains starting from this Seed
+                # 模式1: 识别从该 Seed 出发的线性链条
                 chains = self._find_linear_chains(graph, seed_id)
                 for chain in chains:
                     path = self._create_chain_narrative(graph, chain, seed_data)
                     evolutionary_paths.append(path)
 
-                # Pattern 2: Identify divergence structure centered on this Seed
+                # 模式2: 识别以该 Seed 为中心的分化结构
                 divergence = self._find_divergence_pattern(graph, seed_id)
-                if divergence and len(divergence['routes']) > 1:  # At least 2 branches for divergence
+                if divergence and len(divergence['routes']) > 1:  # 至少有2条分支才算分化
                     path = self._create_divergence_narrative(graph, divergence, seed_data)
                     evolutionary_paths.append(path)
 
-                # Pattern 3: Identify convergence structure centered on this Seed
+                # 模式3: 识别以该 Seed 为中心的汇聚结构
                 convergence = self._find_convergence_pattern(graph, seed_id)
-                if convergence and len(convergence['routes']) > 1:  # At least 2 routes for convergence
+                if convergence and len(convergence['routes']) > 1:  # 至少有2条路线才算汇聚
                     path = self._create_convergence_narrative(graph, convergence, seed_data)
                     evolutionary_paths.append(path)
-                    logger.info(f"    Seed {seed_id[:20]}... forms convergence structure")
+                    logger.info(f"    Seed {seed_id[:20]}... 形成汇聚结构")
 
-        # Sort by importance
+        # 按重要性排序
         evolutionary_paths.sort(key=self._calculate_path_priority, reverse=True)
 
-        # Enhanced deduplication mechanism (using new implementation)
+        # 增强的去重机制（使用新实现）
         evolutionary_paths = self._deduplicate_paths_enhanced(evolutionary_paths)
 
-        # Keep only top N most important stories
+        # 只保留前N个最重要的故事
         max_threads = self.config.get('max_threads', 5)
         evolutionary_paths = evolutionary_paths[:max_threads]
 
-        logger.info(f"    ✅ Identification complete: {len(evolutionary_paths)} evolutionary paths")
+        logger.info(f"    ✅ 识别完成: {len(evolutionary_paths)} 条演化路径")
 
         return evolutionary_paths
 
     def _calculate_dedup_threshold(self, path1: Dict, path2: Dict) -> float:
         """
-        Dynamically calculate deduplication threshold
+        动态计算去重阈值
 
-        Rules:
-        1. Paths within same connected component: high threshold (0.8)
-        2. Paths from different connected components: medium threshold (0.6)
-        3. Paths of different types (chain vs star): low threshold (0.5)
+        规则：
+        1. 同一连通分量内的路径：高阈值（0.8）
+        2. 不同连通分量的路径：中等阈值（0.6）
+        3. 不同类型的路径（chain vs star）：低阈值（0.5）
 
         Args:
-            path1: First path
-            path2: Second path
+            path1: 第一条路径
+            path2: 第二条路径
 
         Returns:
-            Deduplication threshold
+            去重阈值
         """
         base_threshold = self.config.get('path_overlap_threshold', 0.8)
 
-        # If from different connected components, lower threshold
+        # 如果来自不同连通分量，降低阈值
         if path1.get('component_id') != path2.get('component_id'):
             base_threshold = 0.6
 
-        # If different types, further lower threshold
+        # 如果类型不同，进一步降低阈值
         if path1.get('thread_type') != path2.get('thread_type'):
             base_threshold = min(base_threshold, 0.5)
 
@@ -1123,31 +1123,31 @@ class DeepSurveyAnalyzer:
 
     def _are_semantically_different(self, path1: Dict, path2: Dict) -> bool:
         """
-        Determine if two paths are semantically different (even if papers overlap)
+        判断两条路径是否语义不同（即使论文重叠）
 
-        Factors considered:
-        1. Relation type differences: Overcomes vs Alternative
-        2. Paper role differences: same paper in different roles in different paths
-        3. Evolution direction differences: different temporal order
+        考虑因素：
+        1. 关系类型差异：Overcomes vs Alternative
+        2. 论文角色差异：同一论文在不同路径中的角色
+        3. 演化方向差异：时间顺序不同
 
         Args:
-            path1: First path
-            path2: Second path
+            path1: 第一条路径
+            path2: 第二条路径
 
         Returns:
-            True indicates semantically different, should keep both
+            True表示语义不同，应保留两者
         """
-        # 1. Check if main relation types are different (divergence/convergence structures)
+        # 1. 检查主要关系类型是否不同（分化/汇聚结构）
         if path1.get('thread_type') in ['divergence', 'convergence'] and \
            path2.get('thread_type') in ['divergence', 'convergence']:
             routes1 = set(r['relation_type'] for r in path1.get('routes', []))
             routes2 = set(r['relation_type'] for r in path2.get('routes', []))
 
-            # If divergence/convergence structures have completely different relation types, consider semantically different
+            # 如果分化/汇聚结构的关系类型完全不同，认为语义不同
             if len(routes1 & routes2) == 0:
                 return True
 
-        # 2. Check if center nodes are different (divergence/convergence structures)
+        # 2. 检查中心节点是否不同（分化/汇聚结构）
         if path1.get('thread_type') in ['divergence', 'convergence'] and \
            path2.get('thread_type') in ['divergence', 'convergence']:
             papers1 = path1['papers']
@@ -1159,13 +1159,13 @@ class DeepSurveyAnalyzer:
             if center1 and center2 and center1['paper_id'] != center2['paper_id']:
                 return True
 
-        # 3. Check relation chain differences (chain structures)
+        # 3. 检查关系链的差异（链条结构）
         if path1.get('thread_type') == 'chain' and path2.get('thread_type') == 'chain':
             chain1 = path1.get('relation_chain', [])
             chain2 = path2.get('relation_chain', [])
 
             if len(chain1) > 0 and len(chain2) > 0:
-                # If main relation types in chains are different, consider semantically different
+                # 如果关系链的主要关系类型不同，认为语义不同
                 types1 = set(r['relation_type'] for r in chain1)
                 types2 = set(r['relation_type'] for r in chain2)
 
@@ -1177,18 +1177,18 @@ class DeepSurveyAnalyzer:
 
     def _deduplicate_paths_enhanced(self, paths: List[Dict]) -> List[Dict]:
         """
-        Enhanced path deduplication mechanism
+        增强的路径去重机制
 
-        Multi-layer deduplication strategy:
-        1. Jaccard similarity based on paper sets (existing mechanism)
-        2. Consider path type and role differences (new)
-        3. Dynamic threshold adjustment (new)
+        多层去重策略：
+        1. 基于论文集合的Jaccard相似度（现有机制）
+        2. 考虑路径类型和角色差异（新增）
+        3. 动态阈值调整（新增）
 
         Args:
-            paths: List of evolutionary paths (already sorted by priority)
+            paths: 演化路径列表（已按优先级排序）
 
         Returns:
-            Deduplicated path list
+            去重后的路径列表
         """
         if len(paths) <= 1:
             return paths
@@ -1203,25 +1203,25 @@ class DeepSurveyAnalyzer:
             for kept_path in deduplicated:
                 kept_papers = set(p['paper_id'] for p in kept_path['papers'])
 
-                # Calculate Jaccard similarity
+                # 计算Jaccard相似度
                 intersection = len(path_papers & kept_papers)
                 union = len(path_papers | kept_papers)
                 similarity = intersection / union if union > 0 else 0
 
-                # Dynamic threshold: adjust based on path characteristics
+                # 动态阈值：根据路径特征调整
                 threshold = self._calculate_dedup_threshold(path, kept_path)
 
                 if similarity >= threshold:
-                    # Further check: semantically different but papers overlap
+                    # 进一步检查：是否语义不同但论文重叠
                     if self._are_semantically_different(path, kept_path):
-                        # Semantically different, keep both
+                        # 语义不同，保留两者
                         continue
 
                     is_duplicate = True
                     removed_count += 1
                     logger.info(
-                        f"    Deduplication: Thread #{i+1} overlaps with Thread #{deduplicated.index(kept_path)+1} "
-                        f"by {similarity:.2%} (threshold {threshold:.2%}), removed"
+                        f"    去重: Thread #{i+1} 与 Thread #{deduplicated.index(kept_path)+1} "
+                        f"重叠度 {similarity:.2%}（阈值{threshold:.2%}），已移除"
                     )
                     break
 
@@ -1229,21 +1229,21 @@ class DeepSurveyAnalyzer:
                 deduplicated.append(path)
 
         if removed_count > 0:
-            logger.info(f"    Deduplication complete: removed {removed_count} duplicate paths")
+            logger.info(f"    去重完成: 移除了 {removed_count} 条重复路径")
 
         return deduplicated
 
     def _deduplicate_paths(self, paths: List[Dict]) -> List[Dict]:
         """
-        Bug Fix #2: Deduplicate/merge evolutionary paths with high overlap
+        Bug Fix #2: 去重/合并重叠度高的演化路径
 
-        If two paths have paper overlap exceeding threshold, keep the longer/more important one
+        如果两条路径的论文重合度超过阈值，保留更长/更重要的那条
 
         Args:
-            paths: List of evolutionary paths (already sorted by priority)
+            paths: 演化路径列表（已按优先级排序）
 
         Returns:
-            Deduplicated path list
+            去重后的路径列表
         """
         if len(paths) <= 1:
             return paths
@@ -1253,15 +1253,15 @@ class DeepSurveyAnalyzer:
         removed_count = 0
 
         for i, path in enumerate(paths):
-            # Extract paper ID set for current path
+            # 提取当前路径的论文ID集合
             path_papers = set(p['paper_id'] for p in path['papers'])
 
-            # Check if overlaps with already kept paths
+            # 检查是否与已保留的路径重叠
             is_duplicate = False
             for kept_path in deduplicated:
                 kept_papers = set(p['paper_id'] for p in kept_path['papers'])
 
-                # Calculate Jaccard similarity
+                # 计算 Jaccard 相似度
                 intersection = len(path_papers & kept_papers)
                 union = len(path_papers | kept_papers)
 
@@ -1270,51 +1270,51 @@ class DeepSurveyAnalyzer:
                 else:
                     similarity = 0
 
-                # If overlap exceeds threshold, mark as duplicate
+                # 如果重叠度超过阈值，标记为重复
                 if similarity >= overlap_threshold:
                     is_duplicate = True
                     removed_count += 1
-                    logger.info(f"    Deduplication: Thread #{i+1} overlaps with Thread #{deduplicated.index(kept_path)+1} by {similarity:.2%}, removed")
+                    logger.info(f"    去重: Thread #{i+1} 与 Thread #{deduplicated.index(kept_path)+1} 重叠度 {similarity:.2%}，已移除")
                     break
 
             if not is_duplicate:
                 deduplicated.append(path)
 
         if removed_count > 0:
-            logger.info(f"    Deduplication complete: removed {removed_count} duplicate paths")
+            logger.info(f"    去重完成: 移除了 {removed_count} 条重复路径")
 
         return deduplicated
 
     def _find_linear_chains(self, graph: nx.DiGraph, start_node: str) -> List[List[str]]:
         """
-        Identify linear chains starting from a node
+        识别从起始节点出发的线性链条
 
-        Chain definition: A -> B -> C, each node has at most one main successor
+        链条定义：A -> B -> C，每个节点最多只有一个主要后继
 
         Args:
-            graph: Graph
-            start_node: Starting node
+            graph: 图谱
+            start_node: 起始节点
 
         Returns:
-            List of chains, each chain is a list of node IDs
+            链条列表，每个链条是节点ID列表
         """
         chains = []
         min_chain_length = self.config.get('min_chain_length', 3)
 
         def dfs_chain(current_path: List[str]):
-            """DFS search for chains"""
+            """DFS 搜索链条"""
             current = current_path[-1]
             successors = list(graph.successors(current))
 
             if len(successors) == 0:
-                # Reached endpoint
+                # 到达终点
                 if len(current_path) >= min_chain_length:
                     chains.append(current_path.copy())
                 return
 
-            # Prioritize continuing along strong relations
+            # 优先沿着强关系继续
             for successor in successors:
-                if successor in current_path:  # Avoid cycles
+                if successor in current_path:  # 避免环
                     continue
 
                 edge_data = graph.edges[current, successor]
@@ -1325,7 +1325,7 @@ class DeepSurveyAnalyzer:
                     dfs_chain(current_path)
                     current_path.pop()
 
-            # If no strong relations found, record current chain
+            # 如果没有找到强关系，记录当前链条
             if len(current_path) >= min_chain_length:
                 chains.append(current_path.copy())
 
@@ -1335,51 +1335,51 @@ class DeepSurveyAnalyzer:
 
     def _find_divergence_pattern(self, graph: nx.DiGraph, center_node: str) -> Optional[Dict]:
         """
-        Identify divergence structure centered on a node
+        识别以中心节点为核心的分化结构
 
-        Divergence definition: a foundational center node is referenced/extended by multiple subsequent papers
-        Correct direction: find predecessors, i.e., papers that reference the center node
+        分化定义：一个基础性中心节点被多篇后续论文引用/扩展
+        正确方向：寻找 predecessors（前驱），即引用中心节点的论文
 
-        Special focus: Overcomes, Alternative, Extends branches
+        特别关注：Overcomes、Alternative、Extends 等分支
 
         Args:
-            graph: Graph
-            center_node: Center node
+            graph: 图谱
+            center_node: 中心节点
 
         Returns:
-            Divergence structure dictionary containing center node and routes
+            分化结构字典，包含中心节点和各条路线
         """
-        # Bug Fix #6: Use predecessors instead of successors
-        # predecessors = papers that referenced the center node (i.e., subsequent research)
+        # Bug Fix #6: 使用 predecessors 而不是 successors
+        # predecessors = 引用了中心节点的论文（即后续研究）
         predecessors = list(graph.predecessors(center_node))
 
         if len(predecessors) < 2:
             return None
 
-        # For each predecessor node (papers citing the center paper), identify its evolution route
+        # 对每个前驱节点（引用中心论文的论文），识别其演化路线
         routes = []
         for predecessor in predecessors:
             edge_data = graph.edges[predecessor, center_node]
             edge_type = edge_data.get('type') or edge_data.get('edge_type', '')
 
-            # Only keep strong relation routes (filter out Baselines)
+            # 只保留强关系路线（过滤掉 Baselines）
             if edge_type not in self.strong_relations:
                 continue
 
-            # Continue searching along this predecessor to form a route
+            # 沿着这个前驱继续向后搜索，形成一条路线
             route = {
                 'relation_type': edge_type,
                 'papers': [predecessor]
             }
 
-            # Continue exploring backwards (up to exploration_depth layers) - find newer papers
+            # 继续向后探索（最多exploration_depth层）- 找更新的论文
             current = predecessor
             for _ in range(self.exploration_depth):
-                # Bug Fix #6: Use predecessors to find newer papers
+                # Bug Fix #6: 使用 predecessors 找更新的论文
                 next_predecessors = list(graph.predecessors(current))
                 if len(next_predecessors) == 0:
                     break
-                # Select predecessor with highest citation count (and strong relation)
+                # 选择引用数最高的前驱（且是强关系）
                 valid_predecessors = []
                 for np in next_predecessors:
                     edge_data = graph.edges[np, current]
@@ -1400,7 +1400,7 @@ class DeepSurveyAnalyzer:
 
             routes.append(route)
 
-        # At least 2 valid routes required for divergence
+        # 至少有2条有效路线才算分化
         if len(routes) < 2:
             return None
 
@@ -1416,55 +1416,55 @@ class DeepSurveyAnalyzer:
         scope: Set[str]
     ) -> Optional[Dict]:
         """
-        Identify convergence structure within specified scope (avoid cross-component identification)
+        在指定范围内识别汇聚结构（避免跨连通分量识别）
 
-        Convergence definition: a comprehensive center node references/integrates multiple prior papers
-        Direction: center node <- multiple foundational routes (explore towards successors)
+        汇聚定义：一个综合性中心节点引用/整合了多篇前序论文
+        方向：中心节点 <- 多条基础路线（向successors探索）
 
         Args:
-            graph: Graph
-            center_node: Center node
-            scope: Allowed node scope (nodes within connected component)
+            graph: 图谱
+            center_node: 中心节点
+            scope: 允许的节点范围（连通分量内的节点）
 
         Returns:
-            Convergence structure dictionary containing center node and routes
+            汇聚结构字典，包含中心节点和各条路线
         """
-        # Use successors to find papers referenced by center node (i.e., foundational work)
+        # 使用 successors 找被中心节点引用的论文（即基础工作）
         successors = list(graph.successors(center_node))
 
-        # Key modification: only consider successor nodes within scope
+        # 关键修改：只考虑scope内的后继节点
         successors = [s for s in successors if s in scope]
 
         if len(successors) < 2:
             return None
 
-        # For each successor node, identify its foundational route
+        # 对每个后继节点，识别其基础路线
         routes = []
         for successor in successors:
             edge_data = graph.edges[center_node, successor]
             edge_type = edge_data.get('type') or edge_data.get('edge_type', '')
 
-            # Only keep strong relation routes
+            # 只保留强关系路线
             if edge_type not in self.strong_relations:
                 continue
 
-            # Initialize route
+            # 初始化路线
             route = {
                 'relation_type': edge_type,
                 'papers': [successor]
             }
 
-            # Continue exploring forward (up to exploration_depth layers) - find earlier foundational papers
+            # 继续向后探索（最多exploration_depth层）- 找更早的基础论文
             current = successor
             for _ in range(self.exploration_depth):
                 next_successors = list(graph.successors(current))
-                # Key modification: only consider nodes within scope
+                # 关键修改：只考虑scope内的节点
                 next_successors = [ns for ns in next_successors if ns in scope]
 
                 if len(next_successors) == 0:
                     break
 
-                # Select successor with highest citation count (and strong relation)
+                # 选择引用数最高的后继（且是强关系）
                 valid_successors = []
                 for ns in next_successors:
                     edge_data = graph.edges[current, ns]
@@ -1485,7 +1485,7 @@ class DeepSurveyAnalyzer:
 
             routes.append(route)
 
-        # At least 2 valid routes required for convergence
+        # 至少有2条有效路线才算汇聚
         if len(routes) < 2:
             return None
 
@@ -1496,49 +1496,49 @@ class DeepSurveyAnalyzer:
 
     def _find_convergence_pattern(self, graph: nx.DiGraph, center_node: str) -> Optional[Dict]:
         """
-        Identify convergence structure centered on a node
+        识别以中心节点为核心的汇聚结构
 
-        Convergence definition: a comprehensive center node integrates multiple prior foundational works
-        Correct direction: find successors, i.e., papers referenced by the center node
+        汇聚定义：一个综合性中心节点整合了多篇前序基础工作
+        正确方向：寻找 successors（后继），即被中心节点引用的论文
 
         Args:
-            graph: Graph
-            center_node: Center node
+            graph: 图谱
+            center_node: 中心节点
 
         Returns:
-            Convergence structure dictionary containing center node and routes
+            汇聚结构字典，包含中心节点和各条路线
         """
-        # Use successors instead of predecessors
-        # successors = papers referenced by center node (i.e., foundational work)
+        # 使用 successors 而非 predecessors
+        # successors = 被中心节点引用的论文（即基础工作）
         successors = list(graph.successors(center_node))
 
         if len(successors) < 2:
             return None
 
-        # For each successor node (papers referenced by center), identify its foundational route
+        # 对每个后继节点（被中心引用的论文），识别其基础路线
         routes = []
         for successor in successors:
             edge_data = graph.edges[center_node, successor]
             edge_type = edge_data.get('type') or edge_data.get('edge_type', '')
 
-            # Only keep strong relation routes (filter out Baselines)
+            # 只保留强关系路线（过滤掉 Baselines）
             if edge_type not in self.strong_relations:
                 continue
 
-            # Continue searching along this successor to form a route
+            # 沿着这个后继继续向后搜索，形成一条路线
             route = {
                 'relation_type': edge_type,
                 'papers': [successor]
             }
 
-            # Continue exploring forward (up to exploration_depth layers) - find earlier foundational papers
+            # 继续向后探索（最多exploration_depth层）- 找更早的基础论文
             current = successor
             for _ in range(self.exploration_depth):
-                # Use successors to find earlier foundational papers
+                # 使用 successors 找更早的基础论文
                 next_successors = list(graph.successors(current))
                 if len(next_successors) == 0:
                     break
-                # Select successor with highest citation count (and strong relation)
+                # 选择引用数最高的后继（且是强关系）
                 valid_successors = []
                 for ns in next_successors:
                     edge_data = graph.edges[current, ns]
@@ -1559,7 +1559,7 @@ class DeepSurveyAnalyzer:
 
             routes.append(route)
 
-        # At least 2 valid routes required for convergence
+        # 至少有2条有效路线才算汇聚
         if len(routes) < 2:
             return None
 
@@ -1575,38 +1575,38 @@ class DeepSurveyAnalyzer:
         seed_data: Dict
     ) -> Dict:
         """
-        Create narrative unit for linear chain
+        为线性链条创建叙事单元
 
-        Generation template:
-        - Origin: Paper A proposed [Method A] to solve [Problem], but has limitations in [Limitation].
-        - Turning point: Paper B addressed this limitation and successfully overcame the problem through [Method B].
-        - Development: Subsequently, Paper C further extended its application scenarios based on B.
+        生成模板：
+        - 起因：论文 A 提出了 [Method A] 来解决 [Problem]，但在 [Limitation] 方面存在不足。
+        - 转折：论文 B 针对这一不足，通过 [Method B] 成功克服了该问题。
+        - 发展：随后，论文 C 在 B 的基础上，进一步扩展了其应用场景。
 
         Args:
-            graph: Graph
-            chain: List of chain nodes
-            seed_data: Seed node data
+            graph: 图谱
+            chain: 链条节点列表
+            seed_data: 种子节点数据
 
         Returns:
-            Narrative unit dictionary
+            叙事单元字典
         """
-        # Bug Fix #1: Sort chain by time (time reversal issue)
-        # Get year for each paper, sort in chronological order
+        # Bug Fix #1: 按时间排序链条（时间倒流问题）
+        # 获取每篇论文的年份，按时间正序排序
         chain_with_years = []
         for paper_id in chain:
             node_data = graph.nodes[paper_id]
             year = node_data.get('year', 0)
             chain_with_years.append((paper_id, year))
 
-        # Sort by year in ascending order
+        # 按年份升序排序
         chain_with_years.sort(key=lambda x: x[1])
         sorted_chain = [paper_id for paper_id, _ in chain_with_years]
 
-        logger.info(f"    Sorted chain by time: {[f'{pid}({y})' for pid, y in chain_with_years]}")
+        logger.info(f"    按时间排序链条: {[f'{pid}({y})' for pid, y in chain_with_years]}")
 
         papers_info = []
         total_citations = 0
-        relation_chain = []  # New: detailed relation chain
+        relation_chain = []  # 新增：详细的关系链
 
         for i, paper_id in enumerate(sorted_chain):
             node_data = graph.nodes[paper_id]
@@ -1618,33 +1618,33 @@ class DeepSurveyAnalyzer:
             })
             total_citations += node_data.get('cited_by_count', 0)
 
-            # Build relation chain: extract relations between each pair of papers
-            # Bug Fix #3: Correct relation direction - change to development direction (early->late)
-            # Bug Fix #5: Correct relation semantics - need to reverse relation meaning in chronological order
+            # 构建关系链：提取每对论文之间的关系
+            # Bug Fix #3: 修正关系方向 - 改为发展方向（早->晚）
+            # Bug Fix #5: 修正关系语义 - 时间正序时需要反转关系含义
             if i < len(sorted_chain) - 1:
                 next_paper_id = sorted_chain[i + 1]
                 edge_type = 'Unknown'
                 edge_description = 'Unknown'
 
-                # Try finding edge in both directions
+                # 尝试两个方向查找边
                 if graph.has_edge(paper_id, next_paper_id):
-                    # Early paper -> Late paper (rare case, possibly Inspires type)
+                    # 早论文 -> 晚论文（这种情况少见，可能是 Inspires 类型）
                     edge_data = graph.edges[paper_id, next_paper_id]
                     original_type = edge_data.get('type') or edge_data.get('edge_type', 'Temporal_Evolution')
                     edge_type = original_type
                     edge_description = original_type
                 elif graph.has_edge(next_paper_id, paper_id):
-                    # Late paper -> Early paper (common case: new paper Overcomes old paper)
+                    # 晚论文 -> 早论文（常见情况：新论文 Overcomes 旧论文）
                     edge_data = graph.edges[next_paper_id, paper_id]
                     original_type = edge_data.get('type') or edge_data.get('edge_type', 'Unknown')
 
-                    # Key fix: reverse relation semantics to match temporal narrative
-                    # Original: new paper(2023) --Overcomes--> old paper(2021)
-                    # Narrative: old paper(2021) --Was_Overcome_By--> new paper(2023)
+                    # 关键修复：反转关系语义以符合时间叙事
+                    # 原始：新论文(2023) --Overcomes--> 旧论文(2021)
+                    # 叙事：旧论文(2021) --Was_Overcome_By--> 新论文(2023)
                     edge_type = original_type
                     edge_description = self._reverse_relation_semantics(original_type)
                 else:
-                    # No direct edge, mark as temporal evolution relation
+                    # 没有直接边，标记为时间演进关系
                     edge_type = 'Temporal_Evolution'
                     edge_description = 'Temporal_Evolution'
 
@@ -1660,33 +1660,33 @@ class DeepSurveyAnalyzer:
                         'title': next_node_data.get('title', ''),
                         'year': next_node_data.get('year', 0)
                     },
-                    'relation_type': edge_type,  # Original relation type
-                    'narrative_relation': edge_description,  # Relation description for narrative
-                    'direction': 'chronological'  # Explicitly mark as chronological order
+                    'relation_type': edge_type,  # 原始关系类型
+                    'narrative_relation': edge_description,  # 叙事用的关系描述
+                    'direction': 'chronological'  # 明确标记为时间正序
                 })
 
-        # Extract key information (using sorted chain)
+        # 提取关键信息（使用排序后的链条）
         first_paper = graph.nodes[sorted_chain[0]]
         last_paper = graph.nodes[sorted_chain[-1]]
 
-        # Generate title
+        # 生成标题
         first_method = self._extract_key_method(first_paper)
         last_method = self._extract_key_method(last_paper)
 
-        title = f"Evolution from {first_method} to {last_method}"
+        title = f"从 {first_method} 到 {last_method} 的演进之路"
 
-        # Generate narrative text (using LLM or template, using sorted chain)
+        # 生成叙事文本（使用LLM或模板，使用排序后的链条）
         narrative = self._generate_chain_narrative_text(graph, sorted_chain)
 
         return {
             'thread_type': 'chain',
-            'pattern_type': 'The Chain (Linear Chain)',
+            'pattern_type': 'The Chain (线性链条)',
             'title': title,
             'narrative': narrative,
             'papers': papers_info,
             'total_citations': total_citations,
             'visual_structure': ' -> '.join([f"Paper_{i+1}" for i in range(len(sorted_chain))]),
-            'relation_chain': relation_chain  # New: detailed relation chain
+            'relation_chain': relation_chain  # 新增：详细的关系链
         }
 
     def _create_divergence_narrative(
@@ -1696,23 +1696,23 @@ class DeepSurveyAnalyzer:
         seed_data: Dict
     ) -> Dict:
         """
-        Create narrative unit for divergence structure
+        为分化结构创建叙事单元
 
-        Bug Fix #6: Correct temporal logic of divergence structure
-        Correct narrative: center paper (early foundation) -> multiple subsequent evolution routes (later)
+        Bug Fix #6: 修正分化结构的时间逻辑
+        正确叙事：中心论文（早期基础）-> 多条后续演进路线（晚期）
 
-        Generation template:
-        - Focus: The center paper is a cornerstone of the field, but it left [Limitation] problems.
-        - Divergence: Academia developed different evolution routes in response.
-        - Comparison: (insert comparison of routes)
+        生成模板：
+        - 焦点：中心论文是该领域的基石，但它留下了 [Limitation] 的问题。
+        - 分歧：学术界对此产生了不同的演进路线。
+        - 对比：(插入各路线的对比)
 
         Args:
-            graph: Graph
-            divergence: Divergence structure
-            seed_data: Seed node data
+            graph: 图谱
+            divergence: 分化结构
+            seed_data: 种子节点数据
 
         Returns:
-            Narrative unit dictionary
+            叙事单元字典
         """
         center_id = divergence['center']
         center_data = graph.nodes[center_id]
@@ -1728,9 +1728,9 @@ class DeepSurveyAnalyzer:
 
         total_citations = center_data.get('cited_by_count', 0)
 
-        # Collect papers and relation chains for all routes
+        # 收集所有路线的论文和关系链
         routes_info = []
-        relation_chain = []  # New: detailed relation chain
+        relation_chain = []  # 新增：详细的关系链
 
         for route_idx, route in enumerate(divergence['routes']):
             route_papers = []
@@ -1750,17 +1750,17 @@ class DeepSurveyAnalyzer:
                 'papers': route_papers
             })
 
-            # Bug Fix #6: Correct relation chain direction
-            # Now papers in route['papers'] reference the center paper
-            # So relation direction should be: route paper -> center paper (in graph)
-            # But narrative direction should be: center paper -> route paper (temporal)
+            # Bug Fix #6: 修正关系链方向
+            # 现在 route['papers'] 中的论文引用了中心论文
+            # 所以关系方向应该是：路线论文 -> 中心论文（图中）
+            # 但叙事方向应该是：中心论文 -> 路线论文（时间）
             if route_papers:
                 first_paper = route_papers[0]
                 first_paper_year = first_paper['year']
 
-                # Check temporal relation to ensure correct narrative
+                # 检查时间关系，确保叙事正确
                 if center_year <= first_paper_year:
-                    # Center paper is earlier (normal case)
+                    # 中心论文更早（正常情况）
                     relation_chain.append({
                         'from_paper': {
                             'id': center_id,
@@ -1778,8 +1778,8 @@ class DeepSurveyAnalyzer:
                         'direction': 'chronological'
                     })
                 else:
-                    # Abnormal case: route paper is earlier (record but annotate)
-                    logger.warning(f"    Divergence structure anomaly: route paper {first_paper['paper_id']} ({first_paper_year}) is earlier than center paper {center_id} ({center_year})")
+                    # 异常情况：路线论文更早（记录但标注）
+                    logger.warning(f"    分化结构异常: 路线论文 {first_paper['paper_id']} ({first_paper_year}) 早于中心论文 {center_id} ({center_year})")
                     relation_chain.append({
                         'from_paper': {
                             'id': first_paper['paper_id'],
@@ -1797,18 +1797,18 @@ class DeepSurveyAnalyzer:
                         'direction': 'reverse_chronological'
                     })
 
-        # Extract core problem
+        # 提取核心问题
         seed_problem = self._extract_key_problem(center_data)
 
-        # Generate title
-        title = f"Multi-Technical Route Competition for {seed_problem}"
+        # 生成标题
+        title = f"针对 {seed_problem} 的多技术路线博弈"
 
-        # Generate narrative text
+        # 生成叙事文本
         narrative = self._generate_divergence_narrative_text(graph, divergence, center_data)
 
         return {
             'thread_type': 'divergence',
-            'pattern_type': 'The Divergence (Divergence Pattern)',
+            'pattern_type': 'The Divergence (分化模式)',
             'title': title,
             'narrative': narrative,
             'center_paper': center_data.get('title', ''),
@@ -1817,7 +1817,7 @@ class DeepSurveyAnalyzer:
             'papers': papers_info,
             'total_citations': total_citations,
             'visual_structure': f"Center -> {len(routes_info)} Routes",
-            'relation_chain': relation_chain  # New: detailed relation chain
+            'relation_chain': relation_chain  # 新增：详细的关系链
         }
 
     def _create_convergence_narrative(
@@ -1827,22 +1827,22 @@ class DeepSurveyAnalyzer:
         seed_data: Dict
     ) -> Dict:
         """
-        Create narrative unit for convergence structure
+        为汇聚结构创建叙事单元
 
-        Convergence pattern: multiple foundational routes converge to a comprehensive paper
+        汇聚模式：多条基础路线汇聚到一个综合性论文
 
-        Generation template:
-        - Background: Multiple independent research directions explored different technical paths
-        - Convergence: Center paper integrated these directions to form comprehensive framework
-        - Significance: Marks systematic integration of field theory
+        生成模板：
+        - 背景：多个独立的研究方向分别探索了不同的技术路径
+        - 汇聚：中心论文整合了这些方向，形成综合框架
+        - 意义：标志着领域理论的系统化整合
 
         Args:
-            graph: Graph
-            convergence: Convergence structure
-            seed_data: Seed node data
+            graph: 图谱
+            convergence: 汇聚结构
+            seed_data: 种子节点数据
 
         Returns:
-            Narrative unit dictionary
+            叙事单元字典
         """
         center_id = convergence['center']
         center_data = graph.nodes[center_id]
@@ -1858,7 +1858,7 @@ class DeepSurveyAnalyzer:
 
         total_citations = center_data.get('cited_by_count', 0)
 
-        # Collect papers and relation chains for all routes
+        # 收集所有路线的论文和关系链
         routes_info = []
         relation_chain = []
 
@@ -1880,14 +1880,14 @@ class DeepSurveyAnalyzer:
                 'papers': route_papers
             })
 
-            # Build relation chain: center paper references foundational routes
+            # 构建关系链：中心论文引用基础路线
             if route_papers:
                 first_paper = route_papers[0]
                 first_paper_year = first_paper['year']
 
-                # Convergence structure: center paper references foundational papers (center paper should be later temporally)
+                # 汇聚结构：中心论文引用基础论文（时间上中心论文应该更晚）
                 if center_year >= first_paper_year:
-                    # Center paper is later (normal case)
+                    # 中心论文更晚（正常情况）
                     relation_chain.append({
                         'from_paper': {
                             'id': first_paper['paper_id'],
@@ -1900,13 +1900,13 @@ class DeepSurveyAnalyzer:
                             'year': center_year
                         },
                         'relation_type': route['relation_type'],
-                        'narrative_relation': f"integrated by {center_data.get('title', '')}",
+                        'narrative_relation': f"被{center_data.get('title', '')}整合",
                         'route_id': route_idx + 1,
                         'direction': 'chronological'
                     })
                 else:
-                    # Abnormal case: foundational paper is later
-                    logger.warning(f"    Convergence structure anomaly: foundational paper {first_paper['paper_id']} ({first_paper_year}) is later than center paper {center_id} ({center_year})")
+                    # 异常情况：基础论文更晚
+                    logger.warning(f"    汇聚结构异常: 基础论文 {first_paper['paper_id']} ({first_paper_year}) 晚于中心论文 {center_id} ({center_year})")
                     relation_chain.append({
                         'from_paper': {
                             'id': center_id,
@@ -1924,18 +1924,18 @@ class DeepSurveyAnalyzer:
                         'direction': 'reverse_chronological'
                     })
 
-        # Extract core method
+        # 提取核心方法
         center_method = self._extract_key_method(center_data)
 
-        # Generate title
-        title = f"Multiple Technical Routes Converging to {center_method}"
+        # 生成标题
+        title = f"多技术路线汇聚到 {center_method}"
 
-        # Generate narrative text
+        # 生成叙事文本
         narrative = self._generate_convergence_narrative_text(graph, convergence, center_data)
 
         return {
             'thread_type': 'convergence',
-            'pattern_type': 'The Convergence (Convergence Pattern)',
+            'pattern_type': 'The Convergence (汇聚模式)',
             'title': title,
             'narrative': narrative,
             'center_paper': center_data.get('title', ''),
@@ -1949,14 +1949,14 @@ class DeepSurveyAnalyzer:
 
     def _generate_chain_narrative_text(self, graph: nx.DiGraph, chain: List[str]) -> str:
         """
-        Generate narrative text for linear chain
+        生成线性链条的叙事文本
 
         Args:
-            graph: Graph
-            chain: List of chain nodes
+            graph: 图谱
+            chain: 链条节点列表
 
         Returns:
-            Narrative text
+            叙事文本
         """
         if self.llm_client:
             return self._generate_chain_narrative_with_llm(graph, chain)
@@ -1965,13 +1965,13 @@ class DeepSurveyAnalyzer:
 
     def _generate_chain_narrative_template(self, graph: nx.DiGraph, chain: List[str]) -> str:
         """
-        Generate chain narrative using template (fallback method)
+        使用模板生成链条叙事（降级方案）
 
-        Improved version: Citation type-aware narrative generation
-        Bug Fix #4: Narrate in chronological order (early->late)
-        Bug Fix #5: Use correct relation semantics
+        改进版本：引用类型感知叙事生成
+        Bug Fix #4: 按时间正序叙述（早->晚）
+        Bug Fix #5: 使用正确的关系语义
         """
-        # Sort by year (chronological order)
+        # 按年份排序（时间正序）
         chain_with_years = [(pid, graph.nodes[pid].get('year', 0)) for pid in chain]
         chain_with_years.sort(key=lambda x: x[1])
         sorted_chain = [pid for pid, _ in chain_with_years]
@@ -1984,27 +1984,27 @@ class DeepSurveyAnalyzer:
             year = node_data.get('year', 'N/A')
 
             if i == 0:
-                # Origin: earliest paper (maintain original logic)
+                # 起源：最早的论文（保持原有逻辑）
                 method = self._extract_key_method(node_data)
                 problem = self._extract_key_problem(node_data)
                 limitation = self._extract_key_limitation(node_data)
                 narrative_parts.append(
-                    f"**Origin** ({year}): The paper '{title}' first proposed {method} to solve {problem}, "
-                    f"pioneering this research direction. However, this work still has limitations in {limitation}."
+                    f"**起源** ({year}年): 论文《{title}》首次提出了 {method} 来解决 {problem}，"
+                    f"开创了这一研究方向。然而，该工作在 {limitation} 方面仍存在局限性。"
                 )
             else:
-                # Evolution and latest progress: use citation type-aware narrative
+                # 演进和最新进展：使用引用类型感知叙事
                 prev_paper_id = sorted_chain[i-1]
 
-                # Get edge relation type
+                # 获取边的关系类型
                 relation_type = self._get_relation_type(graph, prev_paper_id, paper_id)
 
-                # Extract citation type-related information
+                # 提取引用类型相关的信息
                 info = self._extract_papers_info_for_relation(
                     graph, prev_paper_id, paper_id, relation_type
                 )
 
-                # Generate targeted narrative fragment
+                # 生成针对性叙事片段
                 narrative_fragment = self._generate_relation_narrative_fragment(info)
                 narrative_parts.append(narrative_fragment)
 
@@ -2012,62 +2012,62 @@ class DeepSurveyAnalyzer:
 
     def _generate_chain_narrative_with_llm(self, graph: nx.DiGraph, chain: List[str]) -> str:
         """
-        Generate chain narrative using LLM
+        使用LLM生成链条叙事
 
-        Improved version: Citation type-aware Prompt enhancement
-        Bug Fix #4: Narrate in chronological order
+        改进版本：引用类型感知的Prompt增强
+        Bug Fix #4: 按时间正序叙述
         """
-        # Sort by year (chronological order)
+        # 按年份排序（时间正序）
         chain_with_years = [(pid, graph.nodes[pid].get('year', 0)) for pid in chain]
         chain_with_years.sort(key=lambda x: x[1])
         sorted_chain = [pid for pid, _ in chain_with_years]
 
-        # Prepare context
+        # 准备上下文
         papers_context = []
         for i, paper_id in enumerate(sorted_chain, 1):
             node_data = graph.nodes[paper_id]
             title = node_data.get('title', '')
             year = node_data.get('year', '')
 
-            # Extract basic information
+            # 提取基础信息
             method = self._extract_key_method(node_data)
             problem = self._extract_key_problem(node_data)
             limitation = self._extract_key_limitation(node_data)
             future_work = self._extract_key_future_work(node_data)
 
-            paper_info = f"Paper {i}: {title} ({year})\n" \
-                         f"- Research Problem: {problem}\n" \
-                         f"- Research Method: {method}\n" \
-                         f"- Limitations: {limitation}\n" \
-                         f"- Future Work: {future_work}"
+            paper_info = f"论文{i}: {title} ({year}年)\n" \
+                         f"- 研究问题: {problem}\n" \
+                         f"- 研究方法: {method}\n" \
+                         f"- 局限性: {limitation}\n" \
+                         f"- 未来工作: {future_work}"
 
-            # If not the first paper, add relationship information with previous paper
+            # 如果不是第一篇论文，添加与前一篇的关系信息
             if i > 1:
-                prev_paper_id = sorted_chain[i-2]  # i starts from 1, so i-2 is the previous paper
+                prev_paper_id = sorted_chain[i-2]  # i从1开始，所以i-2是前一篇
                 relation_type = self._get_relation_type(graph, prev_paper_id, paper_id)
                 relation_focus = self._get_relation_focus_hint(relation_type)
-                paper_info += f"\n- Relationship with previous paper: {relation_type} ({relation_focus})"
+                paper_info += f"\n- 与前一篇的关系: {relation_type} ({relation_focus})"
 
             papers_context.append(paper_info)
 
         context = "\n\n".join(papers_context)
 
-        prompt = f"""You are an academic survey expert. Please generate a coherent narrative text based on the following technology evolution chain.
+        prompt = f"""你是一位学术综述专家。请基于以下技术演进链条，生成一段通顺的叙事文本。
 
-**Evolution Chain** ({len(sorted_chain)} papers in total, arranged chronologically from earliest to latest):
+**演进链条**（共{len(sorted_chain)}篇论文，按时间正序从早到晚排列）:
 {context}
 
-**Task Requirements**:
-Please generate narrative text following this structure (3-5 paragraphs, 2-3 sentences each):
-1. **Origin**: Describe how the first (earliest) paper pioneered this direction, what problem it solved, but what shortcomings it left
-2. **Evolution**: Describe how intermediate papers gradually improved upon predecessors' shortcomings (in chronological order)
-3. **Latest Progress**: Describe how the last (most recent) paper achieved breakthroughs building on previous work
+**任务要求**:
+请按照以下结构生成叙事文本（3-5段，每段2-3句话）：
+1. **起源**: 描述第一篇（最早）论文如何开创了这一方向，解决了什么问题，但留下了什么不足
+2. **演进**: 描述中间论文如何针对前人的不足逐步改进（按时间顺序）
+3. **最新进展**: 描述最后一篇（最新）论文如何在前人基础上实现了突破
 
-**Output Requirements**:
-- Use coherent, academic English expression
-- Highlight causal relationships and technical evolution logic between papers
-- Narrate in chronological order (earliest to latest), clearly marking years
-- Begin each paragraph with headings like **Origin**, **Evolution**, **Latest Progress**
+**输出要求**:
+- 使用连贯、学术化的中文表达
+- 突出论文之间的因果关系和技术演进逻辑
+- 按时间正序叙述（从早到晚），明确标注年份
+- 每段以 **起源**、**演进**、**最新进展** 等标题开头
 """
 
         try:
@@ -2078,7 +2078,7 @@ Please generate narrative text following this structure (3-5 paragraphs, 2-3 sen
             )
             return narrative.strip()
         except Exception as e:
-            logger.warning(f"LLM narrative generation failed: {e}, using template method")
+            logger.warning(f"LLM生成叙事失败: {e}，使用模板方法")
             return self._generate_chain_narrative_template(graph, sorted_chain)
 
     def _generate_divergence_narrative_text(
@@ -2088,15 +2088,15 @@ Please generate narrative text following this structure (3-5 paragraphs, 2-3 sen
         center_data: Dict
     ) -> str:
         """
-        Generate narrative text for divergence structure
+        生成分化结构的叙事文本
 
         Args:
-            graph: Graph
-            divergence: Divergence structure
-            center_data: Center node data
+            graph: 图谱
+            divergence: 分化结构
+            center_data: 中心节点数据
 
         Returns:
-            Narrative text
+            叙事文本
         """
         if self.llm_client:
             return self._generate_divergence_narrative_with_llm(graph, divergence, center_data)
@@ -2109,9 +2109,9 @@ Please generate narrative text following this structure (3-5 paragraphs, 2-3 sen
         divergence: Dict,
         center_data: Dict
     ) -> str:
-        """Generate divergence narrative using template (fallback method)
+        """使用模板生成分化叙事（降级方案）
 
-        Improved version: Citation type-aware narrative generation
+        改进版本：引用类型感知叙事生成
         """
         center_title = center_data.get('title', 'Unknown')
         center_year = center_data.get('year', 'N/A')
@@ -2120,67 +2120,67 @@ Please generate narrative text following this structure (3-5 paragraphs, 2-3 sen
 
         narrative_parts = []
 
-        # Focus
+        # 焦点
         narrative_parts.append(
-            f"**Focus**: The paper '{center_title}' ({center_year}) is a foundational work in this field, "
-            f"focusing on {problem}, but leaving the issue of {limitation}."
+            f"**焦点**: 论文《{center_title}》({center_year}) 是该领域的基石工作，"
+            f"它聚焦于 {problem}，但留下了 {limitation} 的问题。"
         )
 
-        # Divergence - generate description based on actual relation type (enhanced: citation type-aware)
+        # 分歧 - 根据实际关系类型生成描述（增强版：引用类型感知）
         center_paper_id = divergence['center']
         routes_desc = []
         for i, route in enumerate(divergence['routes'], 1):
             route_papers = route['papers']
             relation = route['relation_type']
 
-            # Get the latest paper in the route (usually the endpoint of the route)
+            # 获取路线中最新论文（通常是路线的终点）
             latest_paper_id = route_papers[-1] if route_papers else None
             if latest_paper_id:
-                # Use citation type-aware information extraction
+                # 使用引用类型感知的信息提取
                 info = self._extract_papers_info_for_relation(
                     graph, center_paper_id, latest_paper_id, relation
                 )
 
-                # Generate targeted route description (simplified version, adapted for divergence scenario)
+                # 生成针对性的路线描述（简化版，适配分化场景）
                 if relation == 'Overcomes':
-                    method = info.get('curr_method', 'new method')
-                    limitation = info.get('prev_limitation', 'certain limitations')
-                    desc = f"**Route {i}** (Vertical Deepening): Targeting '{limitation}', achieving breakthrough through {method}"
+                    method = info.get('curr_method', '新方法')
+                    limitation = info.get('prev_limitation', '某些局限性')
+                    desc = f"**路线{i}** (纵向深化): 针对「{limitation}」，通过 {method} 实现突破"
                 elif relation == 'Realizes':
-                    method = info.get('curr_method', 'new method')
-                    future_work = info.get('prev_future_work', 'predecessors\' vision')
-                    desc = f"**Route {i}** (Research Inheritance): Realizing the vision of '{future_work}', using {method}"
+                    method = info.get('curr_method', '新方法')
+                    future_work = info.get('prev_future_work', '前人设想')
+                    desc = f"**路线{i}** (科研传承): 实现「{future_work}」的愿景，采用 {method}"
                 elif relation == 'Extends':
-                    method = info.get('curr_method', 'improved method')
-                    desc = f"**Route {i}** (Incremental Innovation): Retaining core architecture and extending, using {method}"
+                    method = info.get('curr_method', '改进方法')
+                    desc = f"**路线{i}** (微创新): 保留核心架构并扩展，采用 {method}"
                 elif relation == 'Alternative':
-                    method = info.get('curr_method', 'alternative method')
-                    desc = f"**Route {i}** (Disruptive Innovation): Proposing a completely different alternative, using {method}"
+                    method = info.get('curr_method', '替代方法')
+                    desc = f"**路线{i}** (颠覆创新): 提出截然不同的替代方案，使用 {method}"
                 elif relation == 'Adapts_to':
-                    method = info.get('curr_method', 'transfer method')
-                    curr_domain = info.get('curr_domain', 'new domain')
-                    desc = f"**Route {i}** (Horizontal Diffusion): Transferring technology to '{curr_domain}', using {method}"
+                    method = info.get('curr_method', '迁移方法')
+                    curr_domain = info.get('curr_domain', '新领域')
+                    desc = f"**路线{i}** (横向扩散): 将技术迁移到「{curr_domain}」，采用 {method}"
                 else:  # Baselines
-                    method = info.get('curr_method', 'new method')
-                    desc = f"**Route {i}**: Work based on center paper, using {method}"
+                    method = info.get('curr_method', '新方法')
+                    desc = f"**路线{i}**: 基于中心论文的工作，采用 {method}"
 
                 routes_desc.append(desc)
 
         narrative_parts.append(
-            f"**Divergence**: The academic community has developed different evolution routes. " +
-            "; ".join(routes_desc) + "."
+            f"**分歧**: 学术界对此产生了不同的演进路线。" +
+            "；".join(routes_desc) + "。"
         )
 
-        # Comparison - highlight characteristics of different routes
+        # 对比 - 突出不同路线的特点
         route_types = [r['relation_type'] for r in divergence['routes']]
         if 'Alternative' in route_types and 'Extends' in route_types:
-            comparison = "These routes reflect the diversity of academic research: some choose disruptive innovation, others choose incremental improvement"
+            comparison = "这些路线体现了学术研究的多样性：一些选择颠覆式创新，另一些选择渐进式改进"
         elif 'Overcomes' in route_types:
-            comparison = "These routes jointly promote the solution of pain points in this field, forming a multi-angle breakthrough situation"
+            comparison = "这些路线共同推动了该领域痛点问题的解决，形成了多角度攻克的局面"
         else:
-            comparison = "These routes each have their advantages, jointly promoting the diversified development of the field"
+            comparison = "这些路线各有优势，共同推动了领域的多元化发展"
 
-        narrative_parts.append(f"**Comparison**: {comparison}. (See performance comparison of papers in each route)")
+        narrative_parts.append(f"**对比**: {comparison}。（详见各路线论文的性能对比）")
 
         return "\n\n".join(narrative_parts)
 
@@ -2190,18 +2190,18 @@ Please generate narrative text following this structure (3-5 paragraphs, 2-3 sen
         divergence: Dict,
         center_data: Dict
     ) -> str:
-        """Generate divergence narrative using LLM"""
+        """使用LLM生成分化叙事"""
         center_title = center_data.get('title', '')
         center_year = center_data.get('year', '')
         problem = self._extract_key_problem(center_data)
         limitation = self._extract_key_limitation(center_data)
 
-        # Prepare context for each route
+        # 准备各路线的上下文
         routes_context = []
         for i, route in enumerate(divergence['routes'], 1):
             relation = route['relation_type']
             route_papers = []
-            for paper_id in route['papers'][:2]:  # Maximum 2 papers per route
+            for paper_id in route['papers'][:2]:  # 每条路线最多2篇
                 node_data = graph.nodes[paper_id]
                 route_papers.append(
                     f"  - {node_data.get('title', '')} ({node_data.get('year', '')}): "
@@ -2209,31 +2209,31 @@ Please generate narrative text following this structure (3-5 paragraphs, 2-3 sen
                 )
 
             routes_context.append(
-                f"Route {i} ({relation}):\n" + "\n".join(route_papers)
+                f"路线{i} ({relation}):\n" + "\n".join(route_papers)
             )
 
         routes_text = "\n\n".join(routes_context)
 
-        prompt = f"""You are an academic survey expert. Please generate a coherent narrative text based on the following divergence evolution structure.
+        prompt = f"""你是一位学术综述专家。请基于以下分化演进结构，生成一段通顺的叙事文本。
 
-**Center Paper**:
+**中心论文**:
 {center_title} ({center_year})
-- Research Problem: {problem}
-- Limitations: {limitation}
+- 研究问题: {problem}
+- 局限性: {limitation}
 
-**Evolution Routes** ({len(divergence['routes'])} routes in total):
+**演进路线** (共{len(divergence['routes'])}条路线):
 {routes_text}
 
-**Task Requirements**:
-Please generate narrative text following this structure (3 paragraphs, 2-3 sentences each):
-1. **Focus**: Describe the status of the center paper and remaining issues
-2. **Divergence**: Describe the different technical directions of each evolution route
-3. **Comparison**: Summarize the similarities, differences, and respective advantages of these routes
+**任务要求**:
+请按照以下结构生成叙事文本（3段，每段2-3句话）：
+1. **焦点**: 描述中心论文的地位和遗留问题
+2. **分歧**: 描述各条演进路线的不同技术方向
+3. **对比**: 总结这些路线的异同和各自优势
 
-**Output Requirements**:
-- Use coherent, academic English expression
-- Highlight technical differences and innovation points of different routes
-- Begin each paragraph with headings like **Focus**, **Divergence**, **Comparison**
+**输出要求**:
+- 使用连贯、学术化的中文表达
+- 突出不同路线的技术差异和创新点
+- 每段以 **焦点**、**分歧**、**对比** 等标题开头
 """
 
         try:
@@ -2244,7 +2244,7 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
             )
             return narrative.strip()
         except Exception as e:
-            logger.warning(f"LLM narrative generation failed: {e}, using template method")
+            logger.warning(f"LLM生成叙事失败: {e}，使用模板方法")
             return self._generate_divergence_narrative_template(graph, divergence, center_data)
 
     def _generate_convergence_narrative_text(
@@ -2254,15 +2254,15 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
         center_data: Dict
     ) -> str:
         """
-        Generate narrative text for convergence structure
+        生成汇聚结构的叙事文本
 
         Args:
-            graph: Graph
-            convergence: Convergence structure
-            center_data: Center node data
+            graph: 图谱
+            convergence: 汇聚结构
+            center_data: 中心节点数据
 
         Returns:
-            Narrative text
+            叙事文本
         """
         if self.llm_client:
             return self._generate_convergence_narrative_with_llm(graph, convergence, center_data)
@@ -2275,7 +2275,7 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
         convergence: Dict,
         center_data: Dict
     ) -> str:
-        """Generate convergence narrative using template (fallback method)"""
+        """使用模板生成汇聚叙事（降级方案）"""
         center_title = center_data.get('title', 'Unknown')
         center_year = center_data.get('year', 'N/A')
         center_method = self._extract_key_method(center_data)
@@ -2283,77 +2283,77 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
 
         narrative_parts = []
 
-        # Background: describe multiple independent foundation routes
+        # 背景：描述多个独立的基础路线
         center_paper_id = convergence['center']
         routes_desc = []
         for i, route in enumerate(convergence['routes'], 1):
             route_papers = route['papers']
             relation = route['relation_type']
 
-            # Get the latest paper in the route (paper closest to convergence center)
+            # 获取路线中最新论文（最接近汇聚中心的论文）
             latest_paper_id = route_papers[-1] if route_papers else None
             if latest_paper_id:
-                # Use citation type-aware information extraction (route → center direction)
+                # 使用引用类型感知的信息提取（路线→中心方向）
                 info = self._extract_papers_info_for_relation(
                     graph, latest_paper_id, center_paper_id, relation
                 )
 
-                # Generate targeted route description based on citation type
+                # 根据引用类型生成针对性的路线描述
                 if relation == 'Overcomes':
-                    limitation = info.get('prev_limitation', 'certain limitations')
-                    method = info.get('curr_method', 'new method')
-                    desc = f"**Route {i}** (Overcoming): Identified '{limitation}', providing problems to be solved for the center paper"
+                    limitation = info.get('prev_limitation', '某些局限性')
+                    method = info.get('curr_method', '新方法')
+                    desc = f"**路线{i}** (克服型): 识别了「{limitation}」，为中心论文提供了待解决的问题"
                 elif relation == 'Realizes':
-                    future_work = info.get('prev_future_work', 'some future directions')
-                    method = info.get('curr_method', 'implementation method')
-                    desc = f"**Route {i}** (Realization): Proposed the research direction of '{future_work}', realized by the center paper"
+                    future_work = info.get('prev_future_work', '某些未来方向')
+                    method = info.get('curr_method', '实现方法')
+                    desc = f"**路线{i}** (实现型): 提出了「{future_work}」的研究方向，被中心论文实现"
                 elif relation == 'Extends':
-                    prev_method = info.get('prev_method', 'basic method')
-                    curr_method = info.get('curr_method', 'extension method')
-                    desc = f"**Route {i}** (Extension): Provided the foundation of {prev_method}, extended by the center paper to {curr_method}"
+                    prev_method = info.get('prev_method', '基础方法')
+                    curr_method = info.get('curr_method', '扩展方法')
+                    desc = f"**路线{i}** (扩展型): 提供了 {prev_method} 的基础，被中心论文扩展为 {curr_method}"
                 elif relation == 'Alternative':
-                    prev_method = info.get('prev_method', 'alternative method')
-                    curr_method = info.get('curr_method', 'unified method')
-                    desc = f"**Route {i}** (Alternative): Provided {prev_method} as a parallel approach, integrated by the center paper"
+                    prev_method = info.get('prev_method', '替代方法')
+                    curr_method = info.get('curr_method', '统一方法')
+                    desc = f"**路线{i}** (替代型): 提供了 {prev_method} 作为平行方案，被中心论文整合"
                 elif relation == 'Adapts_to':
-                    prev_domain = info.get('prev_domain', 'original domain')
-                    curr_domain = info.get('curr_domain', 'new domain')
-                    desc = f"**Route {i}** (Adaptation): Work in {prev_domain}, adapted by the center paper to {curr_domain}"
+                    prev_domain = info.get('prev_domain', '原始领域')
+                    curr_domain = info.get('curr_domain', '新领域')
+                    desc = f"**路线{i}** (适配型): 在 {prev_domain} 中的工作，被中心论文适配到 {curr_domain}"
                 elif relation == 'Baselines':
-                    prev_method = info.get('prev_method', 'baseline method')
-                    desc = f"**Route {i}** (Baseline): Provided {prev_method} as a comparison baseline"
+                    prev_method = info.get('prev_method', '基准方法')
+                    desc = f"**路线{i}** (基准型): 提供了 {prev_method} 作为比较基准"
                 else:
-                    # Fallback handling
+                    # 降级处理
                     latest_paper = graph.nodes[latest_paper_id]
                     method = self._extract_key_method(latest_paper)
                     year = latest_paper.get('year', 'N/A')
-                    desc = f"Route {i} proposed {method} in {year}"
+                    desc = f"路线{i} 在{year}年提出了 {method}"
 
                 routes_desc.append(desc)
 
         narrative_parts.append(
-            f"**Background**: Before {center_year}, there were multiple independent research directions in this field. " +
-            "; ".join(routes_desc) + ". These directions operated independently, lacking systematic integration."
+            f"**背景**: 在{center_year}年之前，该领域存在多个独立的研究方向。" +
+            "；".join(routes_desc) + "。这些方向各自为政，缺乏系统性整合。"
         )
 
-        # Convergence: describe how the center paper integrates these directions
+        # 汇聚：描述中心论文如何整合这些方向
         narrative_parts.append(
-            f"**Convergence**: The paper '{center_title}' ({center_year}) emerged in this context, "
-            f"organically integrating these {len(convergence['routes'])} independent routes through {center_method}, "
-            f"forming a unified technical framework to solve {problem}."
+            f"**汇聚**: 论文《{center_title}》({center_year}) 在此背景下应运而生，"
+            f"它通过 {center_method} 将这 {len(convergence['routes'])} 条独立路线有机整合，"
+            f"形成了统一的技术框架来解决 {problem}。"
         )
 
-        # Significance: summarize the value of integration
+        # 意义：总结整合的价值
         integration_value = ""
         if len(convergence['routes']) >= 3:
-            integration_value = "marks the field's transition from exploration to systematization"
+            integration_value = "标志着该领域从探索阶段迈入系统化阶段"
         else:
-            integration_value = "provides a paradigm for theoretical integration in this field"
+            integration_value = "为该领域提供了理论整合的范例"
 
         narrative_parts.append(
-            f"**Significance**: This multi-directional convergence {integration_value}, "
-            f"enabling originally scattered technical routes to work synergistically, "
-            f"promoting theoretical unification and practical deepening of the field."
+            f"**意义**: 这种多方向汇聚{integration_value}，"
+            f"使得原本分散的技术路线得以协同发挥作用，"
+            f"推动了领域的理论统一和实践深化。"
         )
 
         return "\n\n".join(narrative_parts)
@@ -2364,18 +2364,18 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
         convergence: Dict,
         center_data: Dict
     ) -> str:
-        """Generate convergence narrative using LLM"""
+        """使用LLM生成汇聚叙事"""
         center_title = center_data.get('title', '')
         center_year = center_data.get('year', '')
         center_method = self._extract_key_method(center_data)
         problem = self._extract_key_problem(center_data)
 
-        # Prepare context for each route
+        # 准备各路线的上下文
         routes_context = []
         for i, route in enumerate(convergence['routes'], 1):
             relation = route['relation_type']
             route_papers = []
-            for paper_id in route['papers'][:2]:  # Maximum 2 papers per route
+            for paper_id in route['papers'][:2]:  # 每条路线最多2篇
                 node_data = graph.nodes[paper_id]
                 route_papers.append(
                     f"  - {node_data.get('title', '')} ({node_data.get('year', '')}): "
@@ -2383,32 +2383,32 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
                 )
 
             routes_context.append(
-                f"Route {i} ({relation}):\n" + "\n".join(route_papers)
+                f"路线{i} ({relation}):\n" + "\n".join(route_papers)
             )
 
         routes_text = "\n\n".join(routes_context)
 
-        prompt = f"""You are an academic survey expert. Please generate a coherent narrative text based on the following convergence evolution structure.
+        prompt = f"""你是一位学术综述专家。请基于以下汇聚演进结构，生成一段通顺的叙事文本。
 
-**Center Paper**:
+**中心论文**:
 {center_title} ({center_year})
-- Research Problem: {problem}
-- Integration Method: {center_method}
+- 研究问题: {problem}
+- 整合方法: {center_method}
 
-**Foundation Routes** ({len(convergence['routes'])} independent routes integrated in total):
+**基础路线** (共{len(convergence['routes'])}条独立路线被整合):
 {routes_text}
 
-**Task Requirements**:
-Please generate narrative text following this structure (3 paragraphs, 2-3 sentences each):
-1. **Background**: Describe the exploration of multiple independent directions before the center paper
-2. **Convergence**: Describe how the center paper integrates these directions to form a unified framework
-3. **Significance**: Summarize the value of this integration for field development
+**任务要求**:
+请按照以下结构生成叙事文本（3段，每段2-3句话）：
+1. **背景**: 描述中心论文之前多个独立方向的探索
+2. **汇聚**: 描述中心论文如何整合这些方向形成统一框架
+3. **意义**: 总结这种整合对领域发展的价值
 
-**Output Requirements**:
-- Use coherent, academic English expression
-- Highlight the evolution from scattered to integrated
-- Emphasize synergistic effects and theoretical value after integration
-- Begin each paragraph with headings like **Background**, **Convergence**, **Significance**
+**输出要求**:
+- 使用连贯、学术化的中文表达
+- 突出从分散到整合的演进特点
+- 强调整合后的协同效应和理论价值
+- 每段以 **背景**、**汇聚**、**意义** 等标题开头
 """
 
         try:
@@ -2419,7 +2419,7 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
             )
             return narrative.strip()
         except Exception as e:
-            logger.warning(f"LLM narrative generation failed: {e}, using template method")
+            logger.warning(f"LLM生成叙事失败: {e}，使用模板方法")
             return self._generate_convergence_narrative_template(graph, convergence, center_data)
 
     def _generate_survey_report(
@@ -2430,18 +2430,18 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
         pruning_stats: Dict
     ) -> Dict:
         """
-        Step 3: Generate structured Deep Survey report
+        第三步：生成结构化 Deep Survey 报告
 
         Args:
-            topic: Research topic
-            pruned_graph: Pruned graph
-            evolutionary_paths: List of evolutionary paths
-            pruning_stats: Pruning statistics
+            topic: 研究主题
+            pruned_graph: 剪枝后的图谱
+            evolutionary_paths: 演化路径列表
+            pruning_stats: 剪枝统计信息
 
         Returns:
-            Survey report dictionary
+            综述报告字典
         """
-        logger.info("  Generating Deep Survey report...")
+        logger.info("  正在生成 Deep Survey 报告...")
 
         report = {
             'title': f"Deep Survey: {topic}",
@@ -2455,9 +2455,9 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
             }
         }
 
-        # Generate Thread for each evolutionary path
+        # 为每个演化路径生成 Thread
         for i, path in enumerate(evolutionary_paths, 1):
-            # Extract relation type statistics
+            # 提取关系类型统计
             relation_stats = self._extract_relation_stats(path, pruned_graph)
 
             thread = {
@@ -2465,19 +2465,19 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
                 'thread_name': f"Thread {i}: {path['pattern_type']}",
                 'title': path['title'],
                 'pattern_type': path['pattern_type'],
-                'thread_type': path.get('thread_type', 'unknown'),  # New: thread type
+                'thread_type': path.get('thread_type', 'unknown'),  # 新增：线程类型
                 'narrative': path['narrative'],
                 'papers': path['papers'],
                 'total_citations': path.get('total_citations', 0),
                 'visual_structure': path.get('visual_structure', ''),
-                'relation_stats': relation_stats,  # Relation statistics
-                'relation_chain': path.get('relation_chain', []),  # New: detailed relation chain
-                # Data prepared for visualization
+                'relation_stats': relation_stats,  # 关系统计
+                'relation_chain': path.get('relation_chain', []),  # 新增：详细关系链
+                # 为可视化准备的数据
                 'visualization_data': self._prepare_visualization_data(path, pruned_graph)
             }
             report['threads'].append(thread)
 
-        logger.info(f"    ✅ Report generation complete: {len(report['threads'])} Threads")
+        logger.info(f"    ✅ 报告生成完成: {len(report['threads'])} 个 Threads")
 
         return report
 
@@ -2487,7 +2487,7 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
         evolutionary_paths: List[Dict],
         pruning_stats: Dict
     ) -> str:
-        """Generate survey abstract"""
+        """生成综述摘要"""
         total_papers = pruning_stats['pruned_papers']
         total_threads = len(evolutionary_paths)
 
@@ -2496,37 +2496,37 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
         convergences = sum(1 for p in evolutionary_paths if p['thread_type'] == 'convergence')
 
         abstract = (
-            f"This survey analyzes the evolution of the {topic} field based on knowledge graph analysis. "
-            f"Through relation pruning, we filtered {total_papers} high-quality papers from the original graph "
-            f"and identified {total_threads} key evolutionary paths. "
-            f"These include {chains} linear technology chains, {divergences} divergence structures, and {convergences} convergence structures, "
-            f"fully presenting the field's technology evolution trajectory, divergence trends, and integration patterns."
+            f"本综述基于知识图谱分析了 {topic} 领域的演进历程。"
+            f"通过关系剪枝，我们从原始图谱中筛选出 {total_papers} 篇高质量论文，"
+            f"并识别出 {total_threads} 条关键演化路径。"
+            f"其中包括 {chains} 条线性技术链条、{divergences} 个分化结构和 {convergences} 个汇聚结构，"
+            f"完整呈现了该领域的技术演进脉络、分化趋势和整合模式。"
         )
 
         return abstract
 
     def _prepare_visualization_data(self, path: Dict, graph: nx.DiGraph) -> Dict:
         """
-        Prepare visualization data
+        准备可视化数据
 
-        Bug Fix #3: Ensure arrow direction represents "development direction" (chronological order: early year -> late year)
+        Bug Fix #3: 确保箭头方向表示"发展指向"（时间正序：早年份->晚年份）
 
         Args:
-            path: Evolutionary path
-            graph: Graph
+            path: 演化路径
+            graph: 图谱
 
         Returns:
-            Visualization data dictionary
+            可视化数据字典
         """
         papers = path['papers']
 
-        # Extract nodes and edges
+        # 提取节点和边
         nodes = []
         edges = []
 
         if path['thread_type'] == 'chain':
-            # Linear chain - visualize after sorting by time
-            # Sort papers by year
+            # 线性链条 - 按时间排序后可视化
+            # 按年份排序论文
             sorted_papers = sorted(papers, key=lambda p: p.get('year', 0))
 
             for i, paper_info in enumerate(sorted_papers):
@@ -2543,17 +2543,17 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
 
                 if i > 0:
                     prev_paper_id = sorted_papers[i-1]['paper_id']
-                    # Bug Fix #3: Arrow direction = time flow (early->late)
+                    # Bug Fix #3: 箭头方向 = 时间流向（早->晚）
                     edges.append({
-                        'source': prev_paper_id,  # Early year
-                        'target': paper_id,        # Late year
+                        'source': prev_paper_id,  # 早年份
+                        'target': paper_id,        # 晚年份
                         'type': 'chronological_evolution',
                         'label': f"{sorted_papers[i-1].get('year', '')} → {paper_info.get('year', '')}"
                     })
 
         elif path['thread_type'] in ['divergence', 'convergence']:
-            # Divergence/Convergence structure
-            # Center node
+            # 分化/汇聚结构
+            # 中心节点
             center_paper = next((p for p in papers if p.get('role') == 'center'), papers[0])
             nodes.append({
                 'id': center_paper['paper_id'],
@@ -2564,7 +2564,7 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
                 'role': 'center'
             })
 
-            # Route nodes
+            # 路线节点
             for route in path.get('routes', []):
                 for paper_info in route['papers']:
                     paper_id = paper_info['paper_id']
@@ -2576,14 +2576,14 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
                         'citations': paper_info.get('cited_by_count', 0)
                     })
 
-                    # Handle connection between first node and center
+                    # 处理第一个节点与中心的连接
                     if paper_info == route['papers'][0]:
                         center_year = center_paper.get('year', 0)
                         target_year = paper_info.get('year', 0)
 
-                        # Determine arrow direction based on pattern type and time relationship
+                        # 根据模式类型和时间关系确定箭头方向
                         if path['thread_type'] == 'divergence':
-                            # Divergence: center -> route (center paper is earlier)
+                            # 分化：中心 -> 路线（中心论文更早）
                             if center_year <= target_year:
                                 edges.append({
                                     'source': center_paper['paper_id'],
@@ -2592,7 +2592,7 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
                                     'direction': 'forward'
                                 })
                             else:
-                                # Abnormal case: reverse direction
+                                # 异常情况：反向
                                 edges.append({
                                     'source': paper_id,
                                     'target': center_paper['paper_id'],
@@ -2600,7 +2600,7 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
                                     'direction': 'backward'
                                 })
                         else:
-                            # Convergence: route -> center (center paper is later)
+                            # 汇聚：路线 -> 中心（中心论文更晚）
                             if center_year >= target_year:
                                 edges.append({
                                     'source': paper_id,
@@ -2609,7 +2609,7 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
                                     'direction': 'forward'
                                 })
                             else:
-                                # Abnormal case: reverse direction
+                                # 异常情况：反向
                                 edges.append({
                                     'source': center_paper['paper_id'],
                                     'target': paper_id,
@@ -2621,45 +2621,45 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
             'nodes': nodes,
             'edges': edges,
             'layout': 'hierarchical' if path['thread_type'] == 'chain' else 'radial',
-            'direction_note': 'Arrow direction represents time evolution direction (early year → late year)',
-            'pattern_note': 'divergence=center diffusion, convergence=multi-source convergence' if path['thread_type'] in ['divergence', 'convergence'] else ''
+            'direction_note': '箭头方向表示时间演进方向（早年份 → 晚年份）',
+            'pattern_note': 'divergence=中心扩散, convergence=多源汇聚' if path['thread_type'] in ['divergence', 'convergence'] else ''
         }
 
-    # ========== Helper Methods ==========
+    # ========== 辅助方法 ==========
 
     def _reverse_relation_semantics(self, relation_type: str) -> str:
         """
-        Reverse relation semantics to conform to chronological narrative
+        反转关系语义以符合时间正序叙事
 
-        In knowledge graph: new paper(2023) --Overcomes--> old paper(2021)
-        In chronological narrative: old paper(2021) --Was_Overcome_By--> new paper(2023)
+        在知识图谱中：新论文(2023) --Overcomes--> 旧论文(2021)
+        在时间叙事中：旧论文(2021) --Was_Overcome_By--> 新论文(2023)
 
         Args:
-            relation_type: Original relation type (from new paper to old paper)
+            relation_type: 原始关系类型（从新论文指向旧论文）
 
         Returns:
-            Reversed relation description (from old paper to new paper)
+            反转后的关系描述（从旧论文指向新论文）
         """
         relation_mapping = {
-            'Overcomes': 'Was_Overcome_By',      # Was overcome
-            'Realizes': 'Inspired',              # Inspired
-            'Extends': 'Was_Extended_By',        # Was extended
-            'Alternative': 'Led_To_Alternative', # Led to alternative
-            'Adapts_to': 'Was_Adapted_By',       # Was adapted
-            'Baselines': 'Served_As_Baseline',   # Served as baseline
+            'Overcomes': 'Was_Overcome_By',      # 被克服
+            'Realizes': 'Inspired',              # 启发了
+            'Extends': 'Was_Extended_By',        # 被扩展
+            'Alternative': 'Led_To_Alternative', # 导致替代方案
+            'Adapts_to': 'Was_Adapted_By',       # 被迁移
+            'Baselines': 'Served_As_Baseline',   # 作为基线
         }
 
         return relation_mapping.get(relation_type, f'Led_To_{relation_type}')
 
     def _map_reversed_to_original_type(self, reversed_type: str) -> str:
         """
-        Map reversed relation type back to original type (for narrative generation)
+        将反转后的关系类型映射回原始类型（用于叙事生成）
 
         Args:
-            reversed_type: Reversed relation type (e.g., 'Was_Overcome_By')
+            reversed_type: 反转后的关系类型（如 'Was_Overcome_By'）
 
         Returns:
-            Original relation type (e.g., 'Overcomes')
+            原始关系类型（如 'Overcomes'）
         """
         mapping = {
             'Was_Overcome_By': 'Overcomes',
@@ -2673,15 +2673,15 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
 
     def _get_relation_type(self, graph: nx.DiGraph, prev_paper_id: str, curr_paper_id: str) -> str:
         """
-        Get relation type between two papers (handle forward and reverse edges)
+        获取两篇论文之间的关系类型（处理正向和反向边）
 
         Args:
-            graph: Graph
-            prev_paper_id: Early paper ID
-            curr_paper_id: Late paper ID
+            graph: 图谱
+            prev_paper_id: 早期论文ID
+            curr_paper_id: 晚期论文ID
 
         Returns:
-            Relation type
+            关系类型
         """
         if graph.has_edge(prev_paper_id, curr_paper_id):
             edge_data = graph.edges[prev_paper_id, curr_paper_id]
@@ -2696,98 +2696,98 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
 
     def _get_relation_focus_hint(self, relation_type: str) -> str:
         """
-        Get narrative focus hint for citation type (for LLM Prompt)
+        获取引用类型的叙事关注点提示（用于LLM Prompt）
 
         Args:
-            relation_type: Citation relation type
+            relation_type: 引用关系类型
 
         Returns:
-            Focus description
+            关注点描述
         """
         hints = {
-            'Overcomes': 'Focus on how predecessors\' limitations were overcome',
-            'Realizes': 'Focus on how predecessors\' vision was realized',
-            'Adapts_to': 'Focus on how methods transfer across domains',
-            'Extends': 'Focus on how methods are incrementally improved',
-            'Alternative': 'Focus on comparison of different technical paradigms',
-            'Baselines': 'Serves as background context'
+            'Overcomes': '关注前人的局限性如何被克服',
+            'Realizes': '关注前人的愿景如何被实现',
+            'Adapts_to': '关注方法如何跨领域迁移',
+            'Extends': '关注方法如何被增量改进',
+            'Alternative': '关注不同技术范式的对比',
+            'Baselines': '作为背景铺垫'
         }
-        return hints.get(relation_type, 'Inherits from previous work')
+        return hints.get(relation_type, '继承前人工作')
 
     def _get_relation_description(self, graph: nx.DiGraph, old_paper_id: str, new_paper_id: str) -> str:
         """
-        Get relation description between two papers (for narrative)
+        获取两篇论文之间的关系描述（用于叙事）
 
         Args:
-            graph: Graph
-            old_paper_id: Early paper ID
-            new_paper_id: Late paper ID
+            graph: 图谱
+            old_paper_id: 早期论文ID
+            new_paper_id: 晚期论文ID
 
         Returns:
-            Relation description conforming to temporal narrative
+            符合时间叙事的关系描述
         """
-        # Check if edge exists
+        # 检查是否存在边
         if graph.has_edge(old_paper_id, new_paper_id):
-            # Early paper -> Late paper (forward)
+            # 早论文 -> 晚论文（正向）
             edge_data = graph.edges[old_paper_id, new_paper_id]
             relation_type = edge_data.get('type') or edge_data.get('edge_type', 'Unknown')
             return self._get_chinese_relation_desc(relation_type, is_reversed=False)
 
         elif graph.has_edge(new_paper_id, old_paper_id):
-            # Late paper -> Early paper (need to reverse semantics)
+            # 晚论文 -> 早论文（需要反转语义）
             edge_data = graph.edges[new_paper_id, old_paper_id]
             relation_type = edge_data.get('type') or edge_data.get('edge_type', 'Unknown')
             return self._get_chinese_relation_desc(relation_type, is_reversed=True)
 
         else:
-            return "building on previous work"
+            return "在前人工作基础上"
 
     def _get_chinese_relation_desc(self, relation_type: str, is_reversed: bool) -> str:
         """
-        Get relation description
+        获取关系的中文描述
 
         Args:
-            relation_type: Relation type
-            is_reversed: Whether semantics need to be reversed
+            relation_type: 关系类型
+            is_reversed: 是否需要反转语义
 
         Returns:
-            Description
+            中文描述
         """
         if is_reversed:
-            # Reverse relation (late paper -> early paper) needs reversed semantics
+            # 反向关系（晚论文 -> 早论文）需要反转语义
             descriptions = {
-                'Overcomes': 'improved upon predecessors\' limitations',
-                'Realizes': 'realized predecessors\' vision',
-                'Extends': 'extended predecessors\' methods',
-                'Alternative': 'proposed alternative approach different from predecessors',
-                'Adapts_to': 'transferred predecessors\' technology to new domain',
-                'Baselines': 'building on previous work',
+                'Overcomes': '针对前人的局限性进行了改进',
+                'Realizes': '实现了前人提出的愿景',
+                'Extends': '扩展了前人的方法',
+                'Alternative': '提出了不同于前人的替代方案',
+                'Adapts_to': '将前人的技术迁移到新领域',
+                'Baselines': '在前人工作的基础上',
             }
         else:
-            # Forward relation (early paper -> late paper)
+            # 正向关系（早论文 -> 晚论文）
             descriptions = {
-                'Inspires': 'inspired subsequent research',
-                'Proposes': 'proposed direction for subsequent research',
-                'Enables': 'enabled subsequent research',
+                'Inspires': '启发了后续研究',
+                'Proposes': '提出了后续研究的方向',
+                'Enables': '使后续研究成为可能',
             }
 
-        return descriptions.get(relation_type, 'building on previous work')
+        return descriptions.get(relation_type, '在前人工作基础上')
 
     def _extract_relation_stats(self, path: Dict, graph: nx.DiGraph) -> Dict:
         """
-        Extract relation type statistics from evolutionary path
+        提取演化路径中的关系类型统计
 
         Args:
-            path: Evolutionary path
-            graph: Graph
+            path: 演化路径
+            graph: 图谱
 
         Returns:
-            Relation statistics dictionary
+            关系统计字典
         """
         relation_count = {}
 
         if path['thread_type'] == 'chain':
-            # Chain: count relations between adjacent papers
+            # 链条：统计相邻论文间的关系
             papers = path['papers']
             for i in range(len(papers) - 1):
                 paper_id = papers[i]['paper_id']
@@ -2799,7 +2799,7 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
                     relation_count[edge_type] = relation_count.get(edge_type, 0) + 1
 
         elif path['thread_type'] in ['divergence', 'convergence']:
-            # Divergence/convergence structure: count relation types for each route
+            # 分化/汇聚结构：统计各条路线的关系类型
             for route in path.get('routes', []):
                 relation_type = route.get('relation_type', 'Unknown')
                 relation_count[relation_type] = relation_count.get(relation_type, 0) + 1
@@ -2811,23 +2811,23 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
         }
 
     def _extract_key_method(self, node_data: Dict) -> str:
-        """Extract key method from paper"""
-        # Prioritize extraction from deep_analysis
+        """提取论文的关键方法"""
+        # 优先从 deep_analysis 提取
         deep_analysis = node_data.get('deep_analysis', {})
         if isinstance(deep_analysis, dict):
             method = deep_analysis.get('method', {})
-            # Compatible with two formats: dictionary {content: ...} or direct string
+            # 兼容两种格式：字典 {content: ...} 或直接字符串
             if isinstance(method, dict):
                 method_text = method.get('content', '')
             else:
                 method_text = str(method) if method else ''
 
             if method_text:
-                # Only take first sentence to avoid being too long
+                # 只取第一句话，避免太长
                 first_sentence = method_text.split('\n')[0].strip()
                 return first_sentence[:80] if len(first_sentence) > 80 else first_sentence
 
-        # Extract from rag_analysis
+        # 从 rag_analysis 提取
         rag_analysis = node_data.get('rag_analysis', {})
         if isinstance(rag_analysis, dict):
             method = rag_analysis.get('method', '')
@@ -2835,14 +2835,14 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
                 first_sentence = str(method).split('\n')[0].strip()
                 return first_sentence[:80] if len(first_sentence) > 80 else first_sentence
 
-        return 'Method not extracted'
+        return '未提取到方法'
 
     def _extract_key_problem(self, node_data: Dict) -> str:
-        """Extract key problem from paper"""
+        """提取论文的关键问题"""
         deep_analysis = node_data.get('deep_analysis', {})
         if isinstance(deep_analysis, dict):
             problem = deep_analysis.get('problem', {})
-            # Compatible with two formats: dictionary {content: ...} or direct string
+            # 兼容两种格式：字典 {content: ...} 或直接字符串
             if isinstance(problem, dict):
                 problem_text = problem.get('content', '')
             else:
@@ -2859,14 +2859,14 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
                 first_sentence = str(problem).split('\n')[0].strip()
                 return first_sentence[:80] if len(first_sentence) > 80 else first_sentence
 
-        return 'Problem not extracted'
+        return '未提取到问题'
 
     def _extract_key_limitation(self, node_data: Dict) -> str:
-        """Extract key limitation from paper"""
+        """提取论文的关键局限性"""
         deep_analysis = node_data.get('deep_analysis', {})
         if isinstance(deep_analysis, dict):
             limitation = deep_analysis.get('limitation', {})
-            # Compatible with two formats: dictionary {content: ...} or direct string
+            # 兼容两种格式：字典 {content: ...} 或直接字符串
             if isinstance(limitation, dict):
                 limitation_text = limitation.get('content', '')
             else:
@@ -2883,46 +2883,46 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
                 first_sentence = str(limitation).split('\n')[0].strip()
                 return first_sentence[:80] if len(first_sentence) > 80 else first_sentence
 
-        return 'Limitation not extracted'
+        return '未提取到局限性'
 
     def _extract_key_future_work(self, node_data: Dict) -> str:
         """
-        Extract future work direction from paper (for Realizes relation)
+        提取论文的未来工作方向（用于Realizes关系）
 
         Args:
-            node_data: Paper node data
+            node_data: 论文节点数据
 
         Returns:
-            Future work description (only first sentence, limited to 80 characters)
+            未来工作描述（只取第一句，限制80字符）
         """
-        # Prioritize extraction from deep_analysis
+        # 优先从 deep_analysis 提取
         deep_analysis = node_data.get('deep_analysis', {})
         if isinstance(deep_analysis, dict):
             future_work = deep_analysis.get('future_work', {})
-            # Compatible with two formats: dictionary {content: ...} or direct string
+            # 兼容两种格式：字典 {content: ...} 或直接字符串
             if isinstance(future_work, dict):
                 future_work_text = future_work.get('content', '')
             else:
                 future_work_text = str(future_work) if future_work else ''
 
-            # Filter out "N/A" or empty values
+            # 过滤掉 "N/A" 或空值
             if future_work_text and future_work_text != "N/A":
-                first_sentence = future_work_text.split('.')[0].strip()
+                first_sentence = future_work_text.split('。')[0].strip()
                 if not first_sentence:
                     first_sentence = future_work_text.split('\n')[0].strip()
                 return first_sentence[:80] if len(first_sentence) > 80 else first_sentence
 
-        # Fallback: extract from rag_analysis
+        # 备用：从 rag_analysis 提取
         rag_analysis = node_data.get('rag_analysis', {})
         if isinstance(rag_analysis, dict):
             future_work = rag_analysis.get('future_work', '')
             if future_work and future_work != "N/A":
-                first_sentence = str(future_work).split('.')[0].strip()
+                first_sentence = str(future_work).split('。')[0].strip()
                 if not first_sentence:
                     first_sentence = str(future_work).split('\n')[0].strip()
                 return first_sentence[:80] if len(first_sentence) > 80 else first_sentence
 
-        return 'Future work not extracted'
+        return '未提取到未来工作'
 
     def _extract_papers_info_for_relation(
         self,
@@ -2932,16 +2932,16 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
         relation_type: str
     ) -> Dict[str, str]:
         """
-        Extract relevant information from papers based on citation type
+        根据引用类型提取论文的相关信息
 
         Args:
-            graph: Graph
-            prev_paper_id: Previous (early) paper ID
-            curr_paper_id: Current (late) paper ID
-            relation_type: Citation relation type
+            graph: 图谱
+            prev_paper_id: 前一篇（早期）论文ID
+            curr_paper_id: 当前（晚期）论文ID
+            relation_type: 引用关系类型
 
         Returns:
-            Dictionary containing information needed for narrative
+            包含叙事所需信息的字典
         """
         prev_node = graph.nodes[prev_paper_id]
         curr_node = graph.nodes[curr_paper_id]
@@ -2954,7 +2954,7 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
             'relation_type': relation_type
         }
 
-        # Extract different elements based on citation type
+        # 根据引用类型提取不同的要素
         if relation_type == 'Overcomes':
             # Overcomes: A.Limitation → B.Problem + Method
             info['prev_limitation'] = self._extract_key_limitation(prev_node)
@@ -2968,32 +2968,32 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
             info['curr_method'] = self._extract_key_method(curr_node)
 
         elif relation_type == 'Adapts_to':
-            # Adapts_to: A.Problem+Method → B.Problem+Method (cross-domain)
+            # Adapts_to: A.Problem+Method → B.Problem+Method (跨域)
             info['prev_problem'] = self._extract_key_problem(prev_node)
             info['prev_method'] = self._extract_key_method(prev_node)
             info['curr_problem'] = self._extract_key_problem(curr_node)
             info['curr_method'] = self._extract_key_method(curr_node)
-            # Try to extract domain information from deep_analysis
+            # 尝试从deep_analysis提取领域信息
             prev_deep = prev_node.get('deep_analysis', {})
             curr_deep = curr_node.get('deep_analysis', {})
-            info['prev_domain'] = prev_deep.get('domain', 'original domain')
-            info['curr_domain'] = curr_deep.get('domain', 'new domain')
+            info['prev_domain'] = prev_deep.get('domain', '原领域')
+            info['curr_domain'] = curr_deep.get('domain', '新领域')
 
         elif relation_type == 'Extends':
-            # Extends: A.Method → B.Method (extension)
+            # Extends: A.Method → B.Method (扩展)
             info['prev_method'] = self._extract_key_method(prev_node)
             info['curr_method'] = self._extract_key_method(curr_node)
             info['curr_problem'] = self._extract_key_problem(curr_node)
 
         elif relation_type == 'Alternative':
-            # Alternative: A.Method → B.Method (different paradigm)
+            # Alternative: A.Method → B.Method (不同范式)
             info['prev_method'] = self._extract_key_method(prev_node)
             info['curr_method'] = self._extract_key_method(curr_node)
             info['prev_problem'] = self._extract_key_problem(prev_node)
             info['curr_problem'] = self._extract_key_problem(curr_node)
 
-        else:  # Baselines or other
-            # Extract general information by default
+        else:  # Baselines 或其他
+            # 默认提取通用信息
             info['prev_method'] = self._extract_key_method(prev_node)
             info['curr_method'] = self._extract_key_method(curr_node)
             info['curr_problem'] = self._extract_key_problem(curr_node)
@@ -3002,68 +3002,68 @@ Please generate narrative text following this structure (3 paragraphs, 2-3 sente
 
     def _generate_relation_narrative_fragment(self, info: Dict[str, str]) -> str:
         """
-        Generate targeted narrative fragment based on citation type
+        根据引用类型生成针对性的叙事片段
 
         Args:
-            info: Information dictionary extracted via _extract_papers_info_for_relation
+            info: 通过 _extract_papers_info_for_relation 提取的信息字典
 
         Returns:
-            Narrative fragment text
+            叙事片段文本
         """
         relation_type = info.get('relation_type', 'Baselines')
         curr_year = info.get('curr_year', 'N/A')
         curr_title = info.get('curr_title', 'Unknown')
 
         if relation_type == 'Overcomes':
-            # Focus: A's limitation → How B solves it
-            prev_limitation = info.get('prev_limitation', 'certain limitations')
-            curr_method = info.get('curr_method', 'new method')
+            # 关注：A的局限性 → B如何解决
+            prev_limitation = info.get('prev_limitation', '某些局限性')
+            curr_method = info.get('curr_method', '新方法')
             return (
-                f"**Overcoming Limitations** ({curr_year}): Addressing the shortcomings of previous work in '{prev_limitation}', "
-                f"the paper '{curr_title}' achieved breakthrough improvements through {curr_method}."
+                f"**克服局限** ({curr_year}年): 针对前人工作在「{prev_limitation}」方面的不足，"
+                f"论文《{curr_title}》通过 {curr_method} 实现了突破性改进。"
             )
 
         elif relation_type == 'Realizes':
-            # Focus: A's vision → How B realizes it
-            prev_future_work = info.get('prev_future_work', 'predecessors\' vision')
-            curr_method = info.get('curr_method', 'new method')
+            # 关注：A的愿景 → B如何实现
+            prev_future_work = info.get('prev_future_work', '前人的设想')
+            curr_method = info.get('curr_method', '新方法')
             return (
-                f"**Realizing Vision** ({curr_year}): Responding to predecessors' outlook of '{prev_future_work}', "
-                f"the paper '{curr_title}' put this vision into practice through {curr_method}."
+                f"**实现愿景** ({curr_year}年): 呼应前人「{prev_future_work}」的展望，"
+                f"论文《{curr_title}》通过 {curr_method} 将这一设想付诸实践。"
             )
 
         elif relation_type == 'Adapts_to':
-            # Focus: A's domain → B's domain
-            prev_domain = info.get('prev_domain', 'original domain')
-            curr_domain = info.get('curr_domain', 'new domain')
-            curr_method = info.get('curr_method', 'improved method')
+            # 关注：A的领域 → B的领域
+            prev_domain = info.get('prev_domain', '原领域')
+            curr_domain = info.get('curr_domain', '新领域')
+            curr_method = info.get('curr_method', '改进方法')
             return (
-                f"**Cross-Domain Transfer** ({curr_year}): The paper '{curr_title}' successfully transferred "
-                f"predecessors' technology in '{prev_domain}' to '{curr_domain}', validating the method's generalization ability through {curr_method}."
+                f"**跨域迁移** ({curr_year}年): 论文《{curr_title}》将前人在「{prev_domain}」的技术"
+                f"成功迁移到「{curr_domain}」，通过 {curr_method} 验证了方法的泛化能力。"
             )
 
         elif relation_type == 'Extends':
-            # Focus: A's method → How B enhances it
-            prev_method = info.get('prev_method', 'basic method')
-            curr_method = info.get('curr_method', 'improved method')
+            # 关注：A的方法 → B如何增强
+            prev_method = info.get('prev_method', '基础方法')
+            curr_method = info.get('curr_method', '改进方法')
             return (
-                f"**Incremental Extension** ({curr_year}): Building on predecessors' '{prev_method}', "
-                f"the paper '{curr_title}' achieved progressive improvement through {curr_method}."
+                f"**增量扩展** ({curr_year}年): 论文《{curr_title}》在「{prev_method}」的基础上，"
+                f"通过 {curr_method} 实现了渐进式改进。"
             )
 
         elif relation_type == 'Alternative':
-            # Focus: A's paradigm → B's different paradigm
-            prev_method = info.get('prev_method', 'original method')
-            curr_method = info.get('curr_method', 'alternative method')
+            # 关注：A的范式 → B的不同范式
+            prev_method = info.get('prev_method', '原有方法')
+            curr_method = info.get('curr_method', '替代方法')
             return (
-                f"**Alternative Approach** ({curr_year}): Unlike predecessors' '{prev_method}' approach, "
-                f"the paper '{curr_title}' proposed {curr_method}, exploring a new paradigm for solving the problem."
+                f"**另辟蹊径** ({curr_year}年): 不同于前人「{prev_method}」的思路，"
+                f"论文《{curr_title}》提出了 {curr_method}，探索了解决问题的新范式。"
             )
 
         else:  # Baselines
-            # Lightweight description
-            curr_method = info.get('curr_method', 'new method')
+            # 轻量级描述
+            curr_method = info.get('curr_method', '新方法')
             return (
-                f"**Evolution** ({curr_year}): Building on previous work, "
-                f"the paper '{curr_title}' advanced this direction through {curr_method}."
+                f"**演进** ({curr_year}年): 论文《{curr_title}》在前人工作的基础上，"
+                f"通过 {curr_method} 推进了该方向的发展。"
             )

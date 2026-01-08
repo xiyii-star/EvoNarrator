@@ -1,6 +1,6 @@
 """
-研究假设生成器
-使用思维链推理生成可行的研究创意
+科研假设生成器
+使用思维链（Chain of Thought）推理来生成可行的研究创意
 """
 
 import json
@@ -13,17 +13,17 @@ import networkx as nx
 try:
     from langchain_openai import ChatOpenAI
     try:
-        # Try new langchain structure (v0.1.0+)
+        # 尝试新版 langchain 结构 (v0.1.0+)
         from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
         from langchain_core.output_parsers import PydanticOutputParser
     except ImportError:
-        # Fallback to old langchain structure
+        # 回退到旧版 langchain 结构
         from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
         from langchain.output_parsers import PydanticOutputParser
     from pydantic import BaseModel, Field
 except ImportError as e:
     raise ImportError(
-        "未安装所需包。运行: pip install langchain langchain-openai langchain-core pydantic"
+        "缺少必需的包。请运行: pip install langchain langchain-openai langchain-core pydantic"
     ) from e
 
 # 日志记录器
@@ -32,50 +32,50 @@ logger = logging.getLogger(__name__)
 
 class IdeaStatus(str, Enum):
     """生成创意的状态"""
-    SUCCESS = "SUCCESS"  # 成功: 方法与局限性兼容
-    INCOMPATIBLE = "INCOMPATIBLE"  # 不兼容: 方法无法解决局限性
+    SUCCESS = "SUCCESS"  # 成功：方法与限制兼容
+    INCOMPATIBLE = "INCOMPATIBLE"  # 不兼容：方法无法解决该限制
 
 
 class InnovationIdea(BaseModel):
-    """生成研究创意的结构化输出"""
-    status: IdeaStatus = Field(description="方法是否与局限性兼容")
+    """生成的研究创意的结构化输出"""
+    status: IdeaStatus = Field(description="方法是否与限制兼容")
     title: Optional[str] = Field(default=None, description="吸引人的学术标题")
     abstract: Optional[str] = Field(
         default=None,
-        description="标准学术摘要 (背景 → 差距 → 提出的方法 → 预期结果)"
+        description="标准学术摘要（背景 → 差距 → 提出的方法 → 预期结果）"
     )
     modification: Optional[str] = Field(
         default=None,
-        description="所需的具体修改 ('桥接变量')"
+        description="所需的具体修改（即'桥接变量'）"
     )
     reasoning: Optional[str] = Field(
         default=None,
-        description="显示分析过程的思维链推理"
+        description="展示分析过程的思维链推理"
     )
     rationale: Optional[str] = Field(
         default=None,
-        description="完整推理路径, 包括步骤 1-3 的详细分析、推理链和决策依据"
+        description="完整的推演路径，包括Step 1-3的详细分析过程、推理链条和决策依据"
     )
 
 
 @dataclass
 class IdeaFragment:
-    """研究片段 (局限性或方法)"""
+    """研究片段（限制或方法）"""
     content: str  # 片段内容
-    paper_id: str = ""  # 论文 ID
+    paper_id: str = ""  # 论文ID
     paper_title: str = ""  # 论文标题
     year: int = 0  # 发表年份
-    cited_count: int = 0  # 引用数
+    cited_count: int = 0  # 被引用次数
 
 
 class HypothesisGenerator:
     """
-    使用思维链推理的假设生成器
+    假设生成器，使用思维链（Chain of Thought）推理
 
-    流程:
-    1. 分析兼容性: 检查数学/理论兼容性
-    2. 识别差距: 确定需要什么修改
-    3. 起草创意: 生成结构化研究提案
+    处理流程:
+    1. 分析兼容性：检查数学/理论兼容性
+    2. 识别差距：确定需要什么修改
+    3. 起草创意：生成结构化的研究提案
     """
 
     def __init__(
@@ -89,10 +89,10 @@ class HypothesisGenerator:
         初始化假设生成器
 
         Args:
-            model_name: OpenAI 模型名称 (例如, "gpt-4", "gpt-3.5-turbo")
-            temperature: 采样温度 (越低 = 越专注, 越高 = 越有创意)
-            api_key: OpenAI API 密钥 (可选, 默认使用 OPENAI_API_KEY 环境变量)
-            base_url: API 的可选基础 URL (用于代理或自定义端点)
+            model_name: OpenAI 模型名称（例如："gpt-4", "gpt-3.5-turbo"）
+            temperature: 采样温度（越低越聚焦，越高越有创造性）
+            api_key: OpenAI API 密钥（可选，默认使用 OPENAI_API_KEY 环境变量）
+            base_url: API的可选基础URL（用于代理或自定义端点）
         """
         # 构建 LLM 参数
         llm_kwargs = {
@@ -107,157 +107,157 @@ class HypothesisGenerator:
 
         # 初始化 OpenAI LLM 客户端
         self.llm = ChatOpenAI(**llm_kwargs)
-        # 初始化输出解析器用于解析结构化输出
+        # 初始化输出解析器，用于解析结构化输出
         self.output_parser = PydanticOutputParser(pydantic_object=InnovationIdea)
 
-        # 构建提示模板
+        # 构建提示词模板
         self.prompt_template = self._build_prompt_template()
 
-        logger.info(f"假设生成器已初始化, 模型: {model_name}")
+        logger.info(f"假设生成器已使用模型初始化: {model_name}")
 
     def _format_evolutionary_context(self, evolutionary_paths: Optional[List[Dict]] = None) -> str:
         """
-        将演化路径格式化为提示上下文
-
+        格式化演化路径为提示词上下文
+        
         Args:
-            evolutionary_paths: 演化路径列表, 每个包含:
+            evolutionary_paths: 演化路径列表，每个路径包含：
                 - thread_type: 'chain', 'divergence', 'convergence'
                 - pattern_type: 模式描述
                 - title: 标题
                 - narrative: 叙事文本
                 - papers: 论文信息列表
-                - relation_chain: 关系链 (包括 Overcomes, Extends, Realizes 等)
-                - routes: 对于发散/收敛模式, 包括多条路线
-
+                - relation_chain: 关系链（包含 Overcomes, Extends, Realizes 等）
+                - routes: 对于分化/汇聚模式，包含多条路线
+        
         Returns:
             格式化的演化上下文字符串
         """
         if not evolutionary_paths or len(evolutionary_paths) == 0:
             return ""
-
+        
         context_parts = [
-            "**演化上下文 (从研究演化模式中学习):**",
+            "**EVOLUTIONARY CONTEXT (Learn from Research Evolution Patterns):**",
             "",
-            "以下演化路径展示了该领域研究的演化过程。",
-            "从这些模式中学习以生成更好的研究创意:",
+            "The following evolutionary paths show how research has evolved in this field. ",
+            "Learn from these patterns to generate better research ideas:",
             ""
         ]
-
-        for i, path in enumerate(evolutionary_paths[:3], 1):  # 最多使用前 3 条路径
+        
+        for i, path in enumerate(evolutionary_paths[:3], 1):  # 最多使用前3条路径
             thread_type = path.get('thread_type', 'unknown')
-            pattern_type = path.get('pattern_type', '未知模式')
+            pattern_type = path.get('pattern_type', 'Unknown Pattern')
             title = path.get('title', '')
             narrative = path.get('narrative', '')
             relation_chain = path.get('relation_chain', [])
-
-            context_parts.append(f"**演化路径 {i}: {pattern_type}**")
-            context_parts.append(f"标题: {title}")
-            context_parts.append(f"叙事: {narrative[:500]}...")  # 限制长度
-
+            
+            context_parts.append(f"**Evolutionary Path {i}: {pattern_type}**")
+            context_parts.append(f"Title: {title}")
+            context_parts.append(f"Narrative: {narrative[:500]}...")  # 限制长度
+            
             # 提取关键演化逻辑
             if relation_chain:
-                context_parts.append("关键演化逻辑:")
-                for rel in relation_chain[:3]:  # 最多显示 3 个关系
+                context_parts.append("Key Evolution Logic:")
+                for rel in relation_chain[:3]:  # 最多显示3个关系
                     from_paper = rel.get('from_paper', {}).get('title', 'Unknown')
                     to_paper = rel.get('to_paper', {}).get('title', 'Unknown')
                     relation_type = rel.get('relation_type', 'Unknown')
                     narrative_rel = rel.get('narrative_relation', relation_type)
-
+                    
                     context_parts.append(
                         f"  - {from_paper[:60]}... "
                         f"--[{narrative_rel}]--> "
                         f"{to_paper[:60]}..."
                     )
-
-            # 对于发散/收敛模式, 提取路线信息
+            
+            # 对于分化/汇聚模式，提取路线信息
             if thread_type in ['divergence', 'convergence']:
                 routes = path.get('routes', [])
                 if routes:
-                    context_parts.append(f"路线 ({len(routes)} 个分支):")
-                    for route_idx, route in enumerate(routes[:2], 1):  # 最多显示 2 条路线
+                    context_parts.append(f"Routes ({len(routes)} branches):")
+                    for route_idx, route in enumerate(routes[:2], 1):  # 最多显示2条路线
                         route_papers = route.get('papers', [])
                         if route_papers:
                             first_paper = route_papers[0].get('title', 'Unknown')[:50]
-                            context_parts.append(f"  路线 {route_idx}: {first_paper}...")
-
+                            context_parts.append(f"  Route {route_idx}: {first_paper}...")
+            
             context_parts.append("")
-
+        
         context_parts.append(
-            "**学习指导:** "
-            "分析局限性是如何被克服的, 方法是如何被扩展的, "
-            "以及跨领域适应是如何工作的。应用类似的逻辑来生成你的创意。"
+            "**Learning Instructions:** "
+            "Analyze how limitations were overcome, how methods were extended, "
+            "and how cross-domain adaptations worked. Apply similar logic to generate your idea."
         )
-
+        
         return "\n".join(context_parts)
 
     def _build_prompt_template(self) -> ChatPromptTemplate:
-        """构建思维链提示模板 (支持演化路径上下文)"""
+        """构建思维链提示词模板（支持演化路径上下文）"""
 
         system_message = SystemMessagePromptTemplate.from_template(
-            """你是一位**资深首席研究员**, 在分析研究问题和生成创新解决方案方面具有深厚的专业知识。
+            """You are a **Senior Principal Researcher** with deep expertise in analyzing research problems and generating innovative solutions.
 
-你的任务是评估候选方法是否能解决给定的研究局限性, 遵循严格的思维链推理过程。
+Your task is to evaluate whether a candidate method can solve a given research limitation, following a rigorous Chain of Thought reasoning process.
 
-**你的推理必须遵循以下三个步骤:**
+**Your reasoning must follow these three steps:**
 
-**步骤 1: 分析兼容性**
-- 检查方法的数学、算法和理论属性
-- 检查这些属性是否与局限性的约束和要求一致
-- 考虑: 计算复杂度、适用领域、基本假设
-- 如果根本不兼容, 输出 status="INCOMPATIBLE" 并停止
+**Step 1: Analyze Compatibility**
+- Examine the mathematical, algorithmic, and theoretical properties of the method
+- Check if these properties align with the constraints and requirements of the limitation
+- Consider: computational complexity, applicability domain, underlying assumptions
+- If fundamentally incompatible, output status="INCOMPATIBLE" and stop
 
-**步骤 2: 识别差距**
-- 确定需要哪些具体修改来弥合差距
-- 识别 "桥接变量" - 使连接工作的关键创新
-- 问: 方法需要改变什么才能解决这个新问题背景?
+**Step 2: Identify the Gap**
+- Determine what specific modifications are needed to bridge the gap
+- Identify the "Bridging Variable" - the key innovation that makes the connection work
+- Ask: What needs to change in the method to address this new problem context?
 
-**步骤 3: 起草创意**
-- 创建一个吸引人的学术标题
-- 编写结构化摘要, 遵循: 背景 → 差距 → 提出的方法 → 预期结果
-- 用一句话清楚地陈述核心创新
+**Step 3: Draft the Idea**
+- Create a catchy, academic title
+- Write a structured abstract following: Background → Gap → Proposed Method → Expected Result
+- Clearly state the core innovation in one sentence
 
-**理由 (完整推理路径):**
-你必须提供一个全面的理由来记录完整的推理路径, 包括:
-- **步骤 1 分析**: 详细的兼容性分析, 包含具体的技术考虑
-- **步骤 2 分析**: 详细的差距识别, 包含桥接变量解释
-- **步骤 3 分析**: 详细的创意起草过程和创新论证
-- **决策链**: 从局限性 → 方法兼容性 → 差距 → 解决方案的逻辑推理链
-- **证据**: 支持推理的演化路径中的关键证据或模式 (如果提供)
+**Rationale (Complete Reasoning Path):**
+You must provide a comprehensive rationale that documents the complete reasoning path, including:
+- **Step 1 Analysis**: Detailed compatibility analysis with specific technical considerations
+- **Step 2 Analysis**: Detailed gap identification with the bridging variable explanation
+- **Step 3 Analysis**: Detailed idea drafting process and innovation justification
+- **Decision Chain**: The logical chain of reasoning from limitation → method compatibility → gap → solution
+- **Evidence**: Key evidence or patterns from evolutionary paths (if provided) that support the reasoning
 
-理由应该是一个完整的、结构化的叙述, 让读者能够理解生成创意背后的完整推理过程。
+The rationale should be a complete, structured narrative that allows readers to understand the full reasoning process behind the generated idea.
 
-**演化上下文 (如果提供):**
-当提供演化路径时, 你应该:
-- 从演化模式中学习 (链式、发散、收敛)
-- 理解先前研究是如何演化的: 克服了哪些局限性, 扩展了哪些方法
-- 应用类似的演化逻辑: 如果方法 A 克服了局限性 X, 方法 B 扩展了方法 A, 考虑方法 B 如何解决类似的局限性
-- 识别模式: 成功的组合、常见的适应策略、跨领域迁移
+**Evolutionary Context (if provided):**
+When evolutionary paths are provided, you should:
+- Learn from the evolution patterns (Chain, Divergence, Convergence)
+- Understand how previous research has evolved: what limitations were overcome, what methods were extended
+- Apply similar evolutionary logic: if Method A overcame Limitation X, and Method B extends Method A, consider how Method B might address similar limitations
+- Identify patterns: successful combinations, common adaptation strategies, cross-domain transfers
 
 {format_instructions}
 
-要严格和诚实。如果某些东西不起作用, 说 INCOMPATIBLE。只对真正可行的创意输出 SUCCESS。"""
+Be rigorous and honest. If something won't work, say INCOMPATIBLE. Only output SUCCESS for truly feasible ideas."""
         )
 
         human_message = HumanMessagePromptTemplate.from_template(
-            """**局限性 (当前研究瓶颈):**
+            """**LIMITATION (Current Research Bottleneck):**
 {limitation}
 
-**候选方法 (潜在解决方案):**
+**CANDIDATE METHOD (Potential Solution):**
 {method}
 
 {evolutionary_context}
 
-现在, 遵循三步思维链过程:
+Now, follow the three-step Chain of Thought process:
 
-1. **兼容性分析**: 该方法的数学/算法属性是否适合局限性的约束?
+1. **Compatibility Analysis**: Are the mathematical/algorithmic properties of this method suitable for the limitation's constraints?
 
-2. **差距识别**: 需要什么具体的修改或适应? 如果提供了演化模式, 请考虑它们。
+2. **Gap Identification**: What specific modification or adaptation is needed? Consider evolutionary patterns if provided.
 
-3. **创意起草**: 如果可行, 创建标题、摘要并描述核心创新。从演化路径中学习类似问题是如何解决的。
+3. **Idea Drafting**: If feasible, create the title, abstract, and describe the core innovation. Learn from how similar problems were solved in the evolutionary paths.
 
-**重要**: 你必须提供一个全面的 "rationale" 字段来记录完整的推理路径, 包括每个步骤的详细分析、决策链和支持证据。这个理由应该是一个完整的叙述, 解释完整的思考过程。
+**Important**: You must provide a comprehensive "rationale" field that documents the complete reasoning path, including detailed analysis for each step, the decision chain, and supporting evidence. This rationale should be a complete narrative that explains the full thought process.
 
-以指定的 JSON 格式提供你的完整推理和最终输出。"""
+Provide your complete reasoning and final output in the specified JSON format."""
         )
 
         return ChatPromptTemplate.from_messages([system_message, human_message])
@@ -270,30 +270,30 @@ class HypothesisGenerator:
         verbose: bool = False
     ) -> Dict:
         """
-        从局限性和候选方法生成研究创新创意
+        从限制和候选方法生成研究创新创意
 
         Args:
-            limitation: 研究瓶颈/局限性的描述
+            limitation: 研究瓶颈/限制的描述
             method: 候选方法的描述
-            evolutionary_paths: 可选的演化路径列表, 用于提供上下文和学习演化逻辑
-            verbose: 如果为 True, 打印详细推理过程
+            evolutionary_paths: 可选的演化路径列表，用于提供上下文和学习演化逻辑
+            verbose: 如果为True，打印详细的推理过程
 
         Returns:
-            具有以下结构的字典:
+            包含以下结构的字典:
             {
                 "status": "SUCCESS" 或 "INCOMPATIBLE",
                 "title": "...",
                 "abstract": "...",
                 "modification": "...",
                 "reasoning": "...",
-                "rationale": "..."  # 完整推理路径, 包括步骤 1-3 的详细分析
+                "rationale": "..."  # 完整的推演路径，包括Step 1-3的详细分析
             }
         """
         try:
             # 格式化演化上下文
             evolutionary_context = self._format_evolutionary_context(evolutionary_paths)
-
-            # 格式化提示
+            
+            # 格式化提示词
             formatted_prompt = self.prompt_template.format_messages(
                 limitation=limitation,
                 method=method,
@@ -303,8 +303,8 @@ class HypothesisGenerator:
 
             if verbose:
                 logger.info("=" * 80)
-                logger.info("生成创新创意...")
-                logger.info(f"局限性: {limitation[:100]}...")
+                logger.info("正在生成创新创意...")
+                logger.info(f"限制: {limitation[:100]}...")
                 logger.info(f"方法: {method[:100]}...")
 
             # 调用 LLM
@@ -319,7 +319,7 @@ class HypothesisGenerator:
                     logger.info(f"标题: {idea.title}")
                     logger.info(f"修改: {idea.modification}")
                     if idea.rationale:
-                        logger.info(f"推理路径长度: {len(idea.rationale)} 字符")
+                        logger.info(f"推演路径长度: {len(idea.rationale)} 字符")
                 logger.info("=" * 80)
 
             # 转换为字典
@@ -329,7 +329,7 @@ class HypothesisGenerator:
                 "abstract": idea.abstract,
                 "modification": idea.modification,
                 "reasoning": idea.reasoning,
-                "rationale": idea.rationale  # 完整推理路径
+                "rationale": idea.rationale  # 完整的推演路径
             }
 
             return result
@@ -354,17 +354,17 @@ class HypothesisGenerator:
         verbose: bool = False
     ) -> List[Dict]:
         """
-        通过配对局限性和方法生成多个创意
+        通过将限制与方法配对来生成多个创意
 
         Args:
-            unsolved_limitations: 局限性描述列表
+            unsolved_limitations: 限制描述列表
             candidate_methods: 方法描述列表
-            evolutionary_paths: 可选的演化路径列表, 用于提供上下文和学习演化逻辑
-            max_ideas: 要生成的最大创意数
-            verbose: 如果为 True, 打印进度
+            evolutionary_paths: 可选的演化路径列表，用于提供上下文和学习演化逻辑
+            max_ideas: 要生成的最大创意数量
+            verbose: 如果为True，打印进度
 
         Returns:
-            生成的创意列表 (仅成功的创意)
+            生成的创意列表（仅成功的创意）
         """
         ideas = []
         count = 0
@@ -378,16 +378,16 @@ class HypothesisGenerator:
                     break
 
                 if verbose:
-                    logger.info(f"\n生成创意 {count + 1}/{max_ideas}...")
+                    logger.info(f"\n正在生成创意 {count + 1}/{max_ideas}...")
 
                 idea = self.generate_innovation_idea(
-                    limitation,
-                    method,
+                    limitation, 
+                    method, 
                     evolutionary_paths=evolutionary_paths,
                     verbose=False
                 )
 
-                # 只保留成功的创意
+                # 仅保留成功的创意
                 if idea["status"] == "SUCCESS":
                     ideas.append({
                         "limitation": limitation,
@@ -759,7 +759,7 @@ class ResearchIdeaGenerator:
         # 创建知识图谱提取器实例,用于从图谱中提取数据
         self.kg_extractor = KnowledgeGraphExtractor()
 
-        logger.info(f"ResearchIdeaGenerator 已初始化, 使用 HypothesisGenerator (max_ideas={self.max_ideas})")
+        logger.info(f"ResearchIdeaGenerator initialized with HypothesisGenerator (max_ideas={self.max_ideas})")
 
     def generate_from_knowledge_graph(
         self,
@@ -868,7 +868,7 @@ class ResearchIdeaGenerator:
 
         # 检查图谱是否为空
         if len(graph.nodes()) == 0:
-            logger.warning("知识图谱为空, 无法生成创意")
+            logger.warning("Knowledge graph is empty, cannot generate ideas")
             # 返回空结果结构
             return {
                 "topic": topic,
@@ -965,11 +965,11 @@ class ResearchIdeaGenerator:
                 }
         """
         if verbose:
-            logger.info(f"为主题生成研究创意: {topic}")
-            logger.info(f"局限性池: {len(unsolved_limitations)}")
-            logger.info(f"方法池: {len(candidate_methods)}")
+            logger.info(f"Generating research ideas for topic: {topic}")
+            logger.info(f"Limitations pool: {len(unsolved_limitations)}")
+            logger.info(f"Methods pool: {len(candidate_methods)}")
             if evolutionary_paths:
-                logger.info(f"演化路径: 提供了 {len(evolutionary_paths)} 条路径")
+                logger.info(f"Evolutionary paths: {len(evolutionary_paths)} paths provided")
 
         # 调用 HypothesisGenerator 进行批量生成
         # batch_generate 内部会：

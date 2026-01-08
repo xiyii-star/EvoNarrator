@@ -1,12 +1,12 @@
 """
-GROBID PDF Parser
-Uses GROBID service for high-precision academic paper PDF parsing
+GROBID PDF解析器
+使用GROBID服务进行高精度的学术论文PDF解析
 
-Main features:
-- Identify document structure (title, authors, abstract, sections)
-- Extract references
-- Handle complex layouts (multi-column, figures, formulas)
-- Output structured section information
+主要功能：
+- 识别文档结构（标题、作者、摘要、章节）
+- 提取参考文献
+- 处理复杂布局（多列、图表、公式）
+- 输出结构化章节信息
 """
 
 import logging
@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class PaperSection:
-    """Paper section data structure"""
+    """论文章节数据结构"""
     title: str
     content: str
     page_num: int
@@ -30,28 +30,28 @@ class PaperSection:
 
 class GrobidPDFParser:
     """
-    GROBID PDF Parser
+    GROBID PDF解析器
 
-    Uses GROBID service to convert PDF to structured TEI XML,
-    then extracts section information
+    使用GROBID服务将PDF转换为结构化的TEI XML，
+    然后提取章节信息
     """
 
     def __init__(self, grobid_url: str = "http://localhost:8070"):
         """
-        Initialize GROBID parser
+        初始化GROBID解析器
 
         Args:
-            grobid_url: GROBID service address
+            grobid_url: GROBID服务地址
         """
         self.grobid_url = grobid_url.rstrip('/')
         self.tei_ns = {'tei': 'http://www.tei-c.org/ns/1.0'}
-        self.timeout = 60  # API timeout (seconds)
+        self.timeout = 60  # API超时时间（秒）
 
-        # Check if service is available
+        # 检查服务是否可用
         self._check_service()
 
     def _check_service(self) -> bool:
-        """Check if GROBID service is available"""
+        """检查GROBID服务是否可用"""
         try:
             response = requests.get(
                 f"{self.grobid_url}/api/isalive",
@@ -59,66 +59,66 @@ class GrobidPDFParser:
             )
 
             if response.status_code == 200 and response.text.strip().lower() == 'true':
-                logger.info(f"✅ GROBID service available: {self.grobid_url}")
+                logger.info(f"✅ GROBID服务可用: {self.grobid_url}")
                 return True
             else:
-                logger.warning(f"⚠️ GROBID service response abnormal: {response.text}")
+                logger.warning(f"⚠️ GROBID服务响应异常: {response.text}")
                 return False
 
         except requests.exceptions.RequestException as e:
-            logger.warning(f"⚠️ Unable to connect to GROBID service: {e}")
-            logger.info(f"   Please ensure GROBID service is running at: {self.grobid_url}")
-            logger.info(f"   Start method: docker run -d -p 8070:8070 lfoppiano/grobid:0.8.0")
+            logger.warning(f"⚠️ 无法连接到GROBID服务: {e}")
+            logger.info(f"   请确保GROBID服务运行在: {self.grobid_url}")
+            logger.info(f"   启动方法: docker run -d -p 8070:8070 lfoppiano/grobid:0.8.0")
             return False
 
     def extract_sections_from_pdf(self, pdf_path: str) -> List[PaperSection]:
         """
-        Extract sections from PDF (using GROBID)
+        从PDF中提取章节（使用GROBID）
 
         Args:
-            pdf_path: PDF file path
+            pdf_path: PDF文件路径
 
         Returns:
-            List of sections
+            章节列表
         """
         if not Path(pdf_path).exists():
-            logger.error(f"PDF file does not exist: {pdf_path}")
+            logger.error(f"PDF文件不存在: {pdf_path}")
             return []
 
         try:
-            logger.info(f"  📄 Parsing PDF with GROBID: {Path(pdf_path).name}")
+            logger.info(f"  📄 使用GROBID解析PDF: {Path(pdf_path).name}")
 
-            # 1. Call GROBID API
+            # 1. 调用GROBID API
             tei_xml = self._call_grobid_api(pdf_path)
 
             if not tei_xml:
                 return []
 
-            # 2. Parse TEI XML
+            # 2. 解析TEI XML
             sections = self._parse_tei_xml(tei_xml)
 
-            logger.info(f"  ✅ GROBID successfully extracted {len(sections)} sections")
+            logger.info(f"  ✅ GROBID成功提取 {len(sections)} 个章节")
             return sections
 
         except Exception as e:
-            logger.error(f"  ❌ GROBID parsing failed: {e}")
+            logger.error(f"  ❌ GROBID解析失败: {e}")
             return []
 
     def _call_grobid_api(self, pdf_path: str) -> Optional[str]:
         """
-        Call GROBID API to process PDF
+        调用GROBID API处理PDF
 
         Args:
-            pdf_path: PDF file path
+            pdf_path: PDF文件路径
 
         Returns:
-            TEI XML string
+            TEI XML字符串
         """
         try:
             with open(pdf_path, 'rb') as f:
                 files = {'input': f}
 
-                # Call processFulltextDocument API
+                # 调用processFulltextDocument API
                 response = requests.post(
                     f"{self.grobid_url}/api/processFulltextDocument",
                     files=files,
@@ -126,33 +126,33 @@ class GrobidPDFParser:
                 )
 
             if response.status_code != 200:
-                logger.error(f"  GROBID API returned error: {response.status_code}")
+                logger.error(f"  GROBID API返回错误: {response.status_code}")
                 return None
 
             return response.text
 
         except requests.exceptions.Timeout:
-            logger.error(f"  GROBID API timeout ({self.timeout} seconds)")
+            logger.error(f"  GROBID API超时（{self.timeout}秒）")
             return None
         except Exception as e:
-            logger.error(f"  GROBID API call failed: {e}")
+            logger.error(f"  GROBID API调用失败: {e}")
             return None
 
     def _parse_tei_xml(self, tei_xml: str) -> List[PaperSection]:
         """
-        Parse TEI XML returned by GROBID
+        解析GROBID返回的TEI XML
 
         Args:
-            tei_xml: TEI XML string
+            tei_xml: TEI XML字符串
 
         Returns:
-            List of sections
+            章节列表
         """
         try:
             root = ET.fromstring(tei_xml)
             sections = []
 
-            # 1. Extract title
+            # 1. 提取标题
             title_elem = root.find('.//tei:titleStmt/tei:title[@type="main"]', self.tei_ns)
             if title_elem is not None and title_elem.text:
                 sections.append(PaperSection(
@@ -162,7 +162,7 @@ class GrobidPDFParser:
                     section_type='title'
                 ))
 
-            # 2. Extract abstract
+            # 2. 提取摘要
             abstract = root.find('.//tei:abstract', self.tei_ns)
             if abstract is not None:
                 content = self._extract_text(abstract)
@@ -174,21 +174,21 @@ class GrobidPDFParser:
                         section_type='abstract'
                     ))
 
-            # 3. Extract body sections
+            # 3. 提取正文章节
             body = root.find('.//tei:body', self.tei_ns)
             if body is not None:
                 sections.extend(self._parse_body_sections(body))
 
-            # 4. Extract conclusion (if outside body)
+            # 4. 提取结论（如果在body外）
             back = root.find('.//tei:back', self.tei_ns)
             if back is not None:
-                # Some papers have conclusion in back section
+                # 有些论文的conclusion在back部分
                 for div in back.findall('.//tei:div', self.tei_ns):
                     head = div.find('tei:head', self.tei_ns)
                     if head is not None and head.text:
                         section_title = self._extract_text(head)
 
-                        # Extract paragraph content
+                        # 提取段落内容
                         paragraphs = div.findall('.//tei:p', self.tei_ns)
                         content = '\n\n'.join([
                             self._extract_text(p) for p in paragraphs if self._extract_text(p).strip()
@@ -206,32 +206,32 @@ class GrobidPDFParser:
             return sections
 
         except ET.ParseError as e:
-            logger.error(f"  TEI XML parsing failed: {e}")
+            logger.error(f"  TEI XML解析失败: {e}")
             return []
         except Exception as e:
-            logger.error(f"  TEI processing failed: {e}")
+            logger.error(f"  TEI处理失败: {e}")
             return []
 
     def _parse_body_sections(self, body: ET.Element) -> List[PaperSection]:
         """
-        Parse sections in body part
+        解析body部分的章节
 
         Args:
-            body: TEI body element
+            body: TEI body元素
 
         Returns:
-            List of sections
+            章节列表
         """
         sections = []
 
-        # Iterate through all div elements (sections)
+        # 遍历所有div元素（章节）
         for div in body.findall('.//tei:div', self.tei_ns):
-            # Get section title
+            # 获取章节标题
             head = div.find('tei:head', self.tei_ns)
             section_title = self._extract_text(head) if head is not None else 'Unknown Section'
 
-            # Only extract paragraphs from direct child divs, avoid nested duplication
-            # XPath limitation: only find p under current div, no recursion
+            # 只提取直接子div的段落，避免嵌套重复
+            # 使用XPath的限制：只找当前div下的p，不递归
             paragraphs = []
             for child in div:
                 if child.tag == f'{{{self.tei_ns["tei"]}}}p':
@@ -239,11 +239,11 @@ class GrobidPDFParser:
                     if text.strip():
                         paragraphs.append(text)
 
-            # If no direct paragraphs, may have subsections, extract recursively
+            # 如果没有直接段落，可能是有子章节，递归提取
             if not paragraphs:
                 sub_divs = div.findall('tei:div', self.tei_ns)
                 if sub_divs:
-                    # Has subsections, process recursively
+                    # 有子章节，递归处理
                     for sub_div in sub_divs:
                         sub_head = sub_div.find('tei:head', self.tei_ns)
                         sub_title = self._extract_text(sub_head) if sub_head is not None else section_title
@@ -263,7 +263,7 @@ class GrobidPDFParser:
                             ))
                     continue
 
-            # Build content
+            # 构建内容
             content = '\n\n'.join(paragraphs)
 
             if content.strip():
@@ -279,18 +279,18 @@ class GrobidPDFParser:
 
     def _extract_text(self, element: Optional[ET.Element]) -> str:
         """
-        Recursively extract all text from element
+        递归提取元素中的所有文本
 
         Args:
-            element: XML element
+            element: XML元素
 
         Returns:
-            Extracted text
+            提取的文本
         """
         if element is None:
             return ""
 
-        # Use itertext() to get all text nodes
+        # 使用itertext()获取所有文本节点
         text_parts = []
         for text in element.itertext():
             text_parts.append(text.strip())
@@ -299,23 +299,23 @@ class GrobidPDFParser:
 
     def _infer_section_type(self, title: str) -> str:
         """
-        Infer section type
+        推断章节类型
 
         Args:
-            title: Section title
+            title: 章节标题
 
         Returns:
-            Section type
+            章节类型
         """
         title_lower = title.lower().strip()
 
-        # Remove numbering (e.g., "1.", "1.1", "I.", "A.", etc.)
-        # Fix: only match numbering at the beginning, not letters within words
+        # 移除编号（如 "1.", "1.1", "I.", "A.", etc.）
+        # 修复: 只匹配开头的编号部分,不要匹配单词中的字母
         import re
-        # Match: numeric numbering, Roman numerals (must be followed by .), letter numbering (must be followed by .)
+        # 匹配: 数字编号、罗马数字(后面必须跟.)、字母编号(后面必须跟.)
         title_clean = re.sub(r'^(?:\d+\.)*\d+\s+|^[IVXLCDM]+\.\s+|^[A-Z]\.\s+', '', title_lower, flags=re.IGNORECASE).strip()
 
-        # Match section type
+        # 匹配章节类型
         if 'abstract' in title_clean:
             return 'abstract'
         elif 'introduction' in title_clean:
@@ -339,13 +339,13 @@ class GrobidPDFParser:
 
     def extract_metadata(self, pdf_path: str) -> Dict:
         """
-        Extract paper metadata (title, authors, abstract, etc.)
+        提取论文元数据（标题、作者、摘要等）
 
         Args:
-            pdf_path: PDF file path
+            pdf_path: PDF文件路径
 
         Returns:
-            Metadata dictionary
+            元数据字典
         """
         try:
             tei_xml = self._call_grobid_api(pdf_path)
@@ -355,12 +355,12 @@ class GrobidPDFParser:
             root = ET.fromstring(tei_xml)
             metadata = {}
 
-            # Title
+            # 标题
             title_elem = root.find('.//tei:titleStmt/tei:title[@type="main"]', self.tei_ns)
             if title_elem is not None:
                 metadata['title'] = self._extract_text(title_elem)
 
-            # Authors
+            # 作者
             authors = []
             for author in root.findall('.//tei:sourceDesc//tei:author', self.tei_ns):
                 persName = author.find('.//tei:persName', self.tei_ns)
@@ -380,7 +380,7 @@ class GrobidPDFParser:
             if authors:
                 metadata['authors'] = authors
 
-            # Abstract
+            # 摘要
             abstract = root.find('.//tei:abstract', self.tei_ns)
             if abstract is not None:
                 metadata['abstract'] = self._extract_text(abstract)
@@ -388,12 +388,12 @@ class GrobidPDFParser:
             return metadata
 
         except Exception as e:
-            logger.error(f"Metadata extraction failed: {e}")
+            logger.error(f"元数据提取失败: {e}")
             return {}
 
 
 if __name__ == "__main__":
-    # Test code
+    # 测试代码
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -401,16 +401,16 @@ if __name__ == "__main__":
 
     parser = GrobidPDFParser()
 
-    # Test PDF parsing
+    # 测试PDF解析
     test_pdf = "./data/papers/sample.pdf"
     if Path(test_pdf).exists():
         sections = parser.extract_sections_from_pdf(test_pdf)
 
-        print(f"\nExtracted {len(sections)} sections:\n")
+        print(f"\n提取到 {len(sections)} 个章节:\n")
         for i, section in enumerate(sections, 1):
             print(f"{i}. [{section.section_type}] {section.title}")
-            print(f"   Content length: {len(section.content)} characters")
-            print(f"   Content preview: {section.content[:100]}...")
+            print(f"   内容长度: {len(section.content)} 字符")
+            print(f"   内容预览: {section.content[:100]}...")
             print()
     else:
-        print(f"Test PDF does not exist: {test_pdf}")
+        print(f"测试PDF不存在: {test_pdf}")

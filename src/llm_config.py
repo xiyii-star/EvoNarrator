@@ -1,8 +1,8 @@
 """
-LLM Configuration Management Module
-Unified management of LLM-related configurations and client initialization
+LLM配置管理模块
+统一管理LLM相关的配置和客户端初始化
 
-Supported configuration file formats:
+支持的配置文件格式：
 - YAML (.yaml, .yml)
 - JSON (.json)
 """
@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Optional, Dict, Any
 from dataclasses import dataclass
 
-# YAML support (optional)
+# YAML支持（可选）
 try:
     import yaml
 except ImportError:
@@ -21,7 +21,7 @@ except ImportError:
 
 logger = logging.getLogger(__name__)
 
-# Lazy import of LLM libraries
+# 延迟导入LLM库
 try:
     import openai
 except ImportError:
@@ -35,23 +35,23 @@ except ImportError:
 
 @dataclass
 class LLMConfig:
-    """LLM configuration data class"""
+    """LLM配置数据类"""
     provider: str  # openai, anthropic, local, none
     model: str
     api_key: Optional[str] = None
     base_url: Optional[str] = None
-    temperature: float = 0.3  # Low temperature reduces hallucinations
+    temperature: float = 0.3  # 低温度减少幻觉
     max_tokens: int = 500
-    timeout: int = 30  # API timeout (seconds)
+    timeout: int = 30  # API超时时间（秒）
 
-    # RAG-related configuration
+    # RAG相关配置
     embedding_model: str = 'all-MiniLM-L6-v2'
     use_modelscope: bool = True
     max_context_length: int = 3000
 
     @classmethod
     def from_dict(cls, config_dict: Dict[str, Any]) -> 'LLMConfig':
-        """Create configuration from dictionary"""
+        """从字典创建配置"""
         return cls(
             provider=config_dict.get('llm_provider', 'openai'),
             model=config_dict.get('llm_model', 'gpt-4o-mini'),
@@ -68,50 +68,50 @@ class LLMConfig:
     @classmethod
     def from_file(cls, config_path: str) -> 'LLMConfig':
         """
-        Load from configuration file (supports YAML and JSON)
+        从配置文件加载（支持YAML和JSON）
 
         Args:
-            config_path: Configuration file path (.yaml, .yml, .json)
+            config_path: 配置文件路径 (.yaml, .yml, .json)
 
         Returns:
-            LLMConfig instance
+            LLMConfig实例
         """
         config_file = Path(config_path)
 
         if not config_file.exists():
-            raise FileNotFoundError(f"Configuration file does not exist: {config_path}")
+            raise FileNotFoundError(f"配置文件不存在: {config_path}")
 
-        # Select parser based on file extension
+        # 根据文件扩展名选择解析器
         suffix = config_file.suffix.lower()
 
         try:
             if suffix in ['.yaml', '.yml']:
-                # YAML format
+                # YAML格式
                 if yaml is None:
-                    raise ImportError("PyYAML not installed, please run: pip install pyyaml")
+                    raise ImportError("PyYAML未安装，请运行: pip install pyyaml")
 
                 with open(config_file, 'r', encoding='utf-8') as f:
                     config_dict = yaml.safe_load(f)
 
-                logger.info(f"Loading LLM configuration from YAML file: {config_path}")
+                logger.info(f"从YAML文件加载LLM配置: {config_path}")
 
             elif suffix == '.json':
-                # JSON format
+                # JSON格式
                 with open(config_file, 'r', encoding='utf-8') as f:
                     config_dict = json.load(f)
 
-                logger.info(f"Loading LLM configuration from JSON file: {config_path}")
+                logger.info(f"从JSON文件加载LLM配置: {config_path}")
 
             else:
-                raise ValueError(f"Unsupported configuration file format: {suffix}, supported formats: .yaml, .yml, .json")
+                raise ValueError(f"不支持的配置文件格式: {suffix}，支持 .yaml, .yml, .json")
 
-            # Compatible with two configuration formats:
-            # 1. Old format: llm_provider, llm_model, etc. directly at top level
-            # 2. New format: provider, model, etc. under llm node
+            # 兼容两种配置格式：
+            # 1. 旧格式：llm_provider, llm_model等直接在顶层
+            # 2. 新格式：在llm节点下的provider, model等
             if 'llm' in config_dict:
-                # New format: config/config.yaml
+                # 新格式：config/config.yaml
                 llm_config = config_dict['llm']
-                # Convert to old format key names
+                # 转换为旧格式的键名
                 converted_config = {
                     'llm_provider': llm_config.get('provider', 'openai'),
                     'llm_model': llm_config.get('model', 'gpt-4o-mini'),
@@ -124,18 +124,18 @@ class LLMConfig:
                     'use_modelscope': llm_config.get('use_modelscope', True),
                     'max_context_length': llm_config.get('max_context_length', 3000)
                 }
-                logger.info(f"  Using new format configuration (llm node)")
+                logger.info(f"  使用新格式配置（llm节点）")
                 return cls.from_dict(converted_config)
             else:
-                # Old format: llm_config.yaml
-                logger.info(f"  Using old format configuration (top-level keys)")
+                # 旧格式：llm_config.yaml
+                logger.info(f"  使用旧格式配置（顶层键）")
                 return cls.from_dict(config_dict)
 
         except Exception as e:
-            raise ValueError(f"Failed to load configuration file: {e}")
+            raise ValueError(f"加载配置文件失败: {e}")
 
     def to_dict(self) -> Dict[str, Any]:
-        """Convert to dictionary"""
+        """转换为字典"""
         return {
             'llm_provider': self.provider,
             'llm_model': self.model,
@@ -148,25 +148,25 @@ class LLMConfig:
 
 
 class LLMClient:
-    """LLM client wrapper class"""
+    """LLM客户端封装类"""
 
     def __init__(self, config: LLMConfig):
         """
-        Initialize LLM client
+        初始化LLM客户端
 
         Args:
-            config: LLM configuration object
+            config: LLM配置对象
         """
         self.config = config
         self.client = None
 
-        # Initialize client
+        # 初始化客户端
         self._init_client()
 
     def _init_client(self):
-        """Initialize LLM client"""
+        """初始化LLM客户端"""
         if self.config.provider == "none":
-            logger.info("LLM functionality not enabled")
+            logger.info("LLM功能未启用")
             return
 
         if self.config.provider == "openai":
@@ -176,12 +176,12 @@ class LLMClient:
         elif self.config.provider == "local":
             self._init_local_client()
         else:
-            raise ValueError(f"Unsupported LLM provider: {self.config.provider}")
+            raise ValueError(f"不支持的LLM提供商: {self.config.provider}")
 
     def _init_openai_client(self):
-        """Initialize OpenAI client"""
+        """初始化OpenAI客户端"""
         if openai is None:
-            raise ImportError("openai package not installed, please run: pip install openai")
+            raise ImportError("openai包未安装，请运行: pip install openai")
 
         try:
             if self.config.base_url:
@@ -196,32 +196,32 @@ class LLMClient:
                     timeout=self.config.timeout
                 )
 
-            logger.info(f"✅ OpenAI client initialized successfully")
-            logger.info(f"   Model: {self.config.model}")
+            logger.info(f"✅ OpenAI客户端初始化成功")
+            logger.info(f"   模型: {self.config.model}")
             logger.info(f"   Base URL: {self.config.base_url or 'default'}")
 
         except Exception as e:
-            raise RuntimeError(f"Failed to initialize OpenAI client: {e}")
+            raise RuntimeError(f"初始化OpenAI客户端失败: {e}")
 
     def _init_anthropic_client(self):
-        """Initialize Anthropic client"""
+        """初始化Anthropic客户端"""
         if anthropic is None:
-            raise ImportError("anthropic package not installed, please run: pip install anthropic")
+            raise ImportError("anthropic包未安装，请运行: pip install anthropic")
 
         try:
             self.client = anthropic.Anthropic(
                 api_key=self.config.api_key,
                 timeout=self.config.timeout
             )
-            logger.info(f"✅ Anthropic client initialized successfully (model: {self.config.model})")
+            logger.info(f"✅ Anthropic客户端初始化成功 (model: {self.config.model})")
 
         except Exception as e:
-            raise RuntimeError(f"Failed to initialize Anthropic client: {e}")
+            raise RuntimeError(f"初始化Anthropic客户端失败: {e}")
 
     def _init_local_client(self):
-        """Initialize local LLM client (using OpenAI-compatible interface)"""
+        """初始化本地LLM客户端（使用OpenAI兼容接口）"""
         if openai is None:
-            raise ImportError("openai package not installed, please run: pip install openai")
+            raise ImportError("openai包未安装，请运行: pip install openai")
 
         try:
             self.client = openai.OpenAI(
@@ -229,12 +229,12 @@ class LLMClient:
                 base_url=self.config.base_url or "http://localhost:11434/v1",
                 timeout=self.config.timeout
             )
-            logger.info(f"✅ Local LLM client initialized successfully")
+            logger.info(f"✅ 本地LLM客户端初始化成功")
             logger.info(f"   Base URL: {self.config.base_url or 'http://localhost:11434/v1'}")
-            logger.info(f"   Model: {self.config.model}")
+            logger.info(f"   模型: {self.config.model}")
 
         except Exception as e:
-            raise RuntimeError(f"Failed to initialize local LLM client: {e}")
+            raise RuntimeError(f"初始化本地LLM客户端失败: {e}")
 
     def generate(
         self,
@@ -244,22 +244,22 @@ class LLMClient:
         max_tokens: Optional[int] = None
     ) -> str:
         """
-        Call LLM to generate response
+        调用LLM生成回答
 
         Args:
-            prompt: User prompt
-            system_prompt: System prompt (optional)
-            temperature: Temperature parameter (optional, overrides config)
-            max_tokens: Maximum number of tokens (optional, overrides config)
+            prompt: 用户提示词
+            system_prompt: 系统提示词（可选）
+            temperature: 温度参数（可选，覆盖配置）
+            max_tokens: 最大token数（可选，覆盖配置）
 
         Returns:
-            LLM-generated response
+            LLM生成的回答
         """
         if self.client is None:
-            logger.warning("LLM client not initialized")
-            return "LLM not configured, unable to generate analysis"
+            logger.warning("LLM客户端未初始化")
+            return "LLM未配置，无法生成分析"
 
-        # Use parameter or default value from config
+        # 使用参数或配置中的默认值
         temperature = temperature if temperature is not None else self.config.temperature
         max_tokens = max_tokens if max_tokens is not None else self.config.max_tokens
 
@@ -267,12 +267,12 @@ class LLMClient:
             if self.config.provider == "anthropic":
                 return self._generate_anthropic(prompt, system_prompt, temperature, max_tokens)
             else:
-                # OpenAI API (including local models)
+                # OpenAI API（包括本地模型）
                 return self._generate_openai(prompt, system_prompt, temperature, max_tokens)
 
         except Exception as e:
-            logger.error(f"LLM call failed: {e}")
-            return f"LLM call failed: {str(e)}"
+            logger.error(f"LLM调用失败: {e}")
+            return f"LLM调用失败: {str(e)}"
 
     def _generate_openai(
         self,
@@ -281,7 +281,7 @@ class LLMClient:
         temperature: float,
         max_tokens: int
     ) -> str:
-        """Generate using OpenAI API"""
+        """使用OpenAI API生成"""
         messages = []
 
         if system_prompt:
@@ -305,10 +305,10 @@ class LLMClient:
         temperature: float,
         max_tokens: int
     ) -> str:
-        """Generate using Anthropic API"""
+        """使用Anthropic API生成"""
         messages = []
 
-        # Anthropic's system prompt needs to be merged with user message
+        # Anthropic的system prompt需要和user message合并
         if system_prompt:
             messages.append({
                 "role": "user",
@@ -327,35 +327,35 @@ class LLMClient:
         return response.content[0].text.strip()
 
 
-# Convenience function
+# 便捷函数
 def create_llm_client(config_path: str) -> LLMClient:
     """
-    Create LLM client from configuration file
+    从配置文件创建LLM客户端
 
     Args:
-        config_path: Configuration file path
+        config_path: 配置文件路径
 
     Returns:
-        LLMClient instance
+        LLMClient实例
     """
     config = LLMConfig.from_file(config_path)
     return LLMClient(config)
 
 
 if __name__ == "__main__":
-    # Test code
+    # 测试代码
     import logging
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     )
 
-    # Test configuration loading
+    # 测试配置加载
     print("\n" + "="*60)
-    print("Testing LLM Configuration Management Module")
+    print("测试LLM配置管理模块")
     print("="*60)
 
-    # Create example configuration
+    # 创建示例配置
     config = LLMConfig(
         provider="openai",
         model="gpt-4o-mini",
@@ -365,16 +365,16 @@ if __name__ == "__main__":
         max_tokens=500
     )
 
-    print(f"\nConfiguration information:")
+    print(f"\n配置信息:")
     print(f"  Provider: {config.provider}")
     print(f"  Model: {config.model}")
     print(f"  Temperature: {config.temperature}")
     print(f"  Max Tokens: {config.max_tokens}")
 
-    # Test configuration conversion
+    # 测试配置转换
     config_dict = config.to_dict()
-    print(f"\nConfiguration dictionary: {config_dict}")
+    print(f"\n配置字典: {config_dict}")
 
     print("\n" + "="*60)
-    print("✅ Configuration management module test completed")
+    print("✅ 配置管理模块测试完成")
     print("="*60)

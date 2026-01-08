@@ -1,6 +1,6 @@
 """
-Prompt Management Module
-Unified management and loading of all LLM prompts
+提示词管理模块
+统一管理和加载所有LLM提示词
 """
 
 import logging
@@ -11,30 +11,30 @@ logger = logging.getLogger(__name__)
 
 
 class PromptManager:
-    """Prompt Manager"""
+    """提示词管理器"""
 
     def __init__(self, prompts_dir: str = "./prompts"):
         """
-        Initialize prompt manager
+        初始化提示词管理器
 
         Args:
-            prompts_dir: Prompt folder path
+            prompts_dir: 提示词文件夹路径
         """
         self.prompts_dir = Path(prompts_dir)
 
         if not self.prompts_dir.exists():
-            logger.warning(f"Prompt folder does not exist: {prompts_dir}")
+            logger.warning(f"提示词文件夹不存在: {prompts_dir}")
             self.prompts_dir.mkdir(parents=True, exist_ok=True)
 
-        # Cache loaded prompts
+        # 缓存加载的提示词
         self._prompts_cache: Dict[str, str] = {}
 
-        # Load all prompts
+        # 加载所有提示词
         self._load_prompts()
 
     def _load_prompts(self):
-        """Load all prompt files"""
-        logger.info(f"Loading prompts from {self.prompts_dir}...")
+        """加载所有提示词文件"""
+        logger.info(f"从 {self.prompts_dir} 加载提示词...")
 
         prompt_files = {
             'system': 'system_prompt.txt',
@@ -51,62 +51,62 @@ class PromptManager:
                 try:
                     with open(file_path, 'r', encoding='utf-8') as f:
                         self._prompts_cache[key] = f.read().strip()
-                    logger.info(f"  Loaded prompt: {key}")
+                    logger.info(f"  ✅ 加载提示词: {key}")
                 except Exception as e:
-                    logger.error(f"  Failed to load prompt ({key}): {e}")
+                    logger.error(f"  ❌ 加载提示词失败 ({key}): {e}")
             else:
-                logger.warning(f"  Prompt file does not exist: {filename}")
+                logger.warning(f"  ⚠️ 提示词文件不存在: {filename}")
 
-        logger.info(f"Prompt loading complete, total {len(self._prompts_cache)} prompts")
+        logger.info(f"提示词加载完成，共 {len(self._prompts_cache)} 个")
 
     def get_prompt(self, key: str) -> Optional[str]:
         """
-        Get prompt
+        获取提示词
 
         Args:
-            key: Prompt key name
+            key: 提示词键名
 
         Returns:
-            Prompt content, returns None if not exists
+            提示词内容，如果不存在返回None
         """
         return self._prompts_cache.get(key)
 
     def get_system_prompt(self) -> str:
-        """Get system prompt"""
-        return self.get_prompt('system') or "You are a professional academic paper analysis assistant."
+        """获取系统提示词"""
+        return self.get_prompt('system') or "你是一个专业的学术论文分析助手。"
 
     def get_extraction_prompt(self, field: str) -> str:
         """
-        Get field extraction prompt
+        获取字段提取提示词
 
         Args:
-            field: Field name (problem, contribution, limitation, future_work)
+            field: 字段名（problem, contribution, limitation, future_work）
 
         Returns:
-            Extraction prompt
+            提取提示词
         """
         prompt = self.get_prompt(field)
 
         if prompt is None:
-            logger.warning(f"Prompt for field {field} not found, using default prompt")
-            return f"Please extract {field} related information from the paper."
+            logger.warning(f"未找到字段 {field} 的提示词，使用默认提示")
+            return f"请从论文中提取{field}相关信息。"
 
         return prompt
 
     def build_full_prompt(self, field: str, context: str) -> str:
         """
-        Build complete prompt (context + extraction instruction)
+        构建完整的提示词（上下文 + 提取指令）
 
         Args:
-            field: Field to extract
-            context: Paper content context
+            field: 要提取的字段
+            context: 论文内容上下文
 
         Returns:
-            Complete user prompt
+            完整的用户提示词
         """
         extraction_prompt = self.get_extraction_prompt(field)
 
-        full_prompt = f"""The following is the relevant section content retrieved from an academic paper:
+        full_prompt = f"""以下是从一篇学术论文中检索到的相关章节内容：
 
 {context}
 
@@ -117,14 +117,14 @@ class PromptManager:
         return full_prompt
 
     def reload(self):
-        """Reload all prompts"""
-        logger.info("Reloading prompts...")
+        """重新加载所有提示词"""
+        logger.info("重新加载提示词...")
         self._prompts_cache.clear()
         self._load_prompts()
 
     def list_prompts(self) -> Dict[str, int]:
         """
-        List all loaded prompts
+        列出所有已加载的提示词
 
         Returns:
             {prompt_key: prompt_length}
@@ -132,19 +132,19 @@ class PromptManager:
         return {key: len(prompt) for key, prompt in self._prompts_cache.items()}
 
 
-# Global prompt manager instance
+# 全局提示词管理器实例
 _global_prompt_manager: Optional[PromptManager] = None
 
 
 def get_prompt_manager(prompts_dir: str = "./prompts") -> PromptManager:
     """
-    Get global prompt manager instance (singleton pattern)
+    获取全局提示词管理器实例（单例模式）
 
     Args:
-        prompts_dir: Prompt folder path
+        prompts_dir: 提示词文件夹路径
 
     Returns:
-        PromptManager instance
+        PromptManager实例
     """
     global _global_prompt_manager
 
@@ -155,7 +155,7 @@ def get_prompt_manager(prompts_dir: str = "./prompts") -> PromptManager:
 
 
 if __name__ == "__main__":
-    # Test code
+    # 测试代码
     import logging
     logging.basicConfig(
         level=logging.INFO,
@@ -163,31 +163,31 @@ if __name__ == "__main__":
     )
 
     print("\n" + "="*60)
-    print("Testing Prompt Management Module")
+    print("测试提示词管理模块")
     print("="*60)
 
-    # Create manager
+    # 创建管理器
     manager = PromptManager("../prompts")
 
-    # List all prompts
+    # 列出所有提示词
     prompts = manager.list_prompts()
-    print(f"\nLoaded prompts:")
+    print(f"\n已加载的提示词:")
     for key, length in prompts.items():
-        print(f"  • {key}: {length} characters")
+        print(f"  • {key}: {length} 字符")
 
-    # Test getting prompts
-    print(f"\nSystem prompt:")
+    # 测试获取提示词
+    print(f"\n系统提示词:")
     print(manager.get_system_prompt()[:100] + "...")
 
-    print(f"\nProblem extraction prompt:")
+    print(f"\nProblem提取提示词:")
     print(manager.get_extraction_prompt('problem')[:150] + "...")
 
-    # Test building full prompt
+    # 测试构建完整提示
     context = "This paper addresses the problem of..."
     full_prompt = manager.build_full_prompt('problem', context)
-    print(f"\nFull prompt example:")
+    print(f"\n完整提示词示例:")
     print(full_prompt[:200] + "...")
 
     print("\n" + "="*60)
-    print("Prompt management module test complete")
+    print("✅ 提示词管理模块测试完成")
     print("="*60)

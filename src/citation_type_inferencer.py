@@ -1,31 +1,31 @@
 """
-Socket Matching Citation Relationship Type Inferencer
-Infers semantic types of citation relationships using the "socket matching" method based on deep paper information
+Socket Matching 引用关系类型推断器
+基于深度论文信息的"接口对接"方法推断引用关系的语义类型
 
-Core Idea:
-Treat extracted deep paper information (Problem, Method, Limitation, Future_Work) as "sockets",
-and use LLM Agent to determine if these sockets can connect, thereby inferring the semantic type of citation relationships.
+核心思想：
+将提取的论文深度信息（Problem, Method, Limitation, Future_Work）作为"接口（Socket）"，
+通过 LLM Agent 判断这些接口是否能够对接，从而推断引用关系的语义类型。
 
-Supported Relationship Types (Socket Matching - 6 types): (Overcomes, Realizes, Extends, Alternative, Adapts_to, Baselines)
-1. Overcomes - Tackles/Optimizes (Vertical Deepening)
-   Source: Match 1 (Limitation→Problem)
-2. Realizes - Realizes Vision (Research Inheritance)
-   Source: Match 2 (Future_Work→Problem)
-3. Extends - Method Extension (Incremental Innovation)
-   Source: Match 3 Extension
-4. Alternative - Alternative Approach (Disruptive Innovation)
-   Source: Match 3 Alternative
-5. Adapts_to - Technology Transfer (Horizontal Diffusion)
-   Source: Match 4 (Problem→Problem Cross-domain)
-6. Baselines - Baseline Comparison (Background Noise)
-   Source: No match
+支持的关系类型（Socket Matching - 6种）：（Overcomes、Realizes、Extends、Alternative、Adapts_to、Baselines）
+1. Overcomes - 攻克/优化（纵向深化）
+   来源：Match 1 (Limitation→Problem)
+2. Realizes - 实现愿景（科研传承）
+   来源：Match 2 (Future_Work→Problem)
+3. Extends - 方法扩展（微创新）
+   来源：Match 3 Extension
+4. Alternative - 另辟蹊径（颠覆创新）
+   来源：Match 3 Alternative
+5. Adapts_to - 技术迁移（横向扩散）
+   来源：Match 4 (Problem→Problem 跨域)
+6. Baselines - 基线对比（背景噪音）
+   来源：无匹配
 
-Logic Matching Matrix (4 Matches → 6 types):
+逻辑对接矩阵（4个Match → 6种类型）：
 - Match 1: A.Limitation ↔ B.Problem → Overcomes
 - Match 2: A.Future_Work ↔ B.Problem → Realizes
-- Match 3: (Same Problem) A.Method ↔ B.Method → Extends(Extension) / Alternative
-- Match 4: A.Problem ↔ B.Problem (Cross-domain) → Adapts_to
-- No match → Baselines
+- Match 3: (Problem一致)A.Method ↔ B.Method → Extends(Extension) / Alternative
+- Match 4: A.Problem ↔ B.Problem(跨域) → Adapts_to
+- 无匹配 → Baselines
 """
 
 import json
@@ -36,7 +36,7 @@ from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass
 from pathlib import Path
 
-# Import LLM configuration module
+# 导入LLM配置模块
 try:
     from llm_config import create_llm_client
 except ImportError:
@@ -47,21 +47,21 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class SocketMatchResult:
-    """Socket matching result"""
+    """Socket 匹配结果"""
     match_type: str  # "limitation_problem", "future_work_problem", "method_extension", "problem_adaptation"
     is_match: bool
     confidence: float
     reasoning: str
     evidence: str
-    additional_info: Dict = None  # Additional information (e.g., relationship_type, source_domain, target_domain)
+    additional_info: Dict = None  # 额外信息（如 relationship_type, source_domain, target_domain）
 
 
 @dataclass
 class CitationRelationship:
-    """Citation relationship"""
+    """引用关系"""
     citing_id: str
     cited_id: str
-    relationship_type: str  # Overcomes, Realizes, Extends, Alternative, Adapts_to, Baselines (6 types)
+    relationship_type: str  # Overcomes, Realizes, Extends, Alternative, Adapts_to, Baselines (6种类型)
     confidence: float
     reasoning: str
     evidence: str
@@ -70,36 +70,36 @@ class CitationRelationship:
 
 class CitationTypeInferencer:
     """
-    Socket Matching Citation Relationship Type Inferencer
+    Socket Matching 引用关系类型推断器
 
-    Uses LLM Agent for deep semantic analysis to determine citation relationship types through "socket matching"
+    使用 LLM Agent 进行深度语义分析，通过"接口对接"的方式判断引用关系类型
     """
 
     def __init__(self, llm_client=None, config_path: str = None, prompts_dir: str = "./prompts"):
         """
-        Initialize the inferencer
+        初始化推断器
 
         Args:
-            llm_client: LLM client (if None, use rule-based method)
-            config_path: LLM configuration file path (if provided and llm_client is None, load from this file)
-            prompts_dir: Prompts directory
+            llm_client: LLM客户端（如果为None则使用基于规则的方法）
+            config_path: LLM配置文件路径（如果提供且llm_client为None，则从此文件加载）
+            prompts_dir: 提示词目录
         """
-        # If config_path is provided but llm_client is not, try to load from config file
+        # 如果提供了config_path但没有提供llm_client，尝试从配置文件加载
         if llm_client is None and config_path:
             if create_llm_client is None:
-                logger.warning("Unable to import create_llm_client, will use rule-based method")
+                logger.warning("无法导入create_llm_client，将使用规则方法")
                 self.llm_client = None
             else:
                 try:
                     config_file = Path(config_path)
                     if config_file.exists():
                         self.llm_client = create_llm_client(str(config_file))
-                        logger.info(f"Successfully loaded LLM client from config file: {config_path}")
+                        logger.info(f"✅ 从配置文件加载LLM客户端: {config_path}")
                     else:
-                        logger.warning(f"Config file does not exist: {config_path}, will use rule-based method")
+                        logger.warning(f"配置文件不存在: {config_path}，将使用规则方法")
                         self.llm_client = None
                 except Exception as e:
-                    logger.warning(f"Failed to load LLM client: {e}, will use rule-based method")
+                    logger.warning(f"加载LLM客户端失败: {e}，将使用规则方法")
                     self.llm_client = None
         else:
             self.llm_client = llm_client
@@ -107,27 +107,27 @@ class CitationTypeInferencer:
         self.prompts_dir = Path(prompts_dir)
         self.prompts_cache = {}
 
-        # Load prompts
+        # 加载提示词
         self._load_prompts()
 
-        # Relationship type priority (for rule-based method and conflict resolution)
+        # 关系类型优先级（用于规则方法和冲突解决）
         self.relationship_priority = {
-            "Overcomes": 6,     # Highest priority - directly solves problem
-            "Realizes": 5,      # Second highest priority - realizes vision
-            "Adapts_to": 4,     # High priority - technology transfer
-            "Extends": 3,       # Medium-high priority - method extension
-            "Alternative": 2,   # Medium priority - alternative approach
-            "Baselines": 1      # Lowest priority - baseline comparison
+            "Overcomes": 6,     # 最高优先级 - 直接解决问题
+            "Realizes": 5,      # 次高优先级 - 实现愿景
+            "Adapts_to": 4,     # 高优先级 - 技术迁移
+            "Extends": 3,       # 中高优先级 - 方法扩展
+            "Alternative": 2,   # 中优先级 - 另辟蹊径
+            "Baselines": 1      # 最低优先级 - 基线对比
         }
 
-        logger.info("CitationTypeInferencer initialization complete")
+        logger.info("CitationTypeInferencer 初始化完成")
         if self.llm_client:
-            logger.info("  Mode: LLM Socket Matching")
+            logger.info("  模式: LLM Socket Matching")
         else:
-            logger.info("  Mode: Rule-based method (fallback mode)")
+            logger.info("  模式: 基于规则的方法（降级模式）")
 
     def _load_prompts(self):
-        """Load all prompts"""
+        """加载所有提示词"""
         prompt_files = {
             'match_limitation_problem': 'match_limitation_problem.txt',
             'match_future_work_problem': 'match_future_work_problem.txt',
@@ -142,13 +142,13 @@ class CitationTypeInferencer:
                 try:
                     with open(file_path, 'r', encoding='utf-8') as f:
                         self.prompts_cache[key] = f.read().strip()
-                    logger.debug(f"  Loaded prompt: {key}")
+                    logger.debug(f"  加载提示词: {key}")
                 except Exception as e:
-                    logger.warning(f"  Failed to load prompt ({key}): {e}")
+                    logger.warning(f"  加载提示词失败 ({key}): {e}")
             else:
-                logger.warning(f"  Prompt file does not exist: {filename}")
+                logger.warning(f"  提示词文件不存在: {filename}")
 
-        logger.info(f"Loaded {len(self.prompts_cache)} prompt templates")
+        logger.info(f"加载 {len(self.prompts_cache)} 个提示词模板")
 
     def infer_edge_types(
         self,
@@ -156,29 +156,29 @@ class CitationTypeInferencer:
         citation_edges: List[Tuple[str, str]]
     ) -> Tuple[List[Tuple[str, str, str]], Dict[str, int]]:
         """
-        Batch infer citation relationship types
+        批量推断引用关系类型
 
         Args:
-            papers: List of papers (must contain rag_analysis or deep_analysis)
-            citation_edges: List of citation relationships [(citing_id, cited_id), ...]
+            papers: 论文列表（必须包含 rag_analysis 或 deep_analysis）
+            citation_edges: 引用关系列表 [(citing_id, cited_id), ...]
 
         Returns:
             (typed_edges, statistics)
-            - typed_edges: Citation relationships with types [(citing_id, cited_id, edge_type), ...]
-            - statistics: Type statistics {edge_type: count}
+            - typed_edges: 带类型的引用关系 [(citing_id, cited_id, edge_type), ...]
+            - statistics: 类型统计 {edge_type: count}
         """
-        logger.info(f"Starting to infer types for {len(citation_edges)} citation relationships...")
+        logger.info(f"开始推断 {len(citation_edges)} 条引用关系的类型...")
 
-        # Build paper dictionary
+        # 构建论文字典
         papers_dict = {paper['id']: paper for paper in papers}
 
-        # Infer type for each edge
+        # 推断每条边的类型
         typed_edges = []
         statistics = {}
         relationships = []
 
         for i, (citing_id, cited_id) in enumerate(citation_edges):
-            logger.info(f"Processing citation relationship {i+1}/{len(citation_edges)}: {citing_id} -> {cited_id}")
+            logger.info(f"处理引用关系 {i+1}/{len(citation_edges)}: {citing_id} -> {cited_id}")
 
             if citing_id in papers_dict and cited_id in papers_dict:
                 relationship = self.infer_single_edge_type(
@@ -188,19 +188,19 @@ class CitationTypeInferencer:
                 relationships.append(relationship)
                 edge_type = relationship.relationship_type
             else:
-                # Paper not in dictionary, use default type
+                # 论文不在字典中，使用默认类型
                 edge_type = "Baselines"
-                logger.warning(f"  Paper not in dictionary, using default type: {edge_type}")
+                logger.warning(f"  论文不在字典中，使用默认类型: {edge_type}")
 
             typed_edges.append((citing_id, cited_id, edge_type))
             statistics[edge_type] = statistics.get(edge_type, 0) + 1
 
-        logger.info(f"Citation type inference complete")
-        logger.info(f"  Total citation relationships: {len(typed_edges)}")
-        logger.info(f"\nCitation type distribution:")
+        logger.info(f"✅ 引用类型推断完成")
+        logger.info(f"  总引用关系: {len(typed_edges)} 条")
+        logger.info(f"\n📊 引用类型分布:")
         for edge_type, count in sorted(statistics.items(), key=lambda x: x[1], reverse=True):
             percentage = (count / len(typed_edges)) * 100 if typed_edges else 0
-            logger.info(f"  - {edge_type}: {count} ({percentage:.1f}%)")
+            logger.info(f"  • {edge_type}: {count} 条 ({percentage:.1f}%)")
 
         return typed_edges, statistics
 
@@ -210,29 +210,29 @@ class CitationTypeInferencer:
         cited_paper: Dict
     ) -> CitationRelationship:
         """
-        Infer the type of a single citation relationship (Socket Matching)
+        推断单条引用关系的类型（Socket Matching）
 
         Args:
-            citing_paper: Citing paper (Paper B)
-            cited_paper: Cited paper (Paper A)
+            citing_paper: 引用论文（Paper B）
+            cited_paper: 被引用论文（Paper A）
 
         Returns:
-            CitationRelationship object
+            CitationRelationship 对象
         """
-        # Extract deep analysis information
+        # 提取深度分析信息
         citing_analysis = self._extract_deep_analysis(citing_paper)
         cited_analysis = self._extract_deep_analysis(cited_paper)
 
-        # Extract citation context
+        # 提取引用上下文
         citation_context = self._extract_citation_context(citing_paper, cited_paper)
 
-        # If no LLM client, use rule-based method
+        # 如果没有LLM客户端，使用基于规则的方法
         if not self.llm_client:
             return self._rule_based_inference(
                 citing_paper, cited_paper, citing_analysis, cited_analysis
             )
 
-        # Socket Matching: Execute 4 match detections
+        # Socket Matching: 执行4个匹配检测
         match_results = []
 
         # Match 1: A.Limitation ↔ B.Problem
@@ -259,7 +259,7 @@ class CitationTypeInferencer:
             if match:
                 match_results.append(match)
 
-        # Match 4: A.Problem ↔ B.Problem (but different scenarios)
+        # Match 4: A.Problem ↔ B.Problem (但场景不同)
         if cited_analysis.get('problem') and citing_analysis.get('problem'):
             match = self._check_problem_adaptation_match(
                 cited_paper, citing_paper, cited_analysis, citing_analysis, citation_context
@@ -267,7 +267,7 @@ class CitationTypeInferencer:
             if match:
                 match_results.append(match)
 
-        # Synthesize all match results for final classification
+        # 综合所有匹配结果，最终分类
         relationship = self._classify_relationship(
             citing_paper, cited_paper, match_results, citation_context
         )
@@ -283,15 +283,15 @@ class CitationTypeInferencer:
         citation_context: str
     ) -> Optional[SocketMatchResult]:
         """
-        Match 1: Check A.Limitation ↔ B.Problem
-        Determine if B solves A's limitations
+        Match 1: 检查 A.Limitation ↔ B.Problem
+        判断 B 是否解决了 A 的局限性
         """
         prompt_template = self.prompts_cache.get('match_limitation_problem')
         if not prompt_template:
-            logger.warning("Missing match_limitation_problem prompt, skipping")
+            logger.warning("缺少 match_limitation_problem 提示词，跳过")
             return None
 
-        # Fill in the prompt
+        # 填充提示词
         prompt = prompt_template.format(
             cited_title=cited_paper.get('title', 'Unknown'),
             cited_limitation=cited_analysis.get('limitation', 'N/A'),
@@ -300,11 +300,11 @@ class CitationTypeInferencer:
             citation_context=citation_context
         )
 
-        # Call LLM
+        # 调用LLM
         try:
             response = self.llm_client.generate(prompt)
 
-            # Extract JSON content
+            # 提取JSON内容
             json_str = self._extract_json_from_response(response)
             result = json.loads(json_str)
 
@@ -316,7 +316,7 @@ class CitationTypeInferencer:
                 evidence=result.get('evidence', '')
             )
         except Exception as e:
-            logger.error(f"Match 1 (Limitation-Problem) failed: {e}")
+            logger.error(f"Match 1 (Limitation-Problem) 失败: {e}")
             return None
 
     def _check_future_work_problem_match(
@@ -328,18 +328,18 @@ class CitationTypeInferencer:
         citation_context: str
     ) -> Optional[SocketMatchResult]:
         """
-        Match 2: Check A.Future_Work ↔ B.Problem
-        Determine if B implements A's future work suggestions
+        Match 2: 检查 A.Future_Work ↔ B.Problem
+        判断 B 是否实现了 A 的未来工作建议
         """
-        # If A's Future Work is empty or too short, skip Match 2
+        # 如果 A 的 Future Work 提取为空，或者太短，直接跳过 Match 2
         future_work = cited_analysis.get('future_work', '')
         if not future_work or len(future_work) < 5 or future_work == "N/A":
-            logger.info("    → Match 2 skipped: A's Future Work is empty or too short")
+            logger.info("    → Match 2 跳过: A的Future Work为空或过短")
             return None
 
         prompt_template = self.prompts_cache.get('match_future_work_problem')
         if not prompt_template:
-            logger.warning("Missing match_future_work_problem prompt, skipping")
+            logger.warning("缺少 match_future_work_problem 提示词，跳过")
             return None
 
         prompt = prompt_template.format(
@@ -357,14 +357,14 @@ class CitationTypeInferencer:
             json_str = self._extract_json_from_response(response)
             result = json.loads(json_str)
 
-            # Double filtering: Distinguish true inheritance (Realizes) vs false courtesy (Extends/Baselines)
+            # 双重过滤：区分真传承(Realizes) vs 假客套(Extends/Baselines)
             is_match = result.get('is_match', False)
             specificity = result.get('specificity', 'low')
             confidence = result.get('confidence', 0.0)
 
-            # Scenario 1: LLM thinks it matches + suggestion is specific (high specificity) → True Realizes
+            # 场景1: LLM认为匹配 + 建议很具体(high specificity) → 真正的Realizes
             if is_match and specificity == "high" and confidence > 0.6:
-                logger.info(f"    → Match 2 specificity check: ✓ High specificity (specificity=high, conf={confidence:.2f})")
+                logger.info(f"    → Match 2 具体性检查: ✓ 高具体性 (specificity=high, conf={confidence:.2f})")
                 return SocketMatchResult(
                     match_type="future_work_problem",
                     is_match=True,
@@ -374,21 +374,21 @@ class CitationTypeInferencer:
                     additional_info={'specificity': 'high'}
                 )
 
-            # Scenario 2: LLM thinks it matches + but suggestion is vague (low specificity) → False courtesy, downgrade
+            # 场景2: LLM认为匹配 + 但建议很宽泛(low specificity) → 假客套,降级
             elif is_match and specificity == "low":
-                logger.info(f"    → Match 2 specificity check: ✗ Low specificity (specificity=low, conf={confidence:.2f}) - Suspected courtesy, not counted as Realizes")
+                logger.info(f"    → Match 2 具体性检查: ✗ 低具体性 (specificity=low, conf={confidence:.2f}) - 疑似客套话,不计入Realizes")
                 return SocketMatchResult(
                     match_type="future_work_problem",
-                    is_match=False,  # Force mark as no match
+                    is_match=False,  # 强制标记为不匹配
                     confidence=0.0,
-                    reasoning=f"[Filtered] A's Future Work is too vague, does not meet Realizes criteria. {result.get('reasoning', '')}",
+                    reasoning=f"[过滤] A的Future Work过于宽泛,不符合Realizes标准。{result.get('reasoning', '')}",
                     evidence=result.get('evidence', ''),
                     additional_info={'specificity': 'low', 'filtered': True}
                 )
 
-            # Scenario 3: LLM thinks it doesn't match
+            # 场景3: LLM认为不匹配
             else:
-                logger.info(f"    → Match 2: No match (is_match=False)")
+                logger.info(f"    → Match 2: 不匹配 (is_match=False)")
                 return SocketMatchResult(
                     match_type="future_work_problem",
                     is_match=False,
@@ -397,7 +397,7 @@ class CitationTypeInferencer:
                     evidence=result.get('evidence', '')
                 )
         except Exception as e:
-            logger.error(f"Match 2 (FutureWork-Problem) failed: {e}")
+            logger.error(f"Match 2 (FutureWork-Problem) 失败: {e}")
             return None
 
     def _check_method_extension_match(
@@ -409,12 +409,12 @@ class CitationTypeInferencer:
         citation_context: str
     ) -> Optional[SocketMatchResult]:
         """
-        Match 3: Check A.Method ↔ B.Method
-        Determine if it's Extension or Alternative
+        Match 3: 检查 A.Method ↔ B.Method
+        判断是 Extension（扩展）还是 Alternative（另辟蹊径）
         """
         prompt_template = self.prompts_cache.get('match_method_extension')
         if not prompt_template:
-            logger.warning("Missing match_method_extension prompt, skipping")
+            logger.warning("缺少 match_method_extension 提示词，跳过")
             return None
 
         prompt = prompt_template.format(
@@ -443,7 +443,7 @@ class CitationTypeInferencer:
                 additional_info={'relationship_type': result.get('relationship_type', 'none')}
             )
         except Exception as e:
-            logger.error(f"Match 3 (Method Extension) failed: {e}")
+            logger.error(f"Match 3 (Method Extension) 失败: {e}")
             return None
 
     def _check_problem_adaptation_match(
@@ -455,12 +455,12 @@ class CitationTypeInferencer:
         citation_context: str
     ) -> Optional[SocketMatchResult]:
         """
-        Match 4: Check A.Problem ↔ B.Problem (but different scenarios)
-        Determine if it's technology transfer/generalization
+        Match 4: 检查 A.Problem ↔ B.Problem (但场景不同)
+        判断是否是技术迁移/泛化
         """
         prompt_template = self.prompts_cache.get('match_problem_adaptation')
         if not prompt_template:
-            logger.warning("Missing match_problem_adaptation prompt, skipping")
+            logger.warning("缺少 match_problem_adaptation 提示词，跳过")
             return None
 
         prompt = prompt_template.format(
@@ -480,14 +480,14 @@ class CitationTypeInferencer:
             json_str = self._extract_json_from_response(response)
             result = json.loads(json_str)
 
-            # Double filtering: Distinguish true cross-domain transfer (Adapts_to) vs dataset change (Extends)
+            # 双重过滤：区分真跨域迁移(Adapts_to) vs 换数据集(Extends)
             is_adaptation = result.get('is_adaptation', False)
             domain_shift_type = result.get('domain_shift_type', 'none')
             confidence = result.get('confidence', 0.0)
 
-            # Scenario 1: True cross-domain transfer (cross-task/cross-modality) → Adapts_to
+            # 场景1: 真正的跨域迁移 (cross-task/cross-modality) → Adapts_to
             if is_adaptation and domain_shift_type in ['cross-task', 'cross-modality']:
-                logger.info(f"    → Match 4 domain span check: ✓ True cross-domain transfer (type={domain_shift_type}, conf={confidence:.2f})")
+                logger.info(f"    → Match 4 领域跨度检查: ✓ 真跨域迁移 (type={domain_shift_type}, conf={confidence:.2f})")
                 return SocketMatchResult(
                     match_type="problem_adaptation",
                     is_match=True,
@@ -501,14 +501,14 @@ class CitationTypeInferencer:
                     }
                 )
 
-            # Scenario 2: Just changing dataset (same-task-new-data) → Not Adapts_to, downgrade
+            # 场景2: 只是换数据集 (same-task-new-data) → 不算Adapts_to,降级
             elif is_adaptation and domain_shift_type == 'same-task-new-data':
-                logger.info(f"    → Match 4 domain span check: ✗ Only dataset change (type={domain_shift_type}, conf={confidence:.2f}) - Not true Adapts_to")
+                logger.info(f"    → Match 4 领域跨度检查: ✗ 仅换数据集 (type={domain_shift_type}, conf={confidence:.2f}) - 不算真正的Adapts_to")
                 return SocketMatchResult(
                     match_type="problem_adaptation",
-                    is_match=False,  # Force mark as no match
+                    is_match=False,  # 强制标记为不匹配
                     confidence=0.0,
-                    reasoning=f"[Filtered] Only changing dataset on same task type, does not meet true domain transfer. {result.get('reasoning', '')}",
+                    reasoning=f"[过滤] 仅在同类任务上更换数据集,不符合真正的领域迁移。{result.get('reasoning', '')}",
                     evidence=result.get('evidence', ''),
                     additional_info={
                         'domain_shift_type': domain_shift_type,
@@ -516,9 +516,9 @@ class CitationTypeInferencer:
                     }
                 )
 
-            # Scenario 3: Not adaptation or domain_shift_type is none
+            # 场景3: 不是adaptation或domain_shift_type为none
             else:
-                logger.info(f"    → Match 4: No match (is_adaptation={is_adaptation}, type={domain_shift_type})")
+                logger.info(f"    → Match 4: 不匹配 (is_adaptation={is_adaptation}, type={domain_shift_type})")
                 return SocketMatchResult(
                     match_type="problem_adaptation",
                     is_match=False,
@@ -527,7 +527,7 @@ class CitationTypeInferencer:
                     evidence=result.get('evidence', '')
                 )
         except Exception as e:
-            logger.error(f"Match 4 (Problem Adaptation) failed: {e}")
+            logger.error(f"Match 4 (Problem Adaptation) 失败: {e}")
             return None
 
     def _classify_relationship(
@@ -535,103 +535,103 @@ class CitationTypeInferencer:
         citing_paper: Dict,
         cited_paper: Dict,
         match_results: List[SocketMatchResult],
-        citation_context: str  # Reserved for future use
+        citation_context: str  # 保留以备未来使用
     ) -> CitationRelationship:
         """
-        Synthesize all match results for final relationship type classification
-        Uses priority-based decision tree logic (no longer depends on LLM)
+        综合所有匹配结果，最终分类关系类型
+        使用基于优先级的决策树逻辑（不再依赖LLM）
 
-        Decision tree logic (by priority):
-        1. Match 1 (Limitation→Problem) success → Overcomes
-        2. Match 2 (Future_Work→Problem) success → Realizes
-        3. Match 4 (Problem→Problem cross-domain) success → Adapts_to
-        4. Match 3 (Method→Method) success:
+        决策树逻辑（按优先级）：
+        1. Match 1 (Limitation→Problem) 成功 → Overcomes
+        2. Match 2 (Future_Work→Problem) 成功 → Realizes
+        3. Match 4 (Problem→Problem 跨域) 成功 → Adapts_to
+        4. Match 3 (Method→Method) 成功:
            - extension → Extends
            - alternative → Alternative
            - none → Baselines
-        5. No match → Baselines
+        5. 无任何匹配 → Baselines
 
-        Priority order: Overcomes > Realizes > Adapts_to > Extends > Alternative > Baselines
+        优先级排序：Overcomes > Realizes > Adapts_to > Extends > Alternative > Baselines
         """
-        # If no match results, default to Baselines
+        # 如果没有匹配结果，默认为 Baselines
         if not match_results:
-            logger.info("  No match results -> Baselines")
+            logger.info("  无匹配结果 -> Baselines")
             return CitationRelationship(
                 citing_id=citing_paper['id'],
                 cited_id=cited_paper['id'],
                 relationship_type="Baselines",
                 confidence=0.3,
-                reasoning="No clear deep relationship, only used as baseline comparison",
+                reasoning="无明确的深度关系，仅作为基线对比",
                 evidence="",
                 match_results=[]
             )
 
-        # Organize match results by type
+        # 将匹配结果按类型组织
         matches_by_type = {}
         for match in match_results:
             if match.is_match:
                 matches_by_type[match.match_type] = match
 
-        # Check match results in priority order
+        # 按优先级顺序检查匹配结果
         relationship_type = "Baselines"
         confidence = 0.3
-        reasoning = "No clear deep relationship, only used as baseline comparison"
+        reasoning = "无明确的深度关系，仅作为基线对比"
         evidence = ""
-        relationship_decided = False  # Mark whether relationship type has been determined
+        relationship_decided = False  # 标记是否已确定关系类型
 
-        # Priority 1: Match 1 (Limitation→Problem) → Overcomes
+        # 优先级1: Match 1 (Limitation→Problem) → Overcomes
         if not relationship_decided and "limitation_problem" in matches_by_type:
             match = matches_by_type["limitation_problem"]
             relationship_type = "Overcomes"
             confidence = match.confidence
-            reasoning = f"B solved A's limitations. {match.reasoning}"
+            reasoning = f"B解决了A的局限性。{match.reasoning}"
             evidence = match.evidence
             relationship_decided = True
-            logger.info(f"  ✓ Match 1 (Limitation→Problem) matched successfully -> Overcomes (confidence: {confidence:.2f})")
+            logger.info(f"  ✓ Match 1 (Limitation→Problem) 匹配成功 -> Overcomes (置信度: {confidence:.2f})")
 
-        # Priority 2: Match 2 (Future_Work→Problem) → Realizes
-        # Special note: Must be high specificity future work, not courtesy language
+        # 优先级2: Match 2 (Future_Work→Problem) → Realizes
+        # 特别注意：必须是高具体性的future work，不能是客套话
         if not relationship_decided and "future_work_problem" in matches_by_type:
             match = matches_by_type["future_work_problem"]
 
-            # Double verification: Check specificity
+            # 双重验证：检查specificity
             specificity = match.additional_info.get('specificity', 'low') if match.additional_info else 'low'
 
             if specificity == "high" and match.confidence > 0.6:
-                # True Realizes: A digs the hole, B fills it
+                # 真正的Realizes：A挖坑 B填坑
                 relationship_type = "Realizes"
                 confidence = match.confidence
-                reasoning = f"B implemented the specific future work direction envisioned by A. {match.reasoning}"
+                reasoning = f"B实现了A设想的具体未来工作方向。{match.reasoning}"
                 evidence = match.evidence
                 relationship_decided = True
-                logger.info(f"  ✓ Match 2 (Future_Work→Problem) matched successfully -> Realizes (confidence: {confidence:.2f}) [high specificity]")
+                logger.info(f"  ✓ Match 2 (Future_Work→Problem) 匹配成功 -> Realizes (置信度: {confidence:.2f}) [高具体性]")
             else:
-                # Low specificity or low confidence: Not Realizes, continue checking other Matches
-                logger.info(f"  ⚠ Match 2 detected but insufficient specificity (specificity={specificity}, conf={match.confidence:.2f}) - Skip Realizes, check other Matches")
+                # 低具体性或低置信度：不算Realizes，继续检查其他Match
+                logger.info(f"  ⚠ Match 2 检测到但具体性不足 (specificity={specificity}, conf={match.confidence:.2f}) - 跳过Realizes，检查其他Match")
 
-        # Priority 3: Match 4 (Problem→Problem cross-domain) → Adapts_to
-        # Special note: Must be true cross-task/cross-modality, not just dataset change
+        # 优先级3: Match 4 (Problem→Problem 跨域) → Adapts_to
+        # 特别注意：必须是真正的跨任务/跨模态，不能只是换数据集
         if not relationship_decided and "problem_adaptation" in matches_by_type:
             match = matches_by_type["problem_adaptation"]
 
-            # Double verification: Check domain_shift_type
+            # 双重验证：检查domain_shift_type
             domain_shift_type = match.additional_info.get('domain_shift_type', 'none') if match.additional_info else 'none'
 
             if domain_shift_type in ['cross-task', 'cross-modality']:
-                # True cross-domain transfer: Technology horizontal diffusion
+                # 真正的跨域迁移：技术横向扩散
                 relationship_type = "Adapts_to"
                 confidence = match.confidence
                 source_domain = match.additional_info.get('source_domain', '') if match.additional_info else ''
                 target_domain = match.additional_info.get('target_domain', '') if match.additional_info else ''
-                reasoning = f"B transferred A's method to a different domain ({source_domain} → {target_domain}, {domain_shift_type}). {match.reasoning}"
+                reasoning = f"B将A的方法迁移到不同领域（{source_domain} → {target_domain}，{domain_shift_type}）。{match.reasoning}"
                 evidence = match.evidence
                 relationship_decided = True
-                logger.info(f"  ✓ Match 4 (Problem→Problem cross-domain) matched successfully -> Adapts_to (confidence: {confidence:.2f}) [{domain_shift_type}]")
+                logger.info(f"  ✓ Match 4 (Problem→Problem 跨域) 匹配成功 -> Adapts_to (置信度: {confidence:.2f}) [{domain_shift_type}]")
             else:
-                # Only dataset change or no significant span: Not Adapts_to
-                logger.info(f"  ⚠ Match 4 detected but insufficient domain span (type={domain_shift_type}, conf={match.confidence:.2f}) - Skip Adapts_to")
+                # 仅换数据集或无明显跨度：不算Adapts_to
+                logger.info(f"  ⚠ Match 4 检测到但领域跨度不足 (type={domain_shift_type}, conf={match.confidence:.2f}) - 跳过Adapts_to")
 
-        # Priority 4-5: Match 3 (Method→Method) → Extends / Alternative
+        # 优先级4-5: Match 3 (Method→Method) → Extends / Alternative
         if not relationship_decided and "method_extension" in matches_by_type:
             match = matches_by_type["method_extension"]
             rel_type = match.additional_info.get('relationship_type', 'none') if match.additional_info else 'none'
@@ -639,30 +639,30 @@ class CitationTypeInferencer:
             if rel_type == "extension":
                 relationship_type = "Extends"
                 confidence = match.confidence
-                reasoning = f"B made incremental improvements based on A's method. {match.reasoning}"
+                reasoning = f"B在A的方法基础上做了增量改进。{match.reasoning}"
                 evidence = match.evidence
                 relationship_decided = True
-                logger.info(f"  ✓ Match 3 (Method Extension) matched successfully -> Extends (confidence: {confidence:.2f})")
+                logger.info(f"  ✓ Match 3 (Method Extension) 匹配成功 -> Extends (置信度: {confidence:.2f})")
 
             elif rel_type == "alternative":
                 relationship_type = "Alternative"
                 confidence = match.confidence
-                reasoning = f"B uses a different paradigm to solve similar problems. {match.reasoning}"
+                reasoning = f"B使用不同范式解决类似问题。{match.reasoning}"
                 evidence = match.evidence
                 relationship_decided = True
-                logger.info(f"  ✓ Match 3 (Method Alternative) matched successfully -> Alternative (confidence: {confidence:.2f})")
+                logger.info(f"  ✓ Match 3 (Method Alternative) 匹配成功 -> Alternative (置信度: {confidence:.2f})")
 
             else:  # rel_type == "none"
                 relationship_type = "Baselines"
                 confidence = 0.4
-                reasoning = "No clear inheritance or improvement relationship between methods, only used as baseline comparison"
+                reasoning = "方法之间无明确继承或改进关系，仅作为基线对比"
                 evidence = match.evidence
                 relationship_decided = True
-                logger.info(f"  ✓ Match 3 (Method None) -> Baselines (confidence: {confidence:.2f})")
+                logger.info(f"  ✓ Match 3 (Method None) -> Baselines (置信度: {confidence:.2f})")
 
-        # Priority 6: No valid match → Baselines
+        # 优先级6: 无有效匹配 → Baselines
         if not relationship_decided:
-            logger.info("  All matches failed -> Baselines")
+            logger.info("  所有匹配均未成功 -> Baselines")
 
         return CitationRelationship(
             citing_id=citing_paper['id'],
@@ -676,8 +676,8 @@ class CitationTypeInferencer:
 
     def _extract_deep_analysis(self, paper: Dict) -> Dict:
         """
-        Extract deep analysis information from paper
-        Priority: deep_analysis > rag_analysis > empty dict
+        提取论文的深度分析信息
+        优先级：deep_analysis > rag_analysis > 空字典
         """
         if 'deep_analysis' in paper:
             return paper['deep_analysis']
@@ -688,66 +688,66 @@ class CitationTypeInferencer:
 
     def _extract_citation_context(self, citing_paper: Dict, cited_paper: Dict) -> str:
         """
-        Extract citation context - extract specific sentences citing A from PDF file
+        提取引用上下文 - 从PDF文件中提取引用A的具体句子
 
-        Priority:
-        1. Extract citation context from PDF file (based on author name and year matching)
-        2. If PDF is unavailable or extraction fails, return simple description
+        优先级:
+        1. 从PDF文件中提取引用上下文(基于作者名和年份匹配)
+        2. 如果PDF不可用或提取失败，返回简单描述
 
         Args:
-            citing_paper: Citing paper (Paper B)
-            cited_paper: Cited paper (Paper A)
+            citing_paper: 引用论文(Paper B)
+            cited_paper: 被引论文(Paper A)
 
         Returns:
-            Citation context string, may contain multiple citation points
+            引用上下文字符串，可能包含多个引用点
         """
-        # Try to extract citation context from PDF
+        # 尝试从PDF提取引用上下文
         try:
             contexts = self._extract_citation_from_pdf(citing_paper, cited_paper)
             if contexts:
-                # Return first 3 citation contexts
+                # 返回前3个引用上下文
                 context_str = " | ".join([
                     f"[p.{ctx['page']}] {ctx['context']}"
                     for ctx in contexts[:3]
                 ])
-                logger.debug(f"Extracted {len(contexts)} citation contexts from PDF")
+                logger.debug(f"从PDF提取到 {len(contexts)} 个引用上下文")
                 return context_str
         except Exception as e:
-            logger.warning(f"Failed to extract citation context from PDF: {e}")
+            logger.warning(f"从PDF提取引用上下文失败: {e}")
 
-        # Fallback: Return simple description
-        return f"{citing_paper.get('title', 'Paper B')} cited {cited_paper.get('title', 'Paper A')}"
+        # 降级方案：返回简单描述
+        return f"{citing_paper.get('title', 'Paper B')} 引用了 {cited_paper.get('title', 'Paper A')}"
 
     def _extract_citation_from_pdf(self, citing_paper: Dict, cited_paper: Dict) -> List[Dict]:
         """
-        Extract citation context from PDF file
+        从PDF文件中提取引用上下文
 
-        Strategy:
-        1. Locate PDF file path
-        2. Extract full text from PDF
-        3. Use citation pattern matching (based on author name and year)
-        4. Extract context before and after citation
+        策略:
+        1. 定位PDF文件路径
+        2. 提取PDF全文
+        3. 使用引用模式匹配(基于作者名和年份)
+        4. 提取引用前后的上下文
 
         Args:
-            citing_paper: Citing paper
-            cited_paper: Cited paper
+            citing_paper: 引用论文
+            cited_paper: 被引论文
 
         Returns:
-            List of citation contexts, each element contains {'page': int, 'context': str}
+            引用上下文列表，每个元素包含 {'page': int, 'context': str}
         """
-        # 1. Locate PDF file
+        # 1. 定位PDF文件
         pdf_path = self._get_pdf_path(citing_paper)
         if not pdf_path or not os.path.exists(pdf_path):
-            logger.debug(f"PDF file does not exist: {pdf_path}")
+            logger.debug(f"PDF文件不存在: {pdf_path}")
             return []
 
-        # 2. Get identification information of cited paper
+        # 2. 获取被引论文的识别信息
         cited_info = self._extract_citation_identifiers(cited_paper)
         if not cited_info:
-            logger.debug(f"Unable to extract identification information of cited paper: {cited_paper.get('id')}")
+            logger.debug(f"无法提取被引论文的识别信息: {cited_paper.get('id')}")
             return []
 
-        # 3. Try to extract using PyMuPDF
+        # 3. 尝试使用PyMuPDF提取
         try:
             import fitz  # PyMuPDF
             contexts = []
@@ -756,16 +756,16 @@ class CitationTypeInferencer:
                 for page_num, page in enumerate(doc):
                     text = page.get_text()
 
-                    # Find citation patterns
+                    # 查找引用模式
                     matches = self._find_citation_patterns(text, cited_info)
 
                     for match in matches:
-                        # Extract context (100 characters before and after citation)
+                        # 提取上下文(引用前后各100个字符)
                         start = max(0, match['start'] - 100)
                         end = min(len(text), match['end'] + 100)
                         context = text[start:end].strip()
 
-                        # Clean context (remove extra newlines and spaces)
+                        # 清理上下文(移除多余换行和空格)
                         context = ' '.join(context.split())
 
                         contexts.append({
@@ -777,15 +777,15 @@ class CitationTypeInferencer:
             return contexts
 
         except ImportError:
-            # PyMuPDF not installed, try using PyPDF2
-            logger.debug("PyMuPDF not installed, trying PyPDF2")
+            # PyMuPDF未安装，尝试使用PyPDF2
+            logger.debug("PyMuPDF未安装，尝试使用PyPDF2")
             return self._extract_citation_from_pdf_pypdf2(pdf_path, cited_info)
         except Exception as e:
-            logger.warning(f"Extraction using PyMuPDF failed: {e}")
+            logger.warning(f"使用PyMuPDF提取失败: {e}")
             return []
 
     def _extract_citation_from_pdf_pypdf2(self, pdf_path: str, cited_info: Dict) -> List[Dict]:
-        """Extract citation context using PyPDF2 (fallback method)"""
+        """使用PyPDF2提取引用上下文(降级方案)"""
         try:
             import PyPDF2
             contexts = []
@@ -799,7 +799,7 @@ class CitationTypeInferencer:
                         if not text:
                             continue
 
-                        # Find citation patterns
+                        # 查找引用模式
                         matches = self._find_citation_patterns(text, cited_info)
 
                         for match in matches:
@@ -814,48 +814,48 @@ class CitationTypeInferencer:
                                 'citation_text': match['citation']
                             })
                     except Exception as e:
-                        logger.debug(f"Processing page {page_num+1} failed: {e}")
+                        logger.debug(f"处理第{page_num+1}页失败: {e}")
                         continue
 
             return contexts
 
         except ImportError:
-            logger.warning("PyPDF2 not installed, unable to extract PDF content")
+            logger.warning("PyPDF2未安装，无法提取PDF内容")
             return []
         except Exception as e:
-            logger.warning(f"Extraction using PyPDF2 failed: {e}")
+            logger.warning(f"使用PyPDF2提取失败: {e}")
             return []
 
     def _get_pdf_path(self, paper: Dict) -> Optional[str]:
         """
-        Get paper PDF file path
+        获取论文PDF文件路径
 
-        Strategy:
-        1. Check pdf_path field in paper object
-        2. Search in default directory based on paper_id
-        3. Search in default directory based on title
+        策略:
+        1. 检查paper对象中的pdf_path字段
+        2. 基于paper_id在默认目录中查找
+        3. 基于title在默认目录中查找
         """
-        # Strategy 1: Use pdf_path from paper
+        # 策略1: 使用paper中的pdf_path
         if paper.get('pdf_path') and os.path.exists(paper['pdf_path']):
             return paper['pdf_path']
 
-        # Strategy 2: Search based on paper_id
+        # 策略2: 基于paper_id查找
         paper_id = paper.get('id', '')
         if paper_id:
-            # Default PDF directory
+            # 默认PDF目录
             pdf_dir = Path('./data/papers')
             if not pdf_dir.exists():
                 pdf_dir = Path('/home/lexy/下载/CLwithRAG/KGdemo/data/papers')
 
             if pdf_dir.exists():
-                # Find PDF files starting with paper_id
+                # 查找以paper_id开头的PDF文件
                 for pdf_file in pdf_dir.glob(f'{paper_id}*.pdf'):
                     return str(pdf_file)
 
-        # Strategy 3: Search based on title (if paper_id search fails)
+        # 策略3: 基于title查找(如果paper_id查找失败)
         title = paper.get('title', '')
         if title and pdf_dir.exists():
-            # Convert title to safe filename format
+            # 将标题转换为安全文件名格式
             safe_title = re.sub(r'[^\w\s-]', '', title).strip()
             safe_title = re.sub(r'[\s]+', '_', safe_title)[:50]
 
@@ -866,12 +866,12 @@ class CitationTypeInferencer:
 
     def _extract_citation_identifiers(self, paper: Dict) -> Optional[Dict]:
         """
-        Extract citation identification information from paper
+        提取论文的引用识别信息
 
         Returns:
-            Dictionary containing identification information:
+            包含识别信息的字典:
             {
-                'authors': ['Smith', 'Jones'],  # Main author surnames
+                'authors': ['Smith', 'Jones'],  # 主要作者姓氏
                 'year': '2020',
                 'first_author': 'Smith',
                 'title_keywords': ['deep', 'learning']
@@ -879,28 +879,28 @@ class CitationTypeInferencer:
         """
         info = {}
 
-        # Extract year
+        # 提取年份
         year = paper.get('year') or paper.get('publication_year')
         if year:
             info['year'] = str(year)
 
-        # Extract author information
+        # 提取作者信息
         authors = paper.get('authors', [])
         if authors:
-            # Support multiple author formats
+            # 支持多种作者格式
             if isinstance(authors, list):
                 if authors and isinstance(authors[0], dict):
-                    # Format: [{'name': 'John Smith'}, ...]
+                    # 格式: [{'name': 'John Smith'}, ...]
                     author_names = [a.get('name', '') or a.get('author', '') for a in authors]
                 else:
-                    # Format: ['John Smith', ...]
+                    # 格式: ['John Smith', ...]
                     author_names = authors
 
-                # Extract surnames
+                # 提取姓氏
                 surnames = []
-                for name in author_names[:3]:  # Only take first 3 authors
+                for name in author_names[:3]:  # 只取前3个作者
                     if name:
-                        # Extract surname (assume surname is the last word)
+                        # 提取姓氏(假设姓氏是最后一个单词)
                         parts = name.strip().split()
                         if parts:
                             surnames.append(parts[-1])
@@ -909,32 +909,32 @@ class CitationTypeInferencer:
                     info['authors'] = surnames
                     info['first_author'] = surnames[0]
 
-        # Extract title keywords
+        # 提取标题关键词
         title = paper.get('title', '')
         if title:
-            # Extract meaningful words (length > 3)
+            # 提取有意义的单词(长度>3)
             words = re.findall(r'\b\w{4,}\b', title.lower())
-            info['title_keywords'] = words[:5]  # Take first 5 keywords
+            info['title_keywords'] = words[:5]  # 取前5个关键词
 
         return info if info else None
 
     def _find_citation_patterns(self, text: str, cited_info: Dict) -> List[Dict]:
         """
-        Find citation patterns in text
+        在文本中查找引用模式
 
-        Supported citation formats:
+        支持的引用格式:
         1. [Author, Year] - [Smith, 2020]
         2. (Author, Year) - (Smith, 2020)
         3. Author (Year) - Smith (2020)
-        4. [1], [2], etc. - Numeric citations (only when author is mentioned in context)
+        4. [1], [2], etc. - 数字引用(仅当上下文中提到作者时)
         5. Author et al., Year - Smith et al., 2020
 
         Args:
-            text: PDF text content
-            cited_info: Identification information of cited paper
+            text: PDF文本内容
+            cited_info: 被引论文的识别信息
 
         Returns:
-            List of matches, each element contains {'start': int, 'end': int, 'citation': str}
+            匹配列表，每个元素包含 {'start': int, 'end': int, 'citation': str}
         """
         matches = []
 
@@ -944,13 +944,13 @@ class CitationTypeInferencer:
         if not first_author or not year:
             return matches
 
-        # Build citation patterns (case insensitive)
+        # 构建引用模式(不区分大小写)
         patterns = [
-            # [Author, Year] or [Author et al., Year]
+            # [Author, Year] 或 [Author et al., Year]
             rf'\[{first_author}(?:\s+et\s+al\.?)?,?\s*{year}\]',
-            # (Author, Year) or (Author et al., Year)
+            # (Author, Year) 或 (Author et al., Year)
             rf'\({first_author}(?:\s+et\s+al\.?)?,?\s*{year}\)',
-            # Author (Year) or Author et al. (Year)
+            # Author (Year) 或 Author et al. (Year)
             rf'{first_author}(?:\s+et\s+al\.)?\s*\({year}\)',
             # Author et al., Year
             rf'{first_author}\s+et\s+al\.,?\s*{year}',
@@ -964,10 +964,10 @@ class CitationTypeInferencer:
                     'citation': match.group(0)
                 })
 
-        # Sort by position and deduplicate
+        # 按位置排序并去重
         matches = sorted(matches, key=lambda x: x['start'])
 
-        # Remove overlapping matches
+        # 去除重叠的匹配
         unique_matches = []
         last_end = -1
         for match in matches:
@@ -985,33 +985,33 @@ class CitationTypeInferencer:
         cited_analysis: Dict
     ) -> CitationRelationship:
         """
-        Rule-based inference (used when no LLM available)
+        基于规则的推断（当没有LLM时使用）
         """
-        # Extract basic information
+        # 提取基本信息
         citing_year = citing_paper.get('year', 0)
         cited_year = cited_paper.get('year', 0)
         year_diff = citing_year - cited_year if citing_year > 0 and cited_year > 0 else 0
 
-        # Simple rules
+        # 简单规则
         relationship_type = "Baselines"
         confidence = 0.3
-        reasoning = "Simple rule-based inference"
+        reasoning = "基于规则的简单推断"
 
-        # Rule 1: If there's limitation and problem, might be Overcomes
+        # 规则1: 如果有limitation和problem，可能是Overcomes
         if cited_analysis.get('limitation') and citing_analysis.get('problem'):
             if self._text_similarity(cited_analysis['limitation'], citing_analysis['problem']) > 0.3:
                 relationship_type = "Overcomes"
                 confidence = 0.6
-                reasoning = "B's problem is related to A's limitations"
+                reasoning = "B的问题与A的局限性相关"
 
-        # Rule 2: If there's future_work and problem, might be Realizes
+        # 规则2: 如果有future_work和problem，可能是Realizes
         if cited_analysis.get('future_work') and citing_analysis.get('problem'):
             if self._text_similarity(cited_analysis['future_work'], citing_analysis['problem']) > 0.3:
                 relationship_type = "Realizes"
                 confidence = 0.6
-                reasoning = "B implemented the future work suggested by A"
+                reasoning = "B实现了A建议的未来工作"
 
-        logger.info(f"  Rule-based inference: {relationship_type} (confidence: {confidence:.2f})")
+        logger.info(f"  规则推断: {relationship_type} (置信度: {confidence:.2f})")
 
         return CitationRelationship(
             citing_id=citing_paper['id'],
@@ -1024,7 +1024,7 @@ class CitationTypeInferencer:
         )
 
     def _text_similarity(self, text1: str, text2: str) -> float:
-        """Simple text similarity calculation"""
+        """简单的文本相似度计算"""
         if not text1 or not text2:
             return 0.0
 
@@ -1038,28 +1038,28 @@ class CitationTypeInferencer:
 
     def _extract_json_from_response(self, response: str) -> str:
         """
-        Extract JSON content from LLM response
-        Handle cases where markdown code blocks may be included
+        从LLM响应中提取JSON内容
+        处理可能包含markdown代码块的情况
         """
         import re
 
-        # Remove leading and trailing whitespace
+        # 去除首尾空白
         response = response.strip()
 
-        # Try to extract JSON from markdown code block
-        # Match ```json ... ``` or ``` ... ```
+        # 尝试提取markdown代码块中的JSON
+        # 匹配 ```json ... ``` 或 ``` ... ```
         json_block_pattern = r'```(?:json)?\s*\n?(.*?)\n?```'
         match = re.search(json_block_pattern, response, re.DOTALL)
 
         if match:
             return match.group(1).strip()
 
-        # If no code block, return original response directly
+        # 如果没有代码块，直接返回原响应
         return response
 
 
 if __name__ == "__main__":
-    # Test code
+    # 测试代码
     import logging
     import sys
     logging.basicConfig(
@@ -1067,21 +1067,21 @@ if __name__ == "__main__":
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     )
 
-    # Check command line arguments
+    # 检查命令行参数
     use_rule_based = len(sys.argv) > 1 and sys.argv[1] == '--rule-based'
 
-    # Create inferencer (default uses LLM)
+    # 创建推断器（默认使用LLM）
     if use_rule_based:
-        print("\n Using rule-based method mode (no LLM)")
-        print("Tip: Use without parameters to enable LLM mode by default\n")
+        print("\n📏 使用规则方法模式（无LLM）")
+        print("提示: 不使用参数则默认启用LLM模式\n")
         inferencer = CitationTypeInferencer(llm_client=None)
     else:
-        print("\n Using LLM Socket Matching mode (default)")
-        print("Loading LLM configuration from config/config.yaml...")
-        print("Tip: Use --rule-based parameter to switch to rule-based method\n")
+        print("\n🔌 使用 LLM Socket Matching 模式（默认）")
+        print("从 config/config.yaml 加载LLM配置...")
+        print("提示: 使用 --rule-based 参数切换到规则方法\n")
         inferencer = CitationTypeInferencer(config_path="config/config.yaml")
 
-    # Test paper data
+    # 测试论文数据
     test_papers = [
         {
             'id': 'W1',
@@ -1121,25 +1121,25 @@ if __name__ == "__main__":
         }
     ]
 
-    # Test citation relationships
+    # 测试引用关系
     test_edges = [
-        ('W2', 'W1'),  # BERT cites Transformer (should be Overcomes or Baselines)
-        ('W3', 'W1'),  # ViT cites Transformer (should be Realizes - implements future work suggestion)
+        ('W2', 'W1'),  # BERT引用Transformer (应该是 Overcomes 或 Baselines)
+        ('W3', 'W1'),  # ViT引用Transformer (应该是 Realizes - 实现了未来工作建议)
     ]
 
-    # Infer citation types
+    # 推断引用类型
     print("\n" + "="*80)
-    print("Socket Matching Citation Relationship Type Inference Test")
+    print("Socket Matching 引用关系类型推断测试")
     print("="*80)
 
     typed_edges, statistics = inferencer.infer_edge_types(test_papers, test_edges)
 
-    print("\nCitation Relationship Type Inference Results:")
+    print("\n引用关系类型推断结果:")
     print("="*80)
     for citing_id, cited_id, edge_type in typed_edges:
         citing_paper = next(p for p in test_papers if p['id'] == citing_id)
         cited_paper = next(p for p in test_papers if p['id'] == cited_id)
         print(f"\n{citing_paper['title']}")
         print(f"  → {cited_paper['title']}")
-        print(f"  Relationship Type: {edge_type}")
+        print(f"  关系类型: {edge_type}")
     print("="*80)
