@@ -1,0 +1,8 @@
+Method,Baseline (Abstract Only)
+Citation Type,Precision,Recall,F1-Score,Support
+Overcomes,0.2500,0.0400,0.0690,25
+Realizes,0.0000,0.0000,0.0000,10
+Extends,0.0606,0.4000,0.1053,5
+Alternative,0.0741,0.4444,0.1270,9
+Adapts_to,0.0870,0.6000,0.1519,10
+Baselines,0.8667,0.3041,0.4502,171

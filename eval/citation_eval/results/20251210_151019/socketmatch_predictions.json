@@ -1,0 +1,1842 @@
+[
+  {
+    "citing_paper_id": "W4385570829",
+    "cited_paper_id": "W4283026156",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4385570829",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4365512576",
+    "predicted_type": "Realizes",
+    "confidence": 0.8,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 提出的建议偏具体，特别是扩展应用领域到专业化任务，这是一个高价值的方向。B 的研究将 ChatGPT 应用于兽医领域，这是一个专业化任务的应用，符合 A 的建议。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4321472314",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。Paper B使用了Paper A中的预训练基础模型（如ChatGPT），并将其应用于兽医学中的疾病诊断任务。这与原始模型在多模态、多语言及图数据上的优化和构建存在显著差异，尤其是机制上从通用学习模型转为具体的医学诊断任务，是一个跨任务的迁移。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4317910584",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。Paper B 将 ChatGPT 应用于跨领域的任务，即从高等教育中的评估挑战转向兽医医学中的疾病诊断。虽然在两篇论文中均使用 ChatGPT，但任务机制和目标应用领域有本质区别，因此满足跨域复用的条件。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4362722657",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4378474327",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。分析方法显示B保留了A的核心方法，即使用Transformer架构和GPT模型进行语言生成，但领域跨度显著，因为A主要探讨语言模型在多领域应用中的挑战与提升，而B则实际应用于兽医诊断，这是一个显著不同的任务定义。",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W4385570829",
+    "predicted_type": "Realizes",
+    "confidence": 0.9,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 的建议中明确提到了加強语音处理与自然语言处理（NLP）之间的交流与合作，这与 B 的研究目标中讨论将大型语言模型与语音识别技术结合的工作相符。因此 B 的工作可视为具体实现了 A 的建议。",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W3184326107",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W2160451571",
+    "predicted_type": "Overcomes",
+    "confidence": 0.9,
+    "reasoning": "B解决了A的局限性。B 在上下文中批评了 A，认为传统语音识别模型在上下文理解和复杂语言结构处理上存在局限性。B 的目标是利用大型语言模型的强大语言理解能力解决这些局限。",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W2752142537",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W2327501763",
+    "predicted_type": "Overcomes",
+    "confidence": 0.9,
+    "reasoning": "B解决了A的局限性。B 在上下文中批评了 A，指出其在上下文理解和语言结构处理上的局限，B 的目标是通过结合大型语言模型来增强这些方面。",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W4221156109",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4406928793",
+    "cited_paper_id": "W4402657501",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.85,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。Paper B借用了Paper A的方法以改善网络安全领域中大型语言模型的应用。尽管两篇文章都使用了自然语言处理的方法，但应用的任务有显著差异：A主要集中在金融法规文本的语义搜索，而B则探索了大型语言模型在预测和应对网络威胁中的能力。由于任务定义从语义搜索变为网络威胁检测与防御，这构成了一个足够大的领域跨度。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4406928793",
+    "cited_paper_id": "W4385274673",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4406928793",
+    "cited_paper_id": "W4372342980",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4406928793",
+    "cited_paper_id": "W4385553016",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4406928793",
+    "cited_paper_id": "W4224940282",
+    "predicted_type": "Realizes",
+    "confidence": 0.8,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 提出的建议包括探索跨领域和多模态数据融合，以提升安全性与隐私保护能力，这是一项具体的方向。B 的工作聚焦于大型语言模型在网络安全中的应用，这可能包含对多模态数据的处理能力，可以视为对 A 建议的部分实现。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4406928793",
+    "cited_paper_id": "W4401314842",
+    "predicted_type": "Alternative",
+    "confidence": 0.85,
+    "reasoning": "B使用不同范式解决类似问题。1. 任务是否相同？是的，两篇论文都关注如何检测和应对复杂的网络威胁。2. 架构是否继承或排斥？Paper B 并未继承 Paper A 的方法架构，而是采用了大型语言模型（LLMs）的新策略。3. 引用意图是改进还是替换？Paper B 强调其方法论在处理高度复杂网络威胁方面的优越性，与传统 AI 驱动方法形成对立。",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4411679450",
+    "cited_paper_id": "W4402657501",
+    "predicted_type": "Overcomes",
+    "confidence": 0.9,
+    "reasoning": "B解决了A的局限性。B 在上下文中批评了 A，因为 B 指出 A 对金融监管文本的处理存在局限性，并且 B 的研究目标正是在利用大型语言模型提升对复杂金融监管文本的理解和应用。这正对应了 B 对 A 的批评。",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W4411679450",
+    "cited_paper_id": "W2997188511",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411679450",
+    "cited_paper_id": "W4247451115",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411679450",
+    "cited_paper_id": "W3006682208",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411679450",
+    "cited_paper_id": "W2016944307",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4402999283",
+    "cited_paper_id": "W4365145460",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4402999283",
+    "cited_paper_id": "W573894970",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4402999283",
+    "cited_paper_id": "W4380189911",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4402999283",
+    "cited_paper_id": "W2095513884",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4402999283",
+    "cited_paper_id": "W3169037993",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4384071683",
+    "cited_paper_id": "W4283026156",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4391136507",
+    "cited_paper_id": "W4283026156",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4367595583",
+    "cited_paper_id": "W4283026156",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4390692489",
+    "cited_paper_id": "W4283026156",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4390692489",
+    "cited_paper_id": "W4392669753",
+    "predicted_type": "Overcomes",
+    "confidence": 0.9,
+    "reasoning": "B解决了A的局限性。B 在上下文中批评了 A 的幻觉和事实不准确问题。B 的目标正是通过结合知识图谱来解决LLM的事实准确性问题，这与A的局限性是对应的。",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4392669753",
+    "cited_paper_id": "W4283026156",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4392669753",
+    "cited_paper_id": "W4365512576",
+    "predicted_type": "Overcomes",
+    "confidence": 0.9,
+    "reasoning": "B解决了A的局限性。B 在上下文中批评了 A，指出了特定局限性。B 的目标显然在于解决这些局限性，特别是针对推理能力和幻觉生成问题。",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4408190306",
+    "cited_paper_id": "W4406928793",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4407518214",
+    "cited_paper_id": "W4406928793",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4414437166",
+    "cited_paper_id": "W4406928793",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4409261463",
+    "cited_paper_id": "W4406928793",
+    "predicted_type": "Extends",
+    "confidence": 0.8,
+    "reasoning": "B在A的方法基础上做了增量改进。1. 任务是否相同？是的，两个论文都涉及如何提升网络安全中威胁检测和响应能力的问题，具体聚焦于如何利用大型语言模型来克服传统网络安全机制的局限性。2. 架构是否继承或排斥？Paper B 提出了结合深度学习与大型语言模型的新方法，显示出在网络安全领域的新方法，但方法中仍包含了大型语言模型的元素，尤其使用了Transformer架构，这在一定程度上保留和扩展了A的方法。3. 引用意图是改进还是替换？Paper B 并未特别强调与 A 本质不同的方法论以克服其缺陷，而是扩展了其技术路线。",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4415378952",
+    "cited_paper_id": "W4406928793",
+    "predicted_type": "Realizes",
+    "confidence": 0.9,
+    "reasoning": "B实现了A设想的具体未来工作方向。Paper A 提出了一些具体的建议，包括更深度整合大型语言模型与传统网络安全机制，以及研究应对 LLM 自身潜在安全漏洞的策略。Paper B 针对这些具体建议进行了相关研究，如提升网络安全操作智能化、自动化水平，并探索 LLMs 带来的安全风险、构建鲁棒的安全框架等，这些都与 A 的具体建议一致。",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4385553016",
+    "cited_paper_id": "W4224940282",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4392938070",
+    "cited_paper_id": "W4387500228",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4393177740",
+    "cited_paper_id": "W4387500228",
+    "predicted_type": "Realizes",
+    "confidence": 0.9,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 提出的建议具体涉及开发基于大型语言模型的临床决策支持系统以及整合AI聊天机器人与症状检查应用用于兽医临床决策支持，这些内容与 B 旨在将 ChatGPT 应用于兽医临床等领域的目标相吻合，尤其是 A 提及的整合和支持诊断与 B 的诊断相关应用具有一致性。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4393177740",
+    "cited_paper_id": "W4395961081",
+    "predicted_type": "Overcomes",
+    "confidence": 0.8,
+    "reasoning": "B解决了A的局限性。B 在上下文中批评了 A，指出当前 AI 处理宠物健康问题的不足，并提出旨在改进 AI 工具在兽医领域应用的方法。B 的目标与此批评相符，试图为使用 AI 工具提供实践指导，填补 AI 应用于兽医临床等方面的具体操作缺口。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4395961081",
+    "cited_paper_id": "W4387500228",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4399330792",
+    "cited_paper_id": "W4387500228",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。Paper B确实采用了Paper A的ChatGPT技术进行诊断任务，但其应用方向有显著的任务变化。从兽医领域的宠物疾病诊断转变为轻度认知障碍（MCI）的人类患者诊断和治疗，是跨任务的应用，而不仅仅是数据集的更换。两者的原理应用不同，达到的目标和输入输出模式有本质区别。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4399127311",
+    "cited_paper_id": "W4387500228",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411249471",
+    "cited_paper_id": "W4411249889",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4221156109",
+    "cited_paper_id": "W2327501763",
+    "predicted_type": "Realizes",
+    "confidence": 0.9,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 提出了具体的建议——优化 LAS 模型在噪声环境下的鲁棒性，而 B 的工作正是设计了一种方法增强语音识别在噪声环境中的性能。因此，B 正式实现了 A 的一个未来工作规划。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2997188511",
+    "cited_paper_id": "W4247451115",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "B使用不同范式解决类似问题。1. 任务是否相同？两篇论文都涉及使用深度学习对衍生品的对冲策略进行研究，解决与期权定价和对冲相关的问题，具备一定的一致性。2. 架构是否继承或排斥？Paper B 尽管使用了深度学习方法，但并未显示其架构与 Paper A 的深度强化学习方法有直接依赖，且强调了解决美式期权的高维定价和对冲问题，暗示其方法论具有独特性。3. 引用意图是改进还是替换？Paper B 提出了一种根本不同的技术路线，特别针对美式期权的定价和动态对冲提出了新的方法，显示其与 Paper A 的原有框架相比，试图实现不同的范式。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4380189911",
+    "cited_paper_id": "W2095513884",
+    "predicted_type": "Alternative",
+    "confidence": 0.9,
+    "reasoning": "B使用不同范式解决类似问题。1. 任务是否相同？两篇论文都致力于自动生成歌词，因此解决的任务是相同的。2. 架构是否继承或排斥？Paper B 使用了LSTM和RNN，与Paper A的CFG方法论本质不同。3. 引用意图是改进还是替换？Paper B提出了与Paper A根本不同的技术路线，旨在改进生成歌词的连贯性和表达丰富度，形成方法论的范式对立。",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4378474327",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.85,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。Paper B 沿用了 Paper A 中关于 ChatGPT 的模型架构，应用于兽医诊断这一新的任务领域，这与 Paper A 的自然语言处理和对话生成任务有本质区别。虽然两者都涉及到语言处理，但从生成对话到诊断动物健康状况的任务定义不同，属于任务机制的变化。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W4385570829",
+    "predicted_type": "Overcomes",
+    "confidence": 0.9,
+    "reasoning": "B解决了A的局限性。B 在上下文中批评了 A，没有充分覆盖语音社区，这是 B 的研究目标所涉及的方面。B 的目标正是对于这一不足的回应和解决方案。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W3184326107",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W2160451571",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "B使用不同范式解决类似问题。1. 任务是否相同？两者都在语音识别领域中解决语言模型的问题，但方法和目标略有不同。A 专注于利用双向上下文信息优化语言模型，而 B 探索如何将大型语言模型与语音识别紧密结合。2. 架构是否继承或排斥？B 提出了新的融合框架，显然没有直接继承 A 的双向 RNN 架构，而是使用了大型语言模型，属于不同范式。3. 引用意图是改进还是替换？B 提出了不同于 A 的技术路线，并通过实验验证其在多种应用场景下优于传统方法，这是在尝试替代 A 的方法。",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W2752142537",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W2327501763",
+    "predicted_type": "Realizes",
+    "confidence": 0.8,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 的建议具体指出了结合语言模型和发音模型的优势以增强端到端系统的准确性和鲁棒性，而 B 探讨了将大型语言模型与语音识别技术有效结合的问题，尤其是在处理自然语言理解和上下文建模方面。这与 A 的具体建议高度相关。",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W4390692489",
+    "cited_paper_id": "W4283026156",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4321472314",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。Paper B利用ChatGPT进行兽医领域的诊断，与Paper A中讨论的预训练基础模型（PFMs）在不同领域中的应用有所不同。虽然B引用了A中的方法论和分析框架，但任务定义从PFMs的多领域综述转变为特定领域应用，即从PFMs的广泛功能和潜力转变为辅助诊断宠物疾病的具体任务。这种转变体现了跨任务的迁移，即应用于兽医诊断的任务机制不同于A中讨论的广泛综述。",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4378474327",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。Paper B 使用了Paper A的ChatGPT模型在兽医医学领域进行诊断性应用，虽然沿用了核心的大型语言模型算法，但原任务从自然语言处理中的对话生成和交互优化转变为临床决策支持和诊断建议，这属于任务定义的本质变化。",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W4409261463",
+    "cited_paper_id": "W4406928793",
+    "predicted_type": "Realizes",
+    "confidence": 0.8,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 提出的建议是利用大型语言模型提升网络安全机制对复杂威胁的检测响应能力，具体包括识别和缓解新型复杂风险。B 的工作目标直接涉及利用大型语言模型提升对未知威胁的检测能力，并应用这些模型改进安全通信和威胁分析，这是对 A 提出建议的具体实现。",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W4221156109",
+    "cited_paper_id": "W2327501763",
+    "predicted_type": "Overcomes",
+    "confidence": 0.9,
+    "reasoning": "B解决了A的局限性。B 在上下文中批评了 A 的噪声环境下的表现缺陷，并目标为解决噪声环境中识别性能不足的问题。B 的 Problem 是解决噪声鲁棒性，在某种程度上对应了 A 自述的在噪声环境中的性能不足。",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4205802268",
+    "cited_paper_id": "W2070205520",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4205802268",
+    "cited_paper_id": "W2614620964",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4205802268",
+    "cited_paper_id": "W2155870214",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4205802268",
+    "cited_paper_id": "W2012976256",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3122397014",
+    "cited_paper_id": "W3082051346",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3122397014",
+    "cited_paper_id": "W3082307550",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4360845368",
+    "cited_paper_id": "W4205802268",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4360845368",
+    "cited_paper_id": "W2083078026",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4360845368",
+    "cited_paper_id": "W3133702157",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4360845368",
+    "cited_paper_id": "W3183428091",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4360845368",
+    "cited_paper_id": "W4244669226",
+    "predicted_type": "Realizes",
+    "confidence": 0.8,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 提出的未来工作包括深入探讨翻译者在伦理困境中的角色，尤其是在技术进步背景下的影响，而 B 的工作聚焦于翻译技术对伦理能力的影响，并分析这些伦理关切是否在翻译培训中得到反映。B 的内容与 A 的建议高度吻合。",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4360845368",
+    "cited_paper_id": "W4241903662",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4317823603",
+    "cited_paper_id": "W4205802268",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4317823603",
+    "cited_paper_id": "W4238374879",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4317823603",
+    "cited_paper_id": "W2117002298",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4317823603",
+    "cited_paper_id": "W2251172991",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4317823603",
+    "cited_paper_id": "W1889043906",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4317823603",
+    "cited_paper_id": "W2099921486",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4362571217",
+    "cited_paper_id": "W3122397014",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4362571217",
+    "cited_paper_id": "W3137778411",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4362571217",
+    "cited_paper_id": "W3152067692",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4362571217",
+    "cited_paper_id": "W3147450229",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4362571217",
+    "cited_paper_id": "W2481450925",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4362571217",
+    "cited_paper_id": "W4306412553",
+    "predicted_type": "Realizes",
+    "confidence": 0.9,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 提出建议扩展模型以使用深度学习技术和跨语言迁移学习技术，B 的工作正是使用多种深度学习模型在低资源语言阿尔巴尼亚语上进行问题分类研究，这与 A 的未来工作建议高度吻合。",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W3167123946",
+    "cited_paper_id": "W3122397014",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3167123946",
+    "cited_paper_id": "W2950161719",
+    "predicted_type": "Extends",
+    "confidence": 0.9,
+    "reasoning": "B在A的方法基础上做了增量改进。1. 任务是否相同？是，两个论文都在研究如何对消费者健康问题进行摘要以提升问答系统的效果。2. 架构是否继承或排斥？B 在方法中使用了Pegasus预训练模型，结合了多种技术对问题摘要进行了改进，没有直接继承A的指针生成网络，但在同一路线上进行增量优化。3. 引用意图是改进还是替换？B 的方法并未标明与A的本质对立，而是以改进形式对现有方法进行了增强。",
+    "ground_truth": "Extends"
+  },
+  {
+    "citing_paper_id": "W3167123946",
+    "cited_paper_id": "W2952911430",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3167123946",
+    "cited_paper_id": "W2996264288",
+    "predicted_type": "Extends",
+    "confidence": 0.9,
+    "reasoning": "B在A的方法基础上做了增量改进。1. 任务是否相同？部分相同。Paper A 和 Paper B 都涉及文本摘要的生成，但应用领域不同。Paper A 关注多领域抽象文本摘要，Paper B 专注于消费者健康问题的摘要。2. 架构是否继承或排斥？Paper B 的核心方法基于并改进了 PEGASUS，这是 Paper A 的模型框架，因此是继承了架构。3. 引用意图是改进还是替换？Paper B 使用并改进了 PEGASUS 模型，结合新技术提升性能，属于在现有方法上的扩展。",
+    "ground_truth": "Extends"
+  },
+  {
+    "citing_paper_id": "W3167123946",
+    "cited_paper_id": "W3034715004",
+    "predicted_type": "Extends",
+    "confidence": 0.9,
+    "reasoning": "B在A的方法基础上做了增量改进。1. 任务是否相同？Paper A 聚焦于抽象文本摘要的预训练优化，Paper B 致力于消费者健康问题的摘要，虽然领域有所不同，但都涉及抽象文本摘要，因此在任务上存在相似性。2. 架构是否继承或排斥？Paper B 对 PEGASUS 模型进行微调，明显依赖于 A 的核心架构，而非排斥。3. 引用意图是改进还是替换？Paper B 引用了 A，并在此基础上进行了专门的改进而非替换，旨在改善摘要结果。",
+    "ground_truth": "Extends"
+  },
+  {
+    "citing_paper_id": "W3167123946",
+    "cited_paper_id": "W3166358520",
+    "predicted_type": "Extends",
+    "confidence": 0.9,
+    "reasoning": "B在A的方法基础上做了增量改进。1. 任务是否相同？是，Paper B 专注于 Paper A 描述的 MEDIQA 2021 任务中的 '问题摘要' 子任务。2. 架构是否继承或排斥？Paper B 利用了 PEGASUS 模型并结合了预处理技术进行改进，这符合扩展的定义，因为它保留了核心网络并进行了增量修改。3. 引用意图是改进还是替换？引用意图是改进，通过集成学习结合自动问题焦点识别与抽象摘要进行增强，而非替换。",
+    "ground_truth": "Extends"
+  },
+  {
+    "citing_paper_id": "W4390717095",
+    "cited_paper_id": "W4311556468",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "B使用不同范式解决类似问题。1. 任务是否相同？两篇论文都在探讨自然语言处理中范畴论的应用，但是研究的具体侧重点有所不同。Paper A 侧重于范畴论与语言学结构的结合，而 Paper B 强调线性代数和范畴论的结合对语言意义的理解。2. 架构是否继承或排斥？Paper B 并没有直接继承 Paper A 的方法论，而是提出了将线性代数与范畴论结合的新模型，并对语言意义的结构进行不同的解释。3. 引用意图是改进还是替换？引用是为了探索不同的数学框架对语义结构的影响，试图提供另一种理解语言结构的范式。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4390717095",
+    "cited_paper_id": "W2553981914",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4390717095",
+    "cited_paper_id": "W3034723486",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "B使用不同范式解决类似问题。1. 任务是否相同？Paper A 和 Paper B 都在探讨语言的意义和理解，但涉及的具体问题和方法有所不同。A 侧重于批评现有语言模型在形式和意义之间的区分，而 B 试图通过数学框架来刻画语言意义结构。2. 架构是否继承或排斥？Paper B 没有直接继承 Paper A 的方法，而是选择了使用线性代数和范畴论来进行描述，表明其与 A 的技术路线有本质的不同。3. 引用意图是改进还是替换？虽然 B 引用了 A，但并没有进一步说明要改进 A 的方法，而是提供了一种新的理论视角，试图替代现有的理解方式。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4390717095",
+    "cited_paper_id": "W3167361329",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4390717095",
+    "cited_paper_id": "W4255318870",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4391326667",
+    "cited_paper_id": "W4311556468",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W4391326667",
+    "cited_paper_id": "W574734723",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。Paper B采用了Paper A中的量子计算理论，并将其应用于完全不同的领域——从计算和哲学的学术探讨转向神学领域的创世理论。这体现了任务定义的显著改变，因为研究的核心从计算性与复杂性理论转移到语言创世的可能性，属于跨任务的迁移。",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W4391326667",
+    "cited_paper_id": "W3111333709",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.85,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。Paper B使用了Paper A的量子自然语言处理方法，并将其应用于一个新的领域，即神学中神通过语言创造世界的过程。这涉及了一个从自然语言处理到神学理论解释的跨域任务跨度，是一种任务定义的改变而非简单的数据集更换或同类任务的扩展。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4391326667",
+    "cited_paper_id": "W2598985404",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。在方法核查方面，虽然 Paper B 没有明确表示直接采用 Paper A 的方法，但通过引用上下文可以推测 Paper B 参考了 Paper A 的图示技术用于其量子神学框架构建。此外，Paper B 将量子力学应用于神学领域，形成了新的任务定义，与 Paper A 旨在可视化量子理论的目标确实有了明显的跨领域变化。Paper A 探讨的是纯粹科学世界的图示语言表达，而 Paper B 将其应用于解释神创论这一宗教哲学范畴，涉及完全不同的任务领域。",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W2070205520",
+    "cited_paper_id": "W2070205520",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Extends"
+  },
+  {
+    "citing_paper_id": "W2070205520",
+    "cited_paper_id": "W2131243403",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2070205520",
+    "cited_paper_id": "W2155870214",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2070205520",
+    "cited_paper_id": "W2345398358",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2070205520",
+    "cited_paper_id": "W1604834089",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2070205520",
+    "cited_paper_id": "W2044688197",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082051346",
+    "cited_paper_id": "W3009926341",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082051346",
+    "cited_paper_id": "W2120109270",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082051346",
+    "cited_paper_id": "W3106505254",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082051346",
+    "cited_paper_id": "W2772492596",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082051346",
+    "cited_paper_id": "W4247191450",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082307550",
+    "cited_paper_id": "W3009951436",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082307550",
+    "cited_paper_id": "W3002108456",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082307550",
+    "cited_paper_id": "W3001118548",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082307550",
+    "cited_paper_id": "W3014892682",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082307550",
+    "cited_paper_id": "W3003465021",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2012976256",
+    "cited_paper_id": "W2070205520",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2012976256",
+    "cited_paper_id": "W2044688197",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W2791507392",
+    "cited_paper_id": "W2070205520",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2067130497",
+    "cited_paper_id": "W2070205520",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3089323922",
+    "cited_paper_id": "W2070205520",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2345398358",
+    "cited_paper_id": "W1604834089",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2979462702",
+    "cited_paper_id": "W2614620964",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2725817383",
+    "cited_paper_id": "W2614620964",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W1977132984",
+    "cited_paper_id": "W2614620964",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4214933144",
+    "cited_paper_id": "W2614620964",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2045236476",
+    "cited_paper_id": "W2614620964",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3181361218",
+    "cited_paper_id": "W3082051346",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3092399442",
+    "cited_paper_id": "W3082051346",
+    "predicted_type": "Realizes",
+    "confidence": 0.8,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 的 Future Work 提出对疫情影响学术出版的深入分析，特别是改变的动态追踪和特定领域如预印本的影响，这与 B 的研究目标探究疫情如何具体影响学术出版模式相契合，尤其 B 提到对预印本服务器和期刊中的变化的研究。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3092399442",
+    "cited_paper_id": "W3106505254",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "B使用不同范式解决类似问题。1. 任务是否相同？两个论文都研究COVID-19疫情对学术出版模式的影响，但侧重点略有不同。 2. 架构是否继承或排斥？B 使用了完全不同的方法进行分析，包括纵向与短期分析的结合，未显示直接继承A的分析框架。 3. 引用意图是改进还是替换？B 提出新发现并强调其分析方法上与A的差异。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3129344682",
+    "cited_paper_id": "W3082051346",
+    "predicted_type": "Overcomes",
+    "confidence": 0.8,
+    "reasoning": "B解决了A的局限性。B 在上下文中批评了 A，指出了 A 的研究由于数据库选择而可能存在偏倚问题。B 的目标是识别和解决研究中的偏倚问题，对应了这一批评。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4229045617",
+    "cited_paper_id": "W3082051346",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3198704192",
+    "cited_paper_id": "W3082051346",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3106637466",
+    "cited_paper_id": "W3082307550",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4313494085",
+    "cited_paper_id": "W3082307550",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3161985147",
+    "cited_paper_id": "W3082307550",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3161985147",
+    "cited_paper_id": "W3082051346",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4206541507",
+    "cited_paper_id": "W3082307550",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4206541507",
+    "cited_paper_id": "W3106637466",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4322743452",
+    "cited_paper_id": "W3082307550",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。Paper B 将 A 中使用的潜在狄利克雷分配（LDA）模型应用到了一个新的任务领域，即从科学文献综述跨越到临床死亡率预测，这是任务机制的显著变化。两个论文的核心问题定义不同，Paper A 着重于利用文本挖掘对已有文献进行综述，而 Paper B 侧重于整合结构化与非结构化数据进行预测，这表明了任务定义上的变化。",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W3009951436",
+    "cited_paper_id": "W3002108456",
+    "predicted_type": "Realizes",
+    "confidence": 0.9,
+    "reasoning": "B实现了A设想的具体未来工作方向。Paper A 提出的对病毒传播途径和潜在感染机制的进一步研究是具体的建议，而 Paper B 通过系统综述和荟萃分析详细描述COVID-19的多维诊断信息，包括临床表现、实验室检查结果及影像学特征，直接体现了对感染机制的深入分析和总结，符合 A 的相应具体规划。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3009951436",
+    "cited_paper_id": "W3001118548",
+    "predicted_type": "Extends",
+    "confidence": 0.9,
+    "reasoning": "B在A的方法基础上做了增量改进。1. 任务是否相同？是的，两个论文都在分析COVID-19患者的临床特征。2. 架构是否继承或排斥？B 在 A 的基础上系统性总结了临床特征，并且通过 Meta 分析增强了数据的统计学说服力，属于增量改进。3. 引用意图是改进还是替换？引用意图是进一步扩展 A 的发现，并通过更多数据和分析方法提升诊断参考价值。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3009951436",
+    "cited_paper_id": "W3003465021",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3002108456",
+    "cited_paper_id": "W3001118548",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3014892682",
+    "cited_paper_id": "W3002108456",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3014892682",
+    "cited_paper_id": "W3001118548",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3003465021",
+    "cited_paper_id": "W3001118548",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3003465021",
+    "cited_paper_id": "W3002108456",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4381332452",
+    "cited_paper_id": "W4360845368",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4390583680",
+    "cited_paper_id": "W4360845368",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4390583680",
+    "cited_paper_id": "W4390583680",
+    "predicted_type": "Realizes",
+    "confidence": 0.9,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 提出的具体建议包括推动老年讲师对 AI 技术的接受度以及持续专业发展计划，而 B 专门探讨老年讲师对 AI 工具的可接受性及其适应策略，符合 A 的建议。",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4389456104",
+    "cited_paper_id": "W4360845368",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4399213274",
+    "cited_paper_id": "W4360845368",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4394684629",
+    "cited_paper_id": "W4360845368",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4403637392",
+    "cited_paper_id": "W4317823603",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。Paper B 使用了自然语言处理技术来研究人类行为相较于政策制定的应用已经有了任务定义上的变化，这不是仅仅的数据集变化，而是涉及任务机制的重大转变。同时，虽然引用了Paper A，但没有具体说明是否直接沿用了其方法框架，结合跨领域应用的特点，判定为适应。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4402418067",
+    "cited_paper_id": "W4317823603",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4394828653",
+    "cited_paper_id": "W4317823603",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。Paper B将自然语言处理(NLP)和情感分析技术应用到了一个新的任务领域，即政党内部民主测量，这与A的政策制定任务有显著区别。这不仅改变了应用任务（从政策制定到政党内部民主测量），而且涉及不同类型的数据处理与分析目标。因此，存在显著的任务跨度，而不仅仅是更换数据集。",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4393097350",
+    "cited_paper_id": "W4317823603",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。Paper B虽然引用了Paper A的方法，将其应用于情绪和科学话语分析，特别关注政策制定者的不确定性和负面情绪，这是一个新的任务定义，与Paper A的政策决策信息抽取和分析任务显著不同。这种应用展现了原有方法在情绪测量和分析中跨域的适应性。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4367397709",
+    "cited_paper_id": "W4317823603",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4407572863",
+    "cited_paper_id": "W4362571217",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4409203754",
+    "cited_paper_id": "W4362571217",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4399304543",
+    "cited_paper_id": "W4362571217",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4393621158",
+    "cited_paper_id": "W4362571217",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3166358520",
+    "cited_paper_id": "W3167123946",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4225755276",
+    "cited_paper_id": "W3167123946",
+    "predicted_type": "Overcomes",
+    "confidence": 0.9,
+    "reasoning": "B解决了A的局限性。B 在上下文中批评了 A 的不足，可能使用了聚焦机制这一短板。B 的目标是提升文本摘要的准确性和相关性，旨在解决 A 方法中的聚焦错误问题。",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4367146269",
+    "cited_paper_id": "W3167123946",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4403045892",
+    "cited_paper_id": "W4390717095",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4414464139",
+    "cited_paper_id": "W4390717095",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4396228665",
+    "cited_paper_id": "W4391326667",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。虽然 Paper B 沿用了来自 Paper A 的量子自然语言处理（QNLP）方法，但其任务从探索神学中的量子语言框架转变为编码日语敬语中的复杂人际交互。Paper B 的任务不再关注神创论或者宇宙起源，而是专注于量子计算中的语言交际问题，这是任务机制上的重大变革，而不是简单的数据集替换。",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W1738868632",
+    "cited_paper_id": "W1574220528",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W1738868632",
+    "cited_paper_id": "W2019515298",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。虽然 B 未声明直接使用 A 的方法，但从上下文看，B 采用了贝叶斯概率等分析方法，并赋予新的创意选择机制。这表明方法核心部分可能沿用。且 B 的任务跨度从理解注意力转移到计算创造力，特别在烹饪配方领域，这构成了任务定义的显著变化（从认知反应研究扩展到创意作品生成）。",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W2244690429",
+    "cited_paper_id": "W1738868632",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-modality）。Paper B显然采用了Paper A的计算创造力系统中的数据处理技术和自动生成结构，运用于量子实验的设计，显示了从计算创造力至量子物理学实验设计的跨模态迁移。虽然核查中没有看到直接的框架应用说明，但采用自动化生成和优化复杂方案，以及算法自主学习等思想，与A中描述的处理机制具有显著相似性。领域跨度足够大，从创造性烹饪到量子态实验设计，任务机制和挑战完全不同，因此是一个成功的跨领域适应。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2244690429",
+    "cited_paper_id": "W1978553093",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2244690429",
+    "cited_paper_id": "W1990593935",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W2244690429",
+    "cited_paper_id": "W2062584998",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2244690429",
+    "cited_paper_id": "W2324176949",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2244690429",
+    "cited_paper_id": "W4233413728",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W2244690429",
+    "cited_paper_id": "W2016757911",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。虽然 Paper B 使用了与 Paper A 类似的自动化方法，但两者的应用领域存在显著差异。Paper A 专注于促进科学假设生成的自动化，而 Paper B 旨在自动化设计与优化复杂量子实验，这涉及不同的任务机制。此外，量子实验中的问题解决方式和扩展目标与科研假设生成截然不同，构成了性质不同的任务跨越。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2950657507",
+    "cited_paper_id": "W1738868632",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2950657507",
+    "cited_paper_id": "W2008757894",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W2950657507",
+    "cited_paper_id": "W2016757911",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2950657507",
+    "cited_paper_id": "W4246649397",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2950657507",
+    "cited_paper_id": "W2765658614",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W2950657507",
+    "cited_paper_id": "W2792315573",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2019515298",
+    "cited_paper_id": "W2103415419",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2019515298",
+    "cited_paper_id": "W1990534247",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2019515298",
+    "cited_paper_id": "W1993468356",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2019515298",
+    "cited_paper_id": "W2032258487",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2096962395",
+    "cited_paper_id": "W2019515298",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "B使用不同范式解决类似问题。1. 任务是否相同？是的，两篇文章都在研究注意力的机制，但关注的侧重点不同。2. 架构是否继承或排斥？B 没有继承 A 的架构，而是采用了一种不同的方式，通过自由能和预测编码将注意力视为对不确定性的贝叶斯推断。3. 引用意图是改进还是替换？B 使用了与 A 不同的理论框架（自由能和预测编码），明确与 A 的贝叶斯惊奇模型不同，因此是一种替代性的方法。",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W2125191661",
+    "cited_paper_id": "W2019515298",
+    "predicted_type": "Realizes",
+    "confidence": 0.9,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 提出的未来工作明确建议将贝叶斯惊讶理论扩展到动态、真实环境中，并整合认知因素如记忆和先验知识，以更好地预测注意力转移；B 的研究基于贝叶斯理论，探讨自闭症个体感知中的感官输入和先验知识的相互作用。B 的研究目标与 A 的未来工作建议中的“整合记忆和先验知识以优化模型预测”的具体方向相呼应。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2110745711",
+    "cited_paper_id": "W2019515298",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2163456594",
+    "cited_paper_id": "W2019515298",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-task）。Paper B引用了Paper A的贝叶斯惊奇模型以探讨大脑不同区域处理意外事件与环境信念更新的方式。这体现了从对注意力机制（认知现象）的量化转向神经机制（生理现象）的应用，这一跨度属于任务定义的变更。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2971754107",
+    "cited_paper_id": "W2019515298",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W1492414030",
+    "cited_paper_id": "W1574220528",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W1989083843",
+    "cited_paper_id": "W1574220528",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W1753393254",
+    "cited_paper_id": "W1574220528",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2114076081",
+    "cited_paper_id": "W1574220528",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2034979488",
+    "cited_paper_id": "W1574220528",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2923537029",
+    "cited_paper_id": "W2244690429",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4211200453",
+    "cited_paper_id": "W2244690429",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2792315573",
+    "cited_paper_id": "W2244690429",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3045928028",
+    "cited_paper_id": "W2244690429",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3045928028",
+    "cited_paper_id": "W2923537029",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2911423727",
+    "cited_paper_id": "W2244690429",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W1990593935",
+    "cited_paper_id": "W1978553093",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W1990593935",
+    "cited_paper_id": "W2062584998",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4304185479",
+    "cited_paper_id": "W2950657507",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4304185479",
+    "cited_paper_id": "W2244690429",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3115677442",
+    "cited_paper_id": "W2950657507",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "B将A的方法迁移到不同领域（ → ，cross-modality）。Paper B utilizes natural language processing and information extraction techniques similar to those described in Paper A for organizing and extracting knowledge from scientific data. However, while Paper A focuses on predicting scientific trends in quantum physics using semantic networks, Paper B focuses on organizing heterogeneous materials data in materials science. The shift from predicting scientific trends in a specific field to organizing diverse data types in materials science represents a cross-modality adaptation.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3115677442",
+    "cited_paper_id": "W2765658614",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W3120244865",
+    "cited_paper_id": "W2950657507",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3013685828",
+    "cited_paper_id": "W2950657507",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3013685828",
+    "cited_paper_id": "W2923537029",
+    "predicted_type": "Realizes",
+    "confidence": 0.9,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 的未来工作中具体指出了要深化机器学习在量子多体问题中的应用，并解决开创性问题，而 B 的研究目标正是解决强关联系统和量子物质中的复杂多体问题。这表明 B 实现了 A 的某些具象化建议。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3013685828",
+    "cited_paper_id": "W2792315573",
+    "predicted_type": "Realizes",
+    "confidence": 0.9,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 的 Future Work 包含了具体建议，如整合量子信息技术与ML/AI基础研究、开发适应量子系统特点的智能学习算法和利用量子计算优化机器学习模型。B 的工作与这些建议匹配，特别是在探索机器学习技术在量子物质中的应用并利用高维数据方法解决量子多体问题，与 A 所提的挑战具有关联性和共性。",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4379016496",
+    "cited_paper_id": "W2950657507",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4379016496",
+    "cited_paper_id": "W2765658614",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4379016496",
+    "cited_paper_id": "W4246649397",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3119952098",
+    "cited_paper_id": "W4311051500",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W225968618",
+    "cited_paper_id": "W2304845716",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3126226315",
+    "cited_paper_id": "W3123893780",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W3118615836",
+    "cited_paper_id": "W3123893780",
+    "predicted_type": "Extends",
+    "confidence": 0.9,
+    "reasoning": "B在A的方法基础上做了增量改进。1. 任务是否相同？ 是，Paper A 和 Paper B 都在解决系统综述报告的透明性和完整性问题。2. 架构是否继承或排斥？ B 是 A 方法论的直接更新，属于同一系列的延续和改进。3. 引用意图是改进还是替换？ B 引用了 A，以改进和更新其指导方针，并没有体现出方法论上的替代或根本性改变。",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W2774486220",
+    "cited_paper_id": "W2519845840",
+    "predicted_type": "Extends",
+    "confidence": 0.9,
+    "reasoning": "B在A的方法基础上做了增量改进。1. 任务是否相同？是的，两个论文都在研究如何在使用R语言的lme4包进行线性混合效应模型分析时，评估固定效应的显著性。2. 架构是否继承或排斥？Paper B 扩展了现有的 lme4 功能，主要通过实现和集成 Satterthwaite 和 Kenward-Roger 方法来获得 p 值，这些方法在 Paper A 中被评估为表现较佳的方法。3. 引用意图是改进还是替换？Paper B 的设计显然是建立在 Paper A 所提出的方法之上，以增加用户使用的便捷性和功能，因此是对方法的扩展而不是替代。",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W2134833483",
+    "cited_paper_id": "W2134833483",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "无明确的深度关系，仅作为基线对比",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W2168420558",
+    "cited_paper_id": "W2168420558",
+    "predicted_type": "Realizes",
+    "confidence": 0.9,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 提出的建议是具体的，包括建立共识及推广标准化，增强细节披露。这与 B 的目标密切相关，B 刚好关注并解决了关于缺乏共识及细节披露的问题，与 A 的具体建议相吻合。",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W4294215472",
+    "cited_paper_id": "W2134833483",
+    "predicted_type": "Overcomes",
+    "confidence": 0.9,
+    "reasoning": "B解决了A的局限性。B 在上下文中批评了 A 的报告不够清晰和透明，并且 B 的目标是为了解决这一不足，通过提供一套改进的指南。",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W3123893780",
+    "cited_paper_id": "W3118615836",
+    "predicted_type": "Realizes",
+    "confidence": 0.9,
+    "reasoning": "B实现了A设想的具体未来工作方向。分析 A 的建议是具体的，指出需要更新PRISMA指南以反映系统综述方法学和术语的最新进展，以确保指南在未来仍然相关和全面。B 的工作正是针对这一点，更新并提供PRISMA 2020，以反映最新进展。",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W3123893780",
+    "cited_paper_id": "W3146142859",
+    "predicted_type": "Realizes",
+    "confidence": 0.9,
+    "reasoning": "B实现了A设想的具体未来工作方向。A 的 Future Work 是对 PRISMA 指南的更新需求，这是一个具体的方向，而 B 正是在提供 PRISMA 2020 的详细说明和示例，来支持系统综述方法学和术语的进展，因此 B 实现了 A 的具体建议。",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W3022903699",
+    "cited_paper_id": "W4294215472",
+    "predicted_type": "Extends",
+    "confidence": 0.9,
+    "reasoning": "B在A的方法基础上做了增量改进。1. 任务是否相同？是的，两个论文都关注于改善系统综述和Meta分析的报告，确保其清晰、透明和完整。2. 架构是否继承或排斥？B中明确使用和进一步解释了A中的PRISMA声明，并提供了详细的指导，是对A的扩展。3. 引用意图是改进还是替换？B引用A是为了改进和进一步阐述PRISMA指南的应用。",
+    "ground_truth": "Realizes"
+  }
+]

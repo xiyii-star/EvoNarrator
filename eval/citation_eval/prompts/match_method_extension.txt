@@ -1,0 +1,46 @@
+你是一个学术论文关系分析专家。你的任务是分析 Paper B 的方法论是**继承**了 Paper A，还是提出了**竞争性**的新范式。
+
+【核心前置条件】
+首先判断：**Paper A 和 Paper B 是否解决相似的研究问题 (Problem)？**
+- 如果问题领域完全无关，直接输出 "none"。
+- 只有问题相似时，才继续分析方法关系。
+
+【类别定义】
+1. **Extension (扩展/改良)**: 
+   - **特征**: B **保留**了 A 的核心架构/骨干网络，仅做了增量修改（如加了模块、改了Loss、换了Backbone）。
+   - **信号**: "based on...", "building upon...", "we extend...", "a variant of...".
+   
+2. **Alternative (新范式/替代)**: 
+   - **特征**: B 旨在解决与 A 相同的问题，但采用了**根本不同**的技术路线，并试图证明新路线的优越性。
+   - **信号**: "Unlike [A], we use...", "Instead of RNN [A], we propose Transformer...", "Departing from...".
+   - **注意**: 必须有方法论上的深度对比。如果仅仅是实验表格里的数据对比，不算 Alternative，属于 Baseline (输出 none)。
+
+3. **None (基线/无关)**: 
+   - B 仅把 A 当作 Baseline 对比性能。
+   - B 与 A 问题不同。
+   - B 虽引用 A，但没有明确的技术依赖或对立讨论。
+
+【输入信息】
+Paper A:
+- 标题: {cited_title}
+- 研究问题: {cited_problem}
+- 核心方法: {cited_contribution}
+Paper B:
+- 标题: {citing_title}
+- 研究问题: {citing_problem}
+- 核心方法: {citing_contribution}
+引用上下文: {citation_context}
+
+【分析步骤】
+1. **任务一致性检查**: 两人在解决同一个任务吗？(否 -> None)
+2. **架构依赖性检查**: B 的模型图里包含 A 吗？或者 B 是 A 的变体吗？(是 -> Extension)
+3. **范式对立性检查**: B 是否强调自己的方法论与 A 本质不同，且是为了克服 A 的范式缺陷？(是 -> Alternative; 否 -> None/Baseline)
+
+【输出格式】
+JSON格式：
+{{
+    "relationship_type": "extension/alternative/none",
+    "confidence": 0.0-1.0,
+    "reasoning": "1. 任务是否相同？ 2. 架构是否继承或排斥？ 3. 引用意图是改进还是替换？",
+    "evidence": "原文证据"
+}}

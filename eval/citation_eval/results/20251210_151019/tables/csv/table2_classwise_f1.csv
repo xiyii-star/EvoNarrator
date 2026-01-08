@@ -1,0 +1,8 @@
+Citation Type,Baseline (Abstract Only),SocketMatch (Deep Info + Logic),Improvement
+Overcomes,0.0690,0.3333,+0.2644 (+383.3%)
+Realizes,0.0000,0.2069,+0.2069 (+0.0%)
+Extends,0.1053,0.5714,+0.4662 (+442.9%)
+Alternative,0.1270,0.3529,+0.2260 (+177.9%)
+Adapts_to,0.1519,0.4516,+0.2997 (+197.3%)
+Baselines,0.4502,0.8529,+0.4026 (+89.4%)
+Average (Macro),0.1506,0.4615,+0.3110 (+206.5%)

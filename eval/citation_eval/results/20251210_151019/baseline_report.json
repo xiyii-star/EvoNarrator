@@ -1,0 +1,115 @@
+{
+  "method_name": "Baseline (Abstract Only)",
+  "total_samples": 230,
+  "overall_metrics": {
+    "accuracy": 0.2826086956521739,
+    "macro_f1": 0.15055466441898477,
+    "weighted_f1": 0.35608396170500195
+  },
+  "per_class_metrics": {
+    "Overcomes": {
+      "precision": 0.25,
+      "recall": 0.04,
+      "f1": 0.06896551724137932,
+      "support": 25
+    },
+    "Realizes": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 10
+    },
+    "Extends": {
+      "precision": 0.06060606060606061,
+      "recall": 0.4,
+      "f1": 0.10526315789473685,
+      "support": 5
+    },
+    "Alternative": {
+      "precision": 0.07407407407407407,
+      "recall": 0.4444444444444444,
+      "f1": 0.12698412698412698,
+      "support": 9
+    },
+    "Adapts_to": {
+      "precision": 0.08695652173913043,
+      "recall": 0.6,
+      "f1": 0.15189873417721517,
+      "support": 10
+    },
+    "Baselines": {
+      "precision": 0.8666666666666667,
+      "recall": 0.30409356725146197,
+      "f1": 0.4502164502164502,
+      "support": 171
+    }
+  },
+  "confusion_matrix": {
+    "Overcomes": {
+      "Overcomes": 1,
+      "Realizes": 3,
+      "Extends": 6,
+      "Alternative": 7,
+      "Adapts_to": 5,
+      "Baselines": 3
+    },
+    "Realizes": {
+      "Overcomes": 0,
+      "Realizes": 0,
+      "Extends": 6,
+      "Alternative": 0,
+      "Adapts_to": 0,
+      "Baselines": 4
+    },
+    "Extends": {
+      "Overcomes": 0,
+      "Realizes": 0,
+      "Extends": 2,
+      "Alternative": 0,
+      "Adapts_to": 2,
+      "Baselines": 1
+    },
+    "Alternative": {
+      "Overcomes": 0,
+      "Realizes": 0,
+      "Extends": 5,
+      "Alternative": 4,
+      "Adapts_to": 0,
+      "Baselines": 0
+    },
+    "Adapts_to": {
+      "Overcomes": 1,
+      "Realizes": 1,
+      "Extends": 2,
+      "Alternative": 0,
+      "Adapts_to": 6,
+      "Baselines": 0
+    },
+    "Baselines": {
+      "Overcomes": 2,
+      "Realizes": 6,
+      "Extends": 12,
+      "Alternative": 43,
+      "Adapts_to": 56,
+      "Baselines": 52
+    }
+  },
+  "distribution": {
+    "predictions": {
+      "Alternative": 54,
+      "Adapts_to": 69,
+      "Extends": 33,
+      "Realizes": 10,
+      "Baselines": 60,
+      "Overcomes": 4
+    },
+    "ground_truth": {
+      "Baselines": 171,
+      "Overcomes": 25,
+      "Alternative": 9,
+      "Adapts_to": 10,
+      "Extends": 5,
+      "Realizes": 10
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "method_name": "SocketMatch (Deep Info + Logic)",
+  "total_samples": 230,
+  "overall_metrics": {
+    "accuracy": 0.717391304347826,
+    "macro_f1": 0.46151089817254837,
+    "weighted_f1": 0.7251733876784728
+  },
+  "per_class_metrics": {
+    "Overcomes": {
+      "precision": 0.5454545454545454,
+      "recall": 0.24,
+      "f1": 0.3333333333333333,
+      "support": 25
+    },
+    "Realizes": {
+      "precision": 0.15789473684210525,
+      "recall": 0.3,
+      "f1": 0.20689655172413793,
+      "support": 10
+    },
+    "Extends": {
+      "precision": 0.4444444444444444,
+      "recall": 0.8,
+      "f1": 0.5714285714285714,
+      "support": 5
+    },
+    "Alternative": {
+      "precision": 0.375,
+      "recall": 0.3333333333333333,
+      "f1": 0.35294117647058826,
+      "support": 9
+    },
+    "Adapts_to": {
+      "precision": 0.3333333333333333,
+      "recall": 0.7,
+      "f1": 0.45161290322580644,
+      "support": 10
+    },
+    "Baselines": {
+      "precision": 0.8765432098765432,
+      "recall": 0.8304093567251462,
+      "f1": 0.8528528528528528,
+      "support": 171
+    }
+  },
+  "confusion_matrix": {
+    "Overcomes": {
+      "Overcomes": 6,
+      "Realizes": 3,
+      "Extends": 1,
+      "Alternative": 1,
+      "Adapts_to": 2,
+      "Baselines": 12
+    },
+    "Realizes": {
+      "Overcomes": 1,
+      "Realizes": 3,
+      "Extends": 3,
+      "Alternative": 0,
+      "Adapts_to": 0,
+      "Baselines": 3
+    },
+    "Extends": {
+      "Overcomes": 0,
+      "Realizes": 0,
+      "Extends": 4,
+      "Alternative": 0,
+      "Adapts_to": 0,
+      "Baselines": 1
+    },
+    "Alternative": {
+      "Overcomes": 1,
+      "Realizes": 4,
+      "Extends": 0,
+      "Alternative": 3,
+      "Adapts_to": 0,
+      "Baselines": 1
+    },
+    "Adapts_to": {
+      "Overcomes": 0,
+      "Realizes": 0,
+      "Extends": 0,
+      "Alternative": 0,
+      "Adapts_to": 7,
+      "Baselines": 3
+    },
+    "Baselines": {
+      "Overcomes": 3,
+      "Realizes": 9,
+      "Extends": 1,
+      "Alternative": 4,
+      "Adapts_to": 12,
+      "Baselines": 142
+    }
+  },
+  "distribution": {
+    "predictions": {
+      "Baselines": 162,
+      "Realizes": 19,
+      "Adapts_to": 21,
+      "Overcomes": 11,
+      "Alternative": 8,
+      "Extends": 9
+    },
+    "ground_truth": {
+      "Baselines": 171,
+      "Overcomes": 25,
+      "Alternative": 9,
+      "Adapts_to": 10,
+      "Extends": 5,
+      "Realizes": 10
+    }
+  }
+}

@@ -1,0 +1,34 @@
+你是一个NLP领域的学术论文关系分析专家。你的任务是检测 Paper B 是否实现了 Paper A 在未来工作中设想的 **具体规划**。
+
+【核心挑战：区分“真传承”与“客套话”】
+很多论文的 Future Work 只是通用的客套话（如 "improve accuracy", "reduce cost", "explore more datasets"）。如果 B 只是做了这些通用改进，应当归类为 Method Extension 或 Overcomes，而不是 Realizes。
+**Realizes 必须对应 A 提出的具象化建议。**
+
+【判别标准】
+1. **Specific (高价值 - Realizes)**: A 明确指出了具体的**新领域、新模态、特定的未解决子任务、或者具体的算法改进方向**（例如："extend to video modality", "integrate with knowledge graph", "fix the decoding bug"）。
+2. **Generic (低价值 - 忽略或低置信度)**: A 只是说希望“提高性能”、“扩展应用”、“将来做更多实验”。
+
+【输入信息】
+Paper A (被引用):
+- 标题: {cited_title}
+- A 的未来展望 (Future Work): {cited_future_work}
+Paper B (引用者):
+- 标题: {citing_title}
+- B 的研究目标 (Problem): {citing_problem}
+引用上下文 (Context): {citation_context}
+
+【分析步骤】
+1. **提取 A 的建议**: A 的 Future Work 是具体的（Specific）还是通用的（Generic）？
+2. **比对 B 的工作**: B 是否刚好做了 A 建议的那件事？
+3. **评分**: 只有当 A 的建议足够具体，且 B 确实执行了，才给予高置信度。
+
+【输出格式】
+请以JSON格式输出：
+{{
+    "is_match": true/false,
+    "specificity": "high/low",  // high: 具体的填坑; low: 通用的性能提升
+    "confidence": 0.0-1.0,      // 如果 specificity 为 low，confidence 不应超过 0.5
+    "reasoning": "分析 A 的建议是否具体，以及 B 是否对应实现。",
+    "evidence": "A 的建议关键词 vs B 的目标关键词"
+}}
+只输出JSON，不要有其他文字。

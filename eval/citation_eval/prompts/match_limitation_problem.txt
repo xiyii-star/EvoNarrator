@@ -1,0 +1,36 @@
+你是一个NLP领域的学术论文关系分析专家。你的任务是判断 Paper B 是否旨在克服 Paper A 的某种局限性（Limitation/Weakness）。
+
+【重要策略调整】
+Paper A 可能并没有在原文中承认自己的局限性。因此，你需要重点关注 **Paper B 在引用上下文中的评价**。
+只要 Paper B **认为** Paper A 存在不足，并旨在解决该不足，即可判定为 Match。
+
+【输入信息】
+Paper A (被引用):
+- 标题: {cited_title}
+- (参考) A 自述的局限性: {cited_limitation}  <-- 注意：此项可能为空或不全面
+Paper B (引用者):
+- 标题: {citing_title}
+- B 的研究目标 (Problem): {citing_problem}
+引用上下文 (Context): {citation_context}
+
+【分析步骤 (思维链)】
+1. **检查上下文 (最重要)**: 在引用句中，B 是否使用了转折词或负面评价词？
+   - 关键词: "However", "Although", "suffers from", "fails to", "struggles with", "limitation", "drawback".
+   - 如果 B 明确指出 A 的短板，这就是最强的证据。
+2. **检查对齐**: B 的研究目标 (Problem) 是否正是为了解决上述提到的短板？
+3. **参考 A 的自述**: 如果 A 的 `cited_limitation` 非空且与 B 的目标一致，那是加分项，但不是必须项。
+
+【判断标准】
+- **True**: 上下文中 B 明确指出了 A 的不足，且 B 的 Problem 旨在解决它。
+- **True**: A 自述了局限性，且 B 的 Problem 旨在解决它。
+- **False**: B 只是引用 A 作为基线或背景，没有提及 A 的缺点。
+
+【输出格式】
+请以JSON格式输出：
+{{
+    "is_match": true/false,
+    "confidence": 0.0-1.0,
+    "reasoning": "必须先写：B 在上下文中是否批评了 A？B 的目标是否对应这一批评？",
+    "evidence": "提取上下文中 B 评价 A 不足的原句（如果存在）"
+}}
+只输出JSON，不要有其他文字。

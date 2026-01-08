@@ -1,0 +1,1842 @@
+[
+  {
+    "citing_paper_id": "W4385570829",
+    "cited_paper_id": "W4283026156",
+    "predicted_type": "Alternative",
+    "confidence": 0.85,
+    "reasoning": "Paper B discusses the convergence of methods between speech processing and NLP, proposing a more unified approach that contrasts with Paper A's focus on emergent abilities in scaled language models. Paper B provides an alternative perspective by aiming to shift focus from written to spoken language, differing fundamentally in approach and focus from Paper A's exploration of model scaling and emergent abilities.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4385570829",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper B seems to be applying NLP techniques to a veterinary neurology task (diagnosis of a collapsing dog), which suggests adaptation of techniques from Paper A. Since Paper A discusses combining speech and NLP for more natural processing, Paper B's application in veterinary science likely adapts these ideas to a new domain.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4365512576",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B discusses the use of ChatGPT in the domain of veterinary neurology and neurosurgery, which is a different field from the general applications discussed in Paper A. The emphasis on a specific application within veterinary science suggests a cross-domain adaptation of ChatGPT's capabilities, hence it likely 'adapts' the technology from Paper A to a new domain.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4321472314",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "The citing paper titled 'Can ChatGPT diagnose my collapsing dog?' suggests an adaptation of the pretrained foundation model ChatGPT for a veterinary application, which appears to be a different domain or task than those discussed in the comprehensive survey paper. However, the lack of detail in the provided abstract for Paper B limits the confidence level.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4317910584",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B adapts the use of ChatGPT discussed in Paper A, which focuses on higher education, to the veterinary domain, specifically exploring its application for diagnosing animals in veterinary neurology. This indicates a cross-domain transfer of the technology's application.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4362722657",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B applies the concept of using ChatGPT, a form of generative AI mentioned in Paper A, to a different domain—veterinary science. Paper A discusses the implications and future research avenues for GenAI broadly, while Paper B adapts the technology to diagnose veterinary problems, indicating a cross-domain application.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4378474327",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.85,
+    "reasoning": "Paper B applies ChatGPT, discussed in Paper A, to the specific domain of veterinary neurology for diagnosing animal conditions. This adapts the general applicability of ChatGPT to a new, specialized task as suggested in Paper A, which includes extending applicability to additional domains.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W4385570829",
+    "predicted_type": "Extends",
+    "confidence": 0.8,
+    "reasoning": "Paper B expands upon Paper A's idea of integrating speech with mainstream NLP by exploring the integration of speech modality with large language models (LLMs), thus pushing the unification of speech and text processing further with modern techniques. While Paper B does not directly solve a limitation or implement specific future directions outlined in Paper A, it improves understanding of the integration of spoken language within NLP, aligning with the vision hinted at in Paper A's abstract.",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W3184326107",
+    "predicted_type": "Alternative",
+    "confidence": 0.75,
+    "reasoning": "Paper A discusses creating benchmarks for speech recognition and proposes a new framework for understanding ASR performance. Paper B introduces the integration of large language models with speech recognition, categorizing new methodologies. The focus on LLMs represents an alternative approach to enhance speech recognition capabilities, addressing similar problems described in Paper A but through a different technological path.",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W2160451571",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper B discusses integrating speech with large language models, which suggests adapting language model techniques (possibly including bidirectional RNNs from Paper A) for broader multifunctional use across various speech-related applications. This implies a cross-domain application of techniques presented in Paper A.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W2752142537",
+    "predicted_type": "Alternative",
+    "confidence": 0.75,
+    "reasoning": "Paper B proposes an alternative approach by integrating speech with large language models, which is different from Paper A's focus on using ASR for visualizing conceptual networks in classrooms. Paper B is exploring speech recognition within the context of LLMs, offering new methods that differ from Paper A's specific application.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W2327501763",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.75,
+    "reasoning": "Paper B is adapting the neural network approach for speech recognition (as presented in Paper A) towards integration with large language models (LLMs), thus fitting the transfer to a different modality or task framework. The adaptation to use with LLMs signifies a cross-domain application from pure speech transcription to broader multi-modal systems, specifically involving language models.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W4221156109",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "While Paper A presents a GAN-based approach for noise-robust speech recognition requiring minimal in-domain data, Paper B surveys methods of integrating speech with large language models across various applications. Paper B cites Paper A likely because it adapts the concepts of robust speech recognition to the broader domain of integrating speech with LLMs, viewing it in context of improving task performance in various speech-related applications.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4406928793",
+    "cited_paper_id": "W4402657501",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper B discusses the application of NLP techniques in the domain of cybersecurity, a different area from financial regulation explored in Paper A. While Paper A focuses on semantic matching in financial regulation without supervised learning data, Paper B reviews the role of LLMs across various cybersecurity tasks, suggesting an alternative application of similar NLP technologies to address cybersecurity challenges. The abstracts do not indicate a resolution of limitations from Paper A nor direct implementation or extension of Paper A's methods.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4406928793",
+    "cited_paper_id": "W4385274673",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper A discusses the challenges and recommendations associated with digital transformation and cybersecurity, emphasizing a staged readiness framework for businesses. Paper B, on the other hand, explores the role of large language models in enhancing cybersecurity, focusing on how LLMs can transform traditional security mechanisms by enhancing capabilities like threat detection and incident response. This suggests that Paper B proposes an alternative approach to addressing cybersecurity challenges during digital transformation, using LLMs as the innovative element.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4406928793",
+    "cited_paper_id": "W4372342980",
+    "predicted_type": "Extends",
+    "confidence": 0.75,
+    "reasoning": "Paper B uses LLMs to enhance cybersecurity mechanisms, which appears to extend the defense mechanisms outlined in Paper A by providing new technological solutions (LLMs) to address cybersecurity challenges, including those posed by APTs. While Paper A discusses a variety of defense strategies, Paper B adds to this by exploring the role of LLMs, demonstrating an incremental improvement into the realm of cyber defenses, especially against sophisticated threats like APTs.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4406928793",
+    "cited_paper_id": "W4385553016",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper A discusses filter bubbles in recommender systems focusing on diversity and bias in content recommendations, while Paper B addresses cybersecurity challenges using large language models. Although both papers deal with the challenges posed by digital systems, they propose different approaches and solutions related to distinct areas (content recommendation vs. cybersecurity). Therefore, Paper B represents an alternative approach to dealing with digital ecosystem challenges beyond the scope of filter bubbles, focusing instead on security issues.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4406928793",
+    "cited_paper_id": "W4224940282",
+    "predicted_type": "Realizes",
+    "confidence": 0.85,
+    "reasoning": "Paper A discusses future research directions in security and privacy challenges, particularly in RSs. Paper B explores the transformative role of LLMs in cybersecurity, which includes addressing privacy concerns—a direction highlighted in Paper A. Thus, Paper B realizes one of Paper A's suggested future work directions regarding privacy in security systems.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4406928793",
+    "cited_paper_id": "W4401314842",
+    "predicted_type": "Alternative",
+    "confidence": 0.85,
+    "reasoning": "Paper B introduces the use of Large Language Models (LLMs) as an alternative approach to address cybersecurity challenges, whereas Paper A focuses on AI-driven detection techniques including ML, DL, and metaheuristic algorithms for the same purpose. While Paper B acknowledges the limitations of traditional mechanisms that Paper A reviews, it offers a different methodology (LLMs) to solve cybersecurity issues, indicating an alternative citation relationship.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4411679450",
+    "cited_paper_id": "W4402657501",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper A discusses NLP techniques for semantic matching in financial regulation, while Paper B explores using Large Language Models for reasoning on financial regulatory texts such as Basel III. Although both papers address NLP applications in the financial sector, they focus on different aspects: semantic matching by Paper A and reasoning strategies by Paper B. Paper B seems to propose an alternative approach with a different focus (LLMs for reasoning versus NLP for semantic matching) rather than directly building upon or extending the specific techniques outlined in Paper A.",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W4411679450",
+    "cited_paper_id": "W2997188511",
+    "predicted_type": "Baselines",
+    "confidence": 0.8,
+    "reasoning": "Paper B focuses on financial regulatory texts using LLMs, whereas Paper A uses deep learning for option pricing. The lack of direct methodological overlap and distinct problem domains suggests Paper A is likely used as a baseline or background reference in Paper B, rather than a methodological base.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411679450",
+    "cited_paper_id": "W4247451115",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Paper B explores the use of Large Language Models for interpreting financial regulatory texts and evaluating risk weights, which is a different approach from Paper A's use of deep reinforcement learning for hedging derivatives in the presence of market frictions. Both papers deal with financial models in different contexts, suggesting an alternative approach rather than direct improvement, adaptation, or baseline usage.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411679450",
+    "cited_paper_id": "W3006682208",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Paper B proposes a different approach by using Large Language Models for interpreting financial texts, which is a distinct task compared to the fraud detection methods using machine learning as described in Paper A. There is no indication that Paper B builds upon, overcomes, or directly relates to the methods used in Paper A for identifying credit card fraud, thus classifying it as proposing an alternative approach within a different domain.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411679450",
+    "cited_paper_id": "W2016944307",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.6,
+    "reasoning": "Without details of Paper A's abstract, it's challenging to determine the exact relationship type with high confidence. However, Paper B involves using alternative reasoning strategies with Large Language Models for analyzing financial texts, suggesting it adapts or applies some aspect related to the significance tests in Paper A possibly to a different domain (financial regulatory texts). Given the lack of domain context from Paper A, this is a tentative classification.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4402999283",
+    "cited_paper_id": "W4365145460",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B adapts natural language processing techniques for Serbian, as discussed in Paper A, to the domain of Sevdah music lyrics generation, a different cultural and linguistic task. Paper B does not seem to address a limitation or suggest future work from Paper A, nor does it merely use Paper A as a baseline. The primary relationship is the application of NLP methods, potentially similar to those surveyed in Paper A, in a new domain.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4402999283",
+    "cited_paper_id": "W573894970",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "Paper B adapts the cultural and historical insights on Sevdah lyrics discussed in Paper A to the domain of AI and NLP, generating new Sevdah lyrics through computational methods. The focus is on preserving and promoting Bosnian intangible cultural heritage through innovative technology, indicating cross-domain transfer.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4402999283",
+    "cited_paper_id": "W4380189911",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "Paper B adapts the LSTM-based lyric generation approach from Paper A to a different domain, focusing specifically on traditional Bosnian Sevdah music, which involves accommodating specific cultural and emotional characteristics not addressed in Paper A. The adaptation to Sevdah music represents a cross-domain transfer, while utilizing similar deep learning techniques for lyric generation.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4402999283",
+    "cited_paper_id": "W2095513884",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B adapts the method of lyric generation discussed in Paper A to a different domain; specifically, it applies it to the cultural domain of Sevdah music. While Paper A discusses automated lyric generation, Paper B focuses on generating lyrics for a specific type of music, indicating a cross-domain transfer. The abstracts suggest adaptation rather than direct extension or improvement, especially since Paper B employs distinct methodologies (using LSTM and BERTić for Sevdah lyrics) compared to the CFGs mentioned in Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4402999283",
+    "cited_paper_id": "W3169037993",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper B utilizes NLP models, specifically an adaptation of BERT (BERTić) for generating Sevdah lyrics. While Paper A explores how linguistic structures impact model perplexity, Paper B applies NLP models to a new domain—traditional Bosnian Sevdah music. Given that Paper B adapts techniques discussed in Paper A to a different cultural and musical context, the relationship aligns with 'Adapts_to'.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4384071683",
+    "cited_paper_id": "W4283026156",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.85,
+    "reasoning": "Paper B adapts the concept of large language models from Paper A to the clinical domain by applying them to medical question answering databases and introducing a benchmark and evaluation framework specific to this domain. It uses the scale of models and evaluates their clinical knowledge, which aligns with the emergent abilities discussed in Paper A but within a new application area.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4391136507",
+    "cited_paper_id": "W4283026156",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "Paper B provides an evaluation framework for large language models, encompassing various applications and case studies, but does not directly address emergent abilities. Paper B likely uses Paper A's description of emergent abilities as a background reference to underscore the complexity of LLM capabilities that need thorough evaluation.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4367595583",
+    "cited_paper_id": "W4283026156",
+    "predicted_type": "Extends",
+    "confidence": 0.7,
+    "reasoning": "Paper B provides an overview of ChatGPT, highlighting its core techniques including the use of large-scale language models that are related to the emergent abilities discussed in Paper A. This suggests an extension of the concepts from Paper A regarding the capabilities of large language models, particularly as applied in the context of ChatGPT, which can be seen as an incremental improvement using those emergent abilities.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4390692489",
+    "cited_paper_id": "W4283026156",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper B proposes a unified framework to enhance large language models (LLMs) by integrating them with Knowledge Graphs (KGs). This approach provides an alternative to the unpredictability discussed in Paper A by explicitly incorporating external factual knowledge, which could offer more control and predictability over the emergence phenomena in LLMs highlighted in Paper A.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4390692489",
+    "cited_paper_id": "W4392669753",
+    "predicted_type": "Realizes",
+    "confidence": 0.8,
+    "reasoning": "Paper A evaluates limitations of ChatGPT in reasoning, hallucination, and interactivity, which are common issues with large language models. Paper B addresses these limitations by proposing the unification of Large Language Models with Knowledge Graphs to enhance factual knowledge access, inference, and interpretability. This approach can be seen as realizing a direction for future improvements in LLMs suggested by evaluating their limitations.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4392669753",
+    "cited_paper_id": "W4283026156",
+    "predicted_type": "Baselines",
+    "confidence": 0.6,
+    "reasoning": "The citing paper is an evaluation of a language model's abilities, likely comparing its performance, including emergent abilities described in Paper A. Without further details on incremental improvements or domain adaptation, the safest classification with given information is using Paper A as a comparative baseline.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4392669753",
+    "cited_paper_id": "W4365512576",
+    "predicted_type": "Baselines",
+    "confidence": 0.6,
+    "reasoning": "The abstract of Paper B is missing, which limits the ability to fully evaluate the relationship type. However, based on the fact that Paper B seems to be focused on evaluating ChatGPT using specific criteria (reasoning, hallucination, and interactivity), it is plausible that Paper B uses the reviews and insights from Paper A to provide context or as a background reference for its evaluation. This suggests a 'Baselines' relationship, but with low confidence due to limited information.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4408190306",
+    "cited_paper_id": "W4406928793",
+    "predicted_type": "Baselines",
+    "confidence": 0.8,
+    "reasoning": "Paper B mentions integrating AI-driven solutions in various industries, while Paper A explores LLMs in cybersecurity. Paper B likely uses Paper A as a background reference to understand the landscape of AI applications. This does not indicate a direct overcoming, realization, extension, or adaptation based on the abstracts provided.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4407518214",
+    "cited_paper_id": "W4406928793",
+    "predicted_type": "Alternative",
+    "confidence": 0.75,
+    "reasoning": "Paper A discusses the role of LLMs in cybersecurity, particularly in threat detection and incident response, while Paper B surveys ML techniques for malware detection across diverse platforms. Paper B does not utilize LLMs or address the specific challenges highlighted in Paper A, such as interpretability or scalability of LLMs, nor does it propose solutions to the limitations of LLMs in cybersecurity. Instead, Paper B offers an alternative approach focusing on ML techniques across different platforms, suggesting a distinct method for addressing malware detection beyond the scope of Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4414437166",
+    "cited_paper_id": "W4406928793",
+    "predicted_type": "Extends",
+    "confidence": 0.85,
+    "reasoning": "Paper B builds upon the discussion in Paper A about the application of LLMs in cybersecurity by specifically focusing on software vulnerability detection techniques, refining methods discussed in Paper A related to detecting and analyzing vulnerabilities with advanced features such as pattern identification and repair suggestion generation.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4409261463",
+    "cited_paper_id": "W4406928793",
+    "predicted_type": "Extends",
+    "confidence": 0.85,
+    "reasoning": "Paper B discusses foundational concepts of deep learning and large language models in cybersecurity, highlighting their applications and challenges. While Paper A reviews the transformative role of LLMs and identifies future research directions, Paper B extends the discussion by integrating deep learning with LLMs, exploring their synergy and how they advance cybersecurity. The focus on complementary technologies suggests an incremental improvement over the concepts reviewed in Paper A.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4415378952",
+    "cited_paper_id": "W4406928793",
+    "predicted_type": "Extends",
+    "confidence": 0.8,
+    "reasoning": "Paper B builds upon the role of LLMs in cybersecurity as discussed in Paper A, examining their applications across various cybersecurity domains in more detail, thus extending the discussion on the capabilities and challenges of LLMs in cybersecurity contexts. While both papers discuss limitations and challenges, Paper B provides a deeper dive into specific areas, implying an incremental improvement or extension of the scope discussed in Paper A.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4385553016",
+    "cited_paper_id": "W4224940282",
+    "predicted_type": "Realizes",
+    "confidence": 0.7,
+    "reasoning": "Paper A provides a comprehensive review of security and privacy in recommender systems and discusses future perspectives. Paper B systematically reviews the phenomenon of filter bubbles in recommender systems, which aligns with privacy concerns and could be considered a realization of a topic possibly suggested by Paper A's future outlook discussions. As Paper A's abstract is not available, the confidence is moderate.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4392938070",
+    "cited_paper_id": "W4387500228",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B discusses the applications and challenges of ChatGPT in the medical field broadly, likely adapting insights or methods from Paper A, which specifically questioned ChatGPT's capabilities in veterinary diagnosis, to a wider healthcare context. This suggests adapting the topic from veterinary to human medicine.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4393177740",
+    "cited_paper_id": "W4387500228",
+    "predicted_type": "Extends",
+    "confidence": 0.8,
+    "reasoning": "Paper B provides practical guidance on the applications of ChatGPT in veterinary medicine, expanding on the opinions given in Paper A regarding ChatGPT's potential diagnostic capabilities. While Paper A is an opinion piece questioning the diagnostic capabilities of ChatGPT, Paper B extends this discourse by exploring specific applications, ethical considerations, and practical implementations in clinical settings. This suggests an incremental improvement or extension rather than just using Paper A as a baseline or proposing alternatives.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4393177740",
+    "cited_paper_id": "W4395961081",
+    "predicted_type": "Extends",
+    "confidence": 0.85,
+    "reasoning": "Paper B expands on the applications of ChatGPT in veterinary medicine as outlined in Paper A. While Paper A discusses the potential and challenges of AI chatbots in pet health care, Paper B provides specific guidance, actionable examples, and applications in clinical, educational, and research domains, thus improving upon and extending the discussion set forth in Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4395961081",
+    "cited_paper_id": "W4387500228",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper B explores the use of AI chatbots, like ChatGPT, as alternative tools for pet health care, demonstrating their potential benefits and challenges compared to traditional veterinary consultations, which aligns with discussing alternative approaches.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4399330792",
+    "cited_paper_id": "W4387500228",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper A discusses the potential of using ChatGPT in veterinary neurology. Paper B adapts the use of ChatGPT and integrates it with Brain-Computer Interfaces (BCI) and virtual reality (VR) for diagnosis and treatment in human neurosciences, applying the core idea to a different domain.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4399127311",
+    "cited_paper_id": "W4387500228",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper B discusses the role of AI in veterinary diagnostics broadly, considering various applications and limitations, which suggests an alternative, broader approach compared to the specific query of AI diagnosing a collapsing dog described in Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411249471",
+    "cited_paper_id": "W4411249889",
+    "predicted_type": "Baselines",
+    "confidence": 0.2,
+    "reasoning": "Without the abstracts, it is challenging to determine the exact nature of the citation relationship. However, based on the titles alone, Paper B likely uses Paper A for background or comparison, possibly involving baselines in language models or speech recognition. Given the lack of specific information, the confidence level is low.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4221156109",
+    "cited_paper_id": "W2327501763",
+    "predicted_type": "Extends",
+    "confidence": 0.8,
+    "reasoning": "Paper B proposes noise-robust improvements in speech recognition by utilizing a generative adversarial network to simulate noisy data and a dual-path system, potentially extending the capabilities of the model presented in Paper A which focuses on end-to-end transcriptions without traditional models. While Paper A does not specifically address noise robustness, Paper B's dual-path system likely builds upon the end-to-end concept from LAS to handle noisy conditions, thereby extending its application.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2997188511",
+    "cited_paper_id": "W4247451115",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper B applies deep learning methods to a different style of option (American-style options), whereas Paper A deals specifically with hedging a portfolio of derivatives, which suggests a cross-domain adaptation. Both papers focus on pricing and hedging strategies, but Paper B seems to apply similar methods as in Paper A to a different type of derivatives, hence adapts the approach to a different task.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4380189911",
+    "cited_paper_id": "W2095513884",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper B uses LSTM and RNN models for lyrics generation, which is an alternative method to the CFG-based approach used in Paper A. The abstract of Paper B indicates a focus on a different technique for achieving a similar task discussed in Paper A, suggesting an 'Alternative' citation relationship type.",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4378474327",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "Paper B seems to adapt ChatGPT into the domain of Veterinary Neurology and Neurosurgery, exploring its application in diagnosing issues related to animals, which is a different domain than those proposed in Paper A (Robotics and Computer Vision).",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W4385570829",
+    "predicted_type": "Extends",
+    "confidence": 0.85,
+    "reasoning": "Paper B uses advancements in large language models to improve the error correction in automatic speech recognition systems. This represents an incremental improvement upon the convergence of speech processing and NLP methods mentioned in Paper A. While Paper A suggests unified approaches to integrate spoken language seriously within NLP, Paper B extends this idea by addressing specific issues in ASR performance using deep learning and linguistic knowledge from LLMs.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W3184326107",
+    "predicted_type": "Overcomes",
+    "confidence": 0.85,
+    "reasoning": "Paper A discusses the limitation of ASR systems failing to generalize and introduces frameworks for improving benchmarks. Paper B addresses performance degradation issues in ASR by using Large Language Models for generative error correction, suggesting it overcomes the limitation mentioned in Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W2160451571",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper B leverages the linguistic capabilities of large language models to improve ASR systems, addressing performance degradation in noisy environments. This indicates an alternative approach to the bidirectional RNNs used in Paper A for enhancing speech recognition by focusing on another aspect of the problem, using language model-based error correction rather than improving the RNN architecture itself.",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W2752142537",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Paper B presents a novel approach by integrating large language models (LLMs) to enhance ASR systems, specifically targeting errors due to adverse conditions such as background noise. This approach contrasts with Paper A's focus on visualization in classroom settings, indicating an alternative methodology to address ASR challenges.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4411249889",
+    "cited_paper_id": "W2327501763",
+    "predicted_type": "Extends",
+    "confidence": 0.7,
+    "reasoning": "Paper B discusses using large language models for error correction in ASR, addressing performance degradation in adverse conditions. This can be seen as an extension to the method in Paper A, which focuses on speech recognition using the LAS model. The improvement with large language models can be considered an incremental improvement on the foundational technique described in Paper A.",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W4390692489",
+    "cited_paper_id": "W4283026156",
+    "predicted_type": "Extends",
+    "confidence": 0.8,
+    "reasoning": "Paper B enhances the capabilities of large language models (discussed in Paper A) by integrating them with knowledge graphs to address their factual knowledge limitations and improve interpretability, suggesting an extension of their usage.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4321472314",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B applies ChatGPT (discussed in Paper A) to veterinary neurology, specifically for diagnosing a dog, which suggests adaptation of PFMs to a different domain.",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W4387500228",
+    "cited_paper_id": "W4378474327",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B adapts the AI language model technology discussed in Paper A (ChatGPT) to a different domain, which is veterinary neurology and neurosurgery. This aligns with the speculated expansion of ChatGPT's applicability to additional technologies as mentioned in Paper A's abstract.",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W4409261463",
+    "cited_paper_id": "W4406928793",
+    "predicted_type": "Extends",
+    "confidence": 0.8,
+    "reasoning": "Paper B discusses the integration of deep learning and LLMs to enhance cybersecurity, focusing on advanced threat detection and identification techniques. This builds upon the applications of LLMs in cybersecurity explored in Paper A by incorporating additional deep learning techniques. Thus, it extends the methods and applications from Paper A rather than introducing a fundamentally different approach or problem solution.",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W4221156109",
+    "cited_paper_id": "W2327501763",
+    "predicted_type": "Alternative",
+    "confidence": 0.85,
+    "reasoning": "Paper B introduces a generative adversarial network (SimuGAN) for creating noisy spectrums and a dual-path recognition system to enhance noise robustness, presenting a distinct approach compared to the end-to-end neural network of LAS described in Paper A. While Paper A focuses on end-to-end modeling to improve performance without relying on traditional components, Paper B addresses noise robustness with a novel dual-path system indicating an alternative approach to enhancing speech recognition systems.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4205802268",
+    "cited_paper_id": "W2070205520",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper A discusses corpus tools for lexicography, while Paper B focuses on computational linguistics methods for translation. Paper B potentially adapts tools or methods from Paper A (such as those in the Sketch Engine) to the domain of translation, indicating an adaptation to a different task or domain.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4205802268",
+    "cited_paper_id": "W2614620964",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper A focuses on corpus linguistics as a methodology and theoretical framework, while Paper B applies computational linguistics methods to translation, which likely includes using corpus methods in this different domain. This suggests an adaptation of methodologies described in Paper A to the field of translation.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4205802268",
+    "cited_paper_id": "W2155870214",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper B discusses the application of computational linguistics methods to the field of translation, which might involve using web-crawled corpora like those in Paper A for linguistic data collection and analysis. This suggests adapting the resources or methods from Paper A to a different domain (translation).",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4205802268",
+    "cited_paper_id": "W2012976256",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B focuses on computational linguistics methods for translation, which implies it likely adapts methods from Paper A regarding linguistic data examination for a different application domain, i.e., translation. Paper A provides a detailed examination of English variations, which can be a valuable resource for translation studies.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3122397014",
+    "cited_paper_id": "W3082051346",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B describes an NLP library used by healthcare organizations, potentially for tasks related to Covid-19, adapting Paper A's findings on Covid-19-related literature publication. While Paper A provides data on publishing trends in the Covid-19 domain, Paper B adapts this context (the high volume of Covid-19 publications) to implement NLP solutions, particularly in healthcare, where Covid-19 is a relevant topic.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3122397014",
+    "cited_paper_id": "W3082307550",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "The abstracts suggest that Paper A discusses text mining applied to public health literature, while Paper B describes an NLP library widely used by healthcare organizations. This indicates Paper B could be adapting or using text mining techniques, similar to those in Paper A, in healthcare NLP applications or analysis, likely in a different technological stack and broader language support.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4360845368",
+    "cited_paper_id": "W4205802268",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper B focuses on the ethical implications in translation technology, which is distinct from the technical and methodological focus of Paper A. It proposes new models and tools to address ethical sub-competence, suggesting an alternative approach to translation methodology emphasized by Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4360845368",
+    "cited_paper_id": "W2083078026",
+    "predicted_type": "Extends",
+    "confidence": 0.75,
+    "reasoning": "Paper B appears to extend the discussion on the importance of ethical considerations in translation, specifically focusing on technological contexts in translator training. While Paper A discusses balancing ethical aspects in translation in terms of fidelity and function, Paper B expands this by incorporating the role of technology and the need for ethical training, addressing previously unconsidered dimensions (technology in translation). Thus, Paper B builds upon the discourse initiated in Paper A by integrating new facets—technological ethics—into the original framework of translation ethics.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4360845368",
+    "cited_paper_id": "W3133702157",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper A discusses the ethical risks associated with large language models in NLP and suggests new research directions, including ethical considerations. Paper B addresses ethical issues in translation technology training, identifying gaps in ethical competence models and developing new models and tools. While both papers discuss ethical considerations related to AI, Paper B does so in the context of translation, suggesting an alternative application of ethical scrutiny in another domain rather than directly building upon or overcoming Paper A's findings.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4360845368",
+    "cited_paper_id": "W3183428091",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.85,
+    "reasoning": "Paper B adapts the concepts from Paper A, specifically the emphasis on ethical competence and critical decision-making, by attempting to integrate these concepts into translator training, which is a different domain than general ethical courses discussed in Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4360845368",
+    "cited_paper_id": "W4244669226",
+    "predicted_type": "Extends",
+    "confidence": 0.8,
+    "reasoning": "Paper B builds upon the ethical issues discussed in Paper A and identifies a gap in translator training concerning ethical competence, particularly in relation to technology. It then proposes new models and tools to address this gap, which suggests an improvement or extension upon the analysis presented in Paper A regarding ethical considerations in translation studies.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4360845368",
+    "cited_paper_id": "W4241903662",
+    "predicted_type": "Alternative",
+    "confidence": 0.75,
+    "reasoning": "Without the abstract of Paper A, it is challenging to definitively determine the exact relationship. However, based on the provided content from Paper B's abstract, it appears that Paper B discusses ethical competence in the use of translation technology, which might be an alternative focus compared to the issues of machine translation literacy discussed in Paper A. Thus, Paper B proposes an alternative approach within the broad domain of translation technology education, focusing specifically on ethics.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4317823603",
+    "cited_paper_id": "W4205802268",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B adapts computational linguistics methods described in Paper A, specifically NLP techniques, to a different domain—policymaking. This indicates a cross-domain transfer of methods from translation to political activities.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4317823603",
+    "cited_paper_id": "W4238374879",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper B applies natural language processing methods to the domain of policymaking, suggesting an adaptation of computational tools to a specific field. Although Paper A is titled 'Congressional Reforms,' the lack of an abstract limits the certainty in classifying the relationship.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4317823603",
+    "cited_paper_id": "W2117002298",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper B utilizes NLP methods to parse text for policymaking purposes. It likely adapts the media attention analyses from Paper A to a different task, focusing on how NLP can interpret and scale political text, thus transferring analysis methods to a different domain.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4317823603",
+    "cited_paper_id": "W2251172991",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper B uses NLP methods for policymaking, which is a governmental application similar to Paper A's use of social media for government-citizen interaction. This suggests that Paper B may be adapting the sentiment analysis approach from social media analysis (Paper A) to a broader context of political text analysis for policymaking.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4317823603",
+    "cited_paper_id": "W1889043906",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.75,
+    "reasoning": "Paper B discusses the application of natural language processing techniques to policymaking, adapting methods for analyzing politic-related text data, which can be considered as an adaptation of data analysis techniques mentioned in Paper A from international relations into policymaking. The use of 'event extraction' in Paper B may relate to event study methods discussed in Paper A, but adapted to a different domain.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4317823603",
+    "cited_paper_id": "W2099921486",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper A provides data on party positioning, which could be useful for NLP applications in policymaking as described in Paper B. The NLP methods discussed could adapt the data from Paper A to analyze language used in political contexts, thus applying party positioning data to a different domain.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4362571217",
+    "cited_paper_id": "W3122397014",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B adapts approaches typically used in English-language NLP to the Albanian language, exploring question classification with deep learning methods. Given Spark NLP focuses on NLP scalability, it's reasonable to infer that Paper A provides foundational methods which Paper B applies to a new domain (Albanian), as indicated by the usage of NLP in a different language.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4362571217",
+    "cited_paper_id": "W3137778411",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Paper B introduces a different approach focused on the classification of questions in Albanian language, compared to Paper A's focus on conversational question answering over knowledge graphs. While both papers deal with question answering, they tackle different aspects and use different methodologies, suggesting an 'Alternative' relationship.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4362571217",
+    "cited_paper_id": "W3152067692",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.85,
+    "reasoning": "Paper B deals with question classification in the Albanian language, a task related to Paper A's focus on conversational question answering over knowledge graphs. However, Paper B specifically adapts and applies the general question answering insights and methods to a different language (Albanian), which indicates a cross-domain transfer of concepts or methods originating from research like Paper A's. While Paper A focuses on semantic parsing in knowledge graphs using advanced models, Paper B adapts the question answering domain to non-English languages, suggesting an adaptation of the broader field of study.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4362571217",
+    "cited_paper_id": "W3147450229",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B adapts the method of Question Classification, a component of Question Answering systems (discussed in Paper A), to a different language, specifically Albanian. This represents a cross-domain transfer as it is applying known methodologies to a less-studied language. While Paper A discusses the general challenges and methodologies in Question Answering Systems, Paper B specifically applies and evaluates these approaches in a different linguistic context.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4362571217",
+    "cited_paper_id": "W2481450925",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper A is a survey of Arabic QA methods focusing on answer retrieval, while Paper B is focused on question classification in Albanian through deep learning. The methodology and language focus are different, indicating that Paper B presents an alternative approach to a similar broader problem of question answering. The abstracts suggest no direct extension, adaptation, or realization of the specific methods discussed in Paper A, nor does Paper B leverage Paper A as a baseline.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4362571217",
+    "cited_paper_id": "W4306412553",
+    "predicted_type": "Extends",
+    "confidence": 0.85,
+    "reasoning": "Paper B applies advanced machine learning and deep learning approaches to the task of question classification in Albanian, likely improving upon the methods and corpus introduced in Paper A. The focus on extensive comparison and achieving results comparable to English suggests an incremental improvement or extension over the foundational work from Paper A.",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W3167123946",
+    "cited_paper_id": "W3122397014",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "The abstract of Paper B does not explicitly mention solving a limitation, extending a method, providing an alternative approach, adapting to a new domain, or implementing a suggestion from Paper A. It seems to use a state-of-the-art model for comparison purposes (background reference) but does not provide detailed information on how Spark NLP specifically influences the methodology or results, indicating it is likely used as a baseline.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3167123946",
+    "cited_paper_id": "W2950161719",
+    "predicted_type": "Extends",
+    "confidence": 0.85,
+    "reasoning": "Paper B improves upon the approach presented in Paper A by incorporating additional techniques such as question focus identification and an ensemble method with the PEGASUS model. Paper B also reports performance metrics, suggesting an incremental improvement in summarization methods using these modifications.",
+    "ground_truth": "Extends"
+  },
+  {
+    "citing_paper_id": "W3167123946",
+    "cited_paper_id": "W2952911430",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B adapts the abstractive summarization approach, likely similar to Paper A's method, to a specific domain (Consumer Health Questions), demonstrating cross-domain application. Both papers focus on addressing challenges in abstractive summarization, but Paper B specifically targets questions in the health domain, indicating adaptation rather than a direct extension or improvement of the method.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3167123946",
+    "cited_paper_id": "W2996264288",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "Paper B adapts the PEGASUS model from Paper A for a different task: Consumer Health Question summarization. While Paper A demonstrates PEGASUS's effectiveness across general summarization tasks, Paper B specifically tailors it for the domain of consumer health questions, indicating a cross-domain transfer.",
+    "ground_truth": "Extends"
+  },
+  {
+    "citing_paper_id": "W3167123946",
+    "cited_paper_id": "W3034715004",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "Paper B adapts the PEGASUS model developed in Paper A for the specific task of Consumer Health Question summarization, indicating a cross-domain application of the model. While Paper A focuses on broad summarization tasks, Paper B implements the model in a specific healthcare domain, demonstrating adaptation.",
+    "ground_truth": "Extends"
+  },
+  {
+    "citing_paper_id": "W3167123946",
+    "cited_paper_id": "W3166358520",
+    "predicted_type": "Extends",
+    "confidence": 0.8,
+    "reasoning": "Paper B builds on Paper A by developing a new model using the PEGASUS approach specifically for the Consumer Health Question Summarization task in the MEDIQA 2021 competition. It improves performance through an ensemble method, which suggests an incremental improvement over existing summarization methods discussed in Paper A, aligning with the 'Extends' relationship.",
+    "ground_truth": "Extends"
+  },
+  {
+    "citing_paper_id": "W4390717095",
+    "cited_paper_id": "W4311556468",
+    "predicted_type": "Baselines",
+    "confidence": 0.5,
+    "reasoning": "The provided abstract for Paper B is not available ('N/A'), making it impossible to determine its content. Without content from Paper B, the most neutral assumption is that Paper A is being used as a background reference or baseline. As other citation types cannot be confirmed, baseline is selected with moderate confidence.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4390717095",
+    "cited_paper_id": "W2553981914",
+    "predicted_type": "Alternative",
+    "confidence": 0.6,
+    "reasoning": "Without an abstract for Paper B, determining the exact relationship type is challenging. However, the title suggests Paper B explores parallels in linear algebra and category theory to understand linguistic meaning, which could imply proposing an alternative theoretical framework or method. This can be considered an alternative approach to visualizing or interpreting embeddings, assuming embeddings relate to meaning in language.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4390717095",
+    "cited_paper_id": "W3034723486",
+    "predicted_type": "Alternative",
+    "confidence": 0.6,
+    "reasoning": "Given the title of Paper B, it likely explores the concept of meaning in language through alternative mathematical frameworks (linear algebra and category theory), contrasting with Paper A's position on the limitations of neural language models in capturing meaning. Without the abstract of Paper B, the confidence is moderate.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4390717095",
+    "cited_paper_id": "W3167361329",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "Without specific abstracts for each paper, a precise determination cannot be made. However, a paper titled 'An Enriched Category Theory of Language' likely provides foundational concepts that could be used for background comparison in 'The Structure of Meaning in Language,' which indicates a baseline relationship. Confidence is low due to lack of detailed content.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4390717095",
+    "cited_paper_id": "W4255318870",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "The absence of abstracts for both papers makes it difficult to identify specific connections or improvements between them. Given that Paper B cites Paper A, it is reasonable to assume that Paper A is used as a baseline reference, especially since Formal Concept Analysis is often foundational or background in various studies. Hence, a baseline relationship is likely, though abstract evidence is lacking.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4391326667",
+    "cited_paper_id": "W4311556468",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B applies the methods and concepts of quantum natural language processing (QNLP), discussed in the context of categorical structures in Paper A, to a novel domain of theology, effectively adapting the framework from Paper A to explore theistic concepts. This indicates a cross-domain adaptation of the QNLP framework, aligning with the 'Adapts_to' relationship.",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W4391326667",
+    "cited_paper_id": "W574734723",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.85,
+    "reasoning": "Paper B applies concepts from quantum mechanics discussed in Paper A to the theological domain, adapting quantum-native phenomena to argue for a quantum-based understanding of creation. This reflects a cross-domain adaptation rather than an incremental improvement or solving a limitation directly mentioned in Paper A.",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W4391326667",
+    "cited_paper_id": "W3111333709",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B adapts Paper A's method, Quantum Natural Language Processing, to a different domain, specifically theology. This is evident from Paper B's focus on applying quantum mechanics and QNLP to argue for a quantum-native theological concept, different from the domain of natural language processing discussed in Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4391326667",
+    "cited_paper_id": "W2598985404",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper B utilizes quantum mechanics concepts, which are presented in a diagrammatic form in Paper A, and adapts these for a theological argument, suggesting an adaptation of quantum processes to a new domain. However, this is a speculative adaptation rather than a direct application of specific methods, hence the moderate confidence.",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W2070205520",
+    "cited_paper_id": "W2070205520",
+    "predicted_type": "Baselines",
+    "confidence": 0.9,
+    "reasoning": "The abstract of Paper B and Paper A are identical, suggesting that Paper B is not adding new insights or methods but rather referencing Paper A as a foundational or comparison point. The lack of additional information or differentiation from Paper A implies a baseline comparison context.",
+    "ground_truth": "Extends"
+  },
+  {
+    "citing_paper_id": "W2070205520",
+    "cited_paper_id": "W2131243403",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper B (The Sketch Engine) and Paper A (AntConc) both describe corpus analysis tools with similar functionalities like concordancing and working with corpora. While Paper A focuses on the classroom-friendly aspect, Paper B describes a mature software popular in lexicography. The abstracts suggest that Paper B provides a different approach or an alternative tool for corpus analysis rather than extending or overcoming limitations of Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2070205520",
+    "cited_paper_id": "W2155870214",
+    "predicted_type": "Baselines",
+    "confidence": 0.6,
+    "reasoning": "Paper B describes the Sketch Engine, a corpus tool offering various functions and ready-to-use corpora, but does not seem to address specific limitations or future work directions of Paper A based on its abstract. The relationship likely involves using Paper A's corpora as a background reference or comparison point.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2070205520",
+    "cited_paper_id": "W2345398358",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Both Paper A and Paper B discuss tools for working with corpora in the context of lexicography. Paper A presents a specific approach for creating a graphical corpus-based dictionary, while Paper B describes a broader corpus tool called the Sketch Engine. While Paper B does not directly address or improve upon Paper A's method, it proposes an alternative tool for corpus lexicography analysis. The lack of direct extension, baseline use, or clear domain adaptation suggests an 'Alternative' relationship.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2070205520",
+    "cited_paper_id": "W1604834089",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Given the nature of the Sketch Engine as a tool for working with multiple languages and its focus on corpora, it seems to adapt methods to a multilingual context. Since Paper A is titled 'Language-Independent Methods for Compiling Monolingual Lexical Data,' it is likely that Paper B adapts the methods to a more practical, multilingual tool, indicating a cross-domain transfer from the theoretical framework of Paper A to the practical implementation in Paper B. However, due to the lack of direct evidence from the abstracts, the confidence is not maximal.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2070205520",
+    "cited_paper_id": "W2044688197",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper A discusses the Corpus of Contemporary American English, a large and diverse corpus with unique database architecture for specific queries. Paper B describes the Sketch Engine, a mature corpus tool that provides users with functions like concordancing and thesaurus, and supports various languages. Though Paper B does not directly address the limitations or extend the work in Paper A, it offers different functionalities for corpus handling, indicating an alternative approach to corpus analysis tools.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082051346",
+    "cited_paper_id": "W3009926341",
+    "predicted_type": "Baselines",
+    "confidence": 0.8,
+    "reasoning": "Paper B appears to use Paper A as a background reference to discuss the publishing trends in response to Covid-19. Since Paper A's abstract is missing, we infer from Paper B's discussion on the vast quantity of Covid-19 research that it likely cites Paper A for context or as a data point rather than solving a specific problem or implementing a future direction suggested by Paper A. The nature of Paper B's analysis of publication trends aligns with using Paper A in this background capacity.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082051346",
+    "cited_paper_id": "W2120109270",
+    "predicted_type": "Baselines",
+    "confidence": 0.8,
+    "reasoning": "Paper B uses data from Scopus and Web of Science to analyze publishing volumes related to Covid-19. This suggests a use of these databases as part of their methodology rather than addressing, extending, or adapting the methods or findings from Paper A. Therefore, the citation relationship is likely that of using Paper A as a background reference for the comparative utility of these databases.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082051346",
+    "cited_paper_id": "W3106505254",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "Paper B and Paper A both discuss the rapid increase in scientific publications related to COVID-19, with Paper A focusing on the role of preprints and Paper B examining overall publishing volumes in major databases that do not index preprints. Paper B uses a broader scope but does not directly address limitations or suggestions from Paper A, nor does it extend, adapt, or offer an alternative approach directly connected to Paper A's findings. Instead, it serves as a background reference and context for the discussion on publishing trends, similar to Paper A's focus but not directly building on it.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082051346",
+    "cited_paper_id": "W2772492596",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "Paper B does not seem to be addressing a specific challenge, future direction, or method related to author name disambiguation as focused on in Paper A. Instead, it provides insight into publishing volumes related to Covid-19, likely using a method from Paper A as a baseline for understanding or processing large datasets related to publications. Paper A provides an overview of name disambiguation techniques which may be referenced as a methodological backbone without Paper B specifically overcoming, realizing, extending, providing an alternative, or adapting these techniques to a new domain.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082051346",
+    "cited_paper_id": "W4247191450",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "Without access to Paper A's abstract, it's unclear what specific issues or directions Paper B addresses related to Paper A. Paper B seems to review the publication landscape regarding Covid-19 without indicating any direct problem-solving, future work implementation, method extension, alternative approach proposition, or cross-domain adaptation in relation to Paper A. Thus, Paper A may be serving as a background reference, implying a baseline citation relationship.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082307550",
+    "cited_paper_id": "W3009951436",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "Paper B uses text mining to provide an overview of COVID-19 related literature, potentially including Paper A's review. However, there is no specific mention of overcoming a limitation, extending methods, or providing an alternative approach. Instead, Paper A is likely used as a baseline or part of the set of literature being overviewed in Paper B.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082307550",
+    "cited_paper_id": "W3002108456",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "Paper B uses text mining techniques to provide an overview of COVID-19 literature, likely referencing Paper A as part of its dataset of relevant coronavirus studies. The abstract of Paper B does not suggest that it overcomes, realizes, extends, or adapts the methods of Paper A, nor does it propose an alternative method. It appears to use Paper A as part of a baseline reference for constructing the overview.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082307550",
+    "cited_paper_id": "W3001118548",
+    "predicted_type": "Baselines",
+    "confidence": 0.85,
+    "reasoning": "Paper B cites Paper A as part of an overview of coronavirus literature, likely for background context highlighting key studies. Paper B does not demonstrate any specific advancement or direct application that can be evaluated against the citation relationship types beyond using Paper A as a foundational reference.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082307550",
+    "cited_paper_id": "W3014892682",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Paper B employs text mining and latent Dirichlet allocation to create an overview and network visualization of coronavirus literature, including SARS and COVID-19, as opposed to focusing specifically on prevention methods for SARS and COVID-19 in Hong Kong, which Paper A seems to address. This suggests an alternative approach to understanding and analyzing the problem space.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3082307550",
+    "cited_paper_id": "W3003465021",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B applies text mining techniques to analyze broader literature on coronaviruses, including COVID-19, MERS, and SARS. While it does not directly address the clinical aspects of Paper A, it adapts the informational context on coronaviruses to enhance understanding across multiple domains, indirectly supporting clinical efforts through information science.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2012976256",
+    "cited_paper_id": "W2070205520",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper B introduces the GloWbE Corpus to study World Englishes with its unique architecture and large dataset, which allows examination of dialect variations that may not be possible with other corpora. Paper A focuses on the Sketch Engine and provides corpus analysis tools. While both papers deal with corpora, Paper B does not seem to explicitly extend or use Paper A's methods but rather introduces a different corpus to address similar analytical goals, suggesting an alternative approach.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2012976256",
+    "cited_paper_id": "W2044688197",
+    "predicted_type": "Alternative",
+    "confidence": 0.9,
+    "reasoning": "Paper B introduces a new corpus (GloWbE) that focuses on global variations of English, contrasting with Paper A's focus on American English. Both papers discuss linguistic variations using different corpora, suggesting Paper B offers another approach to study English language variations.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W2791507392",
+    "cited_paper_id": "W2070205520",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.75,
+    "reasoning": "Paper B adapts the use of corpus tools similar to those described in Paper A (Sketch Engine), applying them to the domain of second language vocabulary learning. The focus on corpus use and its effects in a specific learning domain suggests cross-domain transfer rather than extending, overcoming, or offering an alternative to the functionalities of the Sketch Engine.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2067130497",
+    "cited_paper_id": "W2070205520",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper B proposes a new architecture for corpus representation and visualization, which appears to offer a different approach compared to the functions described in Paper A, such as word sketches and thesaurus. Paper B emphasizes the handling of annotations and visualization through a browser, suggesting a different methodology in corpus management.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3089323922",
+    "cited_paper_id": "W2070205520",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Paper B discusses the Oxford English Dictionary, which is another prominent lexicographic tool, offering alternative data and practices for lexicography. While Paper A focuses on corpus tools and user-generated corpora, Paper B's emphasis is on lexicographic history and the use of the dictionary for machine learning, suggesting a different approach to language processing compared to the Sketch Engine.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2345398358",
+    "cited_paper_id": "W1604834089",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Paper B presents a new type of lexical resource, focusing on corpus-based data to build dictionary entries, while Paper A discusses methods for compiling lexical data without language dependency. The contrasting approaches suggest an alternative method to address a similar problem.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2979462702",
+    "cited_paper_id": "W2614620964",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper B discusses discourse studies within corporate contexts, incorporating elements of discourse analysis that are informed by methodologies like corpus linguistics from Paper A. This indicates Paper B adapts corpus linguistic methods to a different domain (corporate discourse) rather than extending or directly solving limitations from Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2725817383",
+    "cited_paper_id": "W2614620964",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "The abstract of Paper B focuses on the historical and theoretical development of sociolinguistics and linguistic anthropology rather than building upon or directly adapting corpus linguistics methods or theory discussed in Paper A. The citation likely serves as a background reference to support the broader discussion of language research methodologies.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W1977132984",
+    "cited_paper_id": "W2614620964",
+    "predicted_type": "Baselines",
+    "confidence": 0.6,
+    "reasoning": "The abstract for Paper B suggests a critical review of sociolinguistic generalizations based on large corpora, which indicates a comparison or evaluation role. Since Paper A presents the methodology and theoretical framework of corpus linguistics, Paper B likely uses it as a baseline reference to critique or analyze the application of corpus linguistics in sociolinguistic research.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4214933144",
+    "cited_paper_id": "W2614620964",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "Paper A provides foundational methods and theories in corpus linguistics, while Paper B discusses the history of linguistics, including previous concepts and methods. The abstract of Paper B does not indicate any direct extension, realization, or adaptation of Paper A's work, but rather suggests that previous works such as Paper A's are of intrinsic interest. This aligns with a baseline relationship where Paper A serves as a background reference in the context of Paper B's broader historical scope.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2045236476",
+    "cited_paper_id": "W2614620964",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B employs corpus linguistic techniques, a method discussed in Paper A, to analyze language ideologies in a different domain, namely student evaluations of nonnative English speaking instructors on RateMyProfessors.com, indicating a cross-domain transfer of methodology.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3181361218",
+    "cited_paper_id": "W3082051346",
+    "predicted_type": "Baselines",
+    "confidence": 0.2,
+    "reasoning": "Without the abstract of Paper B, it is difficult to make a precise classification. However, the fact that Paper B includes a review might suggest it uses publishing data discussed in Paper A as part of a broader context or comparison baseline in its review, particularly if the review involves publication trends or data volumes in pandemic-related research. Nonetheless, the lack of a clear link between the two topics (Electronic Health Records and publication volumes) implies only a tentative baseline relationship, thus justifying the low confidence.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3092399442",
+    "cited_paper_id": "W3082051346",
+    "predicted_type": "Alternative",
+    "confidence": 0.6,
+    "reasoning": "Given that Paper B focuses on publication patterns' changes due to the COVID-19 pandemic, it likely explores similar themes to Paper A, which analyzes publishing volumes related to COVID-19. However, without access to the abstract of Paper B, it is not possible to definitively categorize the relationship, leaving us to assume an alternative or complementary perspective on publication patterns influenced by the pandemic. Thus, this classification assumes that Paper B offers a distinct approach or provides additional insights into the topic.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3092399442",
+    "cited_paper_id": "W3106505254",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "The abstract of Paper A discusses the increased role and characteristics of preprints during the COVID-19 pandemic. Paper B, by the information available, appears to analyze publication patterns changes due to COVID-19, which likely uses Paper A as a baseline reference for understanding the phenomenon of COVID-19 related publication trends. Without specifics from Paper B's abstract, the classification as a baseline is made based on the context — Paper B might compare its own findings about publication patterns to those outlined in Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3129344682",
+    "cited_paper_id": "W3082051346",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Without the abstract for Paper B, we must infer the relationship based on the title of Paper B and the abstract of Paper A. Paper A discusses the volume and distribution of Covid-19 related research publications, noting potential risks associated with the rapid pace of publication. Paper B's title suggests it focuses on detecting and reducing biases in Covid-19 studies, which may include reviewing the methodologies and conclusions of rapidly produced research as mentioned in Paper A. Given the focus on identifying and addressing biases, Paper B likely provides an alternative approach or perspective on assessing the quality of Covid-19 research rather than directly engaging with publication volume statistics, leading us to classify this as an 'Alternative' relationship.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4229045617",
+    "cited_paper_id": "W3082051346",
+    "predicted_type": "Baselines",
+    "confidence": 0.6,
+    "reasoning": "Since Paper B does not provide an abstract, it is challenging to determine the exact citation relationship type. However, given Paper A's focus on analyzing publishing volumes related to Covid-19 across major databases, it is likely that Paper B uses this analysis as a background reference to compare the disciplinary coverage of bibliographic databases. Hence, 'Baselines' is a plausible citation relationship type, but the lack of detailed information from Paper B reduces the confidence level.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3198704192",
+    "cited_paper_id": "W3082051346",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B adapts the bibliometric analysis approach from Paper A, which focuses broadly on Covid-19-related publications, to a more specific domain of management, leadership, and administration related to Covid-19. Paper B uses similar methods to analyze a different aspect of the literature, thus reflecting a cross-domain transfer from a general publication analysis to a specialized thematic analysis.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3106637466",
+    "cited_paper_id": "W3082307550",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Given the limited information, Paper B appears to adapt text mining techniques used in Paper A for the analysis of COVID-19 literature to a different domain, namely the impact of COVID-19 on business. This suggests a cross-domain adaptation of methods.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4313494085",
+    "cited_paper_id": "W3082307550",
+    "predicted_type": "Baselines",
+    "confidence": 0.6,
+    "reasoning": "With Paper B lacking an abstract, but focusing on text mining similarly to Paper A, it is inferred that Paper A might be used as background reference or baseline for Paper B's application to ultrahigh-entropy alloys without direct evidence of adaptation, realizing, overcoming, or extending.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3161985147",
+    "cited_paper_id": "W3082307550",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Although Paper B's abstract is not available, the title suggests adapting bibliometric analysis to study Covid-19's impact, which might leverage text mining techniques similar to those presented in Paper A. This implies cross-domain application, evaluating Covid-19's effects in bibliometrics using methods from Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3161985147",
+    "cited_paper_id": "W3082051346",
+    "predicted_type": "Baselines",
+    "confidence": 0.6,
+    "reasoning": "Without the abstract of Paper B, we cannot be definitive about the exact nature of the citation relationship. However, given that Paper A provides a quantitative overview of Covid-19-related publications in major databases, it is likely that Paper B, with the title suggesting a bibliometric analysis, uses data or findings from Paper A as a background reference or baseline for its analysis of research disruptions or trends in bibliometrics related to Covid-19.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4206541507",
+    "cited_paper_id": "W3082307550",
+    "predicted_type": "Baselines",
+    "confidence": 0.5,
+    "reasoning": "Without an abstract for Paper B, it is challenging to determine the exact nature of the citation relationship. Given that Paper A provides an overview of literature rather than proposing a method or future work directly, it is plausible that Paper B cites it as a baseline or context for COVID-19-related studies. The overview in Paper A could serve as a background reference for Paper B's examination of mobile device usage changes during the pandemic.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4206541507",
+    "cited_paper_id": "W3106637466",
+    "predicted_type": "Alternative",
+    "confidence": 0.6,
+    "reasoning": "Without access to the actual abstracts, it's not possible to fully analyze and ascertain the specific citation relationship. However, given the titles, Paper A focuses on the business impact of COVID-19 using text mining, while Paper B discusses changes in mobile device usage during the pandemic. This suggests that Paper B could be offering an alternative approach to studying the impacts of COVID-19, focusing on a different aspect (mobile device usage) rather than the business aspect studied by Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4322743452",
+    "cited_paper_id": "W3082307550",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.85,
+    "reasoning": "Paper B adapts the Latent Dirichlet Allocation technique, used in Paper A for analyzing literature on coronavirus, to a different domain—namely, combining structured and unstructured EHR data for predicting mortality in ICU patients. This represents a cross-domain transfer of methodology.",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W3009951436",
+    "cited_paper_id": "W3002108456",
+    "predicted_type": "Baselines",
+    "confidence": 0.6,
+    "reasoning": "Since both papers focus on the clinical characteristics of COVID-19 and there is no detailed information available about the abstracts, it is likely that Paper B uses Paper A as a baseline for comparison in its meta-analysis. Without specifics on overcoming, realizing, extending, proposing alternatives, or adapting methods to different domains, 'Baselines' is a reasonable assumption.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3009951436",
+    "cited_paper_id": "W3001118548",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "Without the abstracts, but based on titles, Paper B appears to conduct a broader systematic review and meta-analysis on COVID-19 involving multiple studies, including Paper A. This usually involves using Paper A as a baseline reference for comparison against other clinical data, rather than addressing a limitation or future work direction specifically mentioned in Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3009951436",
+    "cited_paper_id": "W3003465021",
+    "predicted_type": "Baselines",
+    "confidence": 0.8,
+    "reasoning": "Given that Paper B is a systematic review and meta-analysis, it is likely using Paper A as a reference point for comparison, evaluating the clinical features and management approaches of COVID-19 as reported in various studies, including Paper A. The lack of specific problem-solving or extension details in the abstract suggests a background reference rather than a direct methodological improvement or adaptation.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3002108456",
+    "cited_paper_id": "W3001118548",
+    "predicted_type": "Extends",
+    "confidence": 0.8,
+    "reasoning": "Paper B seems to provide additional data and descriptive analysis following Paper A, potentially extending the understanding gained from clinical features to broader epidemiological characteristics.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3014892682",
+    "cited_paper_id": "W3002108456",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "Given the lack of specific abstracts, we infer that Paper B may use Paper A's epidemiological and clinical findings as a baseline reference to compare with its analysis on SARS and COVID-19 in Hong Kong. The descriptive nature of Paper A suggests its data could serve as a background context.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3014892682",
+    "cited_paper_id": "W3001118548",
+    "predicted_type": "Baselines",
+    "confidence": 0.6,
+    "reasoning": "Both papers focus on aspects of coronavirus infections, with Paper A providing clinical features and Paper B discussing related topics like SARS and prevention strategies. In the absence of specific abstract details, it's reasonable to assume Paper B might use Paper A's findings as a baseline for comparison or contextual background.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3003465021",
+    "cited_paper_id": "W3001118548",
+    "predicted_type": "Baselines",
+    "confidence": 0.75,
+    "reasoning": "Paper B cites Paper A to provide background information on the clinical features of 2019-nCoV to report a case in a different geographical location (United States). There is no indication that Paper B solves a limitation, extends, adapts, realizes future work, or offers an alternative approach based on Paper A. The citation serves as a baseline providing essential foundational knowledge relevant to the case description in Paper B.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3003465021",
+    "cited_paper_id": "W3002108456",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "Based on the abstract of Paper B, it appears that Paper A is primarily cited as background information related to the outbreak of the novel coronavirus. Paper B describes a specific case in the United States, using Paper A as context for the outbreak's origin and initial findings in Wuhan, China. There is no clear indication that Paper B overcomes, realizes, extends, proposes an alternative, or adapts methods from Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4381332452",
+    "cited_paper_id": "W4360845368",
+    "predicted_type": "Alternative",
+    "confidence": 0.6,
+    "reasoning": "Paper B focuses on the application of generative AI in the metaverse for content creation, which is a different domain from the ethical and pedagogical aspects of translation technology discussed in Paper A. While both papers discuss the use of AI technologies, their purposes and fields of application are distinct, suggesting Paper B proposes an alternative approach to a domain partly related to technology but not directly addressing the concerns or solutions of Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4390583680",
+    "cited_paper_id": "W4360845368",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.85,
+    "reasoning": "Paper B adapts the insights from Paper A regarding translation pedagogy and ethical concerns to focus specifically on the use of AI tools by older lecturers. While Paper A highlights the lack of ethical competence in TT training, Paper B applies these concepts to AI tools in teaching translation, adapting the discussion to the needs of senior educators and their adaptation to AI-driven translation pedagogy.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4390583680",
+    "cited_paper_id": "W4390583680",
+    "predicted_type": "Baselines",
+    "confidence": 0.9,
+    "reasoning": "The abstracts are identical, suggesting that Paper B may cite Paper A as a background reference without indicating any substantial contribution, improvement, or alternative approach based on the identified problem. Given the verbatim reproduction, it is likely used as a baseline.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4389456104",
+    "cited_paper_id": "W4360845368",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Paper B addresses translation through advanced technologies such as AI and nanotechnology that provide new methods for overcoming language barriers. While Paper A is focused on the ethical aspects of existing translation technologies in education, Paper B suggests a different perspective and approach by emphasizing novel technological solutions and the ethical implications therein. Paper B does not seem to directly address the ethical training issues discussed in Paper A but instead focuses on technological advancements, signaling an alternative approach to the field.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4399213274",
+    "cited_paper_id": "W4360845368",
+    "predicted_type": "Realizes",
+    "confidence": 0.75,
+    "reasoning": "Paper B addresses the future direction of translator training highlighted in Paper A by considering the impact of AI on professional translations and the need for redesigning translator education, in line with ethical considerations. While Paper A identifies a lack of pedagogical models to address ethical competence in translation technology training, Paper B highlights the changing landscape requiring a rethink of training, aligning with Paper A's call for new models and tools in translator education.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4394684629",
+    "cited_paper_id": "W4360845368",
+    "predicted_type": "Alternative",
+    "confidence": 0.85,
+    "reasoning": "Paper B addresses a different aspect of translation pedagogy by focusing on culture-specific terms, whereas Paper A focuses on ethical competence in translation technology. Although Paper B cites Paper A, it proposes a distinct approach in translation training rather than directly solving the issue of ethical competence raised in Paper A, hence suggesting an alternative focus within the domain of translation pedagogy.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4403637392",
+    "cited_paper_id": "W4317823603",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.6,
+    "reasoning": "Paper B seems to explore how developments in natural language processing (NLP), which include methods mentioned in Paper A, contribute to understanding human behaviour, a domain closely related to but distinct from policymaking. Without more detailed information from Paper B, it seems plausible that Paper B is adapting the NLP methods discussed in Paper A for a different domain or task relevant to social sciences or psychology, suggesting a cross-domain transfer.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4402418067",
+    "cited_paper_id": "W4317823603",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper B investigates the role of AI in shaping public policies, which contrasts with Paper A's focus on NLP methods for policymaking. While Paper B refers to similar applications in policy development, it proposes the use of AI as an alternative approach to solve similar problems addressed by NLP in Paper A. The abstracts do not suggest solving specific limitations, implementing future directions, extending methods, adapting to a different domain, or using as a baseline comparison.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4394828653",
+    "cited_paper_id": "W4317823603",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Without Paper B's abstract, the specific details of the relationship are speculative. However, given Paper B's title, it might adapt NLP methods from Paper A to the domain of enhancing political internal democracy within parties. This suggests a cross-domain application.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4393097350",
+    "cited_paper_id": "W4317823603",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.85,
+    "reasoning": "Paper B adapts NLP techniques, which are discussed in Paper A, to the specific domain of analyzing emotional and cognitive dynamics during the COVID-19 pandemic. While Paper A outlines broad applications for NLP in policymaking, Paper B applies these techniques within a health crisis context, which aligns with adapting the methods to a different task or domain.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4367397709",
+    "cited_paper_id": "W4317823603",
+    "predicted_type": "Overcomes",
+    "confidence": 0.8,
+    "reasoning": "Paper A mentions potential limitations and ethical concerns when using NLP for policymaking. Paper B focuses on summarizing ethical issues in NLP, which relates to limitations mentioned in Paper A. Thus, Paper B addresses these issues, suggesting it overcomes some of the ethical limitations highlighted by Paper A.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4407572863",
+    "cited_paper_id": "W4362571217",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "Paper B adapts the concept of question classification from Paper A, which performed classification in the Albanian language, to a different domain—tweet question classification for social media QA systems. This represents a cross-domain transfer of ideas from a general language question classification context to social media context, focusing on tweets.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4409203754",
+    "cited_paper_id": "W4362571217",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.75,
+    "reasoning": "Paper B mentions NER for Albanian language, which involves adapting language processing techniques. Paper A focuses on question classification for Albanian using deep learning, indicating the adaptation of similar techniques to a different NLP task (NER) in the same language. Although Paper B's abstract is unavailable, adapting a method from question classification to NER is a plausible relationship given the common NLP focus on Albanian.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4399304543",
+    "cited_paper_id": "W4362571217",
+    "predicted_type": "Alternative",
+    "confidence": 0.85,
+    "reasoning": "Paper B proposes an alternative approach to the problem of question classification mentioned in Paper A by utilizing a genetic algorithm for feature selection combined with a convolutional neural network, whereas Paper A focuses on deep learning and machine learning approaches specifically for the Albanian language.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4393621158",
+    "cited_paper_id": "W4362571217",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper B addresses the issue of low-resource languages in Question Answering systems by introducing a method to create bilingual supervised corpora and fine-tune models. While Paper A focuses on question classification for the Albanian language, Paper B provides an alternative approach addressing data scarcity in low-resource languages by leveraging resource-rich languages for QA tasks. Both papers deal with linguistic limitations, but Paper B does not directly build upon or extend the work described in Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3166358520",
+    "cited_paper_id": "W3167123946",
+    "predicted_type": "Baselines",
+    "confidence": 0.8,
+    "reasoning": "Paper B provides an overview of the MEDIQA 2021 shared tasks including descriptions of the tasks, models developed, and evaluations. Paper A describes one of the models submitted for a specific task in this shared event. Based on the abstract, Paper B uses Paper A to illustrate a specific approach taken by participants, which aligns with using it as a baseline or example in the broader context of discussing the event's outcomes.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4225755276",
+    "cited_paper_id": "W3167123946",
+    "predicted_type": "Extends",
+    "confidence": 0.7,
+    "reasoning": "Paper B focuses on text summarization using hybrid embeddings, potentially building on Paper A's focus-based approach and ensemble method. This indicates Paper B is likely extending Paper A's methodology by improving or enhancing the summarization technique with hybrid embeddings.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4367146269",
+    "cited_paper_id": "W3167123946",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B adapts the question summarization approach from Paper A, which focuses on consumer health questions in English, to Persian language religious questions. This indicates a cross-domain transfer of the summarization method, fitting the 'Adapts_to' relationship type.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4403045892",
+    "cited_paper_id": "W4390717095",
+    "predicted_type": "Alternative",
+    "confidence": 0.75,
+    "reasoning": "Paper B proposes an alternative conceptual framework for measurement in psychometrics that diverges from traditional numerical approaches, whereas Paper A, based on its title, explores theoretical structures in language using linear algebra and category theory. The focus on qualitative rather than quantitative methods suggests an alternative approach to similar conceptual issues, although the direct connection is somewhat speculative due to lack of Paper A’s abstract.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4414464139",
+    "cited_paper_id": "W4390717095",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "Without access to the abstracts, the relationship type cannot be determined precisely, but 'Baselines' is chosen due to the lack of specific contextual information that would suggest solving a limitation, future direction, extension, alternative approach, or cross-domain adaptation.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4396228665",
+    "cited_paper_id": "W4391326667",
+    "predicted_type": "Extends",
+    "confidence": 0.85,
+    "reasoning": "Paper B builds upon the Quantum Natural Language Processing (QNLP) framework mentioned in Paper A by introducing interpersonal data through Japanese honorifics, thus extending the method to capture more complex language structures related to social interactions. This represents an incremental improvement on the QNLP framework discussed in Paper A, aligning with a more nuanced understanding of language.",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W1738868632",
+    "cited_paper_id": "W1574220528",
+    "predicted_type": "Alternative",
+    "confidence": 0.6,
+    "reasoning": "Paper B discusses a data-driven approach to computational creativity, which is a different context than the examination of deductive reasoning in Greek mathematics discussed in Paper A. There is no mention of overcoming, realizing, or extending the specific content of Paper A based on the abstracts alone. The focus of Paper A does not seem to align with the domain adaptation or baseline reference found in Paper B. Hence, the relationship seems more aligned with proposing an alternative approach in a different field.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W1738868632",
+    "cited_paper_id": "W2019515298",
+    "predicted_type": "Overcomes",
+    "confidence": 0.85,
+    "reasoning": "Paper B addresses a shortcoming in previous attempts at computational creativity, specifically the challenge of a valid selective step, suggesting it overcomes limitations related to assessing surprise or attention as theorized by Paper A.",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W2244690429",
+    "cited_paper_id": "W1738868632",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Paper B, focused on quantum mechanics, presents an algorithm that automates the search for new quantum experiments, contrasting with Paper A's focus on computational creativity in culinary domains using big data analytics. Both papers tackle the challenge of automated discovery, but in distinct fields, proposing different methodologies for problem-solving in their respective areas.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2244690429",
+    "cited_paper_id": "W1978553093",
+    "predicted_type": "Realizes",
+    "confidence": 0.8,
+    "reasoning": "Paper B's algorithm, Melvin, facilitates the physical realization and creation of complex quantum states, including implementations not previously possible except on paper. This aligns with Paper A's discussion about teleporting quantum states and suggests that Paper B is taking the ideas from Paper A and implementing them in real-world experiments, thereby realizing future work directions implicit in Paper A's theoretical discussions.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2244690429",
+    "cited_paper_id": "W1990593935",
+    "predicted_type": "Realizes",
+    "confidence": 0.7,
+    "reasoning": "Paper B discusses the development of a computer algorithm that autonomously designs quantum experiments and mentions the physical realization of quantum states, hinting at the implementation of theoretical concepts, like those that might be suggested as future work in Paper A related to quantum teleportation and manipulation of quantum states. However, due to the absence of the abstract for Paper A, the connection is based on probable but inferential reasoning.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W2244690429",
+    "cited_paper_id": "W2062584998",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper B develops an algorithm for quantum experiments that could adapt methods like those presented in Paper A. While there is no direct indication of using Paper A’s specific method, Paper B’s approach to quantum state manipulation might leverage similar interference concepts, adapted for broader experimental automation. The adaptation to automate and find new complex quantum states involves a cross-domain application of quantum interference ideas.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2244690429",
+    "cited_paper_id": "W2324176949",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper A proposes an experiment to investigate quantum mechanisms through traditional means, while Paper B suggests an automated and algorithmic approach for discovering new quantum experiments, indicating a fundamental difference in approach. Paper B’s abstract does not indicate addressing limitations, suggesting future work, or adapting Paper A’s experiment for a new context. Hence, Paper B provides an alternative method to experimental quantum research.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2244690429",
+    "cited_paper_id": "W4233413728",
+    "predicted_type": "Realizes",
+    "confidence": 0.8,
+    "reasoning": "Paper B describes the development of an algorithm (Melvin) for finding new experimental implementations in quantum mechanics, suggesting a realization of complex quantum states that might have been theorized in Paper A. Although Paper A's abstract is unavailable, the title suggests a focus on current situations in quantum mechanics, which aligns with Paper B's algorithm tackling new implementations. The realization of quantum states previously thought of only on paper indicates that Paper B is implementing concepts that might have been suggested or discussed as future directions in Paper A.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W2244690429",
+    "cited_paper_id": "W2016757911",
+    "predicted_type": "Realizes",
+    "confidence": 0.85,
+    "reasoning": "Paper B concerns the development of an algorithm (Melvin) to automate the discovery of new quantum experiments, aligning with Paper A's goal of automating research to 'hatch new ideas'. This suggests Paper B realizes the kind of tasks Paper A proposes, particularly in automating aspects of research typically guided by human intuition.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2950657507",
+    "cited_paper_id": "W1738868632",
+    "predicted_type": "Alternative",
+    "confidence": 0.8,
+    "reasoning": "Paper B introduces a method to predict research trends using semantic networks and neural networks, which is a different approach as compared to Paper A's big data approach to enhancing computational creativity. Both papers focus on innovating by processing large datasets to achieve outcomes that push the boundaries of their respective fields. While Paper A solves the problem of selective steps in computational creativity, Paper B addresses the domain of predicting research trends in quantum physics, indicating an alternative approach to utilizing data-driven methods for advancing intelligence in specific domains.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2950657507",
+    "cited_paper_id": "W2008757894",
+    "predicted_type": "Realizes",
+    "confidence": 0.75,
+    "reasoning": "Paper B introduces a method to build semantic networks from scientific publications, aiming to predict research trends and inspire ideas. The title of Paper A suggests an approach that involves mining libraries, ontologies, and communities, which aligns with Paper B's theme of structuring knowledge from publications. It is likely that Paper B is realizing or implementing a direction suggested in Paper A about utilizing structured information in advancing scientific research.",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W2950657507",
+    "cited_paper_id": "W2016757911",
+    "predicted_type": "Realizes",
+    "confidence": 0.85,
+    "reasoning": "Paper B implements a method for building semantic networks to predict future research trends, aligning with the aim in Paper A to teach computers to process journals and generate new ideas. This suggests Paper B is realizing the direction proposed by Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2950657507",
+    "cited_paper_id": "W4246649397",
+    "predicted_type": "Extends",
+    "confidence": 0.75,
+    "reasoning": "Paper B builds on the concept of 'metaknowledge' from Paper A by implementing a method to summarize and predict research trends using semantic networks and neural networks. It extends the idea of harvesting large quantities of knowledge on a specific field, in this case, quantum physics, which aligns with the objectives described in Paper A to reshape science. The focus on predicting trends suggests an improvement of the analytical methods suggested by metaknowledge.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2950657507",
+    "cited_paper_id": "W2765658614",
+    "predicted_type": "Extends",
+    "confidence": 0.7,
+    "reasoning": "Paper B uses a semantic network approach to predict future research trends, addressing the challenge of comprehending vast scientific literature. This work appears to extend the analysis methodologies of science communication networks, likely discussed in Paper A, by applying it specifically to the quantum physics domain and incorporating neural network predictions. While the exact content of Paper A is unavailable, it is likely Paper A covers foundational aspects of scientific analysis from a complex systems perspective, which Paper B builds upon.",
+    "ground_truth": "Adapts_to"
+  },
+  {
+    "citing_paper_id": "W2950657507",
+    "cited_paper_id": "W2792315573",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.85,
+    "reasoning": "Paper B applies a semantic network and neural network methodology to predict future trends in quantum physics, a domain discussed in Paper A. By doing so, it leverages and adapts the concepts of machine learning and AI discussed in Paper A to a different task—trend prediction in quantum physics. While Paper A explores the interaction between quantum computing and ML/AI, Paper B specifically harnesses these ideas within the quantum domain, adapting them to new applications.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2019515298",
+    "cited_paper_id": "W2103415419",
+    "predicted_type": "Baselines",
+    "confidence": 0.5,
+    "reasoning": "Without Paper B's abstract, it is difficult to determine the exact nature of the citation relationship. However, given that Paper A is about a model for programming eye movements, a likely reason for citation could be using it as a baseline for comparison in the context of attention modeling. Thus, 'Baselines' is a plausible choice, albeit with low confidence due to lack of specific information from Paper B.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2019515298",
+    "cited_paper_id": "W1990534247",
+    "predicted_type": "Baselines",
+    "confidence": 0.4,
+    "reasoning": "Without abstracts available for Paper A and Paper B, the citation relationship cannot be clearly classified. Given the titles, Paper B might use methods or results from Paper A as a baseline for comparison in its exploration of surprise theory. Thus, 'Baselines' is chosen with low confidence.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2019515298",
+    "cited_paper_id": "W1993468356",
+    "predicted_type": "Baselines",
+    "confidence": 0.2,
+    "reasoning": "Without Paper B's abstract, it is difficult to determine the exact nature of the citation relationship based on thematic or methodological analysis. Given this lack of information, the safest assumption is that Paper B could be using Paper A as a baseline or background reference in the field of statistical significance, possibly because it is a seminal or foundational work.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2019515298",
+    "cited_paper_id": "W2032258487",
+    "predicted_type": "Baselines",
+    "confidence": 0.5,
+    "reasoning": "Given the absence of an abstract for Paper B, the exact nature of the citation relationship cannot be directly determined. However, Paper B likely cites Paper A as a background reference or comparison point for its theoretical exploration of attention and surprise in a Bayesian framework.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2096962395",
+    "cited_paper_id": "W2019515298",
+    "predicted_type": "Extends",
+    "confidence": 0.8,
+    "reasoning": "Paper B builds upon the Bayesian framework mentioned in Paper A by applying it to the concept of attention, particularly through neuronal simulations and interpretations within a free-energy optimization context. The abstract suggests Paper B improves upon Paper A by further substantiating claims related to attention and Bayesian perception, making this an extension rather than merely a use as baseline.",
+    "ground_truth": "Alternative"
+  },
+  {
+    "citing_paper_id": "W2125191661",
+    "cited_paper_id": "W2019515298",
+    "predicted_type": "Alternative",
+    "confidence": 0.6,
+    "reasoning": "Without the abstracts, it is challenging to determine the exact relationship. However, based on the titles alone, Paper B might be offering a different perspective on Bayesian models by focusing on autistic perception, as opposed to Paper A's focus on general surprise and attention. Thus, it likely provides an alternative approach or application of Bayesian theory.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2110745711",
+    "cited_paper_id": "W2019515298",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Paper B proposes the arousal-biased competition theory, which provides a different perspective on how attention and memory are influenced by arousal. This suggests an alternative explanation and approach to understanding phenomena related to attention and memory, rather than directly building on or extending the Bayesian theory of surprise presented in Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2163456594",
+    "cited_paper_id": "W2019515298",
+    "predicted_type": "Extends",
+    "confidence": 0.75,
+    "reasoning": "Paper B cites Paper A and appears to extend the concepts of surprise and attention by further investigating brain mechanisms. While Paper A's abstract is unavailable, Paper B's focus on surprise suggests it expands the theoretical framework of Paper A by applying it to brain imaging studies, creating a mathematical and neuroanatomical model, thus likely extending the ideas into new areas of neuroscience.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2971754107",
+    "cited_paper_id": "W2019515298",
+    "predicted_type": "Baselines",
+    "confidence": 0.6,
+    "reasoning": "Paper B appears to be focused on distinct neural mechanisms involved in language comprehension and prediction errors, without clear reference to improving, extending, or directly implementing methods from Paper A, which discusses a Bayesian theory of surprise affecting attention. There is no explicit mention of solving limitations or adapting the method to a new domain. Thus, the most likely relationship is that Paper B uses concepts from Paper A as a background reference or theoretical baseline.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W1492414030",
+    "cited_paper_id": "W1574220528",
+    "predicted_type": "Baselines",
+    "confidence": 0.7,
+    "reasoning": "Paper B appears to be a broad survey of topics in science and technology studies, while Paper A is a specific cognitive historical study of Greek mathematics. There is no indication in the abstracts that Paper B is solving a problem, realizing a future work direction, extending the methods, proposing an alternative, or adapting the work of Paper A. Instead, it is likely referencing Paper A for background information or context within the field of the sociology and history of knowledge.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W1989083843",
+    "cited_paper_id": "W1574220528",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Paper B provides a philosophical investigation into the nature and evolution of mathematical proof, touching on elements similar to Paper A's historical examination of deductive argument in Greek mathematics, but from a different philosophical perspective rather than a direct historical continuation or methodological extension.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W1753393254",
+    "cited_paper_id": "W1574220528",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Paper B appears to propose an alternative understanding of the role of mechanics in ancient Greek thought, challenging existing assumptions. While Paper A focuses specifically on deductive arguments in Greek mathematics, Paper B shifts the focus to the role of mechanics, suggesting a different perspective within the broader context of ancient Greek science and philosophy. There is no direct indication that Paper B solves a limitation, extends, adapts, or uses Paper A purely as a baseline.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2114076081",
+    "cited_paper_id": "W1574220528",
+    "predicted_type": "Alternative",
+    "confidence": 0.75,
+    "reasoning": "Paper A discusses the deductive argument in Greek mathematics, while Paper B proposes a new interpretation of maps and navigation in the digital age. Although Paper B references the historical context of mapping similar to the historical analysis of Paper A, it introduces a different approach by focusing on digital navigation and a new use of maps, suggesting an alternative perspective rather than directly solving a problem, extending, realizing a future work, or adapting methods from Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2034979488",
+    "cited_paper_id": "W1574220528",
+    "predicted_type": "Baselines",
+    "confidence": 0.2,
+    "reasoning": "Without an abstract for Paper B, it is challenging to determine the specific relationship type. Given that Paper B cites Paper A, it's plausible Paper A is used as a baseline for comparison or background reference within the field of cognitive history and mathematics, but the lack of information from Paper B's abstract limits confidence.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2923537029",
+    "cited_paper_id": "W2244690429",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper B discusses the application of machine learning methods across various domains including quantum computing, which aligns with Paper A's focus on automating quantum experiments via the algorithm Melvin. This suggests that Paper B may be adapting the methodologies or insights from Paper A to a broader range of domains using machine learning approaches.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4211200453",
+    "cited_paper_id": "W2244690429",
+    "predicted_type": "Baselines",
+    "confidence": 0.2,
+    "reasoning": "The abstract for Paper B is unavailable, making it impossible to determine the exact nature of the relationship between the two papers based on their abstracts alone. Without explicit context, the default assumption would be either a background reference or baseline use. However, due to the lack of information, the confidence is very low.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2792315573",
+    "cited_paper_id": "W2244690429",
+    "predicted_type": "Extends",
+    "confidence": 0.75,
+    "reasoning": "Paper B discusses the use of machine learning (ML) and artificial intelligence (AI) in the quantum domain, including their application in the design of quantum experiments, similar to what Paper A achieves with the Melvin algorithm. While Paper A focuses on automating quantum experiment design, Paper B extends this idea by incorporating broader ML/AI techniques and discussing their role in facilitating quantum experiments, showing an incremental development in applying intelligent systems to the quantum domain.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3045928028",
+    "cited_paper_id": "W2244690429",
+    "predicted_type": "Alternative",
+    "confidence": 0.7,
+    "reasoning": "Paper A discusses the use of an algorithm, Melvin, for discovering new quantum experiments while overcoming limitations of human intuition. Paper B discusses the development of a novel molecular representation system, SELFIES, which addresses limitations in existing molecular encoding systems like SMILES. While both papers are rooted in the use of computational methods to address problems traditionally reliant on human intuition, they operate in different domains. Therefore, Paper B provides an alternative approach within its specific context by tackling similar conceptual challenges, leveraging computational methods to find new ways to represent or experiment with structures.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3045928028",
+    "cited_paper_id": "W2923537029",
+    "predicted_type": "Overcomes",
+    "confidence": 0.9,
+    "reasoning": "Paper B addresses a fundamental problem with the SMILES representation mentioned as a challenge in the domain of novel materials and functional molecules design, which is likely discussed in Paper A as a part of domain-specific challenges in applying machine learning to physical sciences. By solving the issue of invalid molecule strings with SELFIES, Paper B overcomes a limitation in existing methods potentially mentioned or acknowledged in Paper A.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W2911423727",
+    "cited_paper_id": "W2244690429",
+    "predicted_type": "Baselines",
+    "confidence": 0.6,
+    "reasoning": "Without the abstract for Paper B, we can't determine if it overcomes, realizes, extends, proposes an alternative, or adapts the methods from Paper A. Given the survey title, it likely uses Paper A as a baseline or reference for background information on automated search techniques in quantum experiments.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W1990593935",
+    "cited_paper_id": "W1978553093",
+    "predicted_type": "Extends",
+    "confidence": 0.7,
+    "reasoning": "Without access to Paper B's abstract, the relationship can only be speculated based on the title. Given that Paper B deals with teleportation involving multiple degrees of freedom, it is likely extending the method from Paper A, which deals with quantum teleportation, to a more complex scenario involving a single photon with multiple degrees of freedom.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W1990593935",
+    "cited_paper_id": "W2062584998",
+    "predicted_type": "Baselines",
+    "confidence": 0.0,
+    "reasoning": "Without the abstract of Paper B, it is not possible to determine the citation relationship type using only Paper A's abstract.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4304185479",
+    "cited_paper_id": "W2950657507",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "The absence of an abstract for Paper B makes it difficult to assess specific relationship details and motivations between the papers. Without information on how Paper B specifically interacts with or utilizes Paper A's concepts, and given only the citation relationship, 'Baselines' is the default selection based on the data provided. However, this classification cannot be confidently asserted due to the lack of documented interaction or application details typically required to classify citation relationships more accurately.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W4304185479",
+    "cited_paper_id": "W2244690429",
+    "predicted_type": "Baselines",
+    "confidence": 0.0,
+    "reasoning": "Without an abstract for Paper B, it is impossible to classify the citation relationship accurately based only on Paper A's abstract. More information about Paper B is needed to determine the type of relationship.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3115677442",
+    "cited_paper_id": "W2950657507",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.7,
+    "reasoning": "Paper B applies techniques related to natural language processing and information extraction to the domain of materials science, similar to Paper A's application in quantum physics. This suggests an adaptation of methods from predicting research trends in one scientific discipline to processing literature in another, indicating cross-domain application. The focus on handling data from diverse scientific literature corresponds to the adaptive approach of Paper A's cited work.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3115677442",
+    "cited_paper_id": "W2765658614",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.8,
+    "reasoning": "Paper B discusses the application of natural language processing methods to the domain of materials science, which suggests adapting these techniques from potentially other domains (such as those mentioned by Paper A in complex systems) to the specific challenges of materials science data extraction and interpretation.",
+    "ground_truth": "Overcomes"
+  },
+  {
+    "citing_paper_id": "W3120244865",
+    "cited_paper_id": "W2950657507",
+    "predicted_type": "Baselines",
+    "confidence": 0.5,
+    "reasoning": "Without the abstract of Paper B, we cannot determine a specific connection such as overcoming limitations or realizing future work suggested by Paper A. Additionally, there's no information provided that indicates Paper B is working on extending or adapting the semantic network method to a different domain or task. Therefore, the most generic link would be that Paper B uses Paper A as a background reference or baseline in its work.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3013685828",
+    "cited_paper_id": "W2950657507",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.75,
+    "reasoning": "Paper B adapts the concepts from Paper A by applying machine learning techniques to advance research in quantum matter, a domain within quantum physics. While Paper A focused on predicting research trends using semantic networks, Paper B uses machine learning to understand and represent quantum states, which is a different aspect of quantum physics. The core idea of using advanced computational techniques in quantum physics is present in both, but applied differently.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3013685828",
+    "cited_paper_id": "W2923537029",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.9,
+    "reasoning": "Paper B adapts the machine learning techniques discussed in Paper A to the specific field of quantum matter, a domain mentioned among applications in Paper A's abstract. The adaptation extends ML for a unique domain application rather than merely extending or overcoming existing work.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3013685828",
+    "cited_paper_id": "W2792315573",
+    "predicted_type": "Adapts_to",
+    "confidence": 0.85,
+    "reasoning": "Paper B discusses the adaptation of machine learning algorithms to the study of quantum matter, a domain that is different but related to the quantum domain discussed in Paper A. While Paper A reviews recent progress in the mutual enhancement of quantum computing and machine learning, Paper B specifically focuses on applying these machine learning methodologies to quantum matter, indicating a cross-domain transfer application.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4379016496",
+    "cited_paper_id": "W2950657507",
+    "predicted_type": "Baselines",
+    "confidence": 0.6,
+    "reasoning": "Since the abstract of Paper B is not provided, it is challenging to definitively determine the citation relationship without context on its content. However, given that Paper A deals with predicting research trends and Paper B has a general title about data, measurement, and empirical methods, it is plausible that Paper B could be using Paper A as a reference or baseline in discussing methodologies related to the science of science. Without specific details, the safest assumption would be that Paper B uses Paper A as a baseline or reference benchmark about methodologies related to trend prediction in scientific research.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4379016496",
+    "cited_paper_id": "W2765658614",
+    "predicted_type": "Baselines",
+    "confidence": 0.5,
+    "reasoning": "Without abstracts, it's challenging to determine the precise citation relationship. However, given the titles, Paper B may be using Paper A as a background reference or baseline in discussing data and empirical methods in the science of science, focusing on the measurement aspect, which is often foundational.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W4379016496",
+    "cited_paper_id": "W4246649397",
+    "predicted_type": "Baselines",
+    "confidence": 0.3,
+    "reasoning": "The absence of Paper B's abstract limits analysis to a baseline assumption. Given Paper A’s broad thematic focus on metaknowledge, it’s plausible Paper B uses it as a reference point for discussing empirical methods without specific indications of extending, overcoming, or altering concepts from Paper A. This rationale leads to choosing 'Baselines' with low confidence.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3119952098",
+    "cited_paper_id": "W4311051500",
+    "predicted_type": "Baselines",
+    "confidence": 0.6,
+    "reasoning": "Without the abstract of Paper B, it is challenging to accurately determine the citation relationship. However, given that Paper B's title suggests a general exploration into drug discovery involving natural products, it is plausible that Paper B references Paper A as part of an overview or comparison without specifically overcoming, realizing, extending, or adapting its methods or results. Therefore, it is likely a baseline reference.",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W225968618",
+    "cited_paper_id": "W2304845716",
+    "predicted_type": "Baselines",
+    "confidence": 0.2,
+    "reasoning": "Since the abstract for Paper B is not provided, we cannot determine the specific way it cites Paper A. However, given the lack of context, a baseline citation is a default assumption when no specific extension, adaptation, or problem-solving relationship is indicated.",
+    "ground_truth": "Baselines"
+  },
+  {
+    "citing_paper_id": "W3126226315",
+    "cited_paper_id": "W3123893780",
+    "predicted_type": "Extends",
+    "confidence": 0.9,
+    "reasoning": "Paper B discusses the development of the PRISMA 2020 statement, while Paper A presents the explanation and elaboration for the updated PRISMA 2020. This indicates that Paper B is likely extending the guidelines by providing more detailed guidance or framework related to PRISMA 2020.",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W3118615836",
+    "cited_paper_id": "W3123893780",
+    "predicted_type": "Extends",
+    "confidence": 0.9,
+    "reasoning": "Paper B, titled 'The PRISMA 2020 statement: an updated guideline for reporting systematic reviews,' expands on the work presented in Paper A by implementing the updated PRISMA 2020 guidelines. Both papers focus on the development and explanation of the PRISMA 2020 guidelines, with Paper B specifically detailing the checklist and further modifications to the reporting system. This represents an extension of the work detailed in Paper A, as Paper B focuses on the operational aspects of the guidelines laid out in Paper A.",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W2774486220",
+    "cited_paper_id": "W2519845840",
+    "predicted_type": "Extends",
+    "confidence": 0.9,
+    "reasoning": "Paper B extends the capabilities of the lme4 package discussed in Paper A by implementing methods for obtaining p-values using approaches evaluated in Paper A, such as the Satterthwaite and Kenward-Roger approximations. This represents an incremental improvement or extension focused on providing statistical tests that were found to be effective in Paper A.",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W2134833483",
+    "cited_paper_id": "W2134833483",
+    "predicted_type": "Baselines",
+    "confidence": 0.9,
+    "reasoning": "Both papers have identical abstracts, suggesting that Paper B is not presenting a new approach, extension, or adaptation of Paper A. Instead, Paper B appears to be using Paper A's work as a foundational reference, likely for background context or comparison purposes, which fits the 'Baselines' category.",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W2168420558",
+    "cited_paper_id": "W2168420558",
+    "predicted_type": "Baselines",
+    "confidence": 1.0,
+    "reasoning": "The abstracts for Paper A and Paper B are identical, indicating that Paper B likely uses Paper A as a direct reference or incorporates its content without modification for comparison or foundational purposes. This suggests a Baselines citation relationship where Paper B refers to Paper A primarily as a background reference with no extension, realization, or adaptation indicated.",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W4294215472",
+    "cited_paper_id": "W2134833483",
+    "predicted_type": "Baselines",
+    "confidence": 0.6,
+    "reasoning": "The abstract of Paper B primarily mentions the importance of adhering to evidence-based guidelines and clinical standards, but it does not describe a specific methodology or problem of systematic reviews and meta-analyses that Paper B resolves or enhances. Although the abstract of Paper B is incomplete and partially unrelated, it is likely referencing the PRISMA guidelines as a background reference or standard, aligning more closely with the 'Baselines' relationship type.",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W3123893780",
+    "cited_paper_id": "W3118615836",
+    "predicted_type": "Extends",
+    "confidence": 0.95,
+    "reasoning": "Paper B builds upon the updated PRISMA 2020 guidelines presented in Paper A by providing an extended explanation and elaboration, including exemplars for reporting systematic reviews. This indicates an incremental improvement and enhancement of the foundational content from Paper A.",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W3123893780",
+    "cited_paper_id": "W3146142859",
+    "predicted_type": "Extends",
+    "confidence": 0.9,
+    "reasoning": "Paper B builds directly upon the updated PRISMA 2020 guideline presented in Paper A by providing further explanation, detailing of items, recommendations, and exemplars. This suggests an extension of the original guideline to improve its implementation and clarity.",
+    "ground_truth": "Realizes"
+  },
+  {
+    "citing_paper_id": "W3022903699",
+    "cited_paper_id": "W4294215472",
+    "predicted_type": "Extends",
+    "confidence": 0.9,
+    "reasoning": "Paper B builds upon the PRISMA Statement introduced in Paper A by providing an Explanation and Elaboration document, which expands on the checklist and flow diagram and aims to improve the reporting of systematic reviews and meta-analyses. This is an incremental improvement and further development of the guidelines originally proposed in Paper A.",
+    "ground_truth": "Realizes"
+  }
+]

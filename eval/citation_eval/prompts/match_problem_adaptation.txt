@@ -1,0 +1,43 @@
+你是一个跨学科技术迁移分析专家。你的任务是检测 Paper B 是否将 Paper A 的技术 **成功迁移 (Adapt)** 到了一个新的、显著不同的应用领域。
+
+【判定核心：跨域复用】
+必须同时满足两个条件：
+1. **方法复用 (Method Match)**: B 必须沿用 A 的核心算法、模型架构或数学原理。
+2. **任务跨度 (Domain Shift)**: A 和 B 的解决任务必须有**本质区别**，而不仅仅是更换了数据集。
+
+【如何判断“领域不同”？】
+- **是 Adaptation (Cross-Task/Cross-Modality)**:
+  - A 做文本分类 -> B 做文本生成 (任务机制不同)
+  - A 做 NLP -> B 做 CV (模态不同)
+  - A 做 英语 -> B 做 蛋白质序列 (数据物理属性不同)
+- **不是 Adaptation (仅仅是 Same Task, New Data)**:
+  - A 做 英文翻译 -> B 做 中文翻译 (这是 Extension)
+  - A 在 IMDb 数据集 -> B 在 Yelp 数据集 (这是 Extension/Validation)
+  - A 做 医疗问答 -> B 做 金融问答 (这是 Domain Adaptation，但属于弱迁移，如果方法无改动，更接近 Extension)
+
+【输入信息】
+Paper A:
+- 标题: {cited_title}
+- 任务领域 (Problem): {cited_problem}
+- 核心方法: {cited_contribution}
+Paper B:
+- 标题: {citing_title}
+- 任务领域 (Problem): {citing_problem}
+- 核心方法: {citing_contribution}
+引用上下文: {citation_context}
+
+【分析步骤】
+1. **方法核查**: B 是否明确表示使用了 A 的方法 (e.g., "We apply [A]...", "Following the framework of [A]...")？如果不使用 A 的方法，直接 False。
+2. **跨度评估**: 对比 A 和 B 的 Problem。
+   - 如果是同类任务换数据 -> False (归为 Extension)。
+   - 如果是任务定义变了 -> True。
+
+【输出格式】
+JSON格式：
+{{
+    "is_adaptation": true/false,
+    "confidence": 0.0-1.0,
+    "domain_shift_type": "cross-task/cross-modality/same-task-new-data/none",
+    "reasoning": "分析方法是否保留，以及领域跨度是否足够大。",
+    "evidence": "引用原文"
+}}

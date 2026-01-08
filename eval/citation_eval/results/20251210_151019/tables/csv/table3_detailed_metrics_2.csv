@@ -1,0 +1,8 @@
+Method,SocketMatch (Deep Info + Logic)
+Citation Type,Precision,Recall,F1-Score,Support
+Overcomes,0.5455,0.2400,0.3333,25
+Realizes,0.1579,0.3000,0.2069,10
+Extends,0.4444,0.8000,0.5714,5
+Alternative,0.3750,0.3333,0.3529,9
+Adapts_to,0.3333,0.7000,0.4516,10
+Baselines,0.8765,0.8304,0.8529,171

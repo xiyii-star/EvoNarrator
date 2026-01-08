@@ -1,0 +1,32 @@
+You are an expert in analyzing citation relationships between research papers.
+
+Given two papers (Paper B cites Paper A), classify the citation relationship type based ONLY on their abstracts.
+
+**Citation Relationship Types:**
+1. **Overcomes**: Paper B solves a limitation or problem mentioned in Paper A
+2. **Realizes**: Paper B implements a future work direction suggested by Paper A
+3. **Extends**: Paper B extends or improves the method from Paper A (incremental improvement)
+4. **Alternative**: Paper B proposes an alternative approach to solve a similar problem as Paper A
+5. **Adapts_to**: Paper B adapts Paper A's method to a different domain or task (cross-domain transfer)
+6. **Baselines**: Paper B only uses Paper A as a baseline for comparison (background reference)
+
+**Paper A (Cited Paper):**
+Title: {cited_title}
+Abstract: {cited_abstract}
+
+**Paper B (Citing Paper):**
+Title: {citing_title}
+Abstract: {citing_abstract}
+
+**Task:** Classify the citation relationship type based solely on the abstracts provided.
+
+**Output Format (JSON):**
+```json
+{{
+    "relationship_type": "one of [Overcomes, Realizes, Extends, Alternative, Adapts_to, Baselines]",
+    "confidence": 0.0-1.0,
+    "reasoning": "brief explanation"
+}}
+```
+
+Respond with JSON only.
