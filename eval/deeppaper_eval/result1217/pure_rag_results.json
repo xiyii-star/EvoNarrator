@@ -1,0 +1,1031 @@
+{
+  "pure_rag": [
+    {
+      "paper_id": "P001",
+      "problem": "================================================================================\nWorking with data frames\n================================================================================\n\nA useful convention that allows you to work with many different problems comfortably together in the same workspace is\n\n• gather together all variables for any well defined and separate problem in a data frame under a suitably informative name;\n\n• when working with a problem attach the appropriate data frame at...",
+      "method": "> methods(plot) For many generic functions the function body is quite short, for example > coef function (object, ...) UseMethod(\"coef\") The presence of UseMethod indicates this is a generic function. To see what methods are available we can use methods() > methods(coef) [1] coef.aov* coef.Arima* coef.default* coef.listof* coef.maov* [6] coef.nls* see '?methods' for accessing help and source code\n\nMost classical statistics and much of the latest methodology is available for use with R, but users...",
+      "limitation": "================================================================================\nWorking with data frames\n================================================================================\n\nA useful convention that allows you to work with many different problems comfortably together in the same workspace is\n\n• gather together all variables for any well defined and separate problem in a data frame under a suitably informative name;\n\n• when working with a problem attach the appropriate data frame at...",
+      "future_work": "• when working with a problem attach the appropriate data frame at position 2, and use the workspace at level 1 for operational quantities and temporary variables;\n\n• before leaving a problem, add any variables you wish to keep for future reference to the data frame using the $ form of assignment, and then detach();\n\n• finally remove all unwanted variables from the workspace and keep it as clean of left-over temporary variables as possible.\n\nIf some of the arguments to cbind() are vectors they m...",
+      "extraction_time": 0.010018587112426758,
+      "metadata": {
+        "paper_id": "P001",
+        "title": "R: A Language and Environment for Statistical Computing",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P002",
+      "problem": "================================================================================\nThe Vanishing Gradient Problem\n================================================================================\n\nAs described in the applications section, LSTM-architectures can be used in various types of forecasting applications. It is, however, important to emphasize that the type of data available and the type of problem heavily influence the right choice of method. This section covers two alternatives, statisti...",
+      "method": "As described in the applications section, LSTM-architectures can be used in various types of forecasting applications. It is, however, important to emphasize that the type of data available and the type of problem heavily influence the right choice of method. This section covers two alternatives, statistical methods that have been widely used in the past 50+ years: ARIMA models and exponential smoothing models. After giving the foundations of these methods, we compare different strengths and wea...",
+      "limitation": "================================================================================\nThe Vanishing Gradient Problem\n================================================================================\n\nAs described in the applications section, LSTM-architectures can be used in various types of forecasting applications. It is, however, important to emphasize that the type of data available and the type of problem heavily influence the right choice of method. This section covers two alternatives, statisti...",
+      "future_work": "Looking at further work, several improvements can increase the performance of LSTMs architectures. One increasingly popular implementation is deep-LSTM (DLSTM), where multiple LSTM cells are layer-wised stacked on top of each other to build more complex realizations of the data.\n\n================================================================================\nConclusions and Further Work\n================================================================================\n\nBeing able to forecast futu...",
+      "extraction_time": 0.0013871192932128906,
+      "metadata": {
+        "paper_id": "P002",
+        "title": "Long Short-Term Memory",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P003",
+      "problem": "================================================================================\nLimitations\n================================================================================\n\nWe use a subset of one of the open source datasets and only the MCQA-based prompting technique. This restricts our analysis to the presented PRiMH dataset. Other tasks in pragmatics understanding, such as figurative language understanding and deixis, are not studied in this work.\n\n===========================================...",
+      "method": "================================================================================\nMethodology\n================================================================================\n\nTable 3: Label bias for MentaLLaMA in three tasks with zero-shot MCQA prompting. The values represent the proportion of samples predicted as the corresponding labels.\n\n-(1) If the text represents a generic low emotion of anxiety or stress, without any clinical symptoms. -(2) If the text represents depressive symptoms, or is...",
+      "limitation": "================================================================================\nLimitations\n================================================================================\n\nWe use a subset of one of the open source datasets and only the MCQA-based prompting technique. This restricts our analysis to the presented PRiMH dataset. Other tasks in pragmatics understanding, such as figurative language understanding and deixis, are not studied in this work.\n\nAs our proposed tasks are introductory with...",
+      "future_work": "As our proposed tasks are introductory with pragmatic reasoning in the mental health domain, we have used the metric of accuracy only, and consider the class-sensitive metrics as future work.\n\n================================================================================\nEthics Statement\n================================================================================\n\nPremise: I've been feeling lonely lately and really depressed and I just want to talk to some people Presupposition (definitely...",
+      "extraction_time": 0.0014336109161376953,
+      "metadata": {
+        "paper_id": "P003",
+        "title": "“Mini-mental state”",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P004",
+      "problem": "This pseudo-data approach shows that the PLS problem may also be thought of as a standard least squares problem for an extended response vector, which implies that the minimizing value, µ U |Y=y obs β θ , satisfies the normal equations,\n\nwhere µ U |Y=y obs is the conditional mean of U given that Y = y obs . Note that this conditional mean depends on θ, although we do not make this dependency explicit in order to reduce notational clutter.\n\nTo estimate the parameters, θ, β, and σ 2 , we minimize ...",
+      "method": "Here we describe some of the methods in lme4 for exploring fitted linear mixed models (Table 8 ), which are represented as objects of the S4 class 'lmerMod'. We begin by describing the theory underlying these methods (Section 5.1) and then continue the sleepstudy example introduced in Section 1.2 to illustrate these ideas in practice.\n\nThe user interface for the output module largely consists of a set of methods (Table 8 ) for objects of class 'merMod', which is the class of objects returned by ...",
+      "limitation": "The main change from the formulation in Bates and DebRoy (2004) to the current formulation is the use of a relative covariance factor, Λ θ , instead of a relative precision matrix, Ω θ , and solving for the mean of U|Y = y obs instead of the mean of B|Y = y obs . This change improves stability, because the solution to the PLS problem in Section 3.2 is well-defined when Λ θ is singular whereas the formulation in Equation 43 cannot be used in these cases because Ω θ does not exist.\n\nThis pseudo-da...",
+      "future_work": "There is most likely further room for improvement in the nonlinear optimization module; for example, some speed-up could be gained by using parallel implementations of derivative-free optimizers that evaluated several trial points at once (Klein and Neira 2013) . In practice users most often have optimization difficulties with poorly scaled or centered data -we are working to implement appropriate diagnostic tests and warnings to detect these situations.\n\nThis pseudo-data approach shows that the...",
+      "extraction_time": 0.004233360290527344,
+      "metadata": {
+        "paper_id": "P004",
+        "title": "Fitting Linear Mixed-Effects Models Using<b>lme4</b>",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P005",
+      "problem": "In this work we investigate the effect of the convolutional network depth on its accuracy in the large-scale image recognition setting. Our main contribution is a thorough evaluation of networks of increasing depth using an architecture with very small (3 × 3) convolution filters, which shows that a significant improvement on the prior-art configurations can be achieved by pushing the depth to 16-19 weight layers. These findings were the basis of our ImageNet Challenge 2014 submission, where our...",
+      "method": "The results are compared to other approaches in Table 12 .\n\nOur representation achieves the state of art on the VOC action classification task even without using the provided bounding boxes, and the results are further improved when using both images and bounding boxes. Unlike other approaches, we did not incorporate any task-specific heuristics, but relied on the representation power of very deep convolutional features.\n\nThe test set performance is reported and compared with other approaches in...",
+      "limitation": "First, we note that using local response normalisation (A-LRN network) does not improve on the model A without any normalisation layers. We thus do not employ normalisation in the deeper architectures (B-E).\n\nIn this work we investigate the effect of the convolutional network depth on its accuracy in the large-scale image recognition setting. Our main contribution is a thorough evaluation of networks of increasing depth using an architecture with very small (3 × 3) convolution filters, which sho...",
+      "future_work": "First, we note that using local response normalisation (A-LRN network) does not improve on the model A without any normalisation layers. We thus do not employ normalisation in the deeper architectures (B-E).\n\nThe results are compared to other approaches in Table 12 .\n\nOur representation achieves the state of art on the VOC action classification task even without using the provided bounding boxes, and the results are further improved when using both images and bounding boxes. Unlike other approac...",
+      "extraction_time": 0.0019071102142333984,
+      "metadata": {
+        "paper_id": "P005",
+        "title": "Very Deep Convolutional Networks for Large-Scale Image Recognition",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P006",
+      "problem": "In the kind of systems we have discussed until now (and the application described in Section X), much of the knowledge about the structure of the graph that is produced by a GT is determined by the nature of the GT, but it may also depend on the value of the parameters and on the input. It may also be interesting to consider GT modules which attempt to learn the structure of the output graph. This might be considered a combinatorial problem and not amenable to gradient-based learning, but a solu...",
+      "method": "More specifically, the methods and architectures presented in this paper offer generic solutions to a large number of problems encountered in pattern recognition systems.\n\nUnlike most other second-order acceleration methods for back-propagation, the above method works in stochastic mode. It uses a diagonal approximation of the Hessian. Like the classical Levenberg-Marquardt algorithm, it uses a \"safety\" factor to prevent the step sizes from getting too large if the second derivative estimates ar...",
+      "limitation": "During the short history of automatic pattern recognition, increasing the role of learning seems to have invariably improved the overall performance of recognition systems. The systems described in this paper are more evidence to this fact. Convolutional NN's have been shown to eliminate the need for hand-crafted feature extractors. GTN's have been shown to reduce the need for hand-crafted heuristics, manual labeling, and manual parameter tuning in document recognition systems. As training data ...",
+      "future_work": "During the short history of automatic pattern recognition, increasing the role of learning seems to have invariably improved the overall performance of recognition systems. The systems described in this paper are more evidence to this fact. Convolutional NN's have been shown to eliminate the need for hand-crafted feature extractors. GTN's have been shown to reduce the need for hand-crafted heuristics, manual labeling, and manual parameter tuning in document recognition systems. As training data ...",
+      "extraction_time": 0.006503582000732422,
+      "metadata": {
+        "paper_id": "P006",
+        "title": "Gradient-based learning applied to document recognition",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P007",
+      "problem": "As CNNs become increasingly deep, a new research problem emerges: as information about the input or gradient passes through many layers, it can vanish and \"wash out\" by the time it reaches the end (or beginning) of the network. Many recent publications address this or related problems. ResNets [11] and Highway Networks [34] bypass signal from one layer to the next via identity connections. Stochastic depth [13] shortens ResNets by randomly dropping layers during training to allow better informat...",
+      "method": "connections in an L-layer network, instead of just L, as in traditional architectures. Because of its dense connectivity pattern, we refer to our approach as Dense Convolutional Network (DenseNet).\n\nConvolutional neural networks (CNNs) have become the dominant machine learning approach for visual object recognition. Although they were originally introduced over 20 years ago [18] , improvements in computer hardware and network structure have enabled the training of truly deep CNNs only recently. ...",
+      "limitation": "It is worth noting that our experimental setup implies that we use hyperparameter settings that are optimized for ResNets but not for DenseNets. It is conceivable that more extensive hyper-parameter searches may further improve the performance of DenseNet on ImageNet.\n\n================================================================================\nDiscussion\n================================================================================\n\nThere are other notable network architecture innovations...",
+      "future_work": "It is worth noting that our experimental setup implies that we use hyperparameter settings that are optimized for ResNets but not for DenseNets. It is conceivable that more extensive hyper-parameter searches may further improve the performance of DenseNet on ImageNet.\n\n================================================================================\nDiscussion\n================================================================================\n\nBesides better parameter efficiency, one big advantage o...",
+      "extraction_time": 0.0013179779052734375,
+      "metadata": {
+        "paper_id": "P007",
+        "title": "Densely Connected Convolutional Networks",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P008",
+      "problem": "Consider the following optimization problem.\n\nwhere u i = M t=1 γ i t z t , z t ∈ Z * , w ∈ H, and b ∈ R\n\nWe use the problem in (11) as an intermediary between (1) and (2). The intermediate problem (11) has a direct relation to the AESVM problem, as given in the following theorem. The properties of the max function given below are relevant to the following discussion:\n\nFrom the properties of γ i t in (6), and from (5) we get:\n\nUsing properties ( 12 ) and ( 14 ) we get:\n\n=========================...",
+      "method": "Several methods have been proposed to efficiently solve the SVM optimization problem. SVMs require special algorithms, as standard optimization algorithms such as interior point methods (Boyd and Vandenberghe, 2004; Shalev-Shwartz et al., 2011) have large memory and training time requirements that make it infeasible for large datasets. In the following sections we discuss the most widely used strategies to solve the SVM optimization problem. We present a comparison of some of these methods to AE...",
+      "limitation": "Consider the following optimization problem.\n\nwhere u i = M t=1 γ i t z t , z t ∈ Z * , w ∈ H, and b ∈ R\n\nWe use the problem in (11) as an intermediary between (1) and (2). The intermediate problem (11) has a direct relation to the AESVM problem, as given in the following theorem. The properties of the max function given below are relevant to the following discussion:\n\nFrom the properties of γ i t in (6), and from (5) we get:\n\nUsing properties ( 12 ) and ( 14 ) we get:\n\nin classification accurac...",
+      "future_work": "in classification accuracy. Most notably, for D3 the expected and overall training time speedups were of the order of 10 4 and 10 3 respectively, which is outstanding. Comparing the results of AESVM for different values, we see that RM SE generally improves by decreasing when decreases, while the metrics improve by increasing when increases. The increase in ET S and OT S is of a larger order than the increase in RM SE when increases.\n\nThe authors will provide the software implementation of AESVM...",
+      "extraction_time": 0.002228975296020508,
+      "metadata": {
+        "paper_id": "P008",
+        "title": "LIBSVM",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P009",
+      "problem": "================================================================================\nTitle\n================================================================================\n\nAn introduction to Bootstrap for nuclear physics\n\n================================================================================\nAbstract\n================================================================================\n\nGiven the observable Y (x), I have the following equation\n\nTo quantify the correlation, I define a self-corre...",
+      "method": "Since the present article aims at illustrating the methodology, I will consider the simple liquid drop (LD) model to calculate binding energies, B, for various nuclei as a function of neutron (N ) and proton (Z) number. The binding energy is calculated as\n\nBootstrap has been rarely used in theoretical nuclear physics [10] [11] [12] [13] [14] , despite its simplicity and high potential.The aim of the present guide is to introduce the basic formalism and apply it to simple models in nuclear physic...",
+      "limitation": "================================================================================\nTitle\n================================================================================\n\nAn introduction to Bootstrap for nuclear physics\n\n================================================================================\nAbstract\n================================================================================\n\nGiven the observable Y (x), I have the following equation\n\nTo quantify the correlation, I define a self-corre...",
+      "future_work": "In this example, NPB is not used to identify which point is an outlier, but inspecting Fig. 6 , I can clearly observe a very large variance in the resulting estimator depending on the very specific choice of the observables of the data-set. This outcome should be used as a signal for a further investigation of the observables contained in the data-set.\n\nBefore moving forward, it is important mentioning a tecnique very similar to NPB and named jackknife [16] . In this case instead of resampling t...",
+      "extraction_time": 0.0014503002166748047,
+      "metadata": {
+        "paper_id": "P009",
+        "title": "An Introduction to the Bootstrap",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P010",
+      "problem": "We define the problem as: given program P with executable statements ,test cases and actual outputs , the problem is to rank the statements in according to their probability of containing the fault. To compare this method with other methods like [15] , we report the results in terms of statements, but it can also work at function level.\n\nThere exist several fault localization methods based on the differences between execution traces. They all assume a single failed execution and several passed e...",
+      "method": "Jones et al. [16] proposed a method that first clusters executions and then finds a fault in each cluster in parallel. The method has the same aim as the presented method. Indeed, in both cases, we want to separate the effects of the different faults in order to treat the maximum of faults in one execution of the test suite, but in the presented approach, the clusters are partially ordered to take into account dependencies between faults.\n\nWe have compared the failure lattice with existing singl...",
+      "limitation": "There exist several fault localization methods based on the differences between execution traces. They all assume a single failed execution and several passed executions. We rephrase them in terms of search in a lattice to highlight their advantages, their hidden hypothesis, and limitations.\n\n================================================================================\nUnion Model\n================================================================================\n\nWe define the problem as: given...",
+      "future_work": "We consider a debugging process in which a program is tested against different test cases. Each test case yields a transaction in the AR sense, in which attributes correspond to properties observed during the execution of the test case. Two attributes, PASS and FAIL, represent the issue of the test case (again, see future works for variants on this). Thus, the set of all test cases yields a set of transactions that form a formal context, which we call a trace context. The main idea of the data m...",
+      "extraction_time": 0.003203153610229492,
+      "metadata": {
+        "paper_id": "P010",
+        "title": "Data mining: concepts and techniques",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P011",
+      "problem": "================================================================================\nCompetitive Learning Integration into CNN\n================================================================================\n\n================================================================================\nIntroduction\n================================================================================\n\n================================================================================\nRelated Work\n=========================...",
+      "method": "Finally, because the implementation of the proposed method enables seamless switching between unsupervised learning by competitive learning and supervised learning by BP learning, the method could also be useful for the mixture condition of two learning methods as semi-supervised learning. Further studies are required.\n\nAn advantage of the proposed method is stronger representation learning than that provided by conventional BP learning. Stronger representation learning means stronger adaptabili...",
+      "limitation": "In this study, we propose the integration of competitive learning into convolutional neural networks (CNNs) to improve the representation learning and efficiency of fine-tuning. Conventional CNNs use back propagation learning, and it enables powerful representation learning by a discrimination task. However, it requires huge amount of labeled data, and acquisition of labeled data is much harder than that of unlabeled data. Thus, efficient use of unlabeled data is getting crucial for DNNs. To add...",
+      "future_work": "================================================================================\nIntroduction\n================================================================================\n\n================================================================================\nRelated Work\n================================================================================\n\n================================================================================\nCompetitive Learning Integration into CNN\n=========================...",
+      "extraction_time": 0.0005550384521484375,
+      "metadata": {
+        "paper_id": "P011",
+        "title": "Learning representations by back-propagating errors",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P012",
+      "problem": "The two results marked in bold indicate discriminant validity problems according to the HTMT .85 criterion, while the one problem regarding the HTMT .90 criterion is shaded grey; HTMT inference does not indicate discriminant validity problems in this example may consider (1) eliminating items that are strongly correlated with items in the opposing construct or (2) reassigning these indicators to the opposing construct, if theoretically plausible.\n\n================================================...",
+      "method": "As a solution to this critical issue, we present a new set of criteria for discriminant validity assessment in variance-based SEM. The new HTMT criteria, which are based on a comparison of the heterotrait-heteromethod correlations and the monotrait-heteromethod correlations, identify a lack of discriminant validity effectively, as evidenced by their high sensitivity rates.\n\nThe heterotrait-monotrait ratio of the correlations approach to assess discriminant validity Traditional approaches' unacce...",
+      "limitation": "The two results marked in bold indicate discriminant validity problems according to the HTMT .85 criterion, while the one problem regarding the HTMT .90 criterion is shaded grey; HTMT inference does not indicate discriminant validity problems in this example may consider (1) eliminating items that are strongly correlated with items in the opposing construct or (2) reassigning these indicators to the opposing construct, if theoretically plausible.\n\n================================================...",
+      "future_work": "The analysis of the cross-loadings fails to identify any discriminant validity problems, as this approach yields sensitivity values of 0% across all the factor level combinations (Table 3 ). Hence, the comparison of cross-loadings does not provide a basis for identifying discriminant validity issues. However, the picture is somewhat different regarding the partial cross-loadings. The sensitivity remains unacceptably low in respect of homogeneous loadings patterns, no matter what the sample size ...",
+      "extraction_time": 0.0021255016326904297,
+      "metadata": {
+        "paper_id": "P012",
+        "title": "A new criterion for assessing discriminant validity in variance-based structural equation modeling",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P013",
+      "problem": "We believe that the issues we have highlighted in this paper are relevant to ensure transparency and understanding of the processes adopted and the limitations of the information presented in systematic reviews of different types. We hope that PRISMA can be the basis for more detailed guidance on systematic reviews of other types of research, including diagnostic accuracy and epidemiological studies.\n\nHowever, despite advances, the quality of the conduct and reporting of systematic reviews remai...",
+      "method": "In addition, there are different methods for performing both types of meta-analysis [200] . Common fixed-effect approaches are Mantel-Haenszel and inverse variance, whereas random-effects analyses usually use the DerSimonian and Laird approach, although other methods exist, including Bayesian meta-analysis [201] .\n\n================================================================================\nBox 2. Helping To Develop the Research Question(s): The PICOS Approach\n===============================...",
+      "limitation": ": Context (or Background); Objective (or Purpose); Data Sources; Study Selection (or Eligibility Criteria); Study Appraisal and Synthesis Methods (or Data Extraction and Data Synthesis); Results; Limitations; and Conclusions (or Implications). Alternatively, a simpler structure could cover but collapse some of the above headings (e.g., label Study Selection and Study Appraisal as Review Methods) or omit some headings such as Background and Limitations.\n\nWe believe that the issues we have highlig...",
+      "future_work": "If the PRISMA Statement is endorsed by and adhered to in journals, as other reporting guidelines have been [17, 18, 19, 180] , there should be evidence of improved reporting of systematic reviews. For example, there have been several evaluations of whether the use of CONSORT improves reports of randomized controlled trials. A systematic review of these studies [181] indicates that use of CONSORT is associated with improved reporting of certain items, such as allocation concealment. We aim to eva...",
+      "extraction_time": 0.004369020462036133,
+      "metadata": {
+        "paper_id": "P013",
+        "title": "The PRISMA Statement for Reporting Systematic Reviews and Meta-Analyses of Studies That Evaluate Hea",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P014",
+      "problem": "The input data of this problem satisfies the admissibility constraints by construction. A corresponding random constraint satisfaction problem (rCSP) is an ensmble of CSPs, specified by a probability measure on the input data. The rCSP is in the SAT (respectively UNSAT) phase when the satisfiability problem admits a solution with probability one (respectively zero) in the thermodynamic limit. The storage capacity (26) marks the transition between the SAT and the UNSAT phases of the rCSP correspo...",
+      "method": "================================================================================\nIV. REPLICA APPROACH\n================================================================================\n\n================================================================================\nIII. COMBINATORIAL APPROACH\n================================================================================\n\nand we used the known formula for the quadrant probability of a bivariate normal distribution, see [46] . The remaining integ...",
+      "limitation": "The input data of this problem satisfies the admissibility constraints by construction. A corresponding random constraint satisfaction problem (rCSP) is an ensmble of CSPs, specified by a probability measure on the input data. The rCSP is in the SAT (respectively UNSAT) phase when the satisfiability problem admits a solution with probability one (respectively zero) in the thermodynamic limit. The storage capacity (26) marks the transition between the SAT and the UNSAT phases of the rCSP correspo...",
+      "future_work": "where, in the final step, a large n expansion is performed. The exponent of the last term, consisting in a sum over j that does not extend over all the n components, cannot be readily solved using the spherical constraint, but we can write it as\n\nThe input data of this problem satisfies the admissibility constraints by construction. A corresponding random constraint satisfaction problem (rCSP) is an ensmble of CSPs, specified by a probability measure on the input data. The rCSP is in the SAT (re...",
+      "extraction_time": 0.0027894973754882812,
+      "metadata": {
+        "paper_id": "P014",
+        "title": "Statistical Learning Theory",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P015",
+      "problem": "Another issue of SEM is that a latent variable might not correspond to an entity conceived by everyone in only one way; for example, eliteness might be conceived as a small subset of terms by a researcher, whereas it might be conceived as a more complex entity by another researcher. Since latent variable names are usually nouns, they suffer from the usual natural language drawbacks; for example, a latent variable name may be a synonym of another name or may be polysemous and carry more than one ...",
+      "method": "2 Related Work SEM is a general methodology encompassing multivariate methods addressed in IR since Salton [1979] 's research work; other notable examples include Deerwester et al. [1990] 's Latent Semantic Analysis (LSA) and other Factor Analysis (FA) methods utilised in contextual search [Melucci, 2012] .\n\nThe IR community has already developed some approaches to analyzing the causes of both missing relevant documents and the retrieval of irrelevant documents; reliability analysis, retrievabil...",
+      "limitation": "Another issue of SEM is that a latent variable might not correspond to an entity conceived by everyone in only one way; for example, eliteness might be conceived as a small subset of terms by a researcher, whereas it might be conceived as a more complex entity by another researcher. Since latent variable names are usually nouns, they suffer from the usual natural language drawbacks; for example, a latent variable name may be a synonym of another name or may be polysemous and carry more than one ...",
+      "future_work": "================================================================================\nConclusions and Future Directions\n================================================================================\n\n================================================================================\nFurther Explanations of the Differences between SEM and other Techniques\n================================================================================\n\nOther questions about the reasons that a system or component perfor...",
+      "extraction_time": 0.003394603729248047,
+      "metadata": {
+        "paper_id": "P015",
+        "title": "On the evaluation of structural equation models",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P016",
+      "problem": "Due to the inherently dynamic nature of non-routine work, the manufacturing operators may encounter unplanned activities that are not accounted for in the predefined process flow arising spontaneously due to emergent issues during the work shift. Since the taskbased approach relies on prior identification of ergonomically critical activities from the process flow, there is a strong likelihood of not taking into account, the unplanned activities which may pose ergonomic risks.\n\nThe study is relev...",
+      "method": "(3) In a heteromethod block, validity coefficient should be higher than all other values in its corresponding row. This ensures that same traits measured through different methods are correlated stronger than different traits measured through different methods and forms evidence of discriminant validity.\n\nThis study evaluates the construct validity of task-based ergonomic assessment of nonroutine work using Multitrait-multimethod (MTMM) matrix in conjunction with direct measurement using inertia...",
+      "limitation": "In the task-based approach, the details regarding all the activities scheduled in a work shift are collated through process flow SOPs, structured interviews, work logs, surveys etc. to shortlist ergonomically critical activities [24, 25] . These critical activities are separately utilised for ergonomic assessment to calculate the exposure scores instead of the complete process flow to comply with the feasibility constraints in data collection.\n\nFindings not only include the lack of convergence i...",
+      "future_work": "================================================================================\nConclusion and future scope\n================================================================================\n\nThe interrelationship study also suggested that the deviation observed in the results of task-based approach from actual exposure is random in nature and hence the inefficiency of standard correction factors in the experimental results was justified. In conclusion, these findings suggest a need for cumulativ...",
+      "extraction_time": 0.0017349720001220703,
+      "metadata": {
+        "paper_id": "P016",
+        "title": "Convergent and discriminant validation by the multitrait-multimethod matrix.",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P017",
+      "problem": "================================================================================\nACKNOWLEDGMENTS\n================================================================================\n\n================================================================================\nTitle\n================================================================================\n\nObservation of Gravitational Waves from a Binary Black Hole Merger\n\n================================================================================\nAbs...",
+      "method": "The search reconstructs signal waveforms consistent with a common gravitational-wave signal in both detectors using a multidetector maximum likelihood method. Each event is ranked according to the detection statistic\n\nA second, independent matched-filter analysis that uses a different method for estimating the significance of its events [85, 86] , also detected GW150914 with identical signal parameters and consistent significance.\n\n================================================================...",
+      "limitation": "Finally, assuming a modified dispersion relation for gravitational waves [97] , our observations constrain the Compton wavelength of the graviton to be λ g > 10 13 km, which could be interpreted as a bound on the graviton mass m g < 1.2 × 10 -22 eV=c 2 . This improves on Solar System and binary pulsar bounds [98, 99] by factors of a few and a thousand, respectively, but does not improve on the modeldependent bounds derived from the dynamics of Galaxy clusters [100] and weak lensing observations ...",
+      "future_work": "Further details about these results and associated data releases are available at [116] . Analysis results for the entire first observational period will be reported in future publications. Efforts are under way to enhance significantly the global gravitational-wave detector network [117] . These include further commissioning of the Advanced LIGO detectors to reach design sensitivity, which will allow detection of binaries like GW150914 with 3 times higher SNR. Additionally, Advanced Virgo, KAGR...",
+      "extraction_time": 0.0014328956604003906,
+      "metadata": {
+        "paper_id": "P017",
+        "title": "Observation of Gravitational Waves from a Binary Black Hole Merger",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P018",
+      "problem": "================================================================================\nBrain tissue segmentation\n================================================================================\n\nThe task of segmenting brain tissue mainly refers to partitioning a brain image into four regions including white matter (WM), gray matter (GM), cerebrospinal fluid (CSF) and nonbrain tissue [19, 20, 21] . Brain tissue segmentation provides a quantitative tool for brain morphological analysis, surgical plannin...",
+      "method": "The main contributions of this work can be summarized as follows:\n\n• We propose a full volume method, different from patchbased and sub-volume-based methods. These partialvolume-based methods are slow and hindered by incomplete information. The benefit of our method is from training and segmenting a 3D volume directly. The framework is simple and general, in which any structured prediction models that produce correspondingly-sized output of the input can be incorporated.\n\nWe propose to adopt a f...",
+      "limitation": "A noteworthy drawback of the above approaches is that many intermediate partial segmentation results have to be produced during the process based on local regions, which is usually time-consuming in comparison with the time of only one forward pass. Another shortcoming is that these approaches entail a strategy of acquiring and aggregating partial prediction results from the sampled local regions.\n\n================================================================================\nFormulation\n=====...",
+      "future_work": "• We enable our full volume network to be trained on 12GB GPUs by mixed precision training, which alleviates the critical issue regarding large GPU memory. The resulting inference time (excluding preprocessing) is about 200 times less than traditional methods (FCN [10] , U-Net [18] , FastSurfer [15] ). It outperforms the state-of-the-art (MA-FCN [11] ) by about 2% absolute improvement in Dice overlap.\n\nA noteworthy drawback of the above approaches is that many intermediate partial segmentation r...",
+      "extraction_time": 0.002197742462158203,
+      "metadata": {
+        "paper_id": "P018",
+        "title": "Whole Brain Segmentation",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P019",
+      "problem": "Despite the progress made in the field by the above authors and other researchers, the subject of m-D CCs still contains many open problems. These problems include: optimal design of m-D CCs for specific applications, and the lack of a design procedure; efficient realization of encoders and decoders; and the study of the performance of these codes. Of these problems, two especially stand out: a) What is the encoding power of m-D CCs? and b) How to efficiently decode m-D CCs? These two problems a...",
+      "method": "V.\n\n================================================================================\nCODE SEARCH RESULTS\n================================================================================\n\nWe used the results presented above to search for 2D TBCCs with high minimum distance over various information sequence sizes. As an example, we present results for the search of codes with kernel supports K=2×2 and K=3×3 over information sequences with support N=6×6. The code search was carried out in two parts...",
+      "limitation": "Despite the progress made in the field by the above authors and other researchers, the subject of m-D CCs still contains many open problems. These problems include: optimal design of m-D CCs for specific applications, and the lack of a design procedure; efficient realization of encoders and decoders; and the study of the performance of these codes. Of these problems, two especially stand out: a) What is the encoding power of m-D CCs? and b) How to efficiently decode m-D CCs? These two problems a...",
+      "future_work": "We suggest a modification of the LBP allowing for statistical changing of check equations to improve the convergence of the LBP. Many other cases were decoded more successfully by the more advanced generalized belief propagation (GBP) [11] , [12] . The results of the GBP decoder were further improved by a new method of constructing the regions in the GBP. The gap between ML decoding and suboptimal decoding is still too high for some of the codes, suggesting a room for additional decoding algorit...",
+      "extraction_time": 0.0022940635681152344,
+      "metadata": {
+        "paper_id": "P019",
+        "title": "Error bounds for convolutional codes and an asymptotically optimum decoding algorithm",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P020",
+      "problem": "The existing methods tried to reduce false positives by leveraging algorithmic designs or choosing the threshold depending on a desired false positive rate. However, as described in Section I, the sensitivity to the distance of objects/people from the camera can be a determining factor in the increased false positives in VAD tasks, especially for scenes with large variations in depth, such as corridors or hallways. Hence, we utilize the depth of pixels to handle this issue and enforce equivalent...",
+      "method": "1) We propose an approach using a novel depth-weighted loss to enforce equivalent importance to events irrespective of distance from camera and utilize the training outliers to determine the anomaly threshold. 2) We expand our analysis to nine participants with dementia and three different cameras. 3) We integrate the proposed approach into three different existing anomaly detection methods, referred to as their depth variants. The effectiveness of the proposed approach is then evaluated by comp...",
+      "limitation": "================================================================================\nV. CONCLUSION AND FUTURE WORK\n================================================================================\n\nIn conclusion, this work marks an important step for the development of an automated behaviours of risk detection system that can be employed in real-world care settings and helps to improve the care and safety of PwD in assisted living facilities.\n\nWhile the study presented important findings for the dete...",
+      "future_work": "================================================================================\nV. CONCLUSION AND FUTURE WORK\n================================================================================\n\nFuture work can involve validating our approach on data collected from an LTC that typically encounters fewer behaviours of risk incidents. Further, the effect of utilizing the depth map as part of data as an additional input channel can be investigated. Pose tracking cameras that directly extract body joi...",
+      "extraction_time": 0.0013661384582519531,
+      "metadata": {
+        "paper_id": "P020",
+        "title": "Dementia prevention, intervention, and care",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P021",
+      "problem": "Note that while frequently used in the past, the Fornell-Larcker criterion does not allow for reliably detecting discriminant validity issues. Specifically, in light of the Fornell-Larcker criterion's poor performance in detecting discriminant validity problems (Franke & Sarstedt, 2019; Henseler et al., 2015) , any violation indicated by the criterion should be considered a severe issue. The primary criterion for discriminant validity assessment is the HTMT criterion, which can be accessed by in...",
+      "method": "In the DA approach, PLS predict would consider both the antecedent and the mediator as predictors of outcome constructs, whereas in the EA approach, the mediator would be excluded from the analysis. Danks (2021) presents simulation evidence that the DA approach generates predictions with the highest accuracy. We therefore recommend using this approach.\n\nIn the previous section, we introduced the concept of an interaction term to facilitate the inclusion of a moderator variable in a PLS path mode...",
+      "limitation": "With regard to the second limitation, regression-type methods are restricted to processing observable variables, such as age or sales (in units or dollars). Theoretical concepts, which are \"abstract, unobservable properties or attributes of a social unit of entity\" (Bagozzi & Philipps, 1982, p. 465) , can only be considered after prior stand-alone validation by means of, for example, a confirmatory factor analysis (CFA). The ex post inclusion of measures of theoretical concepts, however, comes w...",
+      "future_work": "================================================================================\n3\n================================================================================\n\nor replicate. In addition, more experienced users can draw on a large number of supplementary R packages that extend the analyses supported by SEMinR.\n\nWith regard to the third limitation and related to the previous point, one has to bear in mind that each observation of the real world is accompanied by a certain degree of measuremen...",
+      "extraction_time": 0.012652397155761719,
+      "metadata": {
+        "paper_id": "P021",
+        "title": "Partial Least Squares Structural Equation Modeling (PLS-SEM) Using R",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P022",
+      "problem": "================================================================================\nA Limitations\n================================================================================\n\nOur study has two significant limitations: the reproducibility of the mask rules set by GPT-4 and the invalid unlearning of tokens following the mask.\n\n================================================================================\nMask Rules\n===============================================================================...",
+      "method": "Table 1 shows the perplexity on Wikitext-2 and the language model scores from StereoSet for our proposed method across increasing unlearning steps, alongside the results of previous methods. Our MLM Unlearning approach maintains language modeling performance comparable to, if not exceeding, that of previous methods. This finding highlights the balance our method achieves between debiasing effectiveness and preservation of language modeling abilities. Further analysis of perplexity results can be...",
+      "limitation": "================================================================================\nA Limitations\n================================================================================\n\nOur study has two significant limitations: the reproducibility of the mask rules set by GPT-4 and the invalid unlearning of tokens following the mask.\n\n================================================================================\nMask Rules\n===============================================================================...",
+      "future_work": "As discussed in Section 4.1, we used GPT-4 to identify and mask bias-related keywords. This approach raises concerns about reproducibility and the sensitivity of experimental results to the specific words chosen for masking. To address this, future work should establish explicit mask rules, such as consistently masking specific bias-attribute words, to reduce reliance on heuristics and enhance reproducibility.\n\n================================================================================\nA Li...",
+      "extraction_time": 0.0010051727294921875,
+      "metadata": {
+        "paper_id": "P022",
+        "title": "Empirical Evidence of Bias",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P023",
+      "problem": "Therefore, even without knowledge of κ outside B 1 ∪ B 2 we can write\n\nwhere summing and using the union-intersection inequality (as in (2.2)) we get 0\n\nthese inclusions mean that we can reformulate the problem for E 0 as minimizing perimeter with an inclusion constraint (as in the obstacle problem of [10, Lemma, p.132] and [24, Lemma 9] ), so that E 0 ∈ arg min\n\nNow, this variational problem and the isoperimetric inequality provide us with the bound\n\n(5.3)\n\nIn the sequel, we will need stability...",
+      "method": "Convexity of the set implies that this projection is nonexpansive, providing a straightforward stability estimate for this case.\n\nIn analogy with the Hilbert framework, we can define the functional\n\nwhich in the case σ = 2 is used in [3] to define a generalized projection for Banach spaces, mapping the dual space Y * onto Y . In the following we use the methods introduced in [3, 4] to derive the estimates we require.\n\nOur aim is to extend this type of result to different choice of integrability ...",
+      "limitation": "Therefore, even without knowledge of κ outside B 1 ∪ B 2 we can write\n\nwhere summing and using the union-intersection inequality (as in (2.2)) we get 0\n\nthese inclusions mean that we can reformulate the problem for E 0 as minimizing perimeter with an inclusion constraint (as in the obstacle problem of [10, Lemma, p.132] and [24, Lemma 9] ), so that E 0 ∈ arg min\n\nNow, this variational problem and the isoperimetric inequality provide us with the bound\n\n(5.3)\n\nIn the sequel, we will need stability...",
+      "future_work": "Therefore, even without knowledge of κ outside B 1 ∪ B 2 we can write\n\nwhere summing and using the union-intersection inequality (as in (2.2)) we get 0\n\nthese inclusions mean that we can reformulate the problem for E 0 as minimizing perimeter with an inclusion constraint (as in the obstacle problem of [10, Lemma, p.132] and [24, Lemma 9] ), so that E 0 ∈ arg min\n\nNow, this variational problem and the isoperimetric inequality provide us with the bound\n\n(5.3)\n\nFollowing the scheme laid out in [20,...",
+      "extraction_time": 0.0024869441986083984,
+      "metadata": {
+        "paper_id": "P023",
+        "title": "RELATIONS BETWEEN TWO SETS OF VARIATES",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P024",
+      "problem": ", where L GW (α i , δ i ) is the gravitational-wave likelihood and a(α i , δ i ) is Galactic extinction. This fits into a framework for planning optimal follow-up of gravitational-wave candidates. We show that the required time to achieve a 90% confidence level of detecting a gravitational-wave electromagnetic event is decreased by a factor of 3. In this work, we will ignore a number of complications. One is the \"needle in the haystick problem,\" which involves the difficulty of discriminating th...",
+      "method": "The remainder of this paper is organized as follows. We describe the formalism used in this paper in section 2. We discuss the methods used to optimize telescope allocations and demonstrate their application in section 3. We conclude with a discussion of topics for further study in section 4.\n\n================================================================================\nDefinition of variables\n================================================================================\n\nIn the future, we ...",
+      "limitation": "We have described an implementation of an optimization strategy for the detection of gravitationalwave optical counterparts. We showed how an implementation of this kind can improve searches for these transients. We find that by making assumptions about the event rate and sky localization abilities of the gravitational-wave detectors, follow-up imaging can be significantly improved. Therefore, this approach may provide further opportunities for improving electromagnetic followups.\n\n, where L GW ...",
+      "future_work": "We have described an implementation of an optimization strategy for the detection of gravitationalwave optical counterparts. We showed how an implementation of this kind can improve searches for these transients. We find that by making assumptions about the event rate and sky localization abilities of the gravitational-wave detectors, follow-up imaging can be significantly improved. Therefore, this approach may provide further opportunities for improving electromagnetic followups.\n\nwhere any gal...",
+      "extraction_time": 0.0011453628540039062,
+      "metadata": {
+        "paper_id": "P024",
+        "title": "Advanced Virgo: a second-generation interferometric gravitational wave detector",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P025",
+      "problem": "================================================================================\nD. Neutron star black hole event rates\n================================================================================\n\nThe NSBH space is a unique challenge both to model astrophysically and for which to produce accurate waveforms. Astrophysical models span a wide range of potential\n\nBlip transients [91] are short, band-limited transients that occur in both LIGO detectors at a rate of roughly once per hour. Because...",
+      "method": "In the previous section, we present estimates of the source properties for each event based on different relativistic models of the emitted gravitational waveform. Such models, however, do not necessarily incorporate all physical effects. Here, we take an independent approach to determine the GW signal present in the data and assess the consistency with the waveform model-based analysis.\n\nFigure 1 shows the BNS ranges of the LIGO and Virgo instruments over the course of O2 and the representative...",
+      "limitation": "As noted in Sec. III, data from O1 are reanalyzed because of improvements in the search pipelines and the\n\n================================================================================\nGWTC-1: A GRAVITATIONAL-WAVE TRANSIENT CATALOG …\n================================================================================\n\nThe improved O2 pipelines substantially reduce the FAR assigned to GW151012: It is now 0.17 y -1 in the PyCBC search (previously, 0.37 y -1 ) and 7.92 × 10 -3 y -1 in the GstLAL sea...",
+      "future_work": "As noted in Sec. III, data from O1 are reanalyzed because of improvements in the search pipelines and the\n\n================================================================================\nGWTC-1: A GRAVITATIONAL-WAVE TRANSIENT CATALOG …\n================================================================================\n\nThe improved O2 pipelines substantially reduce the FAR assigned to GW151012: It is now 0.17 y -1 in the PyCBC search (previously, 0.37 y -1 ) and 7.92 × 10 -3 y -1 in the GstLAL sea...",
+      "extraction_time": 0.005085468292236328,
+      "metadata": {
+        "paper_id": "P025",
+        "title": "GWTC-1: A Gravitational-Wave Transient Catalog of Compact Binary Mergers Observed by LIGO and Virgo ",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P026",
+      "problem": "================================================================================\nAssumptions\n================================================================================\n\nIn addressing real-world challenges, we often simplify intricate scenarios through reasonable assumptions, forming and refining models accordingly. The primary assumptions for this analysis are:Assumption 1: The prevalence of Alzheimer's disease is related to gender.\n\nOverall, this study successfully addressed the challenge...",
+      "method": "Given that the data we are dealing with is discrete, quantitative, and may not necessarily follow a normal distribution, we have opted for the Spearman correlation coefficient rather than the Pearson correlation coefficient for correlation analysis. The formula for calculating the Spearman correlation coefficient is as follows:\n\nWhere 𝑑 𝑖 represents the differences in ranks, and n represents the number of data points.\n\nA decision tree is a tree-like predictive model mainly used for instance clas...",
+      "limitation": "The Bagging approach leads to improved performance because it reduces variance while increasing bias. This means that even if the predictions of individual tree models are very sensitive to noise in the training set, it won't be so sensitive for an ensemble of these trees as long as they are uncorrelated.\n\nThe ensemble learning model is illustrated as Figure 4 : Figure 5: Random Forest Model Workflow\n\n================================================================================\nAssumptions\n==...",
+      "future_work": "The Bagging approach leads to improved performance because it reduces variance while increasing bias. This means that even if the predictions of individual tree models are very sensitive to noise in the training set, it won't be so sensitive for an ensemble of these trees as long as they are uncorrelated.\n\nThe ensemble learning model is illustrated as Figure 4 : Figure 5: Random Forest Model Workflow\n\nAlzheimer's disease (AD) is a progressive neurodegenerative disorder widely acknowledged as a p...",
+      "extraction_time": 0.0010104179382324219,
+      "metadata": {
+        "paper_id": "P026",
+        "title": "Diagnosis of Alzheimer's Disease",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P027",
+      "problem": "0 50 100 150 Time [days] from April 01, 2019 0 20 40 60 80 100 120 140 Median BNS Range [Mpc] start of the observing period, and hardware problems such as failures of analog electronics within the control system. Most of these sources of error are subtle, and can only be assessed once they are measured and quantified a posteriori.\n\nThe build up of electric charge on the test masses was also an issue during previous runs, therefore several actions were undertaken to mitigate the contribution of t...",
+      "method": "================================================================================\nB. Sampling methods\n================================================================================\n\nThe online Gravitational Wave Transient Catalog represents a cumulative set of events found in LIGO-Virgo data, including detections presented in GWTC-1, and now also events from the first six months of the O3 observing run. O3 continued from November 2019 until March 2020. Analysis of the second portion (O3b) is cu...",
+      "limitation": "SNRs ( 10) . The offline analyses here differ from their low-latency counterparts through having improved template banks, improved use of data quality information, improved data calibration, data cleaning, and improved tuning to reject the non-stationary noise background observed in O3a. These differences account for the new moderate SNR candidate events. During O3a, the LVC issued 8 retractions for public alerts that were promptly determined to be unlikely to have originated from astrophysical ...",
+      "future_work": "The Advanced LIGO and Advanced Virgo detectors are currently undergoing commissioning to further im-prove their sensitivity, and will be joined in their fourth observing run by the KAGRA detector [284] . This should lead to improvements in the detection rate and source localization, improving the prospects for multimessenger observation of future sources [285, 286] .\n\nSNRs ( 10) . The offline analyses here differ from their low-latency counterparts through having improved template banks, improve...",
+      "extraction_time": 0.004873752593994141,
+      "metadata": {
+        "paper_id": "P027",
+        "title": "GWTC-2: Compact Binary Coalescences Observed by LIGO and Virgo during the First Half of the Third Ob",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P028",
+      "problem": "Based upon X-ray binary observations, there is a hypothesized lower BH mass gap below 5M ⊙ [201] [202] [203] [204] . This may be a signature of the physics of core-collapse supernova explosions [205] [206] [207] [208] [209] . We infer that there are some BBHs that may have components in this mass gap. Given our standard prior assumptions, the candidate with the most posterior support for m 2 < 5M ⊙ is GW191113 071753 with 13% probability. None of the unambiguous-BBH candidates has a primary mass...",
+      "method": "The cWB algorithm analyzes whitened data using the Wilson-Daubechies-Meyer wavelet transform [89, 108] to compute a time-frequency representation. The algorithm selects excess-energy data in the time-frequency representation and clusters them to define a trigger. Next, it identifies coherent signal power with the constrained maximum-likelihood method [60] , and reconstructs the source sky location and the signal waveforms.\n\nThe sensitivity results presented in Table III are obtained considering ...",
+      "limitation": "All these quasisimultaneous hardware and software improvements led to a significant increase in the BNS inspiral range visible in the data after 28 January 2020 (Fig. 3 , left panel). The median range improved from 49 Mpc (before 28 January 2020) to 56 Mpc (after 28 January 2020). The Virgo sensitivity improved over the whole frequency range, with a larger improvement below about 300 Hz, around the minimum of the sensitivity curve and at lower frequencies.\n\nNondetection of electromagnetic counte...",
+      "future_work": "All these quasisimultaneous hardware and software improvements led to a significant increase in the BNS inspiral range visible in the data after 28 January 2020 (Fig. 3 , left panel). The median range improved from 49 Mpc (before 28 January 2020) to 56 Mpc (after 28 January 2020). The Virgo sensitivity improved over the whole frequency range, with a larger improvement below about 300 Hz, around the minimum of the sensitivity curve and at lower frequencies.\n\nLIGO Livingston interferometers and th...",
+      "extraction_time": 0.008657217025756836,
+      "metadata": {
+        "paper_id": "P028",
+        "title": "GWTC-3: Compact Binary Coalescences Observed by LIGO and Virgo during the Second Part of the Third O",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P029",
+      "problem": "• The final parsec problem As the MBHB enters in the hard binary regime, it is expected to shrink at a rate determined by\n\nTo unlock the rich scientific potential of EMRI and IMRI observations, we must be able to extract these signals from the LISA data stream. EMRI detection and characterisation is one of the most challenging problems in LISA data analysis (Amaro-Seoane et al., 2007 , 2015; Amaro-Seoane, 2018b , 2020) . There are three main sources of challenge:\n\nThe variety of astrophysical pr...",
+      "method": "and an associated Keplerian frequency of\n\nIn the above formulas we have introduced the Schwarzschild radius of the BH, r s = 2r g , the Schwarzschild radius of the star, r s * , and the penetration factor\n\nFor example, Pfister et al. (2017) also find that the contribution from gas friction is negligible compared to that from stars as in their case (i) the gas density is lower than stellar density; and\n\nThe contribution of LISA to multimessenger science The event rate of the potential emission of...",
+      "limitation": "• The final parsec problem As the MBHB enters in the hard binary regime, it is expected to shrink at a rate determined by\n\n================================================================================\nTheoretical and observational improvements in the multimessenger study of MBHBs\n================================================================================\n\nHowever, our current knowledge of the MBH population and their hosts across redshift is not sufficient to put tight constraints on see...",
+      "future_work": "• Self-force calculations to second order in mass ratio for generic orbits in a Kerr metric to enable high precision waveform calculations\n\n• Further data analysis work with updated waveforms to improve EMRI extraction from the LISA datastream\n\n• continue to extend time-domain surveys to longer baselines, in order to mitigate falseperiodicity detections due to AGN red noise,\n\n• improve our understanding of intrinsic AGN noise processes and quasi-periodic oscillations,\n\n• improve methods for dete...",
+      "extraction_time": 0.021132946014404297,
+      "metadata": {
+        "paper_id": "P029",
+        "title": "Astrophysics with the Laser Interferometer Space Antenna",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P030",
+      "problem": "Four of the other new candidates (GW190805 211137, GW190916 200658, GW190925 232845, GW190926 050336) fall in the mass range of the bulk of GWTC-2 BBHs, while the secondary component of GW190725 174728 has a 0.18 probability of lying in the lower mass gap (∼ 2-5 M ). The existence of a lower mass gap was inferred from observations of Galactic X-ray binaries [261] [262] [263] , but there are a few observations of BHs with mass ≈ 3-4 M in non-interacting binary systems [264, 265] and microlensing ...",
+      "method": "For GW190425, the only O3a event in this catalog classified as a BNS, we follow the analysis presented in [8, 160] and report findings using the IMRPhe-nomP NRTidal waveform model [64, 65] which is based upon the BBH model IMRPhenomPv2 [151, 161, 162] with the addition of EoS dependent self-spin effects and contributions from tidal interactions tuned against NR and tidal EOB models. In order to reduce computational cost for the analysis of GW190425, a reducedorder-quadrature method was applied t...",
+      "limitation": "For Virgo, major upgrades included: replacement of the steel wire suspensions of the four test masses with fused-silica fibers [73] , modification of the vacuum system to avoid dust contamination of the lowest suspension stage, replacement of the main laser to increase power, installation of a squeezed vacuum source to reduce quantum noise [74] , improvements in beam stability [75] , and addressing issues with scattered light. Compared to the O2 run, the Virgo BNS range increased by 73% (from 26...",
+      "future_work": "The LIGO Scientific, Virgo and KAGRA Collaboration (LVK) have already announced the first observations from NSBHs [133] in the data from O3b, and the catalog that extends events up to O3b, GWTC-3 [66] , has been released. GWTC-3 adds 35 GW candidates with p astro greater than 0.5 from O3b. O3 marks the most sensitive GW data published upon so far. The LIGO, Virgo, and KAGRA [290] detectors are currently offline and undergoing commissioning to enhance their sensitivities, and plan to all collect ...",
+      "extraction_time": 0.003744840621948242,
+      "metadata": {
+        "paper_id": "P030",
+        "title": "GWTC-2.1: Deep extended catalog of compact binary coalescences observed by LIGO and Virgo during the",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P031",
+      "problem": "================================================================================\nDynamical systems method for linear problems\n================================================================================\n\nIn this section, for linear solvable ill-posed problem Au = f , with bounded linear operator A < 1, DSM is justified and a stable approximation of the minimal norm solution to ill-posed problem with noisy data f δ , f δ -f ≤ δ is constructed. This section is based on paper [2] .\n\n===========...",
+      "method": "In this chapter, we shall discuss four different methods, (variational regularization method, quasi-solutions method, iterative regularization method and dynamical systems method) for constructing regularizing families for ill-posed problems (1.1) with bounded operators. See also A.G.Ramm [1] for ill-posed problems with unbounded operators.\n\n================================================================================\nThe method of quasi-solution\n==============================================...",
+      "limitation": "================================================================================\nDynamical systems method for linear problems\n================================================================================\n\nIn this section, for linear solvable ill-posed problem Au = f , with bounded linear operator A < 1, DSM is justified and a stable approximation of the minimal norm solution to ill-posed problem with noisy data f δ , f δ -f ≤ δ is constructed. This section is based on paper [2] .\n\n===========...",
+      "future_work": "================================================================================\nDynamical systems method for linear problems\n================================================================================\n\nIn this section, for linear solvable ill-posed problem Au = f , with bounded linear operator A < 1, DSM is justified and a stable approximation of the minimal norm solution to ill-posed problem with noisy data f δ , f δ -f ≤ δ is constructed. This section is based on paper [2] .\n\n===========...",
+      "extraction_time": 0.0017626285552978516,
+      "metadata": {
+        "paper_id": "P031",
+        "title": "Methods of Solving Ill-Posed Problems",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P032",
+      "problem": "• ∆r = 5 Mpc/h: We use 5 h -1 Mpc bins in the correlation functions (4 h -1 Mpc in the main analysis).\n\n• no cross-covariance: We ignore the cross-covariance of the different correlation functions (as done in eBOSS, dMdB20).\n\nWe do not see any problematic variation related to the measurement of correlations and their covariances.\n\nThere is a small bias in the measurement of BAO from the stack of 100 LyaCoLoRe mocks (blue contours), but it is smaller than the requirement accuracy (black dashed co...",
+      "method": "After presenting the measured correlations in section 3 and discussing the model we used to describe them in section 4, in this section we summarise the statistical method used to fit the measurement and present the main results of this paper: the measurement of the BAO scale along and perpendicular to the line of sight.\n\nIn contrast, previous Lyα forest BAO analyses used a frequentist approach to obtain their main results [see e.g. 21, 22, 27] . This involved using the Profile Likelihood method...",
+      "limitation": "There are several known issues that we have not addressed in this publication, and that we leave for future work.\n\n• Non-linear evolution causes a small systematic shift on the BAO peak [108] [109] [110] . At low redshift, this is expected to be a sub-percent bias, and at high redshift it is expected to be even lower, below our current systematic uncertainties of 0.5% coming from the analysis of mocks (it is a conservative estimate, see section 6.5).\n\n• BAO analyses using galaxy samples at low r...",
+      "future_work": "Two improvements have been made to the distortion matrix treatment over that of dMdB20. First, the undistorted model bins are now calculated on a grid of 2 h -1 Mpc (instead of the 4 h -1 Mpc bins used to measure the correlations). Second, in the r ∥ directions, we extend the modelling of the undistorted correlations to 300 h -1 Mpc rather than to 200 h -1 Mpc. This improves the accuracy of the distortion calculation at high r ∥ , but has a negligible impact on the BAO results (see section 6.4)....",
+      "extraction_time": 0.005169391632080078,
+      "metadata": {
+        "paper_id": "P032",
+        "title": "DESI 2024 IV: Baryon Acoustic Oscillations from the Lyman alpha forest",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P033",
+      "problem": "================================================================================\nVI Potential Solutions to Cosmic Problems\n================================================================================\n\nThere are a number of other unresolved problems in cosmology which PBHs might help to solve. We discuss them separately from the problems discussed above, since they are less studied and the arguments are less compelling.\n\n========================================================================...",
+      "method": "• For CIB-XRB correlations, the band corresponds to 1 < f PBH M/ M ⊙ < 100 up to a mass of 10 4 M ⊙ . We have not used a rigorous statistical analysis to get more precise values but the proposed band agrees with the order-of-magnitude estimate in Ref. [52] .\n\nAnother approach for the detection of PBHs in the Milky Way has involved the monitoring of large numbers of stars in the Galactic bulge by the OGLE collaboration [96] . These observations are particularly focussed on the detection of white ...",
+      "limitation": "The most stringent constraints come from extragalactic γ-ray background observations. The differential flux of γ-rays is produced by the collective annihilations of WIMPs around PBHs at all redshifts [412] ,\n\n================================================================================\nVI Potential Solutions to Cosmic Problems\n================================================================================\n\nThere are a number of other unresolved problems in cosmology which PBHs might help to ...",
+      "future_work": "In contrast to the solutions to other well-known issues, like the \"missing satellite\" [124, 125] , \"cuspcore\" [126] , and \"too-big-to-fail\" problems [127, 128] , or discrepancies with planes of satellite galaxies [129] , which require that observed small satellite galaxies are fewer in number and less dense than expected, the excess in dark matter clumps discussed above requires that subhalos are more concentrated than predicted by simulations. Strikingly, the clustering of PBHs induced by an ex...",
+      "extraction_time": 0.007506132125854492,
+      "metadata": {
+        "paper_id": "P033",
+        "title": "Observational evidence for primordial black holes: A positivist perspective",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P034",
+      "problem": "where we incorporate a probability p BH for the pair of SMBHs to approach each other sufficiently closely to merge [112] and p occ relates the BH mass to the halo mass including the observed scatter [14] . The interactions with their environments that allow the binaries to overcome the \"final parsec problem\" are not fully understood [113] , and we regard p BH as a phenomenological parameter to be determined using the PTA data. For simplicity, we assume p BH to be constant.\n\n=====================...",
+      "method": "The present-day SIGW background would have a spectrum given by Eq. ( 9 ), where [265] [266] [267] [268] Ω GW (T ) = 1 3\n\nwhere T denotes the temperature at which the GWs were produced and Ω GW (T ) their abundance at that moment, a is the scale factor and H the Hubble rate, the subscript 0 refers to their present day values, and g * and g * s are the effective numbers of relativistic energy and entropy degrees of freedom. The present frequency corresponding to the scale entering the Hubble horiz...",
+      "limitation": "In fig. 4 we show the posterior distributions for the string tension, Gµ, and the intercommutation probability, p, together with the constraints from current (O3) LIGO/Virgo/KAGRA (LVK) data [160] and the design sensitivity of future LVK data [161] [162] [163] , assuming that the SMBH background is negligible. The best pure (super)string fit not in conflict with current LVK data has\n\nwhere we incorporate a probability p BH for the pair of SMBHs to approach each other sufficiently closely to merg...",
+      "future_work": "In fig. 4 we show the posterior distributions for the string tension, Gµ, and the intercommutation probability, p, together with the constraints from current (O3) LIGO/Virgo/KAGRA (LVK) data [160] and the design sensitivity of future LVK data [161] [162] [163] , assuming that the SMBH background is negligible. The best pure (super)string fit not in conflict with current LVK data has\n\nThe recent PTA data from NANOGrav and other PTA Collaborations have established the existence of a SGWB in the nH...",
+      "extraction_time": 0.0022656917572021484,
+      "metadata": {
+        "paper_id": "P034",
+        "title": "What is the source of the PTA GW signal?",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P035",
+      "problem": "In the case of the Cepheid distance scale, subsequent tests after unblinding revealed an issue in the data pipeline and in the photometric reductions of the HST data. A re-analysis of these data is on-going.\n\n2. As discussed in §11, a current key source of uncertainty in the SN Ia distance scale is the relatively small number of well-observed SNe Ia with calibrators that have distances measured using JWST . One concern is a trend (see Figure B1 ) in which SN Ia absolute magnitudes appear to beco...",
+      "method": "2. Method for measurement Uncertainties in NGC 4258 and Distance Comparisons:\n\nIn this section we give a brief overview of the two methods used in this paper, and discuss their advantages and disadvantages. There is no single perfect method. The weaknesses of each method serve to underscore the importance of having independent methods for constraining overall systematic effects in the local distance scale.\n\n================================================================================\nTRGB\n===...",
+      "limitation": "That is, the effective size of the R22 Cepheid sample is equivalent to only 31 SNe Ia, or 74% of the total sample. (The effective size of the CCHP TRGB sample is 21 compared to a total of 24, or 88%; i.e., the weights are more evenly distributed.) These limitations, however, underscore the need for a larger sample of nearby SNe Ia.\n\nIn this section we give a brief overview of the two methods used in this paper, and discuss their advantages and disadvantages. There is no single perfect method. Th...",
+      "future_work": "================================================================================\nComparison of the Extended TRGB Sample with Riess et al. (2022)\n================================================================================\n\nWhile both the precision and the accuracy of the measurements of distances to galaxies have improved considerably in recent years, there are still reasons to remain open as to whether our currently estimated uncertainties truly reflect the total uncertainties. Shown in Fig...",
+      "extraction_time": 0.004377841949462891,
+      "metadata": {
+        "paper_id": "P035",
+        "title": "Status Report on the Chicago-Carnegie Hubble Program (CCHP): Measurement of the Hubble Constant Usin",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P036",
+      "problem": "================================================================================\nThe Red Supergiant Problem\n================================================================================\n\n================================================================================\nTitle\n================================================================================\n\nThe red supergiant progenitor luminosity problem\n\n================================================================================\nAbstract\n=...",
+      "method": "================================================================================\nMETHOD\n================================================================================\n\nWe now compare the luminosities of each of the RSGs derived via two methods. The SED derived luminosities were calculated in M22 by using IDL routine int tabulated and adopting an M31 distance modulus of 24.4 (Karachentsev et al. 2004) . In this method, the luminosity is obtained by simply integrating under the observed SED. The...",
+      "limitation": "================================================================================\nThe Red Supergiant Problem\n================================================================================\n\nIn Section 2 we detail the methods used to determine the luminosities of each RSG in the sample. In Section 3 we compare the luminosties determined for each RSG via the BC and SED methods and discuss potential implications for SN progenitors. We also apply the results of this work to the Red Supergiant Proble...",
+      "future_work": "In Section 2 we detail the methods used to determine the luminosities of each RSG in the sample. In Section 3 we compare the luminosties determined for each RSG via the BC and SED methods and discuss potential implications for SN progenitors. We also apply the results of this work to the Red Supergiant Problem. In Section 4 we summarise the results and make suggestions for future work on RSG progenitors.\n\nReal RSGs have a range of later M types, especially in the case of SN progenitors, and this...",
+      "extraction_time": 0.0012264251708984375,
+      "metadata": {
+        "paper_id": "P036",
+        "title": "The Red Supergiant Progenitor Luminosity Problem",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P037",
+      "problem": "The second point ensures we can interpret what effect diversity has on our ultimate objective: reducing the ensemble error. The third point ensures that the new theory contributes to knowledge, in the sense that it expands the depth/breadth of our understanding. This also relates to the only known scenario where the challenge of defining diversity might be considered a \"solved\" problem: regression using squared loss, with an arithmetic mean ensemble. We now review this.\n\nThe properties above app...",
+      "method": "We present further exposition on certain points within the paper. The material in this appendix is not novel, but expands on selected aspects to support our argument.\n\nGiven all of the above, we can now present a novel decomposition for the expected risk of an ensemble using the centroid combiner, isolating the effect of diversity.\n\nTheorem 8 (Bias-Variance-Diversity effect decomposition) Given an ensemble of models {q i } m i=1 combined by the centroid combiner q def = arg min z∈Y 1 m m i=1 ℓ(z...",
+      "limitation": "================================================================================\nFuture work\n================================================================================\n\nRe-visiting previous work involving heuristic diversity measures.\n\n================================================================================\nProperties of the Bregman Centroid Combiner\n================================================================================\n\nThe centroid combiner is the result of a constraint...",
+      "future_work": "================================================================================\nFuture work\n================================================================================\n\nRe-visiting previous work involving heuristic diversity measures.\n\nAs it stands, our framework does not apply for a mixture of experts model, where the models are gated by an additional input-dependent model, itself learnt from data. Future work might consider diversity for this scenarioperhaps measuring diversity of predic...",
+      "extraction_time": 0.0038993358612060547,
+      "metadata": {
+        "paper_id": "P037",
+        "title": "The Nature of Statistical Learning Theory",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P038",
+      "problem": "While conventional chatbots only provide information, chatbots with expert decision-making abilities can solve complex problems. Hsu et al. (2023) discovered that chatbots possessing expert decision-making knowledge significantly improve students' learning achievements [37] . Several studies have explored chatbots' decision-making in various industries, such as healthcare and finance [38]\n\nThe integration of Artificial Intelligence (AI) into education is a recent development, with chatbots emerg...",
+      "method": "================================================================================\nIII. RESEARCH METHOD\n================================================================================\n\nAlthough our study provides valuable insights, cross-sectional surveys, and self-reported measures may introduce biases. Longitudinal data might be useful to reduce this biasness. Nonetheless, the study's findings still contribute to our understanding of the topic and can serve as a foundation for further research....",
+      "limitation": "While conventional chatbots only provide information, chatbots with expert decision-making abilities can solve complex problems. Hsu et al. (2023) discovered that chatbots possessing expert decision-making knowledge significantly improve students' learning achievements [37] . Several studies have explored chatbots' decision-making in various industries, such as healthcare and finance [38]\n\nAlthough our study provides valuable insights, cross-sectional surveys, and self-reported measures may intr...",
+      "future_work": "While conventional chatbots only provide information, chatbots with expert decision-making abilities can solve complex problems. Hsu et al. (2023) discovered that chatbots possessing expert decision-making knowledge significantly improve students' learning achievements [37] . Several studies have explored chatbots' decision-making in various industries, such as healthcare and finance [38]\n\nAlthough our study provides valuable insights, cross-sectional surveys, and self-reported measures may intr...",
+      "extraction_time": 0.0010936260223388672,
+      "metadata": {
+        "paper_id": "P038",
+        "title": "Partial least squares structural equation modeling (PLS-SEM)",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P039",
+      "problem": "================================================================================\nBox 6. Missing data: problems and possible solutions\n================================================================================\n\n19. Limitations: Discuss limitations of the study, taking into account sources of potential bias or imprecision. Discuss both direction and magnitude of any potential bias.\n\n================================================================================\nExample\n=====================...",
+      "method": "================================================================================\nMETHODS\n================================================================================\n\nThe Methods section should describe what was planned and what was done in sufficient detail to allow others to understand the essential aspects of the study, to judge whether the methods were adequate to provide reliable and valid answers, and to assess whether any deviations from the original plan were reasonable.\n\nReporting o...",
+      "limitation": "19. Limitations: Discuss limitations of the study, taking into account sources of potential bias or imprecision. Discuss both direction and magnitude of any potential bias.\n\n================================================================================\nExample\n================================================================================\n\nthat do not have 'significant' findings. While these studies may provide an early signal in the context of discovery, readers should be informed of their p...",
+      "future_work": "19. Limitations: Discuss limitations of the study, taking into account sources of potential bias or imprecision. Discuss both direction and magnitude of any potential bias.\n\n================================================================================\nExample\n================================================================================\n\nWhen discussing limitations, authors may compare the study being presented with other studies in the literature in terms of validity, generalisability and ...",
+      "extraction_time": 0.00494384765625,
+      "metadata": {
+        "paper_id": "P039",
+        "title": "Strengthening the Reporting of Observational Studies in Epidemiology (STROBE): Explanation and Elabo",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P040",
+      "problem": "However, this simple picture is challenged -especially at the scales from poor clusters to groups of galaxies -by several recent X-ray observations.\n\n================================================================================\nBroken self-similarity\n================================================================================\n\n================================================================================\nThe State of the ICM\n==============================================================...",
+      "method": "The SAM used in the present paper includes also the processes relevant to the ICM that have been developed and implemented in MC2000 and CGM2000. In those papers the baryonic component condensed into stars has been used to normalize the model parameters to the optical observations, and the cool gas component has been presented for a final check with relevant data; but our main focus was onto the hot gas identified with the ICM, and onto its X-ray emission L. The hot ICM gives also rise to the SZ...",
+      "limitation": "However, this simple picture is challenged -especially at the scales from poor clusters to groups of galaxies -by several recent X-ray observations.\n\n================================================================================\nBroken self-similarity\n================================================================================\n\n================================================================================\nThe State of the ICM\n==============================================================...",
+      "future_work": "Next, for a group or cluster of mass M we compute the temperature T 1 of the external infalling gas. In particular, for each lump of mass M ′ accreted onto M we consider two contributions: the fraction 1 -f * (M ′ ) remains inside the potential well of M ′ at the virial temperature T V (M ′ ), while the fraction f * (M ′ ) is ejected by the winds and the SNe gone off within M ′ , and is heated to the temperature T * given by eq. ( 4 ).\n\nHowever, this simple picture is challenged -especially at t...",
+      "extraction_time": 0.0021293163299560547,
+      "metadata": {
+        "paper_id": "P040",
+        "title": "Formation of Galaxies and Clusters of Galaxies by Self-Similar Gravitational Condensation",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P041",
+      "problem": "Language models (LMs) [36, 51, 96] are computational models that have the capability to understand and generate human language. LMs have the transformative ability to predict the likelihood of word sequences or generate new text based on a given input. N-gram models [13] , the most common type of LM, estimate word probabilities based on the preceding context. However, LMs also face challenges, such as the issue of rare or unseen words, the problem of overfitting, and the difficulty in capturing ...",
+      "method": "The contributions of this paper are as follows:\n\nLastly, within the realm of psychology, Frank [44] adopted an interdisciplinary approach and drew insights from developmental psychology and comparative psychology to explore alternative methods for evaluating the capabilities of LLMs. By integrating different perspectives, researchers can deepen their understanding of the essence of cognition and effectively leverage the potential of advanced technologies such as large language models, while miti...",
+      "limitation": "Due to the evolution of LLMs especially online services such as Claude and ChatGPT , it is very likely that they become stronger and some of the limitations described in this paper are mitigated (and new limitations may arise). We encourage interested readers to take this survey as a reference for future research and conduct real experiments in current systems when performing evaluations.\n\nOur survey reveals that current LLMs exhibit certain limitations in numerous tasks, notably reasoning and r...",
+      "future_work": "Our survey reveals that current LLMs exhibit certain limitations in numerous tasks, notably reasoning and robustness tasks. Concurrently, the need for contemporary evaluation systems to adapt and evolve remains evident, ensuring the accurate assessment of LLMs' inherent capabilities and limitations. We identify several grand challenges that future research should address, with the aspiration that LLMs can progressively enhance their service to humanity.\n\n=========================================...",
+      "extraction_time": 0.004177570343017578,
+      "metadata": {
+        "paper_id": "P041",
+        "title": "A Survey on Evaluation of Large Language Models",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P042",
+      "problem": "The significance of the ImageNet result was vigorously debated during the ILSVRC 2012 workshop. The central issue can be distilled to the following: To what extent do the CNN classification results on ImageNet generalize to object detection results on the PASCAL VOC Challenge?\n\nWe answer this question by bridging the gap between image classification and object detection. This paper is the first to show that a CNN can lead to dramatically higher object detection performance on PASCAL VOC as compa...",
+      "method": "First-layer filters can be visualized directly and are easy to understand [25] . They capture oriented edges and opponent colors. Understanding the subsequent layers is more challenging. Zeiler and Fergus present a visually attractive deconvolutional approach in [42] . We propose a simple (and complementary) non-parametric method that directly shows what the network learned.\n\nComparison to recent feature learning methods. Relatively few feature learning methods have been tried on PAS-CAL VOC det...",
+      "limitation": "The significance of the ImageNet result was vigorously debated during the ILSVRC 2012 workshop. The central issue can be distilled to the following: To what extent do the CNN classification results on ImageNet generalize to object detection results on the PASCAL VOC Challenge?\n\nWe answer this question by bridging the gap between image classification and object detection. This paper is the first to show that a CNN can lead to dramatically higher object detection performance on PASCAL VOC as compa...",
+      "future_work": "Performance layer-by-layer, with fine-tuning. We now look at results from our CNN after having fine-tuned its pa-rameters on VOC 2007 trainval. The improvement is striking (Table 2 rows 4-6): fine-tuning increases mAP by 8.0 percentage points to 54.2%. The boost from fine-tuning is much larger for fc 6 and fc 7 than for pool 5 , which suggests that the pool 5 features learned from ImageNet are general and that most of the improvement is gained from learning domain-specific non-linear classifiers...",
+      "extraction_time": 0.002605438232421875,
+      "metadata": {
+        "paper_id": "P042",
+        "title": "Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P043",
+      "problem": "We invite members of the community to join the effort by adopting the Astropy package for their own projects, reporting any issues, and whenever possible, developing new functionality.\n\nMotivated by these issues, the Astropy project was started in 2011 out of a desire to bring together developers across the field of astronomy in order to coordinate the development of a common set of Python tools for astronomers and simplify the landscape of available packages. The project has grown rapidly, and ...",
+      "method": "We also briefly described our development approach (Sect. 3), which has enabled an international collaboration of scientists and software developers to create and contribute to the package. We outlined our plans for the future (Sect. 4) which includes more interoperability of sub-packages, as well as new functionality.\n\nFigure 7 shows how the FlatLambdaCDM class can be used to create an object representing a flat ΛCDM cosmology, and how the methods of this object can be called to calculate the c...",
+      "limitation": "We invite members of the community to join the effort by adopting the Astropy package for their own projects, reporting any issues, and whenever possible, developing new functionality.\n\nDevelopment on the Astropy package is very active, and in addition to some of the incremental improvements to existing subpackages described in the text, we are focusing on implementing major new functionality in several areas for the next (v0.3) release (some of which have already been implemented in the publicl...",
+      "future_work": "Development on the Astropy package is very active, and in addition to some of the incremental improvements to existing subpackages described in the text, we are focusing on implementing major new functionality in several areas for the next (v0.3) release (some of which have already been implemented in the publicly-available developer version):\n\nand undoubtedly the core functionality will grow beyond this.\n\nIn fact, the astropy package will likely remain a continuouslyevolving package, and will t...",
+      "extraction_time": 0.0015892982482910156,
+      "metadata": {
+        "paper_id": "P043",
+        "title": "Astropy: A community Python package for astronomy",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P044",
+      "problem": "Present assessments of certainty (or confidence) in the body of evidence for each outcome assessed.\n\n================================================================================\nDiscussion 23a\n================================================================================\n\nProvide a general interpretation of the results in the context of other evidence.\n\n23b Discuss any limitations of the evidence included in the review.\n\n23c Discuss any limitations of the review processes used.\n\nSystematic...",
+      "method": "A complete description of the methods used to develop PRISMA 2020 is available elsewhere [35] .\n\n• Splitting of the 'Synthesis of results' item in the Methods section into six sub-items recommending authors describe: the processes used to decide which studies were eligible for each synthesis; any methods required to prepare the data for synthesis; any methods used to tabulate or visually display results of individual studies and syntheses; any methods used to synthesise results; any methods used...",
+      "limitation": "Present assessments of certainty (or confidence) in the body of evidence for each outcome assessed.\n\n================================================================================\nDiscussion 23a\n================================================================================\n\nProvide a general interpretation of the results in the context of other evidence.\n\n23b Discuss any limitations of the evidence included in the review.\n\n23c Discuss any limitations of the review processes used.\n\nProvide a ...",
+      "future_work": "================================================================================\nPublisher's Note\n================================================================================\n\nSpringer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.\n\nPresent assessments of certainty (or confidence) in the body of evidence for each outcome assessed.\n\n================================================================================\nDiscussion 23a\n===...",
+      "extraction_time": 0.0014736652374267578,
+      "metadata": {
+        "paper_id": "P044",
+        "title": "The PRISMA 2020 statement: an updated guideline for reporting systematic reviews",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P045",
+      "problem": "================================================================================\nVISUAL SENTIMENT ONTOLOGY AND CONCEPTS OVERVIEW\n================================================================================\n\nIn this section, we briefly review the visual sentiment ontology construction in [1] and define our classification problem.\n\nModeling generic visual concepts (nouns) such as \"sky\" and \"dog\" has been studied extensively in computer vision, but modeling adjectives correlated with visual sen...",
+      "method": "The learned deep representations can be transferred across tasks. It has been extensively studied in an unsupervised setting [29, 23] . However, such models in convolutional networks have been limited to relatively small datasets such as CIFAR and MNIST, and only achieved modest success in [19] . Sermanet et al. [30] propose to use unsupervised pre-training, followed by supervised fine-tuning to solve the problem of insufficient training data. Supervised pretraining approach using a concept-bank...",
+      "limitation": "Performance evaluation and comparisons with its predecessors show the newly trained DeepSentiBank significantly improves the annotation accuracy in ANP classification as well as moderately improves the ANP retrieval performance.\n\n================================================================================\nModeling Sentiment\n================================================================================\n\n================================================================================\nVISUAL ...",
+      "future_work": "Performance evaluation and comparisons with its predecessors show the newly trained DeepSentiBank significantly improves the annotation accuracy in ANP classification as well as moderately improves the ANP retrieval performance.\n\n================================================================================\nModeling Sentiment\n================================================================================\n\nCompared to text-based sentiment analysis, modeling sentiment based on images has been m...",
+      "extraction_time": 0.0008318424224853516,
+      "metadata": {
+        "paper_id": "P045",
+        "title": "ImageNet classification with deep convolutional neural networks",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P046",
+      "problem": "================================================================================\nILSVRC 2014 Detection Challenge Setup and Results\n================================================================================\n\n================================================================================\nILSVRC 2014 Classification Challenge Setup and Results\n================================================================================\n\nStarting with LeNet-5 [10] , convolutional neural networks (CNN) have...",
+      "method": "Network-in-Network is an approach proposed by Lin et al. [12] in order to increase the representational power of neural networks. When applied to convolutional layers, the method could be viewed as additional 1 × 1 convolutional layers followed typically by the rectified linear activation [9] . This enables it to be easily integrated in the current CNN pipelines. We use this approach heavily in our architecture. However, in our setting, 1 × 1 convolutions have dual purpose: most critically, they...",
+      "limitation": "================================================================================\nILSVRC 2014 Detection Challenge Setup and Results\n================================================================================\n\n================================================================================\nILSVRC 2014 Classification Challenge Setup and Results\n================================================================================\n\nThe most straightforward way of improving the performance of deep neu...",
+      "future_work": "In the remainder of this paper, we analyze the multiple factors that contribute to the overall performance of the final submission.\n\nThe ILSVRC detection task is to produce bounding boxes around objects in images among 200 possible classes. Detected objects count as correct if they match the class of the groundtruth and their bounding boxes overlap by at least 50% (using the Jaccard index). Extraneous detections count as false positives and are penalized. Contrary to the classification task, eac...",
+      "extraction_time": 0.0011415481567382812,
+      "metadata": {
+        "paper_id": "P046",
+        "title": "Going deeper with convolutions",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P047",
+      "problem": "Evaluation protocol after the challenge. After the challenge period we set up an automatic evaluation server that researchers can use throughout the year to continue evaluating their algorithms against the ground truth test annotations. We limit teams to 2 submissions per week to discourage parameter tuning on the test data, and in practice we have never had a problem with researchers abusing the system.\n\n================================================================================\nChallenge ...",
+      "method": "The image classification task tests the ability of an algorithm to name the objects present in the image, without necessarily localizing them.\n\nWe manually inspected both human and GoogLeNet errors to gain an understanding of common error types and how they compare. For purposes of this section, we only discuss results based on the larger sample of 1500 images that were labeled by annotator A1. Examples of representative mistakes are in Figure 15 . The analysis and insights below were derived sp...",
+      "limitation": "6 Results and analysis 6.1 Improvements over the years State-of-the-art accuracy has improved significantly from ILSVRC2010 to ILSVRC2014, showcasing the massive progress that has been made in large-scale object recognition over the past five years. The performance of the winning ILSVRC entries for each task and each year are shown in Figure 9 . The improvement over the years is clearly visible. In this section we quantify and analyze this improvement.\n\n==========================================...",
+      "future_work": "6 Results and analysis 6.1 Improvements over the years State-of-the-art accuracy has improved significantly from ILSVRC2010 to ILSVRC2014, showcasing the massive progress that has been made in large-scale object recognition over the past five years. The performance of the winning ILSVRC entries for each task and each year are shown in Figure 9 . The improvement over the years is clearly visible. In this section we quantify and analyze this improvement.\n\n==========================================...",
+      "extraction_time": 0.005857944488525391,
+      "metadata": {
+        "paper_id": "P047",
+        "title": "ImageNet Large Scale Visual Recognition Challenge",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P048",
+      "problem": "The spatial output maps of these convolutionalized models make them a natural choice for dense problems like semantic segmentation. With ground truth available at every output cell, both the forward and backward passes are straightforward, and both take advantage of the inherent computational efficiency (and aggressive optimization) of convolution. The corresponding backward times for the AlexNet example are 2.4 ms for a single image and 37 ms for a fully convolutional 10 × 10 output map, result...",
+      "method": "This method is efficient, both asymptotically and absolutely, and precludes the need for the complications in other works. Patchwise training is common [10] , [11] , [12] , [13] , [16] , but lacks the efficiency of fully convolutional training. Our approach does not make use of pre-and postprocessing complications, including superpixels [12] , [14] , proposals [14] , [15] , or post-hoc refinement by random fields or local classifiers [12] , [14] . Our model transfers recent success in classifica...",
+      "limitation": "With FCN-16s validation score improves to 65.0 mean IU, and FCN-8s brings a minor improvement to 65.5. At this point our fusion improvements have met diminishing returns, so we do not continue fusing even shallower layers.\n\n================================================================================\nFCN-32s FCN-16s FCN-8s Ground truth\n================================================================================\n\nThe natural next step in the progression from coarse to fine inference is to ...",
+      "future_work": "With FCN-16s validation score improves to 65.0 mean IU, and FCN-8s brings a minor improvement to 65.5. At this point our fusion improvements have met diminishing returns, so we do not continue fusing even shallower layers.\n\n================================================================================\nFCN-32s FCN-16s FCN-8s Ground truth\n================================================================================\n\nIn addition, new works have improved the FCNs presented here to further advan...",
+      "extraction_time": 0.002231597900390625,
+      "metadata": {
+        "paper_id": "P048",
+        "title": "Fully convolutional networks for semantic segmentation",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P049",
+      "problem": "A presolve routine 80 solves trivial problems and otherwise performs problem simplifications, such as bound tightening and removal of fixed variables, and one of several routines for eliminating redundant equality constraints is automatically chosen to reduce the chance of numerical difficulties caused by singular matrices. Although the main solver implementation is pure Python, end-to-end sparse matrix support and heavy use of SciPy's compiled linear system solvers-often for the same system wit...",
+      "method": "================================================================================\nNaTure MeThodS\n================================================================================\n\n================================================================================\nNaTure MeThodS\n================================================================================\n\n================================================================================\nNaTure MeThodS\n================================================...",
+      "limitation": "A presolve routine 80 solves trivial problems and otherwise performs problem simplifications, such as bound tightening and removal of fixed variables, and one of several routines for eliminating redundant equality constraints is automatically chosen to reduce the chance of numerical difficulties caused by singular matrices. Although the main solver implementation is pure Python, end-to-end sparse matrix support and heavy use of SciPy's compiled linear system solvers-often for the same system wit...",
+      "future_work": "A presolve routine 80 solves trivial problems and otherwise performs problem simplifications, such as bound tightening and removal of fixed variables, and one of several routines for eliminating redundant equality constraints is automatically chosen to reduce the chance of numerical difficulties caused by singular matrices. Although the main solver implementation is pure Python, end-to-end sparse matrix support and heavy use of SciPy's compiled linear system solvers-often for the same system wit...",
+      "extraction_time": 0.0020644664764404297,
+      "metadata": {
+        "paper_id": "P049",
+        "title": "SciPy 1.0: fundamental algorithms for scientific computing in Python",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P050",
+      "problem": "The preparation of a protocol is an essential component of the systematic review process; it ensures that a systematic review is carefully planned and that what is planned is explicitly documented before the review starts, thus promoting consistent conduct by the review team, accountability, research integrity, and transparency of the eventual completed review. A protocol may also reduce arbitrariness in decision-making when extracting and using data from primary research, since planning provide...",
+      "method": "An international steering committee (MC, DG, AL, DM, MP, PS, and LAS) comprising members with wide-ranging experience in systematic review methodology, protocol registry development, and reporting guideline development led the development of PRISMA-P, coordinated by LS. The process proposed by the Enhancing the Quality and Transparency of Health Research (EQUATOR) Network was used to guide PRISMA-P development [27] . The process has 18 step-by-step recommendations grouped into five main stages:\n...",
+      "limitation": "The aim of PRISMA-P 2015 is to improve the quality of systematic review protocols, similar to the impact achieved by other reporting guidelines [18] [19] [20] . By helping authors document an a priori road map of their systematic review, PRISMA-P also has the potential to improve the conduct of systematic reviews, as has been suggested of other reporting guidelines [21] . This Statement paper summarizes the development of the guideline and presents the PRISMA-P checklist.\n\nThe lack of implementa...",
+      "future_work": "The aim of PRISMA-P 2015 is to improve the quality of systematic review protocols, similar to the impact achieved by other reporting guidelines [18] [19] [20] . By helping authors document an a priori road map of their systematic review, PRISMA-P also has the potential to improve the conduct of systematic reviews, as has been suggested of other reporting guidelines [21] . This Statement paper summarizes the development of the guideline and presents the PRISMA-P checklist.\n\nReaders familiar with ...",
+      "extraction_time": 0.0010738372802734375,
+      "metadata": {
+        "paper_id": "P050",
+        "title": "Preferred reporting items for systematic review and meta-analysis protocols (PRISMA-P) 2015 statemen",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P051",
+      "problem": "ERA5 Reanalysis ECA&D Geopotential Maximum Temperature 300 hPa 500 hPa 700 hPa Compute Daily Records Binary Indicator\n\n================================================================================\nIntroduction\n================================================================================\n\n================================================================================\nStudy area and dataset\n================================================================================\n\n===================...",
+      "method": "Understanding and quantifying the influence of geopotential covariates on the occurrence of record-breaking temperatures is essential for conducting climate attribution studies and for developing statistical downscaling methods to project the future frequency of record-breaking temperatures under global warming scenarios. One might argue that such projections could be derived from daily temperature projections, but these often fail to accurately capture the behavior of temperature extremes and, ...",
+      "limitation": "================================================================================\nFuture work\n================================================================================\n\nAfterwards, the geopotential covariates of M1 were interacted with additional variables: geodetic (M2), climatic (M3), and spatial (M4), plus a model that sums all of them (M5). Table 2 shows performance metrics of the five global models. It presents the total AU C, the number of parameters (k), the AU C for stations locate...",
+      "future_work": "================================================================================\nFuture work\n================================================================================\n\nTemperature record in Spain 1960-2023 by the means of ERA5 atmospheric geopotentials Elsa Barrio 1 1,* , Jesús Abaurrea 1 , Jesús Asín 1 , Jorge Castillo-Mateo 1 , Ana Carmen Cebrián 1 , Zeus Gracia 1 , 1 Department of Statistical Methods, University of Zaragoza. * e.barrio@unizar.es Extended Exploratory data analysis Relat...",
+      "extraction_time": 0.0018892288208007812,
+      "metadata": {
+        "paper_id": "P051",
+        "title": "Significance tests and goodness of fit in the analysis of covariance structures.",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P052",
+      "problem": "================================================================================\nChallenges\n================================================================================\n\nWe address the challenges and discuss solutions to the adoption of LLMs in an array of medical applications.\n\n================================================================================\nRegulatory Challenges\n================================================================================\n\n===============================...",
+      "method": "The regulatory landscape of LLMs presents distinct challenges due to their large scale, broad applicability and varying reliability across applications. As LLMs progressively permeate the fields of medicine and healthcare, their versatility allows a single LLM family to facilitate a multitude of tasks across a broad spectrum of interest groups. This represents a substantial departure from the AI-based medical technologies of the past, which were typically tailored to meet specific medical needs ...",
+      "limitation": "================================================================================\nDomain Data Limitations\n================================================================================\n\n================================================================================\nChallenges\n================================================================================\n\nWe address the challenges and discuss solutions to the adoption of LLMs in an array of medical applications.\n\n=============================...",
+      "future_work": "================================================================================\nDomain Data Limitations\n================================================================================\n\nPotential Solutions Current state-of-the-art approaches 11, 15 typically fine-tune the LLMs on smaller open-sourced datasets to improve their domain-specific performance. Another solution is to generate high-quality synthetic datasets using LLMs to broaden the knowledge coverage; however, it has been discovered ...",
+      "extraction_time": 0.0036475658416748047,
+      "metadata": {
+        "paper_id": "P052",
+        "title": "Health Measurement Scales: A Practical Guide to Their Development and Use",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P053",
+      "problem": "================================================================================\nBurning Issues Regarding AGN Feedback\n================================================================================\n\nHyperLeda includes a few bad measurements; these are particularly expected for pseudobulges, which can have small dispersions that are undersampled by poor wavelength resultion and serious problems with dust and star formation. But it is relatively easy to find and discard these problems and get an...",
+      "method": "================================================================================\nFigure 7\n================================================================================\n\nComparison between BH masses derived from gas and stellar dynamics. Three objects (open circles) do not have sufficiently accurate masses from one or both of the methods.\n\nThe sources of the adopted M • measurements are given in the last column of each table, and earlier measurements are discussed in the notes on individual ob...",
+      "limitation": "Why does this happen? We suggest several possibilities. Some involve merger physics and others involve limitations in our search techniques. It is not clear that they add up to the whole story.\n\nHyperLeda includes a few bad measurements; these are particularly expected for pseudobulges, which can have small dispersions that are undersampled by poor wavelength resultion and serious problems with dust and star formation. But it is relatively easy to find and discard these problems and get an impro...",
+      "future_work": "HyperLeda includes a few bad measurements; these are particularly expected for pseudobulges, which can have small dispersions that are undersampled by poor wavelength resultion and serious problems with dust and star formation. But it is relatively easy to find and discard these problems and get an improved central σ that would agree with our σe as well as classical bulges and ellipticals do.\n\n================================================================================\nPROGRESS IN BH DETECTI...",
+      "extraction_time": 0.01495814323425293,
+      "metadata": {
+        "paper_id": "P053",
+        "title": "Coevolution (Or Not) of Supermassive Black Holes and Host Galaxies",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P054",
+      "problem": "These studies underscore the ongoing efforts to improve clinical documentation practices and highlight the potential benefits, as well as the limitations, of leveraging AI-based solutions and medical scribes to address this challenge. We extend these existing studies, specifically focusing on the ability of AI models to generate accurate, detailed, yet succinct medical notes using commercially available as well as open-source Large Language Models.\n\n==============================================...",
+      "method": "Instead of generating entirely new notes from scratch, the LLMs can be prompted to update and refine the existing notes iteratively, incorporating the new information from subsequent encounters. This approach can be achieved through two main methods:\n\nIn this method, the LLM is provided with the existing SOAP or BIRP note, along with the new data (e.g., transcript, audio recording, supplementary documents) from the subsequent encounter.\n\nThe methodology employed in this case study aimed to simul...",
+      "limitation": "Despite its shortcomings, the basic prompting approach served as a valuable starting point, providing insights into the models' inherent capabilities and revealing areas for improvement through more sophisticated prompting techniques.\n\nThese studies underscore the ongoing efforts to improve clinical documentation practices and highlight the potential benefits, as well as the limitations, of leveraging AI-based solutions and medical scribes to address this challenge. We extend these existing stud...",
+      "future_work": "These studies underscore the ongoing efforts to improve clinical documentation practices and highlight the potential benefits, as well as the limitations, of leveraging AI-based solutions and medical scribes to address this challenge. We extend these existing studies, specifically focusing on the ability of AI models to generate accurate, detailed, yet succinct medical notes using commercially available as well as open-source Large Language Models.\n\nBy leveraging the iterative note improvement p...",
+      "extraction_time": 0.0020668506622314453,
+      "metadata": {
+        "paper_id": "P054",
+        "title": "Intelligent Clinical Documentation: Harnessing Generative AI for Patient-Centric Clinical Note Gener",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P055",
+      "problem": "• We developed a theoretical framework (ADMAPS) of algorithmic decision-making in the public sector that synthesizes prior work on algorithmic decision-making in non-public sector settings with the unique challenges, limitations and opportunities in the public sector. ADMAPS is generalizable to a wider range of public sector domains such as the criminal justice system, unemployment services, and public education.\n\n================================================================================\nA...",
+      "method": "================================================================================\nBalancing Strength-based and Deficit-based Approaches.\n================================================================================\n\n================================================================================\nAssessing the Benefits and Drawbacks of Differing Approaches (RQ3)\n================================================================================\n\nIn the sections that follow, we first highlight some...",
+      "limitation": "================================================================================\nLIMITATIONS AND FUTURE WORK\n================================================================================\n\n================================================================================\nAssessing the Benefits and Drawbacks of Differing Approaches (RQ3)\n================================================================================\n\nTable 1 offers a summary of how the four algorithms balance the dimensions of t...",
+      "future_work": "================================================================================\nLIMITATIONS AND FUTURE WORK\n================================================================================\n\n================================================================================\nHolistic Assessments, Not Deterministic Scoring Lead to Improved Decisions.\n================================================================================\n\nThe objective of employing algorithms in the public sector is to impro...",
+      "extraction_time": 0.004536867141723633,
+      "metadata": {
+        "paper_id": "P055",
+        "title": "Studies on Child Development.",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P056",
+      "problem": "To address this gap, this paper presents an analysis of the citation contexts of a classic research instrument in the scholarship of mental disorder, the Diagnostic and Statistical Manual of Mental Disorders (DSM), as a response to the concept of instrumentalization in the field of science and technology studies (STS). Works by Bruno Latour and his colleagues (Latour, 1987; Latour & Woolgar, 1979) successfully established a materialist and practice-oriented tradition in science studies. In this ...",
+      "method": "Table 5: Spearman rank correlation among verb lists from method and non-method citances Category Rho value All citances -Method citances 0.708 All citances -Non-Method citances 0.509 Method citances -Non-method citances -0.547\n\n• Criterion #4: A Method section can be a subsection of a non-Method section.\n\nThird, we included only papers with at least one method section. The following four criteria were used to classify paper sections as either Method or non-Method:\n\n• Criterion #1: A Method secti...",
+      "limitation": "Research instruments play significant roles in the construction of scientific knowledge, even though we have only acquired very limited knowledge about their lifecycles from quantitative studies. This paper aims to address this gap by quantitatively examining the citation contexts of an exemplary research instrument, the Diagnostic and Statistical Manual of Mental Disorders (DSM), in full-text psychological publications. We investigated the relationship between the citation contexts of the DSM a...",
+      "future_work": "The different patterns for these interactional markers point to the complexity of human language in scientific writings. One example of such complexity is that citations to the DSM are not consistently given in an instrumental context. This may be applicable to other research instruments, given the diversity of citation practices for material objects (Li et al., 2019) . To address this complexity, these linguistic attributes can be employed as useful instruments for future works to automatically...",
+      "extraction_time": 0.0015664100646972656,
+      "metadata": {
+        "paper_id": "P056",
+        "title": "Diagnostic and Statistical Manual of Mental Disorders",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P057",
+      "problem": "The traditional semasiology analyzes the evolutionary properties of the acceptation mainly from the historical viewpoint, whereas the modern theory extends the horizon to the selection of new expressions, the existing and vanishing of phrases, systematicness of acceptation and the meaning of sentences. Recently, as a new interdisciplinary issue, semiotic dynamics has attracted more and more attention from different scientific communities. Compared with the traditional glossology and semasiology,...",
+      "method": "The first step of the study on semiotic dynamics is to extract the representative morphemes, such as tags and keywords of text, and find out their relations. The mainstream methods include the Vector Space Model (VSM) [8, 9, 10, 11] and the Ontology-Based Model (OBM) [12, 13] . VSM is an algebraic model, which describes text documents as vectors of identifiers. In VSM, a document is represented as a vector, and each dimension corresponds to a separate term. Several methods have been developed to...",
+      "limitation": "Comparatively, OBM uses ontologies to describe the relationship between terms. An ontology is a set consisted of abstracts, concepts and relations by which we wish to conceptualisze for the target world. The most typical kind of ontology in the web has a taxonomy and an interface rules set. The taxonomy defines the classes of terms and relations among them, while interface rules make the terms more useful and meaningful to users [17] . An ontologybased lexical database, namely WordNet [18] , is ...",
+      "future_work": "The traditional semasiology analyzes the evolutionary properties of the acceptation mainly from the historical viewpoint, whereas the modern theory extends the horizon to the selection of new expressions, the existing and vanishing of phrases, systematicness of acceptation and the meaning of sentences. Recently, as a new interdisciplinary issue, semiotic dynamics has attracted more and more attention from different scientific communities. Compared with the traditional glossology and semasiology,...",
+      "extraction_time": 0.0005419254302978516,
+      "metadata": {
+        "paper_id": "P057",
+        "title": "Statistical Power Analysis for the Behavioral Sciences",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P058",
+      "problem": "================================================================================\nChallenges in pancreas segmentation\n================================================================================\n\n================================================================================\nLimitations of published reviews\n================================================================================\n\nThis systematic review of DL applications for segmenting the pancreas and its lesions elucidates signific...",
+      "method": "• a thorough description of the proposed approaches in the studies;\n\n• a comparison of the performances of the DL approaches for the various applications.\n\n2 Methods\n\n================================================================================\nLiterature search\n================================================================================\n\nwhere ∥x g -x p ∥ represents a norm such as euclidean distance. Nonetheless, the HD95 introduced by Huttenlocher et al. [1993] is the quantile approach ...",
+      "limitation": "================================================================================\nLimitations of published reviews\n================================================================================\n\nThis systematic review of DL applications for segmenting the pancreas and its lesions elucidates significant advancements and identifies important areas of improvement. The review highlights several critical challenges, including the limited availability of large datasets that represent the population w...",
+      "future_work": "This systematic review of DL applications for segmenting the pancreas and its lesions elucidates significant advancements and identifies important areas of improvement. The review highlights several critical challenges, including the limited availability of large datasets that represent the population well, and the integration of these technologies into clinical settings, requiring real-time segmentation capabilities that align with clinical workflows. This integration is further complicated by ...",
+      "extraction_time": 0.005153179168701172,
+      "metadata": {
+        "paper_id": "P058",
+        "title": "Preferred reporting items for systematic reviews and meta-analyses: the PRISMA statement",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P059",
+      "problem": "The traditional semasiology analyzes the evolutionary properties of the acceptation mainly from the historical viewpoint, whereas the modern theory extends the horizon to the selection of new expressions, the existing and vanishing of phrases, systematicness of acceptation and the meaning of sentences. Recently, as a new interdisciplinary issue, semiotic dynamics has attracted more and more attention from different scientific communities. Compared with the traditional glossology and semasiology,...",
+      "method": "The first step of the study on semiotic dynamics is to extract the representative morphemes, such as tags and keywords of text, and find out their relations. The mainstream methods include the Vector Space Model (VSM) [8, 9, 10, 11] and the Ontology-Based Model (OBM) [12, 13] . VSM is an algebraic model, which describes text documents as vectors of identifiers. In VSM, a document is represented as a vector, and each dimension corresponds to a separate term. Several methods have been developed to...",
+      "limitation": "Comparatively, OBM uses ontologies to describe the relationship between terms. An ontology is a set consisted of abstracts, concepts and relations by which we wish to conceptualisze for the target world. The most typical kind of ontology in the web has a taxonomy and an interface rules set. The taxonomy defines the classes of terms and relations among them, while interface rules make the terms more useful and meaningful to users [17] . An ontologybased lexical database, namely WordNet [18] , is ...",
+      "future_work": "The traditional semasiology analyzes the evolutionary properties of the acceptation mainly from the historical viewpoint, whereas the modern theory extends the horizon to the selection of new expressions, the existing and vanishing of phrases, systematicness of acceptation and the meaning of sentences. Recently, as a new interdisciplinary issue, semiotic dynamics has attracted more and more attention from different scientific communities. Compared with the traditional glossology and semasiology,...",
+      "extraction_time": 0.0005357265472412109,
+      "metadata": {
+        "paper_id": "P059",
+        "title": "Statistical power analysis for the behavioral sciences",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P060",
+      "problem": "================================================================================\nLimitations\n================================================================================\n\nOn the other hand, editors of RIS software must take care of data quality management and provide different, reliable and efficient tools for the control and correction of data issues. Just leave the issue to the end user or consider ingested data by default as correct and complete is not realistic. The by default situation ...",
+      "method": "Additionally, it may be interesting to compare these results with the experience of those institutions which opted for local in-house developments, specific solutions different from the commercial and community-based open-source systems. Does in-house development affect data quality, acceptance and satisfaction? If so, how and why?\n\n================================================================================\nMethodology\n========================================================================...",
+      "limitation": "================================================================================\nLimitations\n================================================================================\n\nA second limitation is that the study puts the focus on commercial or open-source community-based RIS solutions and does not consider local in-house developments. The reason of this choice is to obtain a more homogeneous analysis of RIS related aspects. Yet, this approach potentially excludes alternative solutions with a la...",
+      "future_work": "================================================================================\nLimitations\n================================================================================\n\nThe reported survey shows that about half of the German universities and academic research institutions have implemented research information systems (RIS) and that they generally consider their RIS as meaningful and useful. While only half of the respondents (49%) assess the RIS data quality as high or good, and even if th...",
+      "extraction_time": 0.0013892650604248047,
+      "metadata": {
+        "paper_id": "P060",
+        "title": "Perceived Usefulness, Perceived Ease of Use, and User Acceptance of Information Technology",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P061",
+      "problem": "================================================================================\nFaster R-CNN in ILSVRC & COCO 2015 competitions\n================================================================================\n\n================================================================================\nINTRODUCTION\n================================================================================\n\n================================================================================\nFASTER R-CNN\n===================...",
+      "method": "Our object detection system, called Faster R-CNN, is composed of two modules. The first module is a deep fully convolutional network that proposes regions, and the second module is the Fast R-CNN detector [2] that uses the proposed regions. The entire system is a single, unified network for object detection (Figure 2 ). Using the recently popular terminology of neural networks with 'attention' [31] mechanisms, the RPN module tells the Fast R-CNN module where to look. In Section 3.1 we introduce ...",
+      "limitation": "We train and test both region proposal and object detection networks on images of a single scale [1] , [2] . We re-scale the images such that their shorter side is s = 600 pixels [2] . Multi-scale feature extraction (using an image pyramid) may improve accuracy but does not exhibit a good speed-accuracy trade-off [2] . On the re-scaled images, the total stride for both ZF and VGG nets on the last convolutional layer is 16 pixels, and thus is ∼10 pixels on a typical PASCAL image before resizing (...",
+      "future_work": "We train and test both region proposal and object detection networks on images of a single scale [1] , [2] . We re-scale the images such that their shorter side is s = 600 pixels [2] . Multi-scale feature extraction (using an image pyramid) may improve accuracy but does not exhibit a good speed-accuracy trade-off [2] . On the re-scaled images, the total stride for both ZF and VGG nets on the last convolutional layer is 16 pixels, and thus is ∼10 pixels on a typical PASCAL image before resizing (...",
+      "extraction_time": 0.0018072128295898438,
+      "metadata": {
+        "paper_id": "P061",
+        "title": "Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P062",
+      "problem": "Consistent with past observations [46] , we find that including difficult (noniconic) images during training may not always help. Such examples may act as noise and pollute the learned model if the model is not rich enough to capture such appearance variability. Our dataset allows for the exploration of such issues.\n\nOne of the primary goals of computer vision is the understanding of visual scenes. Scene understanding involves numerous tasks including recognizing what objects are present, locali...",
+      "method": "We present a new dataset with the goal of advancing the state-of-the-art in object recognition by placing the question of object recognition in the context of the broader question of scene understanding. This is achieved by gathering images of complex everyday scenes containing common objects in their natural context. Objects are labeled using per-instance segmentations to aid in precise object localization. Our dataset contains photos of 91 objects types that would be easily recognizable by a 4...",
+      "limitation": "Consistent with past observations [46] , we find that including difficult (noniconic) images during training may not always help. Such examples may act as noise and pollute the learned model if the model is not rich enough to capture such appearance variability. Our dataset allows for the exploration of such issues.\n\nOne of the primary goals of computer vision is the understanding of visual scenes. Scene understanding involves numerous tasks including recognizing what objects are present, locali...",
+      "future_work": "An extended version of this work with additional details is available [19] .\n\n================================================================================\nRelated Work\n================================================================================\n\nTo download and learn more about MS COCO please see the project website 1 . Additional details are presented in an extended version of this work [19] . MS COCO will evolve and grow over time; up to date information is available online.\n\n=========...",
+      "extraction_time": 0.0012547969818115234,
+      "metadata": {
+        "paper_id": "P062",
+        "title": "Microsoft COCO: Common Objects in Context",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P063",
+      "problem": "The stick-breaking prior for the overall population prevalences (2.4) imposes a particular ordering on the populations, in which populations with higher index have a priori lower prevalences. This is undesirable from a modelling perspective as the induced ordering is artificial, while from a computational perspective it is also undesirable as it introduces a label switching problem into the inference, which can slow down convergence of inference algorithms [26, 37] . In this section we address t...",
+      "method": "In Section 2 we introduce our Bayesian nonparametric model, as well as a novel Markov chain Monte Carlo method which allows efficient exact inference using a retrospective slice sampling truncation scheme. Section 3 describes results of simulation studies, and Section 4 describes population structure analyses of genotype data from the EDAR gene region. Section 5 closes with a discussion of our findings as well as potential future work.\n\nBroadly speaking, the aim of population structure analysis ...",
+      "limitation": "The stick-breaking prior for the overall population prevalences (2.4) imposes a particular ordering on the populations, in which populations with higher index have a priori lower prevalences. This is undesirable from a modelling perspective as the induced ordering is artificial, while from a computational perspective it is also undesirable as it introduces a label switching problem into the inference, which can slow down convergence of inference algorithms [26, 37] . In this section we address t...",
+      "future_work": "In Section 2 we introduce our Bayesian nonparametric model, as well as a novel Markov chain Monte Carlo method which allows efficient exact inference using a retrospective slice sampling truncation scheme. Section 3 describes results of simulation studies, and Section 4 describes population structure analyses of genotype data from the EDAR gene region. Section 5 closes with a discussion of our findings as well as potential future work.\n\n===========================================================...",
+      "extraction_time": 0.0016286373138427734,
+      "metadata": {
+        "paper_id": "P063",
+        "title": "Inference of Population Structure Using Multilocus Genotype Data",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P064",
+      "problem": "In order to tackle the issue of exploiting channel dependencies, we first consider the signal to each channel in the output features. Each of the learned filters operates with a local receptive field and consequently each unit of the transformation output U is unable to exploit contextual information outside of this region.\n\nTo mitigate this problem, we propose to squeeze global spatial information into a channel descriptor. This is achieved by using global average pooling to generate channel-wi...",
+      "method": "We next consider the additional parameters introduced by the proposed SE block. These additional parameters result solely from the two FC layers of the gating mechanism and therefore constitute a small fraction of the total network capacity. Concretely, the total number introduced by the weight parameters of these FC layers is given by:\n\nAlongside the works described above, there is also a rich history of research that aims to forgo manual architecture design and instead seeks to learn the struc...",
+      "limitation": "Table 7 reports the validation set performance of the object detector using ResNet-50, ResNet-101 and their SE counterparts as trunk architectures. SE-ResNet-50 outperforms ResNet-50 by 2.4% (a relative 6.3% improvement) on COCO's standard AP metric and by 3.1% on AP@IoU=0.5. SE blocks also benefit the deeper ResNet-101 architecture achieving a 2.0% improvement (5.0% relative improvement) on the AP metric. In summary, this set of experiments demonstrate the generalisability of SE blocks. The ind...",
+      "future_work": "Although the proposed SE block has been shown to improve network performance on multiple visual tasks, we would also like to understand the relative importance of the squeeze operation and how the excitation mechanism operates in practice. A rigorous theoretical analysis of the representations learned by deep neural networks remains challenging, we therefore take an empirical approach to examining the role played by the SE block with the goal of attaining at least a primitive understanding of it...",
+      "extraction_time": 0.0018770694732666016,
+      "metadata": {
+        "paper_id": "P064",
+        "title": "Squeeze-and-Excitation Networks",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P065",
+      "problem": "While conventional chatbots only provide information, chatbots with expert decision-making abilities can solve complex problems. Hsu et al. (2023) discovered that chatbots possessing expert decision-making knowledge significantly improve students' learning achievements [37] . Several studies have explored chatbots' decision-making in various industries, such as healthcare and finance [38]\n\nThe integration of Artificial Intelligence (AI) into education is a recent development, with chatbots emerg...",
+      "method": "================================================================================\nIII. RESEARCH METHOD\n================================================================================\n\nAlthough our study provides valuable insights, cross-sectional surveys, and self-reported measures may introduce biases. Longitudinal data might be useful to reduce this biasness. Nonetheless, the study's findings still contribute to our understanding of the topic and can serve as a foundation for further research....",
+      "limitation": "While conventional chatbots only provide information, chatbots with expert decision-making abilities can solve complex problems. Hsu et al. (2023) discovered that chatbots possessing expert decision-making knowledge significantly improve students' learning achievements [37] . Several studies have explored chatbots' decision-making in various industries, such as healthcare and finance [38]\n\nAlthough our study provides valuable insights, cross-sectional surveys, and self-reported measures may intr...",
+      "future_work": "While conventional chatbots only provide information, chatbots with expert decision-making abilities can solve complex problems. Hsu et al. (2023) discovered that chatbots possessing expert decision-making knowledge significantly improve students' learning achievements [37] . Several studies have explored chatbots' decision-making in various industries, such as healthcare and finance [38]\n\nAlthough our study provides valuable insights, cross-sectional surveys, and self-reported measures may intr...",
+      "extraction_time": 0.0010738372802734375,
+      "metadata": {
+        "paper_id": "P065",
+        "title": "Partial Least Squares Structural Equation Modeling",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P066",
+      "problem": "Ontological clarity is an essential feature of physical theories according to Bohm. On his view the problems of the standard interpretation of QM come from its obscure metaphysical content. Bohm was deeply unsatisfied by the lack of explanation of measurement results, since quantum theory excludes a precise characterization of individual systems as well as an accurate description of their dynamical evolution \"without proving that such a renunciation is necessary\" (Bohm (1952):168). Furthermore, ...",
+      "method": "To conclude this brief presentation, it is worth stressing that the PO approach puts very few constraints on the selection of the primitive variables: the latter must be microscopic, since they must explain the macroscopic regime, and located in 3-dimensional space. 17 Referring to this, indeed, Allori states that there is no rule to determine the primitive ontology of a theory. Rather, it is just a matter of understanding how the theory was introduced, it has developed, and how its explanatory ...",
+      "limitation": "In addition, he claimed that QM-as any other theory-has a limited validity and that \"at distances of the order of 10 -13 cm or smaller and for times of the order of this distance divided by the velocity of light or smaller, present theories become so inadequate that it is generally believed that they are probably not applicable\" (Bohm (1952), footnote 6). At these regimes he expected that new ontologies and new theories will be discovered. More generally, Bohm thought that physical theories have...",
+      "future_work": "In addition, he claimed that QM-as any other theory-has a limited validity and that \"at distances of the order of 10 -13 cm or smaller and for times of the order of this distance divided by the velocity of light or smaller, present theories become so inadequate that it is generally believed that they are probably not applicable\" (Bohm (1952), footnote 6). At these regimes he expected that new ontologies and new theories will be discovered. More generally, Bohm thought that physical theories have...",
+      "extraction_time": 0.0012285709381103516,
+      "metadata": {
+        "paper_id": "P066",
+        "title": "Our Primitive Contemporaries",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P067",
+      "problem": "The process of automation of systematic reviews continues to present a number of additional challenges in that many of the tools have been developed independently as stand-alone software and are often not compatible with other tools [5] . In some instances, appropriate reliability and functionality testing has not been undertaken, and some tools are no longer being maintained by the developers or are prohibitively expensive to the average user. Moreover, some of the tools currently available req...",
+      "method": "Pilot testing entailed the early evaluation of two specific aspects of functionality which had been built into the app. Critically important at the outset and before any further development could be considered was an assessment of how accurately Rayyan performed in a direct comparison with the manual methods which had been used on several Cochrane reviews. Equally significant, at this stage of the development process, was the necessity to provide the developers with an early overview of the pote...",
+      "limitation": "The app underwent pilot testing prior to release and had extensive subsequent evaluation from a wide range of users, with a variety of skill levels and competencies, from across the globe. Sharing of user experiences and a reflexive response by the developers to an evolving \"wish list\" of requests by users enabled modifications and improvements to be made progressively and in real time, all of which proved to be a highly productive and effective collaboration in the development of Rayyan.\n\nThe p...",
+      "future_work": "================================================================================\nFuture development\n================================================================================\n\nAn important feature of the Rayyan app is its ability to learn from users' decisions to include or exclude studies which can then be used to build a model that would allow Fig. 2 Rayyan dashboard. The dashboard lists all reviews for this user as well as for each review the progress in terms of decisions made and esti...",
+      "extraction_time": 0.0012443065643310547,
+      "metadata": {
+        "paper_id": "P067",
+        "title": "Rayyan—a web and mobile app for systematic reviews",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P068",
+      "problem": "================================================================================\nTitle\n================================================================================\n\nCBAM: Convolutional Block Attention Module\n\n================================================================================\nAbstract\n================================================================================\n\n================================================================================\nAblation studies\n=================...",
+      "method": "================================================================================\nContribution.\n================================================================================\n\nOur main contribution is three-fold.\n\n1. We propose a simple yet effective attention module (CBAM) that can be widely applied to boost representation power of CNNs.\n\nTable 4 summarizes the experimental results. The networks with CBAM outperform all the baselines significantly, demonstrating that the CBAM can generalize we...",
+      "limitation": "The experimental results are summarized in Table 7 . We can clearly see that CBAM improves the accuracy of all strong baselines with two backbone networks. Note that accuracy improvement of CBAM comes with a negligible parameter overhead, indicating that enhancement is not due to a naive capacityincrement but because of our effective feature refinement. In addition, the result using the light-weight backbone network [34] again shows that CBAM can be an interesting method to low-end devices.\n\nIn ...",
+      "future_work": "The experimental results are summarized in Table 7 . We can clearly see that CBAM improves the accuracy of all strong baselines with two backbone networks. Note that accuracy improvement of CBAM comes with a negligible parameter overhead, indicating that enhancement is not due to a naive capacityincrement but because of our effective feature refinement. In addition, the result using the light-weight backbone network [34] again shows that CBAM can be an interesting method to low-end devices.\n\nExp...",
+      "extraction_time": 0.0012960433959960938,
+      "metadata": {
+        "paper_id": "P068",
+        "title": "CBAM: Convolutional Block Attention Module",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P069",
+      "problem": "Although DL models can achieve high performance in different tasks, they do not easily provide interpretable output for what they have learned, which is particularly problematic in clinical and biomedical domains. To address this issue, eXplainable Artificial Intelligence (XAI) methods have been developed allowing to identify the contributions of input features to final predictions, potentially highlighting crucial information for AD ( [23, 24, 25, 26] ).\n\nOur findings highlight the utility of M...",
+      "method": "Table 4 shows the performance of state-of-the-art (SOA) works for the classification of Aβ positive versus negative subjects. Of note, current SOA works use multiple datasets and approaches for addressing this task. It goes without saying that the lack of a common reference dataset inherently limits the relevance of performance comparison. However, reaching good accuracy and outperforming the SOA does not exhaust the contribution of the proposed approach, whose potential lies in decoding the neu...",
+      "limitation": "Although DL models can achieve high performance in different tasks, they do not easily provide interpretable output for what they have learned, which is particularly problematic in clinical and biomedical domains. To address this issue, eXplainable Artificial Intelligence (XAI) methods have been developed allowing to identify the contributions of input features to final predictions, potentially highlighting crucial information for AD ( [23, 24, 25, 26] ).\n\nIn clinical practice, the precise ident...",
+      "future_work": "Our finding of decreased GM and increased functional node strength for the region in Aβ positive subjects could be related to the functional compensation effects of AD and deserves further investigation ( [57, 58] ). Additionally, the cingulate gyrus (posterior division), calcarine gyrus, and hippocampus were important in both sMRI and rs-fMRI. Only the thalamus was relevant to both sMRI and dMRI, and the middle frontal gyrus was the only area important to both rs-fMRI and dMRI. Interestingly, t...",
+      "extraction_time": 0.0017299652099609375,
+      "metadata": {
+        "paper_id": "P069",
+        "title": "Neuropathological stageing of Alzheimer-related changes",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P070",
+      "problem": "The networks trained here were successful move predictors, but that does not necessary mean they will be strong Go players. There are two potential problems. First, during a game an opponent, or the classifier itself, are liable to make moves that create positions that are uncommon for games between professionals. Since the networks have not been tested or trained on these kinds of positions there is\n\nIn this work we have introduced the application of deep learning to the problem of predicting t...",
+      "method": "================================================================================\nAdditional Design Features\n================================================================================\n\nAlong with the network architecture described above we introduce a number of novel techniques that we found to be effective in this domain.\n\n================================================================================\nMethodology\n============================================================================...",
+      "limitation": "================================================================================\nConclusion and Future Work\n================================================================================\n\nAs done by (Sutskever & Nair, 2008) , the networks trained here take as input a representation of the current position and output a probability distribution over all grid points in the Go board, which are interpreted as a probability distribution over the possible places an expert player could place a stone. ...",
+      "future_work": "================================================================================\nConclusion and Future Work\n================================================================================\n\nHuman Go experts rely heavily on pattern recognition when playing Go. Expert players can gain strong intuitions about what parts of the board will fall under whose control and what are the best moves to consider at a glance, and without needing to mentally simulate possible future positions. This provides a s...",
+      "extraction_time": 0.001313924789428711,
+      "metadata": {
+        "paper_id": "P070",
+        "title": "Mastering the game of Go with deep neural networks and tree search",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P071",
+      "problem": "Innate immune cells, such as macrophages, dendritic cells, and neutrophils, play a critical role in innate immunity and the inflammatory response. These cells express pattern recognition receptors (PRRs) that are capable of detecting a wide range of microbial components known as pathogen-associated molecular patterns (PAMPs). 215, 216 Additionally, PRRs are also involved in recognizing molecules called damageassociated molecular patterns (DAMPs), which are released by necrotic cells and damaged ...",
+      "method": "In conclusion, NF-κB plays a crucial role in adaptive immunity. It regulates T and B cell development, activation, and function, and is involved in antibody class switching and immunological memory formation. Additionally, it controls the expression of pro-inflammatory cytokines and immune regulatory processes. Further research into the mechanisms and regulatory networks of NF-κB will contribute to a better understanding of the regulatory mechanisms in adaptive immunity and may provide guidance ...",
+      "limitation": "Innate immune cells, such as macrophages, dendritic cells, and neutrophils, play a critical role in innate immunity and the inflammatory response. These cells express pattern recognition receptors (PRRs) that are capable of detecting a wide range of microbial components known as pathogen-associated molecular patterns (PAMPs). 215, 216 Additionally, PRRs are also involved in recognizing molecules called damageassociated molecular patterns (DAMPs), which are released by necrotic cells and damaged ...",
+      "future_work": "Inhibitors of NF-κB may also well improve the complications of SLE. The clinical implications of RIG-I hyperactivation caused by a novel pathogenic variant in DDX58 are explored, shedding light on its relevance to lupus nephritis and the potential involvement of the NF-κB pathway. 597 CAR (chimeric antigen receptor)-T cell immunotherapy CAR-T cell immunotherapy is an innovative and promising approach in cancer treatment. Huang et al. has recently revealed the key role of NFAT and NF-κB in the dy...",
+      "extraction_time": 0.004273653030395508,
+      "metadata": {
+        "paper_id": "P071",
+        "title": "NF-κB in biology and targeted therapy: new insights and translational implications",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P072",
+      "problem": "The rapid and tremendous success of applying deep convolutional neural networks (CNNs) [27, 47, 52] to many challenging computer vision tasks derives from the accessibility of the well-annotated ImageNet [13, 42] and PASCAL VOC [16] datasets. Deep CNNs perform significantly better than previous shallow learning methods and hand-crafted image features, however, at the cost of requiring greater amounts of training data. ImageNet pre-trained deep CNN models [22, 27, 32] serve an indispensable role ...",
+      "method": "================================================================================\nLDPO Convergence Analysis\n================================================================================\n\nWe first study how the different settings of proposed LDPO framework will affect convergence as follows:\n\n================================================================================\nClustering Method:\n================================================================================\n\nDeep CNN representation...",
+      "limitation": "================================================================================\nConclusion & Future Work\n================================================================================\n\nIn this paper, we present a new Looped Deep Pseudo-task Optimization framework to extract visually more coherent and semantically more meaningful categories from a large scale medical image database. We systematically and extensively conduct experiments under different settings of the LDPO framework to validate...",
+      "future_work": "================================================================================\nConclusion & Future Work\n================================================================================\n\nIn this paper, we present a new Looped Deep Pseudo-task Optimization framework to extract visually more coherent and semantically more meaningful categories from a large scale medical image database. We systematically and extensively conduct experiments under different settings of the LDPO framework to validate...",
+      "extraction_time": 0.0013816356658935547,
+      "metadata": {
+        "paper_id": "P072",
+        "title": "ImageNet: A large-scale hierarchical image database",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P073",
+      "problem": "To address these challenges, we propose a novel framework that aligns brain connectomes with clinical reports in a shared cross-modal latent space at both the subject\n\n================================================================================\nMedical Image\n================================================================================\n\nText\n\nAlzheimer's disease (AD) is one of the most prevalent neurological disorders in the United States, progressively impairing social, linguistic, and co...",
+      "method": "Brain Connectome Representation. In this section, we introduce a novel braininspired patch representation to guide the encoder understand complex brain connectome. For a given subject, the SC matrix 𝑆𝐶 ∈ 𝑅 !×! represents the whole brain connectivity, where 𝑆𝐶 #,% ∈ 𝑅 is the number of fibers connecting brain regions 𝑖 and 𝑗. To capture localized connectivity patterns, we define brain sub-network as patches 𝑆𝐶 &'()* + ∈ 𝑅 ! . Here, each sub-network is defined as the structural connectivity between...",
+      "limitation": "To address these challenges, we propose a novel framework that aligns brain connectomes with clinical reports in a shared cross-modal latent space at both the subject\n\n================================================================================\nMedical Image\n================================================================================\n\nText\n\nAlzheimer's disease (AD) is one of the most prevalent neurological disorders in the United States, progressively impairing social, linguistic, and co...",
+      "future_work": "We introduce a novel multimodal approach that bridges brain connectomes and clinical reports at both subject and connectome levels for early AD diagnosis, enhancing both accuracy and interpretability. Our findings reveal several valuable insights derived solely from DTI-formed brain network and text information without additional imaging data, highlighting the potential of clinical reports analysis in uncovering neurodegenerative disease patterns. In the future, we will further explore more imag...",
+      "extraction_time": 0.0009448528289794922,
+      "metadata": {
+        "paper_id": "P073",
+        "title": "Clinical diagnosis of Alzheimer's disease",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P074",
+      "problem": "================================================================================\nConclusion\n================================================================================\n\nAs a key element of Swin Transformer, the shifted window based self-attention is shown to be effective and efficient on vision problems, and we look forward to investigating its use in natural language processing as well.\n\nModeling in computer vision has long been dominated by convolutional neural networks (CNNs). Beginning ...",
+      "method": "with the same feature map resolutions as those of typical convolutional networks, e.g., VGG [52] and ResNet [30] . As a result, the proposed architecture can conveniently replace the backbone networks in existing methods for various vision tasks.\n\nA key design element of Swin Transformer is its shift of the window partition between consecutive self-attention layers, as illustrated in Figure 2 . The shifted windows bridge the windows of the preceding layer, providing connections among them that s...",
+      "limitation": "greater scale [30, 76] , more extensive connections [34] , and more sophisticated forms of convolution [70, 18, 84] . With CNNs serving as backbone networks for a variety of vision tasks, these architectural advances have led to performance improvements that have broadly lifted the entire field.\n\n================================================================================\nConclusion\n================================================================================\n\nAs a key element of Swin Tra...",
+      "future_work": "We observe significant improvements over counterparts without this bias term or that use absolute position embedding, as shown in Table 4 . Further adding absolute position embedding to the input as in [20] drops performance slightly, thus it is not adopted in our implementation.\n\nThe learnt relative position bias in pre-training can be also used to initialize a model for fine-tuning with a different window size through bi-cubic interpolation [20, 63] .\n\nCompared with the state-of-the-art ConvNe...",
+      "extraction_time": 0.0018358230590820312,
+      "metadata": {
+        "paper_id": "P074",
+        "title": "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P075",
+      "problem": "Data dependence is one of the most serious problem in deep learning. Deep learning has a very strong dependence on massive training data compared to traditional machine learning methods, because it need a large amount of data to understand the latent patterns of data. An interesting phenomenon can be found that the scale of the model and the size of the required amount of data has a almost linear relationship. An acceptable explanation is that for a particular problem, the expressive space of th...",
+      "method": "New Data Space Transfer component analysis (TCA) introduced by [18] and TCA-based methods [29] had been widely used in many applications of traditional transfer learning. A natural idea is extend the TCA method to deep neural network. [23] extend MMD to comparing distributions in a deep neural network, by introduces an adaptation layer and an additional domain confusion loss to learn a representation that is both semantically meaningful and domain invariant. The MMD distance used in this work is...",
+      "limitation": "[12] improved previous work by replace MMD distance with multiple kernel variant MMD (MK-MMD) distance proposed by [8] . The hidden layer related with the learning task in the convolutional neural networks (CNN) is mapped into the reproducing kernel Hilbert space (RKHS), and the distance between different domains is minimized by the multi-core optimization method. [14] propose joint maximum mean discrepancy (JMMD) to measurement the relationship of joint distribution. JMMD was used to generalize...",
+      "future_work": "[12] improved previous work by replace MMD distance with multiple kernel variant MMD (MK-MMD) distance proposed by [8] . The hidden layer related with the learning task in the convolutional neural networks (CNN) is mapped into the reproducing kernel Hilbert space (RKHS), and the distance between different domains is minimized by the multi-core optimization method. [14] propose joint maximum mean discrepancy (JMMD) to measurement the relationship of joint distribution. JMMD was used to generalize...",
+      "extraction_time": 0.0007288455963134766,
+      "metadata": {
+        "paper_id": "P075",
+        "title": "A Survey on Transfer Learning",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P076",
+      "problem": "In order to solve aforementioned problems, there has been extensive publications on classifying malignant and non-malignant skin cancer by developing computer image analysis algorithms. These algorithms use a variety of approaches towards the segmentation, detection and classification of melanoma by integrating areas like image processing, computer vision and machine learning [20, [26] [27] [28] [29] . The main problems of these works are insufficient data and the lack of diversity in skin cance...",
+      "method": "This paper aims at testing a deep learning approach for a multi-class classification with 8 major diagnostic categories by applying state-of-the-art pre-trained deep convolutional neural networks on 2 public dermoscopy skin cancer databases which can yield a higher diagnostic accuracy compared to dermatologists. This approach will help clinicians for better diagnosis across different skin cancer categories. Since there are too many individual smartphones in the world, one can therefore developed...",
+      "limitation": "================================================================================\nConclusion and Future works\n================================================================================\n\nIn order to solve aforementioned problems, there has been extensive publications on classifying malignant and non-malignant skin cancer by developing computer image analysis algorithms. These algorithms use a variety of approaches towards the segmentation, detection and classification of melanoma by integrat...",
+      "future_work": "================================================================================\nConclusion and Future works\n================================================================================\n\nIn conclusion, this study investigated the ability of deep convolutional neural networks in the classification of 8 major skin diseases. Our results show that state-of-the-art deep learning architectures trained on dermoscopy images (10135 in total) outperforms dermatologists. We showed that with use of very...",
+      "extraction_time": 0.0008072853088378906,
+      "metadata": {
+        "paper_id": "P076",
+        "title": "Dermatologist-level classification of skin cancer with deep neural networks",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P077",
+      "problem": "It is worth noting that although C(i) and B(i) contain information about how weights are distributed within the network, they only refer to shortest paths distribution and disregard other structural properties of the network. To overcome this issue, we compute the eigenvector centrality E(i) of the nodes. E(i) is a measure obtained from the spectral analysis of the connectivity matrix W. Specifically, it is calculated as the eigenvector v 1 of the first eigenvalue of the matrix W. Note that any ...",
+      "method": "================================================================================\nMaterials and Methods\n================================================================================\n\nIn the Sternberg's letter-probe task [deToledo-Morrell et al. , 1991; Maestu et al. , 2001] a set of five letters was presented and participants were asked to keep the letters in mind. A series of single letters (1s in duration with a random ISI between 2 and 3 s) was then introduced one at a time, and participant...",
+      "limitation": "It is worth noting that although C(i) and B(i) contain information about how weights are distributed within the network, they only refer to shortest paths distribution and disregard other structural properties of the network. To overcome this issue, we compute the eigenvector centrality E(i) of the nodes. E(i) is a measure obtained from the spectral analysis of the connectivity matrix W. Specifically, it is calculated as the eigenvector v 1 of the first eigenvalue of the matrix W. Note that any ...",
+      "future_work": "Thereafter, single trial epochs were visually inspected by an experienced investigator, and epochs containing visible blinks, eye movements or muscular artifacts were excluded from further analysis. Thirtyfive epochs corresponding to each subject were used in order to calculate the functional connectivity values (i.e., their synchronization likelihood). This lower bound was determined by the participant with least epochs. To have an equal number of epochs across participants, thirty-five epochs ...",
+      "extraction_time": 0.0009617805480957031,
+      "metadata": {
+        "paper_id": "P077",
+        "title": "Mild Cognitive Impairment",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P078",
+      "problem": "To analyze how problem difficulty affects model performance, we examine results in the CL subset, as shown in Table 4 .\n\nI will provide you with the solution to a code problem in cpp, python, and javascript. You need to score according to the difficulty of the problem from 1 to 5, while 5 means the hardest. And generate topic keywords for the problem. The output should only be json format, with difficulty and keywords fields. difficulty: 1-5, integer keywords: two or three words to best describe...",
+      "method": "Table 3 presents model performance across different prompting strategies in DR.\n\n================================================================================\nODE Solving\n================================================================================\n\nFor solving ordinary differential equations, we constructed three different equations and implemented the Euler Method and the Runge-Kutta Method so solve these equations.\n\nIn short, our work makes the following key contributions:\n\n• We introdu...",
+      "limitation": "================================================================================\nLimitations\n================================================================================\n\nAcross all settings, model performance generally declines as problem difficulty increases. However, at the highest difficulty level, performance improves slightly. This anomaly arises because difficulty levels are categorized based on coding complexity, but the hardest problems often involve implementing simple functionalit...",
+      "future_work": "We introduce SURGE, a holistic benchmark for evaluating LLMs as general-purpose surrogate code executors. Through extensive empirical study, we argue that there remains significant room for further improvements on grounding LLMs to facilitate general surrogate models. Our findings not only chart the current landscape but also illuminate a clear path for future research.\n\nAcross all settings, model performance generally declines as problem difficulty increases. However, at the highest difficulty ...",
+      "extraction_time": 0.0031304359436035156,
+      "metadata": {
+        "paper_id": "P078",
+        "title": "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+        "method": "pure_rag"
+      }
+    },
+    {
+      "paper_id": "P079",
+      "problem": "In a binary classification problem, a sigmoid function is used as the last activation function together with Binary Cross Entropy (BCE) loss, as defined in Definition 3 and Definition 5 in the Appendix, respectively. Similarly, in a classification problem with more than two classes, a softmax function is used as the last activation function together with Cross Entropy (CE) loss, as defined in Definition 4 and Definition 6 in the Appendix, respectively. In a regression problem, where the goal is ...",
+      "method": "The size of the filter and the stride (the number of pixels the filter is moved each time) determine the size of the output feature map. Additionally, the filter can be applied multiple times with different filter parameters, to extract different features from the same input image. Lemma 2. The convolution operation between two matrices, X and K, can be represented as a matrix multiplication. Specifically, it can be represented as the product of a Toeplitz matrix (or diagonal-constant matrix) of...",
+      "limitation": "In a binary classification problem, a sigmoid function is used as the last activation function together with Binary Cross Entropy (BCE) loss, as defined in Definition 3 and Definition 5 in the Appendix, respectively. Similarly, in a classification problem with more than two classes, a softmax function is used as the last activation function together with Cross Entropy (CE) loss, as defined in Definition 4 and Definition 6 in the Appendix, respectively. In a regression problem, where the goal is ...",
+      "future_work": "In this paper, we demonstrated the utilization of the Jacobian operator to simplify the gradient calculation process in DNNs. We presented a matrix multiplication-based algorithm that expresses the BP algorithm using Jacobian matrices and applied it to determine gradients for single, double, and three-layer networks. Our calculations offered insights into the gradients of loss functions in DNNs; for instance, the gradient of a single-layer network can serve as a model for the final layer of any ...",
+      "extraction_time": 0.001222848892211914,
+      "metadata": {
+        "paper_id": "P079",
+        "title": "The Backpropagation Algorithm",
+        "method": "pure_rag"
+      }
+    }
+  ]
+}

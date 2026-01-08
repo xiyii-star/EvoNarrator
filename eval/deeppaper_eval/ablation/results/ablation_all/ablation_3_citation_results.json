@@ -1,0 +1,2066 @@
+{
+  "ablation_3_with_citation": [
+    {
+      "paper_id": "P001",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 6.275748252868652,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P002",
+      "limitation": "- Our method faces challenges in interpreting LSTM models due to their increased depth and complexity, which can be problematic in scenarios where understanding the model's decision-making process is crucial.\n- The choice of time series model in our approach heavily depends on the specific dataset and the data scientist's expertise, which can limit its applicability across diverse datasets or less experienced users.",
+      "extraction_time": 5.6145641803741455,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P003",
+      "limitation": "- Our method is limited to the PRiMH dataset, restricting the analysis to only the MCQA-based prompting technique and not covering other tasks in pragmatics understanding such as figurative language understanding and deixis.\n- We only use the metric of accuracy in evaluating our proposed tasks related to pragmatic reasoning in the mental health domain, leaving more class-sensitive metrics for future work.",
+      "extraction_time": 6.142743825912476,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P004",
+      "limitation": "- The computational demands of mixed modeling: Our method's computational intensity poses limitations, especially since mixed models are often used with moderately large data sets, ranging from 10,000 to 1,000,000 observations.\n- Challenges with covariance matrix handling: The complexity of transforming covariance representations in our approach, as mentioned in the use of various facilities for conversion, can introduce difficulties and may not be straightforward for all users.",
+      "extraction_time": 5.943192958831787,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P005",
+      "limitation": "- Our approach to stacking multi-scale features, while beneficial for combing image statistics across scales, leads to an increased descriptor dimensionality, which could complicate the process and require more resources.\n- The analysis briefly acknowledges that their simpler network topology compared to other complex models like GoogLeNet might limit the potential for aggressive computation reduction and feature map spatial resolution.",
+      "extraction_time": 6.6049485206604,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P006",
+      "limitation": "- Our method requires extensive training data, which can be costly and time-consuming to obtain, particularly when hand-truthing images for segmented character training.\n- The approach presented in this paper currently offers only a small number of examples of generalized transduction (GT) modules, indicating the need for further exploration and application in varying domains such as audio signal recognition and visual scene analysis.\n- While convolutional neural networks (CNNs) used in our method eliminate the need for hand-crafted feature extractors, the learning algorithms are primarily based on gradient descent, which may encounter limitations in efficiency and convergence for complex, dynamic architectures.",
+      "extraction_time": 5.964949607849121,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P007",
+      "limitation": "- While DenseNets are efficient, further gains in accuracy might be obtained by detailed tuning of hyperparameters and learning rate schedules, suggesting current results may not be fully optimized.\n- Although DenseNets show promise, their compact internal representations and reduced feature redundancy require further exploration to confirm their effectiveness as feature extractors for various computer vision tasks.",
+      "extraction_time": 6.058063983917236,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P008",
+      "limitation": "- AESVM experiences limitations in high-dimensional datasets, where the representative set becomes almost the same size as the training dataset, resulting in minimal gains in training and classification time speedups.\n- The performance of DeriveRS on certain datasets, such as the MNIST dataset (D8), exhibits nearly no speedup due to data vectors being very distant from each other, which leads to large representative sets.\n- The authors acknowledge the need to investigate improvements for DeriveRS and explore applications of AESVM to other kernel types and SVM variants, indicating areas where the current methods could be further enhanced.",
+      "extraction_time": 6.380501985549927,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P009",
+      "limitation": "- The Non-Parametric Bootstrap (NPB) method discussed in the paper does not perform explicit derivative calculations in parameter space, which might limit its ability to explore certain parameter interactions in detail compared to other derivative-based methods.\n- While NPB can identify outliers effectively, it may rely extensively on minimal hypotheses, potentially reducing its robustness when dealing with complex data sets that require more nuanced assumptions.\n- Despite its computational efficiency, the method still faces limitations regarding the detailed modeling of correlations, which may restrict its accuracy in certain hyper-parameter spaces.",
+      "extraction_time": 6.371485471725464,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P010",
+      "limitation": "- The current method is in its early phase and requires further research to refine the use of exact execution sequences and data mining in fault localization.\n- The approach specifically targets how to prioritize event handlers, and may benefit from integration with other techniques to generate broader code-level suggestions.",
+      "extraction_time": 6.4230310916900635,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P011",
+      "limitation": "- The proposed method requires a sufficiently large number of filters to achieve strong representation learning, which may not be optimal for models with hardware constraints or lower resource availability.\n- While the method facilitates seamless switching between unsupervised and supervised learning, further studies are required to fully explore and optimize the semi-supervised learning conditions, suggesting potential limitations in its current application for mixed learning environments.",
+      "extraction_time": 6.126254081726074,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P012",
+      "limitation": "- Our method struggles with establishing discriminant validity for formatively measured constructs as the HTMT-based criteria assume reflectively measured constructs, making their application to formative indicators problematic.\n- The use of cross-loadings for assessing discriminant validity in formative measurement models showed poor performance in our study, indicating a limitation in accurately distinguishing between constructs that are formatively measured.\n- Our findings are not yet generalized to covariance-based SEM techniques or consistent PLS, which could limit the applicability of our method across different SEM frameworks.",
+      "extraction_time": 5.955555438995361,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P013",
+      "limitation": "- The review process may have been limited due to a restriction to English-language publications, which could affect the inclusivity and comprehensiveness of the analysis.\n- The applicability of the review's findings might be affected if there are limited data for certain populations or subgroups, potentially leading to less relevant conclusions for those groups.\n- The systematic checklist developed, PRISMA, does not account for some items due to a lack of existing evidence, such as whether training exercises improve the accuracy and reliability of data extraction, indicating potential gaps in method development.\n- There may be an overestimation of treatment effects due to publication bias, particularly as the studies involved smaller trials which are typically analyzed with less methodological rigor.",
+      "extraction_time": 7.986376762390137,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P014",
+      "limitation": "- The method's analysis relies heavily on combinatorial calculations, which are often infeasible for complex data structures like spherical object manifolds, limiting direct applicability to certain scenarios.\n- The approach requires further assessment to understand how perturbative corrections impact the bounds, suggesting potential inaccuracies in the current quantitative estimations.\n- The constrained optimization technique used may not efficiently handle cases where boundary conditions significantly affect the solution space, indicating limitations in solving certain optimization problems.",
+      "extraction_time": 7.123993635177612,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P015",
+      "limitation": "- Our method struggles to consistently find the best structural equation model because multiple models might fit the observed data well or no fitting model may be available at all.\n- The approach requires considerable intellectual effort to manually define structural equation models from many manifest variables, indicating a need for semi-automatic methods to assist researchers.\n- The method cannot discover causal relationships beyond those already encoded in the predefined structural equation model, limiting its ability to infer new causal insights.",
+      "extraction_time": 5.969926834106445,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P016",
+      "limitation": "- Our method exhibits a lack of convergent and discriminant validity, indicating inadequate construct validity which requires further exploration of interrelationships and their implications.\n- The exclusive use of the RULA criterion for risk assessment may lead to discrepancies and inefficiency in preventing workplace musculoskeletal disorders, suggesting that alternative criteria should be considered.\n- There is a scarcity of theoretical proof to support the validity of results for promoting continuous use of the task-based ergonomic assessment approach, especially in non-routine work scenarios.\n- Factors such as overlooked low-salience activities, unplanned activities, and lack of contextual coherence impede the construct validity of the task-based assessment approach, with only the first factor being partially manageable through adjustments in sampling strategies.",
+      "extraction_time": 35.31071925163269,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P017",
+      "limitation": "- The matched-filter search method is optimized for detecting signals but only provides approximate estimates of source parameters, which require further refinement using more detailed models such as those based on general relativity.\n- The spin of the secondary black hole is only weakly constrained by our method, indicating limited precision in determining specific source parameters.\n- Our method's reliance on different waveform models introduces systematic errors due to averaging results, impacting the accuracy of parameter estimations.",
+      "extraction_time": 6.913801908493042,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P018",
+      "limitation": "- The method requires a batch size of 1 due to limited GPU memory and large volumetric data, which may lead to uncertainty in gradient computation and the overall learning process.\n- The approach needs pre-specification of the maximum allowed size for input volumes to prevent GPU memory overflow, which could be problematic if downsampling is undesirable.\n- Hyperparameter tuning is necessary when changing datasets, network architectures, GPU platforms, or training schemes, adding complexity and potential computational overhead.",
+      "extraction_time": 6.662872314453125,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P019",
+      "limitation": "- Our method still has room for improvement in terms of both performance and complexity when working with TBCCs.\n- Despite the progress made, 2D CCs and TBCCs have not yet found practical applications, indicating a limitation in the real-world applicability of the methods developed in this paper.\n- The sub-optimal decoding algorithms used in our approach perform well for codes with small kernel support, but their performance diminishes as kernel support increases, highlighting a limitation in scalability.",
+      "extraction_time": 6.027012825012207,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P020",
+      "limitation": "- Our method showed less effective detection performance for participants exhibiting more diverse episodes of behaviours of risk, highlighting variability in individual detection accuracy.\n- The detection performance was generally poorer on camera 3 compared to cameras 1 and 2, indicating potential limitations in our method's consistency across different camera setups.\n- The study was conducted in a specific SDU environment where PwD exhibit higher behaviours of risk, suggesting that findings may need revalidation in LTC facilities with lower frequency of such episodes.\n- Privacy considerations limited the installation of cameras in private rooms, restricting our analysis to public hallways and potentially affecting the generalizability of findings to more private settings.",
+      "extraction_time": 7.064854860305786,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P021",
+      "limitation": "- The method is not constrained by identification issues, even if the model becomes complex -a situation that typically restricts CB-SEM use -and does not rely on distributional assumptions",
+      "extraction_time": 8.970736980438232,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P022",
+      "limitation": "- The reproducibility of the mask rules set by GPT-4 poses a significant limitation, as the consistency of results cannot be guaranteed across different implementations or settings.\n- The method suffers from the invalid unlearning of tokens following the mask, which can lead to inaccuracies in processing and interpreting the masked data.",
+      "extraction_time": 7.025372266769409,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P023",
+      "limitation": "- The method's application to Neumann boundary conditions may not accommodate the standard isoperimetric inequality, which limits its effectiveness for certain geometric configurations within bounded domains.\n- There is a dependency on a parameter choice relative to the constant C Ω, which may affect the robustness and general applicability of the method, particularly when ensuring η < C Ω.",
+      "extraction_time": 8.273025512695312,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P024",
+      "limitation": "- The method may struggle with fewer-than-expected event rates if pessimistic astrophysical models are correct, indicating potential limitations in its assumptions about event rates.\n- Coordinating observations between multiple telescopes with varying fields of view and limiting magnitudes presents a challenge, as the optimal observing strategy must account for these differences.\n- The current approach relies on assumptions about event rates and sky localization abilities, which may not hold true if the number of gravitational-wave triggers deviates from expectations.",
+      "extraction_time": 6.15660285949707,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P025",
+      "limitation": "- Our method cannot definitively determine whether a specific marginal trigger identified by the matched-filter searches is a real gravitational wave signal due to the consistency of observed marginal events with expectations and the chosen false alarm rate threshold.\n- The spins of the individual black holes in the observed binary black hole mergers are only weakly constrained by our method, making it challenging to derive precise spin magnitudes or alignments from the data.\n- The higher mode content of the observed gravitational wave signals is weak enough that our current waveform models, which include these modes, are not strongly preferred, suggesting limitations in accurately capturing these aspects.",
+      "extraction_time": 10.062302827835083,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P026",
+      "limitation": "- Facing the challenge of dealing with a significant amount of missing data, we employed various innovative strategies, including using the random forest algorithm for data imputation, handling outlier data, and filtering out invalid data\n- Overall, this study successfully addressed the challenge of missing data and provides valuable insights into early detection in Alzheimer's disease",
+      "extraction_time": 16.10069179534912,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P027",
+      "limitation": "- The method cannot definitively measure the tidal deformability of systems with low signal-to-noise ratio, making it difficult to distinguish between NSBH and BBH origin.\n- The analysis yields positive effective inspiral spin results for recovered sources but fails to identify significant cases with negative effective spin, suggesting limitations in spin characterization for certain binary populations.\n- Evidence for misalignment of orbital and component angular momenta, indicating dynamical formation channels, is found to be weak, suggesting the method has limited sensitivity to precession effects in orbital dynamics.",
+      "extraction_time": 8.085895776748657,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P028",
+      "limitation": "- The creation of accurate waveform models in regimes involving high spins and large mass asymmetries is challenging due to the need for complete physical prescriptions, which are not fully developed yet.\n- The lack of extensive numerical relativity (NR) waveform catalogs in certain parameter spaces contributes to waveform uncertainty, potentially leading to significant systematic uncertainties as detector sensitivity improves.\n- Despite the catalog of 90 candidates with a probability of astrophysical origin, there is still an expectation of false alarms, reflecting current limitations in distinguishing between true signals and noise.",
+      "extraction_time": 7.899505615234375,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P029",
+      "limitation": "- Our method faces challenges in reliably estimating parameters and extracting signals from the LISA data stream due to possible degeneracies between gas-induced phase shifts and departures from general relativity.\n- Disentangling multiple populations from an unresolved EMRI background presents significant challenges and requires further theoretical development for accurate detection and analysis.\n- Our approach struggles with modeling intermediate-mass ratio inspirals (IMRIs) due to their unique mass ratios, which cannot be treated using the conventional theoretical methods suited for either extreme or near-equal mass binaries.\n- There are substantial uncertainties related to the astrophysical parameters governing EMRI production rates, such as the spins of massive black holes and the radial mass distribution in nuclear star clusters, which can impact the detectability of EMRI signals.",
+      "extraction_time": 10.58165979385376,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P030",
+      "limitation": "- The method cannot conclusively determine whether certain BBH events originated from isolated binary systems due to large uncertainties in the mass range of the pair-instability mass gap.\n- The study does not reanalyze the BNS event GW170817 with the new models, and instead relies on data from GWTC-1, which indicates a limitation in providing updated source properties for this particular event.\n- There is a lack of conclusive evidence about the origins of events like GW190403 051519 and GW190426 190642, which are suggestive of dynamical formation but not definitively so due to uncertainties.",
+      "extraction_time": 8.788629293441772,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P031",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 5.874291896820068,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P032",
+      "limitation": "- The blinding strategy applied to the BAO measurements, particularly the large blinding shift in the transverse BAO measurement (∆α ⊥ = -0.084), may introduce uncertainty and limit the accuracy of the final results.\n- The methodology had a minor flaw involving a bug in the picca related to the masking of BAL features, which required correction post-unblinding, suggesting potential limitations in the initial analysis setup.",
+      "extraction_time": 8.753196477890015,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P033",
+      "limitation": "- The method's evidence supporting the seeding of SMBHs with PBHs is not definitive, with significant uncertainty around the growth of seeds due to accretion from baryonic material.\n- There is a limitation in distinguishing between astrophysical and primordial sources of black holes observed in GW events, due to the natural proximity of PBH and stellar masses.\n- The preference for the scenario where dark matter in PBHs corresponds to a solar mass is based on the natural explanation of PBHs forming at the QCD epoch, but lacks positive evidence, as the alternative scenario with planetary mass PBHs is not excluded.",
+      "extraction_time": 11.549193859100342,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P034",
+      "limitation": "- Our method cannot fully resolve the degeneracy in the (A, F²_NL) plane using current gravitational wave (GW) observations.\n- The interpretation of the recent PTA data remains an open question, as our method alongside other models is not yet able to conclusively identify whether the source is astrophysical or cosmological.\n- Despite presenting a Multi-Model Analysis (MMA), future PTA datasets and observations at higher frequencies are necessary to better distinguish between cosmological and astrophysical scenarios.",
+      "extraction_time": 5.788394927978516,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P035",
+      "limitation": "- Our method faces uncertainty due to the limited number of nearby calibrating SN Ia host galaxies, which results from the rarity of such supernovae in the local volume. This scarcity leads to potential biases and increased statistical uncertainties in measuring local H0.\n- The accuracy of our measurements is dominated by the systematic uncertainty in the distance to the anchor galaxy, NGC 4258. Further improvement in the local distance scale is vital to reduce both systematic and statistical uncertainties.\n- The transformation from ground-based to JWST measurements tailored for the AGB population may require refinements to avoid potential errors in distance measurements, as shown by minor inconsistencies in absolute magnitude calibrations.",
+      "extraction_time": 6.737863063812256,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P036",
+      "limitation": "- The method systematically underestimates luminosity when using only I-band photometry compared to a more complete SED with mid-IR data points, resulting in significant differences in implied initial mass.\n- Progenitor luminosity derived without mid-IR data is highly uncertain and could be underestimated by as much as 1 dex, making it unreliable for constraining the progenitor luminosity function.\n- There is a noticeable dispersion in the difference between SED-derived luminosities and F 814W-derived luminosities, indicating potential discrepancies affecting progenitor detections.",
+      "extraction_time": 5.870899200439453,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P037",
+      "limitation": "- Our method requires the use of a specific combination rule tailored to the loss at hand, which can limit its flexibility and adaptability across different scenarios.\n- The framework's effectiveness is dependent on the label distribution, particularly for the 0/1 loss, indicating that its performance could vary significantly based on this aspect.\n- For large ensembles, the diversity can effectively cancel out the average variance, resulting in the expected risk being primarily attributed to the average bias, which may limit the potential reduction in risk achieved through diversity.\n- The method's approach to diversity is inherently tied to the choice of loss function, and this dependency could restrict its applicability to tasks where the loss function does not encompass the desired characteristics of diversity.",
+      "extraction_time": 6.215986251831055,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P038",
+      "limitation": "- The study relies on cross-sectional surveys and self-reported measures, which may introduce biases that could be mitigated with longitudinal data collection.\n- A small sample size in data collection is identified as a limitation, suggesting that larger datasets are needed for more robust conclusions.\n- The study does not provide evidence to infer a significant effect of discomfort on perceived usefulness, indicating a gap in understanding how certain negative traits affect technology acceptance.",
+      "extraction_time": 5.608294486999512,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P039",
+      "limitation": "- The observed mortality rates are assumed to apply beyond the current maximum observation time of 10 years, which may lead to inaccuracies in long-term predictions.\n- A potential limitation is the three percent of participants lost to follow-up, which could introduce bias or affect the precision of the study results.",
+      "extraction_time": 6.35940957069397,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P040",
+      "limitation": "- Our method's predictions concerning the SZ effect rely on the specific semi-analytic model that shares its main blocks with other SAMs, but may not account for all possible variations in feedback mechanisms and their impact on the ICM.\n- While our semi-analytic model provides observables in agreement with data, its predictions regarding the y-T correlation and the cosmic SZ effect might be less reliable for clusters heavily impacted by feedback processes due to the model's inherent assumptions about feedback strength and distribution.\n- The specific treatment of boundary conditions in terms of shock jumps may affect the robustness of our predictions, as the effectiveness of shocks amplifying the impact of non-gravitational energy injections is dependent on certain assumptions that may not hold under all circumstances.",
+      "extraction_time": 6.815279722213745,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P041",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 5.0369954109191895,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P042",
+      "limitation": "- The method requires a fixed-size input of 227 × 227 pixels, which necessitates transforming object proposals into valid CNN input sizes, potentially leading to loss of information or distortions during scaling.\n- The approach for replacing missing data when the source rectangle extends beyond the image involves using image mean padding, which might not be optimal. More alternatives such as replication padding have been mentioned but not exhaustively evaluated.",
+      "extraction_time": 6.355931520462036,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P043",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 5.355734586715698,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P044",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 5.151376962661743,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P045",
+      "limitation": "- The model may still be limited by the biased training data, as it contains only images with strong sentiment, which might affect its generalization to broader datasets with more subtle sentiment variations.\n- The deep CNNs model does not yet incorporate concept localization, which could improve its ability to understand and classify sentiment within different regions of an image.\n- Improvement of the network structure by leveraging concept relations is acknowledged as a future enhancement, indicating that the current method does not yet fully utilize these relations for optimal performance.",
+      "extraction_time": 5.883069753646851,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P046",
+      "limitation": "- The proposed architecture has displayed success in computer vision, but there is still uncertainty about whether its quality is truly attributable to the initial guiding principles, necessitating more thorough analysis and verification.\n- While the straightforward method of improving network performance by increasing size shows promise, it also introduces major drawbacks such as increased computational requirements and potential inefficiencies.\n- Despite speculative attempts at optimizing topology choices, the resulting architecture still requires iterative improvements in learning rate and hyperparameters for modest gains compared to reference architectures.",
+      "extraction_time": 6.156585693359375,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P047",
+      "limitation": "- The large-scale setting of the dataset required continuous adjustments, including multi-step annotation strategies and modifications to the evaluation procedure, revealing unexpected challenges during scaling.\n- The initial iterations of the labeling interface were found to be ineffective and unreliable, causing accuracy issues due to inherent ambiguities in task design.\n- The necessity for exceptionally well-designed human intelligence tasks was highlighted, as poor design led to significant difficulties in annotating datasets and evaluating human-level image classification accuracy.",
+      "extraction_time": 6.21204686164856,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P048",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 4.902695178985596,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P049",
+      "limitation": "- Our method lacks clarity regarding the integration of GPU and distributed computing, as the exact approach to adopt these technologies across the library remains unclear and was not prioritized during the 1.0 release.\n- The current version of our method offers limited SciPy usage tutorials, and there is an ongoing effort to increase them beyond the 15 sections currently available.\n- The low-level Cython code within our library requires modernization, specifically the migration to typed memoryviews for better handling of NumPy arrays.",
+      "extraction_time": 6.1193835735321045,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P050",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 5.258638858795166,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P051",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 5.706713676452637,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P052",
+      "limitation": "- Our method struggles with integrating LLMs into medical robotics algorithms for route planning and motion control due to the risk of errors and biases inherent in LLMs, which may pose safety risks in dynamic shared human-robot workspaces.\n- The approach requires significant computing resources, which may not be feasible for small enterprises or individuals, limiting accessibility to optimal performance unless alternative strategies such as sophisticated prompting are utilized.",
+      "extraction_time": 5.615622043609619,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P053",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 4.918210744857788,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P054",
+      "limitation": "- These studies underscore the ongoing efforts to improve clinical documentation practices and highlight the potential benefits, as well as the limitations, of leveraging AI-based solutions and medical scribes to address this challenge\n- However, the study also observed significant variations in how working with scribes affected each provider's documentation workflow, suggesting that providers adapt their note-taking practices to varying degrees when assisted by scribes\n- Notably, the accuracy of the generated notes exhibited an inverse relationship with the length of the transcripts and the complexity of the data elements, suggesting potential limitations in handling intricate medical cases\n- While the integration of generative AI in clinical documentation offers numerous benefits, it also presents several challenges that must be addressed to ensure the responsible and effective deployment of this technology in healthcare settings.",
+      "extraction_time": 5.674773454666138,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P055",
+      "limitation": "- The study focuses solely on the perspective of CWS caseworkers regarding algorithmic decision-making systems, potentially overlooking the perspectives and experiences of CWS children and families who are directly affected by these systems.\n- The research only examines algorithms used in collaborative team settings and does not consider decision-tools caseworkers might use independently, which may also impact caseworker decisions and require further study.\n- Caseworkers are observed to lack adequate understanding of algorithms or decision-tools, signaling a need for better awareness and training regarding the influence of automated decision-making in their work.",
+      "extraction_time": 5.937275409698486,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P056",
+      "limitation": "- The study is limited to a case study of a unique research instrument, which may not fully represent the broader spectrum of research instruments in scientific texts.\n- The current research provides only the initial step towards understanding how research instruments are represented, indicating a need for larger-scale studies to verify and expand on the findings.\n- The paper addresses the gap in quantitative examination of citation functions but acknowledges it does not entirely cover the aspect of re-instrumentalization in scientific texts, requiring further research.",
+      "extraction_time": 6.654697895050049,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P057",
+      "limitation": "- Our method may struggle to integrate recommendations effectively from both the keyword-article and author-article bipartite graphs, as achieving both low complexity and high accuracy is challenging.\n- The constructed Keyword-Based Collaboration Network (KBCN) might be limited in its ability to comprehensively capture the complex hierarchical organization and community structure within research areas, which are crucial for evaluating interdisciplinary studies.",
+      "extraction_time": 5.538451194763184,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P058",
+      "limitation": "- Our method struggles with the limited availability of large datasets that represent the population well, making it challenging to develop robust models.\n- The integration of our DL models into clinical settings is complicated by the need for real-time segmentation capabilities and alignment with clinical workflows.\n- There is a challenge in standardizing evaluation metrics and achieving domain adaptation to ensure that our models are generalizable across different clinical environments and imaging modalities.",
+      "extraction_time": 6.243082046508789,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P059",
+      "limitation": "- Our method struggles with achieving high accuracy because, while it reduces computational complexity, it does so at the expense of recommendation precision when relying solely on structural data from bipartite graphs.\n- The Keyword-Based Collaboration Network (KBCN) approach provides valuable structural insights but might not fully capture the dynamic nature or detailed semantic relationships between keywords, potentially limiting its effectiveness in evolving research classifications.",
+      "extraction_time": 6.118694067001343,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P060",
+      "limitation": "- Our method focuses on commercial or open-source community-based RIS solutions, potentially excluding alternative solutions that may offer a wider range of system architectures and functionalities.\n- The study sample, although representative, had a small number of respondents (51), which necessitates caution in interpreting the results and led to the use of descriptive statistics instead of more complex analytical methods.\n- The approach of the study is explorative and illustrative rather than providing statistical support for the described model of data quality and acceptance.",
+      "extraction_time": 5.787111759185791,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P061",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 5.05459451675415,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P062",
+      "limitation": "- Our dataset currently labels only \"things,\" and does not provide labeling for \"stuff,\" which might offer significant contextual information for object detection.\n- The annotations do not include information such as the extent of occlusion of instances or the location of keypoints on objects, which could benefit object detection algorithms.\n- The dataset does not include other types of labels that could serve as benchmarks, such as scene types, attributes, or full sentence written descriptions.",
+      "extraction_time": 5.956933498382568,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P063",
+      "limitation": "- Our method assumes an independent allele-frequency profile for each population, which may limit the model's ability to capture more complex dependencies between allele frequencies.\n- While our Bayesian nonparametric approach infers the number of ancestral populations, the clusters derived may not always correspond to \"real\" populations, leading to potential misinterpretations of K.",
+      "extraction_time": 5.6033244132995605,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P064",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 5.773968935012817,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P065",
+      "limitation": "- The study relies on cross-sectional surveys and self-reported measures, which may introduce biases and affect the reliability of the findings.\n- The sample size used for data collection is small, limiting the ability to generalize the study's conclusions.\n- The study does not provide insights on how discomfort affects the perceived usefulness of chatbots due to a lack of evidence.",
+      "extraction_time": 5.228611707687378,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P066",
+      "limitation": "- The paper acknowledges some confusion in the literature regarding the conflation of Bell's methodological approach with the PO programme, which could indicate that the distinctions made in the paper might not be fully clear or universally accepted.\n- Although the essay aims to clarify differences among Bohm, Bell, and the PO programme, it still may not be able to resolve all confusions and subtle dissimilarities that persist between these views.",
+      "extraction_time": 6.308275461196899,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P067",
+      "limitation": "- Rayyan could improve its handling of duplicates, suggesting that its current approach may not be sufficiently robust in managing redundant data.\n- The method lacks automatic data extraction from full text, which may hinder efficiency in processing comprehensive information directly from articles.\n- Automatic risk of bias analysis is not currently incorporated into Rayyan, potentially affecting the thoroughness of systematic review processes.\n- Seamless integration with Review Manager (RevMan) is absent, which might limit its utility for those engaged in Cochrane reviews.",
+      "extraction_time": 7.745368957519531,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P068",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 5.061859369277954,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P069",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 5.496006727218628,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P070",
+      "limitation": "- The method is limited by running time, as increasing the depth and number of filters generally increases accuracy but also results in longer training times, suggesting that the current implementation has not reached the potential limits of what could be achieved through network scaling.\n- The size of networks was restricted to keep training time low, indicating a limitation in the potential accuracy improvement that could be achieved by using larger networks or more data.\n- Only a preliminary exploration of the hyperparameter space has been conducted, which suggests that there might be better network architectures that have not yet been discovered or implemented.",
+      "extraction_time": 5.864384651184082,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P071",
+      "limitation": "- The review acknowledges the challenge in promoting the rapid and consistent application of cellular and animal studies to human applications, suggesting that inter-species variability and the diversity of the disease spectrum are significant obstacles.\n- Therapies targeting NF-κB signaling will inevitably elicit side effects due to its involvement in diverse biological processes, highlighting the need for precise drug design, synthesis, and delivery to mitigate potential adverse effects.",
+      "extraction_time": 7.4447455406188965,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P072",
+      "limitation": "- Our current LDPO framework does not yet incorporate deep generative density models, which might enhance clustering performance.\n- The LDPO method is not currently structured within a multi-task CNN learning architecture for simultaneous classification and clustering objectives, limiting its current versatility in complex deep learning tasks.",
+      "extraction_time": 6.129118919372559,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P073",
+      "limitation": "- Our method relies solely on DTI-formed brain networks and text information, which may limit the comprehensiveness of the brain presentation without incorporating additional imaging data.\n- The approach currently focuses on a limited set of modalities, which may not fully capture the entirety of neurodegenerative disease patterns, suggesting the need for incorporation of more imaging modalities for a more comprehensive analysis.",
+      "extraction_time": 5.6010658740997314,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P074",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 4.936038255691528,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P075",
+      "limitation": "- Our approach currently focuses primarily on supervised learning, limiting its applicability for unsupervised or semi-supervised learning tasks.\n- The method still needs further research to address the issues of negative transfer and transferability measures within the framework of deep transfer learning.\n- There is a lack of strong physical support for understanding transfer knowledge in deep neural networks, pointing to the need for interdisciplinary collaboration for future advancements.",
+      "extraction_time": 5.517426490783691,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P076",
+      "limitation": "- The dataset used in the study is highly unbalanced, which could limit the generalizability of the method's results across different populations.\n- No preprocessing step was applied to the images, which might affect the overall accuracy and performance of the deep convolutional neural networks.\n- The method relies on a fixed dataset of 10,135 dermoscopy images without incorporating metadata, which might hinder further improvement in diagnostic accuracy.\n- The study acknowledges the need for more diverse datasets with varied categories and balanced samples per class to enhance the robustness and applicability of the method.",
+      "extraction_time": 5.802471160888672,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P077",
+      "limitation": "- The implications of hub deterioration are still unclear, indicating potential gaps in understanding how these changes affect broader network functions.\n- The analysis may not completely elucidate the varying impacts of hub centrality reduction across different neurodegenerative diseases, as specific roles and compensatory mechanisms in other conditions remain speculative.",
+      "extraction_time": 5.686171054840088,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P078",
+      "limitation": "- Our method struggles with handling edge cases, intricate runtime behaviors, and execution-dependent state changes, emphasizing that LLMs function as approximators rather than exact code executors.\n- The benchmark does not encompass specialized environments such as hardware-dependent simulations or realtime systems, limiting its applicability in these contexts.\n- There are challenges in error detection as LLMs may generate plausible but incorrect outputs, especially in complex logical dependencies or scenarios with undefined behaviors.\n- Our scaling study is restricted by computational resources, which limits the evaluation of extremely large models or extensive training data distributions.",
+      "extraction_time": 5.227801561355591,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P079",
+      "limitation": "- The method has not yet been applied to more complex neural network architectures such as residual, recurrent, LSTM, and Transformer networks, limiting its current scope of applicability.\n- The approach does not yet explore the Jacobian of batch normalization, which could provide further insights and improvements in understanding the method's efficiency and functionality in different contexts.",
+      "extraction_time": 5.560603380203247,
+      "metadata": {
+        "use_citation": true,
+        "extraction_method": "section_locator + citation_detective",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    }
+  ],
+  "ablation_3_section_only": [
+    {
+      "paper_id": "P001",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 3.7543556690216064,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P002",
+      "limitation": "- Our method, which uses LSTM architectures, struggles with interpretability due to increased depth and complexity, making it difficult to understand why models make certain predictions.\n- Despite the potential power of LSTMs, the method's effectiveness is highly dependent on the quality and structure of the available data, as well as the knowledge of the data scientist handling it.",
+      "extraction_time": 3.435950994491577,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P003",
+      "limitation": "- Our method limits its analysis to the presented PRiMH dataset, and does not explore other tasks in pragmatics understanding such as figurative language understanding and deixis.\n- The method uses only the MCQA-based prompting technique, potentially overlooking other techniques that might be effective for different tasks in pragmatics.\n- We only employ accuracy as a metric for evaluating the tasks, ignoring class-sensitive metrics which could provide a more nuanced understanding of performance in future work.",
+      "extraction_time": 5.0000319480896,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P004",
+      "limitation": "- The method is computationally intensive, which can be a limitation when applying mixed models to moderately large datasets ranging from 10,000 to 1,000,000 observations.\n- While the platform developed is efficient and well-documented, there may still be challenges in maintaining and extending the class of models within the R environment.",
+      "extraction_time": 3.280748128890991,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P005",
+      "limitation": "- Our method's stacking of multi-scale features increases descriptor dimensionality, which may lead to challenges in handling the larger data size efficiently.\n- While our approach demonstrates state-of-the-art performance in certain datasets, it relies on conventional ConvNet architecture and may not incorporate the latest advancements or topologies developed independently, potentially limiting adaptability to certain tasks.",
+      "extraction_time": 3.9219720363616943,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P006",
+      "limitation": "- The paper acknowledges that the current implementation of GT networks has been demonstrated with only a small number of examples, indicating a potential limitation in its general applicability across diverse audio signal recognition tasks and visual scene analysis applications.\n- The reliance on gradient-based learning methods may entail challenges associated with convergence and computational cost, especially when dealing with complex, dynamic architectures that adjust with each new input.\n- While automatic learning has shown promise, the paper suggests future work is needed to further reduce dependency on detailed engineering and manual labeling, indicating that the current system still requires human intervention in certain aspects.",
+      "extraction_time": 4.660558462142944,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P007",
+      "limitation": "- Although DenseNets achieved state-of-the-art results, the hyperparameters were optimized for residual networks, indicating potential for improvement with further tuning specific to DenseNets.\n- DenseNets, while compact and efficient, may still require detailed tuning of learning rate schedules to fully optimize performance in various settings.",
+      "extraction_time": 4.574182510375977,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P008",
+      "limitation": "- AESVM demonstrated limited gains in training and classification time speedups for high-dimensional datasets like D6-D9, as the representative set was almost the same size as the training dataset.\n- The representative set computed by DeriveRS was nearly 100% of the training set for the MNIST dataset (D8), leading to almost no speedup in comparison to other datasets.\n- The paper suggests potential improvements to DeriveRS, indicating its current performance may be suboptimal for high-dimensional datasets.\n- Comparisons with other methods, such as the core set based method by Gärtner and Jaggi, were not conducted due to the lack of software implementation and published results, limiting the scope of analysis.",
+      "extraction_time": 3.9429752826690674,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P009",
+      "limitation": "- The Non-Parametric Bootstrap (NPB) method investigates the hyper-parameter space surroundings of the minimum, which may not fully address potential defects in the hyper-surface, indicating a limitation in exploring broader parameter spaces comprehensively.\n- While the Block Bootstrap method does not require explicit modeling of correlations, it may miss fine-tuned correlation nuances that could be captured with a dedicated covariance matrix.",
+      "extraction_time": 3.834446430206299,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P010",
+      "limitation": "- Our method does not provide an absolute threshold to determine when a confidence value is considered good, leaving room for subjective judgment.\n- While using lift as an indicator of the 'truthness' of an association rule, identical supports and confidences can lead to opposite lifts, indicating potential ambiguity in rule interpretation.\n- Research utilizing the exact execution sequences for fault localization using our method is still in an early phase and requires further exploration to improve effectiveness.\n- The approach focuses solely on prioritizing event handlers in GUI testing, and integrating other fault localization techniques could enhance efficiency by producing more refined code-level suggestions through runtime execution data analysis.",
+      "extraction_time": 5.346363544464111,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P011",
+      "limitation": "- Our method requires a sufficient number of large filters to leverage strong representation learning, which might lead to increased computational resources and complexity.\n- The seamless switching between unsupervised learning by competitive learning and supervised learning by BP learning indicates that further studies are required, suggesting potential limitations in understanding the integration fully or optimizing its implementation.\n- The proposed method may face challenges when applied to tasks that inherently have a limited number of filters or constrained spatial dimensions, requiring more careful tuning and selection of parameters.",
+      "extraction_time": 3.76357102394104,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P012",
+      "limitation": "- Our method encounters challenges in establishing discriminant validity, as the HTMT thresholds derivation is subjective, which may impact the rigor of empirical testing and validation.\n- Applying HTMT-based criteria to formatively measured constructs is problematic, as these criteria assume reflectively measured constructs and fail to indicate discriminant validity for formative indicators.\n- There is an issue in generalizing the findings to covariance-based SEM techniques or the recently proposed consistent PLS, warranting further investigation into the limitations when assessing discriminant validity in these models.",
+      "extraction_time": 3.4056456089019775,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P013",
+      "limitation": "- Our method of developing the PRISMA checklist did not include a systematic literature search, potentially limiting its comprehensiveness and the robustness of the checklist items.\n- The PRISMA statement does not have definitive data to prove that it effectively achieves its intended goals of reducing flawed reporting and improving review clarity and transparency.\n- Following the PRISMA checklist might result in an increased word count for systematic review reports, which could be seen as a drawback despite the benefits of improved appraisal.\n- For some checklist items, there is a lack of evidence regarding their effectiveness, such as whether a training exercise improves data extraction accuracy and reliability.",
+      "extraction_time": 4.6068174839019775,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P014",
+      "limitation": "- The method's approach to quantifying the phase transition in data structure is indirect and not always feasible, particularly for spherical object manifolds and margin learning, which limits its direct applicability to these cases.\n- The analysis is performed at leading order in the combinatorial expansion parameter α, and does not account for the effects of perturbative corrections, which may impact the accuracy of the bounds obtained.\n- The constraints imposed by data structure on hypothesis classes can considerably lower the VC entropy, affecting the generalization capabilities of models when the input-output correlations are strong.",
+      "extraction_time": 5.009188413619995,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P015",
+      "limitation": "- Our method struggles to always find the best structural equation model to fit the observed data, as multiple models may fit the data well or none at all.\n- Defining structural equation models starting from many manifest variables requires considerable intellectual effort, and a semi-automatic method would be desirable to ease this process.\n- The method cannot discover causal relationships beyond those already encoded in the researcher's structural equation model, limiting its ability to infer causation from correlation.",
+      "extraction_time": 3.969801664352417,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P016",
+      "limitation": "- Despite high reliability within specific contexts, the method lacks convergent and discriminant validity, indicating insufficient construct validity and necessitating a deeper understanding of observed interrelationships.\n- The exclusive use of the RULA criterion may result in significant discrepancies in ergonomic risk and action level estimations, suggesting it may be beneficial to explore alternative criteria like REBA, NIOSH, EAWS, or OWAS.\n- There is a scarcity of theoretical support for the validity of results using the task-based approach, especially for complex working scenarios such as non-routine work, which may impede continued use of this approach.\n- The task-based assessment approach proves inadequate in construct validity due to overlooked low-salient and unplanned activities, and the lack of context and continuity in task execution, particularly affecting non-routine work scenarios.",
+      "extraction_time": 4.613771915435791,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P017",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 3.598662853240967,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P018",
+      "limitation": "- Our method was trained with a batch size of 1 due to limited GPU memory and large volumetric data, which may lead to more uncertainty in gradient computation and the overall learning process.\n- The method requires pre-specifying the maximum allowed input volume size to prevent the GPU from running out of memory, especially if downsampling is undesirable.\n- A hyperparameter search is needed whenever there is a change in the dataset, network architecture, GPU platform, or reduced-precision training scheme, indicating potential complexity in adapting the method to different conditions.",
+      "extraction_time": 3.5579068660736084,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P019",
+      "limitation": "- There is room to improve the performance and complexity of the TBCC algorithms presented in this paper.\n- The 2D TBCCs discussed in the paper have yet to find practical applications, indicating a limitation in their current real-world usability.\n- As kernel support increases, the performance of the sub-optimal decoding algorithms deteriorates, which suggests a limitation in handling larger kernel supports effectively.",
+      "extraction_time": 5.679068088531494,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P020",
+      "limitation": "- The method struggles with varying detection performance across different participants, particularly for those exhibiting more diverse episodes of behaviours of risk.\n- The evaluation was limited to environments where people with severe behavioural symptoms are more common, which might not generalize well to standard long-term care facilities where such behaviours are less frequent.\n- Due to privacy concerns, cameras were not installed in private rooms, restricting the applicability and analysis scope of the method to more private settings.",
+      "extraction_time": 4.280320882797241,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P021",
+      "limitation": "- The composites produced by PLS-SEM are acknowledged as approximations of the theoretical concepts they aim to represent, which indicates a limitation in terms of measurement precision.\n- PLS-SEM is not considered a universal alternative to CB-SEM; it is designed with a focus on prediction and explanation, which may not be suitable for all research objectives, particularly those involving theory testing within concise theoretical models.\n- The flexibility and ability to handle complex models come with the requirement of appropriate data meeting minimum sample size requirements, which can be a challenge in some research scenarios.",
+      "extraction_time": 7.328601121902466,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P022",
+      "limitation": "- Our method only targets debiasing in the gender domain, while other domains like race and religion remain unaffected, indicating limited domain-specific debiasing capabilities.\n- There is a limitation in the reproducibility of the mask rules set by GPT-4, which affects the consistency and robustness of the debiasing approach.\n- Our approach may inadvertently lead to unlearning of tokens following the mask, potentially invalidating the results and undermining the debiasing efforts.",
+      "extraction_time": 4.796492099761963,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P023",
+      "limitation": "- Our method requires the density h ∈ L 1 (R d ) for the variational curvature κ E to be well-defined, which means the curvatures obtained are dependent on h, even though their L 1 (R d )-norm is optimal for each choice of h.\n- The approach struggles when applied to unbounded domains, as indicated by the necessity to work in bounded domains to avoid the level-sets of potential solutions escaping to infinity, particularly in settings like photon emission tomography (PET) reconstruction.\n- The method's regularization scheme lacks consistency and fails to offer Hausdorff convergence of level-sets unless the analysis is restricted to bounded sets, due to the data term's inability to control the solutions' behavior at infinity.",
+      "extraction_time": 4.934805870056152,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P024",
+      "limitation": "- The method assumes a certain rate of gravitational-wave events, which may not hold true if pessimistic astrophysical models are accurate, thus affecting the effectiveness of follow-up imaging strategies.\n- Coordination of multiple telescopes with varying fields of view and limiting magnitudes poses a challenge, requiring a similar formalism to be compiled to manage multiple exposures and optimize observing strategies.",
+      "extraction_time": 3.715505361557007,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P025",
+      "limitation": "- Our method cannot confidently determine whether marginal triggers are true gravitational wave signals or not, which limits our ability to identify potential new detections.\n- The spins of individual black holes in binary systems are only weakly constrained, which affects our understanding of their formation scenarios and evolution.\n- The higher mode content of observed gravitational wave signals is weak, and models including them are not strongly preferred, making it difficult to make more detailed waveform analyses.",
+      "extraction_time": 4.3049867153167725,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P026",
+      "limitation": "- Facing the challenge of dealing with a significant amount of missing data, we employed various innovative strategies, including using the random forest algorithm for data imputation, handling outlier data, and filtering out invalid data\n- Overall, this study successfully addressed the challenge of missing data and provides valuable insights into early detection in Alzheimer's disease",
+      "extraction_time": 4.956749200820923,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P027",
+      "limitation": "- Our method has insufficient signal-to-noise ratio (SNR) to perform an informative measurement of tidal deformability, limiting the ability to definitively determine the origin of certain binaries as either neutron star-black hole (NSBH) or binary black hole (BBH) mergers.\n- The analyses only recovered sources with positive effective inspiral spin, with no cases showing negative effective spin at high credibility, despite population analysis indicating negative spins in some binaries, suggesting potential limitations in detecting and accurately interpreting such spins.\n- There was only mild evidence found for precession, indicating possible limitations in the method's sensitivity to dynamical formation channels and the associated angular momentum misalignments.",
+      "extraction_time": 5.015871286392212,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P028",
+      "limitation": "- The current waveform models struggle to maintain accuracy in regimes with high spins and large mass asymmetries, due to a lack of extensive numerical relativity waveform catalogs covering these regions.\n- Despite the expectation of detecting diverse GW signals, some candidates with an estimated probability of astrophysical origin may still result in false alarms, indicating potential limitations in distinguishing true signals from noise.\n- As sensitivity improves, waveform uncertainty might become a significant source of systematic error, necessitating the development of more accurate models that incorporate additional physics such as orbital eccentricity to ensure reliable interpretation.",
+      "extraction_time": 4.499918222427368,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P029",
+      "limitation": "- The method faces challenges in disentangling multiple populations from an unresolved EMRI background, which fundamentally requires more theoretical development from each contributing channel.\n- There are substantial uncertainties in predicting rates for IMRIs due to their larger mass ratio, requiring changes in computational strategies for waveform modeling and formation dynamics.\n- The detectability of EMRIs depends heavily on astrophysical parameters like the spins of MBHs and the radial mass distribution of NSCs, which are not well-constrained and could affect the rate of plunging mergers versus bona fide EMRIs.",
+      "extraction_time": 5.302004098892212,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P030",
+      "limitation": "- The method cannot definitively determine the origin of sources such as GW190403 051519 and GW190426 190642 due to large uncertainties in the mass range of the pair-instability mass gap, leaving open the possibility that they may have originated from isolated binary systems.\n- The analysis did not reanalyze the BNS event GW170817, suggesting a limitation in the reanalysis of events involving binary neutron stars, as state-of-the-art BNS models were considered adequate at the time but not updated in this study.\n- The approach primarily focused on BBH sources and excluded significant events like GW170817 from the reevaluation process, potentially limiting the scope of findings regarding neutron star-black hole interactions.\n- The reliance on state-of-the-art BBH waveform models may introduce bias if newer models could provide more accurate source property estimations that were not utilized in this study.",
+      "extraction_time": 5.406986236572266,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P031",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 3.116194009780884,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P032",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 4.0282018184661865,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P033",
+      "limitation": "- Our method's favored scenario predicts PBHs large enough to seed SMBHs, but the evidence is not definitive due to uncertainty in the growth amount from accretion.\n- The proximity of PBH masses to stellar masses makes it challenging to distinguish between astrophysical and primordial sources based on mass alone.\n- There is currently no positive evidence for PBHs as dark matter at planetary mass ranges, even though we emphasize our scenario of PBHs forming at the QCD epoch.",
+      "extraction_time": 5.001137971878052,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P034",
+      "limitation": "- Our method struggles to break the degeneracy in the (A, F²_NL) plane, as current GW observations are not able to distinguish between high-order corrections in general.\n- Despite offering a Multi-Model Analysis (MMA), our approach cannot yet confirm the specific sources of the PTA signals, leaving the interpretation of SGWB in the nHz range an open question.\n- The model analysis does not currently provide constraints on the presence of non-Gaussianities at PTA scales, as large F_NL values remain possible if the curvature power spectral amplitude is sufficiently small.",
+      "extraction_time": 6.3588409423828125,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P035",
+      "limitation": "- There is a primary uncertainty in local H₀ measurements due to the limited number of nearby calibrating SN Ia host galaxies, which results in potential bias and increased statistical uncertainties since nearby SNe Ia are rare events.\n- The accuracy of the results is largely dominated by the systematic uncertainty in the distance to the anchor galaxy, NGC 4258, which impacts the precision of the H₀ estimation.\n- Although the results show consistency with ΛCDM, further improvements to the local distance scale are necessary to reduce both systematic and statistical uncertainties.",
+      "extraction_time": 3.4766738414764404,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P036",
+      "limitation": "- Our method faces significant disagreement between derived luminosities when using SpT and BC assumptions compared to more accurate SED methods, affecting the accuracy of luminosity calculations.\n- Luminosities derived from single-band photometry systematically underestimate bolometric luminosity by a factor of 2, impacting the estimation of initial masses for SN II-P progenitors.\n- Even when applying a spectral type-specific BC, there remains a dispersion of 0.2 dex in luminosity calculations, indicating persistent discrepancies.",
+      "extraction_time": 3.7977848052978516,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P037",
+      "limitation": "- Our method requires a specific combination rule called the centroid combiner, which may limit its applicability in scenarios where such a combiner is not suitable or available.\n- The approach to measure bias, variance, and diversity in cases where an additive bias-variance decomposition does not exist is dependent on the label distribution, which may restrict the method's generalization to different datasets with varying label distributions.\n- Although the framework provides a comprehensive measure of diversity, it primarily applies to homogeneous ensembles and might not be well-suited for heterogeneous ensembles where individual models are from different model families.",
+      "extraction_time": 5.358627557754517,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P038",
+      "limitation": "- Our study was conducted using cross-sectional surveys and self-reported measures, which may introduce biases that could be mitigated by longitudinal data.\n- The small sample size in our data collection limits the conclusiveness of our findings and affects the robustness of our conclusions.\n- Transparency and ethics negatively affect the intention to use chatbots, which suggests potential challenges in ensuring ethical considerations and transparency in interactive AI technology.",
+      "extraction_time": 3.3436150550842285,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P039",
+      "limitation": "- DISCUSSION Key results 18 Summarise key results with reference to study objectives Limitations 19 Discuss limitations of the study, taking into account sources of potential bias or imprecision\n- Limitations: The observed mortality rates are assumed to apply beyond the current maximum observation time of 10 years.\n- Limitations: Discuss limitations of the study, taking into account sources of potential bias or imprecision",
+      "extraction_time": 2.870309352874756,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P040",
+      "limitation": "- The specific semi-analytic model (SAM) used in the study is constructed on the hierarchical merging histories of the dark matter component and while it provides observables in agreement with data, it may limit the prediction accuracy for other non-standard feedback processes affecting group scales.\n- The departure of the y-T relation from self-similar models depends significantly on the feedback strength embedded within the SAM, suggesting that variations in feedback modeling may lead to different observational predictions.\n- The SZ effect predictions in the model may not fully account for the range of physical processes or scales involved, especially in smaller structures where feedback and energy injections play a larger role.",
+      "extraction_time": 4.883424520492554,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P041",
+      "limitation": "- Our approach, as a survey, highlights the limitations of current LLM evaluation systems, indicating a need for these systems to adapt and evolve to accurately assess LLM capabilities.\n- The paper identifies that LLMs face challenges in reasoning and robustness tasks, suggesting that while the survey provides an overview, it lacks solutions to these specific limitations.",
+      "extraction_time": 3.8715593814849854,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P042",
+      "limitation": "- The method requires input images to be in a fixed size of 227 × 227 pixels, which may not always be practical for all object proposals that can vary in shape and size.\n- The current approach relies on context padding for transforming object proposals, yet there is an acknowledgment that other alternatives (such as replication instead of mean padding) might exist and have not been exhaustively evaluated.\n- Image data that extends beyond the original image boundary is replaced with an image mean, which may not accurately represent the missing data, potentially affecting the quality of the CNN's input.\n- The method's evaluation only tested a limited set of transformation techniques for object proposals and left the exploration of additional possibilities for future work, indicating incomplete optimization.",
+      "extraction_time": 5.990739345550537,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P043",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 2.321444511413574,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P044",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 3.7270872592926025,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P045",
+      "limitation": "- The current model struggles with concept localization, which the authors aim to address in future developments.\n- The network structure potentially lacks the incorporation of concept relations, which could further improve its performance.",
+      "extraction_time": 4.053708791732788,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P046",
+      "limitation": "- Our method does not utilize context information, which could potentially limit the quality of detection work in scenarios where context is crucial for accurate predictions.\n- The approach does not perform bounding box refinement, which may impact the precision of object localization in computer vision applications.",
+      "extraction_time": 2.709275245666504,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P047",
+      "limitation": "- The dataset scaling process revealed unexpected challenges, necessitating continuous adjustments to annotation strategies and evaluation procedures, highlighting the complexity of managing large-scale settings.\n- The current approach to handling external training data in the competition rules may need further revision to accommodate evolving practices in unsupervised feature learning and image segmentation tasks.\n- The reliance on non-expert crowd labelers for data annotation led to errors in distinguishing fine-grained object classes, affecting labeling precision for species-specific tasks.",
+      "extraction_time": 4.561957359313965,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P048",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 3.0625767707824707,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P049",
+      "limitation": "- The accommodation of GPU and distributed computing into the existing algorithm/API infrastructure presents a challenge, as the approach to fully leverage these technologies is still unclear and was not prioritized in the initial release.\n- The library's low-level Cython code requires modernization, specifically migrating to typed memoryviews to better handle NumPy arrays, indicating a need for updated practices.",
+      "extraction_time": 3.1970512866973877,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P050",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 2.980548143386841,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P051",
+      "limitation": "- The model M2's simulated Jaccard index scores are systematically lower than the observed scores, indicating some discrepancies in the magnitude of predictions.\n- The current version of the model does not produce long-term projections for record-breaking temperature events, which suggests a need for modification to enhance its utility for future predictions.",
+      "extraction_time": 4.36965799331665,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P052",
+      "limitation": "- The method relies heavily on subjective text inputs from patients, limiting its ability to conduct diagnostic assessments based on visual images, which are crucial in objective medical diagnoses.\n- Despite its logical reasoning capabilities, the method cannot directly process images and relies on transforming images into text or using external vision encoders, which could add complexity and limit its seamless integration into existing medical systems.\n- The requirement for massive computing resources for pre-training or fine-tuning medical LLMs from scratch limits the accessibility of the method to smaller enterprises or individuals, who may need to rely on alternative strategies like prompt engineering to achieve comparable results.",
+      "extraction_time": 6.495420217514038,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P053",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 4.198605060577393,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P054",
+      "limitation": "- The method has challenges with data quality and representation, which could affect the reliability and effectiveness of the generative AI models in healthcare settings.\n- Privacy and security concerns need to be addressed to ensure the safe deployment of generative AI for clinical documentation.\n- Model interpretability and transparency are crucial, as healthcare professionals need to understand how AI-derived conclusions are reached.\n- The approach requires human oversight and validation to ensure accuracy and adherence to regulatory compliance and liability considerations.",
+      "extraction_time": 3.478966474533081,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 5,
+        "section_evidence_count": 5,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P055",
+      "limitation": "- The study focuses exclusively on the perspectives of CWS caseworkers, omitting the perspectives of CWS children and families, who are directly impacted by algorithmic decision-making systems.\n- The research is limited to algorithms used in collaborative team settings, potentially overlooking other independent decision-tools used by caseworkers, such as comprehensive state-mandated data systems and their integrated decision-tools.",
+      "extraction_time": 4.104471921920776,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P056",
+      "limitation": "- The study is limited to examining only one research instrument, the DSM, which may not fully capture the diversity of citation functions across different domains.\n- The findings represent only an initial step towards understanding research instruments in scientific texts, indicating a need for further larger-scale quantitative analyses.\n- Re-instrumentalization of research instruments in scientific texts is mentioned as an aspect not fully addressed, suggesting gaps in the current methodological examination.",
+      "extraction_time": 4.126692056655884,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P057",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 3.0719778537750244,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P058",
+      "limitation": "- There is a limited availability of large datasets that represent the population well, which restricts the ability to train models that are widely applicable.\n- The integration of DL technologies into clinical settings is challenging, requiring advancements in real-time segmentation capabilities and alignment with clinical workflows.\n- The need for standardized evaluation metrics and domain adaptation complicates the generalizability of models across different clinical environments and imaging modalities.",
+      "extraction_time": 4.39439058303833,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P059",
+      "limitation": "- The method discussed in the paper assumes that the keywords have well-defined attributes that can be extracted automatically, which may not always be the case, leading to practical limitations.\n- The traditional content analyzing approach that the paper contrasts with has high computational complexity, which suggests that their method, while aiming for lower complexity, might compromise on accuracy.\n- The integration of recommendations from keyword-article and author-article bipartite graphs, while promising, has not been explicitly shown to achieve the optimal balance between complexity and accuracy in the paper.",
+      "extraction_time": 3.9980177879333496,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P060",
+      "limitation": "- Our method focuses solely on commercial or open-source community-based RIS solutions and does not consider local in-house developments, potentially excluding alternative solutions with diverse system architectures and functionalities.\n- The study relies on a relatively small number of respondents (51), which may limit the reliability of the analysis and restrict the scope to descriptive statistics rather than more complex statistical techniques.\n- The approach is explorative and illustrative in nature and cannot provide statistical support for the proposed model of data quality and acceptance, limiting its ability to predict outcomes or establish causality.",
+      "extraction_time": 3.5124597549438477,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 3,
+        "section_evidence_count": 3,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P061",
+      "limitation": "- Despite the improvements, our method still struggles with accurately detecting objects in images with cluttered backgrounds or overlapping objects, where the region proposal quality may degrade.\n- Our approach may exhibit reduced performance on small objects, as the shared convolutional features may not capture enough detail for fine-grained object proposals.\n- Although designed for efficiency, our method's near real-time performance may still not be suitable for highly latency-sensitive applications requiring instant feedback.",
+      "extraction_time": 5.1537206172943115,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P062",
+      "limitation": "- Our dataset currently only labels \"things\" and does not include \"stuff\" annotations, which could provide significant contextual information that may be useful for improving detection algorithms.\n- While the dataset consists of rich contextual images, it lacks annotations for key factors such as the amount an instance is occluded or the location of keypoints on the objects, which many object detection algorithms could benefit from.\n- Our approach does not yet incorporate scene types, attributes, or full sentence written descriptions as labels, which could expand its utility as a benchmark for more comprehensive detection evaluation.",
+      "extraction_time": 4.019080638885498,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P063",
+      "limitation": "- The assumption of independent allele-frequency profiles for each population may not be realistic, and future developments could incorporate more complex models, such as hidden Markov models, to better capture dependencies.\n- Although the Bayesian nonparametric approach provides automatic posterior inference on the number of ancestral populations, the clusters derived may not correspond to \"real\" populations, which can lead to misinterpretations.",
+      "extraction_time": 4.702762603759766,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P064",
+      "limitation": "- The paper briefly mentions that SE blocks were integrated into the model design to reduce computational cost with minimal performance decrease. However, there is no comprehensive analysis provided on how the modification affects model efficiency or scalability across different environments.\n- It is noted that SE blocks could be useful for network pruning and model compression, yet no substantial evidence or experiments are offered to demonstrate this capability, which might limit understanding of its practical application in these domains.",
+      "extraction_time": 4.954188823699951,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P065",
+      "limitation": "- Cross-sectional surveys and self-reported measures in the study may introduce biases, and longitudinal data is suggested to reduce such bias.\n- The study is limited by a small sample size in data collection, which may affect the robustness of the conclusions drawn.\n- The study findings could be further validated by comparing with other analytical methods like artificial neural networks, as different methods might reveal varying strengths and weaknesses.",
+      "extraction_time": 4.6653478145599365,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P066",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 2.784512996673584,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P067",
+      "limitation": "- Rayyan's ability to handle duplicates effectively requires improvement, which is crucial for ensuring the accuracy and reliability of systematic reviews.\n- The current version of Rayyan lacks automatic data extraction from full texts, which can limit the efficiency and comprehensiveness of systematic reviews.\n- Automatic risk of bias analysis is not yet integrated into Rayyan, potentially affecting the quality assessments in the review process.\n- Rayyan does not have seamless integration with Review Manager (RevMan), which may hinder its usability for those preparing Cochrane reviews.",
+      "extraction_time": 5.4765565395355225,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P068",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 3.303286552429199,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P069",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 3.340597629547119,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P070",
+      "limitation": "- The network size was limited to keep training time low, which might restrict the accuracy improvements that could be achieved by using larger networks or more data.\n- The exploration of the hyperparameter space was preliminary, suggesting there is potential to discover better network architectures and improve performance.\n- The approach has not yet been integrated into a comprehensive Go playing system, which could limit its practical application in real-world scenarios.",
+      "extraction_time": 4.467883348464966,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P071",
+      "limitation": "- Our method faces challenges in promoting the rapid and consistent application of research findings from cellular and animal studies to human applications, due to the diversity of disease spectrums and inter-species variability.\n- The therapies targeting NF-κB signaling, as discussed in our method, are likely to elicit side effects due to its involvement in diverse biological processes, which necessitates precise drug design and delivery procedures.\n- Our approach requires more advanced methodologies to mimic the real human environment, such as spatial multi-omics and organoids, to improve the accuracy and applicability of NF-κB signaling research in clinical settings.",
+      "extraction_time": 4.172982692718506,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P072",
+      "limitation": "- The LDPO framework currently does not incorporate deep generative density models, which may limit its ability to achieve combined classification and clustering objectives within a multi-task CNN learning architecture.\n- The existing LDPO approach lacks an \"end-to-end\" trainable model, thereby potentially requiring separate optimization of classification and clustering tasks rather than simultaneous training.",
+      "extraction_time": 3.387510299682617,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P073",
+      "limitation": "- Our method currently relies solely on DTI-formed brain networks and text information without incorporating additional imaging data, which may limit the comprehensiveness of the brain presentation.\n- The future exploration of more imaging modalities suggests that the current approach may lack generalizability in diagnosing neurodegenerative diseases.",
+      "extraction_time": 3.4533162117004395,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P074",
+      "limitation": "未找到明确的局限性描述",
+      "extraction_time": 3.0530121326446533,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.3,
+        "evidence_count": 0,
+        "section_evidence_count": 0,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P075",
+      "limitation": "- The survey primarily focuses on supervised learning methods, indicating that the research and application of deep transfer learning in unsupervised and semi-supervised contexts remain underexplored.\n- Negative transfer and transferability measures are identified as critical issues that require further investigation, suggesting that the current understanding and handling of these aspects in deep transfer learning is insufficient.\n- The paper acknowledges a gap in finding physical support for transferred knowledge in deep neural networks, pointing to a need for collaboration across disciplines to address this limitation.",
+      "extraction_time": 3.8280160427093506,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P076",
+      "limitation": "- The dataset used in this study is highly unbalanced, which may affect the model's generalization ability and diagnostic accuracy.\n- No preprocessing step was applied in this paper, potentially limiting the performance and robustness of the neural network models.\n- More diverse datasets with varied categories and balanced samples per class are needed for further improvement in the model's accuracy.\n- The current approach does not utilize metadata of each image, which could potentially increase the accuracy of the model if included.",
+      "extraction_time": 4.04735255241394,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 4,
+        "section_evidence_count": 4,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P077",
+      "limitation": "- The implications of hub deterioration identified by our method are still unclear, as the exact role of hubs in brain networks and their influence on diseases like Alzheimer's remain to be fully understood.\n- Our approach may not fully explain the increased hub centrality for anterior sensors, which could reflect compensatory mechanisms that are not yet completely identified.\n- The study does not address whether similar changes in network hub importance are observable in other neurodegenerative diseases beyond MCI and Alzheimer's, limiting the general applicability of our findings.",
+      "extraction_time": 4.156099319458008,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P078",
+      "limitation": "- Our method struggles with handling edge cases and intricate runtime behaviors, often leading to incorrect execution-dependent state changes.\n- SURGE does not encompass all specialized environments, such as hardware-dependent simulations or realtime systems, limiting its comprehensive applicability.\n- LLMs may generate plausible but incorrect outputs, particularly in complex logical dependencies or undefined behaviors, making error detection challenging.\n- Security risks exist as LLMs might fail to recognize vulnerabilities, potentially leading to misjudged harmful code.",
+      "extraction_time": 6.080002069473267,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 2,
+        "section_evidence_count": 2,
+        "citation_evidence_count": 0
+      }
+    },
+    {
+      "paper_id": "P079",
+      "limitation": "- The method currently does not address the calculation of gradients for loss functions in various network types, such as residual, recurrent, LSTM, and Transformer networks.\n- The approach has not yet explored the Jacobian of batch normalization, which could further enhance understanding and applicability in different network architectures.",
+      "extraction_time": 3.199260950088501,
+      "metadata": {
+        "use_citation": false,
+        "extraction_method": "section_locator",
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "section_evidence_count": 1,
+        "citation_evidence_count": 0
+      }
+    }
+  ],
+  "summary": {
+    "total_papers": 79,
+    "description": "Ablation Study 3: Impact of Citation Detective",
+    "variant_a": "Dual-stream (Section + Citation analysis)",
+    "variant_b": "Section-only (no citation analysis)"
+  }
+}

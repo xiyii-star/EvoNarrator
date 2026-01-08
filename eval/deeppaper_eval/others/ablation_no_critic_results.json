@@ -1,0 +1,1189 @@
+{
+  "ablation_no_critic_dual_stream": [
+    {
+      "paper_id": "P001",
+      "problem": "The paper addresses the need for an integrated suite of software facilities for data manipulation, calculation, and graphical display, providing coherent and comprehensive tools for data analysis. It also identifies specific issues such as the inefficiency of current methods in handling nonlinear model fitting, where the choice of initial parameter values significantly affects convergence, and challenges in efficiently using various models and link functions.",
+      "method": "- 提供一个集成的套件用于数据处理、计算和图形显示，支持丰富的操作符尤其是矩阵运算。\n- 支持数组计算的广泛操作符，包括矩阵，显著提升计算能力。\n- 提供丰富且一致的中间工具集合以支持数据分析，并可通过大型包集合进行扩展。\n- 系统受到S语言的启发，确保S-Plus用户的熟悉性。",
+      "limitation": "- The adaptive integration process in R has a heavy overhead and is only competitive with other algorithms when the integrand is both smooth and very difficult to evaluate, which can limit efficiency for simpler problems. \n- Most programs written in R are essentially ephemeral and crafted for specific data analysis tasks, which may hinder their reusability and long-term applicability.",
+      "future_work": "- Developing more intuitive and user-friendly functions for statistical computations, such as automating calculation tasks like estimating standard errors and confidence intervals, as suggested by the exercise to calculate 95% confidence limits for state mean incomes.\n- Improving the ease of use of statistical model features by possibly refining the interface for functions like the `qr()` function, which is described as tricky to use, thereby increasing accessibility for statistical calculations like least squares estimates.\n- Enhancing the consistency and usability of graphics in R by potentially expanding on the management of graphics parameters through the `par()` function, ensuring that any set graphics configuration can be managed globally across sessions and devices.",
+      "extraction_time": 29.98681879043579,
+      "metadata": {
+        "paper_id": "P001",
+        "title": "R: A Language and Environment for Statistical Computing",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P002",
+      "problem": "该论文旨在探讨长短期记忆网络(LSTM)的架构如何通过解决标准RNN的梯度消失问题来有效处理时间序列中的复杂模式，从而改善时间序列预测和自然语言处理中的预测性能。",
+      "method": "方法1: 本文介绍了一种LSTM单元架构，以改变单元记忆和预测输出，利用公式计算来增强时间序列预测和自然语言处理中的性能。\n\n- 改进的LSTM单元架构通过复杂的计算公式更好地捕获和保留关键信息。\n- 堆叠四层LSTM和一个带有ReLU激活函数的输出层以提高预测准确性。\n- 多步预测策略结合递归算法提高长时间预测能力。\n\n方法2: 对比传统方法，如ARIMA和指数平滑，强调LSTM在处理复杂的时间序列模式中的优势。\n\n- LSTM在从天气数据的历史测量中进行电力生成预测时表现优越。",
+      "limitation": "When reading papers comparing the statistical approaches to forecasting with those of deep learning, it is obvious that the results are somewhat diverging. Papers are describing that advanced machine learning models are capable of extracting highly complex relationships in the data, and utilize these to have superior forecasting compared to ARIMA and ES [Sima Siami-Namini, 2019] .. On the other hand, some papers have found that the machine learning models fit the training data and perform poorly...",
+      "future_work": "- Future work includes exploring deep-LSTM (DLSTM) architectures, which involve stacking multiple LSTM cells in a layered manner to build more complex data representations.\n- Addressing model interpretability is crucial, as the increasing depth and complexity of LSTM models make it challenging to understand their decision-making process, posing significant threats in certain applications.\n- Investigating the application of LSTM models in conjunction with classical statistical methods, like ARIMA, may help mitigate overfitting and improve generalization for time series forecasting tasks.",
+      "extraction_time": 32.18866753578186,
+      "metadata": {
+        "paper_id": "P002",
+        "title": "Long Short-Term Memory",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P003",
+      "problem": "本文旨在解决人工智能在精神健康领域中的推理能力不足的问题，通过研究大语言模型在精神健康语境下的实际推理能力，并引入PRiMH数据集以创建含义蕴涵和预设现象的推理任务。",
+      "method": "- 方法1: 提出了PRiMH数据集和与之相关的语用推理任务，以研究大语言模型在心理健康领域的语用推理能力。\n  - 使用MCQA提示技术，通过零次、k次和链式思维(COT)提示评估模型在心理健康情境下的理解能力。\n  - 引入注意力展开算法，通过逐层相乘的注意力矩阵揭示输入标记对预测的贡献，并包括前提与假设文本之间的交叉注意力分析。\n  - 利用MentaLLaMA进行标记重要性分析，聚合层和头的注意力以评分输入标记在心理健康上下文中的影响。\n\n- 方法2: 引入了三种StiPRompts，用于通过最新的语言模型研究心理健康问题的污名化现象。\n  - StiPRompts设计用于在情境特定指令下评估语言模型的响应，探讨心理健康中的污名化情况。\n  - 这些提示帮助研究模型在描绘隔离或系统性障碍的场景中的复杂响应。",
+      "limitation": "- The proposed tasks only use accuracy as a metric, which overlooks class-sensitive metrics; considering these metrics remains future work.\n- The method struggles to generate false or uncertain beliefs of the speaker due to limited context and evidence, which affects the interpretability and alignment of generated statements.",
+      "future_work": "- Future work could explore improving LLM accuracy on tasks with higher reasoning complexity by developing better prompting techniques or refining existing methods such as k-shot and CoT.\n- Investigating interference issues in fine-tuned models like MentaLLaMA-7B and exploring approaches to minimize these issues may enhance performance and accuracy.\n- Evaluating the impact of different datasets, such as IMHI and PRiMH, on the fine-tuning of models like LLaMA2-7B-chat may offer insights into achieving better adaptability for varied tasks.",
+      "extraction_time": 32.74776101112366,
+      "metadata": {
+        "paper_id": "P003",
+        "title": "“Mini-mental state”",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P004",
+      "problem": "本文解决的问题是通过详细描述使用R包lme4来拟合和分析线性混合效应模型的结构和过程，使用户能够编写函数来拟合在现有公式语言中难以表达的特殊模型。文章还讨论了非线性优化中采用算法如BOBYQA和Nelder-Mead的挑战，以帮助用户诊断收敛问题。",
+      "method": "- 方法1: 提供了一个用于R的lme4软件包中的lmer函数,用于通过最大似然或受限最大似然估计线性混合效应模型的参数。\n  - 该函数使用公式结合固定和随机效应以创建模型,并计算最大似然或REML估计。\n- 方法2: 通过一个公式描述模型,将固定和随机效应结合,以优化模型的参数估计。\n  - 允许评估参数估计的数值表示,如评定剖面偏离或REML标准。\n- 方法3: 允许用户专门化模型结构以适应特定需求,如整合族谱或平滑样条的模型,提高使用灵活性和功能。\n  - 支持灵活的模拟方法,可以选择在拟合的条件模式上进行模拟或新的条件模式,增加模型适应性。\n  - 提供优化器灵活性,支持使用不同的优化算法并集成其他库如`optimx`和`nloptr`,帮助解决收敛问题。",
+      "limitation": "- The need to figure out which Cholesky decompositions correspond to variance-covariance matrices with structural zeros presents challenges in fitting zero slope-slope models.\n- It is inconvenient to specify additive models using the lme4 formula interface, despite bypassing the need to select a smoothness parameter using cross-validation.\n- Mixed modeling techniques are computationally intensive, presenting challenges when applied to moderately large data sets, typically ranging from 10,000 to 1,000,000 observations.",
+      "future_work": "- One future work direction involves solving the challenge of fitting a zero slope-slope model by identifying suitable Cholesky decompositions for variance-covariance matrices with structural zeros between the slopes. This can potentially include exploring the row and column reordering of the covariance matrix, or retaining the lFormula order to achieve desired covariance structures.\n- Developing efficient computational methods for handling mixed models on moderately large datasets is highlighted as a key area for further research. This involves enhancing the current platform to provide a reusable, modular framework that can be extended to include a wider class of models in R.\n- Enhancing the modularized functions in lme4 is suggested as future work to allow finer control over the model fitting process and extend the class of models that the lme4 package is capable of fitting.",
+      "extraction_time": 33.49300193786621,
+      "metadata": {
+        "paper_id": "P004",
+        "title": "Fitting Linear Mixed-Effects Models Using<b>lme4</b>",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P005",
+      "problem": "本文要解决的问题是，在大规模图像识别场景中，通过引入非常小的3×3卷积滤波器来增加卷积网络的深度以改善其准确性，并评估这种架构在深度增加时的性能。",
+      "method": "- 增加卷积网络的深度至16-19层来提升图像识别准确率。\n- 使用3×3的非常小卷积滤波器，实现更深层次的网络结构，增强了空间层次感知能力。\n- 提供经过验证的深度卷积网络模型以支持进一步研究和应用，并公开两个顶级性能的模型以促进计算机视觉领域的进步。\n- 创新的架构设计在保持其他网络参数不变的情况下，展示了深度与小滤波器结合所带来的显著性能提升。",
+      "limitation": "- Our method requires stacking of multi-scale features to optimally combine image statistics, which leads to increased descriptor dimensionality, potentially causing computational inefficiencies.\n- In the localisation task, although our method performed well, better localisation performance might be possible if resolution enhancement techniques are incorporated, indicating room for improvement.\n- Training large models from scratch on smaller datasets is not feasible due to overfitting, highlighting limitations in the generalization ability of our very deep ConvNets.",
+      "future_work": "- Future work could explore combining very deep convolutional networks with additional complex network topologies like those in GoogLeNet to potentially improve performance while maintaining computational efficiency.\n- Investigating different fusion strategies, such as late fusion of features computed using multiple networks, could be beneficial to increase the classification accuracy across various scales while managing descriptor dimensionality trade-offs.\n- Further research might focus on extending the generalization capabilities of very deep networks across smaller datasets, where training large models is challenging, by leveraging deep representations initially learned on large-scale datasets.",
+      "extraction_time": 30.469422340393066,
+      "metadata": {
+        "paper_id": "P005",
+        "title": "Very Deep Convolutional Networks for Large-Scale Image Recognition",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P006",
+      "problem": "本文解决的问题是如何通过图变换网络(GTN)的新学习范式，利用梯度学习方法对复杂的多模块系统进行全局训练，以最小化整体性能度量，从而提高手写字符识别的准确性。同时，该方法避免了传统方法中对手动定位和标记字符的依赖，从而解决了高成本和不一致性问题，提高了字符串识别的准确性。",
+      "method": "Method:\n\n- 提出了图形变换网络 (GTN) 作为一个新学习范式，用于全球训练多模块系统以优化整体性能。GTNs能够将字段提取、分割、识别和语言建模等多个模块整合为一个系统，特别适用于文档识别。\n- GTNs 的核心能力在于操作有向图，能够轻松识别可变长度的对象，如手写单词，并通过广义转换方法将分割、字符识别和语言模型中的不确定性整合在统一框架中。\n- 卷积神经网络 (CNN) 结合全球训练技术用于提高手写字符识别的准确性，尤其在银行支票读取中取得显著成功，有效地从例子中学习适合的特征，避免依赖于专家的手动特征提取。\n- 系统设计优化识别性能，无需繁琐的手动标注和分割，通过模块的集体训练来减少整体错误，商业部署的成功性印证了将CNNs和GTNs应用于文档识别任务的实际效能。",
+      "limitation": "- The method faces segmentation challenges, as accurately labeling characters from neighboring segments is tedious, costly, and often inconsistently performed. This inconsistency becomes problematic when determining how to label partial characters after incorrect segmentation.\n- While implementing gradient-based learning on graph structures, computing gradients for discrete objects such as graphs remains difficult, potentially impacting the effectiveness of our recognition system in complex scenarios.\n- Handling large images with numerous variables poses memory and implementation challenges, and the method struggles with built-in invariance issues regarding input variations such as size, slant, and position, requiring extensive training to cover possible variations.",
+      "future_work": "- Future neural network architectures could focus on reducing the number of parameters, thereby lowering memory requirements while still achieving invariance to variations in input style, position, and size.\n- Improvements in PCA and Polynomial Classifiers could be explored, aiming to develop more compact representations that maintain or only slightly increase error rates, addressing memory and recognition time issues.\n- The development and refinement of Support Vector Machines (SVMs) and their cost-effectiveness could be pursued, as improvements are anticipated due to their recent inception in the field.",
+      "extraction_time": 38.42589831352234,
+      "metadata": {
+        "paper_id": "P006",
+        "title": "Gradient-based learning applied to document recognition",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P007",
+      "problem": "本研究解决的问题是设计一种卷积网络架构，通过短连接减少梯度消失问题，加强特征传播，促进特征重用，同时减少模型参数数量，以提高深度卷积网络的训练效率和准确性，并利用DenseNet的密集连接来显著提高大型卷积网络的性能。",
+      "method": "Method:\n\n- DenseNet enhances information flow and addresses the vanishing gradient problem by creating connections between every pair of layers with the same feature-map size, allowing each layer to receive inputs from all preceding layers and contribute its maps onward.\n  \n- Each layer in DenseNet uses feature-maps from all previous layers, which promotes feature reuse and reduces the number of parameters needed, resulting in more memory and computationally efficient models.\n\n- By concatenating rather than summing feature outputs, DenseNet preserves diverse feature information, enabling more robust feature propagation.\n\n- DenseNet has consistently demonstrated superior performance in object recognition tasks with less computational demand than existing techniques, utilizing its efficient architecture and innovative connectivity.",
+      "limitation": "- The adoption of hyperparameter settings optimized for residual networks suggests that further gains in accuracy of DenseNets may be obtained by more detailed tuning of hyperparameters and learning rate schedules.\n- DenseNets rely on a single classifier for supervision, which means that the implicit deep supervision might not be as effective as explicitly supervised methods, potentially limiting their performance.\n- The potential of DenseNets as feature extractors for various computer vision tasks has not been thoroughly explored, indicating a gap in understanding their full applicability.",
+      "future_work": "- DenseNets may achieve further accuracy improvements through more detailed tuning of hyperparameters and learning rate schedules, beyond those optimized for residual networks.\n- Future work plans to explore the capability of DenseNets as feature extractors for various computer vision tasks, delving into feature transfer applications.",
+      "extraction_time": 33.4464955329895,
+      "metadata": {
+        "paper_id": "P007",
+        "title": "Densely Connected Convolutional Networks",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P008",
+      "problem": "非线性核支持向量机(SVM)在处理大数据集时训练时间过长，限制了其在实际分类问题中的适用性和效率。",
+      "method": "Method:\n- 提出approximate extreme points support vector machine (AESVM)，通过在训练数据集中选择代表性子集优化，减少训练时间，特别适用于非线性核SVM。\n- 使用基于凸包和极值点的线性时间算法计算代表性子集，提高训练效率并保持与传统SVM相似的分类准确性。\n- AESVM通过问题表述与SVM原始问题相似，支持大多数SVM求解器快速收敛。\n- 实验证明，AESVM在大型数据集上比传统方法如LIBSVM、CVM和LASVM快得多，并可能扩展到其他SVM变体和支持向量回归（SVR）。",
+      "limitation": "- In high dimensional datasets, AESVM's representative set can be almost the same size as the training dataset, leading to small gains in training and classification time speedups, as seen with the MNIST dataset where nearly no speedup was achieved.\n- The paper suggests that a comparison study with other core-set methods, like the one proposed by Gärtner and Jaggi, remains unexplored due to the lack of availability of necessary software implementations and published results.",
+      "future_work": "- Future work could explore a comparison of AESVM with the core set-based method proposed by Gärtner and Jaggi (2009), particularly focusing on L1-SVM with non-linear kernels, as the study finds such a comparison beyond its current scope due to the unavailability of software implementations and published results.\n- There is potential for further optimization of AESVM for high-dimensional datasets, as in cases like the MNIST dataset (D8), the representative set almost equals the training set size, resulting in smaller gains in training and classification time speedups.\n- Investigating the influence of dataset density on the performance of AESVM and DeriveRS could be a valuable area of research, as current observations suggest that the distance between data vectors affects the size of representative sets and consequently the algorithm's performance.",
+      "extraction_time": 39.192572832107544,
+      "metadata": {
+        "paper_id": "P008",
+        "title": "LIBSVM",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P009",
+      "problem": "本文要解决的问题是如何利用引导法(bootstrap)量化估计器的误差范围，并在参数估计中与最大似然估计等标准技术进行比较，特别是在考虑相关性以优化参数置信区间的评估。",
+      "method": "- 方法1: 提供一个通用性介绍的Bootstrap方法以量化估计器的误差范围。\n  - 应用于核物理中，特别用于液滴模型参数估计。\n  - 使用Birge因子进行参数估计，被认为是该领域的新颖应用。\n\n- 方法2: 通过简单模型对Bootstrap进行评估，并与基于最大似然估计的传统技术进行比较。\n  - 展示其在不同场景下评估均值和Pearson系数可信区间的多功能性。\n\n- 方法3: 探索Bootstrap在评估参数可信区间时如何考虑相关性以提高估计的准确性。\n  - 引入数据相关性的考量，以提高参数可信区间估计的精确性。",
+      "limitation": "- One limitation of the bootstrap method discussed in the paper is its dependence on the initial sample size, where smaller samples may lead to less accurate estimations compared to larger samples.\n- The method struggles with accounting for complex correlations between parameters, which can affect the evaluation of the confidence interval when applied to models like the liquid drop model.\n- Bootstrap techniques may not match the accuracy of standard likelihood-based techniques in parameter estimation, suggesting potential biases when used with certain statistical models.",
+      "future_work": "- It would be interesting to apply the BB bootstrap method to more realistic models to study how error propagation affects model parameters.\n- Investigate the use of bootstrap methods to estimate parameters and quantify error bars without relying on explicit likelihood functions, which might simplify the process.\n- Consider the improvement of numerical derivatives used in Maximum Likelihood Estimation (MLE) for accurate performance, balancing computational cost and accuracy.",
+      "extraction_time": 29.997087478637695,
+      "metadata": {
+        "paper_id": "P009",
+        "title": "An Introduction to the Bootstrap",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P010",
+      "problem": "本文旨在解决如何利用数据挖掘技术改善故障定位，特别是在软件调试过程中有效地选择和展示数据，以支持故障定位，并探讨通过数据挖掘改进图形用户界面（GUI）组件的故障定位。",
+      "method": "- 方法1: 利用符号化技术进行故障定位,以提供明确的故障解释而不是仅仅概率判断。\n  - 使用符号技术提供具体故障解释,通过事件与故障的关联增强软件GUI系统的故障定位。\n  - N-gram分析用于从GUI测试序列中生成独特N-gram,分析其在成功和失败序列中的频率以帮助故障定位。\n\n- 方法2: 应用关联规则和形式概念分析技术来识别程序中的故障语句。\n  - 关联规则挖掘帮助确定包含故障的事件处理程序概率,产生故障事件的有序列表。\n  - 转换N-gram为事件编号进行排名,基于置信水平和新故障发生来提高故障识别精度。\n  - 使用形式概念分析提高GUI系统中故障语句识别的精确度。\n\n- 方法3: 探讨将数据挖掘技术应用于GUI组件的故障定位。\n  - 结合队列策略探索格子,通过先进先出策略增强方法在不同环境中的适应性和实施。",
+      "limitation": "- Our method primarily focuses on prioritizing event handlers but does not generate code-level suggestions, limiting its efficiency without integration of other fault localization techniques.\n- The use of N-gram analysis for fault localization in GUI modules needs further exploration, as many avenues remain to improve its effectiveness in detecting data-driven faults.",
+      "future_work": "- Research is needed to augment execution traces with data flows for better identification of data-driven faults and to apply data mining techniques to fault localization for improved effectiveness.\n- Integrating other fault localization methods with the event handler prioritization approach could enhance efficiency and provide code-level suggestions through analysis of runtime execution data.\n- Future work could explore generating formal representations of GUI test cases using hierarchical languages and improving model-based GUI testing with event-interaction graphs (EIG) for more efficient GUI models.",
+      "extraction_time": 33.63613843917847,
+      "metadata": {
+        "paper_id": "P010",
+        "title": "Data mining: concepts and techniques",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P011",
+      "problem": "本文旨在提高卷积神经网络在无标签数据上的高效表示学习，以减少对大量标记数据的依赖。通过整合无监督竞争学习，这对解决获取标记数据难题尤为重要，并改善现有方法在广泛应用中的泛化和可扩展性。",
+      "method": "- 方法1: 结合竞争学习与卷积神经网络，以改进表示学习和提高微调效率。\n  - The integration of competitive learning with CNNs enhances representation learning and improves fine-tuning efficiency.\n  - Utilizes a large number of filters for detailed and diverse image representations, beneficial for high-resolution tasks.\n  \n- 方法2: 引入无监督竞争学习至卷积层，利用无标签数据进行有效的表示学习。\n  - Utilizes the Winner-Takes-All mechanism within convolutional layers to achieve generalized representations without label bias.\n  - Focuses on leveraging unlabeled data to improve initial learning speed, suitable for real-world applications with limited labeled data.",
+      "limitation": "- The effectiveness and potential value of the proposed method in high-resolution tasks remain uncertain, indicating a need for further empirical evaluation.\n- The seamless integration and switching between unsupervised and supervised learning methods within the proposed framework is promising, but requires additional studies to validate its full practical utility in semi-supervised learning scenarios.",
+      "future_work": "- Future studies could explore the seamless integration of unsupervised competitive learning and supervised BP learning in semi-supervised learning scenarios to further validate the effectiveness of the proposed method.\n- Investigations could be conducted on leveraging the method's ability to improve representation learning for high-resolution tasks by using large filters, overcoming conventional CNN limitations with spatially small filter sizes.\n- The impact of increasing the number of filters near the input side using the proposed method could be analyzed, as it might allow for more detailed and diverse representations, addressing limitations in early layers of conventional CNNs.",
+      "extraction_time": 33.12156414985657,
+      "metadata": {
+        "paper_id": "P011",
+        "title": "Learning representations by back-propagating errors",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P012",
+      "problem": "现有的评估方差结构方程模型中区分效度的方法如Fornell-Larcker标准和交叉负载检验在检测常见研究情境下的区分效度缺失上不可靠。本文提出异特质-单特质相关比（HTMT）作为替代方法，以提高区分效度检测的准确性。",
+      "method": "Method:\n- 提出了异质特质-同质特质相关比率（HTMT）作为评估变异数基础的结构方程模型中判别效度的新方法。\n- 用蒙特卡洛模拟研究，证明HTMT在检测判别效度方面比现有的Fornell-Larcker标准和交叉负载评估更有效。\n- 通过评估灵敏度和特异性，量化了HTMT方法在检测缺乏和信号判别效度方面的能力。\n- 提供了应用HTMT的指导方针，帮助在实际研究中平衡灵敏度和特异性。",
+      "limitation": "- The sensitivity of the newly proposed HTMT criteria may not simultaneously achieve perfect sensitivity and specificity due to measurement or sampling errors, requiring researchers to balance between these two conflicting characteristics in practical applications.\n- The sensitivity of partial cross-loadings remains unacceptably low for homogeneous loadings patterns, regardless of sample size, suggesting potential limitations in detecting discriminant validity issues when loadings are uniform.\n- The proposed approach constitutes a criterion rather than a statistical test, which might limit the robustness of assessments and necessitate additional statistical testing for determining constructs’ influences on indicators using partial cross-loadings.",
+      "future_work": "- Future research should explore alternative ways to assess discriminant validity for formatively measured constructs, considering the limitations of using cross-loadings for such models.\n- There is a need to refine, extend, and test the HTMT-based validity assessment criteria for variance-based SEM, particularly by evaluating their sensitivity to different base response scales and differential response biases.\n- Research should investigate the generalizability of the study's findings to covariance-based SEM techniques or consistent PLS to determine if the limitations of the Fornell-Larcker criterion in variance-based SEM apply to these models.",
+      "extraction_time": 29.540871381759644,
+      "metadata": {
+        "paper_id": "P012",
+        "title": "A new criterion for assessing discriminant validity in variance-based structural equation modeling",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P013",
+      "problem": "本文旨在通过更新QUOROM声明和采纳PRISMA标准来提高系统综述和荟萃分析的报告透明度和清晰度，因为现有指南未能充分确保关键信息的一致和详细报告。",
+      "method": "- PRISMA提出了一套由27个要点组成的检查清单，用于规范和提高系统综述和Meta分析报告的透明度和清晰度。\n  - 检查清单基于证据制定，识别出增加偏倚风险的因素，以确保报告信息的可靠性。\n  - 包括评估综述可靠性所需的信息，基于其他证据制定必要检查项。\n\n- PRISMA采用四阶段的流程图，旨在帮助研究者进行标准化报告，以解决信息报告不充分的问题。\n  - 流程图标准化报告过程并解决透明度问题。\n  - 充当催化剂，通过与文献保持同步不断更新，以改善报告质量。",
+      "limitation": "- The applicability of the review could be limited due to restricted data availability for certain populations or subgroups, potentially affecting the synthesis and interpretation of the included studies.\n- There is a substantial reliance on imputation for missing values in summary estimates, which may affect the reliability of the conclusions drawn from outdated interventions or comparators.",
+      "future_work": "- Future trials should compare the current protocol against a regimen using only a systemic antibiotic agent to evaluate the necessity of the topical component, with larger randomized controlled trials necessary to ensure confidence in the effectiveness of treatments.\n- Alternative study designs are needed to address treatment-induced resistance, such as studies where the intensive care unit is the unit of randomization and which monitor antibiotic resistance over an extended period.\n- Systematic reviews should improve transparency regarding funding and potential conflicts of interest, including a clear disclosure of the funder's role in the review process.",
+      "extraction_time": 31.428797245025635,
+      "metadata": {
+        "paper_id": "P013",
+        "title": "The PRISMA Statement for Reporting Systematic Reviews and Meta-Analyses of Studies That Evaluate Hea",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P014",
+      "problem": "The paper addresses the inadequacy of classical statistical learning theory in explaining deep learning's generalization by integrating physical models of data structure into the theoretical framework, focusing on computing the Vapnik-Chervonenkis entropy for structured data. Key details involve using combinatorics and statistical mechanics to study this entropy for \"k-dimensional simplex\" and \"spherical manifold\" data structures, which impact generalization error.",
+      "method": "Method:\n\n- **Physical Models Integration**: Integrate complex physical models of data into statistical learning theory, focusing on the structured nature of data on object manifolds rather than treating inputs as independent random variables.\n\n- **Vapnik-Chervonenkis Entropy Computation**: Use combinatorial and statistical mechanics methods to compute VC entropy, specifically addressing data structure complexities in kernel machines and structured data like k-dimensional simplexes and spherical manifolds.\n\n- **Synaptic Volume Measurement**: Utilize replica theory to identify synaptic volumes that vanish at transition points, enabling quantification of the impact of data structure on learning performance, especially when traditional methods are inadequate.\n\n- **Novel Transition Observation**: Highlight a novel transition beyond storage capacity caused by structured data, which reduces generalization error and indicates nonmonotonic VC entropy behavior.",
+      "limitation": "- Our method struggles with the computation of VC entropy, which is unfeasible in most cases, necessitating the construction of more tractable upper bounds.\n- Despite its elegance, the statistical learning theory provides poor insight into the impressive generalization abilities of present deep learning models, with the upper bounds on generalization error being too loose to be useful.\n- Although the theoretical setup allows for probing asymptotics in complex scenarios, directly solving for g_n(z) remains a challenge, particularly when the recurrence relation is not fully specified.",
+      "future_work": "- Future work can focus on overcoming the distribution-independent nature of the current bounds in statistical learning theory and developing rigorous data-dependent results to provide tighter bounds on generalization error.\n- Investigating numerically the parameters q₀ and w in the one-step RSB ansatz could help further understand the behavior of this model in statistical learning.\n- Extending the combinatorial approach of simplex learning to explore how the average number of admissible dichotomies in simplexes changes under different parameter settings could provide insights into generalization and model complexity.",
+      "extraction_time": 32.960869789123535,
+      "metadata": {
+        "paper_id": "P014",
+        "title": "Statistical Learning Theory",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P015",
+      "problem": "核心问题是使用结构方程模型(SEM)来深入解释信息检索系统的评估结果,并解决缺乏方法论的问题，以理解系统性能变化和检索失败的原因，从而提高检索模型及其结果。",
+      "method": "- 使用结构方程模型(SEM)深入分析信息检索系统的评估结果，适用于单个查询和检索算法，以详细理解查询层次的系统性能。\n- 通过SEM解释系统的成功与失败，强调其在不同运行和查询中的适应性，为设计者和工程师提供系统操作的深入见解。\n- 专注于揭示变量之间的关系，以及通过复杂交互建模用户和系统变量，识别影响检索性能的潜在变量，为IR系统改进提供关键分析。\n- 提出半自动或全自动的方法生成和测试SEM，减少手动工作，提升信息检索系统效能评估的效率。",
+      "limitation": "- The method struggles with ensuring normality of the distribution of manifest exogenous variables, as transformations improved fitting but could not completely eliminate skewness and kurtosis, especially observed in \"children\" of LETOR.\n- SEM does not provide names for latent variables, leaving room for naming fallacies, which may affect the interpretation and communication of the model's semantics.\n- SEM requires the researcher's domain knowledge to identify and select the best-fitting model, as it cannot independently suggest the most accurate model despite certain metrics (such as RMSEA) indicating the need for improvement.",
+      "future_work": "- Future work could explore the incorporation of user-based predictions of query performance, given that current systems' predictions do not align well with users', as indicated by Hauff et al. [2010].\n- There is a need to develop new statistical methodologies to explain the variations in retrieval performance among different systems which may improve their performance by identifying and addressing inefficiencies.\n- Addressing high collinearity in structural equation models when exogenous variables such as BM25 are included can help improve model reliability by reducing misleading correlations.",
+      "extraction_time": 38.24437141418457,
+      "metadata": {
+        "paper_id": "P015",
+        "title": "On the evaluation of structural equation models",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P016",
+      "problem": "本文要解决的问题是：在非例行制造过程中使用任务导向的工效学评估方法时面临的构造效度问题，并发现同特质相关性低（0.149-0.243）和辨别效度弱的证据，这可能导致实际人体工学风险的低估及对行动级别的误判。",
+      "method": "- **Multitrait-multimethod (MTMM) matrix**: Used to evaluate the construct validity of task-based ergonomic assessments, particularly for non-routine work, by ensuring convergent and discriminant validity. \n- **Measurement of Traits**: Assesses MSD risk score and perceived exertion using two methods: direct inertial motion capture for objective data, and Borg's RPE scale for subjective insight.\n- **Task and Cumulative Load Assessments**: Combines task-based evaluation with cumulative load assessment for a comprehensive view of physical exertion over time.\n- **Video Content Analysis**: Identifies key factors affecting construct validity and clarifies misunderstandings of ergonomic risks and action levels, enhancing overall assessment accuracy.",
+      "limitation": "- The study exclusively utilizes the RULA criterion for ergonomic risk estimation, which may lead to misinformation regarding ergonomic interventions at the workplace. Exploring alternative criteria such as REBA, NIOSH, EAWS, or OWAS may provide different insights into risk and action level discrepancies.\n- There is a scarcity of theoretical proof supporting the validity of the task-based ergonomic assessment approach, which may hinder its continued use in non-routine work scenarios. This lack of evidence underlines the need for reliable and valid ergonomic assessments in varying work conditions.\n- The MTMM matrix method indicates a complete lack of convergent validity and weak discriminant validity, reflecting inadequate construct validity for the task-based assessment approach. This is primarily due to overlooked low-salience activities, unplanned activities, and lack of context and continuity in task execution. Although modifications in sampling strategies can address low-salience activities, the other two factors remain uncontrollable.",
+      "future_work": "- Future work should explore alternative risk estimation criteria like REBA, NIOSH, EAWS, or OWAS to determine if discrepancies in risk and action levels persist compared to the RULA criterion, which may lead to misinformation in ergonomic interventions.\n- Further enhancement and adaptation of direct measurement techniques are needed to ensure their applicability in diverse manufacturing processes, particularly non-routine, dynamic, complex, or collaborative work settings, reducing the need for work-sampling in ergonomic assessments.\n- Modifications in the sampling strategy should be investigated to better capture low-salient activities, pushing for meticulous selection of critical activities for assessment within the task-based approach, as this factor can be partially controlled.",
+      "extraction_time": 34.591169595718384,
+      "metadata": {
+        "paper_id": "P016",
+        "title": "Convergent and discriminant validation by the multitrait-multimethod matrix.",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P017",
+      "problem": "问题: 本文解决的问题是在观测上首次直接检测由双黑洞合并产生的引力波，以验证双恒星质量黑洞系统的存在，并实现广义相对论预测的验证。",
+      "method": "Method:\n\n- 使用匹配滤波技术识别符合广义相对论预言的引力波信号，并优化用于信号检测和初步源参数估计，结合基于广义相对论的模型进行贝叶斯分析以推导源参数后验分布。\n- 增强的干涉仪系统采用共振光学腔和部分透射的功率回收镜，实现激光光在干涉仪中的共振积累，极大化光功率和优化信号提取。\n- 通过低位移噪声技术使用悬挂在有源地震隔离平台上的四重摆系统，并结合低机械损耗材料，进一步隔离地面运动和热噪声。\n- 与多国先进地面检测器联合观测，提高信号检测显著性至5.1σ，从而确认双黑洞合并事件。",
+      "limitation": "- Our method struggles with sensitivity limitations due to photon shot noise at frequencies above 150 Hz, which impacts the detection accuracy of gravitational waves.\n- The calibration of the detector output in strain is subject to an uncertainty of less than 10% in amplitude and 10 degrees in phase, indicating a potential area for improvement in measurement precision.",
+      "future_work": "- There are ongoing efforts to significantly enhance the global gravitational-wave detector network by commissioning Advanced LIGO to reach its design sensitivity, allowing for detection of binaries with three times higher SNR.\n- Expansion of the network with additional detectors such as Advanced Virgo, KAGRA, and a potential third LIGO detector in India will improve source localization and parameter estimation.\n- Future publications will provide analysis results for the entire first observational period, indicating a continued effort to refine data analysis and interpretation.",
+      "extraction_time": 30.00773596763611,
+      "metadata": {
+        "paper_id": "P017",
+        "title": "Observation of Gravitational Waves from a Binary Black Hole Merger",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P018",
+      "problem": "现有的脑分割解决方案通过对脑图像进行体素分类或分别标记切片或子体积, 由于缺乏完整信息, 往往导致次优的分割结果。本文提出采用完整体积框架, 通过处理整个脑图像来充分利用完整信息, 从而提高分割准确性。",
+      "method": "- **全卷框架**: 提出一种全卷框架，直接处理整个脑体积以输出全脑分割结果，无需依赖片段或切片方法，实现快速推断，时间少于1秒。\n- **3D高分辨率网络(3D HRNet)**: 采用高分辨率网络架构学习空间上的细粒度表示，以提高小型神经解剖区域的分割精度，同时结合丰富的特征学习和复杂的融合策略。\n- **混合精度训练**: 通过混合精度训练优化GPU内存使用和矩阵计算速度，实现对大数据集的高效训练，并结合早停策略防止过拟合。\n- **增强技术**: 应用标准数据增强技术，如弹性变形和高斯噪声，增强模型的鲁棒性和应对有限数据。\n- **潜在创新**: 展望神经架构搜索的集成，以自动化和优化网络配置，提高模型性能。",
+      "limitation": "- Our method requires training with a batch size of 1 due to limited GPU memory and large volumetric data, which may result in increased uncertainty in gradient computation and the overall learning process.\n- A large input volume might cause the GPU to run out of memory, necessitating pre-specification of the maximum allowed size of input volumes unless downsampling is applied.\n- When adopting the full volume framework, a hyperparameter search is necessary whenever there is a change in dataset, network architecture, GPU platform, or reduced-precision training scheme, which can add complexity to the implementation process.",
+      "future_work": "- Future work includes incorporating more effective techniques for reduced-precision training of DNNs to expand the hypothesis space and improve numerical representation.\n- The application of the proposed framework to multi-modal brain segmentation, including T2-weighted volumes and super-resolution segmentation with 7T brain MRI, is suggested as worth investigating.\n- Direct consideration of unpreprocessed data in both training and testing phases is necessary to enhance the clinical applicability of the method.",
+      "extraction_time": 33.62583613395691,
+      "metadata": {
+        "paper_id": "P018",
+        "title": "Whole Brain Segmentation",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P019",
+      "problem": "本文解决的问题是研究和开发二维卷积码(2D CCs)及其尾咬形式(2D TBCCs)的代数性质、最小距离性质和解码算法，以提高其性能。这包括有效解码提升编码效率，与其他码进行对比评估以及探讨硬件实现的可能性。",
+      "method": "Method:\n\n- 提出并扩展现有树搜索算法以适应二维卷积码,增强其最小距离性能。具体地,该算法通过增加最低距离以提升错误性能。\n- 引入基于信念传播的迭代解码算法,在二元域内改进常规信念传播以实现近似最优解码。包括两个主要方向:适用于二次元格子的译码和使用校验矩阵进行改进。\n- 修改标准的信念传播算法,通过统计调整检查方程以提高在短环存在时的收敛性能。\n- 应用广义信念传播算法(GBP),开发创新的区域结构以提升解码性能,更接近最大似然解码。\n- 在校验域内实施可扩展的信念传播,使用标量对数似然比以减少计算和内存需求,支持硬件实现。",
+      "limitation": "未找到相关信息",
+      "future_work": "- Further research can focus on narrowing the gap between maximum likelihood (ML) decoding and suboptimal decoding for 2D CCs. This could involve developing new decoding algorithms or improving existing methods, such as the generalized belief propagation (GBP).\n- The complexity of decoding multidimensional convolutional codes (m-D CCs), especially in extending algorithms like the Viterbi algorithm for higher dimensions, presents a challenge. Future work could explore ways to manage or reduce this complexity while maintaining or improving performance.\n- Despite improvements over previous techniques, there is room to enhance the local belief propagation (LBP) by finding better ways to construct regions within GBP or modifying check equations to enhance convergence rates.",
+      "extraction_time": 36.50474786758423,
+      "metadata": {
+        "paper_id": "P019",
+        "title": "Error bounds for convolutional codes and an asymptotically optimum decoding algorithm",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P020",
+      "problem": "减少行为风险检测系统中的错误报警，以提高对患有痴呆症人员健康和安全的监控效果。为解决现有方法在距离摄像机位置上的灵敏度问题，可以通过像素深度加权的方法增强准确性。",
+      "method": "- 方法1: 提出了一种新的深度加权损失方法,以减少远近事件的重要性不一致导致的误报。\n  - 设计了新颖的深度加权损失函数,确保在不同距离发生的重要事件赋予等同的权重。\n  - 该方法显著提高了包括F1-score、MCC和AUROC在内的性能指标,同时降低了多摄像头场景中的误报率。\n\n- 方法2: 利用训练过程中的离群点确定异常检测的阈值,从而提高系统的报警准确性。\n  - 使用训练过程中的离群点优化异常阈值,以提高报警系统的准确性。\n  - 能够集成并增强现有的基于自动编码器的异常检测方法,适用于视频监控在失智症护理环境中的应用。",
+      "limitation": "- Our method requires validation on data from LTCs (long-term care facilities) with fewer behaviors of risk incidents to ensure its generalizability.\n- The current approach may face challenges in terms of the time and cost needed to train the model separately on each new camera scene or environment.\n- There is a need to investigate the potential benefits of using pose tracking cameras and depth maps, which remain unexplored in our current implementation.",
+      "future_work": "- 验证当前方法在行为风险事件较少的长期护理(LTC)环境中的有效性，并探索将深度地图作为数据输入的额外通道对方法性能的影响。\n- 在隐私敏感区域使用姿势跟踪摄像头，通过不记录实际场景直接提取身体关节信息，以保护隐私的方式检测行为风险。\n- 通过利用微调技术、少样本学习和迁移学习，在目标摄像机上提高深度卷积自编码器（depCAE）在跨摄像机场景中的泛化能力。",
+      "extraction_time": 36.20229148864746,
+      "metadata": {
+        "paper_id": "P020",
+        "title": "Dementia prevention, intervention, and care",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P021",
+      "problem": "本文解决的问题是缺乏一个综合性的工具来实施和应用PLS-SEM方法，该工具需在R环境中开发，以便提供详细的指导和应用实例，并评估反射性测量模型的信度和效度，确保测量模型的可靠性和有效性。",
+      "method": "- 提供在R环境中应用部分最小二乘结构方程模型（PLS-SEM）的实现框架。通过SEMinR语法，用户可以使用领域特定语言构建和估计PLS路径模型，包括复杂元素如交互项和高阶结构。\n  \n- 提升PLS-SEM应用效果，通过最新进展改进模型评估，包括预测能力和模型对比。系统地引入最新技术，如必要条件分析和内生性，以增强分析能力。\n  \n- 引入SEMinR创新组件，采用独立PLS-SEM估算引擎，并集成lavaan包实现CB-SEM估算。为用户提供高级报告选项，并定期更新新方法。\n  \n- 倡导使用两阶段方法创建交互项，突出其在参数恢复和灵活性方面的优越性，利用R和RStudio高效进行数据导入、清理及分析。",
+      "limitation": "- PLS-SEM cannot be applied when structural models contain causal loops or circular relationships between latent variables, limiting its use in non-recursive models.\n- PLS-SEM lacks an established global goodness-of-fit measure, which restricts its usefulness for theory testing and confirmation.\n- Despite the flexibility of PLS-SEM with data characteristics, influential observations, outliers, and collinearity can affect ordinary least squares regressions and must be evaluated carefully.",
+      "future_work": "- The open-source nature of R software suggests future work could focus on developing new features and improvements for easier integration and scalability of PLS-SEM in larger automated applications.\n- Enhancing PLS-SEM methodologies in R by addressing residual errors and optimizing path model relationships can be an area for further research, particularly in maximizing R² values of endogenous constructs.\n- Further work could explore the comparison and integration of PLS-SEM with other SEM approaches, like CB-SEM, to improve predictive accuracy and variance explanation.",
+      "extraction_time": 40.44422721862793,
+      "metadata": {
+        "paper_id": "P021",
+        "title": "Partial Least Squares Structural Equation Modeling (PLS-SEM) Using R",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P022",
+      "problem": "现有的去偏方法未能完全消除大型语言模型中的记忆偏见和有害性,本文提出了一种基于\"去学习\"的方法，通过减小带有偏见或有害内容的可能性来减轻偏见，同时保证语言模型性能，该方法采用遮蔽语言模型并尝试通过梯度上升来实现跨域去偏效果。",
+      "method": "- **方法1**: 提出了一种基于反向学习的去偏技术，通过对仇恨言论进行梯度上升来减少偏见和有害内容。\n  - 利用反向学习减少偏见的生成，同时保持语言建模能力。\n\n- **方法2**: 引入了一种遮蔽语言模型的反向学习技术，使LLMs能够选择性地忘记和脱离偏见性和有害的内容。\n  - 灵感来自隐私数据的成功忘记技术，使模型断开与偏见内容的关联。\n\n- **方法3**: 实验揭示了跨领域传输反向学习的潜在可能性，即在去偏某一形式时可能有助于减缓其他形式的偏见。\n  - 在特定领域如性别去偏时，可能对种族和宗教领域的去偏也有益，这归功于嵌入空间中重叠区域的调整。",
+      "limitation": "- Our method faces a significant challenge in handling the relevance of words following a masked token, as these words are ignored in the current approach.\n- The use of GPT-4 for identifying and masking bias-related keywords raises concerns about the reproducibility and sensitivity of the results due to the reliance on heuristics for choosing mask words.\n- There are major limitations concerning the reproducibility of mask rules set by GPT-4 and the ineffective handling of tokens that follow the mask, which could affect the validity of unlearning in those contexts.",
+      "future_work": "- Establish explicit mask rules to systematically mask specific bias-attribute words, reducing reliance on heuristics and enhancing reproducibility of the bias masking approach.\n- Address the challenge of ignoring words following masked tokens in the context of masked language unlearning, ensuring these remaining words are also considered in future research settings to maintain context relevance.\n- Investigate the transferability of debiasing effects across different domains, such as race and religion, and explore whether previous methods like Contradictory Debiasing Algorithms (CDA) exhibit similar cross-domain debiasing effects.",
+      "extraction_time": 37.98093128204346,
+      "metadata": {
+        "paper_id": "P022",
+        "title": "Empirical Evidence of Bias",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P023",
+      "problem": "该论文研究了在高维度和Banach空间测量下总变分正则化线性逆问题的层级集Hausdorff收敛性，特别关注解的维度与可积性之间的关系，以实现这种扩展，并分析了一些实际应用中自然选择保真度项导致收敛失败的反例。",
+      "method": "Method:\n- 扩展Hausdorff收敛理论至高维和Banach空间中的线性逆问题，通过优化参数选择以适应不同测量维度和解的可积性，特别在正则化参数和噪声同时消失时保证层级集的收敛性。\n- 提供关于总变差正则化逆问题的层级集收敛的反例，揭示特定参数选择和扰动序列可能导致解层级集逃逸到无穷大，强调在有界域中分析模型的重要性。\n- 使用总变差正则化和L2数据项进行PET重构，作为泊松噪声模型的近似分析，特别注重优化域选择以提高模型在有界域中的效果。",
+      "limitation": "未找到相关信息。",
+      "future_work": "- Future work could involve exploring the canonical choice of variational curvature κ E inside E, specifically when density h(x) is chosen as 1 within its convex envelope, which provides uniquely defined values minimizing all L p (E) norms for 1 < p < +∞.\n- Investigating practical application scenarios where natural choices of fidelity terms hinder Hausdorff convergence, and developing counterexamples to understand these limitations, could be beneficial.\n- Studying conditions or strategies that might restore convergence of level-sets when more aggressive regularization fails, as suggested by the relation with α n = C w n L 2 in nonsuccessful attempts.",
+      "extraction_time": 31.27569031715393,
+      "metadata": {
+        "paper_id": "P023",
+        "title": "RELATIONS BETWEEN TWO SETS OF VARIATES",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P024",
+      "problem": "本文研究的问题是如何在固定的望远镜观测时间下，通过优化跟踪观测策略减少所需时间，从普通策略的118小时到优化策略的36小时，以最大化电磁对应体的检测概率。",
+      "method": "- 制定后续观测策略以最大化电磁对应体检测的概率，并优化望远镜时间的使用。\n- 通过引入电磁对应体的光度函数先验，优化观测计划以提高检测效率。\n- 建议在最高可能性区域进行长时间观测，观测时间与引力波位置概率的表面密度的2/3次方成比例。\n- 计算达成90%置信水平所需时间，比其他方法减少了三倍的时间，为电磁事件检测提供高效规划框架。",
+      "limitation": "- The implementation still depends heavily on assumptions about the event rate and sky localization abilities of the gravitational-wave detectors, which may not always align with reality.\n- The optimization strategy faces challenges due to unexpected numbers of trigger events from gravitational-wave detectors, which might necessitate frequent updates to event assumptions.\n- Coordinating multiple telescopes with varying fields of view and limiting magnitudes remains complex, and the current approach may require refinement for optimal observing strategies.",
+      "future_work": "- Future work includes improving the coordination of multiple telescopes with different fields of view and limiting magnitudes, such as Pan-STARRS and ATLAS, to optimize electromagnetic follow-ups of gravitational-wave events.\n- There is a need to update the assumed number of events based on actual observations in the initial months of a science run, which can help refine detection strategies.\n- Developing an optimal observing strategy that accounts for the differences in field of view and imaging requirements between telescopes like ATLAS and Pan-STARRS is essential for efficient follow-up imaging.",
+      "extraction_time": 30.958449125289917,
+      "metadata": {
+        "paper_id": "P024",
+        "title": "Advanced Virgo: a second-generation interferometric gravitational wave detector",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P025",
+      "problem": "解决的问题是提供一个详尽的引力波瞬态目录，涵盖在高级引力波探测器网络的前两次观测中检测到的紧凑双星合并事件。该目录不仅包括主要检测事件，还包含边缘事件候选，并对这些事件的源属性进行估计，以促进对合并率、双星形成路径以及强场广义相对论精密测试的天体物理学解释。",
+      "method": "- **重力波联合搜寻方法**: 提出了一个跨多个观测期的综合分析流程，结合了PyCBC、GstLAL和cWB三种算法，以识别紧凑双星合并的重力波事件。PyCBC和GstLAL利用模板匹配滤波，cWB识别时间频率表示中的功率过剩。\n- **事件属性估计**: 为重大重力波事件提供来源属性估计，包括双星的总质量、旋转和距离，帮助理解事件的天体物理来源。\n- **边缘事件候选列表**: 引入了可估计误报率的边缘事件候选列表，以识别和提升潜在重要事件的检测准确性和覆盖范围。cWB根据背景触发率分配误报率（FAR）。\n- **信号重建与显著性评估**: 使用约束最大似然法和一致性统计量进行信号重建，同时通过时间移位数据背景比较评估统计显著性。\n- **改进的检测灵敏度**: 扩展GstLAL参数模型及似然比函数，提高了管道的检测灵敏度与候选事件排列。",
+      "limitation": "- The measurements of the effective precession spin χ_p are relatively poorly constrained in current observations, with the KL divergence approaching zero, which implies that the results are heavily influenced by the priors rather than the data itself.  \n- The higher mode content of the observed gravitational-wave signals is weak, and waveform models including these higher modes are not strongly preferred given the data, indicating a limitation in capturing certain details of the signals.  \n- The inability to confidently assert which marginal triggers are of astrophysical origin, due to the overlap with expected noise triggers, presents a challenge in distinguishing real gravitational-wave signals from noise.",
+      "future_work": "- Future work could focus on improving the sensitivity of the Advanced Virgo detector, including implementing signal recycling and addressing suspension fiber issues, which restrict lower frequency detections.\n- Enhancements in noise subtraction methods, as evidenced by improvements in median mass estimates for GW events, suggest further refinement and application could reduce parameter uncertainties and improve detection confidence.\n- Exploration of marginal triggers could be pursued to better determine which, if any, are of astrophysical origin, possibly through more sophisticated population analyses or improved separation techniques between noise and actual signals.",
+      "extraction_time": 100.59553861618042,
+      "metadata": {
+        "paper_id": "P025",
+        "title": "GWTC-1: A Gravitational-Wave Transient Catalog of Compact Binary Mergers Observed by LIGO and Virgo ",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P026",
+      "problem": "本文旨在解决早期阿尔茨海默病诊断和病情进展检测的问题，在有限数据资源情况下通过创新的数据预处理策略，如使用随机森林算法填补缺失数据，处理异常值和无效数据，以提高诊断准确性。",
+      "method": "- **数据预处理策略:** 利用创新的策略，通过随机森林算法处理ADNI数据集中的缺失数据和异常值。这确保最大化数据集有限资源的利用，提高诊断准确性。\n\n- **特征选择:** 应用斯皮尔曼相关系数分析识别与阿尔茨海默病诊断强相关的特征，优化模型输入特征集。\n\n- **机器学习模型:** \n  - 三种模型基于选定特征进行验证：随机森林、XGBoost和SVM。\n  - XGBoost表现最佳，显示了其在诊断中的高性能。\n\n- **实施见解:** 提供一种克服数据缺失挑战的方法，并为阿尔茨海默病早期检测提供有价值的见解，突显独特的研究价值和实践意义。",
+      "limitation": "- Our method faces limitations when excluding tests with more than 6 missing data points or lacking essential information, which can lead to potential information loss and affect diagnostic precision.\n- The reliance on assumptions, such as gender-related prevalence of Alzheimer's, may limit the generalizability and accuracy of our model in diverse real-world scenarios, necessitating further exploration to validate these assumptions in future work.\n- Despite overcoming challenges with missing data, our approach still depends heavily on preprocessing techniques, such as the random forest algorithm, which may not fully capture the complex interactions within the dataset, leaving room for potential enhancements in dealing with intricate data patterns.",
+      "future_work": "- There is a need to develop models for accurate early diagnosis of Alzheimer's disease and Mild Cognitive Impairment, which can facilitate timely interventions for better cost-effectiveness in future treatments.\n- Future work will focus on features strongly correlated with the diagnosis of Alzheimer's disease to improve predictive performance in machine learning model construction.\n- The study suggests combining structural brain features with cognitive-behavioral features in the design of intelligent diagnostic systems for Alzheimer's disease, indicating a direction for future research.",
+      "extraction_time": 54.31038022041321,
+      "metadata": {
+        "paper_id": "P026",
+        "title": "Diagnosis of Alzheimer's Disease",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P027",
+      "problem": "本研究分析了2019年先进的LIGO和Virgo探测器的第三次观测运行期间检测到的39个紧致双星并合的引力波事件，详述新质量范围和不对称质量比的观测，并扩展事件分类以探索新的引力波特征，解决当前方法在识别事件来源时的挑战。",
+      "method": "- 提出了一种检测和报告紧密双星合并的机制，通过优化信号检测灵敏度，可以在给定观察周期内识别并记录多个候选事件。\n  - 提升探测器的检测灵敏度，通过增加探测器循环功率和安装压缩光源，以降低量子真空噪声。\n  - 在Virgo干涉仪和LIGO中实施光纤悬挂系统和压缩技术的整合，显著提高灵敏度。\n\n- 采用多个搜索管道以减少误报率，并通过设定阈值确保报告候选事件的可信度。\n  - 设定误报率阈值（例如2.0次/年）以确认事件的可信度。\n  - 使用光子校准器（Pcal）系统在选定频率范围内进行单色激励，以在低延迟情况下验证数据流的精确度。\n\n- 引入新的事件分类，包括具有显著不对称质量比的双星系统，扩展了前人未观测到的现象类别。\n  - 对这些双星事件进行分类和报告，以加深对系统特征的理解和观测现象的扩展。",
+      "limitation": "- The presence of broadband short-duration glitches, particularly blip glitches, remains a significant source of transient noise that has not been fully addressed, and these glitches were common at a rate of 1.4 per hour during the O3a observing run.\n- The methods employed, such as LALInference's MCMC and nested sampling algorithms, are serial in nature, making them unsuitable for computationally expensive waveform models, particularly those involving higher modes and precession effects.\n- The assumption of zero eccentricity in modeled analyses may limit the accuracy for dynamically formed binaries which could have residual eccentricity when they enter the sensitive bands of detectors.",
+      "future_work": "- Enhanced methods for reducing the impact of glitches and non-stationary noise during detection should be developed, potentially including automatic gating techniques to prevent misidentification of candidate events.\n- There is a plan for extended candidate event lists containing marginally significant triggers to be provided once final data calibration and quality checks are available, which implies further improvement in data analysis and calibration.\n- The Advanced LIGO and Advanced Virgo detectors are undergoing commissioning for sensitivity improvement, and will be joined by the KAGRA detector in the fourth observing run to enhance detection rate and source localization, supporting multimessenger observations.",
+      "extraction_time": 47.079265117645264,
+      "metadata": {
+        "paper_id": "P027",
+        "title": "GWTC-2: Compact Binary Coalescences Observed by LIGO and Virgo during the First Half of the Third Ob",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P028",
+      "problem": "核心研究问题是更新现有的引力波瞬态目录(GWTC-2.1)，特别是在第三次观测运行的后半段期间(O3b)，识别和报告新的紧致双星合并候选事件，包括首次确认的中子星-黑洞双星合并，以扩展对黑洞和中子星特性的了解。",
+      "method": "- 方法1: 记录和分类了第一个包含中子星-黑洞双星的可信观测,这通过cWB（水波爆发）流水线进行引力波瞬态信号的快速检测，识别在多分辨率时频表示中的稳定超额功率。\n  \n- 方法2: 提供了更新的GWTC-3引力波暂态目录，展示引力波源属性，同时改善了候选事件的p_astro值评估以提高单探测器候选事件的false alarm rate（FAR）的估计。\n\n- 针对cWB分析，采用高质量和低质量配置以提高计算效率，并实施在线和离线分析以确保快速事件报告和精确背景统计。\n\n- 引入光学谐振腔反馈系统来提高维尔茨堡台反馈性能，并针对校准错误在46 Hz到51 Hz频带内进行了消频处理以提高敏感性。",
+      "limitation": "- The cWB pipeline struggles with reduced sensitivity to CBC signals that match waveform templates, limiting the ability to identify certain types of coalescences compared to matched-filter analyses.\n- The presence of glitches makes the analysis and interpretation of certain candidate signals more challenging, especially when aiming to characterize signal morphologies accurately.\n- Some candidates indicate strong support for mass ratios outside the expected prior range, leading to potential biases or inaccuracies in waveform modeling that require extending prior ranges.",
+      "future_work": "- Future observations are needed to reduce the uncertainty in the rate of mergers like GW191219 163120, allowing for a better understanding of their astrophysical origins.\n- Improved waveform models with better fidelity at extreme mass ratios are necessary to reduce systematic uncertainties and provide a more complete understanding of sources like GW191113 071753 and GW200208 222617.\n- Further work is required to accurately characterize the spin in systems with unequal mass ratios, particularly where results are sensitive to waveform models.",
+      "extraction_time": 37.070961475372314,
+      "metadata": {
+        "paper_id": "P028",
+        "title": "GWTC-3: Compact Binary Coalescences Observed by LIGO and Virgo during the Second Part of the Third O",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P029",
+      "problem": "本文要解决的核心研究问题是为即将到来的LISA引力波数据流建立模型和解释框架，帮助识别和填补在超紧密星系质量双星、超大质量黑洞双星及极端或中间质量比漩涡等源类的理解上的空白，并为这些领域的进展奠定基础。文章还强调需要通过数值模拟和现代数据科学技术改进建模和分析方法，以处理数据流中的多个重叠信号。",
+      "method": "- 方法1: 结合地面和空间仪器进行多信使观测，通过整合电磁观测与引力波数据，增强LISA的发现潜力，提供前所未有的宇宙视角。\n- 方法2: 使用现代数据科学技术和数值模拟改进建模和分析方法，包括利用机器学习和神经网络来提高LISA数据解释的精确度。\n- 方法3: 通过LISA与即将开展的电磁领域研究的协同作用开辟新的研究途径，以解决当前对宇宙理解的不足，并推动关键天体物理问题的解决。",
+      "limitation": "- Despite the sophisticated instrumentation available today, the detection of certain WD+WD systems and their progenitors remains challenging, indicating that there are potentially many such systems yet to be discovered by LISA.\n- The lack of known detached BH+WD binaries, likely due to observational selection effects, poses a significant limitation, as it restricts our ability to fully leverage LISA for detecting certain binary systems, particularly those that only emit EM radiation from the WD cooling process.\n- The absence of empirical connections between progenitor systems and observable phenomena like Type Ia supernovae limits the understanding and modeling of such events, impacting the potential applications of LISA in studying cosmic phenomena.",
+      "future_work": "- Further investigations are needed to better understand the detectability and rates of substellar objects, as it seems unlikely that a large number of these systems will be observed by LISA. Additional electromagnetic observations are necessary to address these limitations.\n- There are significant challenges in multi-scale modeling of galactic binaries/multiples, massive and intermediate-mass black hole binaries, and EMRIs/IM-RIs. These include identifying astrophysical formation channels, understanding dynamical histories, and improving simulation and semi-analytical techniques.\n- Observational space density estimates for AM CVn stars are in disagreement with theoretical predictions, indicating a need for improved binary evolution physics modeling. Future transient sky surveys, such as LSST, could enhance detection rates by implementing appropriate short-period cadence intervals.",
+      "extraction_time": 40.01793932914734,
+      "metadata": {
+        "paper_id": "P029",
+        "title": "Astrophysics with the Laser Interferometer Space Antenna",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P030",
+      "problem": "本研究的问题是改进候选事件的识别和估计其天体物理起源的概率，并更新双黑洞和双中子星并合事件的源特性，突破现有的噪声校准和候选事件筛选阈值的局限。通过使用一致的高级波形模型，计算p astro超过0.5的候选事件的源特性。",
+      "method": "- 提供更深入的候选事件清单，利用改进校准和噪声减去技术对数据的最终版本进行分析。\n  - 采用高精度的数据处理方案，减少噪声影响并提高事件识别的准确性。\n\n- 使用三个匹配滤波搜索管道识别候选事件，并估算每个事件的天体物理起源概率。\n  - 应用多重匹配滤波方法，进行信号的统计分析和噪声区分。\n  - 使用天体物理模型结合多种信号参数，以提高事件分类的准确性。\n\n- 调整虚报警率阈值，从每年2次提高到每天2次，以纳入更多候选事件。\n  - 提升事件识别灵敏度，使更多潜在GW事件能够被识别和分析。",
+      "limitation": "- The retuning of the singles penalty in the GstLAL pipeline for the GWTC-2.1 analysis caused the significance of certain events, such as GW190424 180648, to decrease, which affects the detection thresholds for these events.\n- There are uncertainties in the mass range of the pair-instability mass gap, making it difficult to ascertain whether certain new candidates, like GW190403 051519 and GW190426 190642, originated from isolated binary systems or through dynamic formation channels.\n- The effective inspiral spin χ eff of GW190403 051519, indicating significant alignment with the orbital angular momentum vector, suggests limitations in the analysis as it may affect the understanding of its formation history, particularly distinguishing between isolated evolution and dynamical formation.",
+      "future_work": "- Improve the accuracy of p astro estimation by addressing statistical and systematic errors; consider revising current values as uncertainties in true signal rate and distributions are reduced.\n- Implement a method to quantitatively combine information from all pipelines for a more accurate assessment of candidate origins.\n- Enhance detector sensitivities during the fourth observing run (O4) by commissioning improvements, including better calibrations to address systematic uncertainties.",
+      "extraction_time": 34.473350524902344,
+      "metadata": {
+        "paper_id": "P030",
+        "title": "GWTC-2.1: Deep extended catalog of compact binary coalescences observed by LIGO and Virgo during the",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P031",
+      "problem": "本文探讨求解不适定问题的方法，重点研究动态系统方法作为解决这些复杂数值问题的更高效方案。",
+      "method": "Method:\n\n- 方法1综述传统解决办法,如变分正则化方法和拟解法。\n- 方法2介绍动态系统方法(DSM)用于求解线性和非线性不适定问题,构建Cauchy问题从而得到稳定解。\n- DSM通过一个独特的停止规则选择正则化参数\\( t_\\delta \\),保证当\\( \\delta \\)趋于零时解的稳定性。\n- 提出正则算法(RA),用来将数据\\( \\{ \\delta, f_\\delta \\} \\)映射到近似解\\( u_\\delta \\),确保满足误差估计,为解决不可解析问题提供分类基础。",
+      "limitation": "- Our method struggles with ensuring the continuous dependence of the quasi-solution on the data, which can lead to significant deviations when small errors or perturbations are present. (Evidence 5)\n- It remains to be proved that the quasi-solution is both unique and continuously dependent on the given data. (Evidence 4)\n- Our approach lacks a general solution for numerical treatment of ill-posed problems due to potential large deviations caused by small errors. (Evidence 5)",
+      "future_work": "- The implementation of the dynamical systems method in nonlinear ill-posed problems should be explored, as its application to linear problems has already been found efficient.\n- Further research could focus on optimizing the variational regularization method, possibly by integrating it with other techniques like the dynamical systems method for enhanced performance.\n- Investigation into new iterative regularization techniques could be a promising area for future work and may provide improvements over existing methods in computational efficiency and accuracy.",
+      "extraction_time": 30.0735445022583,
+      "metadata": {
+        "paper_id": "P031",
+        "title": "Methods of Solving Ill-Posed Problems",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P032",
+      "problem": "本文开发了一种新的分析方法，以测量来自Lyman-α森林的高红移类星体的重子声波振荡(BAO)，旨在提高宇宙膨胀历史和几何学的精确测量。此方法结合多种模拟结果，降低实验系统偏差，并确保偏差小于统计不确定性的三分之一，以支持BAO测量的可靠性和精确性。",
+      "method": "- 方法1: 开发了一种新的分析方法，通过盲数据集测试来确保结果的可靠性。\n  - 采用创新的Lyman-α forest分析技术降低BAO分析中的确认偏差。\n  - 引入独特的光谱联合方法，利用未相关噪声简化跨曝光平均。\n  \n- 方法2: 通过合成数据的严格测试确保方法的稳定性，并进行了多次数据拆分以验证结果的一致性。\n  - 使用150个合成实现进行全面验证，以确保在揭示结果之前方法的可靠性。\n  - 多次数据拆分用于评估不同配置下结果的一致性和方法的稳定性。",
+      "limitation": "- The analysis was performed on blinded data, which could limit the validation process due to potentially unresolved metal contamination issues when blinding at the catalog level.\n- The combination of quasar redshift errors and quasar continuum errors can introduce spurious correlations in 3D analyses of the Lyα forest, potentially affecting future BAO measurements beyond the current statistical uncertainties.\n- Each BAO measurement requires an optimal combination of isotropic BAO parameters to minimize correlations and relative uncertainty, which complicates achieving consistent results across different measurements in the presence of redshift space distortions.",
+      "future_work": "- Future Lyα surveys with higher quasar densities might explore the use of reconstruction algorithms to improve BAO measurements, although this method is not viable with the current DESI data due to shot noise limitations.\n- The precision of BAO results is expected to improve by a factor of two upon completion of the five-year DESI survey; further analysis will involve extracting non-BAO information from the full shape of 3D correlations and constraining the linear matter power spectrum using the 1D power spectrum of Lyα forest fluctuations.\n- Addressing systematic issues such as quasar redshift and continuum errors that lead to spurious correlations in 3D Lyα forest analyses is crucial for reducing uncertainties in the final DESI analysis and in future Lyα studies.",
+      "extraction_time": 35.70442986488342,
+      "metadata": {
+        "paper_id": "P032",
+        "title": "DESI 2024 IV: Baryon Acoustic Oscillations from the Lyman alpha forest",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P033",
+      "problem": "本文要解决的问题是通过观察证据支持原始黑洞的可能性，以解释包括暗物质组成、致密暗物质团块和天体观测异常在内的多种现象，如密集的暗物质子结构和一些银河卫星的密度异常。",
+      "method": "Method:\n- 提供了一种积极视角来分析原初黑洞，通过验证观察证据而非单纯的理论推测。\n- 提出原初黑洞可解释多个宇宙现象,诸如暗物质、早期宇宙结构形成和特定引力波事件背后的物理条件。\n- 引入扩展的质量函数模型，通过考量早期宇宙声速变化形成原初黑洞，统一解释高红移矮星系及异常红外和X射线关联等天文学观测。\n- 强调逻辑实证主义，通过多个观测证据支持原初黑洞的存在可能性，提供比理论推测更具实证价值的分析框架。",
+      "limitation": "- The method cannot ensure that all original supermassive black holes (SMBHs) will drift to the center of larger galaxies and merge, impacting the proposed correlation between galaxy and black hole mass.\n- There is uncertainty in explaining black hole mass distributions within the pair-instability gap, which conflicts with some recent observations.\n- Some scenarios involving primordial black holes (PBHs) require processes from the early Universe that involve new physics, potentially limiting their applicability as dark matter candidates.",
+      "future_work": "- Lehmann et al. suggest that stable Planck-mass remnants of PBH evaporations could be explored using terrestrial detectors if they carry electric charge, with planned experiments potentially providing insights in the next decade.\n- Future observations, including the LSST as part of the Vera Rubin Observatory and JWST, will expand the search volume for calcium-rich transients and resolve dwarf spheroidal galaxies, enhancing exploration of PBH as triggers for these events.\n- Development of calibrated waveforms for subsolar-mass compact-object mergers, including tidal deformability factors, is necessary for clear attribution of signals to PBH with next-generation detectors like Cosmic Explorer and Einstein Telescope.",
+      "extraction_time": 41.70878839492798,
+      "metadata": {
+        "paper_id": "P033",
+        "title": "Observational evidence for primordial black holes: A positivist perspective",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P034",
+      "problem": "明确问题是识别哪种解释最符合NANOGrav数据，并且确定不受欢迎的解释，以及找出实验签名以区分PTA引力波信号的不同来源。研究涉及比较天体物理的超大质量黑洞双星和各种宇宙学模型。",
+      "method": "- 进行多模型分析 (MMA) 来比较不同解释如何与NANOGrav数据匹配，包括单独和结合SMBH二元系统的情况。\n  - 利用NANOGrav概率密度函数(PDF)进行频率区间的统计分析，以评估模型拟合质量。\n  - 分析来自宇宙学和天体物理源头的影响，考虑环境效应对SMBH二元系统的影响。\n\n- 讨论实验签名以帮助区分PTA GW信号的不同来源，如信号强度在频率间的波动和信号扩展到更高频率的情况。\n  - 识别潜在实验特征，以便区分宇宙学和天体物理源。\n  - 评估引力波信号强度在频率间的波动，并分析SGWB谱向高频的扩展以进行区分。",
+      "limitation": "- Our method may struggle to provide definitive evidence of new fundamental physics, as more data and time are needed to distinguish it from other cosmic events.\n- The results may be limited by the inability to detect certain signatures with current and proposed observational tools, affecting the robustness of the findings.\n- The analysis is potentially constrained by uncertainties in the parameters related to cosmic phenomena like phase transitions and scalar-induced GWs, which remain challenging to measure with precision.",
+      "future_work": "- 进一步研究和整合来自FAPS、LISA、mid-frequency实验、LVK和ET等不同设备的数据，以提高对于超大质量黑洞合并和新基础物理的理解。\n- 检验高阶修正对标量诱导引力波(SIGWs)谱的影响，特别是在k ≈ k *附近的峰值调制，这需要大量的AF²_NL组合。\n- 当前观测数据无法在大尺度结构和CMB探测约束范围之外，进一步限制非高斯性，未来工作需关注更小的标量功率谱振幅以探测大F_NL值。",
+      "extraction_time": 35.33483362197876,
+      "metadata": {
+        "paper_id": "P034",
+        "title": "What is the source of the PTA GW signal?",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P035",
+      "problem": "本文旨在通过最新的数据校准三种独立方法来测量哈勃常数，以改善其精确度和准确度。为此，需要扩大附近SNe Ia的样本规模，以解决系统不确定性问题，并确保实现稳定的高精度测量。",
+      "method": "- **Method 1**: Utilize multiple independent measurement approaches, specifically TRGB and JAGB, to enhance the precision and robustness of the Hubble constant calculation.\n  - TRGB and JAGB methods provide highly consistent measurements, agreeing at better than 1% with each other and SHoES Cepheid distances.\n  - Offers an updated Hubble constant estimate based on TRGB method calibrated with 24 Type Ia supernovae.\n\n- **Method 2**: Combine the Hubble constant calculation with observations from 11 Type Ia supernovae, using geometric distance calibration for reliability.\n  - The use of geometric distance ensures high reliability, integrating directly with observed supernova data to confirm accuracy.\n\n- **Method 3**: Employ new datasets from the James Webb Space Telescope to improve local distance scale measurement accuracy.\n  - Leverages current ΛCDM model data, enhancing precision without introducing new physical models.",
+      "limitation": "- The CSP method faces limitations due to the inhomogeneous nature of current calibration, as data vary from different telescopes, instruments, and filters, introducing systematic uncertainties in measurements.\n- The CSP's zero-point calibration is affected by the absence of data for SNe Ia prior to 2004 and those in northern hemisphere galaxies, resulting in a conservative estimate of systematic uncertainty at 0.015 mag.\n- The CSP sample has fewer SNe Ia with H-band data compared to the B-band, and while the analysis suggests a larger H 0 value in the near-infrared, uncertainties remain in sub-population brightness that require further investigation.",
+      "future_work": "- Increasing the sample size of JAGB and Cepheid distances is crucial to improve the precision and accuracy of the combined Hubble Constant (H0) measurement.\n- Additional JWST observations are needed to enhance the reliability and precision of the local distance measurements.\n- Future work should aim to obtain large and homogeneous samples of SNe Ia to achieve a goal of 1% accuracy in the H0 value, addressing issues such as scatter and peculiar velocities observed in current samples.\n- Resolution improvements in distant galaxies beyond 40 Mpc using JWST would help mitigate systematic errors related to crowding.\n- Further studies are necessary to confirm the validity of the higher H0 values derived from Cepheid measurements and investigate potential systematic errors.",
+      "extraction_time": 40.29665446281433,
+      "metadata": {
+        "paper_id": "P035",
+        "title": "Status Report on the Chicago-Carnegie Hubble Program (CCHP): Measurement of the Hubble Constant Usin",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P036",
+      "problem": "常用的假设方法在红超巨星光度估计中系统性低估了其视在光度，从而导致推断的前身星质量偏低，并忽视了光度的不确定性范围。通过对比单一波段和光谱能量分布推导的光度，即使是最亮的红超巨星也可能被误判为II-P型超新星的前身星。",
+      "method": "- 利用光谱能量分布(SED)进行红超巨星的光度分析，提供更准确的亮度估算:\n  - 通过整合观测到的SED，计算红超巨星的光度，假设短波长吸收的通量在长波长被重新发射，捕获从光学到中红外波长的全部星体通量。\n\n- 提出对传统假设进行校正，以减少系统性低估红超巨星原恒星质量:\n  - 调整单波段预爆炸成像方法中的传统假设，例如将表观I波段星等转换为绝对星等并考虑消光。\n\n- 验证红超巨星最亮部分在II-P型超新星前星样本中缺失的问题:\n  - 比较通过SED方法和传统单波段成像得出的光度，揭示和矫正这两种方法间的差异，解决缺失问题。",
+      "limitation": "- Our method struggles to accurately derive progenitor luminosity and initial mass from optical photometry, as both precision and accuracy are significantly worse than previously assumed.\n- Despite working under idealised conditions with known foreground extinction and distance, there remains significant uncertainty in the luminosities derived from single-band imaging, which is exacerbated in real-world situations.\n- There is still dispersion in luminosity estimations at a level of 0.2 dex even after attempting to refine spectral type relations, indicating a need for further refinement of bolometric corrections.",
+      "future_work": "- Future work will address the refinement of the relation between spectral type (SpT) and bolometric correction (BC) to improve the accuracy of luminosity estimates for red supergiant (RSG) populations.\n- Investigating the level of variability in luminosities, specifically adding variability of up to ±1 mag to reconcile the inconsistencies between the SED and I-band luminosity method, could be explored further to understand its potential impact.\n- The errors associated with using single-band photometry for determining luminosities need further exploration, especially in refining the assumed BC values for stars with later SpTs, as indicated by the discrepancies highlighted in this study.",
+      "extraction_time": 44.25798487663269,
+      "metadata": {
+        "paper_id": "P036",
+        "title": "The Red Supergiant Progenitor Luminosity Problem",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P037",
+      "problem": "本文旨在解决如何理解和管理集成学习中的多样性问题，将其视为偏差-方差分解中的隐藏维度，不应盲目最大化多样性，而是需要在偏差、方差和多样性之间进行权衡，以改进集成模型的性能。作者提供一个基于第一性原理的多样性理论框架，以填补集成理论中长期以来关于多样性的研究空白。",
+      "method": "- **Theoretical Framework for Ensemble Diversity**: Introduces a novel framework by treating ensemble diversity as a hidden dimension in the bias-variance decomposition, applicable to various losses in regression and classification, including Bregman divergences for broader application.\n\n- **Exact Bias-Variance-Diversity Decompositions**: Proposes precise decompositions for different losses like squared and cross-entropy, enhancing understanding and guiding practical application in ensemble learning.\n\n- **Alternative Approach for Non-Additive Losses**: Develops a method to quantify diversity effects for non-additive bias-variance losses, such as 0/1 loss, showing dependency on label distribution.\n\n- **Bias/Variance/Diversity Trade-off Strategy**: Emphasizes managing trade-offs rather than merely maximizing diversity, crucial for effective ensemble performance.\n\n- **Algorithm for Measuring Diversity**: Provides a specific algorithm for Bagging ensembles using sub-sampling, bootstrapping, and trials to assess diversity shifts with ensemble size.",
+      "limitation": "- The paper admits that their ensemble bias-variance-covariance decomposition inherited the \"squared\" misnomer, and they only refer to \"bias\" in their analysis.\n- The observed behavior shows that for large ensembles, the expected risk is mostly due to the average bias, as diversity cancels out the average variance. This highlights a challenge in managing the balance between bias, variance, and diversity.\n- The analysis assumes a fixed-size training set for the bias-variance decomposition. However, there is a need to consider other stochastic quantities, like random initial weights, suggesting potential limitations in the approach's generalizability.",
+      "future_work": "- Extend the current framework to provide new interpretations for boosting algorithms by focusing on bias-variance-diversity decompositions for margin losses, while addressing the disconnect between surrogate losses and 0/1 loss.\n- Consider adapting the framework to be applicable to mixture of experts models, particularly by evaluating diversity in regions where gated weights are constant across input data.\n- Explore the relationship between the loss function view of diversity and the probabilistic assumption of conditional independence, leveraging the duality between losses/log-likelihoods and Bregman/KL-divergences.",
+      "extraction_time": 36.6421320438385,
+      "metadata": {
+        "paper_id": "P037",
+        "title": "The Nature of Statistical Learning Theory",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P038",
+      "problem": "本文研究学生在教育领域中对大型语言模型驱动的聊天机器人的接受度，特别关注行为因素如乐观、创新、不适感、安全性、透明度、伦理、互动性、参与度和准确性，这些方面通过使用PLS-SEM、技术准备指数（TRI）和技术接受模型（TAM）来进行分析，以填补现有文献空白。",
+      "method": "- 应用Partial Least Squares Structural Equation Modeling (PLS-SEM)分析学生对教育类聊天机器人的接受度，重点关注用户感知和交互因素。\n- 结合Technology Readiness Index (TRI)和Technology Acceptance Model (TAM)进行深入分析，填补现有文献中行为相关因素的空白，通过综合TRI和TAM框架在PLS-SEM模型中发现技术准备度和接受度新见解。\n- 设立12个假设，以探讨影响教育类聊天机器人采用的行为因素，包括乐观性、创新性、舒适度和不安全感。",
+      "limitation": "- The study acknowledges the limitation of using a small sample size for data collection, which may affect the robustness of the conclusions. A larger dataset in future studies could help validate the findings more solidly.\n- The research relies on cross-sectional surveys and self-reported measures, which may introduce biases. Longitudinal data might be beneficial to mitigate these biases.\n- The current study did not explore chatbot adoption across other fields such as education or academic search results, which may limit the generalizability of its findings on chatbots' accuracy and effectiveness.",
+      "future_work": "- Future research can focus on conducting qualitative interviews to assess user behavior regarding chatbots, which could provide deeper insights into user interactions beyond self-reported measures.\n- Increasing the sample size in future studies is suggested to solidify conclusions, reducing potential biases introduced by small sample sizes.\n- The study's findings could be compared with other analytical methods such as artificial neural networks to evaluate strengths and weaknesses of methods used, and potentially uncover more accurate insights.",
+      "extraction_time": 32.198230028152466,
+      "metadata": {
+        "paper_id": "P038",
+        "title": "Partial least squares structural equation modeling (PLS-SEM)",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P039",
+      "problem": "本文解决的问题是改善观察性研究的报告质量，以提高对研究的评价、结果的可推广性，并为作者提供指导，从而使评审、期刊编辑和读者能够更好地进行批判性评价和解读。本研究通过开发STROBE声明，提供具体指导来确保研究设计、实施和结果能够清晰呈现。",
+      "method": "**Method:**\n\n- 提出STROBE声明，通过22项清单指导和改善流行病学观察性研究的报告质量。\n  - 清单包括标题、摘要、引言、方法、结果和讨论等关键部分，确保研究计划、成果与发现的清晰呈现。\n\n- 提供具体说明和例子，以促进STROBE声明的使用、理解和推广。\n  - 提供特定解释和实例，增强研究报告的清晰性和正确应用。\n\n- 强调STROBE推荐的持续改进，确保其作为与时俱进的文档框架。\n  - 通过不断评估和调整，保持清单的相关性和有效性。\n\n- 描述开发过程，重点是与社区反馈的互动，以改进和适应报告标准。\n  - 将STROBE的制定与类似努力比较，展示持续评估和适应的承诺。",
+      "limitation": "- Our method still struggles with accurately measuring true values of an exposure, which can result in a bias known as attenuation or regression dilution bias, potentially affecting the precision of the results.\n- Generalisability of our study's results is limited as it may not be applicable across different populations, circumstances, or settings due to varying conditions such as age, sex, ethnicity, and health characteristics.\n- Although our discussion section aims to address validity and meaning comprehensively, it may inadvertently include biased assessments or unwarranted speculation without a structured approach to guide the interpretation of study results.",
+      "future_work": "- The STROBE recommendations are open to change and require continual assessment, refinement, and modification. The principles and the checklist could be updated as new evidence and critical comments accumulate, indicative of an ongoing process to improve the reporting quality of epidemiological studies.\n- Authors should avoid stating \"more research is needed\" in a vague manner and instead suggest specific ways for future research to improve upon their current studies. This involves linking research recommendations closely to the limitations identified in the study, promoting structured improvement.\n- There is a need for more evidence concerning the association between second-generation oral contraceptives and myocardial infarction due to the lack of corroborative evidence and the analysis being based on relatively small numbers, indicating a direction for further investigation in this area.",
+      "extraction_time": 36.66698718070984,
+      "metadata": {
+        "paper_id": "P039",
+        "title": "Strengthening the Reporting of Observational Studies in Epidemiology (STROBE): Explanation and Elabo",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P040",
+      "problem": "本文研究星系群和星系团中热星系际介质的密度和热力学状态如何在自相似层次聚类与凝聚重子反馈引发的非引力能量之间取得平衡，并通过计算与Sunyaev-Zel'dovich效应相关的Compton参数y来预测这种平衡受到反馈过程的影响。",
+      "method": "- 使用一个更新版本的半解析模型(SAM)来描述星系及星团中物质的分配，通过卷积合并概率函数以平均星系结构的可能演化历史。\n- 整合动力摩擦驱动的星系聚合概率，以计算星系和星团的恒星可观测量。\n- 计算SZ效应中的Compton参数y，评估反馈对其的影响，分析与星系团温度的关系和这些数值如何脱离自相似尺度。\n- 实施反馈机制，探讨重力和非重力加热对星团内热气体的影响，特别注重恒星风和超新星爆炸反馈。\n- 分析SZ效应与ICM温度的关系，以观测数据锚定非重力熵注入过程，确保观测数据的独立性和互补性。",
+      "limitation": "- Our method features a lower gas fraction inside the virial radius for galactic groups compared to clusters, which affects the L-T relation at temperatures higher than 0.5 keV.\n- The equilibrium assumption in our model requires precise boundary conditions, including pressure balance and accounting for the ram pressure of infalling gas, which complicates the modeling of the ICM density profiles.\n- Full treatment of non-gravitational heating processes, such as those by Active Galactic Nuclei, is not covered in this paper and will need to be addressed in future research, indicating a limitation in capturing the complete thermal history of the intergalactic medium.",
+      "future_work": "- 未来工作将完整处理活动星系核（AGN）在发展中星系中心提供的非引力加热源的影响，这是本文未涉及的内容。\n- 研究将通过结合微波/亚毫米和X射线波段的观测，严格限制非引力加热机制的有效性，这些机制目前在各自的波段中容易受到不同的系统误差影响。\n- 通过外部吸积激波引起的跳跃条件，可以进一步研究声速下的下游流，以验证观测与模拟结果的匹配程度。",
+      "extraction_time": 34.49936246871948,
+      "metadata": {
+        "paper_id": "P040",
+        "title": "Formation of Galaxies and Clusters of Galaxies by Self-Similar Gravitational Condensation",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P041",
+      "problem": "核心问题是如何全面评估大型语言模型的性能和风险，包括在不同任务、情境和方法上的评估。本文探讨现有评估方法的局限性，如缺乏统一的比较框架和有限的评估结果参考值，并强调需要深入研究以优化LLM在复杂任务中的表现。",
+      "method": "Method:\n\n- 提出了对大语言模型进行全方位评估的方法，从“评估什么”、“在哪里评估”和“如何评估”三个维度进行详细分析，旨在深入理解LLMs的能力和潜在风险。\n- 提供了一些通用自然语言处理任务的评价概述，并扩展到推理、医学、伦理、教育、自然和社会科学等领域，以全面考察LLMs在广泛任务中的表现。\n- 总结了不同任务中大语言模型的成功与失败案例，强调了评估方法和基准测试在评估LLMs性能中的关键角色，同时关注动态评估系统以避免训练数据污染风险。",
+      "limitation": "- Our method acknowledges that current large language models (LLMs) face limitations in tasks related to reasoning and robustness, highlighting areas where their capabilities still need significant improvement.\n- Despite the advancements in LLMs, our evaluation method must continuously adapt and evolve to accurately assess the innate capabilities and limitations of these models, indicating that our current evaluation approach may have gaps that require attention.\n- The paper notes that as LLMs evolve, particularly those like Claude and ChatGPT, some existing limitations may be mitigated while new ones might arise, suggesting our methods may need regular updates to effectively track these changes.",
+      "future_work": "- Future research should address the limitations of current LLMs, specifically focusing on enhancing their reasoning and robustness capabilities.\n- There is a need to develop contemporary evaluation systems that can accurately assess the evolving capabilities and limitations of LLMs, adapting to changes as new models and online services like Claude and ChatGPT develop.\n- Researchers should conduct real experiments on current LLM systems to identify and address both existing and new limitations as they arise.",
+      "extraction_time": 35.276784896850586,
+      "metadata": {
+        "paper_id": "P041",
+        "title": "A Survey on Evaluation of Large Language Models",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P042",
+      "problem": "当前在经典的PASCAL VOC数据集上的对象检测性能已经停滞不前，现有方法通常复杂且依赖低级特征与高级背景的组合。本文探讨如何通过简单且可扩展的检测算法提高对象检测和语义分割的准确性，特别是利用高容量卷积神经网络结合区域建议，以及结合辅助任务的监督预训练与领域微调方法。",
+      "method": "Method:\n\n- 提出一种简单且可扩展的检测算法R-CNN，通过结合区域提议和高容量卷积神经网络(CNN)以实现物体的精确定位和分割。\n  - 结合CNN和自下而上的区域提议，以获得固定长度的特征向量，并使用类别特定的线性SVM进行分类。\n  - 利用仿射图像变形将区域提议转换为适合CNN的固定尺寸输入。\n\n- 使用受监督的预训练与特定领域的微调策略，在标注训练数据有限的情况下显著提高性能。\n  - 在大型辅助数据集上进行预训练，利用监督学习的优势。\n  - 在较小的目标数据集上进行特定领域微调，显著提升平均准确度(mAP)。\n\n- 将CNN应用于区域提议的检测框架大大优于传统滑动窗口检测方法，使得物体检测的性能显著提升。\n  - 改进了传统方法，通过整合区域提议和CNN特征实现了更高的检测性能。",
+      "limitation": "- The method of using jittered positive examples, while necessary to prevent overfitting during fine-tuning, does not optimize for precise localization, leading to potential performance challenges.\n- After fine-tuning, there remains a question of efficiency as using a 21-way softmax regression classifier alone performs worse than using SVM, potentially due to inadequate focus on precise localization and improper handling of negative examples.\n- The current approach scores and predicts detection windows only once at test time, and attempts to iterate this process do not yield improved results, indicating limitations in the iterative refinement of bounding boxes.",
+      "future_work": "- 未来的工作包括全面评估使用不同的填充方法（如复制而非平均填充）在图像变换中的效果，以确定最优的方法来提高检测性能。\n- 考虑增加重评分和迭代预测边界框的步骤，以评估是否可以通过该方法改善检测结果，即使初步实验未见效。\n- 探索通过改进关于正样本的定义和训练方式，以仅使用经过微调的网络的最后一层作为对象检测器，而不需要额外的SVM训练，从而提高检测精度。",
+      "extraction_time": 36.277262449264526,
+      "metadata": {
+        "paper_id": "P042",
+        "title": "Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P043",
+      "problem": "Problem: 开发一个统一的、开放源代码的Python包来解决天文学Python工具的碎片化和缺乏协调问题，以减少重复、提高可维护性，并促进长期研究和可重复性。目前包开发分散，数量众多但缺乏兼容性和协调性，导致维护困难和重复。",
+      "method": "- 方法1: 提供统一的开源Python包,集成核心天文学功能以解决工具包分散和重复问题。\n  - Astropy支持物理单位和量级转换功能，方便在天文学应用中进行标准化计算。\n  - NDData类支持n维数据结构，增强存储和处理能力。\n\n- 方法2: 支持天文学域特定的数据格式和转换。\n  - 包含对FITS文件、VO表格及ASCII表格格式的支持，简化数据处理流程。\n  - 提供天体坐标及时间转换功能，支持自定义系统与内置系统一致工作。\n\n- 方法3: 通过社区驱动开发模式确保工具包持续更新和维护。\n  - 地理分散的开发人员协作，促进个人及长期研究的可重复性。",
+      "limitation": "- The astropy.coordinates sub-package is still under design for implementing certain aspects like frames of palpy and pyast or the ephemeris system of pyephem, indicating ongoing development and lack of completeness in these areas.\n- A future design goal is to seamlessly support arbitrarily large data sets, suggesting that currently, the package may face limitations in handling particularly large datasets efficiently.\n- Coordination among Python packages for astronomy is fragmented, leading to duplication and lack of homogeneity, which can complicate installation and long-term maintenance, affecting astropy's integration within broader astronomy research toolkits.",
+      "future_work": "- Future versions of Astropy aim to include additional, common coordinate systems such as ecliptic and supergalactic coordinates, as well as all necessary intermediate systems for equatorial-to-horizontal mapping.\n- Plans for further development involve integrating Astropy's Table interface with the PyFITS code base, and enhancing unit support to attach units to FITS table columns and header values.\n- The goal is to seamlessly support arbitrarily large data sets within the astropy.coordinates sub-package, enhancing its flexibility and applicability for large-scale astronomical data analysis.",
+      "extraction_time": 32.864954471588135,
+      "metadata": {
+        "paper_id": "P043",
+        "title": "Astropy: A community Python package for astronomy",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P044",
+      "problem": "本文要解决的问题是更新和改进现有的PRISMA指南，以反映系统评价方法和术语的进步，从而更好地指导如何透明地报告系统评价的动机、过程和结果。这些更新旨在通过纳入新的研究识别、选择、评价和综述方法，增强系统评价报告的透明度、完整性和准确性。",
+      "method": "- 提供一个更新的PRISMA 2020 27项清单,旨在改进系统评价报告指南,以反映研究过程中筛选、选择、评价和综合研究的新进展。\n- 修改项目的结构和呈现方式,以促进实施和提高复杂系统评价方法的透明度。\n- 扩展的清单提供每个项目的详细报告建议,并附带PRISMA 2020摘要清单和修订的流程图,帮助作者准备原创和更新的评论。\n- 鼓励使用补充材料记录方法和结果细节,并将其存储在开放获取仓库中以增强透明度与可访问性。",
+      "limitation": "- The effects of interventions proposed to increase adherence to PRISMA 2020 remain largely unevaluated, with studies at high risk of bias due to confounding, making it unclear which strategies should effectively be used.\n- Future research is needed to explore the barriers and facilitators to the use of PRISMA 2020, as well as the design and evaluation of targeted interventions using randomised trials.\n- There is a lack of understanding of how systematic reviewers interpret PRISMA 2020 items, necessitating think-aloud studies and reliability studies to identify items where there is varied interpretation.",
+      "future_work": "- Future research could explore the barriers and facilitators to the use of the PRISMA 2020 guidelines by authors, editors, and peer reviewers. Interventions should be designed to address these barriers and evaluated using randomized trials.\n- Conduct think-aloud studies to understand how systematic reviewers interpret the guideline items and perform reliability studies to identify items prone to varied interpretations, informing future revisions.",
+      "extraction_time": 38.609593629837036,
+      "metadata": {
+        "paper_id": "P044",
+        "title": "The PRISMA 2020 statement: an updated guideline for reporting systematic reviews",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P045",
+      "problem": "本文解决的核心问题是如何利用深度卷积神经网络(CNNs)有效地检测图像中表现的情感和情感概念(如形容词名词对)以提高注释准确性和检索性能。通过模型情感相关的视觉概念来减小低级视觉特征与高级情感之间的“情感差距”。",
+      "method": "Method:\n- Utilize deep convolutional neural networks (CNNs) to classify visual sentiment concepts, focusing on automatically discovered adjective noun pairs (ANPs) from web photo tags to detect emotions in images.\n- Initialize CNN models with pre-trained weights from the ImageNet dataset to address training data bias and reduce overfitting, enhancing model performance.\n- Employ the Caffe deep learning framework for training SentiBank 2.0, leveraging its modern capabilities to improve annotation accuracy and retrieval performance over previous binary SVM classification models.\n- Achieve significant advancements in image sentiment analysis with improved annotation and retrieval capabilities, underscoring the effectiveness of deep CNNs in emotion detection tasks.",
+      "limitation": "- The current model does not incorporate concept localization, which is an area planned for future improvement.  \n- There is a need to improve the network structure by leveraging concept relations to enhance performance.",
+      "future_work": "- 将概念定位结合到深度卷积神经网络模型中，以提高模型在图像分类任务中的表现。\n- 通过利用概念关系来改进网络结构，进一步增强分类模型的准确性和有效性。\n- 提升的模型性能将有助于改进基于SentiBank的应用，如辅助评论机器人和推特情感预测，以及其他例如情感感知图像编辑的应用。",
+      "extraction_time": 26.952452659606934,
+      "metadata": {
+        "paper_id": "P045",
+        "title": "ImageNet classification with deep convolutional neural networks",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P046",
+      "problem": "如何在不增加计算预算的情况下设计深度卷积神经网络架构，以提升图像分类和检测的性能，特别是在移动和嵌入式环境下优化算法的能效和内存使用。",
+      "method": "- 引入一种名为Inception的深度卷积神经网络架构,旨在优化图像分类和检测的计算资源利用率。\n  - Inception模块通过增加深度和宽度实现效率提升,同时保持计算预算不变,并通过多尺度处理及Hebbian原则指导设计。\n  - GoogLeNet是Inception架构的具体实现,为22层网络,在ILSVRC14中以显著较少的参数实现准确性提升。\n  - 设计考虑包括功率和内存效率,适用于移动和嵌入式计算环境。",
+      "limitation": "- The efficiency of our Inception architecture, particularly in terms of power and memory use, becomes critical in the context of mobile and embedded computing, which may limit its deployment in these scenarios despite careful design considerations.\n- The architecture is constrained to a computational budget of 1.5 billion multiply-adds at inference time, which while making it suitable for real-world use, may also restrict its ability to employ more complex models or algorithms for potentially higher accuracy.\n- Although our GoogLeNet submission demonstrates significant accuracy improvements, the focus on maintaining lower parameter counts might limit the exploration of even deeper networks or the integration of novel features that could enhance performance further.",
+      "future_work": "- Future work could focus on enhancing the Inception architecture to further improve computational efficiency, especially concerning power and memory usage in mobile and embedded computing applications.\n- Investigating the fusion of deep architectures with classical computer vision techniques, such as R-CNN, may offer promising advances in object detection beyond the achievements of deeper or larger models alone.",
+      "extraction_time": 31.625919818878174,
+      "metadata": {
+        "paper_id": "P046",
+        "title": "Going deeper with convolutions",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P047",
+      "problem": "本文要解决的核心问题是创建一个大规模的基准数据集和评估框架，以推动物体识别领域的进步，并促进识别算法的开发和比较，同时有效控制数据质量以最小化成本，解决大规模图像集中标注所有对象的挑战。",
+      "method": "Method:\n- 提供大规模的手动标注图像数据集，如ILSVRC2012，奠定了大规模对象识别的基础并推动深度神经网络的应用。\n- 在2012年，大规模深度神经网络首次取得了重大突破，SuperVision团队在分类和定位任务中胜出。\n- 每年举办竞赛和研讨会，如ILSVRC2013，该年有24个团队参与，展示了深度学习方法的广泛应用。\n- 通过评估算法性能和创新讨论，持续鼓励和推动技术进步与方法创新。",
+      "limitation": "- Annotating all target object classes in the training images presented a budget challenge, indicating limitations in fully capturing all relevant data for comprehensive model training.\n- The need for additional manual postprocessing to ensure accuracy in the object detection scenario highlights possible inefficiencies and complexities in the bounding box annotation system.\n- Empirical evaluation showed that while most images are covered with bounding boxes, 2.1% face challenges due to small size, blurry boundaries, or strong shadows, indicating the system's difficulty in handling these specific cases.",
+      "future_work": "- As computer vision tasks evolve, competitions may allow the use of publicly available image features learned on external data sources to enrich model training, moving towards more flexible rules regarding external data usage.\n- Future challenges include advancing from object detection to more complex tasks like pixel-level object segmentation, facilitated by datasets such as COCO for richer image understanding.\n- Automating annotation processes is a pivotal future direction due to the impracticality of manually annotating large-scale datasets as they grow to billions of images.",
+      "extraction_time": 31.02109169960022,
+      "metadata": {
+        "paper_id": "P047",
+        "title": "ImageNet Large Scale Visual Recognition Challenge",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P048",
+      "problem": "本文解决的问题是构建可以处理任意尺寸输入的全卷积网络用于语义分割，以实现高效的像素级别预测，并结合深层语义信息和浅层外观信息提升分割精度和细节。通过转化和微调现有的分类网络，如AlexNet, VGG net, 和GoogLeNet，将其成功应用扩展到密集预测任务。",
+      "method": "- 方法1：提出完全卷积网络（Fully Convolutional Networks, FCNs）的架构，以处理任意大小的输入并高效进行像素到像素的语义分割。此设计避免了补丁训练及额外的预处理或后处理步骤。\n\n- 方法2：通过将现有的分类网络（如AlexNet、VGG、GoogLeNet）转换为全卷积网络，并应用微调以期提高语义分割任务的性能，在此过程中利用预训练的分类器权重。\n\n- 方法3：定义跳跃结构（Skip Architecture），将深层的语义信息与浅层的外观信息结合，以实现更准确和细致的分割效果。该方法采取端到端的训练，优化整个网络中的学习和推理过程。\n\n- 实验结果表明，所提出的FCNs在多个数据集中取得了更高的分割准确度，大幅提升了性能指标，在例如PASCAL VOC、NYUDv2、SIFT Flow和PASCAL-Context等多个数据集上展示了显著的性能改善。",
+      "limitation": "Fully convolutional networks are a rich class of models that address many pixelwise tasks. FCNs for semantic segmentation dramatically improve accuracy by transferring pretrained classifier weights, fusing different layer representations, and learning end-to-end on whole images. End-toend, pixel-to-pixel operation simultaneously simplifies and speeds up learning and inference. This work was supported in part by DARPA 's MSEE and SMISC programs, NSF awards IIS-1427425 , IIS-1212798 , IIS-1116411 ...",
+      "future_work": "- Future work could explore the application of fully convolutional networks to a broader range of pixelwise tasks, taking advantage of their demonstrated generality in image-to-image transformations.\n- Enhancing the capability and efficiency of the models further by exploring different layer fusion techniques and pretrained weights could be a potential direction for improving accuracy and performance.\n- Extending the open source contributions by developing more models and tools in the Caffe Model Zoo, and optimizing them for various tasks, could foster further research and practical applications.",
+      "extraction_time": 36.523475885391235,
+      "metadata": {
+        "paper_id": "P048",
+        "title": "Fully convolutional networks for semantic segmentation",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P049",
+      "problem": "SciPy 1.0 aims to provide a mature and reliable suite of numerical routines for scientific computing in Python, addressing the lack of a standardized, widely-adopted library for foundational scientific computing tasks that can be trusted in production environments. The library emerged from modest beginnings by graduate students with limited resources, highlighting the need for a fully open tool stack and a strong collaborative community.",
+      "method": "Method:\n\n- 方法1: 提供了一套基础算法库，包括优化、积分、插值、线性代数、信号处理、稀疏矩阵等，构建了解决科学计算和数据分析问题的基本框架。\n- 构建在NumPy之上，利用其数组数据结构和加速数值计算能力，为高级科学库提供基础支持。\n- API成熟化，支持在生产环境中稳定使用，促进广泛的研究和工业应用。\n- 支持构建更高级科学库，与其他领域专门库互操作，由热情的开源社区推动其长期成功和发展。",
+      "limitation": "- SciPy is currently working to increase the number of usage tutorials, as the existing offerings are limited to 15 sections.\n- The low-level Cython code in the SciPy library requires modernization, specifically the migration to typed memoryviews to handle NumPy arrays.\n- The integration of GPU and distributed computing capabilities within SciPy remains unclear and poses a challenge to the established algorithm/API infrastructure.",
+      "future_work": "- SciPy aims to modernize its low-level Cython code by migrating to typed memoryviews for handling NumPy arrays, enhancing performance and maintainability.\n- The project is exploring the incorporation of GPU and distributed computing capabilities, though the approach is still under development. A new subpackage that experimentally supports multiple backends, such as GPU-tractable data structures, is already underway in scipy.fft.\n- There are efforts to expand the number of SciPy usage tutorials beyond the current offering to better support users and developers.",
+      "extraction_time": 28.9830162525177,
+      "metadata": {
+        "paper_id": "P049",
+        "title": "SciPy 1.0: fundamental algorithms for scientific computing in Python",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P050",
+      "problem": "本文要解决的问题是缺乏详细、精确的系统综述和荟萃分析的协议报告指南,这导致透明度和一致性不足,从而影响结果的完整性和可信度。缺乏关于报告指南的实施策略进一步加剧了此问题。",
+      "method": "- **PRISMA-P 2015 Checklist**: Offers a 17-item checklist designed for the preparation and reporting of systematic review protocols, ensuring robustness by including key components such as rationale, hypothesis, and planned methods.\n- **Implementation Strategy**: Utilizes knowledge translation principles to develop a strategy enhancing PRISMA-P adoption, incorporating effective interventions for clinical practice guidelines.\n- **Seamless Registration**: Derived from the PRISMA checklist and PROSPERO register, it streamlines the registration process by guiding authors in clearly outlining their pre-planned methodologies.\n- **Mandated Use**: Recommends that funders and reviewers mandate the checklist's use to ensure protocol information is complete and transparent, promoting standardization in systematic reviews.",
+      "limitation": "- The availability of systematic review protocols is currently limited, which hinders comparisons and may lead to reporting biases in meta-analyses.\n- There is a need for clear reporting of discrepancies between review protocols and their final reports to prevent biases in systematic review outcomes and conclusions.\n- Although journals and agencies are encouraged to adopt PRISMA-P 2015, its implementation and consistent usage in review processes remains to be fully realized to enhance the quality and transparency of systematic review protocols.",
+      "future_work": "- With the increasing availability of review protocols, future work should focus on improving clear reporting to help identify discrepancies between protocols and final reviews, thereby allowing readers to better assess the reliability of the findings.\n- There is a need for journals, granting agencies, and systematic review organizations to endorse and implement the use of PRISMA-P 2015 during their peer review processes, which will likely enhance the completeness and methodological quality of review protocols and systematic reviews.\n- Additional efforts should be made to investigate and address the reasons for discrepancies in review outcomes, such as those noted in studies where added or upgraded outcomes showed statistical significance, to prevent bias in meta-analysis conclusions.",
+      "extraction_time": 36.77938723564148,
+      "metadata": {
+        "paper_id": "P050",
+        "title": "Preferred reporting items for systematic review and meta-analysis protocols (PRISMA-P) 2015 statemen",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P051",
+      "problem": "本文旨在提供一种新的视角来分析极端气候现象中的日历日记录温度，以解决现有投射方法未能准确捕捉极端温度行为的问题，从而为理解极端气候事件的行为提供更可靠的途径。",
+      "method": "Method:\n- Introduced a new standard for analyzing extreme weather events using historical temperature records. \n- Utilizes a global spatio-temporal model with logistic regression to predict daily maximum temperatures using ERA5 reanalysis data, enhancing accuracy through environmental interactions.\n- Employs a local-to-global approach for dimensionality reduction, selecting optimal variables with logistic regression and backward stepwise methods.\n- Incorporates interaction terms between geopotential, climatic, and spatial covariates to improve accuracy, especially at coastal and inland stations.\n- Ensures rigorous feature selection with stepAIC to avoid overfitting, and adapts for future scenario projections using AR6 model outputs.",
+      "limitation": "- The proposed model's ability to effectively generate reliable projections for records as a statistical downscaling tool remains uncertain, implying limitations in its current configuration to establish accurate projections over the Iberian peninsula for the next 20 years.\n- The model's functionality to predict maximum temperature records in Spain from 1960-2023, utilizing ERA5 atmospheric geopotentials, requires further exploratory data analysis to understand the relationships between geopotential variables and daily temperature, suggesting an incomplete analysis at present.",
+      "future_work": "- The proposed model may be modified to generate statistical downscaling projections, aiming to use AR6 model outputs for projecting climate phenomena such as heatwaves or extreme temperatures over the Iberian peninsula in a 20-year horizon.\n- The relationship between geopotential variables and daily temperature will be further explored through extended exploratory data analysis to improve temperature prediction models using the ERA5 atmospheric geopotentials dataset.",
+      "extraction_time": 33.49713134765625,
+      "metadata": {
+        "paper_id": "P051",
+        "title": "Significance tests and goodness of fit in the analysis of covariance structures.",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P052",
+      "problem": "缺乏关于大型语言模型(LLMs)在医学领域的开发和应用的综合性综述，包括如何有效开发和部署这些模型以满足医学任务需求，以及解决实际应用中的挑战，如评估现有模型在医学语言理解和生成中的表现。",
+      "method": "- 方法1: 提供对现有医学大语言模型开发原则的全面介绍,帮助从业者根据具体需求定制医学LLMs。\n  - 分析模型架构、参数规模及数据集,支持在计算约束和数据隐私条件下的定制。\n  - 创新点: 将本地知识库整合入模型,增强其在特定语境中的适应性。\n\n- 方法2: 比较不同LLMs在各种医学任务中的表现,与轻量级模型对比,帮助理解LLMs在医学中的优点和局限性。\n  - 在十项生物医学NLP任务中评估其表现,揭示其在临床环境中的成功要素和局限。\n  - 记录具体能力,帮助明晰LLMs在传统AI模型中的优势。\n\n- 方法3: 提供有关医学LLMs实践应用的见解和挑战分析,以便更有效地开发和部署医学LLMs。\n  - 制定医学LLM在七种临床场景中的使用指南,并解决幻觉和伦理问题。\n  - 建议综合评估框架,以确保LLM在医疗中的可信部署。\n\n- RAG集成: 增强LLM性能,通过整合外部知识减少幻觉。\n  - 包含检索、增强和生成三组件架构,确保输出数据与当前准确信息同步。",
+      "limitation": "- Integrating medical LLMs into existing healthcare workflows and infrastructure demands substantial technical and organizational efforts, posing challenges for real-world deployment.\n- Privacy and security concerns surrounding patient data must be carefully addressed to ensure safe and secure use of medical LLMs in practice.\n- Updating LLMs with new medical knowledge is inefficient and expensive, particularly when it comes to ensuring real-time updates and dealing with the discrepancies between old and new knowledge.",
+      "future_work": "- Rigorous testing and validation across diverse patient populations and contexts are required to ensure the reliability and generalizability of medical LLMs. This is crucial for addressing biased or inaccurate outputs that might lead to misdiagnosis or improper medical advice.\n- Future research is necessary to create and validate synthetic data for LLMs to enhance their knowledge coverage in the medical field, as current approaches might lead models to forget important information.\n- Development of medical-specific benchmarks and metrics is needed to evaluate LLMs' performance effectively, as existing benchmarks do not sufficiently cover the medical domain.",
+      "extraction_time": 38.18655300140381,
+      "metadata": {
+        "paper_id": "P052",
+        "title": "Health Measurement Scales: A Practical Guide to Their Development and Use",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P053",
+      "problem": "本文研究的问题是探讨超大质量黑洞与宿主星系共演化的复杂性，尤其是不同星系成分之间的相关性，并提出一个更复杂且多样化的共演化模型，以质疑此前认为黑洞与星系核和星系隆起高度相关的简单模型。此外，指出了动态模型中需充分采样各种轨道，以避免黑洞质量测量中的偏差，从而影响对黑洞与星系共演化的理解。",
+      "method": "- 研究不同质量范围的超大质量黑洞与其宿主星系的关系，以观察是否存在协同演化现象。\n- 分析黑洞与不同星系成分的关联性，挑战黑洞与星系恒星耀度和质量的简单线性关联假设。\n- 应用Schwarzschild的轨道叠加方法建模星系，利用中心点质量和星光密度（乘以恒星群的质量-光度比）的引力势，提升了研究超大质量黑洞的精度。\n- 将超大质量黑洞在无核旋转椭圆星系和类星体事件中的快速生长与星系演化联系起来，以揭示黑洞反馈的多种模式。",
+      "limitation": "- The method's ability to accurately measure BH masses is limited by systematic errors such as triaxiality in core ellipticals and radial mass-to-light ratio variations, which are difficult to evaluate and potentially significant compared to statistical errors.\n- The approach is challenged by the large uncertainty in the inclination angles of nuclear gas disks, which can significantly impact the final error in BH mass estimates, especially since the assumption of coplanar gas is not always valid for warped disks.\n- Gas dynamics require stringent conditions for successful application and are complicated by nongravitational perturbations like turbulence and magnetic fields, making it difficult to ensure that the kinematics are dominated by gravity without detailed case-by-case scrutiny.",
+      "future_work": "- Investigate the mechanisms that drive the growth of supermassive black holes (BHs) in well-formed disk galaxies at high redshifts (z ∼ 2), focusing on secular evolution and local processes. The details of how these processes affect BH accretion and star formation are still unclear.\n- Analyze the relationship between BHs and their host galaxies, particularly the correlation between BH masses and total stellar masses versus bulge masses in disk galaxies with BHs smaller than ∼ 10⁸.⁵ M⊙ at z < 1.5. Understanding the stochastic nature of mass accretion in such galaxies could explain poor BH-host correlations.\n- Explore the early formation and evolution of the M• -M⋆,total relation for quasars between z ∼ 2 and 6, considering the limited role of mergers in establishing these correlations and the significant role of near-Eddington-limited accretion and gas-rich mergers.",
+      "extraction_time": 37.813085317611694,
+      "metadata": {
+        "paper_id": "P053",
+        "title": "Coevolution (Or Not) of Supermassive Black Holes and Host Galaxies",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P054",
+      "problem": "本研究旨在通过运用生成式人工智能简化耗时的临床文档过程，以减轻医疗专业人员的负担，改进临床文档质量并提升以患者为中心的护理。当前方法在处理复杂案例时存在准确性问题和变异性，影响了临床笔记的质量和可靠性。",
+      "method": "- **使用自然语言处理(NLP)和自动语音识别(ASR)**: 整合NLP和ASR技术来转录患者与临床医生互动，为生成结构化临床笔记奠定基础，并采用换音技术以确保转录的准确性。\n  \n- **高级提示技术与大型语言模型**: 采用零样本和单样本学习技术来提升提示效果，从而利用大型语言模型生成SOAP和BIRP格式的临床笔记，确保输出的准确性和一致性。\n  \n- **生成式AI与人类审核**: 强调生成式AI的使用，以节省时间和提高文档质量，同时采用人类审核机制确保笔记的准确性和完整性，促进AI模型的持续改进。\n\n- **模型直接访问与定制化功能**: 提供对模型的直接访问，允许定制化及使用复杂功能以支持程序化接口和模型微调。",
+      "limitation": "- The responsible and effective deployment of generative AI in healthcare settings requires addressing several challenges, such as data quality and representation, privacy and security concerns, and model interpretability and transparency.\n- Generative AI models struggle with model reliability and robustness, which must be ensured for them to be effectively used in clinical documentation.\n- There is a need for regulatory compliance and liability considerations to be addressed, along with the necessity of human oversight and validation to ensure the reliability of AI-generated clinical notes.",
+      "future_work": "- Address the challenges related to data quality, privacy, security, model interpretability, reliability, robustness, and regulatory compliance in deploying generative AI models in healthcare settings. Future work should focus on developing methods to ensure these aspects while maintaining human oversight and validation.\n- Explore adaptive documentation methodologies that accommodate the evolving nature of patient conditions and treatment plans. Future work might involve integrating real-time data updates to automatically refine clinical notes as new patient information becomes available.\n- Investigate the effects of generative AI on reducing the administrative burden of clinical documentation while avoiding issues like note bloat observed with medical scribe usage. Future research could focus on personalized AI systems that adapt to individual provider workflows and create streamlined, concise documentation.",
+      "extraction_time": 34.10707211494446,
+      "metadata": {
+        "paper_id": "P054",
+        "title": "Intelligent Clinical Documentation: Harnessing Generative AI for Patient-Centric Clinical Note Gener",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P055",
+      "problem": "本文要解决的问题是：定义并验证一个框架（ADMAPS）来分析公共部门中算法决策过程中的复杂人机互动，特别是在儿童福利系统中，通过民族志分析揭示其社会、技术和政治影响。框架强调算法应增强而非替代人类决策，并确保系统中的信任和支持。",
+      "method": "- 方法1: 提出ADMAPS框架，用于反映公共部门算法决策中的复杂社会技术互动。\n  - ADMAPS框架结合人机交互、科技研究和公共管理领域的知识，用于分析实际案例中的算法与人类、官僚流程间互动。\n  \n- 方法2: 制定加强算法与现有官僚流程协作，并支持人类决策的设计原则。\n  - 设计原则强调算法应增强而非替代人类判断，并有效融入现有官僚系统支持决策。\n\n- 方法3: 提供增进对目标结果信任的指导方针，以实现集体对算法系统的认同。\n  - 指导方针旨在提升公共部门从业者和官僚对算法结果的信任和认同，特别是在儿童福利系统中。",
+      "limitation": "- This study only focuses on the perspective of child-welfare caseworkers, excluding the perspectives of CWS children and families who are directly affected by algorithmic decision-making systems.\n- The research solely investigated algorithms used in collaborative settings, neglecting other decision-tools caseworkers might use independently, which warrants a more holistic study on state-mandated data systems and their impact.\n- Caseworkers reportedly lack adequate understanding of the algorithms or decision-tools they are required to use, indicating a need for further research into how these systems affect caseworkers' decision-making processes.",
+      "future_work": "- Future research should focus on understanding the perspectives of families affected by algorithmic decision-making systems in child welfare services and their agency regarding decisions made about them.\n- Researchers are encouraged to study the comprehensive state-mandated data systems and in-built decision-tools used by caseworkers, to better understand their impact on decision-making processes.",
+      "extraction_time": 30.9324312210083,
+      "metadata": {
+        "paper_id": "P055",
+        "title": "Studies on Child Development.",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P056",
+      "problem": "本文解决的问题是通过定量分析心理学出版物中引用《精神疾病诊断与统计手册》(DSM)的上下文,揭示研究工具生命周期的知识差距,尤其是其有效性状态随版本引用历史的变化。重点补充了现有定性科学技术研究(STS)文献中未充分涵盖的\"工具再利用\"过程的考察。",
+      "method": "Method:\n- Conduct quantitative analysis of DSM’s citation history to understand its evolution as a research tool, focusing on changes across different versions.\n- Extend research framework to analyze citation contexts in over 100,000 full-text psychology articles, examining linguistic features in DSM references.\n- Investigate frequent DSM citations in methods sections as a marker of its instrumental role, suggesting higher acceptance and utility.\n- Identify key linguistic features such as hedging phrases, attention markers, and verb patterns in citation contexts to reveal scientific reshaping processes of DSM versions.",
+      "limitation": "- The study only represents a case study of a unique research instrument, which limits the comprehensiveness of understanding how research instruments are represented across different scientific texts.\n- A larger-scale quantitative analysis is needed to more comprehensively examine the differences in the usage of research instruments across various knowledge domains, as the current study is limited in scope.",
+      "future_work": "- Future work involves conducting larger-scale quantitative analyses to more comprehensively examine how the DSM is used differently across various knowledge domains, addressing its representation as a research instrument in scientific texts.\n- The study plans to investigate further the aspect of re-instrumentalization in scientific texts, a facet not fully addressed in qualitative literature, suggesting an expanded examination beyond the current singular case study approach.",
+      "extraction_time": 30.94002389907837,
+      "metadata": {
+        "paper_id": "P056",
+        "title": "Diagnostic and Statistical Manual of Mental Disorders",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P057",
+      "problem": "The paper addresses the need to empirically investigate the statistical characteristics and evolutionary properties of keywords in academic journals, focusing on frequency distribution, temporal scaling behavior, and decay factor in prominent journals, to enhance understanding of semantic evolutionary behaviors and aid in the design of recommender systems.",
+      "method": "- 方法1: 通过实证分析统计特征和关键词的演化特性，揭示PNAS中的关键词频率遵循Zipf定律。\n  - 关键词频率约遵循Zipf's定律，指数为0.86。\n  - 关键词总数与出现次数之间存在幂律关系。\n\n- 方法2: 监测各期刊中关键词的衰退趋势，以帮助理解语义演化行为和设计推荐系统。\n  - 利用信息过滤和分类中的关键词研究语义演化。\n  \n- 方法3: 比较高影响力期刊与低影响力期刊的关键词演化行为，以展示不同学术领域的关键词特性。\n  - 提取文章中的代表性语素，如关键词、标签等。",
+      "limitation": "- The method relies heavily on the automatic extraction of well-defined attributes, which limits its practicality when dealing with items lacking clearly defined characteristics.\n- The traditional content analysis approach has high computational complexity, making it impractical for processing large-scale databases, which could impede the scalability of the method.\n- Integration of content-based recommendations with structural-based algorithms is expected to improve accuracy but remains a challenge due to inherently lower accuracy of structure-based methods.",
+      "future_work": "- A future work direction is to develop an algorithm with low complexity and high accuracy by integrating recommendations from a keyword-article bipartite graph and an author-article bipartite graph, overcoming the limitations of both content-based and structure-based recommendation methods.\n- Further exploration can be conducted on the structural organization of a Keyword-Based Collaboration Network (KBCN), particularly focusing on understanding hierarchical organization, community structure, and motif density to improve the classification of research areas and the evaluation of interdisciplinary studies.",
+      "extraction_time": 30.735717058181763,
+      "metadata": {
+        "paper_id": "P057",
+        "title": "Statistical Power Analysis for the Behavioral Sciences",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P058",
+      "problem": "本论文主要研究如何系统地报告和分析胰腺分割技术的现状，以识别当前在数据集、网络架构、学习策略及损失函数设计上的不足，同时特别关注由于胰腺体积小、对比度低及形状不规则导致的分割困难，这些因素影响了临床应用的准确性。",
+      "method": "- 使用PRISMA声明进行系统综述，采取系统性的文献搜索和数据提取方法来评估胰腺分割中的深度学习模型。\n- 按照应用、数据集大小、模型设计，包括架构、学习策略和损失函数等，将现有研究进行分类和呈现，以便进行结构化比较和分析。\n- 提供对胰腺分割研究的批判性讨论，强调需解决的问题和临床应用的挑战。",
+      "limitation": "- Current methods struggle with segmenting the pancreas due to its small volume, blurred boundaries, and significant variation in shape and position among patients, as mentioned in the review.\n- The lack of reproducibility of results is a concern because the code and trained models are often not publicly available, making it challenging to verify the performance claims.\n- Smaller test set sizes introduce instability in results, questioning the true significance of reported performance gains.\n- The adaptation of DL models to changes in lesion size and shape over time remains an area that requires further exploration for effective clinical application.",
+      "future_work": "- Future work should focus on creating multicentric and multivendor datasets for pancreas segmentation to include diverse ethnic groups and compensate for bias in population selection.\n- Efforts should be made to evaluate the adaptability of DL models to changes in the size and shape of lesions over time, and exploring the combination of different imaging modalities like CT and MRI to improve segmentation accuracy.\n- To enhance clinical utility, future studies should prioritize rigorous testing and validation of DL models in real-world clinical settings, particularly in the context of minimally invasive pancreatic surgery.",
+      "extraction_time": 38.1348819732666,
+      "metadata": {
+        "paper_id": "P058",
+        "title": "Preferred reporting items for systematic reviews and meta-analyses: the PRISMA statement",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P059",
+      "problem": "The paper addresses the challenge of understanding the statistical characteristics and evolutionary properties of keywords in scientific journals, especially focusing on their frequency distribution, temporal scaling behavior, and decay trends. It particularly examines these aspects within the Proceedings of the National Academy of Science of the United States of America (PNAS), highlighting differences in keyword decay trends between high-impact journals and those with lower impact factors, which are crucial for enhancing keyword-based systems and designing recommender systems.",
+      "method": "- 对科学文章的关键词进行统计分析，包括频率分布和时间缩放行为，以了解语义进化特性。\n  - 提取代表性词素，如标签和关键词，使用主流方法如向量空间模型和基于本体的模型。\n  - 向量空间模型作为代数模型，将文本文档描述为标识符的向量。\n  - 基于本体的模型使用本体论描述术语之间的关系。\n\n- 分析关键词系统，用于优化和设计相应的推荐系统。",
+      "limitation": "- The algorithm has high computational complexity when using traditional content-based methods because it requires analyzing content word by word, making it impractical for large databases.\n- The structure-based algorithm proposed has lower accuracy compared to content-based methods, although it offers lower computational complexity, indicating a trade-off between complexity and accuracy.\n- The current keyword-based collaboration network method needs further analysis to fully understand features like hierarchical organization, community structure, and motif density, which are crucial for classifying research areas and evaluating interdisciplinary studies.",
+      "future_work": "- Future work could focus on developing an algorithm with low complexity and high accuracy by integrating keyword-article and author-article bipartite graphs for improved recommendation systems.\n- Investigating the structural organization of a keyword-based semantic system using Keyword-Based Collaboration Networks (KBCN) can provide deeper insights into the hierarchical organization, community structure, and motif density, which are essential for classifying research areas and evaluating interdisciplinary studies.",
+      "extraction_time": 28.131232500076294,
+      "metadata": {
+        "paper_id": "P059",
+        "title": "Statistical power analysis for the behavioral sciences",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P060",
+      "problem": "缺乏关于研究信息系统(RIS)实施和接受度的全面实证研究，尤其是在数据质量如何通过技术接受模型影响德国学术机构中RIS用户的接受度。",
+      "method": "- 方法1: 研究信息系统(RIS)的用户接受度模型,通过调查数据分析评估其在德国学术机构中的实施和接受度。\n  - 使用了240个德国科学机构的调查数据,以用户接受度和数据质量为重点。\n  - 设计了一份包含47个问题的全面问卷,涵盖组织属性、数据质量、数据质量管理,以及RIS的易用性和实用性感知。\n\n- 方法2: 重点研究数据质量对技术接受模型的影响,并探讨数据质量水平与RIS用户接受度之间的关系。\n  - 核心创新是分析数据质量与用户接受度之间的关系,这是在RIS背景下未充分研究的领域。\n  - 数据通过描述性统计和内容分析进行分析,特别注意开放式问题的回应,以获得用户感知的细致见解。\n  - 强调数据质量是影响学术环境中RIS接受度的关键因素,并提供了实证数据以深入理解该动态。",
+      "limitation": "- The study's sample size is rather small, with only 51 respondents, which cautions against over-interpreting the results and limits the statistical analysis to primarily descriptive statistics.\n\n- The focus of the study on commercial or open-source community-based RIS solutions excludes local in-house developments, potentially missing a broader range of system architectures and functionalities, which could affect user and administrator perceptions.\n\n- The study offers a more explorative and illustrative character rather than providing statistical support for the described model of data quality and system acceptance, indicating a limitation in the depth of analysis.",
+      "future_work": "- Future research should focus on addressing data quality issues in research information systems (RIS), especially through the enhancement of automatic control, correction, error messages, and troubleshooting functionalities to increase user acceptance and satisfaction.\n- A study with a larger sample size, including both system users and administrators, could provide insights into the statistical relationships between various variables affecting RIS usage and acceptance.\n- Investigating the impact of local in-house RIS development versus commercial and community-based open-source systems on data quality, acceptance, and satisfaction is suggested to determine potential advantages or drawbacks.",
+      "extraction_time": 31.82859182357788,
+      "metadata": {
+        "paper_id": "P060",
+        "title": "Perceived Usefulness, Perceived Ease of Use, and User Acceptance of Information Technology",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P061",
+      "problem": "现有对象检测网络的主要瓶颈在于区域提议计算耗时，因此需要一个能同时计算区域边界和目标评分的高效网络，以减少计算开销，提高检测速度和准确性。",
+      "method": "- **Region Proposal Network (RPN)**: Introduced a new type of network that shares full-image convolutional features and offers region proposals at minimal cost. It comprises a fully convolutional structure that predicts object bounds and objectness scores for efficient region proposals.\n  \n- **Unified Network with Shared Features**: Integrated RPN with Fast R-CNN into a unified network, improving efficiency by sharing convolutional features. This merger enhances detection accuracy and speed by allowing seamless feature utilization across both tasks.\n\n- **Attention Mechanism**: Employed an attention-based approach to direct the network's focus on relevant areas, significantly boosting detection performance. The RPN component guides the Fast R-CNN module to prioritize significant regions.\n\n- **End-to-End Training Scheme**: Implemented an alternate training method for fast convergence, rehearsing between region proposal fine-tuning and object detection with fixed proposals to improve learning efficacy.\n\n- **Real-Time Object Detection**: Demonstrated near real-time detection capabilities at 5fps using the deep VGG-16 model and achieving high performance on PASCAL VOC 2007, 2012, and MS COCO datasets.",
+      "limitation": "- Our method struggles to maintain accurate object detection for certain categories, such as smaller and less distinct objects.\n- Despite improvements in efficiency, real-time performance is not consistently achievable across all scenarios due to computational constraints.\n- Fine-grained object detection accuracy remains suboptimal, particularly when distinguishing objects in cluttered environments.",
+      "future_work": "- Exploring the integration of the Region Proposal Network (RPN) into other types of networks, potentially expanding its application beyond Faster R-CNN.\n- Enhancing the ability of RPNs to generate region proposals by improving their quality and thereby the overall accuracy of the object detection system.\n- Investigating methods to further reduce the computational cost of region proposals to achieve even higher real-time processing speeds without significantly affecting accuracy.",
+      "extraction_time": 31.397565841674805,
+      "metadata": {
+        "paper_id": "P061",
+        "title": "Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P062",
+      "problem": "本论文解决的问题是提高物体识别在场景理解中的表现，通过创建一个新的大规模数据集。该数据集针对识别非典型视角的物体、上下文推理及精确的二维物体定位等核心研究问题，支持在复杂背景下提升识别系统的准确性。",
+      "method": "Method:\n- 提出一个新的关键数据集，涵盖复杂日常场景中的对象，通过集成多样场景和非典型视角实现精确定位，促进场景理解和对象识别。\n- 使用每个实例的分割标签，以提高对象定位的准确性，允许像素级分割实现精确的空间理解。\n- 应用创新的用户界面完成类别检测和实例分割，利用众包工人参与，通过Amazon Mechanical Turk实现层次化标签和验证，以确保数据准确性。\n- 引入创新的数据采集管道，通过场景查询获取不同关系和视角的图像，支持场景理解。",
+      "limitation": "- The dataset currently only labels \"things,\" and does not provide labels for \"stuff,\" which could contribute significant contextual information beneficial for object detection.\n- There is an absence of some annotations that could enhance object detection algorithms, such as the level of occlusion of instances or the location of keypoints on the objects.",
+      "future_work": "- Annotating \"stuff\" in addition to \"things\" may provide significant contextual information useful for detection.\n- Incorporating additional annotations, such as occlusion levels and keypoint locations on objects, could enhance object detection algorithms.\n- Extending the dataset to include labels like scene types, attributes, and full sentence descriptions could serve as a good benchmark for various label types.",
+      "extraction_time": 31.078712463378906,
+      "metadata": {
+        "paper_id": "P062",
+        "title": "Microsoft COCO: Common Objects in Context",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P063",
+      "problem": "本文探讨如何使用多位点基因型数据在考虑连锁不平衡影响的情况下推断种群混合，识别未混合和混合个体，并推断祖籍次级种群的数量和染色体区段的起源种群，主要通过使用Bayesian非参数方法如层次Dirichlet过程提高准确性和计算效率。",
+      "method": "- 方法1: 提出了一种名为HDPStructure的贝叶斯非参数模型,旨在推断种群混合,通过扩展层次狄利克雷过程以考虑位点之间的关联,处理无限数量群体推断。采用了\"Chinese restaurant franchise\"（CRF）和\"retrospective slice sampling\"技术进行模型的有限截断。\n  \n- 方法2: 该模型允许分类个体为未混合或混合,并推断混合群体的祖先子群数量以及染色体区域的种群起源。创新性地利用非齐次泊松过程来确定群体界限,动态调整混合个体的种群归属。\n\n- 方法3: 提供一个用于HDPStructure模型的MCMC算法实现后验推断,包括更新随机概率测度、隐状态序列及其他模型参数。采用前向滤波-后向采样技术,解决了stick-breaking prior的标签交换问题,提高计算效率。",
+      "limitation": "- Our method assumes independent allele-frequency profiles for each population, which may oversimplify the underlying genetic structure; future extensions could involve using a hidden Markov model over a set of founder haplotypes to address this limitation.\n- Although our Bayesian nonparametric approach automatically infers the number of ancestral populations, caution is needed in interpreting these clusters, as they may not correspond to distinct \"real\" populations.",
+      "future_work": "- Future work could involve relaxing the assumption of an independent allele-frequency profile by using hidden Markov models, as suggested by previous research, to provide a more accurate representation of population structures.\n- While inferring the number of ancestral populations (K), further research is needed to ensure that the nonparametric clustering corresponds to real populations, as current algorithms may not necessarily align clusters with actual population structures.",
+      "extraction_time": 38.389090061187744,
+      "metadata": {
+        "paper_id": "P063",
+        "title": "Inference of Population Structure Using Multilocus Genotype Data",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P064",
+      "problem": "Squeeze-and-Excitation Networks aim to enhance the performance of convolutional neural networks by focusing on adaptively recalibrating channel-wise feature responses through modeling interdependencies between channels. These networks strive to simplify CNN architecture design by incorporating lightweight SE modules, slightly increasing complexity and computational load while significantly boosting visual task performance.",
+      "method": "- 引入\"Squeeze-and-Excitation\" (SE) block, 这是一个新的网络单元, 用于自适应重新校准通道级特征响应。\n- SE block通过显式建模通道间的相互依赖性来提升CNN的表现能力，并执行特征重校准机制以利用全局信息。\n- 网络可以选择性地强调有用特征和抑制不太有用的特征，从而提高性能。\n- SE blocks可无缝集成到现有的CNN架构中，将计算代价增加保持在轻微水平。\n- 实验显示SENets在多个数据集和任务上表现优异, 在ILSVRC 2017分类竞赛中取得第一名。",
+      "limitation": "- Squeeze-and-Excitation Networks require a large number of GPUs for training with large batch sizes, which may limit accessibility and scalability for those with limited resources.\n- The design specifics, such as reducing convolutional channels and modifications in convolutional layers, aim to mitigate computational costs but may still result in a minimal decrease in performance.",
+      "future_work": "- Leveraging SE blocks for network pruning could be explored as a method for model compression, capitalizing on the feature importance values these blocks generate.\n- The insights gained from SE blocks about channel-wise feature dependencies could be applied to enhance discriminative capabilities in other tasks that require strong feature extraction.\n- Further optimization of training systems and large-scale experiments on different datasets, such as CIFAR, could identify additional benefits and applications of SE blocks.",
+      "extraction_time": 35.543649196624756,
+      "metadata": {
+        "paper_id": "P064",
+        "title": "Squeeze-and-Excitation Networks",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P065",
+      "problem": "现有研究在教育中的聊天机器人使用上忽略了乐观性、创新性、不适感、不安全感、透明度、伦理、互动、参与度和准确性等行为相关的关键方面，本文通过利用PLS-SEM模型研究这些因素如何影响学生对聊天机器人的接受度，以解决这一文献空白。",
+      "method": "- 方法1: 使用部分最小二乘结构方程建模 (PLS-SEM) 进行分析,以解决关于教育中聊天机器人的行为接受度的研究缺口。通过整合行为、心理因素和技术准备度的分析,提供一个深入的理解框架。\n\n- 方法2: 将技术准备指数 (TRI) 和技术接受模型 (TAM) 结合在这项研究中,以系统地分析学生对教育聊天机器人的采用。该研究强调对技术接受、准备度和用户认知的多维测量。\n\n- 方法3: 通过设立多个假设和使用Likert量表进行数据收集与分析,深入研究影响聊天机器人接受度的关键行为和心理因素。这种收集和分析方法系统化地评估接受度的关键因素。",
+      "limitation": "- The method may still struggle with handling very high-dimensional data, as the dimensionality increases, leading to computational inefficiency.\n- There is a potential limitation in capturing the non-linear relationships between latent variables, which could affect the model's prediction accuracy in certain contexts.\n- The approach may require a large sample size to ensure stability in estimates, which could be difficult in practical applications with limited data availability.",
+      "future_work": "- Future research could explore chatbots' use by conducting qualitative interviews to assess user behavior, addressing limitations of cross-sectional surveys and self-reported measures.\n- Enlarging sample sizes in future studies could help in solidifying conclusions and comparing findings with other analytical methods like artificial neural networks.\n- Research could focus on addressing users' discomfort and insecurity towards interactive AI to improve user engagement and acceptance, while optimizing chatbot design considering user concerns about transparency and ethics.",
+      "extraction_time": 30.535247087478638,
+      "metadata": {
+        "paper_id": "P065",
+        "title": "Partial Least Squares Structural Equation Modeling",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P066",
+      "problem": "The paper addresses the confusion and conflation among different ontological approaches to quantum mechanics, specifically clarifying distinctions and relations between Bohm and Bell's views, the Primitive Ontology perspective, and Esfeld and Deckert's proposal. It aims to enhance the understanding of these frameworks by detailing their differences and similarities to improve the explanatory power and metaphysical clarity of quantum theories.",
+      "method": "Method:\n- 通过分析量子力学的不同哲学框架，提升其理论解释力，实现科学实在论。包括研究波-粒二象性和本地性问题，以更深入理解物质的结构行为。\n- 识别并区分现有哲学方案之间的关系和差异，以清晰化量子理论的本体论基础。特别专注于处理不可定性系统和非局域交互，以建立科学世界观的标准框架。",
+      "limitation": "Starting from Bohm's infinitism and Bell's theory of local beables, we arrived to the PO programme and its most recent development, i.e. Esfeld and Deckert's minimalist ontology. Although the initial steps of this journey are in open contradiction w.r.t. In particular, we saw that Bell's methodological approach shows important similarities with Bohm's ideas, sharing the belief about the provisional character of physical theories and a pluralist attitude towards their ontology. Then the PO progra...",
+      "future_work": "- Clarify and differentiate the various ontological frameworks within the PO community, emphasizing the distinctions between Bell's, Bohm's, and Esfeld and Deckert's views to reduce ongoing confusion in the literature.\n- Investigate the subtle dissimilarities and radical differences between Esfeld and Deckert's minimalist ontology and the tenets of the PO programme, focusing on how these different metaphysical principles lead to contrasting pictures of reality.\n- Explore beyond the PO programme by examining the implications of minimalism and fundamental ontology, possibly suggesting new pathways for theoretical development in the context of contemporary metaphysical debates.",
+      "extraction_time": 34.158875465393066,
+      "metadata": {
+        "paper_id": "P066",
+        "title": "Our Primitive Contemporaries",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P067",
+      "problem": "现有系统综述筛选方法速度和准确度不足，无法满足需求。为了克服工具独立开发、缺乏互操作性、费用高昂及技术要求过高的问题，Rayyan应用通过半自动化筛选加快流程，同时保持用户友好的体验。",
+      "method": "- 提供一个半自动化的web和移动应用Rayyan，加速系统综述的初步筛选过程。\n- 实现高效的用户体验和预测功能，以提高筛选的速度和准确性。\n- 利用用户反馈和现场修改进行实时改进，增强应用的实用性和监管效率。\n- 支持用户协作，包括冲突解决和共识构建机制。\n- 提供多设备访问功能，确保应用的多平台可用性。\n- 采用机器学习算法，辅助预测纳入和排除决策，提高综述过程的效率。",
+      "limitation": "- Rayyan would benefit from improvements in handling duplicates, which is necessary for a more streamlined and accurate review process.\n- The app lacks automatic data extraction from full text, which can limit the efficiency of data collection for systematic reviews.\n- There is a need for better integration with Review Manager (RevMan), which is crucial for users conducting Cochrane reviews to maintain consistency and reliability in their work.",
+      "future_work": "- Future work could focus on improving the handling of duplicates within Rayyan, ensuring more accurate and efficient management of repeated entries in systematic reviews.\n- Development of automatic data extraction from full texts and automatic risk of bias analysis could be prioritized to enhance the app's functionality and save even more time for users.\n- Integration of Rayyan with Review Manager (RevMan), the Cochrane software, could be pursued to streamline the preparation and maintenance of Cochrane reviews, improving user experience in scholarly systematic reviews.",
+      "extraction_time": 31.38931155204773,
+      "metadata": {
+        "paper_id": "P067",
+        "title": "Rayyan—a web and mobile app for systematic reviews",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P068",
+      "problem": "现有的卷积神经网络架构在处理视觉任务时，缺乏有效的轻量级注意力机制以提升特征表达和性能。核心问题是通过卷积块注意力模块（CBAM），在通道和空间维度上应用注意力机制，增强CNN表现。",
+      "method": "- **Convolutional Block Attention Module (CBAM)**: A lightweight module that enhances CNN feature representation by sequentially inferring attention maps along channel and spatial dimensions.\n- **Sequential Attention Mechanism**: Comprises Channel and Spatial attention sub-modules, optimizing feature channels and spatial regions adaptively.\n- **Adaptive Feature Refinement**: Combines attention maps with input features for fine-tuning, enhancing representation effectively for better classification and detection.\n- **Integration and Trainability**: Seamlessly integrates into any CNN architecture with minimal computational overhead, trainable end-to-end without additional datasets or pre-training requirements.",
+      "limitation": "- The paper does not explicitly mention the limitations of the CBAM method within the provided section. However, potential limitations might include the scalability of the module to more complex tasks beyond the tested datasets.\n- Despite achieving performance improvements on specific benchmarks, the adaptability of CBAM across a wider range of varied datasets and real-world applications remains to be explored.",
+      "future_work": "- Future work could explore optimizing CBAM further to reduce computational overhead even more while maintaining or improving its performance.\n- There might be potential to integrate CBAM with other types of attention mechanisms or architectures to tackle more complex tasks and datasets, given its performance improvement on existing benchmarks.",
+      "extraction_time": 35.202964544296265,
+      "metadata": {
+        "paper_id": "P068",
+        "title": "CBAM: Convolutional Block Attention Module",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P069",
+      "problem": "识别和捕捉未经平衡的不同病程阶段群体中Aβ阳性状态的挑战需要整合来自结构、功能和扩散MRI的多模态信息，以揭示阿尔茨海默病诱导的脑结构和连接性调制。",
+      "method": "- 方法1: 通过整合结构性、功能性和扩散性MRI数据捕捉Alzheimer's患者的Amyloid-β阳性状态。\n  - 提出了一种多模态数据融合框架，整合sMRI、rs-fMRI和dMRI技术进行Aβ状态分类。\n  - 展示了利用非侵入性MRI数据检测Aβ状态的潜力，提供了一种探索Alzheimer's机制的新方法。\n\n- 方法2: 应用解释性分析评估影像模态间的信息特异性，揭示与Aβ沉积相关的脑结构和功能变化。\n  - 实施了事后XAI分析，使用Guided Backpropagation评估模型特征重要性。\n  - 在脑区中，如楔前叶、海马、丘脑、扣带回、距状回和中额回，通过GBP识别出对模型预测重要的区域。",
+      "limitation": "- The framework is applied to an unbalanced cohort of subjects which may affect the generalizability of the model results across more diverse populations.\n- The multimodal data fusion framework, although promising, remains to be explored further for its effectiveness in varying pathological conditions beyond amyloid-β status.\n- While the regions most important to the final model predictions were identified, the explanation of their specific contribution to predictions across all used modalities remains incomplete.",
+      "future_work": "- Future work could explore the integration of additional neuroimaging modalities beyond MRI to enhance the classification of amyloid-β status and further validate the regions of importance identified by the current model.\n- Addressing the unbalanced cohort of subjects might be a limitation, suggesting further research should focus on collecting and analyzing a more balanced and diverse dataset to ensure model robustness and generalizability.",
+      "extraction_time": 30.00530505180359,
+      "metadata": {
+        "paper_id": "P069",
+        "title": "Neuropathological stageing of Alzheimer-related changes",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P070",
+      "problem": "本论文旨在通过开发模式识别算法而非依赖于暴力计算方法，使围棋程序的技艺水平更接近人类的直观思维。作者利用深度卷积神经网络，训练模型以预测专家动作，捕捉人类专家对局面的复杂模式和决策。",
+      "method": "Method:\n- Train deep convolutional neural networks to predict expert Go players' moves, focusing on pattern recognition.\n- Introduce weight tying to encode symmetries, improving model predictive performance.\n- Implement a reflection preserving technique which boosts accuracy by preventing a 2% drop in results.\n- Utilize a liberty encoding scheme for enhanced performance, as its removal decreases accuracy by 1%.\n- Conduct an ablation study showing combined optimizations increase accuracy by over 3%.\n- Employ a zero step look ahead policy, allowing efficient play without extensive computation time.",
+      "limitation": "- Our method was limited by the size of the networks to keep training time low, which may have impacted the accuracy achievable with more data or larger networks.\n- Only a preliminary exploration of the hyperparameter space was completed, suggesting that better network architectures might exist that could enhance performance.\n- The integration of our deep convolutional neural networks (DCNNs) into a full-fledged Go playing system, such as in parallel with MCTS Go programs to provide high-quality priors, remains an unexplored area with potential for significant improvements.",
+      "future_work": "- Scaling up the network size and using more data could significantly improve accuracy, as current limitations were set to keep training time low.\n- Exploring better network architectures and hyperparameters could further enhance performance, as current evaluation in this area is still preliminary.\n- Integrating deep convolutional neural networks with reinforcement learning and Monte Carlo tree search (MCTS) could create a sophisticated Go playing system capable of surpassing existing computer programs.",
+      "extraction_time": 33.17620897293091,
+      "metadata": {
+        "paper_id": "P070",
+        "title": "Mastering the game of Go with deep neural networks and tree search",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P071",
+      "problem": "本文要解决的问题是如何全面理解NF-κB信号通路在不同细胞和组织中的生物学机制及其在多种生物过程和人类疾病中的作用，并探索针对这一通路的有效治疗方法。",
+      "method": "Method:  \n- 提出对NF-κB信号通路的全面综述，着眼于其在炎症、免疫调节和疾病背景中的广泛角色。  \n- 分析NF-κB信号与关键生物通路(如PI3K/AKT, MAPK)的相互作用，以揭示其在多种疾病中的复杂作用。  \n- 探讨针对NF-κB信号的多种治疗方法，特别强调通过RelB扩展PD-L1/PD-1介导的免疫检查点来促进免疫逃逸的机制。  \n- 考虑使用NF-κB抑制剂改善SLE等疾病的并发症，结合临床上RIG-I过度活化的影响进行综合评估。",
+      "limitation": "- The review acknowledges that while therapies targeting NF-κB signaling represent promising advancements, they are inevitably accompanied by side effects due to NF-κB's involvement in a broad range of biological processes. Therefore, precise drug design and synthesis are imperative to mitigate these adverse effects.\n- The translation of cellular and animal study findings to human applications is challenging due to the diversity of disease spectrum and inter-species variability. Advanced methodologies closer to the human environment are required to improve the applicability and consistency of these studies.\n- Future research is needed to enhance the efficiency of NF-κB targeting therapies while reducing potential adverse effects, aiming for significant breakthroughs in immunotherapy.",
+      "future_work": "- Future research needs to develop more advanced methodologies that closely mimic the human environment, such as spatial multi-omics, single-cell sequencing, organoids, genetically engineered animal models, and 3D bioprinting, to improve the translational application of NF-κB signaling studies.\n- There is a need to enhance the design, synthesis, and delivery efficiency of therapies targeting NF-κB signaling using nanomaterials to minimize side effects and improve therapeutic precision in immunotherapy.\n- The potential for targeting NF-κB signaling to treat long-term latency of CD4+ T cells in AIDS should be explored further, especially by combining NF-κB signaling activators like AZD5582 with HIV-removing drugs.",
+      "extraction_time": 36.732051372528076,
+      "metadata": {
+        "paper_id": "P071",
+        "title": "NF-κB in biology and targeted therapy: new insights and translational implications",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P072",
+      "problem": "本文要解决的问题是如何在拥有215,786张图像的庞大放射学数据库中自动发现视觉一致且临床语义上有意义的类别标签，以克服现有标签收集方法对未经过临床训练者的不适用性和放射科医生之间标注不一致的问题。",
+      "method": "- 方法1: 提出一种循环深度伪任务优化程序(LDPO)，逐步改善伪任务标签和模型以自动发现视觉一致和临床语义的类别集群。\n  - 使用内外循环结构，包括监督的CNN训练和深度特征聚类，利用K-means和Regularized Information Maximization (RIM)等技术优化模型选择。\n  - 在这些循环中伪任务标签继续改善并趋向于逼近真实的潜在图像类别。\n  \n- 方法2: 初始化采用领域特定或通用CNN模型，而后通过深度图像特征聚类和新标签进行CNN训练，以优化标签和特征。\n  - 通过迭代优化促进标签和模型的收敛，提升图像标签质量，无需手工特征工程。\n  \n- 方法3: 基于假设性“收敛”概念，通过优化标签和CNN模型提高图像标签质量。\n  - 自然形成阶层类别关系，并通过CNN分类混淆矩阵计算树状结构。\n  - 进行自动类别发现，验证表明LDPO在未监督分类精度上有显著提升，每次迭代均改善。",
+      "limitation": "- The current LDPO framework does not integrate classification and clustering objectives into a multi-task CNN learning architecture that is end-to-end trainable, indicating a need for further exploration in this area.\n- There is uncertainty regarding the feasibility and performance of implementing the LDPO clustering component using deep generative density models, which suggests potential challenges or limitations in achieving more efficient clustering.",
+      "future_work": "- 作者计划将当前的LDPO聚类组件采用深度生成密度模型进行实现，以评估其可行性和性能。\n- 未来工作可能包括将分类和聚类目标纳入一个多任务CNN学习架构，通过交替优化两个任务/成本层实现端到端训练。",
+      "extraction_time": 44.395689964294434,
+      "metadata": {
+        "paper_id": "P072",
+        "title": "ImageNet: A large-scale hierarchical image database",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P073",
+      "problem": "如何有效地将客观影像数据与主观文本报告结合，以提升阿尔茨海默症的早期诊断效率。通过将脑连接体与临床报告在一个共享的跨模态潜在空间中对齐，利用影像与文本的标记对应关系，增强系统层级上的关联识别，提高诊断准确性。",
+      "method": "Method:\n\n- 提出了一种新框架，将脑连接组与临床报告对齐于共享的跨模态潜在空间，以增强表示学习。\n- 多模态框架包含多模态表示和跨模态对齐两部分，分别对脑连接组和临床报告进行编码，以有效表示每种模态的数据。\n- 利用新颖的跨模态对齐策略捕捉复杂关系，创新地将脑子网络中提取的成像数据标记与临床报告中的词标记进行对齐。\n- 引入可学习的类别标记，汇聚脑子网络信息至连接组层面表示，提升表示学习和诊断准确性。\n- 实现脑连接组与临床报告整合，提高系统级的神经影像与临床观察关联揭示及MCI预测性能。",
+      "limitation": "- Our method for AD diagnosis relies primarily on DTI-formed brain networks and text information, which may limit its applicability and generalization due to the absence of additional imaging data.\n- The current approach lacks integration of other imaging modalities, which remains to be explored in future research to achieve a more comprehensive and generalizable brain presentation.",
+      "future_work": "- The authors plan to explore additional imaging modalities beyond DTI to achieve a more comprehensive and generalizable representation of the brain, which could improve the accuracy and applicability of AI-assisted diagnosis in neurodegenerative research.\n- There is an implicit need to integrate clinical report analysis with a wider range of imaging data to potentially uncover more detailed neurodegenerative disease patterns.",
+      "extraction_time": 34.71983885765076,
+      "metadata": {
+        "paper_id": "P073",
+        "title": "Clinical diagnosis of Alzheimer's disease",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P074",
+      "problem": "本文解决的问题是适应视觉领域中视觉实体尺度的巨大变化和图像像素的高分辨率差异，这对于从语言到视觉领域迁移Transformer模型构成挑战，包括现有模型的固定尺度token和自注意力计算复杂性不适合视觉任务。",
+      "method": "Method:\n\n- Proposes a hierarchical Transformer using a shifted window approach for efficient representation computation, supporting cross-window connections.\n- The shifted window mechanism confines self-attention within non-overlapping local windows, improving efficiency and minimizing latency through shared key sets within windows.\n- Enables linear computational complexity by computing self-attention in fixed-sized windows, ideal for dense prediction tasks and compatible with FPN or U-Net for hierarchical feature maps.\n- Demonstrates superior performance across various vision tasks, establishing Swin Transformer as a versatile backbone model for image classification, object detection, and semantic segmentation.",
+      "limitation": "- The application of the shifted window-based self-attention in tasks outside of vision, such as natural language processing, remains to be explored.\n- The current architecture assumes a fixed input image size of 224×224, which may limit its flexibility in processing images of varying sizes.",
+      "future_work": "- Investigate the application of shifted window based self-attention from vision problems to natural language processing to determine its effectiveness and efficiency in NLP tasks.\n- Explore alternative architecture specifications, such as varying input image sizes or experimenting with different concatenation and downsampling rates, to optimize performance on vision tasks.\n- Consider further experimentation or refinement of image classification techniques on ImageNet-1K using the Swin Transformer.",
+      "extraction_time": 41.218364000320435,
+      "metadata": {
+        "paper_id": "P074",
+        "title": "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P075",
+      "problem": "在许多领域中，由于数据获取和标注的高昂成本，难以构建大规模的优质标注数据集，限制了深度学习的发展，尤其是在生物信息学和机器人学等领域。因此，本文旨在通过转移学习来解决训练数据不足的问题。",
+      "method": "Method:\n- Address the challenge of insufficient training data by utilizing deep neural network-based transfer learning.\n- Incorporate adversarial technology in transfer learning to enhance domain adaptation, using a domain adaptation regularization term in the loss function.\n- Deploy adversarial training strategies by augmenting feed-forward neural models with additional layers and a gradient reversal layer for robust domain adaptation.\n- Systematically review and classify deep transfer learning techniques and their practical applications in various domains.",
+      "limitation": "- Our method struggles with transferring knowledge in unsupervised and semi-supervised learning contexts, which remains less explored compared to supervised learning approaches.\n- The challenges of negative transfer and transferability measures persist in our approach and require further research to understand their impact on deep transfer learning.\n- Our survey highlights the need for stronger physical support for transfer knowledge within deep neural networks, necessitating interdisciplinary collaboration to address this limitation effectively.",
+      "future_work": "- Future work should focus on deep transfer learning in unsupervised or semi-supervised settings, as most current research is predominantly centered around supervised learning.\n- Further exploration of negative transfer and transferability measures in the context of deep transfer learning is needed, as these are significant issues in traditional transfer learning.\n- Developing a stronger physical basis for transferring knowledge within deep neural networks is a promising area, necessitating collaboration between physicists, neuroscientists, and computer scientists.",
+      "extraction_time": 33.754538774490356,
+      "metadata": {
+        "paper_id": "P075",
+        "title": "A Survey on Transfer Learning",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P076",
+      "problem": "本文旨在提高皮肤癌诊断的准确性，使深度学习模型在多类别皮肤癌分类中达到或超越专业皮肤科医生的水平。当前诊断黑色素瘤的敏感性不足，并且存在数据集多样性不足的问题，这对于公共健康尤其在缺乏高级皮肤科医生的地区至关重要。",
+      "method": "- 使用多种预训练卷积神经网络架构(如DenseNet 201和ResNet 152)来分类皮肤癌图像，并比较其与专业皮肤科医生的诊断表现。\n- 将DenseNet 201的顶层替换为全局平均池化层和softmax层,并在Google's Inception v3中增加平均池化层、两个全连接层和softmax层以微调网络。\n- 针对8个主要诊断类别进行多类分类，特别专注于黑色素瘤和基底细胞癌的分类准确性，以提升分类多样性和诊断准确性。\n- 强调深度学习可用于创建低成本通用应用，以改善早期皮肤癌视觉筛查的可及性。",
+      "limitation": "- The dataset used in the study is highly unbalanced, which could limit the model's accuracy and generalizability across different categories.\n- The lack of preprocessing steps applied to the images in the study may affect the model's performance under varied real-world conditions.\n- The study suggests that incorporating metadata from each image might enhance the model's accuracy, which indicates a current limitation in using solely image data for classification.",
+      "future_work": "- Future work should focus on expanding the dataset to include more diverse categories and ages, and ensuring balanced samples per class to enhance model performance.\n- Incorporating image metadata in model training could improve diagnostic accuracy and provide additional context to the deep neural networks.\n- The study suggests implementing these deep learning models into dermoscopy systems or smartphones to aid dermatologists in clinical settings.",
+      "extraction_time": 38.182740449905396,
+      "metadata": {
+        "paper_id": "P076",
+        "title": "Dermatologist-level classification of skin cancer with deep neural networks",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P077",
+      "problem": "问题: 本研究旨在探讨轻度认知障碍（MCI）如何改变功能性脑网络的拓扑结构，尤其关注这些网络中枢的重要性在不同脑区的变化。通过使用磁生理学（MEG）技术和复杂网络理论分析，这些变化被量化为使脑网络变得更加随机和均匀。",
+      "method": "Problem: 使用磁力脑图(MEG)研究轻度认知障碍(MCI)如何影响脑网络结构，尤其是中心节点的功能性变化。\n\nMethod:\n- 采用MEG记录MCI患者的功能性脑网络活动，计算节点之间的同步可能性(SL)。\n- 生成对称加权相关矩阵并应用复杂网络理论进行分析，使用归一化技术评估网络架构变化。\n- 运用特征向量中心性识别和量化网络中心节点的重要性，揭示MCI导致的网络随机化效应。\n- 比较MCI患者与健康个体在短期记忆任务中的网络耦合性，以分析脑网络中枢的扭曲及其对整体网络影响。",
+      "limitation": "- Our method primarily relies on eigenvector centrality as a global measure, which may overlook the detailed local dynamics that could also provide valuable insights into hub alterations due to MCI.\n- Despite the focus on hub centrality, the study does not sufficiently address how the interplay between different hubs might change or adapt as a consequence of MCI, potentially missing a broader understanding of network dynamics.\n- The current analysis does not explore the potential impact of other neurological factors or comorbid conditions that could affect the functional brain network, thereby limiting the generalizability of the findings to broader MCI populations.",
+      "future_work": "- Future studies could analyze the effect of neural plasticity on network synchronization and connectivity in MCI patients, which was not addressed in the current research.\n- Additional research is needed to investigate the implications of hub deterioration across different neurodegenerative diseases, utilizing similar methodologies to assess changes in network robustness and structure.\n- Exploring the anatomical correlates of changes in hub centrality in MCI compared to other conditions, such as schizophrenia, may provide insights into differential patterns of brain network reorganization due to various pathologies.",
+      "extraction_time": 44.283138036727905,
+      "metadata": {
+        "paper_id": "P077",
+        "title": "Mild Cognitive Impairment",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P078",
+      "problem": "本文要解决的核心问题是：探索大型语言模型(LLMs)是否能作为代码执行预测的替代模型，从而高效预测程序行为而无需实际运行程序。为此，研究引入SURGE基准，分析LLMs在多语言编程任务、复杂算法、漏洞代码分析和数学证明验证等领域的表现。",
+      "method": "- 提出SURGE基准，专门用于评估LLMs作为代码执行预测的替代模型的能力。\n  - 包括广泛的编程任务和代码分析挑战，以测试LLMs的整体执行能力。\n  \n- 提供一个包含1160个问题的综合框架，涵盖多语言、竞赛级别问题、仓库级别分析等多个方面。\n  - 使用迭代重构来优化多语言、竞赛级别和有缺陷代码组件，结合LLM和人工检查。\n  - 从公共和自定义代码仓库中抽样测试用例构建仓库级别组件。\n  \n- 系统分析LLMs在缩放定律、数据效率和预测准确性方面的表现，以验证其作为计算过程替代的可行性。\n  - 实施一种强而有力的双重策略来保证数据清洁，防止数据污染和泄漏。\n  \n- Benchmark构建涉及多种方法，如代码手工实现用于科学计算、复杂度算法和领域特定组件。\n  - 推理和验证流程应用于正式数学证明，利用数学验证工具并进行编译器验证。\n  \n- 系统地评估任务难度级别，研究不同难度对替代模型性能的影响，分类为五个难度级别。",
+      "limitation": "- Our method struggles with edge cases, intricate runtime behaviors, and execution-dependent state changes due to LLMs being approximators rather than exact code executors.\n- The framework does not encompass all specialized environments, such as hardware-dependent simulations or realtime systems.\n- The model may generate plausible but incorrect outputs in complex logical dependencies or undefined behaviors, making error detection difficult.\n- Scaling studies are limited by computational resources, restricting assessment of extremely large models or extensive training data distributions.\n- Security risks exist as LLMs may fail to recognize vulnerabilities, potentially misjudging harmful code.",
+      "future_work": "- Future work could involve enhancing the grounding of large language models (LLMs) to improve their ability to function as general-purpose surrogate models for a wider range of applications.\n- Further research may focus on addressing the limitations identified in current LLM capabilities, with an emphasis on more effective and holistic benchmarking methods like SURGE to ensure comprehensive evaluation and development.",
+      "extraction_time": 43.31159996986389,
+      "metadata": {
+        "paper_id": "P078",
+        "title": "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    },
+    {
+      "paper_id": "P079",
+      "problem": "如何有效地计算深度神经网络训练中的损失函数梯度，并将其表示为通过使用雅可比矩阵进行矩阵乘法，从而使梯度计算过程清晰适用于多个输入和输出，并不受网络层数量显著影响。",
+      "method": "Method:\n- 表示将损失函数的梯度表达为雅可比矩阵的乘积，使得梯度计算能够有效处理多层网络。\n- 使用链式法则和雅可比矩阵来处理向量值函数的组合，实现多输入输出的有效梯度计算。\n- 利用矩阵乘法算法，通过雅可比矩阵表示反向传播算法，并应用于单层、双层和三层网络的梯度计算。\n- 提供方法帮助研究压缩完全梯度的DNN和稀疏优化的应用，尤其在迭代硬阈值算法(IHT)相关研究中。",
+      "limitation": "- The method's ability to calculate gradients for loss functions in various neural network architectures such as residual, recurrent, LSTM, and Transformer networks remains unexplored, indicating a limitation in its current application scope.\n- There is an intention to explore the Jacobian of batch normalization, suggesting that the method currently does not fully address this aspect, which may limit its comprehensive utility in certain neural network configurations.",
+      "future_work": "- 研究人员计划研究残差网络、循环神经网络、长短时记忆网络和Transformer网络中的损失函数梯度计算。\n- 未来工作将包括探索批量归一化的Jacobian，以进一步理解该方法。",
+      "extraction_time": 33.24411082267761,
+      "metadata": {
+        "paper_id": "P079",
+        "title": "The Backpropagation Algorithm",
+        "method": "ablation_no_critic",
+        "use_dual_stream": true,
+        "iterations": 1
+      }
+    }
+  ]
+}

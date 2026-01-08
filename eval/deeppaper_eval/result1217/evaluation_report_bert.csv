@@ -1,0 +1,5 @@
+Method,ROUGE-1,ROUGE-2,ROUGE-L,BLEU,Num Papers,BERTScore,problem_rouge1,method_rouge1,limitation_rouge1,future_work_rouge1
+newmethod_deeppaper2,0.4126,0.1608,0.2549,0.0673,79,0.8463,0.2802,0.4008,0.4483,0.5210
+naive_llm_gpt-4o-2024-11-20,0.3676,0.1084,0.2201,0.0344,79,0.8182,0.4619,0.4230,0.2772,0.3083
+pure_rag,0.2504,0.0410,0.1448,0.0112,79,0.8075,0.2601,0.2489,0.2400,0.2527
+llm_rag,0.0205,0.0031,0.0190,0.0000,79,0.5769,0.0183,0.0374,0.0049,0.0215
