@@ -1,0 +1,742 @@
+[
+  {
+    "idea_text": "Background: Improving the accuracy and adaptability of speech recognition systems requires deeper integration of large language models (LLMs) within the recognition pipeline, while also maintaining computational efficiency, especially for real-time and multilingual contexts. Current approaches often treat model invocation and fusion decisions statically, leading to suboptimal resource allocation and limited contextual adaptation. Gap: There is a lack of principled frameworks to dynamically decide when and how to incorporate LLMs during inference to optimize both accuracy and efficiency. Proposed Method: We propose reframing the speech recognition pipeline as a sequential optimal stopping problem, where a neural network variant of the Longstaff-Schwartz algorithm learns continuation values that estimate future benefits of invoking LLMs or updating hypotheses. This learned optimal stopping policy enables dynamic model integration, balancing recognition accuracy and computational cost. By constructing upper and lower confidence bounds on predicted recognition quality, the method adaptively manages real-time inference and multilingual adaptation under resource constraints. Expected Result: This approach is expected to yield improved recognition accuracy through smarter contextual integration of LLMs, reduced computational overhead by avoiding unnecessary model calls, and better handling of diverse language conditions. Core Innovation: The core innovation is the novel application of neural continuation value approximations from optimal stopping theory to govern dynamic, resource-aware integration of large language models within speech recognition pipelines.",
+    "all_results": [
+      {
+        "paper_id": "DnfPX10Etk",
+        "paper_title": "JOOCI: A FRAMEWORK FOR LEARNING COMPREHENSIVE SPEECH REPRESENTATIONS",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 1,
+        "application_similarity": 4,
+        "reason": "Idea A focuses on dynamic integration of large language models to improve real-time and multilingual speech recognition, utilizing an optimal stopping framework. Idea B aims to improve speech representation by independently modeling content and non-content information, using separate parameters, focusing on optimizing speech embeddings. The problems addressed are different; one is about dynamic LLM integration for efficiency, the other about optimizing speech content representation. The methods/rationale also differ significantly: optimal stopping theory versus separating information streams. The application similarity is slightly higher since both deal with speech processing, but with different goals and methodologies.",
+        "is_match": false
+      },
+      {
+        "paper_id": "QQoWeCscSH",
+        "paper_title": "Unlocking Speech Instruction Data Potential with Query Rewriting",
+        "paper_year": "2025",
+        "match_score": 5,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 6,
+        "reason": "Both ideas address the integration of language models in speech applications, focusing on optimizing efficiency and accuracy. However, A specifically targets speech recognition system integration through optimal stopping theory, while B focuses on constructing speech instruction datasets using synthesis and multi-LLM fusion. A involves dynamic model invocation decisions for multilingual contexts, whereas B primarily concentrates on enhancing dataset quality for speech instruction. The methodologies differ significantly in their approach, with A using neural continuation values and B employing query rewriting for dataset improvement, leading to moderate overall similarity.",
+        "is_match": false
+      },
+      {
+        "paper_id": "5oaUMZEjWe",
+        "paper_title": "Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on dynamically integrating large language models into speech recognition pipelines to optimize accuracy and efficiency, treating this as a sequential optimal stopping problem. On the other hand, Idea B presents a unified model for multi-speaker processing tasks such as diarization and ASR using a shared encoder. While both involve improving speech recognition accuracy, Idea A is about integration efficiency with LLMs, whereas Idea B revolves around unified task learning in multi-speaker scenarios. The methods differ significantly in terms of technical implementation, and the application contexts diverge, with Idea A being more about optimizing computational resource utilization in multilingual contexts and Idea B addressing multi-speaker task unification.",
+        "is_match": false
+      },
+      {
+        "paper_id": "UU9Icwbhin",
+        "paper_title": "Retentive Network: A Successor to Transformer for Large Language Models",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on optimizing speech recognition systems through dynamic integration of large language models using optimal stopping theory, while Idea B introduces a novel architectural approach (Retentive Network) for improving large language model training and inference. The problems addressed (accuracy/effectiveness of speech recognition vs. efficiency/performance of LLMs), methods (optimal stopping vs. retention mechanism), and goals (real-time speech recognition vs. scalable LLM architecture) are distinct, leading to low scores in all aspects.",
+        "is_match": false
+      },
+      {
+        "paper_id": "bfRDhzG3vn",
+        "paper_title": "Continual Contrastive Spoken Language Understanding",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "Idea A addresses the integration of large language models into speech recognition pipelines to optimize accuracy and efficiency, posing it as an optimal stopping problem. Idea B focuses on class-incremental learning in spoken language understanding using contrastive learning techniques. While both relate to speech processing and involve neural networks, they tackle fundamentally different issues: dynamic LLM integration vs. continual learning. The methods and technical approaches are also distinct, with Idea A utilizing optimal stopping theory and Idea B employing contrastive learning. Thus, there's minimal overlap in problem, method, and application.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "QQoWeCscSH",
+      "paper_title": "Unlocking Speech Instruction Data Potential with Query Rewriting",
+      "paper_year": "2025",
+      "match_score": 5,
+      "problem_consistency": 5,
+      "method_similarity": 4,
+      "application_similarity": 6,
+      "reason": "Both ideas address the integration of language models in speech applications, focusing on optimizing efficiency and accuracy. However, A specifically targets speech recognition system integration through optimal stopping theory, while B focuses on constructing speech instruction datasets using synthesis and multi-LLM fusion. A involves dynamic model invocation decisions for multilingual contexts, whereas B primarily concentrates on enhancing dataset quality for speech instruction. The methodologies differ significantly in their approach, with A using neural continuation values and B employing query rewriting for dataset improvement, leading to moderate overall similarity.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 5,
+    "idea_id": "idea_001"
+  },
+  {
+    "idea_text": "Background: Integrating large language models (LLMs) deeply into automatic speech recognition (ASR) pipelines promises enhanced recognition accuracy and adaptability across diverse linguistic contexts. However, challenges remain in optimizing model architectures to reduce computational costs and extend capabilities to multilingual and low-resource scenarios. Gap: Current optimization strategies for LLM-based ASR lack effective frameworks to balance accuracy, resource efficiency, and adaptability, especially under real-time constraints. Proposed Method: We propose a novel metaheuristic-driven optimization framework, inspired by heuristic AI methods in network attack detection, to systematically refine feature selection, dimensionality reduction, and hyperparameter configurations within LLM-ASR architectures. By adapting a proven evaluation and optimization paradigm from cybersecurity AI research, our method targets improved model efficiency and linguistic generalization. Expected Result: This approach is expected to yield LLM-integrated ASR systems with superior recognition accuracy, reduced computational overhead, and robust performance across multiple languages, facilitating practical real-time deployment in complex environments. Core Innovation: Bridging metaheuristic optimization and adaptive evaluation methodologies from AI cybersecurity to the domain of LLM-enhanced speech recognition, enabling efficient and effective model tuning for multilingual real-time applications.",
+    "all_results": [
+      {
+        "paper_id": "RcmJ9NpqeA",
+        "paper_title": "White-Basilisk: A Hybrid Model for Code Vulnerability Detection",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on optimizing LLM-based ASR for linguistic adaptability and reducing computational costs, mainly targeting multilingual speech recognition. Idea B addresses cybersecurity vulnerabilities using innovative AI architectures, specifically in code security. While both ideas involve optimization in AI models, their problem domains differ (speech recognition vs. cybersecurity). The methods show some similarity in optimization and efficiency aspirations, but the techniques and goals are distinct, with different applications and contexts.",
+        "is_match": false
+      },
+      {
+        "paper_id": "DVmn8GyjeD",
+        "paper_title": "AutoRedTeamer: An Autonomous Red Teaming Agent Against Language Models",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on optimizing large language models for automatic speech recognition with a metaheuristic-driven framework to improve multilingual efficiency and real-time performance. Idea B centers on automated security evaluations of large language models with a focus on attack detection flexibility and efficiency. The problems each idea aims to solve are distinct, with Idea A targeting ASR optimization and Idea B focusing on security vulnerabilities and red teaming. The core methods in approach and use of heuristics differ notably, applied to diverse problem contexts. Lastly, the application scenarios are different: ASR model tuning versus LLM security assessment.",
+        "is_match": false
+      },
+      {
+        "paper_id": "0VZP2Dr9KX",
+        "paper_title": "Baseline Defenses for Adversarial Attacks Against Aligned Language Models",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on optimizing LLM-based ASR systems for multilingual real-time applications using metaheuristic optimization methods from AI cybersecurity. Idea B addresses security vulnerabilities of LLMs using adversarial machine learning techniques to improve defense strategies against attacks. The problems, methods, and applications are distinct, with Idea A concentrating on speech recognition efficiency, while Idea B centers on security vulnerabilities and defenses in LLMs.",
+        "is_match": false
+      },
+      {
+        "paper_id": "E9GakjQype",
+        "paper_title": "AdvPrompter: Fast Adaptive Adversarial Prompting for LLMs",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on optimizing Large Language Models within Automatic Speech Recognition systems for multilingual applications, while Idea B deals with generating adversarial prompts to reveal vulnerabilities in LLMs. The problems they address, their methods, and application scenarios are largely different. Idea A is about model efficiency and adaptability in multilingual ASR, whereas Idea B is about generating adversarial prompts for security testing of LLMs.",
+        "is_match": false
+      },
+      {
+        "paper_id": "3dH2aqKGzZe",
+        "paper_title": "S$^6$-DAMON: Bridging Self-Supervised Speech Models and Real-time Speech Recognition",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 5,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "While both ideas aim to improve ASR performance under resource constraints and involve optimization of neural architectures, they focus on different aspects: Idea A focuses on bridging metaheuristic optimization from cybersecurity to enhance multilingual LLM-ASR systems, whereas Idea B targets structured sparsity and data-model co-compression for DNN-based on-device ASR systems. The core methods and detailed approaches, as well as the specific application focus (multilingual vs. low-resource languages on mobile devices), are notably different.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "RcmJ9NpqeA",
+      "paper_title": "White-Basilisk: A Hybrid Model for Code Vulnerability Detection",
+      "paper_year": "2025",
+      "match_score": 3,
+      "problem_consistency": 3,
+      "method_similarity": 4,
+      "application_similarity": 2,
+      "reason": "Idea A focuses on optimizing LLM-based ASR for linguistic adaptability and reducing computational costs, mainly targeting multilingual speech recognition. Idea B addresses cybersecurity vulnerabilities using innovative AI architectures, specifically in code security. While both ideas involve optimization in AI models, their problem domains differ (speech recognition vs. cybersecurity). The methods show some similarity in optimization and efficiency aspirations, but the techniques and goals are distinct, with different applications and contexts.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 3,
+    "idea_id": "idea_002"
+  },
+  {
+    "idea_text": "Background: Current speech recognition systems struggle to deeply integrate large language models for improved accuracy and contextual adaptability, especially under multi-lingual and low-resource conditions, while maintaining computational efficiency for real-time applications. Gap: Existing LSTM-RNN models designed for lyrics generation excel in capturing long-term dependencies in text but lack direct applicability to speech recognition pipelines that require joint acoustic and linguistic modeling, efficiency optimization, and multilingual adaptation. Proposed Method: We propose transforming the LSTM-RNN lyric generation architecture into a hybrid acoustic-language sequence model. This involves integrating acoustic feature inputs, employing multi-task learning to jointly optimize acoustic and language representations, and incorporating efficiency-driven training strategies alongside multi-lingual and low-resource data augmentation techniques. Expected Result: The proposed model aims to enhance recognition accuracy and adaptability across diverse contexts and languages, reduce computational resource consumption, and support real-time speech recognition deployment. Core Innovation: Integrating LSTM-RNN sequence modeling with multi-task acoustic and language learning for efficient, adaptable multi-lingual speech recognition.",
+    "all_results": [
+      {
+        "paper_id": "oBmaLuEJda",
+        "paper_title": "BMLM: Bidirectional Large Language Model for  Multi-Task Spoken Language Understanding: Better and Faster",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on improving speech recognition systems by integrating LSTM-RNN with language and acoustic modeling, targeting multi-lingual and low-resource conditions. Idea B, however, addresses challenges in natural language understanding tasks using a bidirectional LLM for spoken language understanding. The problems they aim to solve are quite distinct, with A focusing on speech recognition and B on language understanding. While both involve language models, the technological approaches and application goals are different. Therefore, the overall match is low.",
+        "is_match": false
+      },
+      {
+        "paper_id": "DnfPX10Etk",
+        "paper_title": "JOOCI: A FRAMEWORK FOR LEARNING COMPREHENSIVE SPEECH REPRESENTATIONS",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on integrating LSTM-RNN models for speech recognition across multiple languages and low-resource environments, emphasizing efficiency and adaptability. Idea B addresses optimizing speech representation by separating 'other' and 'content' information using distinct parameters to improve feature learning. While both address challenges in speech processing and recognition, their primary problems and methodological approaches differ significantly. Idea A uses a hybrid acoustic-language model for multilingual adaptability, whereas Idea B uses a novel optimization approach to handle orthogonal information in speech. The application goals differ, with Idea A aiming at multilingual real-time speech recognition and Idea B improving embedding capacity for benchmarking.",
+        "is_match": false
+      },
+      {
+        "paper_id": "TJNCnkDRkY",
+        "paper_title": "Generative Pre-Trained Speech Language Model with Efficient Hierarchical Transformer",
+        "paper_year": "2024",
+        "match_score": 4,
+        "problem_consistency": 6,
+        "method_similarity": 3,
+        "application_similarity": 4,
+        "reason": "Both ideas address the challenge of improving speech recognition by integrating advanced modeling techniques. However, the specific problems they tackle vary: Idea A focuses on efficient, adaptable multilingual speech recognition using LSTM-RNN for joint acoustic and language learning, while Idea B addresses efficient modeling of long acoustic sequences using a hierarchical transformer for generative pre-training. Methodologically, the approaches differ significantly, with Idea A leveraging LSTM-RNN and Idea B using a hierarchical transformer with discrete speech representations. The application contexts overlap in terms of speech modeling and recognition, but the target outcomes and the approaches to achieve them are distinct, leading to different end goals and expectations in their respective work.",
+        "is_match": false
+      },
+      {
+        "paper_id": "5oaUMZEjWe",
+        "paper_title": "Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder",
+        "paper_year": "2025",
+        "match_score": 5,
+        "problem_consistency": 5,
+        "method_similarity": 6,
+        "application_similarity": 4,
+        "reason": "Idea A focuses specifically on integrating LSTM-RNN sequence modeling with multi-task learning techniques to enhance multi-lingual speech recognition, while Idea B centers on a unified architecture for multiple speech processing tasks, particularly in multi-talker scenarios. Both ideas tackle speech processing with multi-task approaches, but their specific challenges and objectives differ. Idea A targets efficiency in real-time applications with a focus on multi-lingual environments, whereas Idea B emphasizes improved performance in multi-speaker contexts. While both involve joint learning methodologies, the specific technologies and applications differ.",
+        "is_match": false
+      },
+      {
+        "paper_id": "UU9Icwbhin",
+        "paper_title": "Retentive Network: A Successor to Transformer for Large Language Models",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on improving speech recognition by integrating LSTM-RNN models with multi-task acoustic and language learning. It emphasizes multilingual adaptability and efficiency. Idea B, on the other hand, introduces a new RetNet architecture aimed at improving large language models with efficient sequence processing and inference mechanisms. While both ideas involve sequence modeling and efficiency, their problems, methods, and applications vary significantly: speech recognition vs. large language model training and inference.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "5oaUMZEjWe",
+      "paper_title": "Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder",
+      "paper_year": "2025",
+      "match_score": 5,
+      "problem_consistency": 5,
+      "method_similarity": 6,
+      "application_similarity": 4,
+      "reason": "Idea A focuses specifically on integrating LSTM-RNN sequence modeling with multi-task learning techniques to enhance multi-lingual speech recognition, while Idea B centers on a unified architecture for multiple speech processing tasks, particularly in multi-talker scenarios. Both ideas tackle speech processing with multi-task approaches, but their specific challenges and objectives differ. Idea A targets efficiency in real-time applications with a focus on multi-lingual environments, whereas Idea B emphasizes improved performance in multi-speaker contexts. While both involve joint learning methodologies, the specific technologies and applications differ.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 5,
+    "idea_id": "idea_003"
+  },
+  {
+    "idea_text": "Background: Large language models (LLMs) have transformed speech recognition (ASR) by providing rich contextual understanding, but deeply integrating LLMs into ASR pipelines remains challenging due to computational constraints and context variability. Furthermore, multilingual and low-resource speech recognition tasks strain existing methods' adaptability and efficiency. Gap: Traditional supervised and static integration approaches limit the ability to dynamically optimize trade-offs among accuracy, latency, and resource use, particularly under changing acoustic contexts and languages. Proposed Method: We propose an adaptive deep reinforcement learning framework inspired by dynamic hedging strategies in financial markets, repurposed to dynamically control and integrate LLMs and acoustic models within ASR pipelines. By defining states as latent speech and language features and actions as resource allocation and model fusion decisions, the method learns optimal policies that maximize recognition accuracy while minimizing latency and resource consumption across multitask multilingual and low-resource settings. Expected Result: The framework adapts in real time to diverse speech contexts, improves recognition accuracy and robustness, reduces computational overhead, and extends effective use of LLMs to challenging linguistic environments. Core Innovation: Recasting dynamic hedging deep reinforcement learning as an adaptive control mechanism for real-time resource-efficient integration of large language models in speech recognition.",
+    "all_results": [
+      {
+        "paper_id": "zAzzMOaisF",
+        "paper_title": "LLMs for Generalizable Language-Conditioned Policy Learning under Minimal Data Requirements",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 3,
+        "reason": "Idea A and Idea B address different core problems: A focuses on optimizing ASR pipelines with LLMs using reinforcement learning to manage resources and accuracy, while B targets improving autonomous agent decision-making with offline datasets using language-conditioned policy learning. Methodologically, A uses dynamic hedging strategies for real-time integration in ASR, whereas B leverages LLMs for enhancing offline data fidelity and generalization in language-conditioned learning. The applications differ as A aims at speech recognition and B at goal-oriented agent training, leading to distinct objectives and contexts.",
+        "is_match": false
+      },
+      {
+        "paper_id": "DnfPX10Etk",
+        "paper_title": "JOOCI: A FRAMEWORK FOR LEARNING COMPREHENSIVE SPEECH REPRESENTATIONS",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A addresses the challenge of integrating large language models into automatic speech recognition (ASR) systems through an adaptive deep reinforcement learning framework, focusing on real-time resource-efficient operation across multilingual and low-resource settings. Idea B deals with optimizing the representation of speech information, specifically separating 'content' and 'other' aspects using different embeddings to enhance model performance on speech tasks. Although both ideas involve speech recognition, they tackle distinctly different problems: integrating LLMs dynamically versus optimizing speech representation embeddings. The methods are quite different, with Idea A using reinforcement learning-inspired methods and Idea B relying on representation learning strategies. The application scenarios diverge as Idea A focuses on dynamic integration in ASR flows and Idea B on better speech representation for enhanced downstream performance.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Jj8AAlNobk",
+        "paper_title": "A Differentiable Sequence Model Perspective on Policy Gradients",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "The two ideas deal with improving computational models through advanced learning techniques, but they target different domains and problems. Idea A focuses on integrating LLMs into speech recognition systems using adaptive reinforcement learning for better efficiency in multilingual settings. Idea B seeks to enhance policy gradient methods in sequential decision-making by leveraging advances in sequence modeling. Methodologically, both involve the use of learning algorithms (reinforcement learning in A and policy gradients in B), showing some similarity. However, the specific techniques, application scenarios (ASR vs. sequential decision-making), and primary goals are distinct.",
+        "is_match": false
+      },
+      {
+        "paper_id": "cLws58ZojF",
+        "paper_title": "An Exploration of Speech Conditioned Large Language Models (SLMs)",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 3,
+        "application_similarity": 5,
+        "reason": "Both ideas address integrating large language models with speech recognition, but Idea A focuses on adaptive resource-efficient frameworks using reinforcement learning, while Idea B explores design choices for speech-conditioned language models. Problems and applications involve multilingual settings, but methods differ, with Idea A emphasizing dynamic integration and control, whereas Idea B focuses on optimizing speech instruction following using synthetic data.",
+        "is_match": false
+      },
+      {
+        "paper_id": "JVFRwCx3Dy",
+        "paper_title": "What Matters for In-Context Learning: A Balancing Act of Look-up and In-Weight Learning",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 1,
+        "application_similarity": 3,
+        "reason": "The core problems addressed are largely different; Idea A deals with integrating LLMs into ASR pipelines, optimizing resource use in multilingual contexts. Idea B focuses on understanding the mechanisms behind in-context learning in LLMs. The methodological approaches also differ substantially: Idea A uses adaptive deep reinforcement learning, while Idea B investigates conceptual repetitions in data for ICL. Application contexts slightly overlap in using LLMs but differ in objectives: speech recognition integration vs. exploring learning properties in LLMs.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "cLws58ZojF",
+      "paper_title": "An Exploration of Speech Conditioned Large Language Models (SLMs)",
+      "paper_year": "2025",
+      "match_score": 4,
+      "problem_consistency": 5,
+      "method_similarity": 3,
+      "application_similarity": 5,
+      "reason": "Both ideas address integrating large language models with speech recognition, but Idea A focuses on adaptive resource-efficient frameworks using reinforcement learning, while Idea B explores design choices for speech-conditioned language models. Problems and applications involve multilingual settings, but methods differ, with Idea A emphasizing dynamic integration and control, whereas Idea B focuses on optimizing speech instruction following using synthetic data.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_004"
+  },
+  {
+    "idea_text": "Background: Large language models (LLMs) have demonstrated remarkable capabilities in language understanding, yet their integration into speech recognition pipelines remains challenging due to modality differences, computational resource constraints, and multilingual complexities. Gap: Existing pretrained foundation models (PFMs) focus primarily on NLP, vision, and graph data, with limited exploration of speech-specific adaptation necessary for deep integration into real-time speech recognition systems. Proposed Method: Building upon a unified multimodal PFM framework, this work proposes extending the architecture and pretraining objectives to incorporate acoustic features and speech-text alignment tasks. Additionally, model efficiency and compression techniques are tailored to meet real-time processing demands. Expected Result: The extended multimodal PFMs enable improved speech recognition accuracy and adaptability across diverse languages and contexts, while significantly reducing computational overhead, thereby advancing practical deployment of LLM-empowered speech recognition systems. Core Innovation: The key innovation is the introduction of speech-centric adaptations within a unified multimodal pretrained foundation model framework, enabling deep language model integration and efficient real-time speech recognition.",
+    "all_results": [
+      {
+        "paper_id": "TCFtGBTxkq",
+        "paper_title": "Efficient Audiovisual Speech Processing via MUTUD: Multimodal Training and Unimodal Deployment",
+        "paper_year": "2025",
+        "match_score": 5,
+        "problem_consistency": 6,
+        "method_similarity": 5,
+        "application_similarity": 4,
+        "reason": "Both ideas address challenges in integrating modalities for improved speech systems. Idea A focuses on enhancing large language models with speech-centric adaptations for real-time speech recognition, whereas Idea B emphasizes multimodal training and unimodal deployment to handle missing modality issues. The methods differ; Idea A extends multimodal foundational models while Idea B uses multimodal training frameworks with unimodal deployment. Applications are similar in improving speech recognition, but the goals diverge, with Idea A prioritizing efficient integration of language models and Idea B emphasizing modality flexibility and computational savings.",
+        "is_match": false
+      },
+      {
+        "paper_id": "5oaUMZEjWe",
+        "paper_title": "Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 3,
+        "method_similarity": 5,
+        "application_similarity": 4,
+        "reason": "Idea A and Idea B both involve advancements in speech processing technologies but focus on different problems. Idea A aims to integrate large language models into speech recognition systems with a focus on multimodal adaptation and efficiency for real-time processing, while Idea B targets improvements in multi-talker speech processing through a unified multi-speaker encoder architecture. Although both ideas propose unified frameworks, their methodologies and applications diverge, with Idea A emphasizing multimodal adaptations and real-time processing, and Idea B concentrating on joint learning for diarization, separation, and recognition tasks. The application contexts differ as Idea A seeks general speech recognition improvements across languages, whereas Idea B addresses overlapping speech scenarios with specific task-level advancements.",
+        "is_match": false
+      },
+      {
+        "paper_id": "mEACsjW10N",
+        "paper_title": "MIO: A Foundation Model on Multimodal Tokens",
+        "paper_year": "2025",
+        "match_score": 5,
+        "problem_consistency": 6,
+        "method_similarity": 6,
+        "application_similarity": 4,
+        "reason": "While both ideas focus on integrating multimodal capabilities into foundation models, Idea A specifically targets real-time speech recognition using extended PFMs, whereas Idea B focuses on creating a more versatile any-to-any multimodal framework, MIO, that includes but is not limited to speech recognition. The methods both involve expanding multimodal architecture, but Idea B presents a more generalized approach covering diverse modalities. The application scenarios differ slightly; Idea A aims at efficient speech recognition integration while Idea B has broader implications including video-text and instructional image generation.",
+        "is_match": false
+      },
+      {
+        "paper_id": "74IIsh2kM6",
+        "paper_title": "SMILE: Audio-Visual Speech Recognition with Siamese Masked Interaction Learning",
+        "paper_year": "2024",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on integrating large language models into speech recognition systems, specifically addressing modality differences and multilingual complexities through a unified multimodal framework. Idea B, however, focuses on audio-visual speech recognition using the SMILE framework to enhance ASR by incorporating visual cues and ensuring temporal correspondence. While both aim to improve speech recognition, their core innovations differ: Idea A emphasizes speech-centric adaptations for LLM integration, whereas Idea B utilizes audio-visual alignment for enhanced recognition. Application contexts and methods used diverge significantly with Idea A's real-time focused LLM deployment versus Idea B's visual modality integration.",
+        "is_match": false
+      },
+      {
+        "paper_id": "rD6LQagatR",
+        "paper_title": "E5-V: Universal Embeddings with Multimodal Large Language Models",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "The problems addressed by Ideas A and B are related to multimodal integration but differ in their specific focus. Idea A targets the integration of large language models into speech recognition systems with speech-specific adaptations, while Idea B focuses on adapting multimodal large language models for universal embeddings without fine-tuning. The methods differ as Idea A extends existing PFMs to incorporate acoustic features for real-time applications, whereas Idea B develops a framework, E5-V, for using text training to improve multimodal embeddings efficiency. The application scenarios differ, with Idea A addressing real-time speech recognition and Idea B addressing a broader range of multimodal tasks using embeddings.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "TCFtGBTxkq",
+      "paper_title": "Efficient Audiovisual Speech Processing via MUTUD: Multimodal Training and Unimodal Deployment",
+      "paper_year": "2025",
+      "match_score": 5,
+      "problem_consistency": 6,
+      "method_similarity": 5,
+      "application_similarity": 4,
+      "reason": "Both ideas address challenges in integrating modalities for improved speech systems. Idea A focuses on enhancing large language models with speech-centric adaptations for real-time speech recognition, whereas Idea B emphasizes multimodal training and unimodal deployment to handle missing modality issues. The methods differ; Idea A extends multimodal foundational models while Idea B uses multimodal training frameworks with unimodal deployment. Applications are similar in improving speech recognition, but the goals diverge, with Idea A prioritizing efficient integration of language models and Idea B emphasizing modality flexibility and computational savings.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 5,
+    "idea_id": "idea_005"
+  },
+  {
+    "idea_text": "Background: Large language models (LLMs) have exhibited remarkable adaptability in dynamic and complex domains such as cybersecurity, where they improve threat detection and response. However, integrating LLMs deeply into automatic speech recognition (ASR) pipelines to improve recognition accuracy, context adaptation, efficiency, and multilingual capabilities remains challenging. Gap: Existing research lacks methodologies to leverage LLMs' dynamic environment modeling strengths, demonstrated in cybersecurity, for the continuous, real-time, and multilingual complexity inherent in speech recognition tasks. Proposed Method: We propose a novel domain adaptation and training framework that reinterprets LLM contextual dynamic modeling techniques from cybersecurity into the speech domain. By reformulating input representations and optimizing model structures and training strategies, the framework enhances LLM integration into ASR pipelines, addressing real-time efficiency and low-resource multilingual challenges. Expected Result: This approach is expected to substantially improve speech recognition accuracy and adaptability across diverse linguistic contexts while reducing computational overhead, facilitating resource-efficient, real-time multilingual ASR. Core Innovation: A cross-domain adaptation framework that transfers LLM dynamic contextual modeling from cybersecurity to speech recognition to enable efficient, accurate, and multilingual ASR.",
+    "all_results": [
+      {
+        "paper_id": "RcmJ9NpqeA",
+        "paper_title": "White-Basilisk: A Hybrid Model for Code Vulnerability Detection",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A and Idea B address substantially different domains and problems: speech recognition using large language models vs. cybersecurity vulnerability detection. They propose distinct methodologies: Idea A seeks to adapt LLM dynamic contextual modeling from cybersecurity to speech, while Idea B focuses on improving vulnerability detection with a newly designed architecture. The application scenarios are unrelated; Idea A targets ASR systems and multilingual environments, while Idea B is centered on software security and optimizing AI for code analysis. Thus, the core innovations are different, resulting in low similarity scores.",
+        "is_match": false
+      },
+      {
+        "paper_id": "gpKEDj9Dgg",
+        "paper_title": "Optimizing Large Language Models with Automatic Speech Recognition for Medication Corpus in Low-Resource Healthcare Settings.",
+        "paper_year": "2025",
+        "match_score": 5,
+        "problem_consistency": 6,
+        "method_similarity": 6,
+        "application_similarity": 3,
+        "reason": "Idea A and Idea B both focus on integrating LLMs with ASR systems to improve speech recognition accuracy, particularly in challenging environments like low-resource settings. However, the specific problem addressed differs: Idea A emphasizes cross-domain adaptation from cybersecurity to speech, while Idea B targets transcription accuracy in the healthcare domain. Both approaches leverage LLMs in ASR pipelines, but Idea A proposes a novel adaptation framework, whereas Idea B employs existing techniques such as LoRA for rescoring. The application contexts are different, with Idea A aimed at multilingual challenges and Idea B focused specifically on healthcare.",
+        "is_match": false
+      },
+      {
+        "paper_id": "3dH2aqKGzZe",
+        "paper_title": "S$^6$-DAMON: Bridging Self-Supervised Speech Models and Real-time Speech Recognition",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "Both ideas aim to improve the efficiency and adaptability of ASR systems, but they target different domains and challenges. Idea A focuses on adapting LLMs from cybersecurity to enhance multilingual ASR performance, while Idea B deals with optimizing SSL models for on-device ASR by pursuing structured sparsity. The core methods differ significantly: cross-domain adaptation versus data-model co-compression. The application scenario overlaps in multilingual ASR, but their problem and approach divergence leads to a low match score.",
+        "is_match": false
+      },
+      {
+        "paper_id": "QQoWeCscSH",
+        "paper_title": "Unlocking Speech Instruction Data Potential with Query Rewriting",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 3,
+        "application_similarity": 4,
+        "reason": "Idea A and Idea B both seek to improve speech recognition capabilities using large language models, but they have different focuses. Idea A aims to transfer LLM techniques from cybersecurity into ASR to improve multilingual and real-time efficiency, whereas Idea B focuses on creating high-quality speech instruction datasets through LLM-driven speech synthesis, targeting a gap in speech instruction comprehension. Methodologically, Idea A involves domain adaptation, while Idea B proposes multi-LLM knowledge fusion for dataset creation. They share the broader application of enhancing speech understanding capabilities, yet the specific goals and approaches are distinct.",
+        "is_match": false
+      },
+      {
+        "paper_id": "oBmaLuEJda",
+        "paper_title": "BMLM: Bidirectional Large Language Model for  Multi-Task Spoken Language Understanding: Better and Faster",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on improving automatic speech recognition (ASR) by adapting LLM techniques from cybersecurity, while Idea B addresses challenges in natural language understanding (NLU) using bidirectional frameworks for multi-task spoken language understanding. The problems are related but pertain to different aspects of language processing. The methods differ as Idea A proposes a cross-domain adaptation framework, whereas Idea B introduces a bidirectional LLM framework specific to eliminating issues in autoregressive models. Application and goals are somewhat similar as both deal with language models, but in distinct domains and desired outcomes.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "gpKEDj9Dgg",
+      "paper_title": "Optimizing Large Language Models with Automatic Speech Recognition for Medication Corpus in Low-Resource Healthcare Settings.",
+      "paper_year": "2025",
+      "match_score": 5,
+      "problem_consistency": 6,
+      "method_similarity": 6,
+      "application_similarity": 3,
+      "reason": "Idea A and Idea B both focus on integrating LLMs with ASR systems to improve speech recognition accuracy, particularly in challenging environments like low-resource settings. However, the specific problem addressed differs: Idea A emphasizes cross-domain adaptation from cybersecurity to speech, while Idea B targets transcription accuracy in the healthcare domain. Both approaches leverage LLMs in ASR pipelines, but Idea A proposes a novel adaptation framework, whereas Idea B employs existing techniques such as LoRA for rescoring. The application contexts are different, with Idea A aimed at multilingual challenges and Idea B focused specifically on healthcare.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 5,
+    "idea_id": "idea_006"
+  },
+  {
+    "idea_text": "Background: Current speech recognition systems face challenges in integrating large language models deeply to enhance accuracy, contextual adaptability, efficiency, and performance in multilingual and low-resource settings. Existing approaches predominantly treat speech and text separately or rely heavily on text-derived supervision.\nGap: There is a lack of unified modeling frameworks that ground language understanding in natural spoken forms, while optimizing computational efficiency and multilingual robustness for real-time applications.\nProposed Method: We propose an adaptive, unified Transformer-based oral-centric model that integrates speech and text processing into a single architecture. The model draws inspiration from human language acquisition by focusing on spoken modalities and employs efficient attention mechanisms to reduce computational overhead. Furthermore, it incorporates multilingual and low-resource learning strategies to ensure broad applicability. The model supports end-to-end training with large language models tightly coupled to speech representations.\nExpected Result: This approach is expected to improve recognition accuracy, enhance adaptability across contexts and languages, reduce computational resource demands, and bring speech recognition systems closer to human-like natural language understanding.",
+    "all_results": [
+      {
+        "paper_id": "WYsCKxZc5Y",
+        "paper_title": "Contextually Guided Transformers via Low-Rank Adaptation",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on improving speech recognition systems by integrating speech and text processing in a unified model, targeting multilingual and low-resource applications. Idea B aims to enhance language model efficiency by automating context encoding within the model. While both involve Transformer architecture and seek efficiency, Idea A is specific to spoken language understanding whereas Idea B is broader, focusing on general language model optimization. The methods differ in their integration approach, with A focusing on speech-text unity and B on internal context encoding. The applications diverge in their end goals, with A targeting real-time multilingual speech recognition and B centered on adaptable in-context learning in language modeling.",
+        "is_match": false
+      },
+      {
+        "paper_id": "5oaUMZEjWe",
+        "paper_title": "Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "The two ideas address related but distinct problems: Idea A focuses on integrating language models into speech recognition with an emphasis on multilingual and low-resource settings, while Idea B targets multi-speaker scenarios with a unified encoder architecture. The proposed methods are different in that Idea A suggests an oral-centric Transformer model, whereas Idea B employs a multi-speaker encoder for joint learning. The application scenarios overlap in speech processing but diverge in specifics, such as Idea A's broad language adaptability and Idea B's multi-speaker problem domain.",
+        "is_match": false
+      },
+      {
+        "paper_id": "BomQa84efw",
+        "paper_title": "dMel: Speech Tokenization Made Simple",
+        "paper_year": "2025",
+        "match_score": 6,
+        "problem_consistency": 7,
+        "method_similarity": 5,
+        "application_similarity": 6,
+        "reason": "Idea A and Idea B both address improving speech recognition systems by integrating language modeling techniques, but they approach the problem differently. Idea A proposes a unified Transformer model focusing on spoken modalities and multilingual adaptability with end-to-end training, while Idea B focuses on speech tokenization methods via dMel for joint modeling of speech and text. Both aim to enhance the integration of speech and text processing but differ in their specific methodologies and tokenization focus. Application-wise, both target ASR and multilingual contexts, yet the emphasis on tokenization in Idea B versus model architecture and learning strategies in Idea A suggests different priorities in application design.",
+        "is_match": false
+      },
+      {
+        "paper_id": "oBmaLuEJda",
+        "paper_title": "BMLM: Bidirectional Large Language Model for  Multi-Task Spoken Language Understanding: Better and Faster",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 5,
+        "reason": "Idea A focuses on integrating speech and text processing into a unified model for speech recognition, emphasizing real-time applications and multilingual robustness. Idea B focuses on enhancing spoken language understanding through a bidirectional language model framework, addressing error propagation in autoregressive models. While both ideas deal with language model improvements, the specific problems, methods, and goals differ. Idea A centers on speech recognition across multilingual settings, while Idea B targets multi-task spoken language understanding using pre-trained models. The application domains are related but distinct, with different primary objectives and methodologies.",
+        "is_match": false
+      },
+      {
+        "paper_id": "UvYrFbKj8j",
+        "paper_title": "Stutter makes large language models smarter",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 4,
+        "reason": "The two ideas focus on different core problems: Idea A addresses the integration of speech processing with LLMs for multilingual and low-resource settings, while Idea B aims at improving the efficiency of LLMs through a stutter mechanism. Although both involve enhancing transformer models, their methods are distinctly different, with Idea A integrating speech and text processing, and Idea B optimizing computational efficiency by dynamically adjusting layers. The applications also differ: Idea A targets speech recognition systems, and Idea B improves text generation in general language models. Overall, the core innovations are not fundamentally the same.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "BomQa84efw",
+      "paper_title": "dMel: Speech Tokenization Made Simple",
+      "paper_year": "2025",
+      "match_score": 6,
+      "problem_consistency": 7,
+      "method_similarity": 5,
+      "application_similarity": 6,
+      "reason": "Idea A and Idea B both address improving speech recognition systems by integrating language modeling techniques, but they approach the problem differently. Idea A proposes a unified Transformer model focusing on spoken modalities and multilingual adaptability with end-to-end training, while Idea B focuses on speech tokenization methods via dMel for joint modeling of speech and text. Both aim to enhance the integration of speech and text processing but differ in their specific methodologies and tokenization focus. Application-wise, both target ASR and multilingual contexts, yet the emphasis on tokenization in Idea B versus model architecture and learning strategies in Idea A suggests different priorities in application design.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 6,
+    "idea_id": "idea_007"
+  },
+  {
+    "idea_text": "Background: Large language models (LLMs) have greatly advanced language understanding, but their deep integration into speech recognition systems remains limited, especially regarding accuracy, efficiency, and multilingual adaptability. Existing linguistic analyses of model perplexity reveal significant insights into how morphological and syntactic phenomena influence LLM predictions. Gap: However, these analyses have not been leveraged to enhance LLM integration within speech recognition pipelines, limiting potential gains in context adaptation and resource efficiency. Proposed Method: We propose a novel framework that transforms morphological and syntactic feature-based perplexity analyses into dynamic linguistic priors that guide LLM adaptation during speech recognition decoding. This approach enables LLMs to better model diverse linguistic contexts and multilingual data while optimizing computational resource usage for real-time applications. Expected Result: Our method is expected to improve recognition accuracy across diverse contexts and languages, reduce computational overhead by focusing model capacity on linguistically relevant cues, and enhance the robustness of LLM-based speech recognition in low-resource and complex linguistic environments. The core innovation is the dynamic integration of linguistic structure-informed perplexity signals into large language model adaptation for efficient, context-aware, multilingual speech recognition.",
+    "all_results": [
+      {
+        "paper_id": "ZVLyyG5yS6",
+        "paper_title": "Hierarchical Analysis: Monotonicity of Layerwise performance in Large Language Models",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "The core problems addressed in the two ideas differ: Idea A focuses on enhancing LLM integration into speech recognition using linguistic priors, while Idea B investigates the learning process across layers in LLMs, identifying a monotonicity phenomenon. Methodologically, Idea A employs dynamic linguistic priors for context adaptation in speech recognition, whereas Idea B leverages the monotonicity phenomenon to optimize LLM performance. The application scenarios are also distinct: Idea A aims for improved multilingual speech recognition, whereas Idea B focuses on enhancing inference efficiency and memory in LLMs. Fundamentally, both ideas explore different aspects and applications of LLMs, leading to low similarity scores across all criteria.",
+        "is_match": false
+      },
+      {
+        "paper_id": "DnfPX10Etk",
+        "paper_title": "JOOCI: A FRAMEWORK FOR LEARNING COMPREHENSIVE SPEECH REPRESENTATIONS",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on integrating LLMs into speech recognition using linguistic priors for diverse multilingual contexts, while Idea B emphasizes optimizing speech representation learning by separating content and 'other' expression information. Problem consistency is moderate as both aim to enhance speech recognition, but the specific challenges differ (linguistic adaptability vs. representation optimization). Method similarity is low because Idea A uses linguistic perplexity to guide LLM adaptation, whereas Idea B uses separate parameters for joint optimization. Application similarity is moderate due to the shared goal of improving speech recognition but differing in specific linguistic complexity and adaptation focus.",
+        "is_match": false
+      },
+      {
+        "paper_id": "5oaUMZEjWe",
+        "paper_title": "Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on integrating linguistic insights into LLMs for improving multilingual speech recognition with a focus on efficiency and adaptability, while Idea B introduces a unified model for multi-talker processing tasks, such as diarization and separation, leveraging a shared encoder to enhance task performance. The problems tackled are different (improving speech recognition versus handling multi-talker scenarios), and the methods are fundamentally different in their approach to integrating linguistic analysis versus multi-task learning. The applications also diverge as Idea A aims to enhance speech recognition in various contexts and languages, while Idea B focuses on task interdependencies in a multi-speaker environment.",
+        "is_match": false
+      },
+      {
+        "paper_id": "I1VCj1l1Zn",
+        "paper_title": "DLP-LoRA: Efficient Task-Specific LoRA Fusion with a Dynamic, Lightweight Plugin for Large Language Models",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on improving LLM integration in speech recognition using dynamic linguistic priors from morphological and syntactic analyses. Idea B, on the other hand, tackles efficient fine-tuning of LLMs with DLP-LoRA for multi-task adaptation, emphasizing dynamic fusion using a mini-MLP module. While both involve enhancing LLM capabilities, the specific problems, methods, and applications differ significantly, as A is about speech recognition adaptation and B is focused on fine-tuning efficiency across various tasks.",
+        "is_match": false
+      },
+      {
+        "paper_id": "8kGonpsiHb",
+        "paper_title": "Lens: Rethinking Multilingual Enhancement for Large Language Models",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 3,
+        "application_similarity": 4,
+        "reason": "虽然两个研究想法都集中于提高LLMs在多语言环境中的表现，但他们所解决的问题有一些明显的不同。想法A侧重于将语言结构特征整合到语音识别中，以提高上下文适应和计算效率。而想法B则专注于通过操作LLMs的内部语言表示空间来增强其多语言能力。两者的方法技术路径不同，想法A利用语言特征的分析进行动态适应，而想法B则调整隐藏表示以改善多语言表现。应用场景和目标有部分重叠，如都涉及多语言能力的提升，但领域重点不同：一个在语音识别，一个在语言信息表达。因此总的来说二者有一定相似性，但差异显著。",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "8kGonpsiHb",
+      "paper_title": "Lens: Rethinking Multilingual Enhancement for Large Language Models",
+      "paper_year": "2025",
+      "match_score": 4,
+      "problem_consistency": 5,
+      "method_similarity": 3,
+      "application_similarity": 4,
+      "reason": "虽然两个研究想法都集中于提高LLMs在多语言环境中的表现，但他们所解决的问题有一些明显的不同。想法A侧重于将语言结构特征整合到语音识别中，以提高上下文适应和计算效率。而想法B则专注于通过操作LLMs的内部语言表示空间来增强其多语言能力。两者的方法技术路径不同，想法A利用语言特征的分析进行动态适应，而想法B则调整隐藏表示以改善多语言表现。应用场景和目标有部分重叠，如都涉及多语言能力的提升，但领域重点不同：一个在语音识别，一个在语言信息表达。因此总的来说二者有一定相似性，但差异显著。",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_008"
+  },
+  {
+    "idea_text": "Background: Speech recognition systems require advanced language modeling capable of leveraging bidirectional context to enhance accuracy and contextual adaptability. However, conventional bidirectional RNN language models depend on full-sequence access, limiting real-time application and computational efficiency.\nGap: There exists a bottleneck in integrating bidirectional contextual language models into streaming multilingual speech recognition with constrained computational resources.\nProposed Method: We propose a novel streaming-adapted bidirectional recurrent neural language model employing chunk-based processing and limited future context lookahead to approximate bidirectional effects in an online framework. The model incorporates efficient recurrent units and multitask training across multiple languages, enabling applicability in low-resource and diverse linguistic scenarios.\nExpected Result: The approach aims to improve recognition accuracy and context modeling breadth in real-time speech recognition pipelines, reducing computational costs while enhancing performance in multilingual and low-resource conditions.",
+    "all_results": [
+      {
+        "paper_id": "UU9Icwbhin",
+        "paper_title": "Retentive Network: A Successor to Transformer for Large Language Models",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 5,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on real-time speech recognition with a bidirectional RNN and is particularly concerned with multilingual and low-resource scenarios. In contrast, Idea B introduces Retentive Network (RetNet) for large language models emphasizing training parallelism and cost-efficient inference without specific focus on speech recognition or multilingual low-resource contexts. The methods differ as Idea A relies on chunk-based bidirectional RNNs, while Idea B develops a retention mechanism for sequence modeling. Application targets are distinct, with Idea A centered on streaming speech recognition and Idea B on advancing language model architecture.",
+        "is_match": false
+      },
+      {
+        "paper_id": "RK3Gj9J5my",
+        "paper_title": "Zero-Shot Text-to-Speech from Continuous Text Streams",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 6,
+        "reason": "Idea A focuses on improving speech recognition systems via bidirectional language models in real-time multilingual scenarios, addressing the challenge of contextual modeling with constrained computation. Idea B addresses continuous text-to-speech generation, aiming for seamless speech transitions in streaming applications, with emphasis on synchronization and efficiency. The problem domains overlap in real-time processing and stream handling but differ in specifics (speech recognition vs. TTS). Methods differ as Idea A proposes chunk-based bidirectional RNNs while Idea B utilizes Mamba sequence modeling and semantic guidance in TTS. Applications align in real-time multilingual scenarios but focus differently on recognition versus speech generation.",
+        "is_match": false
+      },
+      {
+        "paper_id": "yLgr02IsXY",
+        "paper_title": "AMPipe: Accelerating MoE Model Training with Intra-Block Pipelining",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A deals with bidirectional language modeling for real-time speech recognition, focusing on multilingual and low-resource scenarios. It involves chunk-based processing in RNNs. Idea B focuses on optimizing the training of large language models with long sequences using a pipeline system, specifically targeting MoE architecture and attention layers. The two ideas address different problems, employ different methods, and have different application targets, thus resulting in low scores for consistency, similarity, and overall match.",
+        "is_match": false
+      },
+      {
+        "paper_id": "DUsqifwwf5",
+        "paper_title": "SOLOS: Sparse Optimization For Long Sequence In Context Compression Enhanced LLMs",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on enhancing speech recognition systems through a bidirectional recurrent neural language model, specifically targeting real-time, multilingual, and low-resource scenarios. Idea B addresses the efficiency of long-context language models and their deployment challenges, proposing a method for training these models within limited computational resources. While both ideas involve improving language models, their specific problems, methods, and applications differ significantly. Idea A is centered on speech recognition and real-time processing constraints, whereas Idea B addresses long-context language model efficiency across broader applications.",
+        "is_match": false
+      },
+      {
+        "paper_id": "DnfPX10Etk",
+        "paper_title": "JOOCI: A FRAMEWORK FOR LEARNING COMPREHENSIVE SPEECH REPRESENTATIONS",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on enhancing speech recognition by using a novel bidirectional language model that works in real-time and is tailored for multilingual and low-resource environments. The key innovation is chunk-based processing with limited future context lookahead. Idea B, on the other hand, addresses the problem of optimizing content and other information in speech representations by separating these orthogonal categories in its framework. The core techniques, objectives, and application contexts are notably different. Idea A is concerned with improving real-time recognition accuracy in a multilingual context, while Idea B is about optimizing speech representation learning across general speech processing tasks. Despite both dealing with speech processing, the problems and methods are distinct.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "RK3Gj9J5my",
+      "paper_title": "Zero-Shot Text-to-Speech from Continuous Text Streams",
+      "paper_year": "2025",
+      "match_score": 4,
+      "problem_consistency": 4,
+      "method_similarity": 3,
+      "application_similarity": 6,
+      "reason": "Idea A focuses on improving speech recognition systems via bidirectional language models in real-time multilingual scenarios, addressing the challenge of contextual modeling with constrained computation. Idea B addresses continuous text-to-speech generation, aiming for seamless speech transitions in streaming applications, with emphasis on synchronization and efficiency. The problem domains overlap in real-time processing and stream handling but differ in specifics (speech recognition vs. TTS). Methods differ as Idea A proposes chunk-based bidirectional RNNs while Idea B utilizes Mamba sequence modeling and semantic guidance in TTS. Applications align in real-time multilingual scenarios but focus differently on recognition versus speech generation.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_009"
+  },
+  {
+    "idea_text": "Background: Large language models such as ChatGPT demonstrate remarkable capabilities in natural language understanding and generation, yet their direct application to speech recognition faces challenges due to modality mismatch, computational cost, and limited multilingual adaptability. Gap: Existing speech recognition pipelines lack deep integration with powerful contextual LLMs like ChatGPT that can enhance recognition accuracy and context awareness, especially under multilingual and low-resource conditions. Proposed Method: We propose a novel framework that fuses acoustic speech encodings with ChatGPT via a multi-modal integration layer, coupled with efficient model compression techniques to enable real-time inference. We further incorporate transfer learning and data augmentation to enhance performance in multilingual and low-resource settings. Expected Result: This integrated approach is expected to significantly improve recognition accuracy, adaptability to diverse contexts and languages, while reducing computational resource demands, advancing the state-of-the-art in speech recognition using large language models. Core Innovation: The core innovation is a multi-modal fusion architecture that synergistically combines ChatGPT's contextual understanding with acoustic representations for efficient and adaptable speech recognition.",
+    "all_results": [
+      {
+        "paper_id": "TCFtGBTxkq",
+        "paper_title": "Efficient Audiovisual Speech Processing via MUTUD: Multimodal Training and Unimodal Deployment",
+        "paper_year": "2025",
+        "match_score": 5,
+        "problem_consistency": 7,
+        "method_similarity": 5,
+        "application_similarity": 3,
+        "reason": "Both ideas address the challenge of enhancing speech recognition using multimodal inputs to compensate for limitations in unimodal systems. However, Idea A focuses on integrating large language models with acoustic inputs, specifically for multilingual adaptability, whereas Idea B aims to use multimodal training to enhance unimodal inference by estimating missing information from available modalities. The core methods differ in their approach to multimodal integration: Idea A utilizes a multimodal fusion layer, while Idea B employs a framework to retain performance in unimodal deployment after multimodal training. Application contexts vary as Idea A targets speech recognition with LLMs, while Idea B applies to audiovisual tasks with reduced modality requirements during deployment.",
+        "is_match": false
+      },
+      {
+        "paper_id": "DnfPX10Etk",
+        "paper_title": "JOOCI: A FRAMEWORK FOR LEARNING COMPREHENSIVE SPEECH REPRESENTATIONS",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 5,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A and Idea B address different aspects of speech processing. Idea A focuses on integrating large language models for enhancing speech recognition, while Idea B deals with optimizing speech representation learning by separating content and expression information. The core methods differ: Idea A employs multi-modal fusion with language models, whereas Idea B uses independent parameter optimization for different speech information categories. The applications also vary as Idea A aims at improving multilingual and low-resource speech recognition, while Idea B's goal is to advance speech representation learning for diverse downstream tasks.",
+        "is_match": false
+      },
+      {
+        "paper_id": "QPDbIFumQ8",
+        "paper_title": "EMMA: Efficient Visual Alignment in Multi-Modal LLMs",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "虽然两个研究都涉及多模态融合并利用大型语言模型，两者解决的问题不尽相同。Idea A着重在语音识别与文本语言模型的结合，而Idea B则集中在视觉与语言的整合。两者核心方法围绕不同的模态融合技术，Idea A是为了语音识别，Idea B是为了视觉和语言任务。虽然都有一定的相似性，但应用场景和目标却截然不同，因此总体匹配度较低。",
+        "is_match": false
+      },
+      {
+        "paper_id": "TJNCnkDRkY",
+        "paper_title": "Generative Pre-Trained Speech Language Model with Efficient Hierarchical Transformer",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on integrating ChatGPT and improving speech recognition through multi-modal fusion, particularly in multilingual and low-resource settings. Idea B introduces GPST, which is a hierarchical transformer for speech modeling, emphasizing efficient one-stage generation and Hi-Res audio generation. The problems they address are related but not identical; one deals with enhancing speech recognition accuracy using context, while the other improves generation quality and consistency. The methods are different, with one focusing on multi-modal integration and the other on hierarchical transformer architecture. Application scenarios differ as Idea A aims for speech recognition improvement, whereas Idea B aims for high-quality speech generation and modeling.",
+        "is_match": false
+      },
+      {
+        "paper_id": "5oaUMZEjWe",
+        "paper_title": "Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "The problem addressed in Idea A is the integration of large language models with speech recognition systems to enhance adaptability and accuracy, particularly in multilingual contexts. Idea B focuses on a multi-speaker speech processing framework that combines tasks like diarization, separation, and ASR using a shared encoder. While both ideas aim to improve speech recognition technology, their specific challenges and scopes are different. Methodologically, both incorporate multimodal or multi-task learning strategies, but Idea A uses language models in fusion with acoustic features, whereas Idea B integrates multiple speech processing tasks. The application scenarios differ significantly; Idea A targets multilingual and modality mismatch challenges, whereas Idea B addresses multi-speaker scenarios. Thus, the overall similarity is limited.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "TCFtGBTxkq",
+      "paper_title": "Efficient Audiovisual Speech Processing via MUTUD: Multimodal Training and Unimodal Deployment",
+      "paper_year": "2025",
+      "match_score": 5,
+      "problem_consistency": 7,
+      "method_similarity": 5,
+      "application_similarity": 3,
+      "reason": "Both ideas address the challenge of enhancing speech recognition using multimodal inputs to compensate for limitations in unimodal systems. However, Idea A focuses on integrating large language models with acoustic inputs, specifically for multilingual adaptability, whereas Idea B aims to use multimodal training to enhance unimodal inference by estimating missing information from available modalities. The core methods differ in their approach to multimodal integration: Idea A utilizes a multimodal fusion layer, while Idea B employs a framework to retain performance in unimodal deployment after multimodal training. Application contexts vary as Idea A targets speech recognition with LLMs, while Idea B applies to audiovisual tasks with reduced modality requirements during deployment.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 5,
+    "idea_id": "idea_010"
+  }
+]

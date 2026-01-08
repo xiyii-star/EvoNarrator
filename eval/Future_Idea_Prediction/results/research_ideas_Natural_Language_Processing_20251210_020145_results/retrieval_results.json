@@ -1,0 +1,472 @@
+{
+  "idea_001": [
+    {
+      "paper": {
+        "paper_id": "Q3RoP5IhHy",
+        "title": "Multi-environment Topic Models",
+        "abstract": "Probabilistic topic models are a powerful tool for extracting latent themes from large text datasets. In many text datasets, we also observe per-document covariates (e.g., source, style, political affiliation) that act as environments that modulate a \"global\" (environment-agnostic) topic representation. Accurately learning these representations is important for prediction on new documents in unseen environments and for estimating the causal effect of topics on real-world outcomes. To this end, we introduce the Multi-environment Topic Model (MTM), an unsupervised probabilistic model that separates global and environment-specific terms. Through experimentation on various political content, from ads to tweets and speeches, we show that the MTM produces interpretable global topics with distinct environment-specific words. On multi-environment data, the MTM outperforms strong baselines in and out-of-distribution. It also enables the discovery of accurate causal effects.",
+        "year": "2025"
+      },
+      "similarity": 0.5925590991973877
+    },
+    {
+      "paper": {
+        "paper_id": "qKKwQvepx0",
+        "title": "Explainable, Steerable Models with Natural Language Parameters and Constraints",
+        "abstract": "Statistical modeling can uncover patterns in large datasets, but these patterns may not be explainable or relevant to our specific interest. For example, Gaussian mixture models are commonly used to explore text corpora, but it is hard to explain what each cluster means or steer them to use specific attributes (e.g. cluster based on style but not topic). To improve explainability and steerability, we introduce\nmodels where parameters are represented as natural language strings. For example, instead of using a Gaussian to represent a cluster, we represent it with a natural language predicate such as “*has a casual style*”. By leveraging the denotational semantics of natural language, we interpret these predicates as binary feature extractors and use them as building blocks for classical statistical models such as clustering, topic modeling, and regression. Language semantics also lets us specify constrains on the learned string parameters, such as “*the parameters should be style-related*”. To learn in our framework, we propose an algorithm to optimize the log-likelihood of these models, which iteratively optimizes continuous relaxations of string parameters and then discretizes them by explaining the continuous parameters with a language model. Evaluating our algorithm across three real corpora and four statistical models, we find that both the continuous relaxation and iterative refinement to be crucial. Finally, we show proof-of-concept applications in controllably generating explainable image clusters and describing major topic variations across news from different months.",
+        "year": "2024"
+      },
+      "similarity": 0.5798691511154175
+    },
+    {
+      "paper": {
+        "paper_id": "baRatYtGBXp",
+        "title": "BAT-Chain: Bayesian-Aware Transport Chain for Topic Hierarchies Discovery",
+        "abstract": "Topic modeling has been an important tool for text analysis. Originally, topics discovered by a model are usually assumed to be independent. However, as a semantic representation of a concept, a topic is naturally related to others, which motivates the development of learning hierarchical topic structure. Most existing Bayesian models are designed to learn hierarchical structure, but they need non-trivial posterior inference. Although the recent transport-based topic models bypass the posterior inference, none of them considers deep topic structures. In this paper, we interpret document as its word embeddings and propose a novel Bayesian-aware transport chain to discover multi-level topic structures, where each layer learns a set of topic embeddings and the document hierarchical representations are defined as a series of empirical distributions according to the topic proportions and corresponding topic embeddings. To fit such hierarchies, we develop an upward-downward optimizing strategy under the recent conditional transport theory, where document information is first transported via the upward path, and then its hierarchical representations are refined by the downward path under the Bayesian perspective. Extensive experiments on text corpora show that our approach enjoys superior modeling accuracy and interpretability. Moreover, we also conduct experiments on learning hierarchical visual topics from images, which demonstrate the adaptability and flexibility of our method.",
+        "year": "2023"
+      },
+      "similarity": 0.5758336782455444
+    },
+    {
+      "paper": {
+        "paper_id": "KskgLM728l",
+        "title": "Bio-RFX: Refining Biomedical Extraction via Advanced Relation Classification and Structural Constraints",
+        "abstract": "The ever-growing biomedical publications magnify the challenge of extracting structured data from unstructured texts. This task involves two components: biomedical entity identification (Named Entity Recognition) and their interrelation determination (Relation Extraction). However, pre-existing methods often neglect unique features of the biomedical literature, such as ambiguous entities, nested proper nouns, and overlapping relation triplets, and underutilize prior knowledge, leading to an intolerable performance decline in the biomedical domain, especially with limited annotated training data. In this paper, we propose the **Bio**medical **R**elation-**F**irst E**X**traction (Bio-RFX) model by leveraging sentence-level relation classification before entity extraction to tackle entity ambiguity. Moreover, we exploit structural constraints between entities and relations to guide the model's hypothesis space, enhancing extraction performance across different training scenarios. Comprehensive experiments on multiple biomedical datasets show that Bio-RFX achieves significant improvements on both named entity recognition and relation extraction tasks, especially under low-resource training scenarios, achieving a remarkable **5.13%** absolute improvement on average in NER, and **7.20%** absolute improvement on average in RE compared to baselines. The source code and pertinent documentation are readily accessible on established open-source repositories.",
+        "year": "2024"
+      },
+      "similarity": 0.566135585308075
+    },
+    {
+      "paper": {
+        "paper_id": "y1UHa9sl2w",
+        "title": "OntoFAR: Hierarchical Multi-Ontology Fusion Better Augments EHR Representation",
+        "abstract": "Medical ontology graphs, which typically organize and relate comprehensive medical concepts in a hierarchical structure, are able to map a rich set of external knowledge onto the specific medical codes observed in electronic health records (EHRs). Through the connectivity in ontologies, healthcare predictive models can utilize the ancestor, descendant, or sibling information to add supplementary contexts on medical codes, thereby augmenting expressiveness of EHR representations. However, existing approaches are limited by the heterogeneous isolation of different ontology systems (e.g., conditions vs. drugs), that different types of ontology concepts have to be learned individually, and only the homogeneous ontology relationships can be exploited. This limitation restricts the existing methods from fully leveraging the cross-ontology relationships which could substantially enhance healthcare representations. \nIn this paper, we propose OntoFAR, a framework that fuse multiple ontology graphs, utilizing the collaboration across ontologies to enhance medical concept representation. Our method jointly represents medical concepts cross multiple ontology structures by performing message passing in two dimensions: (1) vertical propagation over levels of ontology hierarchy, and (2) horizontal propagation over co-occurring concepts in EHR visits. Additionally, OntoFAR leverages the large language models (LLMs) pre-trained on massive open world information to understand each target concept with its ontology relationships, providing enhanced embedding initialization for concepts. Through extensive experimental studies on two public datasets, MIMIC-III and MIMIC-IV, we validate the superior performance of OntoFAR over the state-of-the-art baselines. Beyond accuracy, our model also exhibits the add-on compatibility to boost existing healthcare prediction models, and demonstrate a good robustness in scenarios with limited data availability. The implementation code is available at [https://anonymous.4open.science/r/OntoFAR-35D4](https://anonymous.4open.science/r/OntoFAR-35D4)",
+        "year": "2025"
+      },
+      "similarity": 0.5470311641693115
+    }
+  ],
+  "idea_002": [
+    {
+      "paper": {
+        "paper_id": "tfyLS1cB5W",
+        "title": "Encoding Ontologies with Holographic Reduced Representations for Transformers",
+        "abstract": "The ability to encode meaningful structure into deep learning models opens up the potential for incorporating prior knowledge, particularly in fields where domain-specific information is of great importance. However, transformer models trained on NLP tasks with medical data often have randomly initialized embeddings that are then adjusted based on training data. For terms appearing infrequently in the dataset, there is less opportunity to improve these representations and learn semantic similarity with other concepts. Medical ontologies already represent many of the biomedical concepts and define a relationship structure between these concepts, making ontologies a valuable source of domain-specific information. One of the ongoing challenges of deep learning is finding methods to incorporate this domain knowledge into models. Holographic Reduced Representations (HRR) are capable of encoding ontological structure by composing atomic vectors to create structured higher-level concept vectors. Deep learning models can further process these structured vectors without needing to learn the ontology from training data. We developed an embedding layer that generates concept vectors for clinical diagnostic codes by applying HRR operations that compose atomic vectors based on the SNOMED CT ontology. This approach still allows for learning to update the atomic vectors while maintaining structure in the concept vectors. We trained a Bidirectional Encoder Representations from Transformers (BERT) transformer model to process sequences of clinical diagnostic codes and used the resulting HRR concept vectors as the embedding matrix for the model. The model was first pre-trained on a masked-language modeling (MLM) task before being fine-tuned for mortality and disease prediction tasks. The HRR-based approach improved performance on the pre-training and fine tuning tasks compared to standard transformer embeddings. This is the first time HRRs have been used to produce structured embeddings for transformer models and we find that this approach maintains semantic similarity between medically related concept vectors and allows better representations to be learned for rare codes in the dataset, as rare codes are composed of elements that are shared with more common codes.",
+        "year": "2024"
+      },
+      "similarity": 0.48852768540382385
+    },
+    {
+      "paper": {
+        "paper_id": "dF0g-5k05h_",
+        "title": "The Vendi Score: A Diversity Evaluation Metric for Machine Learning",
+        "abstract": "Diversity is an important criterion for many areas of machine learning (ML), including generative modeling and dataset curation. Yet little work has gone into understanding, formalizing, and measuring diversity in ML. In this paper we address the diversity evaluation problem by proposing the Vendi Score, which connects and extends ideas from ecology and quantum statistical mechanics to ML. The Vendi Score is defined as the exponential of the Shannon entropy of the eigenvalues of a similarity matrix. This matrix is induced by a user-defined similarity function applied to the sample to be evaluated for diversity. In taking a similarity function as input, the Vendi Score enables its user to specify any desired form of diversity. Importantly, unlike many existing metrics in ML, the Vendi Score doesn’t require a reference dataset or distribution over samples or labels, it is therefore general and applicable to any generative model, decoding algorithm, and dataset from any domain where similarity can be defined. We showcase the Vendi Score on molecular generative modeling where we found it addresses shortcomings of the current diversity metric of choice in that domain. We also applied the Vendi Score to generative models of images and decoding algorithms of text where we found it confirms known results about diversity in those domains. Furthermore, we used the Vendi Score to measure mode collapse, a known shortcoming of generative adversarial networks (GANs). In particular, the Vendi Score revealed that even GANs that capture all the modes of a labelled dataset can be less diverse than the original dataset. Finally, the interpretability of the Vendi Score allowed us to diagnose several benchmark ML datasets for diversity, opening the door for diversity-informed data augmentation",
+        "year": "2023"
+      },
+      "similarity": 0.48579221963882446
+    },
+    {
+      "paper": {
+        "paper_id": "I1MKOjNVup",
+        "title": "BioKGBench: A Knowledge Graph Checking Benchmark of AI Agent for Biomedical Science",
+        "abstract": "Pursuing artificial intelligence for biomedical science, a.k.a. AI Scientist, draws increasing attention, where one common approach is to build a copilot agent driven by Large Language Models (LLMs). However, to evaluate such systems, researchers typically rely on direct Question-Answering (QA) to the LLM itself or through biomedical experiments. How to benchmark biomedical agents precisely from an AI Scientist perspective remains largely unexplored. To this end, we draw inspiration from scientists’ crucial ability to understand the literature and introduce BioKGBench. In contrast to traditional evaluation benchmarks that focus solely on factual QA, where the LLMs are known to have hallucination issues, we first disentangle “Understanding Literature” into two atomic abilities: i) “Understanding” the unstructured text from research papers by performing scientific claim verification, and ii) interacting with structured Knowledge-Graphs for Question-Answering (KGQA) as a form of “Literature” grounding. We then formulate a novel agent task, dubbed KGCheck, using KGQA and domain-based Retrieval-Augmented Generation (RAG) to identify factual errors in existing large-scale knowledge graphs. We collect over two thousand data points for the two atomic tasks and 225 high-quality annotated samples for the agent task. Surprisingly, we find that state-of-the-art general and biomedical agents have either failed or performed inferiorly on our benchmark. We then introduce a simple yet effective baseline, dubbed BKGAgent. On the widely used popular knowledge graph, we discover over 90 factual errors, which provide scenarios for agents to make discoveries and demonstrate the effectiveness of our approach.",
+        "year": "2025"
+      },
+      "similarity": 0.48561951518058777
+    },
+    {
+      "paper": {
+        "paper_id": "Q3RoP5IhHy",
+        "title": "Multi-environment Topic Models",
+        "abstract": "Probabilistic topic models are a powerful tool for extracting latent themes from large text datasets. In many text datasets, we also observe per-document covariates (e.g., source, style, political affiliation) that act as environments that modulate a \"global\" (environment-agnostic) topic representation. Accurately learning these representations is important for prediction on new documents in unseen environments and for estimating the causal effect of topics on real-world outcomes. To this end, we introduce the Multi-environment Topic Model (MTM), an unsupervised probabilistic model that separates global and environment-specific terms. Through experimentation on various political content, from ads to tweets and speeches, we show that the MTM produces interpretable global topics with distinct environment-specific words. On multi-environment data, the MTM outperforms strong baselines in and out-of-distribution. It also enables the discovery of accurate causal effects.",
+        "year": "2025"
+      },
+      "similarity": 0.48468977212905884
+    },
+    {
+      "paper": {
+        "paper_id": "RwwM7pKGWv",
+        "title": "Towards Dynamic EHR Phenotyping: A Generative Clustering Model",
+        "abstract": "In healthcare, identifying clinical phenotypes—subgroups defined by specific\nclinical traits—is essential for optimizing patient care. The wealth of Electronic\nHealth Record (EHR) information has fueled data-driven approaches to tackle\nthis challenge. Unfortunately, the heterogeneity, multi-modality, and dynamic\nnature of EHR data pose significant hurdles. We propose DeepGC, a novel\ngenerative, clustering, outcome-sensitive end-to-end deep learning (DL) model for\nuncovering dynamic phenotypes within temporal EHR data. DeepGC leverages\npatient trajectories and outcomes to identify clinically meaningful phenotypes that\nevolve over time. Our generative model employs a dynamic sequential approach\nbased on a Markovian Dirichlet distribution and Variational Auto-Encoders (VAEs),\nwhich is capable of providing insights into the evolution of patient phenotypes\nand health status. Preliminary evaluation indicates that DeepGC shows promise\nin identifying distinct and interpretable phenotypes, and outperforming existing\nbenchmarks, particularly with regard to outcome sensitivity (3 % increase in F1).\nWe also showcase the model’s potential to yield valuable insights into the future\nevolution of patients’ health status",
+        "year": "2024"
+      },
+      "similarity": 0.4829999804496765
+    }
+  ],
+  "idea_003": [
+    {
+      "paper": {
+        "paper_id": "CP6CAqxAGJ",
+        "title": "Unifying Vocabulary of Large Language Model with Statistical Token-level Alignment",
+        "abstract": "Large Language Models (LLMs) achieve great success across many general tasks, but the mismatch among different vocabularies hinders further applications like token-level distillation and inference with various models. To align the vocabularies of LLMs, we propose a simple yet effective method named **UnifyVocab** to replace the vocabulary of an LLM at a limited cost. A new vocabulary alignment method is devised first to align the source vocabulary to the target one. We then rearrange the corresponding parameters like embeddings, and progressively fine-tune the model. Experimental results on models across multiple parameter scales demonstrate the effectiveness and generalization of UnifyVocab, which costs as few as 10B tokens to recover 98.02\\% performance of the vanilla models on average. We further find that unifying the vocabularies significantly facilitates the token-level distillation which remarkably boosts (+4.4\\%) the model with only 235M tokens. Moreover, our method provides a better initialization of multilingual vocabulary for LLMs to adapt to new languages.",
+        "year": "2025"
+      },
+      "similarity": 0.5703396201133728
+    },
+    {
+      "paper": {
+        "paper_id": "QqdloE1QH2",
+        "title": "Multilingual Mathematical Autoformalization",
+        "abstract": "Autoformalization is the task of translating natural language materials into machine-verifiable formalisations. Progress in autoformalization research is hindered by the lack of a sizeable dataset consisting of informal-formal pairs expressing the same essence. Existing methods tend to circumvent this challenge by manually curating small corpora or using few-shot learning with large language models. But these methods suffer from data scarcity and formal language acquisition difficulty. In this work, we create MMA, a large, flexible, multilingual, and multi-domain dataset of informal-formal pairs, by using a language model to translate in the reverse direction, that is, from formal mathematical statements into corresponding informal ones. Experiments show that language models fine-tuned on MMA produce 16 − 18\\% of statements acceptable with minimal corrections on the $\\texttt{miniF2F}$ and $\\texttt{ProofNet}$ benchmarks, up from 0\\% with the base model. We demonstrate that fine-tuning on multilingual formal data results in more capable autoformalization models even when deployed on monolingual tasks.",
+        "year": "2024"
+      },
+      "similarity": 0.564796507358551
+    },
+    {
+      "paper": {
+        "paper_id": "i55KTmMb4I",
+        "title": "M2rc-Eval: Massively Multilingual Repository-level Code Completion Evaluation",
+        "abstract": "Repository-level code completion has drawn great attention in software engineering, and several benchmark datasets have been introduced. However, existing repository-level code completion benchmarks usually focus on a limited number of languages (<5), which cannot evaluate the general code intelligence abilities across different languages for existing code Large Language Models (LLMs). Besides, the existing benchmarks usually report overall average scores of different languages, where the fine-grained abilities in different completion scenarios are ignored. Therefore, to facilitate the research of code LLMs in multilingual scenarios, we propose a massively multilingual repository-level code completion benchmark covering 18 programming languages (called M2RC-EVAL), and two types of fine-grained annotations (i.e., bucket-level and semantic-level) on different completion scenarios are provided, where we obtain these annotations based on the parsed abstract syntax tree. Moreover, we also curate a massively multilingual instruction corpora M2RC- INSTRUCT dataset to improve the repository-level code completion abilities of existing code LLMs. Comprehensive experimental results demonstrate the effectiveness of our M2RC-EVAL and M2RC-INSTRUCT.",
+        "year": "2025"
+      },
+      "similarity": 0.543367862701416
+    },
+    {
+      "paper": {
+        "paper_id": "ly10tMV6cD",
+        "title": "Structure-Rich Text Benchmark for Knowledge Inference Evaluation",
+        "abstract": "We  construct a benchmark for LLMs (Large Language Models) composed of structure-rich and syntactically rigorous corpus with mainly semantics-independent tasks, in purpose of evaluating the abilities of knowledge inference from small structured text and construction rules. The tasks also involve the capacity to generate strictly formatted response given the specification, i.e. to output the same structure-rich texts as the inputs. We also experimented on the popular LLMs with our benchmark to compare their competence to mine for information from syntax and condense information into structure.",
+        "year": "2024"
+      },
+      "similarity": 0.5370635986328125
+    },
+    {
+      "paper": {
+        "paper_id": "hFQZmKFtlT",
+        "title": "Rethinking Memorization in LLMs: On Learning by Rote vs. with Understanding",
+        "abstract": "Understanding whether and to what extent token sequences generated by large language models (LLMs) are the result of regurgitating memorized training data or are based on meaningful learning of the training data's syntax and semantics has many important implications.\nIn order to cleanly measure and disentangle token recollection by rote (memorization) from generation with understanding, we create an experimental framework that is based on training LLMs over *sequences generated using formal grammars*. Our framework allows us to better understand the interplay between the two types of learning, namely, *by rote* vs. *with understanding*. Using our framework we make several striking observations that hold consistently across different open-source model families (Pythia, Llama, and Mistral): (a) we find that the learning types are at odds with each other during training, i.e., rote learning harms understanding and by developing understanding, models forget previously memorized sequences, (b) we find that *entropy of the training datasets* impacts the ease of learning, with lower entropy datasets being easier to learn with understanding and higher entropy datasets being easier to learn by rote, (c) we highlight the difficulty of determining the type of learning involved in a model based solely on recollecting a training data sequence. Our surprising results have significant downstream implications in the study and usage of LLMs.",
+        "year": "2025"
+      },
+      "similarity": 0.5316522717475891
+    }
+  ],
+  "idea_004": [
+    {
+      "paper": {
+        "paper_id": "ICSvW69W5K",
+        "title": "Semantic Parsing with Candidate Expressions for Knowledge Base Question Answering",
+        "abstract": "Semantic parsers convert natural language to logical forms, which can then be evaluated on knowledge bases (KBs) to produce denotations.\nEarly neural semantic parsers used grammars that define actions, such as production rules, then the semantic parsers could sequentially take actions to construct well-typed logical forms.\nIn contrast, recent neural semantic parsers have been developed with pre-trained sequence-to-sequence (seq2seq) models, such as BART and T5, which treat logical forms as sequences of tokens.\nHowever, the seq2seq models have difficulty in learning to generate logical forms that contain components drawn from large KBs.\nIn this work, we propose a grammar augmented with candidate expressions for seq2seq semantic parsing on large KBs.\nThe grammar defines actions as production rules, and our semantic parser predicts actions during inference under the constraints by types and candidate expressions.\nWe apply the grammar to knowledge base question answering, where the constraints by candidate expressions assist a semantic parser to generate valid KB components.\nExperiments on the KQA Pro benchmark showed that the constraints by candidate expressions increased the accuracy of our semantic parser, and our semantic parser achieved state-of-the-art performance on KQA Pro.",
+        "year": "2024"
+      },
+      "similarity": 0.617419958114624
+    },
+    {
+      "paper": {
+        "paper_id": "dHAPEcxyLv",
+        "title": "READ-SQL: Reasoning Path Decomposer for Text-to-SQL",
+        "abstract": "Text-to-SQL is a longstanding task aimed at automatically converting natural language questions into SQL queries for database retrieval. Despite impressive advancements, particularly with Large Language Models (LLMs), existing methods still struggle with issues such as misinterpreted, omitted, or unwanted constraints.  To address these challenges, we propose READ-SQL, a novel framework employing a \\underline{re}asoning p\\underline{a}th \\underline{d}compos\\underline{er}, \\textbf{READ}ER, for text-to-SQL tasks.  READER decomposes SQLs into clauses, sub-SQLs, and reasoning paths, supporting data preparation and confidence level determination in post-processing.  READ-SQL comprises two main models: a Generator and a Corrector, both trained via LoRA for parameter efficiency.  Based on READER's decomposition, READ-SQL generates two types of augmented data using an LLM: question/SQL pairs and question/reason pairs.  The Generator is trained on both original and augmented data to identify constraint changes and enhance reasoning.  The Corrector is trained on data from READER’s post-processing, improving self-correction by refining high-confidence SQLs and addressing low-confidence elements.  Extensive experiments show that READ-SQL significantly outperforms leading baselines, with READ-SQL-3B achieving 57.37\\% execution accuracy on BIRD’s dev set, surpassing several 7B-parameter models and setting a new state-of-the-art with fewer parameters.  Additionally, READER and the Corrector show broad applicability when integrated with LLMs or other base models.",
+        "year": "2025"
+      },
+      "similarity": 0.6148864030838013
+    },
+    {
+      "paper": {
+        "paper_id": "wabp68RoSP",
+        "title": "Active Prompting with Chain-of-Thought for Large Language Models",
+        "abstract": "The increasing scale of large language models (LLMs) brings emergent abilities to various complex tasks requiring reasoning, such as arithmetic and commonsense reasoning. It is known that the effective design of task-specific prompts is critical for LLMs' ability to produce high-quality answers. In particular, an effective approach for complex question-and-answering tasks is example-based prompting with chain-of-thought (CoT) reasoning, which significantly improves the performance of LLMs. However, current CoT methods rely on a fixed set of human-annotated exemplars, which are not necessarily the most effective examples for different tasks. This paper proposes a new method, Active-Prompt, to adapt LLMs to different tasks with task-specific example prompts (annotated with human-designed CoT reasoning). For this purpose, we propose a solution to the key problem of determining which questions are the most important and helpful to annotate from a pool of task-specific queries. By borrowing ideas from the related problem of uncertainty-based active learning, we introduce several metrics to characterize the uncertainty so as to select the most uncertain questions for annotation. Experimental results demonstrate the superiority of our proposed method, achieving superior performance on eight complex reasoning tasks. Further analyses of different uncertainty metrics, pool sizes, zero-shot learning, and accuracy-uncertainty relationships demonstrate the effectiveness of our method.",
+        "year": "2024"
+      },
+      "similarity": 0.5911108255386353
+    },
+    {
+      "paper": {
+        "paper_id": "DzKdjWe59v",
+        "title": "Hint Marginalization for Improved Reasoning in Large Language Models",
+        "abstract": "Large Language Models (LLMs) have exhibited an impressive capability to perform reasoning tasks, especially if they are encouraged to generate a sequence of intermediate steps. Reasoning performance can be improved by suitably combining multiple LLM responses, generated either in parallel in a single query, or via sequential interactions with LLMs throughout the reasoning process. Existing strategies for combination, such as self-consistency and progressive-hint-prompting, make inefficient usage of the LLM responses. We present Hint Marginalization, a novel and principled algorithmic framework to enhance the reasoning capabilities of LLMs. Our approach can be viewed as an iterative sampling strategy for forming a Monte Carlo approximation of an underlying distribution of answers, with the goal of identifying the mode the most likely answer. Empirical evaluation on several benchmark datasets for arithmetic reasoning demonstrates the superiority of the proposed approach.",
+        "year": "2025"
+      },
+      "similarity": 0.5880661010742188
+    },
+    {
+      "paper": {
+        "paper_id": "kJFQ0Pf4jw",
+        "title": "Let’s Think Var-by-Var: Large Language Models Enable Ad Hoc Probabilistic Reasoning",
+        "abstract": "A hallmark of intelligence is the ability to flesh out underspecified situations using “common sense.” We propose to extract that common sense from large language models (LLMs), in a form that can feed into probabilistic inference. We focus our investigation on guesstimation questions such as “How much are Airbnb listings in Newark, NJ?” Formulating a sensible answer without access to data requires drawing on, and integrating, bits of common knowledge about how Price and Location may relate to other variables, such as Property Type. Our framework answers such a question by synthesizing an ad hoc probabilistic model. First we prompt an LLM to propose a set of random variables relevant to the question, followed by moment constraints on their joint distribution. We then optimize the joint distribution p within a log-linear family to maximize the overall constraint satisfaction. Our experiments show that LLMs can successfully be prompted to propose reasonable variables, and while the proposed numerical constraints can be noisy, jointly optimizing for their satisfaction reconciles them. When evaluated on probabilistic questions derived from three real-world tabular datasets, we find that our framework performs comparably to a direct prompting baseline in terms of total variation distance from the dataset distribution, and is similarly robust to noise.",
+        "year": "2025"
+      },
+      "similarity": 0.5821723341941833
+    }
+  ],
+  "idea_005": [
+    {
+      "paper": {
+        "paper_id": "sNycNM577m",
+        "title": "Effective LLM Knowledge Learning Requires Rethinking Generalization",
+        "abstract": "Large language models (LLMs) are trained on a substantial amount of documents that contain extensive world knowledge. However, it is still not well-understood how knowledge is acquired via autoregressive pre-training and extracted via question-answering. This lack of understanding greatly hinders effective knowledge learning, especially for continued pre-training on up-to-date information, as this evolving information often does not have diverse repetitions like foundational knowledge. In this paper, we focus on understanding and improving LLM knowledge learning. We found and verified that knowledge learning for LLMs can be deemed as an implicit supervised task hidden in the autoregressive pre-training objective. Our findings suggest that knowledge learning for LLMs would benefit from methods designed to improve generalization ability for supervised tasks. Based on our analysis, we propose to diversify training documents’ formats as data augmentation to grow in-distribution samples. This data augmentation method does not present the risk of altering the facts embedded in documents as text paraphrasing. We also introduce sharpness-aware minimization as an effective optimization algorithm to better improve generalization. Moreover, we adapt our method to instruction tuning for generalization to various phrasings of questions. Extensive experiment results validate our findings and demonstrate our methods’ effectiveness in improving knowledge learning in both the continued pre-training and instruction tuning stages. This paper offers new perspectives and insights to interpret and design effective strategies for LLM knowledge learning.",
+        "year": "2025"
+      },
+      "similarity": 0.6302830576896667
+    },
+    {
+      "paper": {
+        "paper_id": "jCpTofV7iY_",
+        "title": "Pre-trained Language Models can be Fully Zero-Shot Learners",
+        "abstract": "How can we extend a pre-trained model to many language understanding tasks, without labeled or additional unlabeled data? Pre-trained language models (PLMs) have been effective for a wide range of NLP tasks. However, existing approaches either require fine-tuning on downstream labeled datasets or manually constructing proper prompts. In this paper, we propose nonparametric prompting PLM (NPPrompt) for fully zero-shot language understanding. Unlike previous methods, NPPrompt uses only pre-trained language models and does not require any labeled data or additional raw corpus for further fine-tuning, nor does it rely on humans to construct a comprehensive set of prompt label words. We evaluate NPPrompt against previous major few-shot and zero-shot learning methods on diverse NLP tasks: including text classification, text entailment, similar text retrieval, and paraphrasing. Experimental results demonstrate that our NPPrompt outperforms the previous best fully zero-shot method by big margins, with absolute gains of 12.8% in accuracy on text classification and 18.9% on the GLUE benchmark.",
+        "year": "2023"
+      },
+      "similarity": 0.5994572043418884
+    },
+    {
+      "paper": {
+        "paper_id": "WDQ9ZzsgDL",
+        "title": "PromptNER : Prompting For FewShot Named Entity Recognition",
+        "abstract": "In a surprising turn, Large Language Models (LLMs), together with a growing arsenal of prompt-based heuristics, provide powerful few-shot solutions to myriad classic NLP problems. However, despite promising early results, current LLM based few-shot methods remain far from the state of the art in Named Entity Recognition (NER), where prevailing methods include learning representations via end-to-end structural understanding and fine-tuning on standard labeled corpora. In this paper, we introduce PromptNER, an algorithm for few-shot and cross-domain NER. To adapt to a new NER task, PromptNER requires a set of entity definitions, and a set of few-shot examples, along with explanatory text justifying the applicability of each entity tag. Given a sentence, PromptNER prompts an LLM to produce a list of potential entities along with corresponding explanations justifying their compatibility with the provided entity type definitions. PromptNER achieves state-of-the-art performance on few-shot NER, achieving improvements in F1 score (absolute) of 4% on the ConLL dataset, 9% on GENIA, 4% on FewNERD, 5% on FaBNER and 24% on TweetNER. PromptNER also achieves state-of-the-art performance on Cross Domain NER beating even methods not restricted to the few-shot setting on 3/5 CrossNER target domains, with an average F1 gain of 3%, despite using less than 2% of the available data.",
+        "year": "2024"
+      },
+      "similarity": 0.5948945879936218
+    },
+    {
+      "paper": {
+        "paper_id": "9tMzqRaEL3",
+        "title": "Exploring How LLMs Capture and Represent Domain-Specific Knowledge",
+        "abstract": "We study whether Large Language Models (LLMs) inherently capture domain-specific nuances in natural language. Our experiments probe the domain sensitivity of LLMs by examining their ability to distinguish queries from different domains using hidden states generated during the prefill phase. We reveal latent domain-related trajectories that indicate the model's internal recognition of query domains.  We also study the robustness of these domain representations to variations in prompt styles and sources. Our approach leverages these representations for model selection, mapping the LLM that best matches the domain trace of the input query (i.e., the model with the highest performance on similar traces). Our findings show that LLMs can differentiate queries for related domains, and that the fine-tuned model is not always the most accurate. Unlike previous work, our interpretations apply to both closed and open-ended generative tasks.",
+        "year": "2025"
+      },
+      "similarity": 0.5811773538589478
+    },
+    {
+      "paper": {
+        "paper_id": "N4mb3MBV6J",
+        "title": "Improving Uncertainty Quantification in Large Language Models via Semantic Embeddings",
+        "abstract": "Accurately quantifying uncertainty in large language models (LLMs) is crucial for their reliable deployment, especially in high-stakes applications. Current state-of-the-art methods for measuring semantic uncertainty in LLMs rely on strict bidirectional entailment criteria between multiple generated responses and also depend on sequence likelihoods. While effective, these approaches often overestimate uncertainty due to their sensitivity to minor wording differences, additional correct information, and non-important words in the sequence. We propose a novel approach that leverages semantic embeddings to achieve smoother and more robust estimation of semantic uncertainty in LLMs. By capturing semantic similarities without depending on sequence likelihoods, our method inherently reduces any biases introduced by irrelevant words in the answers. Furthermore, we introduce an amortised version of our approach by explicitly modelling semantics as latent variables in a joint probabilistic model. This allows for uncertainty estimation in the embedding space with a single forward pass, significantly reducing computational overhead compared to existing multi-pass methods. Experiments across multiple question-answering datasets and frontier LLMs demonstrate that our embedding-based methods provide more accurate and nuanced uncertainty quantification than traditional approaches.",
+        "year": "2025"
+      },
+      "similarity": 0.5800725221633911
+    }
+  ],
+  "idea_006": [
+    {
+      "paper": {
+        "paper_id": "RXeP5ajK2S",
+        "title": "Lumina-mGPT: Illuminate Flexible Photorealistic Text-to-Image Generation with Multimodal Generative Pretraining",
+        "abstract": "We present Lumina-mGPT, a family of multimodal autoregressive models capable of various vision and language tasks, particularly excelling in generating flexible photorealistic images from text descriptions. By initializing from multimodal Generative PreTraining (mGPT), Lumina-mGPT demonstrates that decoder-only Autoregressive (AR) model can achieve image generation performance comparable to modern diffusion model with high efficiency through Flexible Progressive Supervised Finetuning (FP-SFT). Equipped with our proposed Unambiguous image Representation} (Uni-Rep), Lumina-mGPT can flexibly generate high-quality images of varying aspect ratios. Building on the strong image generation capabilities, we further explore Ominiponent Supervised Finetuning (Omni-SFT), an initial attempt to elevate Lumina-mGPT into a unified multi-modal generalist. The resulting model demonstrates versatile multimodal capabilities, including visual generation tasks like text-to-image/multiview generation and controllable generation, visual recognition tasks like segmentation and depth estimation, and vision-language tasks like multi-turn visual question answering, casting light on the rosy potential of this direction. We release all code and checkpoints, hoping to facilitate the progress toward building artificial general intelligence.",
+        "year": "2025"
+      },
+      "similarity": 0.6879059076309204
+    },
+    {
+      "paper": {
+        "paper_id": "mEACsjW10N",
+        "title": "MIO: A Foundation Model on Multimodal Tokens",
+        "abstract": "In this paper, we introduce MIO, a novel foundation model built on multimodal tokens, capable of understanding and generating speech, text, images, and videos in an end-to-end, autoregressive manner. While the emergence of large language models (LLMs) and multimodal large language models (MM-LLMs) propels advancements in artificial general intelligence through their versatile capabilities, they still lack true any-to-any understanding and generation. Recently, the release of GPT-4o has showcased the remarkable potential of any-to-any LLMs for complex real-world tasks, enabling omnidirectional input and output across images, speech, and text. However, it is closed-source and does not support the generation of multimodal interleaved sequences. To address this gap, we present MIO, which is trained on a mixture of discrete tokens across four modalities using causal multimodal modeling. MIO undergoes a four-stage training process: (1) alignment pre-training, (2) interleaved pre-training, (3) speech-enhanced pre-training, and (4) comprehensive supervised fine-tuning on diverse textual, visual, and speech tasks. Our experimental results indicate that MIO exhibits competitive, and in some cases superior, performance compared to previous dual-modal baselines, any-to-any model baselines, and even modality-specific baselines. Moreover, MIO demonstrates advanced capabilities inherent to its any-to-any feature, such as interleaved video-text generation, chain-of-visual-thought reasoning, visual guideline generation, instructional image editing, etc.",
+        "year": "2025"
+      },
+      "similarity": 0.6771515607833862
+    },
+    {
+      "paper": {
+        "paper_id": "c2NSfbKGOc",
+        "title": "TangentBind: Unlocking the Potential of Emergent Alignment in Multimodal Model",
+        "abstract": "Improving the alignment of modalities has proven effective across various downstream tasks in multimodal models. Currently, modality alignment follows two main research directions: aligning all modalities simultaneously or binding the others by aligning to a core modality. The first ensures direct alignment, but it is difficult to extend to new modalities. The second is scalable but weak in emergent ability due to needing more direct inter-modality alignment. To address these problems, we propose the TangentBind. Specifically, we first align all modalities to a core modality, e.g., image or text. Then, we introduce a generative network that generates the embeddings of the second modality, e.g., text or image, based on the core modality embedding. Thirdly, other modalities, such as audio, are aligned to the core modality and generative embedding, improving emergent ability while retaining alignment with the core modality. During training, in addition to infoNCE, the Tangent Term is introduced to align the new modalities with the generated embeddings. This addresses accuracy issues caused by using generated vectors as representations for modalities. With VISION and TEXT as the core modality, our experiments include other modalities such as AUDIO, DEPTH, and INFRARED.  Eventually, our experiments show that the emergent ability of TangentBind significantly outperforms the original benchmark on 9 datasets.",
+        "year": "2025"
+      },
+      "similarity": 0.6748483180999756
+    },
+    {
+      "paper": {
+        "paper_id": "vKL1i2p5Xr",
+        "title": "Text as Any-Modality for Zero-shot Classification by Consistent Prompt Tuning",
+        "abstract": "The integration of prompt tuning with multimodal learning has shown significant generalization abilities for various downstream tasks. Despite advancements, existing methods heavily depend on massive modality-specific labeled data (e.g., video, audio, and image), or are customized for a single modality. In this study, we present Text as Any-Modality by Consistent Prompt Tuning (TaAM-CPT), a scalable approach for constructing a general representation model toward unlimited modalities using solely text data. TaAM-CPT comprises modality prompt pools, text construction, and modality-aligned text encoders from pre-trained models, which allows for extending new modalities by adding prompt pools and modality-aligned text encoders. To harmonize the learning across different modalities, TaAM-CPT designs intra- and inter-modal learning objectives, which can capture category details within modalities while maintaining semantic consistency across different modalities. Benefiting from its scalable architecture and pre-trained models, TaAM-CPT can be seamlessly extended to accommodate unlimited modalities. Remarkably, without any modality-specific labeled data, TaAM-CPT achieves leading results on diverse datasets spanning various modalities, including video classification (Kinetic-400/600/700), image classification (MSCOCO, VOC2007, NUSWIDE, VOC2012, Objects365), and audio classification (ESC50, US8K). The code is available at https://anonymous.4open.science/r/TaAM-CPT-0EA6.",
+        "year": "2025"
+      },
+      "similarity": 0.6738272905349731
+    },
+    {
+      "paper": {
+        "paper_id": "A5nLEfjhJW",
+        "title": "SHARCS: SHARed Concept Space for\\\\Explainable Multimodal Learning",
+        "abstract": "Multimodal learning is an essential paradigm for addressing complex real-world problems, where individual data modalities are typically insufficient for accurately solving a given modelling task. While various deep learning approaches have successfully addressed these challenges, their reasoning process is often opaque; limiting the capabilities for a principled explainable cross-modal analysis and any domain-expert intervention. In this paper, we introduce SHARCS (SHARed Concept Space) -- a novel concept-based approach for explainable multimodal learning. SHARCS learns and maps interpretable concepts from different heterogeneous modalities into a single unified concept-manifold, which leads to an intuitive projection of semantically similar cross-modal concepts. We demonstrate that such an approach can lead to inherently explainable task predictions while also improving downstream predictive performance. Moreover, we show that SHARCS can operate and significantly outperform other approaches in practically significant scenarios, such as retrieval of missing modalities and cross-modal explanations. Our approach is model agnostic and easily applicable to different types (and number) of modalities, thus advancing the development of effective, interpretable, and trustworthy multimodal approaches.",
+        "year": "2024"
+      },
+      "similarity": 0.6657446622848511
+    }
+  ],
+  "idea_007": [
+    {
+      "paper": {
+        "paper_id": "jNmsuEE4Gf",
+        "title": "Feynman: Knowledge-Infused Diagramming Agent for Scaling Visual Reasoning Data",
+        "abstract": "Visual reasoning is an essential ability of state-of-the-art multi-modal AI systems. Improving these systems requires high-quality vision-language data at scale. Despite the abundance of internet image and text data, knowledge-rich and well-aligned image-text pairs are rare. In this paper, we present a scalable data generation pipeline built with our diagramming agent, **Feynman**. To create diagrams, Feynman first enumerates domain-specific knowledge components (\"ideas\") and performs code planning based on the ideas. Given the plan, Feynman translates ideas into simple declarative programs and iterates to receives feedback and visually refine diagrams. Finally, the declarative programs are rendered by the Penrose diagramming system. The optimization-based rendering of Penrose preserves the visual semantics while injecting fresh randomness into the layout, thereby producing diagrams with visual consistency and diversity. As a result, Feynman can author diagrams along with grounded captions with very little cost and time. Using Feynman, we synthesized a dataset with more than 100$k$ well-aligned diagram-caption pairs. We also curate a visual-language benchmark, **Diagramma**, from freshly generated data.",
+        "year": "2025"
+      },
+      "similarity": 0.5577593445777893
+    },
+    {
+      "paper": {
+        "paper_id": "xsmlrhoQzC",
+        "title": "Proactive Agents for Multi-Turn Text-to-Image Generation Under Uncertainty",
+        "abstract": "User prompts for generative AI models are often underspecified or open-ended, which may lead to sub-optimal responses. This prompt underspecification problem is particularly evident in text-to-image (T2I) generation, where users commonly struggle to articulate their precise intent. This disconnect between the user's vision and the model's interpretation often forces users to painstakingly and repeatedly refine their prompts. To address this, we propose a design for proactive T2I agents equipped with an interface to actively ask clarification questions when uncertain, and present their understanding of user intent as an interpretable **belief graph** that a user can edit. We build simple prototypes for such agents and verify their effectiveness through both human studies and automated evaluation. We observed that at least 90\\% of human subjects found these agents and their belief graphs helpful for their T2I workflow. Moreover, we use a scalable automated evaluation approach using two agents, one with a ground truth image and the other tries to ask as few questions as possible to align with the ground truth. On DesignBench, a benchmark we created for artists and designers, the COCO dataset (Lin et al.,2014) and ImageInWords (Garg et al., 2024), we observed that these T2I agents were able to ask informative questions and elicit crucial information to achieve successful alignment with at least 2 times higher VQAScore (Lin et al., 2024) than the standard single-turn T2I generation.",
+        "year": "2025"
+      },
+      "similarity": 0.5248395204544067
+    },
+    {
+      "paper": {
+        "paper_id": "hKMPz3wkPV",
+        "title": "Towards a formal theory of compositionality",
+        "abstract": "Compositionality is believed to be fundamental to intelligence. In humans, it underlies the structure of thought, language, and higher-level reasoning. In AI, it enables a powerful form of out-of-distribution generalization, in which a model systematically adapts to novel combinations of known concepts. However, while we have strong intuitions about what compositionality is, there currently exists no formal definition for it that is measurable and mathematical. Here, we propose such a definition, which we call representational compositionality. The definition is conceptually simple, quantitative, and grounded in algorithmic information theory. Intuitively, representational compositionality states that a compositional representation is both expressive and describable as a simple function of discrete parts. We validate our definition on both real and synthetic data, and show how it unifies disparate intuitions from across the literature in both AI and cognitive science. We also show that representational compositionality, while theoretically intractable, can be readily estimated using standard deep learning tools. Our definition has the potential to inspire the design of novel, theoretically-driven models that better capture the mechanisms of higher-level human thought.",
+        "year": "2025"
+      },
+      "similarity": 0.5207573175430298
+    },
+    {
+      "paper": {
+        "paper_id": "6rMHcLWxl4",
+        "title": "Towards World Simulator: Crafting Physical Commonsense-Based Benchmark for Video Generation",
+        "abstract": "Text-to-video (T2V) models like Sora have made significant strides in visualizing complex prompts, which is increasingly viewed as a promising path towards constructing the universal world simulator. Cognitive psychologists believe that the foundation for achieving this goal is the ability to understand intuitive physics. However, the capacity of these models to accurately represent intuitive physics remains largely unexplored. To bridge this gap, we introduce PhyGenBench, a comprehensive \\textbf{Phy}sics \\textbf{Gen}eration \\textbf{Ben}chmark designed to evaluate physical commonsense correctness in T2V generation. PhyGenBench comprises 160 carefully crafted prompts across 27 distinct physical laws, spanning four fundamental domains, which could comprehensively assesses models' understanding of physical commonsense. Alongside PhyGenBench, we propose a novel evaluation framework called PhyGenEval. This framework employs a hierarchical evaluation structure utilizing appropriate advanced vision-language models and large language models to assess physical commonsense. Through PhyGenBench and PhyGenEval, we can conduct large-scale automated assessments of T2V models' understanding of physical commonsense, which align closely with human feedback. Our evaluation results and in-depth analysis demonstrate that current models struggle to generate videos that comply with physical commonsense. Moreover, simply scaling up models or employing prompt engineering techniques is insufficient to fully address the challenges presented by PhyGenBench (e.g., dynamic scenarios). We hope this study will inspire the community to prioritize the learning of physical commonsense in these models beyond entertainment applications. We will release the data and codes at https://github.com/PhyGenBench/PhyGenBench",
+        "year": "2025"
+      },
+      "similarity": 0.5074577331542969
+    },
+    {
+      "paper": {
+        "paper_id": "gnexAe3kjx",
+        "title": "Quantum Neural Fields",
+        "abstract": "This paper introduces a new type of neural field for visual computing with components compatible with gate-based quantum hardware or simulators thereof. Our Quantum Neural Field Network (QNF-Net) expects as input a query coordinate and, optionally, a latent variable value, and outputs the corresponding field value. QNF-Net includes a new feature map for classical data encoding and a parametrised quantum circuit. The proposed neuro-deterministic data encoding converts, into qubit amplitudes, an energy spectrum of the Gibbs-Boltzmann distribution corresponding to the learned problem energy manifold. We provide a theoretical analysis of the model and its components and perform experiments on a simulator of a gate-based quantum computer with 2D images and 3D shapes (and their collections as learnt priors) and compare results with several classical baselines. QNF-Net consistently outperforms the classical baselines with a comparable number of parameters and achieves faster convergence speed, therefore showing its potential quantum advantages, even for relatively large-scale problems compared to what has been demonstrated in quantum machine learning so far. We will release the source code to facilitate method reproducibility.",
+        "year": "2025"
+      },
+      "similarity": 0.5008252859115601
+    }
+  ],
+  "idea_008": [
+    {
+      "paper": {
+        "paper_id": "pz0EK4g6AN",
+        "title": "QCircuitNet: A Large-Scale Hierarchical Dataset for Quantum Algorithm Design",
+        "abstract": "Quantum computing is an emerging field recognized for the significant speedup it offers over classical computing through quantum algorithms. However, designing and implementing quantum algorithms pose challenges due to the complex nature of quantum mechanics and the necessity for precise control over quantum states. \nDespite the significant advancements in AI, there has been a lack of datasets specifically tailored for this purpose. \nIn this work, we introduce QCircuitNet, the first benchmark and test dataset designed to evaluate AI's capability in designing and implementing quantum algorithms in the form of quantum circuit codes. Unlike using AI for writing traditional codes, this task is fundamentally different and significantly more complicated due to highly flexible design space and intricate manipulation of qubits. \nOur key contributions include: \n1. A general framework which formulates the key features of quantum algorithm design task for Large Language Models.\n2. Implementation for a wide range of quantum algorithms from basic primitives to advanced applications, with easy extension to more quantum algorithms.\n3. Automatic validation and verification functions, allowing for iterative evaluation and interactive reasoning without human inspection.\n4. Promising potential as a training dataset through primitive fine-tuning results.\n\nWe observed several interesting experimental phenomena: fine-tuning does not always outperform few-shot learning, and LLMs tend to exhibit consistent error patterns. QCircuitNet provides a comprehensive benchmark for AI-driven quantum algorithm design, offering advantages in model evaluation and improvement, while also revealing some limitations of LLMs in this domain.",
+        "year": "2025"
+      },
+      "similarity": 0.5368428826332092
+    },
+    {
+      "paper": {
+        "paper_id": "gnexAe3kjx",
+        "title": "Quantum Neural Fields",
+        "abstract": "This paper introduces a new type of neural field for visual computing with components compatible with gate-based quantum hardware or simulators thereof. Our Quantum Neural Field Network (QNF-Net) expects as input a query coordinate and, optionally, a latent variable value, and outputs the corresponding field value. QNF-Net includes a new feature map for classical data encoding and a parametrised quantum circuit. The proposed neuro-deterministic data encoding converts, into qubit amplitudes, an energy spectrum of the Gibbs-Boltzmann distribution corresponding to the learned problem energy manifold. We provide a theoretical analysis of the model and its components and perform experiments on a simulator of a gate-based quantum computer with 2D images and 3D shapes (and their collections as learnt priors) and compare results with several classical baselines. QNF-Net consistently outperforms the classical baselines with a comparable number of parameters and achieves faster convergence speed, therefore showing its potential quantum advantages, even for relatively large-scale problems compared to what has been demonstrated in quantum machine learning so far. We will release the source code to facilitate method reproducibility.",
+        "year": "2025"
+      },
+      "similarity": 0.5300682187080383
+    },
+    {
+      "paper": {
+        "paper_id": "wgnMdxS2nZ",
+        "title": "MQFL-FHE: Multimodal Quantum Federated Learning Framework with Fully Homomorphic Encryption",
+        "abstract": "The integration of fully homomorphic encryption (FHE) in federated learning (FL) has led to significant advances in data privacy. However, during the aggregation phase, it often results in performance degradation of the aggregated model, hindering the development of robust representational generalization. In this work, we propose a novel multimodal quantum federated learning framework that utilizes quantum computing to counteract the performance drop resulting from FHE. For the first time in FL, our framework combines a multimodal quantum mixture of experts (MQMoE) model with FHE, incorporating multimodal datasets for enriched representation and task-specific learning. Our MQMoE framework enhances performance on multimodal datasets and combined genomics and brain MRI scans, especially for underrepresented categories. Our results also demonstrate that the quantum-enhanced approach mitigates the performance degradation associated with FHE and improves classification accuracy across diverse datasets, validating the potential of quantum interventions in enhancing privacy in FL.",
+        "year": "2025"
+      },
+      "similarity": 0.5252538919448853
+    },
+    {
+      "paper": {
+        "paper_id": "FLOaCQfZe9",
+        "title": "Dream to Adapt: Meta Reinforcement Learning by Latent Context Imagination and MDP Imagination",
+        "abstract": "Meta reinforcement learning (Meta RL) has been amply explored to quickly learn an unseen task by transferring previously learned knowledge from similar tasks. However, even though Meta RL shows the ability to generalize, most state-of-the-art algorithms require the meta-training tasks to have a dense coverage on the task distribution and a great amount of data for each of them. In this paper, we propose MetaDreamer, a context-based Meta RL algorithm that requires less real training tasks and data by doing meta-imagination and MDP-imagination. We perform meta-imagination by interpolating on the learned latent context space with disentangled properties, as well as MDP-imagination through the generative world model where physical knowledge is added to plain VAE networks. Our autonomous highway merging experiments in the paper, OpenAI Gym-based and MuJoCo-based experiments show that MetaDreamer outperforms existing approaches on unseen interpolated tasks.",
+        "year": "2024"
+      },
+      "similarity": 0.5141902565956116
+    },
+    {
+      "paper": {
+        "paper_id": "TpqU4PzvV9",
+        "title": "Learning Explicit Circuit Representations for Quantum States from Local Measurements",
+        "abstract": "Characterizing quantum states is essential for advancing many quantum technologies. Recently, deep neural networks have been applied to learn quantum states by generating implicit representations that map them into classical vectors. Despite their success in predicting state properties, these representations remain a black box, lacking insights into strategies for experimental reconstruction. In this work, we aim to open this black box by developing explicit representations of quantum states through the generation of preparation circuits using a reinforcement learning agent with a local fidelity reward function. Relying solely on measurement data from a few neighboring qubits, our agent accurately recovers properties of target states. Specifically, we design a quantum measurement feature aggregation block which is used to extract global features of quantum states from local measurement data. We also provide a theoretical guarantee for the proposed local fidelity reward function. Extensive experiments demonstrate the effectiveness of our approach in learning various quantum states of up to 100 qubits, including those generated by Instantaneous Quantum Polynomial circuits, evolved by Ising Hamiltonians, and many-body ground states. The learned circuit representations can be further applied to Hamiltonian learning as a downstream task utilizing a simple linear model.",
+        "year": "2025"
+      },
+      "similarity": 0.5043922662734985
+    }
+  ],
+  "idea_009": [
+    {
+      "paper": {
+        "paper_id": "NPDnRLFhc0",
+        "title": "EvidenceBench: A Benchmark for Extracting Evidence from Biomedical Papers",
+        "abstract": "We study the task of automatically finding evidence relevant to hypotheses in biomedical papers. Finding relevant evidence is an important stage when humans write systematic reviews about certain scientific hypotheses. We introduce EvidenceBench to measure models performance on this task, which is created by a novel pipeline that consists of hypothesis generation and sentence-by-sentence annotation of biomedical papers for relevant evidence, completely guided by and faithfully following existing human experts judgment. Our pipeline's value and accuracy is validated by teams of human experts. We evaluate a diverse set of language models and retrieval systems on the benchmark and find the performance of the best models still falls significantly short of expert-level on this task. To show the scalability of our proposed pipeline, we create a larger EvidenceBench-100k with 107,461 fully annotated papers with hypotheses to faciliate model training and development. Both datasets are available at https://github.com/EvidenceBench/EvidenceBench",
+        "year": "2025"
+      },
+      "similarity": 0.5155249834060669
+    },
+    {
+      "paper": {
+        "paper_id": "IXGHSVBBCF",
+        "title": "Enabling Scalable Evaluation of Bias Patterns in Medical LLMs",
+        "abstract": "Large language models (LLMs) have shown impressive potential in helping with numerous medical challenges. Deploying LLMs in high-stakes applications such as medicine, however, brings in many concerns. One major area of concern relates to biased behaviors of LLMs in medical applications, leading to unfair treatment of individuals. To pave the way for the responsible and impactful deployment of Med LLMs, rigorous evaluation is a key prerequisite. Due to the huge complexity and variability of different medical scenarios, existing work in this domain has primarily relied on using manually crafted datasets for bias evaluation. In this study, we present a new method to scale up such bias evaluations by automatically generating test cases based on rigorous medical evidence. We specifically target the challenges of domain-specificity of bias characterization, hallucinating while generating the test cases, and various dependencies between the health outcomes and sensitive attributes. To that end, we offer new methods to address these challenges integrated with our generative pipeline. Specifically, we use medical knowledge graphs and medical ontologies; and customize general LLM evaluation frameworks in our method. Through a series of extensive experiments, we show that the test cases generated by our proposed method are reliable and can effectively reveal bias patterns in LLMs. Additionally,  we publish a large bias evaluation dataset, which provides a comprehensive platform for testing and improving the fairness of clinical LLMs. A live demo of our application for vignette generation is available at https://vignette.streamlit.app. Our code is also available at https://anonymous.4open.science/r/vignette_llm-2853.",
+        "year": "2025"
+      },
+      "similarity": 0.4838608503341675
+    },
+    {
+      "paper": {
+        "paper_id": "PN9uaKA1nV",
+        "title": "Knowledge-Infused Prompting: Assessing and Advancing Clinical Text Data Generation with Large Language Models",
+        "abstract": "Clinical natural language processing requires methods that can address domain-specific challenges, such as complex medical terminology and clinical contexts. Recently, large language models (LLMs) have shown promise in this domain. Yet, their direct deployment can lead to privacy issues and are constrained by resources. To address this challenge, we delve into synthetic clinical text generation using LLMs for clinical NLP tasks. We propose an innovative, resource-efficient approach, ClinGen, which infuses knowledge into the process. Our model involves clinical knowledge extraction and context-informed LLM prompting. Both clinical topics and writing styles are drawn from external domain-specific knowledge graphs and LLMs to guide data generation. Our extensive empirical study across 7 clinical NLP tasks and 16 datasets reveals that ClinGen consistently enhances performance across various tasks, effectively aligning the distribution of real datasets and significantly enriching the diversity of generated training instances. We will publish our code and all the generated data upon acceptance.",
+        "year": "2024"
+      },
+      "similarity": 0.4699898660182953
+    },
+    {
+      "paper": {
+        "paper_id": "Ncx0X8lcN1",
+        "title": "HiReview: Hierarchical Taxonomy-Driven Automatic Literature Review Generation",
+        "abstract": "In this work, we present HiReview, a novel framework for hierarchical taxonomy-driven automatic literature review generation. With the exponential growth of academic documents, manual literature reviews have become increasingly labor-intensive and time-consuming, while traditional summarization models struggle to generate comprehensive document reviews effectively. Large language models (LLMs), with their powerful text processing capabilities, offer a potential solution; however, research on incorporating LLMs for automatic document generation remains limited. To address key challenges in large-scale automatic literature review generation (LRG), we propose a two-stage taxonomy-then-generation approach that combines graph-based hierarchical clustering with retrieval-augmented LLMs. First, we retrieve the most relevant sub-community within the citation network, then generate a hierarchical taxonomy tree by clustering papers based on both textual content and citation relationships. In the second stage, an LLM generates coherent and contextually accurate summaries for clusters or topics at each hierarchical level, ensuring comprehensive coverage and logical organization of the literature. Extensive experiments demonstrate that HiReview significantly outperforms state-of-the-art methods, achieving superior hierarchical organization, content relevance, and factual accuracy in automatic literature review generation tasks. The code and dataset are available at https://anonymous.4open.science/r/HiReivew-767D.",
+        "year": "2025"
+      },
+      "similarity": 0.4698272943496704
+    },
+    {
+      "paper": {
+        "paper_id": "xNn2nq5kiy",
+        "title": "Plan-based Prompting Improves Literature Review Generation",
+        "abstract": "We explore the zero-shot abilities of recent large language models (LLMs) for the task of writing the literature review of a scientific research paper conditioned on its abstract and the content of related papers. We propose and examine a novel strategy for literature review generation with an LLM in which we first generate a plan for the review, and then use it to generate the actual text. While modern LLMs can easily be trained or prompted to condition on all abstracts of papers to be cited to generate a literature review without such intermediate plans, our empirical study shows that these intermediate plans improve the quality of generated literature reviews over vanilla zero-shot generation. Furthermore, we also create a new test corpus consisting of recent arXiv papers (with full content) posted after both open-sourced and closed-sourced LLMs that were used in our study were released. This allows us to ensure that our zero-shot experiments do not suffer from test set contamination.",
+        "year": "2024"
+      },
+      "similarity": 0.4689527153968811
+    }
+  ],
+  "idea_010": [
+    {
+      "paper": {
+        "paper_id": "vKL1i2p5Xr",
+        "title": "Text as Any-Modality for Zero-shot Classification by Consistent Prompt Tuning",
+        "abstract": "The integration of prompt tuning with multimodal learning has shown significant generalization abilities for various downstream tasks. Despite advancements, existing methods heavily depend on massive modality-specific labeled data (e.g., video, audio, and image), or are customized for a single modality. In this study, we present Text as Any-Modality by Consistent Prompt Tuning (TaAM-CPT), a scalable approach for constructing a general representation model toward unlimited modalities using solely text data. TaAM-CPT comprises modality prompt pools, text construction, and modality-aligned text encoders from pre-trained models, which allows for extending new modalities by adding prompt pools and modality-aligned text encoders. To harmonize the learning across different modalities, TaAM-CPT designs intra- and inter-modal learning objectives, which can capture category details within modalities while maintaining semantic consistency across different modalities. Benefiting from its scalable architecture and pre-trained models, TaAM-CPT can be seamlessly extended to accommodate unlimited modalities. Remarkably, without any modality-specific labeled data, TaAM-CPT achieves leading results on diverse datasets spanning various modalities, including video classification (Kinetic-400/600/700), image classification (MSCOCO, VOC2007, NUSWIDE, VOC2012, Objects365), and audio classification (ESC50, US8K). The code is available at https://anonymous.4open.science/r/TaAM-CPT-0EA6.",
+        "year": "2025"
+      },
+      "similarity": 0.6580315828323364
+    },
+    {
+      "paper": {
+        "paper_id": "mEACsjW10N",
+        "title": "MIO: A Foundation Model on Multimodal Tokens",
+        "abstract": "In this paper, we introduce MIO, a novel foundation model built on multimodal tokens, capable of understanding and generating speech, text, images, and videos in an end-to-end, autoregressive manner. While the emergence of large language models (LLMs) and multimodal large language models (MM-LLMs) propels advancements in artificial general intelligence through their versatile capabilities, they still lack true any-to-any understanding and generation. Recently, the release of GPT-4o has showcased the remarkable potential of any-to-any LLMs for complex real-world tasks, enabling omnidirectional input and output across images, speech, and text. However, it is closed-source and does not support the generation of multimodal interleaved sequences. To address this gap, we present MIO, which is trained on a mixture of discrete tokens across four modalities using causal multimodal modeling. MIO undergoes a four-stage training process: (1) alignment pre-training, (2) interleaved pre-training, (3) speech-enhanced pre-training, and (4) comprehensive supervised fine-tuning on diverse textual, visual, and speech tasks. Our experimental results indicate that MIO exhibits competitive, and in some cases superior, performance compared to previous dual-modal baselines, any-to-any model baselines, and even modality-specific baselines. Moreover, MIO demonstrates advanced capabilities inherent to its any-to-any feature, such as interleaved video-text generation, chain-of-visual-thought reasoning, visual guideline generation, instructional image editing, etc.",
+        "year": "2025"
+      },
+      "similarity": 0.6459197402000427
+    },
+    {
+      "paper": {
+        "paper_id": "E0dTlxy1T4",
+        "title": "MMEvol: Empowering Multimodal Large Language Models with Evol-Instruct",
+        "abstract": "The development of Multimodal Large Language Models (MLLMs) has seen significant advancements with increasing demands in various fields (e.g., multimodal\nagents, embodied intelligence). While model-driven approaches attempt to enhance MLLMs capabilities through diverse architectures, the gains have become\nincreasingly marginal. Conversely, data-driven methods, which scale up image-text\ninstruction data, are more effective but face limited data diversity and complexity\nchallenges. The absence of high-quality data constitutes a significant development\nbarrier for MLLMs. To address the data quality bottleneck, we propose MMEvol, a\nnovel multimodal instruction data evolution framework. This framework iteratively\nimprove data quality through a refined combination of fine-grained perception, cognitive reasoning, and interaction evolution, generating a more complex and diverse\nimage-text instruction dataset that empowers MLLMs with enhanced capabilities.\nBeginning with an initial set of instructions, SEED-163K, we utilize MMEvol to\nsystematically broaden the diversity of instruction types, extend visual reasoning\nsteps to improve cognitive reasoning abilities, and thoroughly explore fine-grained\ninformation within images to enhance visual understanding and robustness. To\ncomprehensively evaluate the effectiveness of our approach, we conduct extensive\nqualitative analysis and quantitative experiments across 13 vision-language tasks.\nCompared to baseline models trained with the initial seed data, the results demonstrate that our method achieves an average accuracy improvement of 3.1 percentage\npoints. Furthermore, our approach reaches state-of-the-art (SOTA) performance in\nnine tasks using significantly less data compared to state-of-the-art models.",
+        "year": "2025"
+      },
+      "similarity": 0.6417184472084045
+    },
+    {
+      "paper": {
+        "paper_id": "xNCDKQMPYD",
+        "title": "GPT4LoRA: Optimizing LoRA Combination via MLLM Self-Reflection",
+        "abstract": "Low-Rank Adaptation (LoRA) is extensively used in generative models to enable concept-driven personalization, such as rendering specific characters or adopting unique styles. Although recent approaches have explored LoRA combination to integrate diverse concepts, they often require further fine-tuning or modifications to the generative model's original architecture. To address these limitations, we introduce GPT4LoRA, a novel method for LoRA combination that adjusts combination coefficients by leveraging the self-reflection capabilities of multimodal large language models (MLLMs). GPT4LoRA operates through a three-step process—Generate, Feedback, and Refine—without the need for additional training, relying solely on tailored prompts and iterative refinement to enhance performance. This iterative approach ensures more constructive feedback and optimizes the model responses. Experiments on various LoRA model combinations, including both realistic and anime styles, demonstrate that GPT4LoRA achieves superior results compared to existing methods. Additionally, an evaluation framework based on GPT-4o further highlights the clear performance gains offered by GPT4LoRA over standard baselines, showcasing its potential for advancing the field.",
+        "year": "2025"
+      },
+      "similarity": 0.6406292915344238
+    },
+    {
+      "paper": {
+        "paper_id": "RXeP5ajK2S",
+        "title": "Lumina-mGPT: Illuminate Flexible Photorealistic Text-to-Image Generation with Multimodal Generative Pretraining",
+        "abstract": "We present Lumina-mGPT, a family of multimodal autoregressive models capable of various vision and language tasks, particularly excelling in generating flexible photorealistic images from text descriptions. By initializing from multimodal Generative PreTraining (mGPT), Lumina-mGPT demonstrates that decoder-only Autoregressive (AR) model can achieve image generation performance comparable to modern diffusion model with high efficiency through Flexible Progressive Supervised Finetuning (FP-SFT). Equipped with our proposed Unambiguous image Representation} (Uni-Rep), Lumina-mGPT can flexibly generate high-quality images of varying aspect ratios. Building on the strong image generation capabilities, we further explore Ominiponent Supervised Finetuning (Omni-SFT), an initial attempt to elevate Lumina-mGPT into a unified multi-modal generalist. The resulting model demonstrates versatile multimodal capabilities, including visual generation tasks like text-to-image/multiview generation and controllable generation, visual recognition tasks like segmentation and depth estimation, and vision-language tasks like multi-turn visual question answering, casting light on the rosy potential of this direction. We release all code and checkpoints, hoping to facilitate the progress toward building artificial general intelligence.",
+        "year": "2025"
+      },
+      "similarity": 0.6246302127838135
+    }
+  ]
+}

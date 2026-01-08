@@ -1,0 +1,519 @@
+{
+  "idea_001": [
+    {
+      "paper": {
+        "paper_id": "fk4czNKXPC",
+        "title": "Transformers meet Neural Algorithmic Reasoners",
+        "abstract": "Transformers have revolutionized machine learning with their simple yet effective architecture. Pre-training Transformers on massive text datasets from the Internet has led to unmatched generalization for natural language understanding (NLU) tasks. However, such language models remain fragile when tasked with algorithmic forms of reasoning, where computations must be precise and robust. To address this limitation, we propose a novel approach that combines the Transformer's language understanding with the robustness of graph neural network (GNN)-based neural algorithmic reasoners (NARs). Such NARs proved effective as generic solvers for algorithmic tasks, when specified in graph form. To make their embeddings accessible to a Transformer, we propose a hybrid architecture with a two-phase training procedure, allowing the tokens in the language model to cross-attend to the node embeddings from the NAR. We evaluate our resulting TransNAR model on CLRS-Text, the text-based version of the CLRS-30 benchmark, and demonstrate significant gains over Transformer-only models for algorithmic reasoning, both in and out of distribution. Finally, we empirically show that Transformer-only models distilled from TransNAR models also exhibit improved out-of-distribution generalization capabilities.",
+        "year": "2025"
+      },
+      "similarity": 0.7356541156768799
+    },
+    {
+      "paper": {
+        "paper_id": "RbcXV63ZJk",
+        "title": "Parameter Efficient Graph Encoding for Large Language Models",
+        "abstract": "How can we best encode structured data into sequential form for use in large language models (LLMs)? In this work, we introduce a parameter-efficient method to explicitly represent structured data for LLMs. Our method, GraphToken, learns an encoding function to extend prompts with explicit structured information. The encoding function in GraphToken uses graph neural networks to effectively transfer the relational inductive biases in the structured data to a LLM. Unlike other work which focuses on limited domains (e.g., knowledge graph representation), our work is the first effort focused on the general encoding of structured data to be used for various reasoning tasks. We show that explicitly representing the graph structure allows significant improvements to graph reasoning tasks. Specifically, we see across the board improvements - up to 73% points - on a wide variety of node, edge and, graph-level tasks on benchmarks for graph reasoning (GraphQA) and molecular property prediction (ChemLLMBench).",
+        "year": "2025"
+      },
+      "similarity": 0.7119624614715576
+    },
+    {
+      "paper": {
+        "paper_id": "Ba5KGabRe8",
+        "title": "XplainLLM: A QA Explanation Dataset for Understanding LLM Decision-Making",
+        "abstract": "Large Language Models (LLMs) have recently made impressive strides in natural language understanding tasks. Despite their remarkable performance, understanding their decision-making process remains a big challenge. In this paper, we look into bringing some transparency to this process by introducing a new explanation dataset for question answering (QA) tasks that integrates knowledge graphs (KGs) in a novel way. Our dataset includes 12,102 question-answer-explanation (QAE) triples. Each explanation in the dataset links the LLM's reasoning to entities and relations in the KGs. The explanation component includes a $\\textit{why-choose}$ explanation, a $\\textit{why-not-choose}$ explanation, and a set of $\\textit{reason-elements}$ that underlie the LLM's decision. We leverage KGs and graph attention networks (GAT) to find the $\\textit{reason-elements}$ and transform them into $\\textit{why-choose}$ and $\\textit{why-not-choose}$  explanations that are comprehensible to humans. Through quantitative and qualitative evaluations, we demonstrate the potential of our dataset to improve the in-context learning of LLMs, and enhance their interpretability and explainability. Our work contributes to the field of explainable AI by enabling a deeper understanding of the LLMs decision-making process to make them more transparent and thereby, potentially more reliable, to researchers and practitioners alike. Our dataset is available at: http://anonymous.4open.science/r/XplainLLM.",
+        "year": "2024"
+      },
+      "similarity": 0.7100037336349487
+    },
+    {
+      "paper": {
+        "paper_id": "DRSSLefryd",
+        "title": "A Hierarchical Language Model Design For Interpretable Graph Reasoning",
+        "abstract": "Large language models (LLMs) have seen an increased adoption for tasks with implicit graphical structures, such as planning in robotics, multi-hop question answering, and knowledge probing. However, despite their remarkable success in text-based tasks, LLMs' capabilities in understanding explicit graph structures remain limited, preventing them from fully replacing Graph Neural Networks (GNNs) in graph-centric applications. In this work, we introduce a Hierarchical Language Model (HLM-G) Design that employs a two-block architecture to effectively capture local and global graph information, significantly enhancing graph structure understanding. Our model achieves a new state-of-the-art in graph understanding, outperforming both GNN and LLM baselines. It demonstrates robustness to variations in graph-descriptive prompts, overcoming a key limitation of existing LLMs. Furthermore, we demonstrate the interpretability of our model using intrinsic attention weights and established explainers. Comprehensive evaluations across diverse real-world datasets, covering node, link, and graph-level tasks, highlight our model's superior generalization capabilities, marking a significant advancement in the application of LLMs to graph-centric tasks.",
+        "year": "2025"
+      },
+      "similarity": 0.6981059908866882
+    },
+    {
+      "paper": {
+        "paper_id": "PIl69UIAWL",
+        "title": "GraphLLM: Boosting Graph Reasoning Ability of Large Language Model",
+        "abstract": "The advancement of Large Language Models (LLMs) has remarkably pushed the boundaries towards artificial general intelligence (AGI), with their exceptional ability on understanding diverse types of information,  including but not limited to images and audio.  Despite this progress, a critical gap remains in empowering LLMs to proficiently understand and reason on graph data. Recent studies underscore LLMs' underwhelming performance on fundamental graph reasoning tasks.  In this paper, we endeavor to unearth the obstacles that impede LLMs in graph reasoning, pinpointing the common practice of converting graphs into natural language descriptions (Graph2Text) as a fundamental bottleneck. To overcome this impediment, we introduce GraphLLM, a pioneering end-to-end approach that synergistically integrates graph learning models with LLMs. This synergy equips LLMs with the ability to proficiently interpret and reason on graph data, harnessing the superior expressive power of graph learning models. Our empirical evaluations across four fundamental graph reasoning tasks validate the effectiveness of GraphLLM. The results exhibit a substantial average accuracy enhancement of 54.44%, alongside a noteworthy context reduction of 96.45% across various graph reasoning tasks.",
+        "year": "2024"
+      },
+      "similarity": 0.694817841053009
+    }
+  ],
+  "idea_002": [
+    {
+      "paper": {
+        "paper_id": "ka4Nk1j55l",
+        "title": "GIVE: Structured Reasoning with Knowledge Graph Inspired Veracity Extrapolation",
+        "abstract": "Existing retrieval-based frameworks to enhance large language models (LLMs) requires accessibility to a rich non-parametric knowledge source which contains factual information that directly solves the query. Reasoning based approaches heavily rely on the parametric knowledge of the model to provide domain-specific explicit reasoning chain. However, inclusive knowledge sources are expensive or infeasible to build for scientific or corner domains, thus not applicable in either training or inference time. To tackle the challenges, we introduce Graph Inspired Veracity Extrapolation (GIVE), a novel reasoning framework that integrates the parametric and non-parametric memories to enhance both knowledge retrieval and faithful reasoning processes using very limited external clues. By leveraging the structured knowledge to inspire LLM to model the interconnections among relevant concepts, our method facilitates a more logical and step-wise reasoning approach akin to experts' problem-solving, rather than gold answer retrieval. Specifically, the framework prompts LLMs to decompose the query into crucial concepts and attributes, construct entity groups with relevant entities, and build an augmented reasoning chain by probing potential relationships among node pairs across these entity groups. Our method incorporates both factual and extrapolated linkages to enable comprehensive understanding and response generation. Extensive experiments on domain-specific and open-domain benchmarks demonstrate the effectiveness of our proposed method, thereby underscoring the efficacy of integrating structured information and internal reasoning ability of LLMs for tackling difficult tasks with limited external resources.",
+        "year": "2025"
+      },
+      "similarity": 0.6574817299842834
+    },
+    {
+      "paper": {
+        "paper_id": "CpgoO6j6W1",
+        "title": "DECOUPLING REASONING FROM OBSERVATIONS FOR EFFICIENT AUGMENTED LANGUAGE MODELS",
+        "abstract": "Augmented Language Models (ALMs) blend the reasoning capabilities of Large Language Models (LLMs) with tools that allow for knowledge retrieval and action execution. Existing ALM systems trigger LLM thought processes while pulling observations from these tools in an interleaved fashion. Specifically, an LLM reasons to call an external tool, gets halted to fetch the tool's response, and then decides the next action based on all preceding response tokens. Such a paradigm, though straightforward and easy to implement, often leads to huge computation complexity from redundant prompts and repeated execution. This study addresses such challenges for the first time, proposing a modular paradigm ReWOO (Reasoning WithOut Observation) that detaches the reasoning process from external observations, thus significantly reducing token consumption. Comprehensive evaluations across six public NLP benchmarks and a curated dataset reveal consistent performance enhancements with our proposed methodology. Notably, ReWOO achieves 5x token efficiency and 4% accuracy improvement on HotpotQA, a multi-step reasoning benchmark. Furthermore, ReWOO demonstrates robustness under tool-failure scenarios. Beyond prompt efficiency, decoupling parametric modules from non-parametric tool calls enables instruction fine-tuning to offload LLMs into smaller language models, thus substantially reducing model sizes. Our illustrative work offloads reasoning ability from 175B GPT3.5 into 7B LLaMA successfully, demonstrating the significant potential for truly efficient and scalable ALM systems. Full code, model, and curated data are released for reproduction.",
+        "year": "2024"
+      },
+      "similarity": 0.6321016550064087
+    },
+    {
+      "paper": {
+        "paper_id": "fk4czNKXPC",
+        "title": "Transformers meet Neural Algorithmic Reasoners",
+        "abstract": "Transformers have revolutionized machine learning with their simple yet effective architecture. Pre-training Transformers on massive text datasets from the Internet has led to unmatched generalization for natural language understanding (NLU) tasks. However, such language models remain fragile when tasked with algorithmic forms of reasoning, where computations must be precise and robust. To address this limitation, we propose a novel approach that combines the Transformer's language understanding with the robustness of graph neural network (GNN)-based neural algorithmic reasoners (NARs). Such NARs proved effective as generic solvers for algorithmic tasks, when specified in graph form. To make their embeddings accessible to a Transformer, we propose a hybrid architecture with a two-phase training procedure, allowing the tokens in the language model to cross-attend to the node embeddings from the NAR. We evaluate our resulting TransNAR model on CLRS-Text, the text-based version of the CLRS-30 benchmark, and demonstrate significant gains over Transformer-only models for algorithmic reasoning, both in and out of distribution. Finally, we empirically show that Transformer-only models distilled from TransNAR models also exhibit improved out-of-distribution generalization capabilities.",
+        "year": "2025"
+      },
+      "similarity": 0.6235976219177246
+    },
+    {
+      "paper": {
+        "paper_id": "6f7RoeQ7Go",
+        "title": "Reflection on Knowledge Graph for Large Language Models Reasoning",
+        "abstract": "Recent studies have highlighted the potential benefits of supplementing Large Language Models (LLMs) with information retrieved from knowledge graphs to enhance their performance. However, current approaches often introduce additional noise in the pipeline process of knowledge retrieval and reasoning, leading to the accumulation of errors, impeding LLMs from effectively combining the external knowledge in answering complex multi-hop questions. To this end, we introduce RefKG, an innovative framework specifically crafted to enhance the reasoning capabilities of LLMs through reflective engagement with knowledge graphs. In particular, RefKG autonomously conduct retrieval and reflection on knowledge graphs. Its reasoning process includes four steps: decomposing complex queries, retrieving and pruning evidence subgraphs, generating textual evidence, and evidence-enhanced reasoning. To enhance the alignment of LLMs with external knowledge, we have developed a multi-task tuning strategy that not only infuses knowledge to LLMs but also teaches them how to utilize the knowledge in answering questions, thereby significantly improving their ability to handle knowledge-intensive tasks. Experimental results on fact verification and knowledge graph question answering tasks demonstrate that RefKG outperforms previous state-of-the-art models.",
+        "year": "2025"
+      },
+      "similarity": 0.6218521595001221
+    },
+    {
+      "paper": {
+        "paper_id": "kpLMN5fok1",
+        "title": "From Complex to Atomic: Enhancing Augmented Generation via Knowledge-Aware Dual Rewriting and Reasoning",
+        "abstract": "Recent advancements in Retrieval-Augmented Generation (RAG) systems have significantly enhanced the capabilities of large language models (LLMs) by incorporating external knowledge retrieval. However, the sole reliance on retrieval is often inadequate for mining deep, domain-specific knowledge and for performing logical reasoning from specialized datasets. To tackle these challenges, we present an approach, which is designed to extract, comprehend, and utilize domain knowledge while constructing a coherent rationale. At the heart of our approach lie four pivotal components: a knowledge atomizer that extracts atomic questions from raw data, a query proposer that generates subsequent questions to facilitate the original inquiry, an atomic retriever that locates knowledge based on atomic knowledge alignments, and an atomic selector that determines which follow-up questions to pose guided by the retrieved information. Through this approach, we implement a knowledge-aware task decomposition strategy that adeptly extracts multifaceted knowledge from segmented data and iteratively builds the rationale in alignment with the initial query and the acquired knowledge. We conduct comprehensive experiments to demonstrate the efficacy of our approach across various benchmarks, particularly those requiring multihop reasoning steps. The results indicate a significant enhancement in performance, up to 12.6\\% over the second-best method, underscoring the potential of the approach in complex, knowledge-intensive applications.",
+        "year": "2025"
+      },
+      "similarity": 0.6202867031097412
+    }
+  ],
+  "idea_003": [
+    {
+      "paper": {
+        "paper_id": "WYsCKxZc5Y",
+        "title": "Contextually Guided Transformers via Low-Rank Adaptation",
+        "abstract": "Large Language Models (LLMs) based on Transformers excel at text processing, but their reliance on prompts for specialized behavior introduces computational overhead. We propose a modification to a Transformer architecture that eliminates the need for explicit prompts by learning to encode context into the model's weights. Our Contextually Guided Transformer (CGT) model maintains a contextual summary at each sequence position, allowing it to update the weights on the fly based on the preceding context. This approach enables the model to self-specialize, effectively creating a tailored model for processing information following a given prefix. We demonstrate the effectiveness of our method on synthetic in-context learning tasks and language modeling benchmarks. Furthermore, we introduce techniques for enhancing the interpretability of the learned contextual representations, drawing connections to Variational Autoencoders and promoting smoother, more consistent context encoding. This work offers a novel direction for efficient and adaptable language modeling by integrating context directly into the model's architecture.",
+        "year": "2025"
+      },
+      "similarity": 0.6694902181625366
+    },
+    {
+      "paper": {
+        "paper_id": "0ULf242ApE",
+        "title": "From Context to Concept: Concept Encoding in In-Context Learning",
+        "abstract": "Humans distill complex experiences into fundamental abstractions, enabling rapid learning and adaptation. Similarly, autoregressive transformers exhibit adaptive learning through in-context learning (ICL), which begs the question of how. In this paper, we propose **concept encoding-decoding mechanism** to explain ICL by studying how transformers form internal abstractions in their representations. On synthetic ICL tasks, we analyze the training dynamics of a small transformer and report the coupled emergence of concept encoding and decoding. As the model learns to encode different latent concepts (e.g., ``Finding the first noun in a sentence.\") into distinct, separable representations, it conditionally builds decoding algorithms and improve its ICL performance. We validate the existence of this mechanism across pretrained models of varying sizes (Gemma-2 2B/9B/27B, Llama-3.1 8B/70B). Further, through mechanistic interventions and controlled finetuning, we demonstrate that the quality of concept encoding is causally related and predictive of ICL performance. Our empirical insights shed light into better understanding the success and failure modes of large language models via their representations.",
+        "year": "2025"
+      },
+      "similarity": 0.6330848932266235
+    },
+    {
+      "paper": {
+        "paper_id": "BkvdAYhyqm",
+        "title": "Explaining black box text modules in natural language with language models",
+        "abstract": "Large language models (LLMs) have demonstrated remarkable prediction performance for a growing array of tasks. However, their rapid proliferation and increasing opaqueness have created a growing need for interpretability. Here, we ask whether we can automatically obtain natural language explanations for black box text modules. A text module is any function that maps text to a scalar continuous value, such as a submodule within an LLM or a fitted model of a brain region. Black box indicates that we only have access to the module's inputs/outputs.\n    \nWe introduce Summarize and Score (SASC), a method that takes in a text module and returns a natural language explanation of the module's selectivity along with a score for how reliable the explanation is. We study SASC in 3 contexts. First, we evaluate SASC on synthetic modules and find that it often recovers ground truth explanations. Second, we use SASC to explain modules found within a pre-trained BERT model, enabling inspection of the model's internals. Finally, we show that SASC can generate explanations for the response of individual fMRI voxels to language stimuli, with potential applications to fine-grained brain mapping.",
+        "year": "2024"
+      },
+      "similarity": 0.6204192638397217
+    },
+    {
+      "paper": {
+        "paper_id": "oBmaLuEJda",
+        "title": "BMLM: Bidirectional Large Language Model for  Multi-Task Spoken Language Understanding: Better and Faster",
+        "abstract": "Autoregressive large language models (LLMs) have achieved notable success in natural language generation. However, their direct application to natural language understanding (NLU) tasks presents challenges due to reliance on fixed label vocabularies and task-specific output structures. Although instruction-following tuning can adapt LLMs for these tasks, the autoregressive architecture often leads to error propagation and significant time costs from uncontrollable output lengths, particularly in token-level tagging tasks. In this paper, we introduce a bidirectional LLM framework (BMLM) for multi-task spoken language understanding, which eliminates the need for training from scratch and seamlessly integrates with existing LLMs, bridging the gap between extensive pre-trained knowledge and the requirements of understanding tasks. Our evaluation on multiple datasets demonstrates that BMLM significantly outperforms state-of-the-art pre-trained language models and autoregressive LLM baselines. Specifically, on the MixATIS and MixSNIPS datasets, BMLM achieves notable improvements of +3.9\\% and +4.1\\% in overall semantic accuracy compared to autoregressive baselines. Additionally, we observe a 123x improvement in inference speed for the MixATIS dataset and a 189x enhancement for the MixSNIPS dataset compared to existing generative LLM baselines. We anticipate that this work will provide a new perspective and foundational support for LLM applications in the NLU domain.",
+        "year": "2025"
+      },
+      "similarity": 0.6203568577766418
+    },
+    {
+      "paper": {
+        "paper_id": "dDLGZTKZYZ",
+        "title": "MLPs for NLP: Towards Discovering Inductive Bias From Scratch",
+        "abstract": "The recent rise of large language models has been fueled by scale. More data, more compute, and bigger models have consistently led to better performance. This scaling paradigm has been applied most notably to the transformer architecture, which is especially conducive to training parallelization and sequence modeling. In this work, we ask what happens if we apply the power of scale to the simplest possible class of neural network: the multi-layer perceptron (MLP). Specifically, we train MLPs to perform next-token prediction on billions of tokens of text. Indeed, their performance consistently improves with scale, though vanilla MLPs are still clearly inferior to transformers for this task, especially because their parameter count grows with the length of the input sequences. We then perform a mechanistic analysis of the trained models, and identify a consistent emergent structure: most neurons in the first hidden layer either perform arbitrary linear functions over a small look-back window, or low-frequency functions over the entire context. These neuron types recall $n$-gram and bag-of-words techniques from classical statistical language modeling. Using the discrete cosine transform, we define a unified way of reparameterizing these neuron types such that the number of parameters per neuron does not depend on the sequence length.",
+        "year": "2025"
+      },
+      "similarity": 0.616815447807312
+    }
+  ],
+  "idea_004": [
+    {
+      "paper": {
+        "paper_id": "WjPK2gj0xu",
+        "title": "Multi-modality Expansion and Retention for LLMs through Parameter Merging and Decoupling",
+        "abstract": "Extensive fine-tuning of the synthesis between multimodal encoders and Large Language Models (LLMs) on modality-specific data can expand the modalities that LLM can handle, leading to the formation of Multimodal Large Language Models (MLLMs).\nHowever, this paradigm to expanding modalities heavily relies on initiating fine-tuning from scratch with new multimodal data, which is both resource-intensive and inflexible. \nIn this paper, we propose $\\textit{MMER (Multi-modality Expansion and Retention)}$, a novel $\\textit{training-free}$ approach that reuses and composes existing MLLMs to facilitate effective multimodal expansion while retaining the original performance of each MLLM. \nIn particular, MMER maintains the multimodal encoders of the MLLMs while merging their LLM parameters.\nBy comparing the original LLM parameters with the merged ones, MMER can create binary masks that enable an approximate separation of the LLM parameters for each modality.\nThis process allows the decoupled parameters to independently process modality-specific inputs, thereby reducing parameter conflicts and maintaining the fidelity of the original MLLMs.\nAdditionally, MMER integrates strategies to prevent catastrophic forgetting by employing a similar approach to separately decouple the parameters fine-tuned on new tasks from the original parameters. \nExperiments on three multimodal tasks and fourteen dual-modal tasks show significant improvements over recent baselines, demonstrating that MMER can effectively expand multimodal capabilities of LLMs while retaining 99.6\\% of the original performance. \nFurther experiments in both single-task and cross modalities multi-task scenarios reveal that MMER significantly mitigates catastrophic forgetting.",
+        "year": "2025"
+      },
+      "similarity": 0.7529701590538025
+    },
+    {
+      "paper": {
+        "paper_id": "vKL1i2p5Xr",
+        "title": "Text as Any-Modality for Zero-shot Classification by Consistent Prompt Tuning",
+        "abstract": "The integration of prompt tuning with multimodal learning has shown significant generalization abilities for various downstream tasks. Despite advancements, existing methods heavily depend on massive modality-specific labeled data (e.g., video, audio, and image), or are customized for a single modality. In this study, we present Text as Any-Modality by Consistent Prompt Tuning (TaAM-CPT), a scalable approach for constructing a general representation model toward unlimited modalities using solely text data. TaAM-CPT comprises modality prompt pools, text construction, and modality-aligned text encoders from pre-trained models, which allows for extending new modalities by adding prompt pools and modality-aligned text encoders. To harmonize the learning across different modalities, TaAM-CPT designs intra- and inter-modal learning objectives, which can capture category details within modalities while maintaining semantic consistency across different modalities. Benefiting from its scalable architecture and pre-trained models, TaAM-CPT can be seamlessly extended to accommodate unlimited modalities. Remarkably, without any modality-specific labeled data, TaAM-CPT achieves leading results on diverse datasets spanning various modalities, including video classification (Kinetic-400/600/700), image classification (MSCOCO, VOC2007, NUSWIDE, VOC2012, Objects365), and audio classification (ESC50, US8K). The code is available at https://anonymous.4open.science/r/TaAM-CPT-0EA6.",
+        "year": "2025"
+      },
+      "similarity": 0.7359866499900818
+    },
+    {
+      "paper": {
+        "paper_id": "TCFtGBTxkq",
+        "title": "Efficient Audiovisual Speech Processing via MUTUD: Multimodal Training and Unimodal Deployment",
+        "abstract": "Building reliable speech systems often requires combining multiple modalities, like audio and visual cues. While such multimodal solutions frequently lead to improvements in performance and may even be critical in certain cases, they come with several constraints such as increased sensory requirements, computational cost, and modality synchronization, to mention a few. These challenges constrain the direct uses of these multimodal solutions in real-world applications. In this work, we develop approaches where the learning happens with all available modalities but the deployment or inference is done with just one or reduced modalities. To do so, we propose a Multimodal Training and Unimodal Deployment (MUTUD) framework which includes a Temporally Aligned Modality feature Estimation (TAME) module that can estimate information from missing modality using modalities present during inference. This innovative approach facilitates the integration of information across different modalities, enhancing the overall inference process by leveraging the strengths of each modality to compensate for the absence of certain modalities during inference. We apply MUTUD to various audiovisual speech tasks and show that it can reduce the performance gap between the multimodal and corresponding unimodal models to a considerable extent. MUTUD achieves this while reducing the model size and computing compared to multimodal models by almost 80%.",
+        "year": "2025"
+      },
+      "similarity": 0.7350860238075256
+    },
+    {
+      "paper": {
+        "paper_id": "QPDbIFumQ8",
+        "title": "EMMA: Efficient Visual Alignment in Multi-Modal LLMs",
+        "abstract": "Multi-modal Large Language Models (MLLMs) have recently exhibited impressive general-purpose capabilities by leveraging vision foundation models to encode the core concepts of images into representations. These are then combined with instructions and processed by the language model to generate high-quality responses. Despite significant progress\nin enhancing the language component, challenges persist in optimally fusing visual encodings within the language model for task-specific adaptability. Recent research has focused on improving this fusion through modality adaptation modules but at the cost of significantly increased model complexity and training data needs. \nIn this paper, we propose EMMA (Efficient Multi-Modal Adaptation), a lightweight cross-modality module designed to efficiently fuse visual and textual encodings, generating instruction-aware visual representations for the language model. Our key contributions include: (1) an efficient early fusion mechanism that integrates vision and language representations with minimal added parameters (less than 0.2% increase in model size), (2) an in-depth interpretability analysis that sheds light on the internal mechanisms of the proposed method; (3) comprehensive experiments that demonstrate notable improvements on both specialized and general benchmarks for MLLMs. Empirical results show that EMMA boosts performance across multiple tasks by up to 9.3% while significantly improving robustness against hallucinations.",
+        "year": "2025"
+      },
+      "similarity": 0.7331629395484924
+    },
+    {
+      "paper": {
+        "paper_id": "oVCVCo3laS",
+        "title": "DualTime: A Dual-Adapter  Language Model for Time Series Multimodal Representation Learning",
+        "abstract": "The recent rapid advancements in language models (LMs) have garnered attention in time series multimodal representation learning. However, existing contrastive learning-based and prompt-based LM approaches tend to be biased, often assigning a primary role to time series modality while treating text modality as secondary.\nWe classify these approaches under a temporal-primary paradigm, which overlooks the unique and critical task-relevant information provided by the text modality, failing to fully leverage mutual benefits and complementarity of different modalities.\nTo fill this gap, we propose a novel textual-temporal multimodal learning paradigm that enables either modality to serve as the primary one while being enhanced by the other, thereby effectively capturing modality-specific information and fostering cross-modal interaction. In specific, we design DualTime, a language model composed of dual adapters to implement temporal-primary and textual-primary modeling simultaneously. Within each adapter, lightweight adaptation tokens are injected into the top layers of LM to encourage high-level cross-modal interaction. The shared LM pipeline by dual adapters not only achieves adapter alignment but also reduces computation resources and enables efficient fine-tuning. Empirically, DualTime demonstrates superior performance, achieving notable improvements of 7\\% accuracy and 15\\% F1 in supervised settings. Furthermore, the few-shot label transfer experiments validate DualTime's expressiveness and transferability.",
+        "year": "2025"
+      },
+      "similarity": 0.7320472002029419
+    }
+  ],
+  "idea_005": [
+    {
+      "paper": {
+        "paper_id": "wwO8qS9tQl",
+        "title": "ALMANACS: A Simulatability Benchmark for Language Model Explainability",
+        "abstract": "How do we measure the efficacy of language model explainability methods? While many explainability methods have been developed, they are typically evaluated on bespoke tasks, preventing an apples-to-apples comparison. To help fill this gap, we present ALMANACS, a language model explainability benchmark. ALMANACS scores explainability methods on simulatability, i.e., how well the explanations improve behavior prediction on new inputs. The ALMANACS scenarios span twelve safety-relevant topics such as ethical reasoning and advanced AI behaviors; they have idiosyncratic premises to invoke model-specific behavior; and they have a train-test distributional shift to encourage faithful explanations. By using another language model to predict behavior based on the explanations, ALMANACS is a fully automated benchmark. While not a replacement for human evaluations, we aim for ALMANACS to be a complementary, automated tool that allows for fast, scalable evaluation. Using ALMANACS, we evaluate counterfactual, rationalization, attention, and Integrated Gradients explanations. Our results are sobering: when averaged across all topics, no explanation method outperforms the explanation-free control. We conclude that despite modest successes in prior work, developing an explanation method that aids simulatability in ALMANACS remains an open challenge.",
+        "year": "2025"
+      },
+      "similarity": 0.7160724997520447
+    },
+    {
+      "paper": {
+        "paper_id": "PocqkbIelt",
+        "title": "CounterNet: End-to-End Training of Prediction Aware Counterfactual Explanations",
+        "abstract": "Counterfactual (or CF) explanations are a type of local explanations for Machine Learning (ML) model predictions, which offer a contrastive case as an explanation by finding the smallest changes (in feature space) to the input data point, which will lead to a different prediction by the ML model. Existing CF explanation techniques suffer from two major limitations: (i) all of them are post-hoc methods designed for use with proprietary ML models --- as a result, their procedure for generating CF explanations is uninformed by the training of the ML model, which leads to misalignment between model predictions and explanations; and (ii) most of them rely on solving separate time-intensive optimization problems to find CF explanations for each input data point (which negatively impacts their runtime). This work makes a novel departure from the prevalent post-hoc paradigm (of generating CF explanations) by presenting CounterNet, an end-to-end learning framework which integrates predictive model training and the generation of counterfactual (CF) explanations into a single pipeline. We adopt a block-wise coordinate descent procedure which helps in effectively training CounterNet's network. Our extensive experiments on multiple real-world datasets show that CounterNet generates high-quality predictions, and consistently achieves 100% CF validity and very low proximity scores (thereby achieving a well-balanced cost-invalidity trade-off) for any new input instance, and runs 3X faster than existing state-of-the-art baselines. \n",
+        "year": "2023"
+      },
+      "similarity": 0.7005350589752197
+    },
+    {
+      "paper": {
+        "paper_id": "yDICgRUj5s",
+        "title": "A Causal Lens for Evaluating Faithfulness Metrics",
+        "abstract": "The increasing capabilities of Large Language Models (LLMs) have made natural language explanations a promising alternative to traditional feature attribution methods for model interpretability. However, while these explanations may seem plausible, they can fail to reflect the model's underlying reasoning faithfully. The idea of faithfulness is critical for assessing the alignment between the explanation and the model's true decision-making mechanisms. Although several faithfulness metrics have been proposed, they lack a unified evaluation framework. To address this limitation, we introduce Causal Diagnosticity, a new evaluation framework for comparing faithfulness metrics in natural language explanations. Our framework extends the idea of diagnosticity to the faithfulness metrics for natural language explanations by using model editing to generate faithful and unfaithful explanation pairs. We introduce a benchmark consisting of three tasks: fact-checking, analogy, and object counting, and evaluate a diverse set of faithfulness metrics, including post-hoc explanation-based and chain-of-thought (CoT)-based methods. Our results show that while CC-SHAP significantly outperforms other metrics, there is substantial room for improvement. This work lays the foundation for future research in developing more faithful natural language explanations, highlighting the need for improved metrics and more reliable interpretability methods in LLMs.",
+        "year": "2025"
+      },
+      "similarity": 0.6990156173706055
+    },
+    {
+      "paper": {
+        "paper_id": "Wd1R0oxe5j",
+        "title": "Large Language Models for Explainability in Machine Learning",
+        "abstract": "We investigate the potential of large language models (LLMs) in explainable artificial intelligence (XAI) by examining their ability to generate understandable explanations for machine learning (ML) models. While recent studies suggest that LLMs could effectively address the limitations of traditional explanation methods through their conversational capabilities, there has been a lack of systematic evaluation of the quality of these LLM-generated explanations. To fill this gap, this study evaluates whether LLMs can produce explanations for ML models that meet the fundamental properties of XAI using conventional ML models and explanation methods as benchmarks. The findings offer important insights into the strengths and limitations of LLMs as tools for explainable AI, provide recommendations for their appropriate use, and identify promising directions for future research.",
+        "year": "2025"
+      },
+      "similarity": 0.6960812211036682
+    },
+    {
+      "paper": {
+        "paper_id": "lWXedJyLuL",
+        "title": "A Unified Causal View of Instruction Tuning",
+        "abstract": "Instruction tuning on a mixture of tasks has improved zero-shot capabilities in natural language processing (NLP). Nevertheless, existing methods often learn features that exhibit correlations between instruction-formatted samples and target labels, rather than causal relationships. Termed as \"spurious correlation'' in statistics, such a correlation may change drastically in a new task, making the effect from the learned features to be misleading. To this end, we develop a meta Structural Causal Model (meta-SCM) to integrate different NLP tasks under a single causal structure of the data. Specifically, the meta-SCM introduces multiple latent factors that represent properties of source context language, only some of which causally influence the target labels for a specific task. The key idea is to learn task-required causal factors and only use those to make predictions for a given task. Theoretically, we prove the causal factor can be identified without mixing information from others. Guided by the identifiability, we propose a Structural Instruction Tuning (SIT) method to learn the task-required causal representations that can mimic the causal factors for each task. The utility of our approach is verified by improvements of zero-shot ability on a range of unseen datasets and tasks.",
+        "year": "2024"
+      },
+      "similarity": 0.6864938735961914
+    }
+  ],
+  "idea_006": [
+    {
+      "paper": {
+        "paper_id": "A5nLEfjhJW",
+        "title": "SHARCS: SHARed Concept Space for\\\\Explainable Multimodal Learning",
+        "abstract": "Multimodal learning is an essential paradigm for addressing complex real-world problems, where individual data modalities are typically insufficient for accurately solving a given modelling task. While various deep learning approaches have successfully addressed these challenges, their reasoning process is often opaque; limiting the capabilities for a principled explainable cross-modal analysis and any domain-expert intervention. In this paper, we introduce SHARCS (SHARed Concept Space) -- a novel concept-based approach for explainable multimodal learning. SHARCS learns and maps interpretable concepts from different heterogeneous modalities into a single unified concept-manifold, which leads to an intuitive projection of semantically similar cross-modal concepts. We demonstrate that such an approach can lead to inherently explainable task predictions while also improving downstream predictive performance. Moreover, we show that SHARCS can operate and significantly outperform other approaches in practically significant scenarios, such as retrieval of missing modalities and cross-modal explanations. Our approach is model agnostic and easily applicable to different types (and number) of modalities, thus advancing the development of effective, interpretable, and trustworthy multimodal approaches.",
+        "year": "2024"
+      },
+      "similarity": 0.7079343199729919
+    },
+    {
+      "paper": {
+        "paper_id": "Rc8z5wLzBF",
+        "title": "OmniBench: Towards The Future of  Universal Omni-Language Models",
+        "abstract": "Recent advancements in multimodal large language models (MLLMs) have aimed to integrate and interpret data across diverse modalities. However, the capacity of these models to concurrently process and reason about multiple modalities remains inadequately explored, partly due to the lack of comprehensive modality-wise benchmarks. \nWe introduce **OmniBench**, a novel benchmark designed to rigorously evaluate models' ability to recognize, interpret, and reason across **visual**, **acoustic**, and **textual** inputs simultaneously. We define models capable of such tri-modal processing as omni-language models (OLMs).\nOmniBench is distinguished by high-quality human annotations, ensuring that accurate responses require integrated understanding and reasoning across all three modalities. Our main findings reveal that:  *i)* open-source OLMs exhibit critical limitations in instruction-following and reasoning capabilities within tri-modal contexts; and *ii)* most baselines models perform poorly (below 50\\% accuracy) even when provided with alternative textual representations of images or/and audio.\nThese results suggest that the ability to construct a consistent context from text, image, and audio is often overlooked in existing MLLM training paradigms. \nTo address this gap, we curate an instruction tuning dataset of 84.5K training samples, **OmniInstruct**, for training OLMs to adapt to multimodal contexts.\nWe advocate for future research to focus on developing more robust tri-modal integration techniques and training strategies to enhance OLM performance across diverse modalities.\nCodes and datasets are uploaded at [our repository](https://anonymous.4open.science/r/Omni-Bench-EA9B).",
+        "year": "2025"
+      },
+      "similarity": 0.674651026725769
+    },
+    {
+      "paper": {
+        "paper_id": "skHPtDnYGa",
+        "title": "Understanding the Role of LLMs in Multimodal Evaluation Benchmarks",
+        "abstract": "The rapid advancement of Multimodal Large Language Models (MLLMs) has been accompanied by the development of various benchmarks to evaluate their capabilities.  However, the true nature of these evaluations and the extent to which they assess multimodal reasoning versus merely leveraging the underlying Large Language Model (LLM) backbone remain unclear. This paper presents a comprehensive investigation into the role of LLM backbones in MLLM evaluation, focusing on two critical aspects: the degree to which current benchmarks truly assess multimodal reasoning and the influence of LLM prior knowledge on performance. Specifically, we introduce a modified evaluation protocol to disentangle the contributions of the LLM backbone from multimodal integration, and an automatic knowledge identification technique for diagnosing whether LLMs equip the necessary knowledge for corresponding multimodal questions. Our study encompasses four diverse MLLM benchmarks and eight state-of-the-art MLLMs. Key findings reveal that some benchmarks allow high performance even without visual inputs and up to 50\\% of error rates can be attributed to insufficient world knowledge in the LLM backbone, indicating a heavy reliance on language capabilities. To address knowledge deficiencies, we propose a knowledge augmentation pipeline that achieves significant performance gains, with improvements of up to 60\\% on certain datasets, resulting in a approximately 4x increase in performance. Our work provides crucial insights into the role of the LLM backbone in MLLMs, and highlights the need for more nuanced benchmarking approaches.",
+        "year": "2025"
+      },
+      "similarity": 0.6702921390533447
+    },
+    {
+      "paper": {
+        "paper_id": "y3CdSwREZl",
+        "title": "MINER: Mining the Underlying Pattern of Modality-Specific Neurons in Multimodal Large Language Models",
+        "abstract": "In recent years, multimodal large language models (MLLMs) have significantly advanced, integrating more modalities into diverse applications. However, the lack of explainability remains a major barrier to their use in scenarios requiring decision transparency. Current neuron-level explanation paradigms mainly focus on knowledge localization or language- and domain-specific analyses, leaving the exploration of multimodality largely unaddressed. To tackle these challenges, we propose MINER, a transferable framework for mining modality-specific neurons (MSNs) in MLLMs, which comprises four stages: (1) modality separation, (2) importance score calculation, (3) importance score aggregation, (4) modality-specific neuron selection. Extensive experiments across six benchmarks and two MLLMs show that (1) deactivating ONLY 2% of MSNs significantly reduce MLLMs performance (0.56 to 0.24 for Qwen2-VL, 0.69 to 0.31 for Qwen2-Audio), (2) different modalities mainly converge in the lower layers, (3) MSNs influence how key information from various modalities converges to the last token, (4) We observed two intriguing phenomena, semantic probing and semantic telomeres.",
+        "year": "2025"
+      },
+      "similarity": 0.6462571024894714
+    },
+    {
+      "paper": {
+        "paper_id": "cjlPAgNifc",
+        "title": "Distill Visual Chart Reasoning Ability from LLMs to MLLMs",
+        "abstract": "Solving complex chart Q&A tasks requires advanced visual reasoning abilities in multimodal large language models (MLLMs). Recent studies highlight that these abilities consist of two main parts: recognizing key information from visual inputs and conducting reasoning over it. Thus, a promising approach to enhance MLLMs is to construct relevant training data focusing on the two aspects. However, collecting and annotating complex charts and questions is costly and time-consuming, and ensuring the quality of annotated answers remains a challenge. In this paper, we propose Code-as-Intermediary Translation (CIT), a cost-effective, efficient and easily scalable data synthesis method for distilling visual reasoning abilities from LLMs to MLLMs. The code serves as an intermediary that translates visual chart representations into textual representations, enabling LLMs to understand cross-modal information. Specifically, we employ text-based synthesizing techniques to construct chart-plotting code and produce ReachQA, a dataset containing 3k reasoning-intensive charts and 20k Q&A pairs to enhance both recognition and reasoning abilities. Experiments show that when fine-tuned with our data, models not only perform well on chart-related benchmarks, but also demonstrate improved multimodal reasoning abilities on general mathematical benchmarks such as MathVista.",
+        "year": "2025"
+      },
+      "similarity": 0.6445849537849426
+    }
+  ],
+  "idea_007": [
+    {
+      "paper": {
+        "paper_id": "PN9uaKA1nV",
+        "title": "Knowledge-Infused Prompting: Assessing and Advancing Clinical Text Data Generation with Large Language Models",
+        "abstract": "Clinical natural language processing requires methods that can address domain-specific challenges, such as complex medical terminology and clinical contexts. Recently, large language models (LLMs) have shown promise in this domain. Yet, their direct deployment can lead to privacy issues and are constrained by resources. To address this challenge, we delve into synthetic clinical text generation using LLMs for clinical NLP tasks. We propose an innovative, resource-efficient approach, ClinGen, which infuses knowledge into the process. Our model involves clinical knowledge extraction and context-informed LLM prompting. Both clinical topics and writing styles are drawn from external domain-specific knowledge graphs and LLMs to guide data generation. Our extensive empirical study across 7 clinical NLP tasks and 16 datasets reveals that ClinGen consistently enhances performance across various tasks, effectively aligning the distribution of real datasets and significantly enriching the diversity of generated training instances. We will publish our code and all the generated data upon acceptance.",
+        "year": "2024"
+      },
+      "similarity": 0.6176771521568298
+    },
+    {
+      "paper": {
+        "paper_id": "wIzVS-RJjCB",
+        "title": "VER: Learning Natural Language Representations for Verbalizing Entities and Relations",
+        "abstract": "Entities and relationships between entities are vital in the real world. Essentially, we understand the world by understanding entities and relations. For instance, to understand a field, e.g., computer science, we need to understand the relevant concepts, e.g., machine learning, and the relationships between concepts, e.g., machine learning and artificial intelligence. To understand a person, we should first know who he/she is and how he/she is related to others. To understand entities and relations, humans may refer to natural language descriptions. For instance, when learning a new scientific term, people usually start by reading its definition in dictionaries or encyclopedias. To know the relationship between two entities, humans tend to create a sentence to connect them. In this paper, we propose VER: A Unified Model for Verbalizing Entities and Relations. Specifically, we attempt to build a system that takes any entity or entity set as input and generates a sentence to represent entities and relations, named ``natural language representation''. Extensive experiments demonstrate that our model can generate high-quality sentences describing entities and entity relationships and facilitate various tasks on entities and relations, including definition modeling, relation modeling, and generative commonsense reasoning.",
+        "year": "2023"
+      },
+      "similarity": 0.6081937551498413
+    },
+    {
+      "paper": {
+        "paper_id": "OVbY-QCCjAh",
+        "title": "SAGE: Semantic-Aware Global Explanations for Named Entity Recognition",
+        "abstract": "In the last decades, deep learning approaches achieved impressive results in many research fields, \nsuch as Computer Vision and Natural Language Processing (NLP). \nNLP in particular has greatly benefit from unsupervised methods that allow to learn distributed representation of language.\nOn the race for better performances Language Models have reached hundred of billions parameters nowadays. \nDespite the remarkable results, deep models are still far from being fully exploited in real world applications. \nIndeed, these approaches are black-boxes, i.e. they are not interpretable by design nor explainable, which is often crucial to make decisions in business. \nSeveral task-agnostic methods have been proposed in literature to explain models' decisions. \nMost techniques rely on the \"local\" assumption, i.e. explanations are made example-wise.\nIn this paper instead, we present a post-hoc method to produce highly interpretable global rules to explain NLP classifiers. \nRules are extracted with a data mining approach on a semantically enriched input representation, instead of using words/wordpieces solely. \nSemantic information yields more abstract and general rules that are both more explanatory and less complex, while being also better at reflecting the model behaviour.\nIn the experiments we focus on Named Entity Recognition, an NLP task where explainability is under-investigated. \nWe explain the predictions of BERT NER classifiers trained on two popular benchmarks, CoNLL03 and Ontonotes, and compare our model against LIME.",
+        "year": "2023"
+      },
+      "similarity": 0.6077647805213928
+    },
+    {
+      "paper": {
+        "paper_id": "ijwYWoChN9",
+        "title": "Domain Shift Tuning over Knowledge Gap",
+        "abstract": "This paper introduces Domain Shift Tuning (DST), a novel framework designed to guide pre-trained language models (PLMs), including Large Language Models (LLMs), in overcoming domain discrepancies (i.e., source-target).\nPLMs, pre-trained on extensive and diverse corpora, the source domain, often encounter domain gaps after fine-tuning over the target domain.\nUnlike conventional adapters or Parameter-Efficient Fine-Tuning (PEFT) methods, \nDST conceptualizes domain gaps as differences in knowledge encapsulated within multiple subnetworks of PLMs. \nTo bridge this gap, \nour challenge is to find a subnetwork set that corresponds to these pieces of knowledge and their weight.\nThis direction leads DST to employ a lightweight subnetwork, the Knowledge Steering Layer (KSL), and a training objective, Knowledge Distribution Modeling (KDM). \nThese components enable DST to fine-tune PLMs by aligning the knowledge weights of the source domain with those of the target domain. \nExperimental results on diverse datasets demonstrate that DST effectively mitigates the domain gap, allowing PLMs to generate text that closely aligns with even a small target corpus, thereby significantly enhancing domain adaptation for PLMs at lower computational cost.",
+        "year": "2025"
+      },
+      "similarity": 0.6022043228149414
+    },
+    {
+      "paper": {
+        "paper_id": "WkHkwo8rpL",
+        "title": "Nexus: Specialization meets Adaptability for Efficiently Training Mixture of Experts",
+        "abstract": "Efficiency, specialization, and adaptability to new data distributions are qualities that are hard to combine in current Large Language Models. The Mixture of Experts (MoE) architecture has been the focus of significant research because its inherent conditional computation enables such desirable properties. In this work, we focus on \"upcycling\" dense expert models into an MoE, aiming to improve specialization while also adding the ability to adapt to new tasks easily. We introduce Nexus, an enhanced MoE architecture with adaptive routing where the model learns to project expert embeddings from domain representations. This approach allows Nexus to flexibly add new experts after the initial upcycling through separately trained dense models, without requiring large-scale MoE training for unseen data domains. Our experiments show that Nexus achieves a relative gain of up to 2.1% over the baseline for initial upcycling, and a 18.8% relative gain for extending the MoE with a new expert by using limited finetuning data. This flexibility of Nexus is crucial to enable an open-source ecosystem where every user continuously assembles their own MoE-mix according to their needs.",
+        "year": "2025"
+      },
+      "similarity": 0.594036877155304
+    }
+  ],
+  "idea_008": [
+    {
+      "paper": {
+        "paper_id": "aya06N6R4W",
+        "title": "Counterfactual Causal Inference in Natural Language with Large Language Models",
+        "abstract": "Causal structure discovery methods are commonly applied to structured data where the causal variables are known and where statistical testing can be used to assess the causal relationships. By contrast, recovering a causal structure from unstructured natural language data such as news articles contains numerous challenges due to the absence of known variables or counterfactual data to estimate the causal links. Large Language Models (LLMs) have shown promising results in this direction but also exhibit limitations. This work investigates LLM's abilities to build causal graphs from text documents and perform counterfactual causal inference. We propose an end-to-end causal structure discovery and causal inference method from natural language: we first use an LLM to extract the instantiated causal variables from text data and build a causal graph. We merge causal graphs from multiple data sources to represent the most exhaustive set of causes possible. We then conduct counterfactual inference on the estimated graph. The causal graph conditioning allows reduction of LLM biases and better represents the causal estimands. We use our method to show that the limitations in the counterfactual causal reasoning abilities come from prediction errors and propose directions to mitigate them. We demonstrate the applicability of our method on real-world news articles.",
+        "year": "2025"
+      },
+      "similarity": 0.7628782987594604
+    },
+    {
+      "paper": {
+        "paper_id": "Ba5KGabRe8",
+        "title": "XplainLLM: A QA Explanation Dataset for Understanding LLM Decision-Making",
+        "abstract": "Large Language Models (LLMs) have recently made impressive strides in natural language understanding tasks. Despite their remarkable performance, understanding their decision-making process remains a big challenge. In this paper, we look into bringing some transparency to this process by introducing a new explanation dataset for question answering (QA) tasks that integrates knowledge graphs (KGs) in a novel way. Our dataset includes 12,102 question-answer-explanation (QAE) triples. Each explanation in the dataset links the LLM's reasoning to entities and relations in the KGs. The explanation component includes a $\\textit{why-choose}$ explanation, a $\\textit{why-not-choose}$ explanation, and a set of $\\textit{reason-elements}$ that underlie the LLM's decision. We leverage KGs and graph attention networks (GAT) to find the $\\textit{reason-elements}$ and transform them into $\\textit{why-choose}$ and $\\textit{why-not-choose}$  explanations that are comprehensible to humans. Through quantitative and qualitative evaluations, we demonstrate the potential of our dataset to improve the in-context learning of LLMs, and enhance their interpretability and explainability. Our work contributes to the field of explainable AI by enabling a deeper understanding of the LLMs decision-making process to make them more transparent and thereby, potentially more reliable, to researchers and practitioners alike. Our dataset is available at: http://anonymous.4open.science/r/XplainLLM.",
+        "year": "2024"
+      },
+      "similarity": 0.6852908134460449
+    },
+    {
+      "paper": {
+        "paper_id": "F4meTCwlxZ",
+        "title": "Consistency Guaranteed Causal Graph Recovery with Large Language Models",
+        "abstract": "Causal graph recovery traditionally relies on statistical estimation of observable variables or individual knowledge, which suffer from data collection biases and knowledge limitations of individuals. Leveraging the broad knowledge in scientific corpus, we propose a novel method for causal graph recovery to deduce causal relationships with the large language models (LLMs) as a knowledge extractor. Our method extracts associational relationships among variables and further eliminates the inconsistent relationship to recover a causal graph using the constraint-based causal discovery methods. Comparing to other LLM-based methods that directly instruct LLMs to do highly complex causal reasoning, our method shows advantages on causal graph quality on benchmark datasets. More importantly, as causal graphs may evolve when new research results emerge, our method shows sensitivity to new evidence in the literature and can provide useful information to update causal graphs accordingly.",
+        "year": "2025"
+      },
+      "similarity": 0.6850244402885437
+    },
+    {
+      "paper": {
+        "paper_id": "fk4czNKXPC",
+        "title": "Transformers meet Neural Algorithmic Reasoners",
+        "abstract": "Transformers have revolutionized machine learning with their simple yet effective architecture. Pre-training Transformers on massive text datasets from the Internet has led to unmatched generalization for natural language understanding (NLU) tasks. However, such language models remain fragile when tasked with algorithmic forms of reasoning, where computations must be precise and robust. To address this limitation, we propose a novel approach that combines the Transformer's language understanding with the robustness of graph neural network (GNN)-based neural algorithmic reasoners (NARs). Such NARs proved effective as generic solvers for algorithmic tasks, when specified in graph form. To make their embeddings accessible to a Transformer, we propose a hybrid architecture with a two-phase training procedure, allowing the tokens in the language model to cross-attend to the node embeddings from the NAR. We evaluate our resulting TransNAR model on CLRS-Text, the text-based version of the CLRS-30 benchmark, and demonstrate significant gains over Transformer-only models for algorithmic reasoning, both in and out of distribution. Finally, we empirically show that Transformer-only models distilled from TransNAR models also exhibit improved out-of-distribution generalization capabilities.",
+        "year": "2025"
+      },
+      "similarity": 0.6751319169998169
+    },
+    {
+      "paper": {
+        "paper_id": "JzFLBOFMZ2",
+        "title": "Causal Structure Learning Supervised by Large Language Model",
+        "abstract": "Causal discovery from observational data is pivotal for deciphering complex relationships. While Causal Structure Learning (CSL) aims to extract causal Directed Acyclic Graphs (DAGs), its efficacy is hampered by the expansive DAG space and data sparsity. The advent of Large Language Models (LLMs) presents a novel avenue, given their aptitude in causal reasoning, thereby constraining CSL with knowledge-based causal inference.\nA pioneering study integrated LLMs into CSL, achieving notable results in several real-world DAGs. Yet, it faced pitfalls such as erroneous LLM inferences and the inefficacy of ancestral constraints.\nIn response, we introduce the Iterative LLM Supervised CSL (ILS-CSL) framework. This approach seamlessly merges LLM-based causal inference with CSL, iteratively refining the causal DAG based on LLM feedback. \nGiven LLM's shortness in distinguishing indirect causality form the direct, ILS-CSL is still capable to offer constraints on direct causality that are more powerful than the indirect, by integrating statistical dependencies indicated by data.\nMoreover, the prior errors are significantly reduced while using identical LLM resources.\nOur evaluations on eight real-world datasets confirm ILS-CSL's dominance, establishing a new benchmark in CSL performance.",
+        "year": "2024"
+      },
+      "similarity": 0.6670472025871277
+    }
+  ],
+  "idea_009": [
+    {
+      "paper": {
+        "paper_id": "BkvdAYhyqm",
+        "title": "Explaining black box text modules in natural language with language models",
+        "abstract": "Large language models (LLMs) have demonstrated remarkable prediction performance for a growing array of tasks. However, their rapid proliferation and increasing opaqueness have created a growing need for interpretability. Here, we ask whether we can automatically obtain natural language explanations for black box text modules. A text module is any function that maps text to a scalar continuous value, such as a submodule within an LLM or a fitted model of a brain region. Black box indicates that we only have access to the module's inputs/outputs.\n    \nWe introduce Summarize and Score (SASC), a method that takes in a text module and returns a natural language explanation of the module's selectivity along with a score for how reliable the explanation is. We study SASC in 3 contexts. First, we evaluate SASC on synthetic modules and find that it often recovers ground truth explanations. Second, we use SASC to explain modules found within a pre-trained BERT model, enabling inspection of the model's internals. Finally, we show that SASC can generate explanations for the response of individual fMRI voxels to language stimuli, with potential applications to fine-grained brain mapping.",
+        "year": "2024"
+      },
+      "similarity": 0.6392650604248047
+    },
+    {
+      "paper": {
+        "paper_id": "wIzVS-RJjCB",
+        "title": "VER: Learning Natural Language Representations for Verbalizing Entities and Relations",
+        "abstract": "Entities and relationships between entities are vital in the real world. Essentially, we understand the world by understanding entities and relations. For instance, to understand a field, e.g., computer science, we need to understand the relevant concepts, e.g., machine learning, and the relationships between concepts, e.g., machine learning and artificial intelligence. To understand a person, we should first know who he/she is and how he/she is related to others. To understand entities and relations, humans may refer to natural language descriptions. For instance, when learning a new scientific term, people usually start by reading its definition in dictionaries or encyclopedias. To know the relationship between two entities, humans tend to create a sentence to connect them. In this paper, we propose VER: A Unified Model for Verbalizing Entities and Relations. Specifically, we attempt to build a system that takes any entity or entity set as input and generates a sentence to represent entities and relations, named ``natural language representation''. Extensive experiments demonstrate that our model can generate high-quality sentences describing entities and entity relationships and facilitate various tasks on entities and relations, including definition modeling, relation modeling, and generative commonsense reasoning.",
+        "year": "2023"
+      },
+      "similarity": 0.6310839653015137
+    },
+    {
+      "paper": {
+        "paper_id": "CpgoO6j6W1",
+        "title": "DECOUPLING REASONING FROM OBSERVATIONS FOR EFFICIENT AUGMENTED LANGUAGE MODELS",
+        "abstract": "Augmented Language Models (ALMs) blend the reasoning capabilities of Large Language Models (LLMs) with tools that allow for knowledge retrieval and action execution. Existing ALM systems trigger LLM thought processes while pulling observations from these tools in an interleaved fashion. Specifically, an LLM reasons to call an external tool, gets halted to fetch the tool's response, and then decides the next action based on all preceding response tokens. Such a paradigm, though straightforward and easy to implement, often leads to huge computation complexity from redundant prompts and repeated execution. This study addresses such challenges for the first time, proposing a modular paradigm ReWOO (Reasoning WithOut Observation) that detaches the reasoning process from external observations, thus significantly reducing token consumption. Comprehensive evaluations across six public NLP benchmarks and a curated dataset reveal consistent performance enhancements with our proposed methodology. Notably, ReWOO achieves 5x token efficiency and 4% accuracy improvement on HotpotQA, a multi-step reasoning benchmark. Furthermore, ReWOO demonstrates robustness under tool-failure scenarios. Beyond prompt efficiency, decoupling parametric modules from non-parametric tool calls enables instruction fine-tuning to offload LLMs into smaller language models, thus substantially reducing model sizes. Our illustrative work offloads reasoning ability from 175B GPT3.5 into 7B LLaMA successfully, demonstrating the significant potential for truly efficient and scalable ALM systems. Full code, model, and curated data are released for reproduction.",
+        "year": "2024"
+      },
+      "similarity": 0.6270228028297424
+    },
+    {
+      "paper": {
+        "paper_id": "Wd1R0oxe5j",
+        "title": "Large Language Models for Explainability in Machine Learning",
+        "abstract": "We investigate the potential of large language models (LLMs) in explainable artificial intelligence (XAI) by examining their ability to generate understandable explanations for machine learning (ML) models. While recent studies suggest that LLMs could effectively address the limitations of traditional explanation methods through their conversational capabilities, there has been a lack of systematic evaluation of the quality of these LLM-generated explanations. To fill this gap, this study evaluates whether LLMs can produce explanations for ML models that meet the fundamental properties of XAI using conventional ML models and explanation methods as benchmarks. The findings offer important insights into the strengths and limitations of LLMs as tools for explainable AI, provide recommendations for their appropriate use, and identify promising directions for future research.",
+        "year": "2025"
+      },
+      "similarity": 0.608940064907074
+    },
+    {
+      "paper": {
+        "paper_id": "cselR6Jne3",
+        "title": "Teaching LLMs to Decode Activations Into Natural Language",
+        "abstract": "Interpretability methods seek to understand language model representations, yet the outputs of most such methods---circuits, vectors, scalars---are uninterpretable, requiring further effort to interpret. In contrast, we propose to study LatentQA, the task of answering open-ended questions about model activations in natural language. Towards solving LatentQA, we propose Latent Interpretation Tuning (LIT), which finetunes a decoder LLM on a dataset of activations and associated question-answer pairs, similar to how visual instruction tuning trains on question-answer pairs associated with images. We use the decoder for diverse reading applications, such as extracting relational knowledge from representations or uncovering system prompts governing model behavior. Our decoder also specifies a differentiable loss that we use to control models, such as debiasing models on stereotyped sentences and controlling the sentiment of generations. Finally, we extend LatentQA to reveal harmful model capabilities, such as generating recipes for bioweapons and code for hacking.",
+        "year": "2025"
+      },
+      "similarity": 0.6044169664382935
+    }
+  ],
+  "idea_010": [
+    {
+      "paper": {
+        "paper_id": "fk4czNKXPC",
+        "title": "Transformers meet Neural Algorithmic Reasoners",
+        "abstract": "Transformers have revolutionized machine learning with their simple yet effective architecture. Pre-training Transformers on massive text datasets from the Internet has led to unmatched generalization for natural language understanding (NLU) tasks. However, such language models remain fragile when tasked with algorithmic forms of reasoning, where computations must be precise and robust. To address this limitation, we propose a novel approach that combines the Transformer's language understanding with the robustness of graph neural network (GNN)-based neural algorithmic reasoners (NARs). Such NARs proved effective as generic solvers for algorithmic tasks, when specified in graph form. To make their embeddings accessible to a Transformer, we propose a hybrid architecture with a two-phase training procedure, allowing the tokens in the language model to cross-attend to the node embeddings from the NAR. We evaluate our resulting TransNAR model on CLRS-Text, the text-based version of the CLRS-30 benchmark, and demonstrate significant gains over Transformer-only models for algorithmic reasoning, both in and out of distribution. Finally, we empirically show that Transformer-only models distilled from TransNAR models also exhibit improved out-of-distribution generalization capabilities.",
+        "year": "2025"
+      },
+      "similarity": 0.740453839302063
+    },
+    {
+      "paper": {
+        "paper_id": "71kocBuhNO",
+        "title": "LogicBench: Towards Systematic Evaluation of Logical Reasoning Ability of Large Language Models",
+        "abstract": "Recently developed large language models (LLMs) have been shown to perform remarkably well on a wide range of language understanding tasks. But, can they really \"reason\" over the natural language? This question has been receiving significant research attention and a number of reasoning skills such as commonsense, numerical, and qualitative have been studied. However, the crucial skill pertaining to 'logical reasoning' has remained underexplored. Existing work investigating this reasoning ability has focused only on a couple of inference rules (such as modus ponens and modus tollens) of propositional and first-order logic. To enable systematic evaluation of logical reasoning, we introduce LogicBench, a natural language question-answering dataset encompassing 25 different reasoning patterns spanning over propositional, first-order, and non-monotonic logics. Key steps of our dataset construction consist of (1) controlled generation of sentences and their negations containing different ontologies, (2) (context, question, answer) triplets creation using heuristically designed templates, and (3) semantic variations of triplets adding more diversity. We present a comprehensive evaluation with a range of LLMs such as GPT-4, GPT-3, ChatGPT, and FLAN-T5 using chain-of-thought prompting in both zero-shot and few-shot settings. Experimental results show that existing LLMs do not fare well on LogicBench; especially, they struggle on instances requiring complex reasoning steps. Furthermore, we also show that LLMs trained using our data exhibit a better understanding of logical reasoning leading to performance improvements on several existing logical reasoning datasets such as LogicNLI, FOLIO, LogiQA, and ReClor.",
+        "year": "2024"
+      },
+      "similarity": 0.7025581002235413
+    },
+    {
+      "paper": {
+        "paper_id": "4ndvumlZak",
+        "title": "Closing the Gap between Neural Networks for Approximate and Rigorous Logical Reasoning",
+        "abstract": "Despite the historical successes of neural networks,\nthe rigour of logical reasoning is still beyond their reach. Taking syllogistic reasoning as a subset of logical reasoning, we show supervised neural networks cannot reach the rigour of syllogistic reasoning, mainly because they use composition tables, which are coarse to distinguish each valid type of syllogistic reasoning and because end-to-end supervised learning may change the premises. As Transformer's Key-Query-Value structure is a combination table, we conclude that neural networks built upon Transformers cannot reach the rigour of syllogistic reasoning and, thus, cannot reach the rigour of logical reasoning. We logically prove that oversmoothing, in the setting of part-whole relations, can be avoided, if neural networks use region embeddings, and propose the method of reasoning through explicit constructing and inspecting region configurations, to achieve the rigour of logical reasoning.",
+        "year": "2025"
+      },
+      "similarity": 0.6948347091674805
+    },
+    {
+      "paper": {
+        "paper_id": "aNf8VCQE0h",
+        "title": "Almost Sure Reasoning: Generating Verified Formalizations with Language Models and Logical Solvers",
+        "abstract": "Robustness of reasoning remains a challenging problem for large language models, and addressing it is crucial for advancing the reliability and practical application of AI-driven reasoning systems. We introduce Semantic Self-Verification (SSV), a novel approach that addresses the key challenge in combining language models with the rigor of logical solvers: to accurately translate the reasoning problem from natural language to the formal language of the solver. SSV produces strong abstract formalizations of problems  by verifying and refining them against concrete instantiations that are generated by the model and verified by the solver. In addition to significantly advancing the overall reasoning accuracy over the state-of-the-art, a key novelty that this approach presents is a feature of verification that has near-perfect precision over a significant coverage of cases, as we demonstrate on open reasoning benchmarks. We propose such $\\textit{near-certain reasoning}$ as a new approach that can reduce the need for manual human verification in many cases, taking us closer to more dependable and autonomous AI reasoning systems.",
+        "year": "2025"
+      },
+      "similarity": 0.6844290494918823
+    },
+    {
+      "paper": {
+        "paper_id": "dyifcA9UuRo",
+        "title": "Neural Probabilistic Logic Programming in Discrete-Continuous Domains",
+        "abstract": "Neural-symbolic AI (NeSy) methods allow neural networks to exploit symbolic background knowledge. NeSy has been shown to aid learning in the limited data regime and to facilitate inference on out-of-distribution data. Neural probabilistic logic programming (NPLP) is a popular NeSy approach that integrates probabilistic models with neural networks and logic programming. A major limitation of current NPLP systems, such as DeepProbLog, is their restriction to discrete and finite probability distributions, e.g., binary random variables. To overcome this limitation, we introduce DeepSeaProbLog, an NPLP language that supports discrete and continuous random variables on (possibly) infinite and even uncountable domains. Our main contributions are 1) the introduction of DeepSeaProbLog and its semantics, 2) an implementation of DeepSeaProbLog that supports inference and gradient-based learning, and 3) an experimental evaluation of our approach.",
+        "year": "2023"
+      },
+      "similarity": 0.6755374670028687
+    }
+  ],
+  "idea_011": [
+    {
+      "paper": {
+        "paper_id": "mduJQSy7KE",
+        "title": "Meta-Weighted Language Model Tuning for Augmentation-Enhanced Few-Shot Learning",
+        "abstract": "Recent studies have revealed the intriguing few-shot learning ability of pretrained language models (PLMs): They can quickly adapt to a new task when fine-tuned on a small amount of labeled data formulated as prompts, without requiring abundant task-specific annotations. Despite their promising performance, most existing few-shot approaches that only learn from the small training set still underperform fully supervised training by nontrivial margins. In this work, we study few-shot learning with PLMs from a different perspective: We first tune an autoregressive PLM on the few-shot samples and then use it as a generator to synthesize a large amount of novel training samples which augment the original training set. To encourage the generator to produce label-discriminative samples, we train it via weighted maximum likelihood where the weight of each token is automatically adjusted based on a discriminative meta-learning objective. A classification PLM can then be fine-tuned on both the few-shot and the synthetic samples with regularization for better generalization and stability. Our approach FewGen achieves an overall better result across seven classification tasks of the GLUE benchmark than existing few-shot learning methods.",
+        "year": "2023"
+      },
+      "similarity": 0.7485024929046631
+    },
+    {
+      "paper": {
+        "paper_id": "jCpTofV7iY_",
+        "title": "Pre-trained Language Models can be Fully Zero-Shot Learners",
+        "abstract": "How can we extend a pre-trained model to many language understanding tasks, without labeled or additional unlabeled data? Pre-trained language models (PLMs) have been effective for a wide range of NLP tasks. However, existing approaches either require fine-tuning on downstream labeled datasets or manually constructing proper prompts. In this paper, we propose nonparametric prompting PLM (NPPrompt) for fully zero-shot language understanding. Unlike previous methods, NPPrompt uses only pre-trained language models and does not require any labeled data or additional raw corpus for further fine-tuning, nor does it rely on humans to construct a comprehensive set of prompt label words. We evaluate NPPrompt against previous major few-shot and zero-shot learning methods on diverse NLP tasks: including text classification, text entailment, similar text retrieval, and paraphrasing. Experimental results demonstrate that our NPPrompt outperforms the previous best fully zero-shot method by big margins, with absolute gains of 12.8% in accuracy on text classification and 18.9% on the GLUE benchmark.",
+        "year": "2023"
+      },
+      "similarity": 0.7223184108734131
+    },
+    {
+      "paper": {
+        "paper_id": "F0UQv_MNWCt",
+        "title": "ORCA: Interpreting Prompted Language Models via Locating Supporting Evidence in the Ocean of Pretraining Data",
+        "abstract": "Prompting large pretrained language models leads to strong performance in a variety of downstream tasks. However, it is still unclear from where the model learns task-specific knowledge, especially in zero-shot setups. In this work, we propose a novel method ORCA to identify evidence of the model's task-specific competence in prompt-based learning. Through an instance attribution approach to model interpretability, by iteratively using gradient information related to the downstream task, ORCA locates a very small subset of pretraining data that directly supports the model's predictions in a given task; we call this subset supporting data evidence. We show that supporting data evidence offers new insights about the prompted language models. For example, in the tasks of sentiment analysis and textual entailment, BERT shows a substantial reliance on BookCorpus---the smaller corpus of BERT's two pretraining corpora---as well as on pretraining examples that mask out synonyms to the task labels used in prompts.",
+        "year": "2023"
+      },
+      "similarity": 0.7156236171722412
+    },
+    {
+      "paper": {
+        "paper_id": "8NLta1E_BPR",
+        "title": "Meta-Learning via Classifier(-free) Guidance",
+        "abstract": "State-of-the-art meta-learning techniques do not optimize for zero-shot adaptation to unseen tasks, a setting in which humans excel. On the contrary, meta-learning algorithms learn hyperparameters and weight initializations that explicitly optimize for few-shot learning performance. In this work, we take inspiration from recent advances in generative modeling and language-conditioned image synthesis to propose meta-learning techniques that use natural language guidance to achieve higher zero-shot performance compared to the state-of-the-art. We do so by recasting the meta-learning problem as a multi-modal generative modeling problem: given a task, we consider its adapted neural network weights and its natural language description as equivalent multi-modal task representations. We first train an unconditional generative hypernetwork model to produce neural network weights; then we train a second \"guidance\" model that, given a natural language task description, traverses the hypernetwork latent space to find high-performance task-adapted weights in a zero-shot manner. We explore two alternative approaches for latent space guidance: \"HyperCLIP\"-based classifier guidance and a conditional Hypernetwork Latent Diffusion Model (\"HyperLDM\"), which we show to benefit from the classifier-free guidance technique common in image generation. Finally, we demonstrate that our approaches outperform existing meta-learning methods with zero-shot learning experiments on our Meta-VQA dataset, which we specifically constructed to reflect the multi-modal meta-learning setting.",
+        "year": "2023"
+      },
+      "similarity": 0.7053417563438416
+    },
+    {
+      "paper": {
+        "paper_id": "WDQ9ZzsgDL",
+        "title": "PromptNER : Prompting For FewShot Named Entity Recognition",
+        "abstract": "In a surprising turn, Large Language Models (LLMs), together with a growing arsenal of prompt-based heuristics, provide powerful few-shot solutions to myriad classic NLP problems. However, despite promising early results, current LLM based few-shot methods remain far from the state of the art in Named Entity Recognition (NER), where prevailing methods include learning representations via end-to-end structural understanding and fine-tuning on standard labeled corpora. In this paper, we introduce PromptNER, an algorithm for few-shot and cross-domain NER. To adapt to a new NER task, PromptNER requires a set of entity definitions, and a set of few-shot examples, along with explanatory text justifying the applicability of each entity tag. Given a sentence, PromptNER prompts an LLM to produce a list of potential entities along with corresponding explanations justifying their compatibility with the provided entity type definitions. PromptNER achieves state-of-the-art performance on few-shot NER, achieving improvements in F1 score (absolute) of 4% on the ConLL dataset, 9% on GENIA, 4% on FewNERD, 5% on FaBNER and 24% on TweetNER. PromptNER also achieves state-of-the-art performance on Cross Domain NER beating even methods not restricted to the few-shot setting on 3/5 CrossNER target domains, with an average F1 gain of 3%, despite using less than 2% of the available data.",
+        "year": "2024"
+      },
+      "similarity": 0.6914206743240356
+    }
+  ]
+}

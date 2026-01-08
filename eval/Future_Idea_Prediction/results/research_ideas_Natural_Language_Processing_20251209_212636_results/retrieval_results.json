@@ -1,0 +1,472 @@
+{
+  "idea_001": [
+    {
+      "paper": {
+        "paper_id": "DnfPX10Etk",
+        "title": "JOOCI: A FRAMEWORK FOR LEARNING COMPREHENSIVE SPEECH REPRESENTATIONS",
+        "abstract": "Information in speech can be divided into two categories: what is being said (content) and how it is expressed (other). Current state-of-the-art (SOTA) techniques model speech at fixed segments, usually 10-25 ms, using a single embedding. Given the orthogonal nature of other and content information, attempting to optimize both within a single embedding results in suboptimal solutions. This approach divides the model's capacity, limiting its ability to build complex hierarchical features effectively. In this work, we present an end-to-end speech representation learning framework designed to jointly optimize the other and \\enquote{content} information (JOOCI) in speech. By using separate learnable parameters, JOOCI addresses this optimization challenge by modeling other and content information independently. Our results show that JOOCI consistently outperforms other SOTA models of similar size (100 million parameters) and pre-training data used (960 hours) by a significant margin when evaluated on a range of speech downstream tasks in the SUPERB benchmark. Code and models are available at TBA.",
+        "year": "2025"
+      },
+      "similarity": 0.6927421689033508
+    },
+    {
+      "paper": {
+        "paper_id": "QQoWeCscSH",
+        "title": "Unlocking Speech Instruction Data Potential with Query Rewriting",
+        "abstract": "End-to-end Large Speech Language Models (**LSLMs**) demonstrate strong potential in response latency and speech comprehension capabilities, showcasing general intelligence across speech understanding tasks. However, the ability to follow speech instructions has not been fully realized due to the lack of datasets and heavily biased training tasks. Leveraging the rich ASR datasets, previous approaches have used Large Language Models (**LLMs**) to continue the linguistic information of speech to construct speech instruction datasets. Yet, due to the gap between LLM-generated results and real human responses, the continuation methods further amplify these shortcomings. Given the high costs of collecting and annotating speech instruction datasets by humans, using speech synthesis to construct large-scale speech instruction datasets has become a balanced and robust alternative. Although modern Text-To-Speech (**TTS**) models have achieved near-human-level synthesis quality, it is challenging to appropriately convert out-of-distribution text instruction to speech due to the limitations of the training data distribution in TTS models. To address this issue, we propose a query rewriting framework with multi-LLM knowledge fusion, employing multiple agents to annotate and validate the synthesized speech, making it possible to construct high-quality speech instruction datasets without relying on human annotation. Experiments show that this method can transform text instructions into distributions more suitable for TTS models for speech synthesis through zero-shot rewriting, increasing data usability from 72\\% to 93\\%.  It also demonstrates unique advantages in rewriting tasks that require complex knowledge and context-related abilities.",
+        "year": "2025"
+      },
+      "similarity": 0.6670724749565125
+    },
+    {
+      "paper": {
+        "paper_id": "5oaUMZEjWe",
+        "title": "Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder",
+        "abstract": "The rapid progress of single-task architectures has dominated recent developments in multi-talker speech processing, prompting the need for unified approaches. This paper introduces a unified multi-speaker encoder (UME), a novel model architecture that jointly learns representations for diarization, separation, and multi-speaker automatic speech recognition (ASR) tasks using a shared pre-trained foundational speech encoder. We leverage the hidden representations from multiple layers of UME to effectively use information from different semantic levels, contributing to bottom-up alignment between tasks. This joint training approach captures the inherent interdependencies among the tasks, enhancing overall performance on overlapping speech data. Our evaluations demonstrate that UME achieves substantial improvements over the single-task state-of-the-art (SOTA) baselines dedicated to speaker diarization, speech separation, and multi-speaker ASR. Notably, for speaker diarization, UME achieved SOTA performance by lowering the diarization error rate (DER) from 3.24 to 2.19 on the Libri2Mix dataset. Furthermore, our results in multi-speaker ASR outperform the previous results, reducing the concatenated minimum-permutation word error rate (cpWER) from 11.9 to 9.2 on the LibriSpeech2Mix evaluation set.",
+        "year": "2025"
+      },
+      "similarity": 0.6663768291473389
+    },
+    {
+      "paper": {
+        "paper_id": "UU9Icwbhin",
+        "title": "Retentive Network: A Successor to Transformer for Large Language Models",
+        "abstract": "In this work, we propose Retentive Network (RetNet) as a foundation architecture for large language models, simultaneously achieving training parallelism, low-cost inference, and good performance. We theoretically derive the connection between recurrence and attention. Then we propose the retention mechanism for sequence modeling, which supports three computation paradigms, i.e., parallel, recurrent, and chunkwise recurrent. Specifically, the parallel representation allows for training parallelism. The recurrent representation enables low-cost $O(1)$ inference, which improves decoding throughput, latency, and GPU memory without sacrificing performance. The chunkwise recurrent representation facilitates efficient long-sequence modeling with linear complexity, where each chunk is encoded parallelly while recurrently summarizing the chunks. Experimental results on language modeling show that RetNet achieves favorable scaling results, parallel training, low-cost deployment, and efficient inference. The intriguing properties make RetNet a strong successor to Transformer for large language models.",
+        "year": "2024"
+      },
+      "similarity": 0.6566636562347412
+    },
+    {
+      "paper": {
+        "paper_id": "bfRDhzG3vn",
+        "title": "Continual Contrastive Spoken Language Understanding",
+        "abstract": "Recently, neural networks have shown impressive progress across diverse fields, with speech processing being no exception. However, recent breakthroughs in this area require extensive offline training using large datasets and tremendous computing resources. Unfortunately, these models struggle to retain their previously acquired knowledge when learning new tasks continually and retraining from scratch is almost always impractical. In this paper, we investigate the problem of learning sequence-to-sequence models for spoken language understanding in a class-incremental learning (CIL) setting and we propose COCONUT, a CIL method that relies on the combination of experience replay and contrastive learning. Through a modified version of the standard supervised contrastive loss applied only to the rehearsal samples, COCONUT preserves the learned representations by pulling closer samples from the same class and pushing away the others. Moreover, we leverage a multimodal contrastive loss that helps the model learn more discriminative representations of the new data by aligning audio and text features. We also investigate different contrastive designs to combine the strengths of the contrastive loss with teacher-student architectures used for distillation. Experiments on two established SLU datasets reveal the effectiveness of our proposed approach and significant improvements over the baselines. We also show that COCONUT can be combined with methods that operate on the decoder side of the model, resulting in further metrics improvements.",
+        "year": "2024"
+      },
+      "similarity": 0.6557604074478149
+    }
+  ],
+  "idea_002": [
+    {
+      "paper": {
+        "paper_id": "RcmJ9NpqeA",
+        "title": "White-Basilisk: A Hybrid Model for Code Vulnerability Detection",
+        "abstract": "The proliferation of software vulnerabilities presents a significant challenge to cybersecurity, necessitating more effective detection methodologies. We introduce White-Basilisk, a novel approach to vulnerability detection that demonstrates superior performance while challenging prevailing assumptions in AI model scaling. Utilizing an innovative architecture that integrates Mamba layers, linear self-attention, and a Mixture of Experts framework, White-Basilisk achieves state-of-the-art results in vulnerability detection tasks with a parameter count of only 200M. The model's capacity to process sequences of unprecedented length enables comprehensive analysis of extensive codebases in a single pass, surpassing the context limitations of current Large Language Models (LLMs). White-Basilisk exhibits robust performance on imbalanced, real-world datasets, while maintaining computational efficiency that facilitates deployment across diverse organizational scales. This research not only establishes new benchmarks in code security but also provides empirical evidence that compact, efficiently designed models can outperform larger counterparts in specialized tasks, potentially redefining optimization strategies in AI development for domain-specific applications.",
+        "year": "2025"
+      },
+      "similarity": 0.6827812790870667
+    },
+    {
+      "paper": {
+        "paper_id": "DVmn8GyjeD",
+        "title": "AutoRedTeamer: An Autonomous Red Teaming Agent Against Language Models",
+        "abstract": "As large language models (LLMs) become increasingly capable, robust and scalable security evaluation is crucial. While current red teaming approaches have made strides in assessing LLM vulnerabilities, they often rely heavily on human input and fail to provide comprehensive coverage of potential risks. This paper introduces AutoRedTeamer, a unified framework for fully automated, end-to-end red teaming against LLMs. AutoRedTeamer is an LLM-based agent architecture comprising five specialized modules and a novel memory-based attack selection mechanism, enabling deliberate exploration of new attack vectors. AutoRedTeamer supports both seed prompt and risk category inputs, demonstrating flexibility across red teaming scenarios. We demonstrate AutoRedTeamer’s superior performance in identifying potential vulnerabilities compared to existing manual and optimization-based approaches, achieving higher attack success rates by 20% on HarmBench against Llama-3.1-70B while reducing computational costs by 46%. Notably, AutoRedTeamer can break jailbreaking defenses and generate test cases with comparable diversity to human-curated benchmarks. AutoRedTeamer establishes the state of the art for automating the entire red teaming pipeline, a critical step towards comprehensive and scalable security evaluations of AI systems.",
+        "year": "2025"
+      },
+      "similarity": 0.6646530628204346
+    },
+    {
+      "paper": {
+        "paper_id": "0VZP2Dr9KX",
+        "title": "Baseline Defenses for Adversarial Attacks Against Aligned Language Models",
+        "abstract": "As large language models (LLMs) quickly become ubiquitous, it becomes critical to understand their security vulnerabilities.\nRecent work shows that text optimizers can produce jailbreaking prompts that bypass moderation and alignment. \nDrawing from the rich body of work on adversarial machine learning, we approach these attacks with three questions: \nWhat threat models are practically useful in this domain?  How do baseline defense techniques perform in this new domain? How does LLM security differ from computer vision?\nWe evaluate several baseline defense strategies against leading adversarial attacks on LLMs, discussing the various settings in which each is feasible and effective. \nIn particular, we look at three types of defenses: detection (perplexity based), input preprocessing (paraphrase and retokenization), and  adversarial training. \nWe discuss white-box and gray-box settings and discuss the robustness-performance trade-off for each of the defenses considered. \nWe find that the weakness of existing discrete optimizers for text, combined with the relatively high costs of optimization, makes standard adaptive attacks more challenging for LLMs. Future research will be needed to uncover whether more powerful optimizers can be developed, or whether the strength of filtering and preprocessing defenses is greater in the LLMs domain than it has been in computer vision.",
+        "year": "2024"
+      },
+      "similarity": 0.6128934621810913
+    },
+    {
+      "paper": {
+        "paper_id": "E9GakjQype",
+        "title": "AdvPrompter: Fast Adaptive Adversarial Prompting for LLMs",
+        "abstract": "While recently Large Language Models (LLMs) have achieved remarkable successes, they are vulnerable to certain `jailbreaking attacks` that lead to generation of inappropriate or harmful content. Manual red-teaming requires finding adversarial prompts that cause such jailbreaking, e.g. by appending a suffix to a given instruction, which is inefficient and time-consuming. \nOn the other hand, automatic adversarial prompt generation often leads to semantically meaningless attacks that can easily be detected by perplexity-based filters, may require gradient information from the TargetLLM, or do not scale well due to time-consuming discrete optimization processes over the token space. In this paper, we present a novel method that uses another LLM, called the `AdvPrompter`, to generate human-readable adversarial prompts in seconds, $\\sim800\\times$ faster than existing optimization-based approaches.\nWe train the AdvPrompter using a novel algorithm that `does not require gradients` of the TargetLLM. This process alternates between two steps: (1) generating high-quality target adversarial suffixes by optimizing the AdvPrompter predictions, and (2) fine-tuning of the AdvPrompter with the generated adversarial suffixes. The trained AdvPrompter generates suffixes that veil the input instruction without changing its meaning, such that the TargetLLM is lured to give a harmful response. Experimental results on popular open source TargetLLMs show state-of-the-art results on the AdvBench dataset, that also transfer to closed-source black-box LLM APIs. Further, we demonstrate that by fine-tuning on a synthetic dataset generated by AdvPrompter, LLMs can be made more robust against jailbreaking attacks while maintaining performance, i.e. high MMLU scores.",
+        "year": "2025"
+      },
+      "similarity": 0.6067149043083191
+    },
+    {
+      "paper": {
+        "paper_id": "3dH2aqKGzZe",
+        "title": "S$^6$-DAMON: Bridging Self-Supervised Speech Models and Real-time Speech Recognition",
+        "abstract": "There has been an growing demand for deep neural network (DNN) powered automatic speech recognition (ASR) on mobile platforms for real-time speech recognition. However, ubiquitous on-device ASR systems are still hindered by two bottlenecks: (1) the lack of large-scale transcribed speech data especially for low-resource spoken languages and (2) the large gap between DNNs' prohibitive complexity and mobiles' limited resources. In parallel, speech models pretrained via self-supervised learning (SSL) have emerged to reduce the reliance on the availability of transcribed speech data, which however further enlarges the efficiency gap because they often adopt large transformers to ensure expressive speech representations. Thus, it is highly desired to trim down the complexity of speech SSL models to enable real-time on-device ASR. This is particularly challenging since only structured sparsity can favor hardware efficiency in commercial devices, under which the speech representation learned by SSL could easily be demolished. To this end, we develop a framework dubbed S$^6$-DAMON to pursue structured sparsity in speech SSL models via data-model co-compression. On the data side, leveraging both the duration of each phoneme and the pauses between the words/phonemes of human utterances, we propose a salient audio token detector, dubbed SALAD, to remove input audio tokens that are redundant; On the model side, we identify that the failure of the SOTA ASR pruning method under structured sparsity is caused by the sparsity discrepancy between finetuning/deployment and their limited learnability of sparsity distributions, and then tackle it via a new ASR pruning pipeline dubbed SAFARI, which adopts a three-step pipeline - sparsify, finetune, and adjust sparsity. Extensive experiments validate that S$^6$-DAMON can enable real-time ASR with limited transcribed speech data requirements while maintaining decent recognition performance. All source codes will be released upon acceptance.",
+        "year": "2023"
+      },
+      "similarity": 0.6037219166755676
+    }
+  ],
+  "idea_003": [
+    {
+      "paper": {
+        "paper_id": "oBmaLuEJda",
+        "title": "BMLM: Bidirectional Large Language Model for  Multi-Task Spoken Language Understanding: Better and Faster",
+        "abstract": "Autoregressive large language models (LLMs) have achieved notable success in natural language generation. However, their direct application to natural language understanding (NLU) tasks presents challenges due to reliance on fixed label vocabularies and task-specific output structures. Although instruction-following tuning can adapt LLMs for these tasks, the autoregressive architecture often leads to error propagation and significant time costs from uncontrollable output lengths, particularly in token-level tagging tasks. In this paper, we introduce a bidirectional LLM framework (BMLM) for multi-task spoken language understanding, which eliminates the need for training from scratch and seamlessly integrates with existing LLMs, bridging the gap between extensive pre-trained knowledge and the requirements of understanding tasks. Our evaluation on multiple datasets demonstrates that BMLM significantly outperforms state-of-the-art pre-trained language models and autoregressive LLM baselines. Specifically, on the MixATIS and MixSNIPS datasets, BMLM achieves notable improvements of +3.9\\% and +4.1\\% in overall semantic accuracy compared to autoregressive baselines. Additionally, we observe a 123x improvement in inference speed for the MixATIS dataset and a 189x enhancement for the MixSNIPS dataset compared to existing generative LLM baselines. We anticipate that this work will provide a new perspective and foundational support for LLM applications in the NLU domain.",
+        "year": "2025"
+      },
+      "similarity": 0.6847856044769287
+    },
+    {
+      "paper": {
+        "paper_id": "DnfPX10Etk",
+        "title": "JOOCI: A FRAMEWORK FOR LEARNING COMPREHENSIVE SPEECH REPRESENTATIONS",
+        "abstract": "Information in speech can be divided into two categories: what is being said (content) and how it is expressed (other). Current state-of-the-art (SOTA) techniques model speech at fixed segments, usually 10-25 ms, using a single embedding. Given the orthogonal nature of other and content information, attempting to optimize both within a single embedding results in suboptimal solutions. This approach divides the model's capacity, limiting its ability to build complex hierarchical features effectively. In this work, we present an end-to-end speech representation learning framework designed to jointly optimize the other and \\enquote{content} information (JOOCI) in speech. By using separate learnable parameters, JOOCI addresses this optimization challenge by modeling other and content information independently. Our results show that JOOCI consistently outperforms other SOTA models of similar size (100 million parameters) and pre-training data used (960 hours) by a significant margin when evaluated on a range of speech downstream tasks in the SUPERB benchmark. Code and models are available at TBA.",
+        "year": "2025"
+      },
+      "similarity": 0.6591054201126099
+    },
+    {
+      "paper": {
+        "paper_id": "TJNCnkDRkY",
+        "title": "Generative Pre-Trained Speech Language Model with Efficient Hierarchical Transformer",
+        "abstract": "While recent advancements in speech language modeling have achieved significant progress, they face remarkable challenges in modelling the long acoustic sequence of neural audio codecs. Previous speech language models are compelled to learn acoustic tokens through a multi-stage generation process, which hinders their performance due to error propagation and information loss. In this paper, we introduce \\textbf{G}enerative \\textbf{P}re-Trained \\textbf{S}peech Language Model (GPST), a hierarchical transformer designed for efficient speech language modeling. GPST quantizes audio waveforms into two distinct types of discrete speech representations and integrates them within a hierarchical transformer architecture, allowing for a unified one-stage generation process and enhancing Hi-Res audio generation capabilities. By training on large corpora of raw audio waveforms in an end-to-end unsupervised manner, GPST can generate syntactically consistent speech with diverse speaker identity unconditionally. When provided a brief 3-second prompt, GPST is able to produce natural and coherent personalized speech, demonstrating in-context learning abilities. Moreover, our approach can be easily extended to spoken cross-lingual speech generation by incorporating multi-lingual semantic tokens and universal acoustic tokens. Experimental results indicate that GPST significantly outperforms the existing speech language models in terms of word error rate, speech quality and speaker similarity.",
+        "year": "2024"
+      },
+      "similarity": 0.6586995124816895
+    },
+    {
+      "paper": {
+        "paper_id": "5oaUMZEjWe",
+        "title": "Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder",
+        "abstract": "The rapid progress of single-task architectures has dominated recent developments in multi-talker speech processing, prompting the need for unified approaches. This paper introduces a unified multi-speaker encoder (UME), a novel model architecture that jointly learns representations for diarization, separation, and multi-speaker automatic speech recognition (ASR) tasks using a shared pre-trained foundational speech encoder. We leverage the hidden representations from multiple layers of UME to effectively use information from different semantic levels, contributing to bottom-up alignment between tasks. This joint training approach captures the inherent interdependencies among the tasks, enhancing overall performance on overlapping speech data. Our evaluations demonstrate that UME achieves substantial improvements over the single-task state-of-the-art (SOTA) baselines dedicated to speaker diarization, speech separation, and multi-speaker ASR. Notably, for speaker diarization, UME achieved SOTA performance by lowering the diarization error rate (DER) from 3.24 to 2.19 on the Libri2Mix dataset. Furthermore, our results in multi-speaker ASR outperform the previous results, reducing the concatenated minimum-permutation word error rate (cpWER) from 11.9 to 9.2 on the LibriSpeech2Mix evaluation set.",
+        "year": "2025"
+      },
+      "similarity": 0.6583906412124634
+    },
+    {
+      "paper": {
+        "paper_id": "UU9Icwbhin",
+        "title": "Retentive Network: A Successor to Transformer for Large Language Models",
+        "abstract": "In this work, we propose Retentive Network (RetNet) as a foundation architecture for large language models, simultaneously achieving training parallelism, low-cost inference, and good performance. We theoretically derive the connection between recurrence and attention. Then we propose the retention mechanism for sequence modeling, which supports three computation paradigms, i.e., parallel, recurrent, and chunkwise recurrent. Specifically, the parallel representation allows for training parallelism. The recurrent representation enables low-cost $O(1)$ inference, which improves decoding throughput, latency, and GPU memory without sacrificing performance. The chunkwise recurrent representation facilitates efficient long-sequence modeling with linear complexity, where each chunk is encoded parallelly while recurrently summarizing the chunks. Experimental results on language modeling show that RetNet achieves favorable scaling results, parallel training, low-cost deployment, and efficient inference. The intriguing properties make RetNet a strong successor to Transformer for large language models.",
+        "year": "2024"
+      },
+      "similarity": 0.6576046943664551
+    }
+  ],
+  "idea_004": [
+    {
+      "paper": {
+        "paper_id": "zAzzMOaisF",
+        "title": "LLMs for Generalizable Language-Conditioned Policy Learning under Minimal Data Requirements",
+        "abstract": "To develop autonomous agents capable of executing complex, multi-step decision-making tasks as specified by humans in natural language, existing reinforcement learning approaches typically require expensive labeled datasets or access to real-time experimentation. Moreover, conventional methods often face difficulties in generalizing to unseen goals and states, thereby limiting their practical applicability. This paper presents TEDUO, a novel training pipeline for offline language-conditioned policy learning. TEDUO operates on easy-to-obtain, unlabeled datasets and is suited for the so-called in-the-wild evaluation, wherein the agent encounters previously unseen goals and states. To address the challenges posed by such data and evaluation settings, our method leverages the prior knowledge and instruction-following capabilities of large language models (LLMs) to enhance the fidelity of pre-collected offline data and enable flexible generalization to new goals and states. Empirical results demonstrate that the dual role of LLMs in our framework—as data enhancers and generalizers—facilitates both effective and data-efficient learning of generalizable language-conditioned policies.",
+        "year": "2025"
+      },
+      "similarity": 0.6254814267158508
+    },
+    {
+      "paper": {
+        "paper_id": "DnfPX10Etk",
+        "title": "JOOCI: A FRAMEWORK FOR LEARNING COMPREHENSIVE SPEECH REPRESENTATIONS",
+        "abstract": "Information in speech can be divided into two categories: what is being said (content) and how it is expressed (other). Current state-of-the-art (SOTA) techniques model speech at fixed segments, usually 10-25 ms, using a single embedding. Given the orthogonal nature of other and content information, attempting to optimize both within a single embedding results in suboptimal solutions. This approach divides the model's capacity, limiting its ability to build complex hierarchical features effectively. In this work, we present an end-to-end speech representation learning framework designed to jointly optimize the other and \\enquote{content} information (JOOCI) in speech. By using separate learnable parameters, JOOCI addresses this optimization challenge by modeling other and content information independently. Our results show that JOOCI consistently outperforms other SOTA models of similar size (100 million parameters) and pre-training data used (960 hours) by a significant margin when evaluated on a range of speech downstream tasks in the SUPERB benchmark. Code and models are available at TBA.",
+        "year": "2025"
+      },
+      "similarity": 0.6140062212944031
+    },
+    {
+      "paper": {
+        "paper_id": "Jj8AAlNobk",
+        "title": "A Differentiable Sequence Model Perspective on Policy Gradients",
+        "abstract": "Progress in sequence modeling with deep learning has been driven by the advances in temporal credit assignment coming from better gradient propagation in neural network architectures. In this paper, we reveal that using deep dynamics models conditioned on sequences of actions allows to draw a direct connection between gradient propagation in neural networks and policy gradients, and to harness those advances for sequential decision-making. We leverage this connection to analyze, understand and improve policy gradient methods with tools that have been developed for deep sequence models, theoretically showing that modern architectures provably give better policy gradients. Furthermore, we empirically demonstrate that, in our algorithmic framework, better sequence models entail better policy optimization: when the environment dynamics is well-behaved, we find that better neural network architectures yield more accurate policy gradients; when it is chaotic or non-differentiable, we discover that neural networks are able to provide gradients better-suited for policy optimization compared to the real differentiable simulator. On an optimal control testbed, we show that, within our framework, agents enjoy increased long-term credit assignment capabilities and sample efficiency when compared to traditional model-based and model-free approaches.",
+        "year": "2024"
+      },
+      "similarity": 0.6103665828704834
+    },
+    {
+      "paper": {
+        "paper_id": "cLws58ZojF",
+        "title": "An Exploration of Speech Conditioned Large Language Models (SLMs)",
+        "abstract": "Efforts to enable Large Language Models (LLMs) to understand human speech have spurred the development of an increasing number of Speech-Conditioned Large Language Models (SLMs). While these models have demonstrated success on various speech-related tasks, such as automatic speech recognition (ASR), the design space of SLMs has not been thoroughly explored. In this work, we revisit key design choices for SLMs, aiming to gain insights into how these choices impact the performance of SLMs and how we could optimize them for better results. Surprisingly, our experiments reveal that current SLMs struggle to follow speech instructions or respond to speech inputs, even for simple queries like ”who has been to the moon?”. Our experimental findings indicate that speech instruction following data is crucial for improving these capabilities. Leveraging this insight, we propose to use synthetic speech instruction following data to enhance speech instruction following capability. Combining the findings from our other experiments, we provide an effective recipe for developing SLMs. Our model, called SiM, not only achieves strong ASR performance, but also significantly outperforms existing SLMs in speech instruction following.",
+        "year": "2025"
+      },
+      "similarity": 0.6080324053764343
+    },
+    {
+      "paper": {
+        "paper_id": "JVFRwCx3Dy",
+        "title": "What Matters for In-Context Learning: A Balancing Act of Look-up and In-Weight Learning",
+        "abstract": "Large Language Models (LLMs) have demonstrated impressive performance in various tasks, including In-Context Learning (ICL), where the model performs new tasks by conditioning solely on the examples provided in the context, without updating the model's weights. While prior research has explored the roles of pretraining data and model architecture, the key mechanism behind ICL remains unclear. In this work, we systematically uncover properties present in LLMs that support the emergence of ICL. To disambiguate these factors, we conduct a study with a controlled dataset and data sequences using a deep autoregressive model. We show that conceptual repetitions in the data sequences are crucial for ICL, more so than previously indicated training data properties like burstiness or long-tail distribution. Conceptual repetitions could refer to $n$-gram repetitions in textual data or exact image copies in image sequence data. Such repetitions also offer other previously overlooked benefits such as reduced transiency in ICL performance. Furthermore, we show that the emergence of ICL depends on balancing the in-weight learning objective with the in-context solving ability during training.",
+        "year": "2025"
+      },
+      "similarity": 0.6076503992080688
+    }
+  ],
+  "idea_005": [
+    {
+      "paper": {
+        "paper_id": "TCFtGBTxkq",
+        "title": "Efficient Audiovisual Speech Processing via MUTUD: Multimodal Training and Unimodal Deployment",
+        "abstract": "Building reliable speech systems often requires combining multiple modalities, like audio and visual cues. While such multimodal solutions frequently lead to improvements in performance and may even be critical in certain cases, they come with several constraints such as increased sensory requirements, computational cost, and modality synchronization, to mention a few. These challenges constrain the direct uses of these multimodal solutions in real-world applications. In this work, we develop approaches where the learning happens with all available modalities but the deployment or inference is done with just one or reduced modalities. To do so, we propose a Multimodal Training and Unimodal Deployment (MUTUD) framework which includes a Temporally Aligned Modality feature Estimation (TAME) module that can estimate information from missing modality using modalities present during inference. This innovative approach facilitates the integration of information across different modalities, enhancing the overall inference process by leveraging the strengths of each modality to compensate for the absence of certain modalities during inference. We apply MUTUD to various audiovisual speech tasks and show that it can reduce the performance gap between the multimodal and corresponding unimodal models to a considerable extent. MUTUD achieves this while reducing the model size and computing compared to multimodal models by almost 80%.",
+        "year": "2025"
+      },
+      "similarity": 0.6899390816688538
+    },
+    {
+      "paper": {
+        "paper_id": "5oaUMZEjWe",
+        "title": "Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder",
+        "abstract": "The rapid progress of single-task architectures has dominated recent developments in multi-talker speech processing, prompting the need for unified approaches. This paper introduces a unified multi-speaker encoder (UME), a novel model architecture that jointly learns representations for diarization, separation, and multi-speaker automatic speech recognition (ASR) tasks using a shared pre-trained foundational speech encoder. We leverage the hidden representations from multiple layers of UME to effectively use information from different semantic levels, contributing to bottom-up alignment between tasks. This joint training approach captures the inherent interdependencies among the tasks, enhancing overall performance on overlapping speech data. Our evaluations demonstrate that UME achieves substantial improvements over the single-task state-of-the-art (SOTA) baselines dedicated to speaker diarization, speech separation, and multi-speaker ASR. Notably, for speaker diarization, UME achieved SOTA performance by lowering the diarization error rate (DER) from 3.24 to 2.19 on the Libri2Mix dataset. Furthermore, our results in multi-speaker ASR outperform the previous results, reducing the concatenated minimum-permutation word error rate (cpWER) from 11.9 to 9.2 on the LibriSpeech2Mix evaluation set.",
+        "year": "2025"
+      },
+      "similarity": 0.6898201704025269
+    },
+    {
+      "paper": {
+        "paper_id": "mEACsjW10N",
+        "title": "MIO: A Foundation Model on Multimodal Tokens",
+        "abstract": "In this paper, we introduce MIO, a novel foundation model built on multimodal tokens, capable of understanding and generating speech, text, images, and videos in an end-to-end, autoregressive manner. While the emergence of large language models (LLMs) and multimodal large language models (MM-LLMs) propels advancements in artificial general intelligence through their versatile capabilities, they still lack true any-to-any understanding and generation. Recently, the release of GPT-4o has showcased the remarkable potential of any-to-any LLMs for complex real-world tasks, enabling omnidirectional input and output across images, speech, and text. However, it is closed-source and does not support the generation of multimodal interleaved sequences. To address this gap, we present MIO, which is trained on a mixture of discrete tokens across four modalities using causal multimodal modeling. MIO undergoes a four-stage training process: (1) alignment pre-training, (2) interleaved pre-training, (3) speech-enhanced pre-training, and (4) comprehensive supervised fine-tuning on diverse textual, visual, and speech tasks. Our experimental results indicate that MIO exhibits competitive, and in some cases superior, performance compared to previous dual-modal baselines, any-to-any model baselines, and even modality-specific baselines. Moreover, MIO demonstrates advanced capabilities inherent to its any-to-any feature, such as interleaved video-text generation, chain-of-visual-thought reasoning, visual guideline generation, instructional image editing, etc.",
+        "year": "2025"
+      },
+      "similarity": 0.6832088232040405
+    },
+    {
+      "paper": {
+        "paper_id": "74IIsh2kM6",
+        "title": "SMILE: Audio-Visual Speech Recognition with Siamese Masked Interaction Learning",
+        "abstract": "Audio-Visual Speech Recognition (AVSR) aims to improve the performance of Automatic Speech Recognition (ASR) by incorporating visual cues in addition to audio information. In this task, the crucial aspect is establishing temporal correspondence while aligning the mutually complementary nature of audio and visual modalities. To this end, we propose the Siamese Masked Interaction LEarning (SMILE) framework, which combines the multimodal early fusion strategy and representation alignment methods between audio and visual modalities. SMILE facilitates global interactions among audio-visual features and enables single-modal and cross-modal local alignment. In addition, we propose an adaptive dynamic multimodal fusion strategy that effectively captures the complementary relationship between the audio and visual modalities. With extensive experiments, our model SMILE, when tested with different model scales, achieves state-of-the-art performance on LRS2 and LRS3 datasets under both low-resource and high-resource settings.",
+        "year": "2024"
+      },
+      "similarity": 0.6672710180282593
+    },
+    {
+      "paper": {
+        "paper_id": "rD6LQagatR",
+        "title": "E5-V: Universal Embeddings with Multimodal Large Language Models",
+        "abstract": "Multimodal large language models (MLLMs) have shown promising advancements in general visual and language understanding. However, the representation of multimodal information using MLLMs remains largely unexplored. In this work, we introduce a new framework, E5-V, designed to adapt MLLMs for achieving universal multimodal embeddings. Our findings highlight the significant potential of MLLMs in representing multimodal inputs compared to previous approaches. By leveraging MLLMs with prompts, E5-V effectively bridges the modality gap between different types of inputs, demonstrating strong performance in multimodal embeddings even without fine-tuning. We propose a single modality training approach for E5-V, where the model is trained exclusively on text pairs. This method demonstrates significant improvements over traditional multimodal training on image-text pairs, while reducing training costs by approximately 95\\%. Additionally, this approach eliminates the need for costly multimodal training data collection. Extensive experiments across four types of tasks demonstrate the effectiveness of E5-V. As a universal multimodal model, E5-V not only achieves but often surpasses state-of-the-art performance in each task, despite being trained on a single modality.",
+        "year": "2025"
+      },
+      "similarity": 0.6640521287918091
+    }
+  ],
+  "idea_006": [
+    {
+      "paper": {
+        "paper_id": "RcmJ9NpqeA",
+        "title": "White-Basilisk: A Hybrid Model for Code Vulnerability Detection",
+        "abstract": "The proliferation of software vulnerabilities presents a significant challenge to cybersecurity, necessitating more effective detection methodologies. We introduce White-Basilisk, a novel approach to vulnerability detection that demonstrates superior performance while challenging prevailing assumptions in AI model scaling. Utilizing an innovative architecture that integrates Mamba layers, linear self-attention, and a Mixture of Experts framework, White-Basilisk achieves state-of-the-art results in vulnerability detection tasks with a parameter count of only 200M. The model's capacity to process sequences of unprecedented length enables comprehensive analysis of extensive codebases in a single pass, surpassing the context limitations of current Large Language Models (LLMs). White-Basilisk exhibits robust performance on imbalanced, real-world datasets, while maintaining computational efficiency that facilitates deployment across diverse organizational scales. This research not only establishes new benchmarks in code security but also provides empirical evidence that compact, efficiently designed models can outperform larger counterparts in specialized tasks, potentially redefining optimization strategies in AI development for domain-specific applications.",
+        "year": "2025"
+      },
+      "similarity": 0.6232549548149109
+    },
+    {
+      "paper": {
+        "paper_id": "gpKEDj9Dgg",
+        "title": "Optimizing Large Language Models with Automatic Speech Recognition for Medication Corpus in Low-Resource Healthcare Settings.",
+        "abstract": "Automatic Speech Recognition (ASR) systems, while effective in general contexts, often face challenges in low-resource settings, especially in specialized domains such as healthcare. This study investigates the integration of Large Language Models (LLMs) with ASR systems to improve transcription accuracy in such environments. Focusing on medication-related conversations in healthcare, we fine-tuned the Whisper-Large ASR model on a custom dataset, Pharma-Speak, and applied the LLaMA 3 model for second-pass rescoring to correct ASR output errors. To achieve efficient fine-tuning without altering the full LLM parameters, we employed Low-Rank Adaptation (LoRA), which enables re-ranking of the ASR’s N-best hypotheses while retaining the LLM's original knowledge. \nOur results demonstrate a significant reduction in Word Error Rate (WER) across multiple epochs, validating the effectiveness of the LLM-based rescoring method. The integration of LLMs in this framework shows potential for overcoming the limitations posed by conventional ASR models in low-resource settings. While computational constraints and the inherent strength of Whisper-Large presented some limitations, our approach lays the groundwork for further exploration of domain-specific ASR enhancements using LLMs, particularly in healthcare applications.",
+        "year": "2025"
+      },
+      "similarity": 0.611411988735199
+    },
+    {
+      "paper": {
+        "paper_id": "3dH2aqKGzZe",
+        "title": "S$^6$-DAMON: Bridging Self-Supervised Speech Models and Real-time Speech Recognition",
+        "abstract": "There has been an growing demand for deep neural network (DNN) powered automatic speech recognition (ASR) on mobile platforms for real-time speech recognition. However, ubiquitous on-device ASR systems are still hindered by two bottlenecks: (1) the lack of large-scale transcribed speech data especially for low-resource spoken languages and (2) the large gap between DNNs' prohibitive complexity and mobiles' limited resources. In parallel, speech models pretrained via self-supervised learning (SSL) have emerged to reduce the reliance on the availability of transcribed speech data, which however further enlarges the efficiency gap because they often adopt large transformers to ensure expressive speech representations. Thus, it is highly desired to trim down the complexity of speech SSL models to enable real-time on-device ASR. This is particularly challenging since only structured sparsity can favor hardware efficiency in commercial devices, under which the speech representation learned by SSL could easily be demolished. To this end, we develop a framework dubbed S$^6$-DAMON to pursue structured sparsity in speech SSL models via data-model co-compression. On the data side, leveraging both the duration of each phoneme and the pauses between the words/phonemes of human utterances, we propose a salient audio token detector, dubbed SALAD, to remove input audio tokens that are redundant; On the model side, we identify that the failure of the SOTA ASR pruning method under structured sparsity is caused by the sparsity discrepancy between finetuning/deployment and their limited learnability of sparsity distributions, and then tackle it via a new ASR pruning pipeline dubbed SAFARI, which adopts a three-step pipeline - sparsify, finetune, and adjust sparsity. Extensive experiments validate that S$^6$-DAMON can enable real-time ASR with limited transcribed speech data requirements while maintaining decent recognition performance. All source codes will be released upon acceptance.",
+        "year": "2023"
+      },
+      "similarity": 0.6088435649871826
+    },
+    {
+      "paper": {
+        "paper_id": "QQoWeCscSH",
+        "title": "Unlocking Speech Instruction Data Potential with Query Rewriting",
+        "abstract": "End-to-end Large Speech Language Models (**LSLMs**) demonstrate strong potential in response latency and speech comprehension capabilities, showcasing general intelligence across speech understanding tasks. However, the ability to follow speech instructions has not been fully realized due to the lack of datasets and heavily biased training tasks. Leveraging the rich ASR datasets, previous approaches have used Large Language Models (**LLMs**) to continue the linguistic information of speech to construct speech instruction datasets. Yet, due to the gap between LLM-generated results and real human responses, the continuation methods further amplify these shortcomings. Given the high costs of collecting and annotating speech instruction datasets by humans, using speech synthesis to construct large-scale speech instruction datasets has become a balanced and robust alternative. Although modern Text-To-Speech (**TTS**) models have achieved near-human-level synthesis quality, it is challenging to appropriately convert out-of-distribution text instruction to speech due to the limitations of the training data distribution in TTS models. To address this issue, we propose a query rewriting framework with multi-LLM knowledge fusion, employing multiple agents to annotate and validate the synthesized speech, making it possible to construct high-quality speech instruction datasets without relying on human annotation. Experiments show that this method can transform text instructions into distributions more suitable for TTS models for speech synthesis through zero-shot rewriting, increasing data usability from 72\\% to 93\\%.  It also demonstrates unique advantages in rewriting tasks that require complex knowledge and context-related abilities.",
+        "year": "2025"
+      },
+      "similarity": 0.5804615616798401
+    },
+    {
+      "paper": {
+        "paper_id": "oBmaLuEJda",
+        "title": "BMLM: Bidirectional Large Language Model for  Multi-Task Spoken Language Understanding: Better and Faster",
+        "abstract": "Autoregressive large language models (LLMs) have achieved notable success in natural language generation. However, their direct application to natural language understanding (NLU) tasks presents challenges due to reliance on fixed label vocabularies and task-specific output structures. Although instruction-following tuning can adapt LLMs for these tasks, the autoregressive architecture often leads to error propagation and significant time costs from uncontrollable output lengths, particularly in token-level tagging tasks. In this paper, we introduce a bidirectional LLM framework (BMLM) for multi-task spoken language understanding, which eliminates the need for training from scratch and seamlessly integrates with existing LLMs, bridging the gap between extensive pre-trained knowledge and the requirements of understanding tasks. Our evaluation on multiple datasets demonstrates that BMLM significantly outperforms state-of-the-art pre-trained language models and autoregressive LLM baselines. Specifically, on the MixATIS and MixSNIPS datasets, BMLM achieves notable improvements of +3.9\\% and +4.1\\% in overall semantic accuracy compared to autoregressive baselines. Additionally, we observe a 123x improvement in inference speed for the MixATIS dataset and a 189x enhancement for the MixSNIPS dataset compared to existing generative LLM baselines. We anticipate that this work will provide a new perspective and foundational support for LLM applications in the NLU domain.",
+        "year": "2025"
+      },
+      "similarity": 0.5781230926513672
+    }
+  ],
+  "idea_007": [
+    {
+      "paper": {
+        "paper_id": "WYsCKxZc5Y",
+        "title": "Contextually Guided Transformers via Low-Rank Adaptation",
+        "abstract": "Large Language Models (LLMs) based on Transformers excel at text processing, but their reliance on prompts for specialized behavior introduces computational overhead. We propose a modification to a Transformer architecture that eliminates the need for explicit prompts by learning to encode context into the model's weights. Our Contextually Guided Transformer (CGT) model maintains a contextual summary at each sequence position, allowing it to update the weights on the fly based on the preceding context. This approach enables the model to self-specialize, effectively creating a tailored model for processing information following a given prefix. We demonstrate the effectiveness of our method on synthetic in-context learning tasks and language modeling benchmarks. Furthermore, we introduce techniques for enhancing the interpretability of the learned contextual representations, drawing connections to Variational Autoencoders and promoting smoother, more consistent context encoding. This work offers a novel direction for efficient and adaptable language modeling by integrating context directly into the model's architecture.",
+        "year": "2025"
+      },
+      "similarity": 0.7312678694725037
+    },
+    {
+      "paper": {
+        "paper_id": "5oaUMZEjWe",
+        "title": "Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder",
+        "abstract": "The rapid progress of single-task architectures has dominated recent developments in multi-talker speech processing, prompting the need for unified approaches. This paper introduces a unified multi-speaker encoder (UME), a novel model architecture that jointly learns representations for diarization, separation, and multi-speaker automatic speech recognition (ASR) tasks using a shared pre-trained foundational speech encoder. We leverage the hidden representations from multiple layers of UME to effectively use information from different semantic levels, contributing to bottom-up alignment between tasks. This joint training approach captures the inherent interdependencies among the tasks, enhancing overall performance on overlapping speech data. Our evaluations demonstrate that UME achieves substantial improvements over the single-task state-of-the-art (SOTA) baselines dedicated to speaker diarization, speech separation, and multi-speaker ASR. Notably, for speaker diarization, UME achieved SOTA performance by lowering the diarization error rate (DER) from 3.24 to 2.19 on the Libri2Mix dataset. Furthermore, our results in multi-speaker ASR outperform the previous results, reducing the concatenated minimum-permutation word error rate (cpWER) from 11.9 to 9.2 on the LibriSpeech2Mix evaluation set.",
+        "year": "2025"
+      },
+      "similarity": 0.7244085669517517
+    },
+    {
+      "paper": {
+        "paper_id": "BomQa84efw",
+        "title": "dMel: Speech Tokenization Made Simple",
+        "abstract": "Large language models have revolutionized natural language processing by leveraging self-supervised pretraining on vast textual data.\n  Inspired by this success, researchers have investigated complicated speech tokenization methods to discretize continuous speech signals so that language modeling techniques can be applied to speech data.\n  However, existing approaches either model semantic (content) tokens, potentially losing acoustic information, or model acoustic tokens, risking the loss of semantic (content) information. \n  Having multiple token types also complicates the architecture and requires additional pretraining.\n  Here we show that discretizing mel-filterbank channels into discrete intensity bins produces a simple representation (dMel), that performs better than other existing speech tokenization methods.\n  Using an LM-style transformer architecture for speech-text modeling, we comprehensively evaluate different speech tokenization methods on speech recognition (ASR) and speech synthesis (TTS).\n  Our results demonstrate the effectiveness of dMel in achieving high performance on both tasks within a unified framework, paving the way for efficient and effective joint modeling of speech and text. The code is available at anonymous_url, while generation samples are in the supplementary materials.",
+        "year": "2025"
+      },
+      "similarity": 0.7225810289382935
+    },
+    {
+      "paper": {
+        "paper_id": "oBmaLuEJda",
+        "title": "BMLM: Bidirectional Large Language Model for  Multi-Task Spoken Language Understanding: Better and Faster",
+        "abstract": "Autoregressive large language models (LLMs) have achieved notable success in natural language generation. However, their direct application to natural language understanding (NLU) tasks presents challenges due to reliance on fixed label vocabularies and task-specific output structures. Although instruction-following tuning can adapt LLMs for these tasks, the autoregressive architecture often leads to error propagation and significant time costs from uncontrollable output lengths, particularly in token-level tagging tasks. In this paper, we introduce a bidirectional LLM framework (BMLM) for multi-task spoken language understanding, which eliminates the need for training from scratch and seamlessly integrates with existing LLMs, bridging the gap between extensive pre-trained knowledge and the requirements of understanding tasks. Our evaluation on multiple datasets demonstrates that BMLM significantly outperforms state-of-the-art pre-trained language models and autoregressive LLM baselines. Specifically, on the MixATIS and MixSNIPS datasets, BMLM achieves notable improvements of +3.9\\% and +4.1\\% in overall semantic accuracy compared to autoregressive baselines. Additionally, we observe a 123x improvement in inference speed for the MixATIS dataset and a 189x enhancement for the MixSNIPS dataset compared to existing generative LLM baselines. We anticipate that this work will provide a new perspective and foundational support for LLM applications in the NLU domain.",
+        "year": "2025"
+      },
+      "similarity": 0.71260666847229
+    },
+    {
+      "paper": {
+        "paper_id": "UvYrFbKj8j",
+        "title": "Stutter makes large language models smarter",
+        "abstract": "Large language models (LLMs) have achieved remarkable success in generating coherent and contextually relevant text. However, their large parameters and high memory requirements limit their efficiency and adoption in industry and academia. Recent studies have shown that dynamically adjusting inference operations can improve model performance without significantly increasing size. In this paper, we introduce the stutter mechanism, a novel method that enhances transformer models by selectively applying additional layers to more challenging tokens. This approach mimics a human speaker’s stutter, allocating more computational effort where needed, thus improving\nlanguage capabilities without generating excessive tokens. Our experiments with various Pythia models demonstrate that the stutter mechanism consistently enhances performance across benchmark datasets. Specifically, the Pythia-410M model, enhanced by our method, outperforms the larger Pythia-1B model on WinoGrande and WSC. Additionally, our method is data-efficient, requiring only less than 1% of the pretraining data for the additional training. These results highlight the stutter mechanism’s potential to enhance LLMs’ efficiency and performance in real-world applications.",
+        "year": "2025"
+      },
+      "similarity": 0.7000839710235596
+    }
+  ],
+  "idea_008": [
+    {
+      "paper": {
+        "paper_id": "ZVLyyG5yS6",
+        "title": "Hierarchical Analysis: Monotonicity of Layerwise performance in Large Language Models",
+        "abstract": "We introduce a quantitative framework to evaluate how Large Language Models (LLMs) learn tasks across all layers, revealing a `monotonicity phenomenon'. Specifically: \ni) performance at each layer consistently improves from one layer to the next on the pre-training set, and \nii) this improvement is consistently observed across various downstream tasks. This monotonicity phenomenon indicates that LLMs effectively capture complex hierarchical features across diverse datasets. For example, our study on the abstraction of concepts using linear representations in word embeddings shows that the clarity of these abstractions progressively increases with each layer.\nFinally, by leveraging this monotonicity, we can significantly reduce inference time and memory requirements by selecting the most appropriate layer, thereby enhancing the efficiency of LLMs in real-world applications.",
+        "year": "2025"
+      },
+      "similarity": 0.6617106199264526
+    },
+    {
+      "paper": {
+        "paper_id": "DnfPX10Etk",
+        "title": "JOOCI: A FRAMEWORK FOR LEARNING COMPREHENSIVE SPEECH REPRESENTATIONS",
+        "abstract": "Information in speech can be divided into two categories: what is being said (content) and how it is expressed (other). Current state-of-the-art (SOTA) techniques model speech at fixed segments, usually 10-25 ms, using a single embedding. Given the orthogonal nature of other and content information, attempting to optimize both within a single embedding results in suboptimal solutions. This approach divides the model's capacity, limiting its ability to build complex hierarchical features effectively. In this work, we present an end-to-end speech representation learning framework designed to jointly optimize the other and \\enquote{content} information (JOOCI) in speech. By using separate learnable parameters, JOOCI addresses this optimization challenge by modeling other and content information independently. Our results show that JOOCI consistently outperforms other SOTA models of similar size (100 million parameters) and pre-training data used (960 hours) by a significant margin when evaluated on a range of speech downstream tasks in the SUPERB benchmark. Code and models are available at TBA.",
+        "year": "2025"
+      },
+      "similarity": 0.6564813852310181
+    },
+    {
+      "paper": {
+        "paper_id": "5oaUMZEjWe",
+        "title": "Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder",
+        "abstract": "The rapid progress of single-task architectures has dominated recent developments in multi-talker speech processing, prompting the need for unified approaches. This paper introduces a unified multi-speaker encoder (UME), a novel model architecture that jointly learns representations for diarization, separation, and multi-speaker automatic speech recognition (ASR) tasks using a shared pre-trained foundational speech encoder. We leverage the hidden representations from multiple layers of UME to effectively use information from different semantic levels, contributing to bottom-up alignment between tasks. This joint training approach captures the inherent interdependencies among the tasks, enhancing overall performance on overlapping speech data. Our evaluations demonstrate that UME achieves substantial improvements over the single-task state-of-the-art (SOTA) baselines dedicated to speaker diarization, speech separation, and multi-speaker ASR. Notably, for speaker diarization, UME achieved SOTA performance by lowering the diarization error rate (DER) from 3.24 to 2.19 on the Libri2Mix dataset. Furthermore, our results in multi-speaker ASR outperform the previous results, reducing the concatenated minimum-permutation word error rate (cpWER) from 11.9 to 9.2 on the LibriSpeech2Mix evaluation set.",
+        "year": "2025"
+      },
+      "similarity": 0.6453256607055664
+    },
+    {
+      "paper": {
+        "paper_id": "I1VCj1l1Zn",
+        "title": "DLP-LoRA: Efficient Task-Specific LoRA Fusion with a Dynamic, Lightweight Plugin for Large Language Models",
+        "abstract": "Recent advancements in Large Language Models (LLMs) have achieved robust performance across diverse tasks, but fine-tuning these models for specific domains remains resource-intensive. Parameter-Efficient Fine-Tuning (PEFT) methods like Low-Rank Adaptation (LoRA) address this challenge by fine-tuning a small subset of parameters. However, existing methods for fusing multiple LoRAs lack dynamic fusion based on contextual inputs and often increase inference time due to token-level operations. We propose DLP-LoRA, a Dynamic Lightweight Plugin that employs a mini-MLP module with only 5M parameters to dynamically fuse multiple LoRAs at the sentence level using top-$p$ sampling strategies. This approach reduces inference time to less than twice that of single LoRA inference by leveraging parallel computation. Evaluations across 26 tasks—including multiple-choice questions and question answering—demonstrate that DLP-LoRA achieves an average accuracy of 92.34\\% on multiple-choice datasets and significant improvements in BLEU and ROUGE scores on QA datasets, outperforming different LLMs backbones under composite task settings. DLP-LoRA effectively balances performance and efficiency, making it a practical solution for dynamic multi-task adaptation in LLMs.",
+        "year": "2025"
+      },
+      "similarity": 0.6414551734924316
+    },
+    {
+      "paper": {
+        "paper_id": "8kGonpsiHb",
+        "title": "Lens: Rethinking Multilingual Enhancement for Large Language Models",
+        "abstract": "Despite the growing global demand for large language models (LLMs) that serve users from diverse linguistic backgrounds, most cutting-edge LLMs remain predominantly English-centric. This creates a performance gap across languages, restricting access to advanced AI services for non-English speakers. Current methods to enhance multilingual capabilities largely rely on data-driven post-training techniques, such as multilingual instruction tuning or continual pre-training. However, these approaches encounter significant challenges, including the scarcity of high-quality multilingual datasets and the limited enhancement of multilingual capabilities. They often suffer from off-target issues and catastrophic forgetting of central language abilities. To this end, we propose \\textsc{Lens}, a novel approach to enhance multilingual capabilities of LLMs by leveraging their internal language representation spaces. Specially, \\textsc{Lens} operates by manipulating the hidden representations within the language-agnostic and language-specific subspaces from top layers of LLMs. Using the central language as a pivot, the target language is drawn closer to it within the language-agnostic subspace, allowing it to inherit well-established semantic representations. Meanwhile, in the language-specific subspace, the representations of the target and central languages are pushed apart, enabling the target language to express itself distinctly. Extensive experiments on one English-centric and two multilingual LLMs demonstrate that \\textsc{Lens} effectively improves multilingual performance without sacrificing the model’s original central language capabilities, achieving superior results with much fewer computational resources compared to existing post-training approaches.",
+        "year": "2025"
+      },
+      "similarity": 0.6397398710250854
+    }
+  ],
+  "idea_009": [
+    {
+      "paper": {
+        "paper_id": "UU9Icwbhin",
+        "title": "Retentive Network: A Successor to Transformer for Large Language Models",
+        "abstract": "In this work, we propose Retentive Network (RetNet) as a foundation architecture for large language models, simultaneously achieving training parallelism, low-cost inference, and good performance. We theoretically derive the connection between recurrence and attention. Then we propose the retention mechanism for sequence modeling, which supports three computation paradigms, i.e., parallel, recurrent, and chunkwise recurrent. Specifically, the parallel representation allows for training parallelism. The recurrent representation enables low-cost $O(1)$ inference, which improves decoding throughput, latency, and GPU memory without sacrificing performance. The chunkwise recurrent representation facilitates efficient long-sequence modeling with linear complexity, where each chunk is encoded parallelly while recurrently summarizing the chunks. Experimental results on language modeling show that RetNet achieves favorable scaling results, parallel training, low-cost deployment, and efficient inference. The intriguing properties make RetNet a strong successor to Transformer for large language models.",
+        "year": "2024"
+      },
+      "similarity": 0.7522023916244507
+    },
+    {
+      "paper": {
+        "paper_id": "RK3Gj9J5my",
+        "title": "Zero-Shot Text-to-Speech from Continuous Text Streams",
+        "abstract": "Existing zero-shot text-to-speech (TTS) systems are typically designed to process complete sentences and are constrained by the maximum duration for which they have been trained. However, in many streaming applications, texts arrive continuously in short chunks, necessitating instant responses from the system. We identify the essential capabilities required for chunk-level streaming and introduce L3Speech, a stream-aware model that supports non-stop speech generation, text-audio stream synchronization, and seamless transitions between short speech chunks. To achieve these, we propose (1) adopting Mamba, a class of sequence modeling distinguished by linear-time decoding, which is augmented by cross-attention mechanisms for conditioning, (2) utilizing rotary positional embeddings in the computation of cross-attention, enabling the model to process a non-stop text stream by sliding a window, and (3) decoding with semantic guidance, a technique that aligns speech with the transcript during inference with minimal overhead. Experimental results demonstrate that our models are competitive with state-of-the-art language model-based zero-shot TTS models, while also providing flexibility to support a wide range of streaming scenarios.",
+        "year": "2025"
+      },
+      "similarity": 0.6935700178146362
+    },
+    {
+      "paper": {
+        "paper_id": "yLgr02IsXY",
+        "title": "AMPipe: Accelerating MoE Model Training with Intra-Block Pipelining",
+        "abstract": "The Mixture-of-Experts (MoE) architecture presents a compelling adaptation for expanding the model size of pre-trained models, such as large language models (LLMs), to enhance overall model performance (e.g., lower perplexity). However, as the sequence length (represented as $N$) increases, both the execution time of the attention layer ($O(N^2)$) and the all-to-all communication time of the MoE layer ($O(N)$, with a significant coefficient) become training bottlenecks. Current training systems have primarily focused on either optimizing the MoE layer (e.g., Tutel) or enhancing the attention layer (e.g., FlashAttention), yet they have demonstrated bounded performance improvements when confronted with long sequences---an essential consideration for modeling a potent language model with a long context window.\n   \n   In this paper, we introduce AMPipe, a novel pipeline system and paragdim for accelerating the training of large MoE models using Intra-Block Pipelining, particularly when dealing with lengthy sequences. AMPipe smartly optimizes two bottlenecks together by dividing and pipelining both the attention layer and MoE layer to strategically mitigate the time costs associated with these operations. Experimental results illustrate that AMPipe can consistently outperform current training systems, which solely focus on optimizing either the MoE or attention layer. Notably, AMPipe enhances the training throughput of a highly optimized transformer block by an average of 23\\% across 56 benchmark cases and by up to 41\\% in long sequence training, all without introducing statistical impact on model convergence. Our code is available at https://github.com/iclr24-3434/AMPipe.git",
+        "year": "2024"
+      },
+      "similarity": 0.6699852347373962
+    },
+    {
+      "paper": {
+        "paper_id": "DUsqifwwf5",
+        "title": "SOLOS: Sparse Optimization For Long Sequence In Context Compression Enhanced LLMs",
+        "abstract": "Recent advances in long-context large language models (LLMs) make them commercially viable, but their standard attention mechanisms' quadratic complexity hinders deployment due to excessive computational costs. To address this, researchers have explored Q-former-like architectures that compress input sequences for LLMs, reducing inference costs. However, these methods often underperform compared to mainstream LLMs trained on short sequences and struggle with longer context. We introduce SOLOS, an innovative method for training long sequences within limited computational resources. This approach effectively narrows the performance gap between context-compressed LLMs and mainstream LLMs handling long contexts. By significantly reducing training overhead, SOLOS enables training on long-sequence datasets, such as 100K tokens for instruction tuning, using merely an 8x RTX3090 machine. Our comprehensive experimental analysis confirms SOLOS not only significantly outperforms other context-compression-augmented LLMs but also matches the performance of state-of-the-art long-context models. The introduction of SOLOS marks a significant step toward deploying long-context LLMs, offering both efficiency and effectiveness in practical scenarios.",
+        "year": "2025"
+      },
+      "similarity": 0.6597568392753601
+    },
+    {
+      "paper": {
+        "paper_id": "DnfPX10Etk",
+        "title": "JOOCI: A FRAMEWORK FOR LEARNING COMPREHENSIVE SPEECH REPRESENTATIONS",
+        "abstract": "Information in speech can be divided into two categories: what is being said (content) and how it is expressed (other). Current state-of-the-art (SOTA) techniques model speech at fixed segments, usually 10-25 ms, using a single embedding. Given the orthogonal nature of other and content information, attempting to optimize both within a single embedding results in suboptimal solutions. This approach divides the model's capacity, limiting its ability to build complex hierarchical features effectively. In this work, we present an end-to-end speech representation learning framework designed to jointly optimize the other and \\enquote{content} information (JOOCI) in speech. By using separate learnable parameters, JOOCI addresses this optimization challenge by modeling other and content information independently. Our results show that JOOCI consistently outperforms other SOTA models of similar size (100 million parameters) and pre-training data used (960 hours) by a significant margin when evaluated on a range of speech downstream tasks in the SUPERB benchmark. Code and models are available at TBA.",
+        "year": "2025"
+      },
+      "similarity": 0.6573812961578369
+    }
+  ],
+  "idea_010": [
+    {
+      "paper": {
+        "paper_id": "TCFtGBTxkq",
+        "title": "Efficient Audiovisual Speech Processing via MUTUD: Multimodal Training and Unimodal Deployment",
+        "abstract": "Building reliable speech systems often requires combining multiple modalities, like audio and visual cues. While such multimodal solutions frequently lead to improvements in performance and may even be critical in certain cases, they come with several constraints such as increased sensory requirements, computational cost, and modality synchronization, to mention a few. These challenges constrain the direct uses of these multimodal solutions in real-world applications. In this work, we develop approaches where the learning happens with all available modalities but the deployment or inference is done with just one or reduced modalities. To do so, we propose a Multimodal Training and Unimodal Deployment (MUTUD) framework which includes a Temporally Aligned Modality feature Estimation (TAME) module that can estimate information from missing modality using modalities present during inference. This innovative approach facilitates the integration of information across different modalities, enhancing the overall inference process by leveraging the strengths of each modality to compensate for the absence of certain modalities during inference. We apply MUTUD to various audiovisual speech tasks and show that it can reduce the performance gap between the multimodal and corresponding unimodal models to a considerable extent. MUTUD achieves this while reducing the model size and computing compared to multimodal models by almost 80%.",
+        "year": "2025"
+      },
+      "similarity": 0.7202779054641724
+    },
+    {
+      "paper": {
+        "paper_id": "DnfPX10Etk",
+        "title": "JOOCI: A FRAMEWORK FOR LEARNING COMPREHENSIVE SPEECH REPRESENTATIONS",
+        "abstract": "Information in speech can be divided into two categories: what is being said (content) and how it is expressed (other). Current state-of-the-art (SOTA) techniques model speech at fixed segments, usually 10-25 ms, using a single embedding. Given the orthogonal nature of other and content information, attempting to optimize both within a single embedding results in suboptimal solutions. This approach divides the model's capacity, limiting its ability to build complex hierarchical features effectively. In this work, we present an end-to-end speech representation learning framework designed to jointly optimize the other and \\enquote{content} information (JOOCI) in speech. By using separate learnable parameters, JOOCI addresses this optimization challenge by modeling other and content information independently. Our results show that JOOCI consistently outperforms other SOTA models of similar size (100 million parameters) and pre-training data used (960 hours) by a significant margin when evaluated on a range of speech downstream tasks in the SUPERB benchmark. Code and models are available at TBA.",
+        "year": "2025"
+      },
+      "similarity": 0.7107653617858887
+    },
+    {
+      "paper": {
+        "paper_id": "QPDbIFumQ8",
+        "title": "EMMA: Efficient Visual Alignment in Multi-Modal LLMs",
+        "abstract": "Multi-modal Large Language Models (MLLMs) have recently exhibited impressive general-purpose capabilities by leveraging vision foundation models to encode the core concepts of images into representations. These are then combined with instructions and processed by the language model to generate high-quality responses. Despite significant progress\nin enhancing the language component, challenges persist in optimally fusing visual encodings within the language model for task-specific adaptability. Recent research has focused on improving this fusion through modality adaptation modules but at the cost of significantly increased model complexity and training data needs. \nIn this paper, we propose EMMA (Efficient Multi-Modal Adaptation), a lightweight cross-modality module designed to efficiently fuse visual and textual encodings, generating instruction-aware visual representations for the language model. Our key contributions include: (1) an efficient early fusion mechanism that integrates vision and language representations with minimal added parameters (less than 0.2% increase in model size), (2) an in-depth interpretability analysis that sheds light on the internal mechanisms of the proposed method; (3) comprehensive experiments that demonstrate notable improvements on both specialized and general benchmarks for MLLMs. Empirical results show that EMMA boosts performance across multiple tasks by up to 9.3% while significantly improving robustness against hallucinations.",
+        "year": "2025"
+      },
+      "similarity": 0.6956278085708618
+    },
+    {
+      "paper": {
+        "paper_id": "TJNCnkDRkY",
+        "title": "Generative Pre-Trained Speech Language Model with Efficient Hierarchical Transformer",
+        "abstract": "While recent advancements in speech language modeling have achieved significant progress, they face remarkable challenges in modelling the long acoustic sequence of neural audio codecs. Previous speech language models are compelled to learn acoustic tokens through a multi-stage generation process, which hinders their performance due to error propagation and information loss. In this paper, we introduce \\textbf{G}enerative \\textbf{P}re-Trained \\textbf{S}peech Language Model (GPST), a hierarchical transformer designed for efficient speech language modeling. GPST quantizes audio waveforms into two distinct types of discrete speech representations and integrates them within a hierarchical transformer architecture, allowing for a unified one-stage generation process and enhancing Hi-Res audio generation capabilities. By training on large corpora of raw audio waveforms in an end-to-end unsupervised manner, GPST can generate syntactically consistent speech with diverse speaker identity unconditionally. When provided a brief 3-second prompt, GPST is able to produce natural and coherent personalized speech, demonstrating in-context learning abilities. Moreover, our approach can be easily extended to spoken cross-lingual speech generation by incorporating multi-lingual semantic tokens and universal acoustic tokens. Experimental results indicate that GPST significantly outperforms the existing speech language models in terms of word error rate, speech quality and speaker similarity.",
+        "year": "2024"
+      },
+      "similarity": 0.6956017017364502
+    },
+    {
+      "paper": {
+        "paper_id": "5oaUMZEjWe",
+        "title": "Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder",
+        "abstract": "The rapid progress of single-task architectures has dominated recent developments in multi-talker speech processing, prompting the need for unified approaches. This paper introduces a unified multi-speaker encoder (UME), a novel model architecture that jointly learns representations for diarization, separation, and multi-speaker automatic speech recognition (ASR) tasks using a shared pre-trained foundational speech encoder. We leverage the hidden representations from multiple layers of UME to effectively use information from different semantic levels, contributing to bottom-up alignment between tasks. This joint training approach captures the inherent interdependencies among the tasks, enhancing overall performance on overlapping speech data. Our evaluations demonstrate that UME achieves substantial improvements over the single-task state-of-the-art (SOTA) baselines dedicated to speaker diarization, speech separation, and multi-speaker ASR. Notably, for speaker diarization, UME achieved SOTA performance by lowering the diarization error rate (DER) from 3.24 to 2.19 on the Libri2Mix dataset. Furthermore, our results in multi-speaker ASR outperform the previous results, reducing the concatenated minimum-permutation word error rate (cpWER) from 11.9 to 9.2 on the LibriSpeech2Mix evaluation set.",
+        "year": "2025"
+      },
+      "similarity": 0.6948620676994324
+    }
+  ]
+}

@@ -1,0 +1,942 @@
+{
+  "idea_001": [
+    {
+      "paper": {
+        "paper_id": "cphaRg46jD",
+        "title": "No Free Lunch: Retrieval-Augmented Generation Undermines Fairness in LLMs, Even for Vigilant Users",
+        "abstract": "Retrieval-Augmented Generation (RAG) is widely adopted for its effectiveness and cost-efficiency in mitigating hallucinations and enhancing the domain-specific generation capabilities of large language models (LLMs). However, is this effectiveness and cost-efficiency truly a free lunch? In this study, we comprehensively investigate the fairness costs associated with RAG by proposing a practical three-level threat model from the perspective of user awareness of fairness. Specifically, varying levels of user fairness awareness result in different degrees of fairness censorship on the external dataset. We examine the fairness implications of RAG using uncensored, partially censored, and fully censored datasets. Our experiments demonstrate that fairness alignment can be easily undermined through RAG **without the need for fine-tuning or retraining**. *Even with fully censored and supposedly unbiased external datasets, RAG can lead to biased outputs.* Our findings underscore the limitations of current alignment methods in the context of RAG-based LLMs and highlight the urgent need for new strategies to ensure fairness. We propose potential mitigations and call for further research to develop robust fairness safeguards in RAG-based LLMs.",
+        "year": "2025"
+      },
+      "similarity": 0.424712598323822
+    },
+    {
+      "paper": {
+        "paper_id": "5G_SmGZlXQ",
+        "title": "Toxicity in Multilingual Machine Translation at Scale",
+        "abstract": "Machine Translation systems can produce different types of errors, some of which get characterized as critical or catastrophic due to the specific negative impact they can have on users. Automatic or human evaluation metrics do not necessarily differentiate between such critical errors and more innocuous ones. In this paper we focus on one type of critical error: added toxicity. We evaluate and analyze added toxicity when translating a large evaluation dataset (HOLISTICBIAS, over 472k sentences, covering 13 demographic axes) from English into 164 languages. The toxicity automatic evaluation shows that added toxicity across languages varies from 0% to 5%. The output languages with the most added toxicity tend to be low-resource ones, and the demographic axes with the most added toxicity include sexual orientation, gender and sex, and ability. We also perform human evaluation on a subset of 8 directions, confirming the prevalence of true\nadded toxicity.\n\nWe use a measurement of the amount of source contribution to the translation, where a low source contribution implies hallucination, to interpret what causes toxicity. We observe that the source contribution is somewhat correlated with toxicity but that 45.6% of added toxic words have a high source contribution, suggesting that much of the added toxicity may be due to mistranslations. Combining the signal of source contribution level with a measurement of translation robustness allows us to flag 22.3% of added toxicity, suggesting that added toxicity may be related to both hallucination and the stability of translations in different contexts. Given these findings, our recommendations to reduce added toxicity are to curate training data to avoid mistranslations, mitigate hallucination and check unstable translations.",
+        "year": "2023"
+      },
+      "similarity": 0.4138643741607666
+    },
+    {
+      "paper": {
+        "paper_id": "oqSKdRyYO1g",
+        "title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+        "abstract": "Automatic speech recognition (ASR) services are ubiquitous, transforming speech into text for systems like Amazon’s Alexa, Google’s Assistant, and Microsoft’s Cortana. Past research has identified discriminatory ASR performance as a function of racial group and nationality. In this paper, we expand the discussion about nationality and English language ASR by performing an audit of some of the most popular English ASR services using a large and global data set of speech from The Speech Accent Archive. We show that performance disparities exist as a function of whether or not a speaker’s first language is English and, even when controlling for multiple linguistic covariates, that these disparities have a statistically significant relationship to the political alignment of the speaker’s birth country with respect to the United States’ geopolitical power. We discuss this bias in the context of the historical use of language to maintain global and political power.",
+        "year": "2023"
+      },
+      "similarity": 0.41338399052619934
+    },
+    {
+      "paper": {
+        "paper_id": "jyjfRLnfww",
+        "title": "Causal Abstraction Finds Universal Representation of Race in Large Language Models",
+        "abstract": "While there is growing interest in the potential bias of large language models (LLMs), especially in high-stakes decision making, it remains an open question how LLMs mechanistically encode such bias. We use causal abstraction (Geiger et al., 2023) to study how models use the race information in two high-stakes decision settings: college admissions and hiring. We find that Alpaca 7B, Mistral 7B, and Gemma 2B check for an applicants’ race and apply different preferential or discriminatory decision boundaries. The race subspace found by distributed alignment search generalizes across different tasks with average interchange intervention accuracies from 78.09% to 88.64% across the three models. We also propose a novel RaceQA task, where the model is asked to guess an applicant’s race from the name in their profile, to further probe the mechanism of the bias. We show that patching in a different race representation changes the model’s perception of the applicant’s race 99.80% of the time for Alpaca and 98.20% of the time for Mistral. Overall, our work provides evidence for a universal mechanism of racial bias in LLMs’ decision-making.",
+        "year": "2025"
+      },
+      "similarity": 0.383405476808548
+    },
+    {
+      "paper": {
+        "paper_id": "FEDnzAhIT4",
+        "title": "Test-Time Fairness and Robustness in Large Language Models",
+        "abstract": "Frontier Large Language Models (LLMs) can be socially discriminatory or sensitive to spurious features of their inputs. Because only well-resourced corporations can train frontier LLMs, we need robust test-time strategies to control such biases. Existing solutions, which instruct the LLM to be fair or robust, rely on the model’s implicit understanding of bias. Causality provides a rich formalism through which we can be explicit about our debiasing requirements. Yet, as we show, a naive application of the standard causal debiasing strategy, counterfactual data augmentation, fails under standard assumptions to debias predictions at an individual level at test time. To address this, we develop a stratified notion of debiasing called stratified invariance, which can capture a range of debiasing requirements from population level to individual level through an additional measurement that stratifies the predictions. We present a complete observational test for stratified invariance. Finally, we introduce a data augmentation strategy that guarantees stratified invariance at test time under suitable assumptions, together with a prompting strategy that encourages stratified invariance in LLMs. We show that our prompting strategy, unlike implicit instructions, consistently reduces the bias of frontier LLMs across a suite of synthetic and real-world benchmarks without requiring additional data, finetuning or pre-training.",
+        "year": "2025"
+      },
+      "similarity": 0.37979716062545776
+    }
+  ],
+  "idea_002": [
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.46024054288864136
+    },
+    {
+      "paper": {
+        "paper_id": "oqSKdRyYO1g",
+        "title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+        "abstract": "Automatic speech recognition (ASR) services are ubiquitous, transforming speech into text for systems like Amazon’s Alexa, Google’s Assistant, and Microsoft’s Cortana. Past research has identified discriminatory ASR performance as a function of racial group and nationality. In this paper, we expand the discussion about nationality and English language ASR by performing an audit of some of the most popular English ASR services using a large and global data set of speech from The Speech Accent Archive. We show that performance disparities exist as a function of whether or not a speaker’s first language is English and, even when controlling for multiple linguistic covariates, that these disparities have a statistically significant relationship to the political alignment of the speaker’s birth country with respect to the United States’ geopolitical power. We discuss this bias in the context of the historical use of language to maintain global and political power.",
+        "year": "2023"
+      },
+      "similarity": 0.4561706781387329
+    },
+    {
+      "paper": {
+        "paper_id": "Ns8zGZ0lmM",
+        "title": "Self-Preference Bias in LLM-as-a-Judge",
+        "abstract": "Automated evaluation leveraging large language models (LLMs), commonly referred to as LLM evaluators or LLM-as-a-judge, has been widely used in measuring the performance of dialogue systems.\nHowever, the self-preference bias in LLMs has posed significant risks, including promoting specific styles or policies intrinsic to the LLMs.\nDespite the importance of this issue, there is a lack of established methods to measure the self-preference bias quantitatively, and its underlying causes are poorly understood.\nIn this paper, we introduce a novel quantitative metric to measure the self-preference bias.\nOur experimental results demonstrate that GPT-4 exhibits a significant degree of self-preference bias.\nTo explore the causes, we hypothesize that LLMs may favor outputs that are more familiar to them, as indicated by lower perplexity.\nWe analyze the relationship between LLM evaluations and the perplexities of outputs.\nOur findings reveal that LLMs assign significantly higher evaluations to outputs with lower perplexity than human evaluators, regardless of whether the outputs were self-generated.\nThis suggests that the essence of the bias lies in perplexity and that the self-preference bias occurs because the LLMs' own outputs have lower perplexity.",
+        "year": "2025"
+      },
+      "similarity": 0.45581552386283875
+    },
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.45443055033683777
+    },
+    {
+      "paper": {
+        "paper_id": "1FWDEIGm33",
+        "title": "Large Language Models as superpositions of cultural perspectives",
+        "abstract": "Large language models (LLMs) are sometimes viewed as if they were individuals, with given values, personality, knowledge and abilities. We argue that this ”LLM as an individual” metaphor misrepresents their nature. As opposed to humans, they exhibit highly context-dependent values and personality traits. We propose a new metaphor, ”LLM as a superposition of perspectives” : LLMs simulate a multiplicity of behaviors, e.g. expressing values, which can be triggered by a given context. As a case study, we conduct experiments on how values vary as a function of context using psychology questionnaires. Crucially, we demonstrate that changes in the context that are unrelated to the topic of questionnaires - varying articles, simulated conversations on other topics, and textual formats - all result in significant unwanted, hard-to-predict changes in the expressed values. We refer to this as the unexpected perspective shift effect. We discuss how this questions the interpretations of studies using psychology questionnaires (and more generally benchmarks) to draw general conclusions about LLMs’ values, knowledge and abilities. Indeed, expressing some values on a questionnaire says little about which values a model would express in other contexts. Instead, models should be studied in terms of how the expressed values change over contexts in both expected and unexpected ways. Following this insight, we introduce the concept of perspective controllability - a model’s affordance to adopt various perspectives. We conduct a systematic comparison of the controllability of 16 different models over three questionnaires (PVQ, VSM, IPIP) and different methods for inducing perspectives. We conclude by examining the broader implications of our work and outline a variety of associated scientific questions.",
+        "year": "2024"
+      },
+      "similarity": 0.43953192234039307
+    }
+  ],
+  "idea_003": [
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.5293524265289307
+    },
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.5207983255386353
+    },
+    {
+      "paper": {
+        "paper_id": "1tZLONFMjm",
+        "title": "GAOKAO-Eval: Does High Scores Truly Reflect Strong Capabilities in LLMs?",
+        "abstract": "Large Language Models (LLMs) are commonly evaluated using human-crafted benchmarks, under the premise that higher scores implicitly reflect stronger human-like performance. However, there is growing concern that LLMs may “game” these benchmarks due to data leakage, achieving high scores while struggling with tasks straightforward for humans. \nTo substantively address the problem, we create GAOKAO-Eval, a comprehensive benchmark based on China's National College Entrance Examination (Gaokao) and conduct closed-book evaluations for representative models released prior to Gaokao.\nContrary to prevailing consensus, even when addressing data leakage and comprehensiveness, GAOKAO-Eval reveals that high scores still fail to truly reflect human-aligned capabilities. To better understand this mismatch, We introduce the Rasch model from cognitive psychology to analyze LLM scoring patterns and identify two key discrepancies: 1) anomalous consistant  performance across various question difficultiess, and 2) high variance in performance on questions of similar difficulty. In addition, we identified inconsistent grading of LLM-generated answers among teachers and recurring mistake patterns. we find that the phenomenon are well-grounded in the motivations behind OpenAI o1, and o1's reasoning-as-difficulties can mitigate the mismatch. These results show that GAOKAO-Eval can reveal limitations in LLM capabilities not captured by current benchmarks and highlight the need for more LLM-aligned difficulty analysis.",
+        "year": "2025"
+      },
+      "similarity": 0.4622209370136261
+    },
+    {
+      "paper": {
+        "paper_id": "rAylWUIKtu",
+        "title": "Benchmark Inflation: Revealing LLM Performance Gaps Using Retro-Holdouts",
+        "abstract": "The training data for many Large Language Models (LLMs) is contaminated with test data. This means that public benchmarks used to assess LLMs are compromised, suggesting a performance gap between benchmark scores and actual capabilities. Ideally, a private holdout set could be used to accurately verify scores. Unfortunately, such datasets do not exist for most benchmarks, and post-hoc construction of sufficiently similar datasets is non-trivial. To address these issues, we introduce a systematic methodology for (i) retrospectively constructing a holdout dataset for a target dataset, (ii) demonstrating the statistical indistinguishability of this retro-holdout dataset, and (iii) comparing LLMs on the two datasets to quantify the performance gap due to the dataset's public availability. Applying these methods to TruthfulQA, we construct and release Retro-Misconceptions, on which we evaluate twenty LLMs and find that some have inflated scores by as much as 16 percentage points. Our results demonstrate that public benchmark scores do not always accurately assess model properties, and underscore the importance of improved data practices in the field.",
+        "year": "2025"
+      },
+      "similarity": 0.4452560245990753
+    },
+    {
+      "paper": {
+        "paper_id": "Ku1tUKnAnC",
+        "title": "Measuring the Reliability of Causal Probing Methods: Tradeoffs, Limitations, and the Plight of Nullifying Interventions",
+        "abstract": "Causal probing aims to analyze large language models (or other foundation models) by examining how modifying their representation of various latent properties using interventions derived from probing classifiers impacts their outputs. Recent works have cast doubt on the theoretical basis of several leading causal probing intervention methods, but it has been unclear how to systematically evaluate the effectiveness of probing interventions in practice. To address this, we formally define and quantify two key causal probing desiderata: completeness (how thoroughly the representation of the target property has been transformed) and selectivity (how little other properties have been impacted). We introduce an empirical analysis framework to measure and evaluate completeness and selectivity, allowing us to make the first direct comparisons of the reliability of different families of causal probing methods (e.g., linear vs. nonlinear or counterfactual vs. nullifying interventions). Our experimental analysis shows that: (1) there is an inherent tradeoff between completeness and selectivity, (2) no leading probing method is able to consistently satisfy both criteria at once, and (3) across the board, nullifying interventions are far less complete than counterfactual interventions, which suggests that nullifying methods may not be an effective approach to causal probing.",
+        "year": "2025"
+      },
+      "similarity": 0.4448625445365906
+    }
+  ],
+  "idea_004": [
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.5320683717727661
+    },
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.5251961946487427
+    },
+    {
+      "paper": {
+        "paper_id": "oqSKdRyYO1g",
+        "title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+        "abstract": "Automatic speech recognition (ASR) services are ubiquitous, transforming speech into text for systems like Amazon’s Alexa, Google’s Assistant, and Microsoft’s Cortana. Past research has identified discriminatory ASR performance as a function of racial group and nationality. In this paper, we expand the discussion about nationality and English language ASR by performing an audit of some of the most popular English ASR services using a large and global data set of speech from The Speech Accent Archive. We show that performance disparities exist as a function of whether or not a speaker’s first language is English and, even when controlling for multiple linguistic covariates, that these disparities have a statistically significant relationship to the political alignment of the speaker’s birth country with respect to the United States’ geopolitical power. We discuss this bias in the context of the historical use of language to maintain global and political power.",
+        "year": "2023"
+      },
+      "similarity": 0.5150226354598999
+    },
+    {
+      "paper": {
+        "paper_id": "jyjfRLnfww",
+        "title": "Causal Abstraction Finds Universal Representation of Race in Large Language Models",
+        "abstract": "While there is growing interest in the potential bias of large language models (LLMs), especially in high-stakes decision making, it remains an open question how LLMs mechanistically encode such bias. We use causal abstraction (Geiger et al., 2023) to study how models use the race information in two high-stakes decision settings: college admissions and hiring. We find that Alpaca 7B, Mistral 7B, and Gemma 2B check for an applicants’ race and apply different preferential or discriminatory decision boundaries. The race subspace found by distributed alignment search generalizes across different tasks with average interchange intervention accuracies from 78.09% to 88.64% across the three models. We also propose a novel RaceQA task, where the model is asked to guess an applicant’s race from the name in their profile, to further probe the mechanism of the bias. We show that patching in a different race representation changes the model’s perception of the applicant’s race 99.80% of the time for Alpaca and 98.20% of the time for Mistral. Overall, our work provides evidence for a universal mechanism of racial bias in LLMs’ decision-making.",
+        "year": "2025"
+      },
+      "similarity": 0.4776753783226013
+    },
+    {
+      "paper": {
+        "paper_id": "52Idqv2FNY",
+        "title": "Correlating and Predicting Human Evaluations of Language Models from Natural Language Processing Benchmarks",
+        "abstract": "The field of natural language processing (NLP) historically evaluated language models using benchmarks with automated metrics. However, the recent advent of highly capable chat language models (LMs) has caused a tectonic shift from NLP benchmarks to human evaluations. The relationship between these two evaluation processes is unclear and underexplored for chat LMs. Broadly, to what extent are human evaluations and NLP benchmarks correlated with one another? How well can computationally inexpensive and automated benchmarks predict expensive and time-intensive human evaluations? Which benchmarks provide predictive signals for human preference for LMs? What role, if any, should benchmarks play in the era of chat LMs? To answer these questions, we conducted a large-scale study of the relationships between human evaluations and benchmarks. We show that benchmarks are broadly highly correlated with human evaluations, and we identify which benchmarks exhibit strong correlations with human evaluations and which do not. Having established that reliable correlations exist, we fit models to predict a language model’s human evaluation scores from its academic evaluation scores and provide evidence that such predictive models can generalize across LM scales.",
+        "year": "2025"
+      },
+      "similarity": 0.4563432037830353
+    }
+  ],
+  "idea_005": [
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.5712553262710571
+    },
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.5574462413787842
+    },
+    {
+      "paper": {
+        "paper_id": "IULlNTZZel",
+        "title": "RedHat: Towards Reducing Hallucination in Essay Critiques with Large Language Models",
+        "abstract": "Essay critiques refer to the textual assessment of an essay, serving as the basis for the scoring of the essay, and are crucial for the improvements of the essay. Essay critique generation has received increasing attention after the blooming of large language models (LLMs), which show promising potential in writing and critiquing essays. Automatic critique generation can streamline both instructors and reviewers as well as spur LLM advancement in long context generation characterized by essay writing. However, current LLMs suffer from hallucinations when generating essay critiques, which are still under-explored in the community. To facilitate research in reliable essay critique generation, we first define this task with a unified input-output format as well as clear judging criteria. To minimize hallucinations in critique generation, we introduce RedHat, a novel approach that embeds the key information from essays directly into the generation process through document-level question-answering, ensuring critiques stay firmly anchored to the original text. We collected a large-scale, high-quality essay critique dataset called EssayC, annotated by human experts over multiple LLM-generated critiques, from a campus undergraduate essay writing course. We experimented RedHat backboned by commercial and open-sourced LLMs. Results showed that critiques generated by RedHat are preferred by human experts over baseline in 20% of cases on EssayC in detailedness and informativeness, with a decrement around 10% on hallucinations in our judging criteria.",
+        "year": "2025"
+      },
+      "similarity": 0.517842173576355
+    },
+    {
+      "paper": {
+        "paper_id": "UnstiBOfnv",
+        "title": "Style Over Substance: Evaluation Biases for Large Language Models",
+        "abstract": "As large language models (LLMs) continue to advance, accurately and comprehensively evaluating their performance becomes increasingly challenging. Human evaluations are conventionally considered the gold standard in natural language generation, but recent advancements incorporate state-of-the-art LLMs as proxies for human judges in evaluation processes. However, the extent to which humans and LLMs are capable evaluators remains uncertain. This study investigates the behavior of crowd-sourced and expert annotators, as well as LLMs, when comparing outputs from different models. To achieve this, we curate a dataset of intentionally flawed machine-generated answers. Our findings reveal a concerning bias in the evaluation process, as answers with factual errors are rated more favorably than answers that are too short or contained grammatical errors. To address this issue, we propose independently evaluating machine-generated text across multiple dimensions, rather than merging all the evaluation aspects into a single score. We instantiate this idea with the Elo rating system, resulting in the Multi-Elo Rating System (MERS). Empirical results from our study reveal that this proposed approach significantly enhances the quality of LLM-based evaluations, particularly in terms of factual accuracy. However, there is no significant improvement in crowd-sourced-based evaluations, indicating the need for further investigation and refinement.",
+        "year": "2024"
+      },
+      "similarity": 0.5147414803504944
+    },
+    {
+      "paper": {
+        "paper_id": "XIIynqbMXgR",
+        "title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "abstract": "Modeling discourse -- the linguistic phenomena that go beyond individual sentences, is a fundamental and challenging problem in natural language processing (NLP). However, existing evaluation benchmarks mainly focus on the evaluation of inter-sentence properties and overlook important discourse phenomena that cross sentences. To bridge the gap, we propose a GuoFeng benchmark that can evaluate intra-sentence discourse properties across a diverse set of NLP tasks, covering understanding, translation, and generation. GuoFeng consists of 9 document-level testsets in the literature domain, which contain rich discourse phenomena (e.g. cohesion and coherence) in Chinese and/or English. For linguistic analysis, we also propose a diagnostic test suite that can examine whether the target models learn discourse knowledge. We evaluate 17 general- and in-domain models based on Transformer and advanced pre-training architectures, showing that fine-grained pretraining based on document-level training data consistently improves the modeling of discourse information. We will release the datasets, pretrained models, and leaderboard, which we hope can significantly facilitate research in this field.",
+        "year": "2023"
+      },
+      "similarity": 0.5127810835838318
+    }
+  ],
+  "idea_006": [
+    {
+      "paper": {
+        "paper_id": "cphaRg46jD",
+        "title": "No Free Lunch: Retrieval-Augmented Generation Undermines Fairness in LLMs, Even for Vigilant Users",
+        "abstract": "Retrieval-Augmented Generation (RAG) is widely adopted for its effectiveness and cost-efficiency in mitigating hallucinations and enhancing the domain-specific generation capabilities of large language models (LLMs). However, is this effectiveness and cost-efficiency truly a free lunch? In this study, we comprehensively investigate the fairness costs associated with RAG by proposing a practical three-level threat model from the perspective of user awareness of fairness. Specifically, varying levels of user fairness awareness result in different degrees of fairness censorship on the external dataset. We examine the fairness implications of RAG using uncensored, partially censored, and fully censored datasets. Our experiments demonstrate that fairness alignment can be easily undermined through RAG **without the need for fine-tuning or retraining**. *Even with fully censored and supposedly unbiased external datasets, RAG can lead to biased outputs.* Our findings underscore the limitations of current alignment methods in the context of RAG-based LLMs and highlight the urgent need for new strategies to ensure fairness. We propose potential mitigations and call for further research to develop robust fairness safeguards in RAG-based LLMs.",
+        "year": "2025"
+      },
+      "similarity": 0.4465666711330414
+    },
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.43533921241760254
+    },
+    {
+      "paper": {
+        "paper_id": "5G_SmGZlXQ",
+        "title": "Toxicity in Multilingual Machine Translation at Scale",
+        "abstract": "Machine Translation systems can produce different types of errors, some of which get characterized as critical or catastrophic due to the specific negative impact they can have on users. Automatic or human evaluation metrics do not necessarily differentiate between such critical errors and more innocuous ones. In this paper we focus on one type of critical error: added toxicity. We evaluate and analyze added toxicity when translating a large evaluation dataset (HOLISTICBIAS, over 472k sentences, covering 13 demographic axes) from English into 164 languages. The toxicity automatic evaluation shows that added toxicity across languages varies from 0% to 5%. The output languages with the most added toxicity tend to be low-resource ones, and the demographic axes with the most added toxicity include sexual orientation, gender and sex, and ability. We also perform human evaluation on a subset of 8 directions, confirming the prevalence of true\nadded toxicity.\n\nWe use a measurement of the amount of source contribution to the translation, where a low source contribution implies hallucination, to interpret what causes toxicity. We observe that the source contribution is somewhat correlated with toxicity but that 45.6% of added toxic words have a high source contribution, suggesting that much of the added toxicity may be due to mistranslations. Combining the signal of source contribution level with a measurement of translation robustness allows us to flag 22.3% of added toxicity, suggesting that added toxicity may be related to both hallucination and the stability of translations in different contexts. Given these findings, our recommendations to reduce added toxicity are to curate training data to avoid mistranslations, mitigate hallucination and check unstable translations.",
+        "year": "2023"
+      },
+      "similarity": 0.4303193688392639
+    },
+    {
+      "paper": {
+        "paper_id": "nLxH6a6Afe",
+        "title": "CITING: Large Language Models Create Curriculum for Instruction Tuning",
+        "abstract": "The recent advancement of large language models (LLMs) has been achieved through a combo of instruction tuning and human alignment. However, building manually crafted instruction datasets and performing human alignment become the bottleneck for scaling the development of LLMs. In this paper, we exploit the idea of leveraging AI models in lieu of humans as the teacher to train student LLMs. Our method is inspired by how human students refine their writing skills by following the rubrics and learning from the revisions offered by their tutors. Specifically, we employ a teacher LLM to create a curriculum for instruction tuning of the student LLM, namely Curriculum Instruction TunING (CITING). It encompasses two main steps: (1) the teacher LLM crafts the rubrics for evaluating the answers corresponding to various types of questions, and (2) the student LLM learns to follow the rubrics and perform self-correction from the revision made by the teacher. We further iteratively carry out it to embody the procedure of CITING. We compare CITING to a series of state-of-the-art baselines on four datasets. Our method demonstrates strong improvement in terms of articulate, in-depth, and comprehensive by GPT-4 evaluation. Specifically, it achieves an average winning rate of 79.4\\% over SFT, 73.4\\% over RLHF, 78.1\\% over RRHF, and 76.3\\% over RAFT, respectively.",
+        "year": "2024"
+      },
+      "similarity": 0.4273969829082489
+    },
+    {
+      "paper": {
+        "paper_id": "06ZvHHBR0i",
+        "title": "Adversarial Multi-Agent Evaluation of Large Language Models through Iterative Debate",
+        "abstract": "We propose a novel framework for evaluating large language model (LLM) outputs using LLMs themselves as interacting agents in an adversarial debate system. Our approach casts LLMs as advocates, judges, and juries within a structured courtroom-inspired setting. Advocate LLMs engage in iterative argumentation to refine and critique responses, while judge and jury LLMs moderate and assess the debate. We introduce a probabilistic model using Beta-Binomial distribution to analyze error reduction dynamics in this iterative process. Comparative studies of ranking versus scoring methods for LLM jurors reveal advantages of fine-grained scoring in capturing nuanced quality assessments. Experiments across diverse language tasks demonstrate our framework's superior performance in agreement with human judgments and provision of interpretable feedback compared to traditional evaluation methods. This work contributes a theoretically grounded, scalable approach to LLM evaluation that addresses limitations of existing techniques and adapts to rapid advancements in language AI technologies.",
+        "year": "2025"
+      },
+      "similarity": 0.42370882630348206
+    }
+  ],
+  "idea_007": [
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.5668489933013916
+    },
+    {
+      "paper": {
+        "paper_id": "GAXedKmbFZ",
+        "title": "Disco-Bench: A Context-Aware Evaluation Benchmark for Language Modelling",
+        "abstract": "Modeling large contexts, especially linguistic phenomena that span beyond individual sentences, is a fundamental yet challenging aspect of natural language processing (NLP). However, existing evaluation benchmarks primarily focus on the evaluation of inter-sentence properties and overlook critical discourse phenomena that cross sentences. To bridge the gap, we propose Disco-Bench, a benchmark that can evaluate intra-sentence contextual properties across a diverse set of NLP tasks, covering understanding, translation, and generation.\nDisco-Bench consists of 9 document-level testsets in the literature domain, which contain rich discourse phenomena (e.g. cohesion and coherence) in Chinese and/or English. For linguistic analysis, we also design a diagnostic test suite to probe the extent to which the evaluated models have internalized contextual information. We totally evaluate 20 general-purpose and domain-specific models based on advanced pretraining architectures and large language models (LLMs). Our results show that (1) our evaluation benchmark is both challenging and necessary; (2) fine-grained pretraining with literary document-level training data consistently enhances the modeling of discourse information. We will release the datasets, pretrained models, and leaderboard, which we hope can significantly facilitate research in this field.",
+        "year": "2024"
+      },
+      "similarity": 0.5667557120323181
+    },
+    {
+      "paper": {
+        "paper_id": "XIIynqbMXgR",
+        "title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "abstract": "Modeling discourse -- the linguistic phenomena that go beyond individual sentences, is a fundamental and challenging problem in natural language processing (NLP). However, existing evaluation benchmarks mainly focus on the evaluation of inter-sentence properties and overlook important discourse phenomena that cross sentences. To bridge the gap, we propose a GuoFeng benchmark that can evaluate intra-sentence discourse properties across a diverse set of NLP tasks, covering understanding, translation, and generation. GuoFeng consists of 9 document-level testsets in the literature domain, which contain rich discourse phenomena (e.g. cohesion and coherence) in Chinese and/or English. For linguistic analysis, we also propose a diagnostic test suite that can examine whether the target models learn discourse knowledge. We evaluate 17 general- and in-domain models based on Transformer and advanced pre-training architectures, showing that fine-grained pretraining based on document-level training data consistently improves the modeling of discourse information. We will release the datasets, pretrained models, and leaderboard, which we hope can significantly facilitate research in this field.",
+        "year": "2023"
+      },
+      "similarity": 0.555716872215271
+    },
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.5506178140640259
+    },
+    {
+      "paper": {
+        "paper_id": "UZS6D7GfP1",
+        "title": "Human-in-the-loop Detection of AI-generated Text via Grammatical Patterns",
+        "abstract": "The increasing proliferation of large language models (LLMs) has raised significant concerns about the detection of AI-written text. Ideally, the detection method should be accurate (in particular, it should not falsely accuse humans of using AI-generated text), and interpretable (it should provide a decision as to why the text was detected as either human or AI-generated). Existing methods tend to fall short of one or both of these requirements, and recent work has even shown that detection is impossible in the full generality. In this work, we focus on the problem of detecting AI-generated text in a domain where a training dataset of human-written samples is readily available. Our key insight is to learn interpretable grammatical patterns that are highly indicative of human or AI written text. The most useful of these patterns can then be given to humans as part of a human-in-the-loop approach. In our experimental evaluation, we show that the approach can effectively detect AI-written text in a variety of domains and generalize to different language models. Our results in a human trial show an improvement in the detection accuracy from $43$% to $86$%, demonstrating the effectiveness of the human-in-the-loop approach. We also show that the method is robust to different ways of prompting LLM to generate human-like patterns. Overall, our study demonstrates that AI text can be accurately and interpretably detected using a human-in-the-loop approach.",
+        "year": "2024"
+      },
+      "similarity": 0.54460209608078
+    }
+  ],
+  "idea_008": [
+    {
+      "paper": {
+        "paper_id": "srOVvTzgPo",
+        "title": "Toward a Sheaf-Theoretic Understanding of Compositionality in Large Language Models",
+        "abstract": "Compositionality has long been considered a fundamental aspect of human cognition -  enabling the learning, manipulation, and generation of natural language. Understanding how this concept applies to Large Language Models (LLMs) and how it can be effectively evaluated remains a key challenge. In this work, we explore the potential of formalizing cognitive notions from theory, such as compositionality, to develop more nuanced evaluation frameworks for LLMs. Using a sheaf-theoretic approach, we define compositionality through four distinct conditions that capture its multifaceted nature. This formalization offers a structured perspective on evaluating LLMs, moving beyond surface-level assessments to uncover deeper insights into their behavior. Our findings suggest that theoretical frameworks like this one can play a crucial role in advancing the understanding and evaluation of LLMs, providing a foundation for more comprehensive and precise performance analyses.",
+        "year": "2025"
+      },
+      "similarity": 0.48305562138557434
+    },
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.4808007776737213
+    },
+    {
+      "paper": {
+        "paper_id": "WgbcOQMNXB",
+        "title": "Large language models are not zero-shot communicators",
+        "abstract": "The recent success of large language models (LLMs) has drawn heavy attention and investment in their use as conversational and embodied systems. Despite widespread use of LLMs as conversational agents, evaluations of performance fail to capture a crucial aspect of communication: interpreting language in context. Humans interpret language using beliefs, prior knowledge about the world, and more. For example, we intuitively understand the response \"I wore gloves\" to the question \"Did you leave fingerprints?\" as meaning \"No\". To investigate whether LLMs have the ability to make this type of inference, known as an implicature, we design a simple task and evaluate a set of models. We find that despite only evaluating on utterances that require a binary inference (yes or no), most perform close to random. Models adapted to be \"aligned with human intent\" via reinforcement learning perform much better, but still leave a significant gap with human performance. This gap is even more pronounced for context-heavy utterances. We present our findings as the starting gun for further research into evaluating how LLMs interpret language in context, in order to drive the development of more pragmatic and useful models of human discourse.",
+        "year": "2023"
+      },
+      "similarity": 0.4754889905452728
+    },
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.46493738889694214
+    },
+    {
+      "paper": {
+        "paper_id": "GAXedKmbFZ",
+        "title": "Disco-Bench: A Context-Aware Evaluation Benchmark for Language Modelling",
+        "abstract": "Modeling large contexts, especially linguistic phenomena that span beyond individual sentences, is a fundamental yet challenging aspect of natural language processing (NLP). However, existing evaluation benchmarks primarily focus on the evaluation of inter-sentence properties and overlook critical discourse phenomena that cross sentences. To bridge the gap, we propose Disco-Bench, a benchmark that can evaluate intra-sentence contextual properties across a diverse set of NLP tasks, covering understanding, translation, and generation.\nDisco-Bench consists of 9 document-level testsets in the literature domain, which contain rich discourse phenomena (e.g. cohesion and coherence) in Chinese and/or English. For linguistic analysis, we also design a diagnostic test suite to probe the extent to which the evaluated models have internalized contextual information. We totally evaluate 20 general-purpose and domain-specific models based on advanced pretraining architectures and large language models (LLMs). Our results show that (1) our evaluation benchmark is both challenging and necessary; (2) fine-grained pretraining with literary document-level training data consistently enhances the modeling of discourse information. We will release the datasets, pretrained models, and leaderboard, which we hope can significantly facilitate research in this field.",
+        "year": "2024"
+      },
+      "similarity": 0.45695388317108154
+    }
+  ],
+  "idea_009": [
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.5620192289352417
+    },
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.5572645664215088
+    },
+    {
+      "paper": {
+        "paper_id": "jyjfRLnfww",
+        "title": "Causal Abstraction Finds Universal Representation of Race in Large Language Models",
+        "abstract": "While there is growing interest in the potential bias of large language models (LLMs), especially in high-stakes decision making, it remains an open question how LLMs mechanistically encode such bias. We use causal abstraction (Geiger et al., 2023) to study how models use the race information in two high-stakes decision settings: college admissions and hiring. We find that Alpaca 7B, Mistral 7B, and Gemma 2B check for an applicants’ race and apply different preferential or discriminatory decision boundaries. The race subspace found by distributed alignment search generalizes across different tasks with average interchange intervention accuracies from 78.09% to 88.64% across the three models. We also propose a novel RaceQA task, where the model is asked to guess an applicant’s race from the name in their profile, to further probe the mechanism of the bias. We show that patching in a different race representation changes the model’s perception of the applicant’s race 99.80% of the time for Alpaca and 98.20% of the time for Mistral. Overall, our work provides evidence for a universal mechanism of racial bias in LLMs’ decision-making.",
+        "year": "2025"
+      },
+      "similarity": 0.5408004522323608
+    },
+    {
+      "paper": {
+        "paper_id": "XIIynqbMXgR",
+        "title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "abstract": "Modeling discourse -- the linguistic phenomena that go beyond individual sentences, is a fundamental and challenging problem in natural language processing (NLP). However, existing evaluation benchmarks mainly focus on the evaluation of inter-sentence properties and overlook important discourse phenomena that cross sentences. To bridge the gap, we propose a GuoFeng benchmark that can evaluate intra-sentence discourse properties across a diverse set of NLP tasks, covering understanding, translation, and generation. GuoFeng consists of 9 document-level testsets in the literature domain, which contain rich discourse phenomena (e.g. cohesion and coherence) in Chinese and/or English. For linguistic analysis, we also propose a diagnostic test suite that can examine whether the target models learn discourse knowledge. We evaluate 17 general- and in-domain models based on Transformer and advanced pre-training architectures, showing that fine-grained pretraining based on document-level training data consistently improves the modeling of discourse information. We will release the datasets, pretrained models, and leaderboard, which we hope can significantly facilitate research in this field.",
+        "year": "2023"
+      },
+      "similarity": 0.5205163955688477
+    },
+    {
+      "paper": {
+        "paper_id": "oqSKdRyYO1g",
+        "title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+        "abstract": "Automatic speech recognition (ASR) services are ubiquitous, transforming speech into text for systems like Amazon’s Alexa, Google’s Assistant, and Microsoft’s Cortana. Past research has identified discriminatory ASR performance as a function of racial group and nationality. In this paper, we expand the discussion about nationality and English language ASR by performing an audit of some of the most popular English ASR services using a large and global data set of speech from The Speech Accent Archive. We show that performance disparities exist as a function of whether or not a speaker’s first language is English and, even when controlling for multiple linguistic covariates, that these disparities have a statistically significant relationship to the political alignment of the speaker’s birth country with respect to the United States’ geopolitical power. We discuss this bias in the context of the historical use of language to maintain global and political power.",
+        "year": "2023"
+      },
+      "similarity": 0.5162546634674072
+    }
+  ],
+  "idea_010": [
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.5937060117721558
+    },
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.5625708103179932
+    },
+    {
+      "paper": {
+        "paper_id": "UnstiBOfnv",
+        "title": "Style Over Substance: Evaluation Biases for Large Language Models",
+        "abstract": "As large language models (LLMs) continue to advance, accurately and comprehensively evaluating their performance becomes increasingly challenging. Human evaluations are conventionally considered the gold standard in natural language generation, but recent advancements incorporate state-of-the-art LLMs as proxies for human judges in evaluation processes. However, the extent to which humans and LLMs are capable evaluators remains uncertain. This study investigates the behavior of crowd-sourced and expert annotators, as well as LLMs, when comparing outputs from different models. To achieve this, we curate a dataset of intentionally flawed machine-generated answers. Our findings reveal a concerning bias in the evaluation process, as answers with factual errors are rated more favorably than answers that are too short or contained grammatical errors. To address this issue, we propose independently evaluating machine-generated text across multiple dimensions, rather than merging all the evaluation aspects into a single score. We instantiate this idea with the Elo rating system, resulting in the Multi-Elo Rating System (MERS). Empirical results from our study reveal that this proposed approach significantly enhances the quality of LLM-based evaluations, particularly in terms of factual accuracy. However, there is no significant improvement in crowd-sourced-based evaluations, indicating the need for further investigation and refinement.",
+        "year": "2024"
+      },
+      "similarity": 0.5332961678504944
+    },
+    {
+      "paper": {
+        "paper_id": "mhyl7HhNM5",
+        "title": "Are LLMs Better than Reported? Detecting Label Errors and Mitigating Their Effect on Model Performance",
+        "abstract": "NLP benchmarks rely on standardized datasets for training and evaluating models and are crucial for advancing the field. Traditionally, expert annotations ensure high-quality labels; however, the cost of expert annotation does not scale well with the growing demand for larger datasets required by modern models.\nWhile crowd-sourcing provides a more scalable solution, it often comes at the expense of annotation precision and consistency. Recent advancements in large language models (LLMs) offer new opportunities to enhance the annotation process, particularly for detecting label errors in existing datasets. In this work, we consider the recent approach of LLM-as-a-judge, leveraging an ensemble of LLMs to flag potentially mislabeled examples.\nThrough a case study of four datasets from the TRUE benchmark, covering different tasks and domains, we empirically analyze the labeling quality of existing datasets, and compare expert, crowd-sourced, and our LLM-based annotations in terms of agreement, label quality, and efficiency, demonstrating the strengths and limitations of each annotation method. Our findings reveal a substantial number of label errors, which, when corrected, induce a significant upward shift in reported model performance. This suggests that many of the LLMs so-called mistakes are due to label errors rather than genuine model failures. Additionally, we discuss the implications of mislabeled data and propose methods to mitigate them in training to improve model performance.",
+        "year": "2025"
+      },
+      "similarity": 0.5246309041976929
+    },
+    {
+      "paper": {
+        "paper_id": "rAylWUIKtu",
+        "title": "Benchmark Inflation: Revealing LLM Performance Gaps Using Retro-Holdouts",
+        "abstract": "The training data for many Large Language Models (LLMs) is contaminated with test data. This means that public benchmarks used to assess LLMs are compromised, suggesting a performance gap between benchmark scores and actual capabilities. Ideally, a private holdout set could be used to accurately verify scores. Unfortunately, such datasets do not exist for most benchmarks, and post-hoc construction of sufficiently similar datasets is non-trivial. To address these issues, we introduce a systematic methodology for (i) retrospectively constructing a holdout dataset for a target dataset, (ii) demonstrating the statistical indistinguishability of this retro-holdout dataset, and (iii) comparing LLMs on the two datasets to quantify the performance gap due to the dataset's public availability. Applying these methods to TruthfulQA, we construct and release Retro-Misconceptions, on which we evaluate twenty LLMs and find that some have inflated scores by as much as 16 percentage points. Our results demonstrate that public benchmark scores do not always accurately assess model properties, and underscore the importance of improved data practices in the field.",
+        "year": "2025"
+      },
+      "similarity": 0.5236300826072693
+    }
+  ],
+  "idea_011": [
+    {
+      "paper": {
+        "paper_id": "XIIynqbMXgR",
+        "title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "abstract": "Modeling discourse -- the linguistic phenomena that go beyond individual sentences, is a fundamental and challenging problem in natural language processing (NLP). However, existing evaluation benchmarks mainly focus on the evaluation of inter-sentence properties and overlook important discourse phenomena that cross sentences. To bridge the gap, we propose a GuoFeng benchmark that can evaluate intra-sentence discourse properties across a diverse set of NLP tasks, covering understanding, translation, and generation. GuoFeng consists of 9 document-level testsets in the literature domain, which contain rich discourse phenomena (e.g. cohesion and coherence) in Chinese and/or English. For linguistic analysis, we also propose a diagnostic test suite that can examine whether the target models learn discourse knowledge. We evaluate 17 general- and in-domain models based on Transformer and advanced pre-training architectures, showing that fine-grained pretraining based on document-level training data consistently improves the modeling of discourse information. We will release the datasets, pretrained models, and leaderboard, which we hope can significantly facilitate research in this field.",
+        "year": "2023"
+      },
+      "similarity": 0.5466365814208984
+    },
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.535331666469574
+    },
+    {
+      "paper": {
+        "paper_id": "GAXedKmbFZ",
+        "title": "Disco-Bench: A Context-Aware Evaluation Benchmark for Language Modelling",
+        "abstract": "Modeling large contexts, especially linguistic phenomena that span beyond individual sentences, is a fundamental yet challenging aspect of natural language processing (NLP). However, existing evaluation benchmarks primarily focus on the evaluation of inter-sentence properties and overlook critical discourse phenomena that cross sentences. To bridge the gap, we propose Disco-Bench, a benchmark that can evaluate intra-sentence contextual properties across a diverse set of NLP tasks, covering understanding, translation, and generation.\nDisco-Bench consists of 9 document-level testsets in the literature domain, which contain rich discourse phenomena (e.g. cohesion and coherence) in Chinese and/or English. For linguistic analysis, we also design a diagnostic test suite to probe the extent to which the evaluated models have internalized contextual information. We totally evaluate 20 general-purpose and domain-specific models based on advanced pretraining architectures and large language models (LLMs). Our results show that (1) our evaluation benchmark is both challenging and necessary; (2) fine-grained pretraining with literary document-level training data consistently enhances the modeling of discourse information. We will release the datasets, pretrained models, and leaderboard, which we hope can significantly facilitate research in this field.",
+        "year": "2024"
+      },
+      "similarity": 0.5268802642822266
+    },
+    {
+      "paper": {
+        "paper_id": "M4fhjfGAsZ",
+        "title": "Automated Knowledge Concept Annotation and Question Representation Learning for Knowledge Tracing",
+        "abstract": "Knowledge tracing (KT) is a popular approach for modeling students' learning progress over time, which can enable more personalized and adaptive learning. However, existing KT approaches face two major limitations: (1) they rely heavily on expert-defined knowledge concepts (KCs) in questions, which is time-consuming and prone to errors; and (2) KT methods tend to overlook the semantics of both questions and the given KCs. In this work, we address these challenges and present KCQRL, a framework for automated knowledge concept annotation and question representation learning that  can improve the effectiveness of any existing KT model. First, we propose an automated KC annotation process using large language models (LLMs), which generates question solutions and then annotates KCs in each solution step of the questions. Second, we introduce a contrastive learning approach to generate semantically rich embeddings for questions and solution steps, aligning them with their associated KCs via a tailored false negative elimination approach. These embeddings can be readily integrated into existing KT models, replacing their randomly initialized embeddings. We demonstrate the effectiveness of KCQRL across 15 KT algorithms on two large real-world Math learning datasets, where we achieve consistent performance improvements.",
+        "year": "2025"
+      },
+      "similarity": 0.507407546043396
+    },
+    {
+      "paper": {
+        "paper_id": "1FWDEIGm33",
+        "title": "Large Language Models as superpositions of cultural perspectives",
+        "abstract": "Large language models (LLMs) are sometimes viewed as if they were individuals, with given values, personality, knowledge and abilities. We argue that this ”LLM as an individual” metaphor misrepresents their nature. As opposed to humans, they exhibit highly context-dependent values and personality traits. We propose a new metaphor, ”LLM as a superposition of perspectives” : LLMs simulate a multiplicity of behaviors, e.g. expressing values, which can be triggered by a given context. As a case study, we conduct experiments on how values vary as a function of context using psychology questionnaires. Crucially, we demonstrate that changes in the context that are unrelated to the topic of questionnaires - varying articles, simulated conversations on other topics, and textual formats - all result in significant unwanted, hard-to-predict changes in the expressed values. We refer to this as the unexpected perspective shift effect. We discuss how this questions the interpretations of studies using psychology questionnaires (and more generally benchmarks) to draw general conclusions about LLMs’ values, knowledge and abilities. Indeed, expressing some values on a questionnaire says little about which values a model would express in other contexts. Instead, models should be studied in terms of how the expressed values change over contexts in both expected and unexpected ways. Following this insight, we introduce the concept of perspective controllability - a model’s affordance to adopt various perspectives. We conduct a systematic comparison of the controllability of 16 different models over three questionnaires (PVQ, VSM, IPIP) and different methods for inducing perspectives. We conclude by examining the broader implications of our work and outline a variety of associated scientific questions.",
+        "year": "2024"
+      },
+      "similarity": 0.503835916519165
+    }
+  ],
+  "idea_012": [
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.5709304809570312
+    },
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.5617213249206543
+    },
+    {
+      "paper": {
+        "paper_id": "iGDWZFc7Ya",
+        "title": "Language Models Linearly Represent Sentiment",
+        "abstract": "Sentiment is a pervasive feature in natural language text, yet it is an open question how sentiment is represented within Large Language Models (LLMs). In this study, we reveal that across a range of models, sentiment is represented linearly: a single direction in activation space mostly captures the feature across a range of tasks with one extreme for positive and the other for negative. Through causal interventions, we isolate this direction and show it is causally relevant in both toy tasks and real world datasets such as Stanford Sentiment Treebank. \n\nWe further uncover the mechanisms that involve this direction, highlighting the roles of a small subset of attention heads and neurons. Finally, we discover a phenomenon which we term the summarization motif: sentiment is not solely represented on emotionally charged words, but is additionally summarised at intermediate positions without inherent sentiment, such as punctuation and names. We show that in Stanford Sentiment Treebank zero-shot classification, 76\\% of above-chance classification accuracy is lost when ablating the sentiment direction, nearly half of which (36\\%) is due to ablating the summarized sentiment direction exclusively at comma positions.",
+        "year": "2024"
+      },
+      "similarity": 0.5428978204727173
+    },
+    {
+      "paper": {
+        "paper_id": "Eaw1ZrsNUN",
+        "title": "USDC: A Dataset of $\\underline{U}$ser $\\underline{S}$tance and $\\underline{D}$ogmatism in Long $\\underline{C}$onversations",
+        "abstract": "Although prior studies have explored Stance and Dogmatism in user conversations, their datasets are constructed at the post level, treating each post as independent and randomly sampling posts from conversation threads. Thus, Stance and Dogmatism labels in these datasets cannot capture the user's opinion fluctuations expressed throughout the entire conversation context. However, identifying user's opinion fluctuations in long conversation threads on various topics can be extremely critical for enhanced personalization, market research, political campaigns, customer service, conflict resolution, targeted advertising, and content moderation. Hence, training language models to automate this task is critical. However, to train such models, gathering manual annotations has multiple challenges: 1) It is time-consuming and costly; 2) Conversation threads could be very long, increasing chances of noisy annotations; and 3) Interpreting instances where a user changes their opinion within a conversation is difficult because often such transitions are subtle and not expressed explicitly. Inspired by the recent success of large language models (LLMs) for complex natural language processing tasks, we leverage Mistral Large and GPT-4 to automate the human annotation process on the following two tasks while also providing reasoning: i) User Stance classification, which involves labeling a user's stance of a post in a conversation on a five-point scale; ii) User Dogmatism classification, which deals with labeling a user's overall opinion in the conversation on a four-point scale. The majority voting on zero-shot, one-shot, and few-shot annotations from these two LLMs on 764 multi-user Reddit conversations helps us curate the USDC dataset. USDC is then used to finetune and instruction-tune multiple deployable small language models for the 5-class stance and 4-class dogmatism classification tasks. Additionally, human annotations on 200 test conversations achieved inter-annotator agreement scores of 0.49 for stance and 0.50 for dogmatism, indicating a reasonable level of consistency between human and LLM annotations. We make the code and dataset publicly available [https://anonymous.4open.science/r/USDC-0F7F].",
+        "year": "2025"
+      },
+      "similarity": 0.5144108533859253
+    },
+    {
+      "paper": {
+        "paper_id": "UnstiBOfnv",
+        "title": "Style Over Substance: Evaluation Biases for Large Language Models",
+        "abstract": "As large language models (LLMs) continue to advance, accurately and comprehensively evaluating their performance becomes increasingly challenging. Human evaluations are conventionally considered the gold standard in natural language generation, but recent advancements incorporate state-of-the-art LLMs as proxies for human judges in evaluation processes. However, the extent to which humans and LLMs are capable evaluators remains uncertain. This study investigates the behavior of crowd-sourced and expert annotators, as well as LLMs, when comparing outputs from different models. To achieve this, we curate a dataset of intentionally flawed machine-generated answers. Our findings reveal a concerning bias in the evaluation process, as answers with factual errors are rated more favorably than answers that are too short or contained grammatical errors. To address this issue, we propose independently evaluating machine-generated text across multiple dimensions, rather than merging all the evaluation aspects into a single score. We instantiate this idea with the Elo rating system, resulting in the Multi-Elo Rating System (MERS). Empirical results from our study reveal that this proposed approach significantly enhances the quality of LLM-based evaluations, particularly in terms of factual accuracy. However, there is no significant improvement in crowd-sourced-based evaluations, indicating the need for further investigation and refinement.",
+        "year": "2024"
+      },
+      "similarity": 0.5090789198875427
+    }
+  ],
+  "idea_013": [
+    {
+      "paper": {
+        "paper_id": "jyjfRLnfww",
+        "title": "Causal Abstraction Finds Universal Representation of Race in Large Language Models",
+        "abstract": "While there is growing interest in the potential bias of large language models (LLMs), especially in high-stakes decision making, it remains an open question how LLMs mechanistically encode such bias. We use causal abstraction (Geiger et al., 2023) to study how models use the race information in two high-stakes decision settings: college admissions and hiring. We find that Alpaca 7B, Mistral 7B, and Gemma 2B check for an applicants’ race and apply different preferential or discriminatory decision boundaries. The race subspace found by distributed alignment search generalizes across different tasks with average interchange intervention accuracies from 78.09% to 88.64% across the three models. We also propose a novel RaceQA task, where the model is asked to guess an applicant’s race from the name in their profile, to further probe the mechanism of the bias. We show that patching in a different race representation changes the model’s perception of the applicant’s race 99.80% of the time for Alpaca and 98.20% of the time for Mistral. Overall, our work provides evidence for a universal mechanism of racial bias in LLMs’ decision-making.",
+        "year": "2025"
+      },
+      "similarity": 0.5252264738082886
+    },
+    {
+      "paper": {
+        "paper_id": "oqSKdRyYO1g",
+        "title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+        "abstract": "Automatic speech recognition (ASR) services are ubiquitous, transforming speech into text for systems like Amazon’s Alexa, Google’s Assistant, and Microsoft’s Cortana. Past research has identified discriminatory ASR performance as a function of racial group and nationality. In this paper, we expand the discussion about nationality and English language ASR by performing an audit of some of the most popular English ASR services using a large and global data set of speech from The Speech Accent Archive. We show that performance disparities exist as a function of whether or not a speaker’s first language is English and, even when controlling for multiple linguistic covariates, that these disparities have a statistically significant relationship to the political alignment of the speaker’s birth country with respect to the United States’ geopolitical power. We discuss this bias in the context of the historical use of language to maintain global and political power.",
+        "year": "2023"
+      },
+      "similarity": 0.5228264927864075
+    },
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.49777477979660034
+    },
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.47512441873550415
+    },
+    {
+      "paper": {
+        "paper_id": "UnstiBOfnv",
+        "title": "Style Over Substance: Evaluation Biases for Large Language Models",
+        "abstract": "As large language models (LLMs) continue to advance, accurately and comprehensively evaluating their performance becomes increasingly challenging. Human evaluations are conventionally considered the gold standard in natural language generation, but recent advancements incorporate state-of-the-art LLMs as proxies for human judges in evaluation processes. However, the extent to which humans and LLMs are capable evaluators remains uncertain. This study investigates the behavior of crowd-sourced and expert annotators, as well as LLMs, when comparing outputs from different models. To achieve this, we curate a dataset of intentionally flawed machine-generated answers. Our findings reveal a concerning bias in the evaluation process, as answers with factual errors are rated more favorably than answers that are too short or contained grammatical errors. To address this issue, we propose independently evaluating machine-generated text across multiple dimensions, rather than merging all the evaluation aspects into a single score. We instantiate this idea with the Elo rating system, resulting in the Multi-Elo Rating System (MERS). Empirical results from our study reveal that this proposed approach significantly enhances the quality of LLM-based evaluations, particularly in terms of factual accuracy. However, there is no significant improvement in crowd-sourced-based evaluations, indicating the need for further investigation and refinement.",
+        "year": "2024"
+      },
+      "similarity": 0.4696190357208252
+    }
+  ],
+  "idea_014": [
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.5858181118965149
+    },
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.5810245275497437
+    },
+    {
+      "paper": {
+        "paper_id": "WgbcOQMNXB",
+        "title": "Large language models are not zero-shot communicators",
+        "abstract": "The recent success of large language models (LLMs) has drawn heavy attention and investment in their use as conversational and embodied systems. Despite widespread use of LLMs as conversational agents, evaluations of performance fail to capture a crucial aspect of communication: interpreting language in context. Humans interpret language using beliefs, prior knowledge about the world, and more. For example, we intuitively understand the response \"I wore gloves\" to the question \"Did you leave fingerprints?\" as meaning \"No\". To investigate whether LLMs have the ability to make this type of inference, known as an implicature, we design a simple task and evaluate a set of models. We find that despite only evaluating on utterances that require a binary inference (yes or no), most perform close to random. Models adapted to be \"aligned with human intent\" via reinforcement learning perform much better, but still leave a significant gap with human performance. This gap is even more pronounced for context-heavy utterances. We present our findings as the starting gun for further research into evaluating how LLMs interpret language in context, in order to drive the development of more pragmatic and useful models of human discourse.",
+        "year": "2023"
+      },
+      "similarity": 0.5433441996574402
+    },
+    {
+      "paper": {
+        "paper_id": "GAXedKmbFZ",
+        "title": "Disco-Bench: A Context-Aware Evaluation Benchmark for Language Modelling",
+        "abstract": "Modeling large contexts, especially linguistic phenomena that span beyond individual sentences, is a fundamental yet challenging aspect of natural language processing (NLP). However, existing evaluation benchmarks primarily focus on the evaluation of inter-sentence properties and overlook critical discourse phenomena that cross sentences. To bridge the gap, we propose Disco-Bench, a benchmark that can evaluate intra-sentence contextual properties across a diverse set of NLP tasks, covering understanding, translation, and generation.\nDisco-Bench consists of 9 document-level testsets in the literature domain, which contain rich discourse phenomena (e.g. cohesion and coherence) in Chinese and/or English. For linguistic analysis, we also design a diagnostic test suite to probe the extent to which the evaluated models have internalized contextual information. We totally evaluate 20 general-purpose and domain-specific models based on advanced pretraining architectures and large language models (LLMs). Our results show that (1) our evaluation benchmark is both challenging and necessary; (2) fine-grained pretraining with literary document-level training data consistently enhances the modeling of discourse information. We will release the datasets, pretrained models, and leaderboard, which we hope can significantly facilitate research in this field.",
+        "year": "2024"
+      },
+      "similarity": 0.5422592759132385
+    },
+    {
+      "paper": {
+        "paper_id": "XIIynqbMXgR",
+        "title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "abstract": "Modeling discourse -- the linguistic phenomena that go beyond individual sentences, is a fundamental and challenging problem in natural language processing (NLP). However, existing evaluation benchmarks mainly focus on the evaluation of inter-sentence properties and overlook important discourse phenomena that cross sentences. To bridge the gap, we propose a GuoFeng benchmark that can evaluate intra-sentence discourse properties across a diverse set of NLP tasks, covering understanding, translation, and generation. GuoFeng consists of 9 document-level testsets in the literature domain, which contain rich discourse phenomena (e.g. cohesion and coherence) in Chinese and/or English. For linguistic analysis, we also propose a diagnostic test suite that can examine whether the target models learn discourse knowledge. We evaluate 17 general- and in-domain models based on Transformer and advanced pre-training architectures, showing that fine-grained pretraining based on document-level training data consistently improves the modeling of discourse information. We will release the datasets, pretrained models, and leaderboard, which we hope can significantly facilitate research in this field.",
+        "year": "2023"
+      },
+      "similarity": 0.5394188761711121
+    }
+  ],
+  "idea_015": [
+    {
+      "paper": {
+        "paper_id": "-UsbRlXzMG",
+        "title": "How (Un)Fair is Text Summarization?",
+        "abstract": "Creating a good summary requires carefully choosing details from the original text to accurately represent it in a limited space. If a summary contains biased information about a group, it risks passing this bias off to readers as fact. These risks increase if we consider not just one biased summary, but rather a biased summarization algorithm. Despite this, little work has measured whether these summarizers demonstrate biased performance. Rather, most work in summarization focuses on improving performance, ignoring questions of bias. In this paper we demonstrate that automatic summarizers both amplify and introduce bias towards information about under-represented groups. Additionally, we show that summarizers are highly sensitive to document structure, making the summaries they generate unstable under changes that are semantically meaningless to humans, which poses a further fairness risk. Given these results, and the large scale potential for harm presented by biased summarization, we recommend that bias analysis be performed and reported on summarizers to ensure that new automatic summarization methods do not introduce bias to the summaries they generate.",
+        "year": "2023"
+      },
+      "similarity": 0.5834526419639587
+    },
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.5488859415054321
+    },
+    {
+      "paper": {
+        "paper_id": "GAXedKmbFZ",
+        "title": "Disco-Bench: A Context-Aware Evaluation Benchmark for Language Modelling",
+        "abstract": "Modeling large contexts, especially linguistic phenomena that span beyond individual sentences, is a fundamental yet challenging aspect of natural language processing (NLP). However, existing evaluation benchmarks primarily focus on the evaluation of inter-sentence properties and overlook critical discourse phenomena that cross sentences. To bridge the gap, we propose Disco-Bench, a benchmark that can evaluate intra-sentence contextual properties across a diverse set of NLP tasks, covering understanding, translation, and generation.\nDisco-Bench consists of 9 document-level testsets in the literature domain, which contain rich discourse phenomena (e.g. cohesion and coherence) in Chinese and/or English. For linguistic analysis, we also design a diagnostic test suite to probe the extent to which the evaluated models have internalized contextual information. We totally evaluate 20 general-purpose and domain-specific models based on advanced pretraining architectures and large language models (LLMs). Our results show that (1) our evaluation benchmark is both challenging and necessary; (2) fine-grained pretraining with literary document-level training data consistently enhances the modeling of discourse information. We will release the datasets, pretrained models, and leaderboard, which we hope can significantly facilitate research in this field.",
+        "year": "2024"
+      },
+      "similarity": 0.5456095337867737
+    },
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.5429422855377197
+    },
+    {
+      "paper": {
+        "paper_id": "XIIynqbMXgR",
+        "title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "abstract": "Modeling discourse -- the linguistic phenomena that go beyond individual sentences, is a fundamental and challenging problem in natural language processing (NLP). However, existing evaluation benchmarks mainly focus on the evaluation of inter-sentence properties and overlook important discourse phenomena that cross sentences. To bridge the gap, we propose a GuoFeng benchmark that can evaluate intra-sentence discourse properties across a diverse set of NLP tasks, covering understanding, translation, and generation. GuoFeng consists of 9 document-level testsets in the literature domain, which contain rich discourse phenomena (e.g. cohesion and coherence) in Chinese and/or English. For linguistic analysis, we also propose a diagnostic test suite that can examine whether the target models learn discourse knowledge. We evaluate 17 general- and in-domain models based on Transformer and advanced pre-training architectures, showing that fine-grained pretraining based on document-level training data consistently improves the modeling of discourse information. We will release the datasets, pretrained models, and leaderboard, which we hope can significantly facilitate research in this field.",
+        "year": "2023"
+      },
+      "similarity": 0.5378715991973877
+    }
+  ],
+  "idea_016": [
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.584638774394989
+    },
+    {
+      "paper": {
+        "paper_id": "UnstiBOfnv",
+        "title": "Style Over Substance: Evaluation Biases for Large Language Models",
+        "abstract": "As large language models (LLMs) continue to advance, accurately and comprehensively evaluating their performance becomes increasingly challenging. Human evaluations are conventionally considered the gold standard in natural language generation, but recent advancements incorporate state-of-the-art LLMs as proxies for human judges in evaluation processes. However, the extent to which humans and LLMs are capable evaluators remains uncertain. This study investigates the behavior of crowd-sourced and expert annotators, as well as LLMs, when comparing outputs from different models. To achieve this, we curate a dataset of intentionally flawed machine-generated answers. Our findings reveal a concerning bias in the evaluation process, as answers with factual errors are rated more favorably than answers that are too short or contained grammatical errors. To address this issue, we propose independently evaluating machine-generated text across multiple dimensions, rather than merging all the evaluation aspects into a single score. We instantiate this idea with the Elo rating system, resulting in the Multi-Elo Rating System (MERS). Empirical results from our study reveal that this proposed approach significantly enhances the quality of LLM-based evaluations, particularly in terms of factual accuracy. However, there is no significant improvement in crowd-sourced-based evaluations, indicating the need for further investigation and refinement.",
+        "year": "2024"
+      },
+      "similarity": 0.4524034857749939
+    },
+    {
+      "paper": {
+        "paper_id": "QQt0MwXA81",
+        "title": "Do LLMs exhibit human-like response biases? A case study in survey design",
+        "abstract": "As large language models (LLMs) become more capable, there is growing excitement about the possibility of using LLMs as proxies for humans in real-world tasks where subjective labels serve as the ground truth. A barrier to the adoption of LLMs as human proxies is their sensitivity to prompt wording. But interestingly, humans also suffer from issues of sensitivity to instruction changes. As such, it is necessary to investigate the extent to which LLMs also reflect human sensitivities, if at all. In this work, we use survey design as a case study, where human response biases caused by permutations in wordings of \"prompts\" have been extensively studied. Drawing from prior work in social psychology, we design a dataset and propose a framework to evaluate whether LLMs exhibit human-like response biases in survey questionnaires. Over the seven models we evaluated, we find that all but one (Llama2-70b), in particular instruction fine-tuned models, do not consistently display human-like response biases, and even sometimes show a significant change in the opposite expected direction of change in humans. Furthermore, even if a model shows a significant change in the same direction as humans, we find that perturbations that are not meant to elicit biased behavior may also result in a similar change, suggesting that such a result could be partially due to other spurious correlations. These results highlight the potential pitfalls of using LLMs to substitute humans in parts of the annotation pipeline, and further underscore the importance of finer-grained characterizations of model behavior.",
+        "year": "2024"
+      },
+      "similarity": 0.44978076219558716
+    },
+    {
+      "paper": {
+        "paper_id": "dd2CABUZaw",
+        "title": "ChartBench: A Benchmark for Complex Visual Reasoning in Charts",
+        "abstract": "Multimodal Large Language Models (MLLMs) have shown impressive capabilities in image understanding and generation. However, current benchmarks fail to accurately evaluate the chart comprehension of MLLMs due to limited chart types and inappropriate metrics. To address this, we propose ChartBench, a comprehensive benchmark designed to assess chart comprehension and data reliability through complex visual reasoning. ChartBench includes 42 categories, 66.6k charts, and 600k question-answer pairs. Notably, we do not provide data point annotations on charts explicitly, which requires models to derive values by leveraging inherent chart elements such as color, legends, and coordinate systems. We also design an enhanced evaluation metric named Acc++ to evaluate MLLMs without extensive manual or costly LLM-based evaluations. Furthermore, we propose two baselines based on the chain of thought and supervised fine-tuning to improve model performance on unannotated charts. Extensive experimental evaluations of 18 open-sourced and 3 proprietary MLLMs reveal their limitations in chart comprehension and offer valuable insights for further research.",
+        "year": "2025"
+      },
+      "similarity": 0.4440039396286011
+    },
+    {
+      "paper": {
+        "paper_id": "YrxOdjYd1j8",
+        "title": "Latent Topology Induction for Understanding Contextualized Representations",
+        "abstract": "Recently, there has been considerable interests in understanding pretrained language models. This work studies the hidden geometry of the representation space of language models from a unique topological perspective. We hypothesize that there exist a network of latent anchor states summarizing the topology (neighbors and connectivity) of the representation space. we infer this latent network in a fully unsupervised way using a structured variational autoencoder. We show that such network exists in pretrained representations, but not in baseline random or positional embeddings. We connect the discovered topological structure to their linguistic interpretations. In this latent network, leave nodes can be grounded to word surface forms, anchor states can be grounded to linguistic categories, and connections between nodes and states can be grounded to phrase constructions and syntactic templates. We further show how such network evolves as the embeddings become more contextualized, with observational and statistical evidence demonstrating how contextualization helps words “receive meaning” from their topological neighbors via the anchor states. We demonstrate these insights with extensive experiments and visualizations.",
+        "year": "2023"
+      },
+      "similarity": 0.44207876920700073
+    }
+  ],
+  "idea_017": [
+    {
+      "paper": {
+        "paper_id": "rIt0sJsZw9",
+        "title": "Clustering Entity Specific Embeddings Towards a Prescribed Distribution",
+        "abstract": "Now ubiquitous in deep learning is the transformer architecture, which has advanced the state-of-the-art (SOTA) in a variety of disciplines. When employed with a bidirectional attention mask, a special [CLS] token is often appended to the sequence being processed, serving as a summary of the sequence as a whole once processed. While directly useful in many applications, the processed [CLS] embedding loses utility when asked to perform an entity-specific task given a multi-entity sequence - when processing a multi-speaker dialogue, for example, the [CLS] will describe the entire dialogue not a particular utterance. Existing approaches to address this often either involve redundant computation or non-trivial post-processing outside of the transformer. We propose a general, efficient method for deriving entity-specific embeddings \\textit{completely within} the transformer architecture, and demonstrate how the approach yields SOTA results in the domains of natural language processing (NLP) and sports analytics (SA), an exciting, relatively unexplored problem space. Furthermore, we propose a novel approach for deep-clustering towards a prescribed distribution in the absence of labels. Previous approaches towards distribution aware clustering required ground-truth labels, which are not always available. In addition to uncovering interesting signal in the domain of sport, we show how our distribution-aware clustering method yields new cluster-based SOTA on the task of long-tail partial-label learning (LT-PLL). Code available upon publication.",
+        "year": "2024"
+      },
+      "similarity": 0.5692768096923828
+    },
+    {
+      "paper": {
+        "paper_id": "XIIynqbMXgR",
+        "title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "abstract": "Modeling discourse -- the linguistic phenomena that go beyond individual sentences, is a fundamental and challenging problem in natural language processing (NLP). However, existing evaluation benchmarks mainly focus on the evaluation of inter-sentence properties and overlook important discourse phenomena that cross sentences. To bridge the gap, we propose a GuoFeng benchmark that can evaluate intra-sentence discourse properties across a diverse set of NLP tasks, covering understanding, translation, and generation. GuoFeng consists of 9 document-level testsets in the literature domain, which contain rich discourse phenomena (e.g. cohesion and coherence) in Chinese and/or English. For linguistic analysis, we also propose a diagnostic test suite that can examine whether the target models learn discourse knowledge. We evaluate 17 general- and in-domain models based on Transformer and advanced pre-training architectures, showing that fine-grained pretraining based on document-level training data consistently improves the modeling of discourse information. We will release the datasets, pretrained models, and leaderboard, which we hope can significantly facilitate research in this field.",
+        "year": "2023"
+      },
+      "similarity": 0.561811089515686
+    },
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.557712972164154
+    },
+    {
+      "paper": {
+        "paper_id": "Sc5rcsoyKR",
+        "title": "Enhancing Unsupervised Sentence Embeddings via Knowledge-Driven Data Augmentation and Gaussian-Decayed Contrastive Learning",
+        "abstract": "Recently, using large language models (LLMs) for data augmentation has led to considerable improvements in unsupervised sentence embedding models. However, existing methods encounter two primary challenges: limited data diversity and high data noise. Current approaches often neglect fine-grained knowledge, such as entities and quantities, leading to insufficient diversity.  Additionally, unsupervised data frequently lacks discriminative information, and the generated synthetic samples may introduce noise. In this paper, we propose a pipeline-based data augmentation method via LLMs and introduce the Gaussian-decayed gradient-assisted Contrastive Sentence Embedding (GCSE) model to enhance unsupervised sentence embeddings. To tackle the issue of low data diversity, our pipeline utilizes knowledge graphs (KGs) to extract entities and quantities, enabling LLMs to generate more diverse, knowledge-enriched samples. To address high data noise, the GCSE model uses a Gaussian-decayed function to limit the impact of false hard negative samples, enhancing the model's discriminative capability. Experimental results show that our approach achieves state-of-the-art performance in semantic textual similarity (STS) tasks, using fewer data samples and smaller LLMs, demonstrating its efficiency and robustness across various models.",
+        "year": "2025"
+      },
+      "similarity": 0.5497662425041199
+    },
+    {
+      "paper": {
+        "paper_id": "tmwR707odU",
+        "title": "Curriculum GNN-LLM Alignment for Text-Attributed Graphs",
+        "abstract": "Aligning Graph Neural Networks (GNNs) and Large Language Models (LLMs) benefits in leveraging both textual and structural knowledge for Text-attributed Graphs (TAGs) learning, which has attracted an increasing amount of attention in the research community. Most existing literature assumes a uniformly identical level of learning difficulties across texts and structures in TAGs, however, we discover the $\\textit{text-structure imbalance}$ problem in real-world TAGs, $\\textit{i.e.}$, nodes exhibit various levels of difficulties when learning different textual and structural information. Existing works ignoring these different difficulties may result in under-optimized GNNs and LLMs with over-reliance on either simplistic text or structure, thus failing to conduct node classifications that involve simultaneously learning complex text and structural information for nodes in TAGs. To address this problem, we propose a novel Curriculum GNN-LLM Alignment ($\\textbf{CurGL}$) method, which strategically balances the learning difficulties of textual and structural information on a node-by-node basis to enhance the alignment between GNNs and LLMs. Specifically, we first propose a text-structure difficulty measurer to estimate the learning difficulty of both text and structure in a node-wise manner. Then, we propose a class-based node selection strategy to balance the training process via gradually scheduling more nodes. Finally, we propose the curriculum co-play alignment by iteratively promoting useful information from GNNs and LLMs, to progressively enhance both components with balanced textual and structural information. Extensive experiments on real-world datasets demonstrate that our proposed $\\textbf{CurGL}$ method is able to outperform state-of-the-art GraphLLM, curriculum learning, as well as GNN baselines. To the best of our knowledge, this is the first study of curriculum alignment on TAGs.",
+        "year": "2025"
+      },
+      "similarity": 0.5417753458023071
+    }
+  ],
+  "idea_018": [
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.555988609790802
+    },
+    {
+      "paper": {
+        "paper_id": "oqSKdRyYO1g",
+        "title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+        "abstract": "Automatic speech recognition (ASR) services are ubiquitous, transforming speech into text for systems like Amazon’s Alexa, Google’s Assistant, and Microsoft’s Cortana. Past research has identified discriminatory ASR performance as a function of racial group and nationality. In this paper, we expand the discussion about nationality and English language ASR by performing an audit of some of the most popular English ASR services using a large and global data set of speech from The Speech Accent Archive. We show that performance disparities exist as a function of whether or not a speaker’s first language is English and, even when controlling for multiple linguistic covariates, that these disparities have a statistically significant relationship to the political alignment of the speaker’s birth country with respect to the United States’ geopolitical power. We discuss this bias in the context of the historical use of language to maintain global and political power.",
+        "year": "2023"
+      },
+      "similarity": 0.551895797252655
+    },
+    {
+      "paper": {
+        "paper_id": "52Idqv2FNY",
+        "title": "Correlating and Predicting Human Evaluations of Language Models from Natural Language Processing Benchmarks",
+        "abstract": "The field of natural language processing (NLP) historically evaluated language models using benchmarks with automated metrics. However, the recent advent of highly capable chat language models (LMs) has caused a tectonic shift from NLP benchmarks to human evaluations. The relationship between these two evaluation processes is unclear and underexplored for chat LMs. Broadly, to what extent are human evaluations and NLP benchmarks correlated with one another? How well can computationally inexpensive and automated benchmarks predict expensive and time-intensive human evaluations? Which benchmarks provide predictive signals for human preference for LMs? What role, if any, should benchmarks play in the era of chat LMs? To answer these questions, we conducted a large-scale study of the relationships between human evaluations and benchmarks. We show that benchmarks are broadly highly correlated with human evaluations, and we identify which benchmarks exhibit strong correlations with human evaluations and which do not. Having established that reliable correlations exist, we fit models to predict a language model’s human evaluation scores from its academic evaluation scores and provide evidence that such predictive models can generalize across LM scales.",
+        "year": "2025"
+      },
+      "similarity": 0.53719562292099
+    },
+    {
+      "paper": {
+        "paper_id": "UnstiBOfnv",
+        "title": "Style Over Substance: Evaluation Biases for Large Language Models",
+        "abstract": "As large language models (LLMs) continue to advance, accurately and comprehensively evaluating their performance becomes increasingly challenging. Human evaluations are conventionally considered the gold standard in natural language generation, but recent advancements incorporate state-of-the-art LLMs as proxies for human judges in evaluation processes. However, the extent to which humans and LLMs are capable evaluators remains uncertain. This study investigates the behavior of crowd-sourced and expert annotators, as well as LLMs, when comparing outputs from different models. To achieve this, we curate a dataset of intentionally flawed machine-generated answers. Our findings reveal a concerning bias in the evaluation process, as answers with factual errors are rated more favorably than answers that are too short or contained grammatical errors. To address this issue, we propose independently evaluating machine-generated text across multiple dimensions, rather than merging all the evaluation aspects into a single score. We instantiate this idea with the Elo rating system, resulting in the Multi-Elo Rating System (MERS). Empirical results from our study reveal that this proposed approach significantly enhances the quality of LLM-based evaluations, particularly in terms of factual accuracy. However, there is no significant improvement in crowd-sourced-based evaluations, indicating the need for further investigation and refinement.",
+        "year": "2024"
+      },
+      "similarity": 0.5324999094009399
+    },
+    {
+      "paper": {
+        "paper_id": "XIIynqbMXgR",
+        "title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "abstract": "Modeling discourse -- the linguistic phenomena that go beyond individual sentences, is a fundamental and challenging problem in natural language processing (NLP). However, existing evaluation benchmarks mainly focus on the evaluation of inter-sentence properties and overlook important discourse phenomena that cross sentences. To bridge the gap, we propose a GuoFeng benchmark that can evaluate intra-sentence discourse properties across a diverse set of NLP tasks, covering understanding, translation, and generation. GuoFeng consists of 9 document-level testsets in the literature domain, which contain rich discourse phenomena (e.g. cohesion and coherence) in Chinese and/or English. For linguistic analysis, we also propose a diagnostic test suite that can examine whether the target models learn discourse knowledge. We evaluate 17 general- and in-domain models based on Transformer and advanced pre-training architectures, showing that fine-grained pretraining based on document-level training data consistently improves the modeling of discourse information. We will release the datasets, pretrained models, and leaderboard, which we hope can significantly facilitate research in this field.",
+        "year": "2023"
+      },
+      "similarity": 0.530615508556366
+    }
+  ],
+  "idea_019": [
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.5412659049034119
+    },
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.522485613822937
+    },
+    {
+      "paper": {
+        "paper_id": "kFALGqLp46",
+        "title": "Sanitizing LLMs: Retrospective Learning for Self-Correction of Inconsistent Samples via User Preferences",
+        "abstract": "With the advent of large language models (LLMs), using LLMs in conjunction with prompt-based tasks has demonstrated the ability to reduce the high cost and inefficiency of human annotations. Nonetheless, in unsupervised new downstream tasks that require user preferences to align data annotations with expectations, existing evaluation methods for prompt-based tasks become ineffective, especially when ground truth annotations are insufficient or missing. To fill this gap, we propose the novel Consistent and Inconsistent (CAI) Ratio, inspired by our experimental observation that LLMs underperform when the number of inconsistent samples—those with inconsistent predictions across LLMs and the student model—exceeds the number of consistent samples. By estimating the CAI ratio and identifying consistent and inconsistent samples with our proposed CAI identification approach, we aim to minimize inconsistency and enhance the accuracy of LLM-generated annotations for unsupervised data. To achieve this, we introduce Retrospective Learning (RetroL) with user preference, a data-centric approach that collaborates with the student model and LLMs, using a small number of human annotations as user preferences to resolve inconsistencies in the identified samples. Applied to eight domain-specific NLP datasets, our Retrospective Learning approach, leveraging CAI identification, significantly improved the accuracy of LLM-generated responses, with the CAI ratio increasing as the accuracy improved.",
+        "year": "2025"
+      },
+      "similarity": 0.5174669623374939
+    },
+    {
+      "paper": {
+        "paper_id": "jyjfRLnfww",
+        "title": "Causal Abstraction Finds Universal Representation of Race in Large Language Models",
+        "abstract": "While there is growing interest in the potential bias of large language models (LLMs), especially in high-stakes decision making, it remains an open question how LLMs mechanistically encode such bias. We use causal abstraction (Geiger et al., 2023) to study how models use the race information in two high-stakes decision settings: college admissions and hiring. We find that Alpaca 7B, Mistral 7B, and Gemma 2B check for an applicants’ race and apply different preferential or discriminatory decision boundaries. The race subspace found by distributed alignment search generalizes across different tasks with average interchange intervention accuracies from 78.09% to 88.64% across the three models. We also propose a novel RaceQA task, where the model is asked to guess an applicant’s race from the name in their profile, to further probe the mechanism of the bias. We show that patching in a different race representation changes the model’s perception of the applicant’s race 99.80% of the time for Alpaca and 98.20% of the time for Mistral. Overall, our work provides evidence for a universal mechanism of racial bias in LLMs’ decision-making.",
+        "year": "2025"
+      },
+      "similarity": 0.5127407312393188
+    },
+    {
+      "paper": {
+        "paper_id": "GAXedKmbFZ",
+        "title": "Disco-Bench: A Context-Aware Evaluation Benchmark for Language Modelling",
+        "abstract": "Modeling large contexts, especially linguistic phenomena that span beyond individual sentences, is a fundamental yet challenging aspect of natural language processing (NLP). However, existing evaluation benchmarks primarily focus on the evaluation of inter-sentence properties and overlook critical discourse phenomena that cross sentences. To bridge the gap, we propose Disco-Bench, a benchmark that can evaluate intra-sentence contextual properties across a diverse set of NLP tasks, covering understanding, translation, and generation.\nDisco-Bench consists of 9 document-level testsets in the literature domain, which contain rich discourse phenomena (e.g. cohesion and coherence) in Chinese and/or English. For linguistic analysis, we also design a diagnostic test suite to probe the extent to which the evaluated models have internalized contextual information. We totally evaluate 20 general-purpose and domain-specific models based on advanced pretraining architectures and large language models (LLMs). Our results show that (1) our evaluation benchmark is both challenging and necessary; (2) fine-grained pretraining with literary document-level training data consistently enhances the modeling of discourse information. We will release the datasets, pretrained models, and leaderboard, which we hope can significantly facilitate research in this field.",
+        "year": "2024"
+      },
+      "similarity": 0.5074620246887207
+    }
+  ],
+  "idea_020": [
+    {
+      "paper": {
+        "paper_id": "e-M4E3Jmnkq",
+        "title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "abstract": "Societal biases in the usage of words, including harmful stereotypes, are frequently learned by common word embedding methods.  These biases manifest not only between a word and an explicit marker of its stereotype, but also between words that share related stereotypes.  This latter phenomenon, sometimes called ``indirect bias,'' has resisted prior attempts at debiasing.  In this paper, we propose a novel method to mitigate indirect bias in distributional word embeddings by modifying biased relationships between words before embeddings are learned.  This is done by considering how the co-occurrence probability of a given pair of words changes in the presence of words marking an attribute of bias, and using this to average out the effect of a bias attribute.  To evaluate this method, we perform a series of common tests and demonstrate that the semantic quality of the word embeddings is retained while measures of bias in the embeddings are reduced.  In addition, we conduct novel tests for measuring indirect stereotypes by extending the Word Embedding Association Test (WEAT) with new test sets for indirect binary gender stereotypes.  With these tests, we demonstrate that this method can reduce the presence of more subtle stereotypes not properly addressed by previous work.",
+        "year": "2023"
+      },
+      "similarity": 0.5242109298706055
+    },
+    {
+      "paper": {
+        "paper_id": "kXnk4uf1sK",
+        "title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "abstract": "Large Language Models (LLMs) have recently gained popularity for text analysis within the social sciences due to their versatility and context-aware capabilities. The use of prompt-based learning of LLMs has especially increased its application in classification tasks and text annotation of sensitive topics like sexism. While studies have used them for capturing online sexism, not much has been known of their capabilities across lesser-known discourses like that of political discourse, and how the models distinguish between partisan bias to gender bias. In this research, our main contributions could be listed as: i) comparing different LLMs through prompt engineering in their capability of detecting sexism in political discourse; and ii) proposing a new algorithm for capturing the confidence of the LLM predictions in classification tasks. Experimental results demonstrate a clear indication of trigger events that provoke online sexism, and yet no clear advantage of using LLMs while predicting sexism. Surprisingly, the results do not improve with more instructive prompts, but our algorithm proves to be effective in capturing the confidence of each model on their predicted labels.",
+        "year": "2025"
+      },
+      "similarity": 0.47748875617980957
+    },
+    {
+      "paper": {
+        "paper_id": "Ncx0X8lcN1",
+        "title": "HiReview: Hierarchical Taxonomy-Driven Automatic Literature Review Generation",
+        "abstract": "In this work, we present HiReview, a novel framework for hierarchical taxonomy-driven automatic literature review generation. With the exponential growth of academic documents, manual literature reviews have become increasingly labor-intensive and time-consuming, while traditional summarization models struggle to generate comprehensive document reviews effectively. Large language models (LLMs), with their powerful text processing capabilities, offer a potential solution; however, research on incorporating LLMs for automatic document generation remains limited. To address key challenges in large-scale automatic literature review generation (LRG), we propose a two-stage taxonomy-then-generation approach that combines graph-based hierarchical clustering with retrieval-augmented LLMs. First, we retrieve the most relevant sub-community within the citation network, then generate a hierarchical taxonomy tree by clustering papers based on both textual content and citation relationships. In the second stage, an LLM generates coherent and contextually accurate summaries for clusters or topics at each hierarchical level, ensuring comprehensive coverage and logical organization of the literature. Extensive experiments demonstrate that HiReview significantly outperforms state-of-the-art methods, achieving superior hierarchical organization, content relevance, and factual accuracy in automatic literature review generation tasks. The code and dataset are available at https://anonymous.4open.science/r/HiReivew-767D.",
+        "year": "2025"
+      },
+      "similarity": 0.462603360414505
+    },
+    {
+      "paper": {
+        "paper_id": "JsM46OZix7",
+        "title": "BiMix: Bivariate Data Mixing Law for Language Model Pretraining",
+        "abstract": "Large language models have demonstrated remarkable capabilities across various tasks, primarily attributed to the utilization of diversely sourced data. However, the impact of pretraining data composition on model performance remains poorly understood. This paper introduces BiMix, a novel bivariate data mixing law that models the joint scaling behavior of domain proportions and data volume in LLM pretraining. BiMix provides a systematic framework for understanding and optimizing data mixtures across diverse domains. Through extensive experiments on two large-scale datasets, we demonstrate BiMix's high accuracy in loss extrapolation (mean relative error $< 0.2\\%$) and its generalization to unseen mixtures (R$^{2} > 0.97$). Optimization of domain proportions yields superior model performance compared to existing methods. Furthermore, we establish entropy-based measures as efficient proxies for data mixing, offering a computationally lightweight strategy. Our work contributes both theoretical insights into data mixing dynamics and practical tools for enhancing LLM training efficiency, paving the way for more effective scaling strategies in language model development.",
+        "year": "2025"
+      },
+      "similarity": 0.45192083716392517
+    },
+    {
+      "paper": {
+        "paper_id": "IwhvaDrL39",
+        "title": "Research Town: Simulator of Research Community",
+        "abstract": "Large Language Models (LLMs) have demonstrated remarkable potential in scientific domains, yet a fundamental question remains unanswered: Can we simulate human research communities using LLMs? Addressing this question could deepen our understanding of the processes behind research idea generation and inspire the automatic discovery of novel scientific insights. In this work, we propose ResearchTown, a multi-agent framework for simulating research communities. Within this framework, the real-world research community is simplified and modeled as an agent-data graph (i.e. community graphs), where researchers and papers are represented as agent-type and data-type nodes, respectively. We also introduce TextGNN, a text-based inference framework that models diverse research activities (e.g., paper reading, paper writing, and review writing) as specific forms of a generalized message-passing process on the agent-data graph. To evaluate the quality of research simulation, we present ResearchBench, a benchmark that uses a node-masking prediction task for scalable and objective assessment. Our experiments reveal three key findings: (1) ResearchTown effectively simulates collaborative research activities by accurately predicting the attribute of masked nodes in the graph; (2) the simulation process in ResearchTown uncovers insights, like not every author contributes equally to the final paper, which is aligned with real-world research communities; (3) ResearchTown has the potential to foster interdisciplinary research by generating reasonable paper ideas that span across domains.",
+        "year": "2025"
+      },
+      "similarity": 0.4472233057022095
+    }
+  ]
+}

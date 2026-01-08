@@ -1,0 +1,111 @@
+{
+  "total_ideas": 20,
+  "threshold": 7.0,
+  "hit_rate_at_k": {
+    "1": 0.0,
+    "3": 0.0,
+    "5": 0.0,
+    "10": 0.0,
+    "20": 0.0
+  },
+  "precision_at_5": 0.0,
+  "mrr": 0.0,
+  "average_max_score": 3.85,
+  "score_distribution": {
+    "0-2": 0,
+    "3-4": 17,
+    "5-6": 3,
+    "7-8": 0,
+    "9-10": 0
+  },
+  "year_wise_metrics": {
+    "2023": {
+      "total_ideas": 15,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 3.8666666666666667,
+      "max_score": 6.0,
+      "min_score": 3.0
+    },
+    "2025": {
+      "total_ideas": 5,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 3.8,
+      "max_score": 4.0,
+      "min_score": 3.0
+    }
+  },
+  "top_matches": [
+    {
+      "idea_id": "idea_016",
+      "score": 6.0,
+      "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+      "paper_year": "2023",
+      "reason": "The problem consistency is relatively high since both ideas address linguistic biases in language used within certain corpora. However, Idea A focuses on bias in student evaluations of nonnative English-speaking instructors, while Idea B addresses societal biases in general word embeddings. The method similarity is moderate; both involve word embeddings but differ in their approaches and objectives—Idea A uses visualization tools to explore biases, while Idea B modifies relationships in embeddings to reduce bias. Application similarity is somewhat aligned as both aim to address and understand stereotypes, but they apply it in different contexts and target different outcomes."
+    },
+    {
+      "idea_id": "idea_005",
+      "score": 5.0,
+      "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+      "paper_year": "2023",
+      "reason": "虽然Idea A和Idea B都涉及语言偏见的检测和处理，但它们关注的具体问题和应用场景有所不同。Idea A集中在学生评价对非英语母语教师的语言偏见，旨在通过语料库分析揭露这种偏见；而Idea B则关注于词嵌入中的间接语言偏见，并提出新方法来减小这种偏见。方法上，虽然两者都涉及语言处理技术，但具体实现和技术细节不同。应用场景差异也较大，Idea A专注于教育领域的语言评价，而Idea B则更广泛地影响到词嵌入技术的偏见减缓。"
+    },
+    {
+      "idea_id": "idea_014",
+      "score": 5.0,
+      "paper_title": "Large language models are not zero-shot communicators",
+      "paper_year": "2023",
+      "reason": "Idea A and Idea B both deal with understanding language in context, which provides a moderate level of problem consistency. However, Idea A focuses on capturing language ideology and bias specifically in student evaluations of nonnative speakers, integrating sociolinguistic theories. Idea B, on the other hand, investigates large language models' ability to make inferences (implicatures) in context-heavy communication in general. Thus, their core methods diverge, with Idea A integrating sociolinguistic theory, while Idea B focuses on evaluating models' performance via designed tasks. They have different application goals, as Idea A targets bias detection in educational settings, whereas Idea B seeks improvements in general inferential abilities of conversational models, hence a lower application similarity score."
+    },
+    {
+      "idea_id": "idea_004",
+      "score": 4.0,
+      "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+      "paper_year": "2023",
+      "reason": "While both ideas deal with linguistic biases and racial implications, the Problem Consistency score is low because Idea A focuses on social exclusion through student evaluations of nonnative instructors, whereas Idea B audits ASR systems for performance disparities based on language and geopolitical biases. The Method Similarity score is moderate because both involve analyzing large linguistic data with sociopolitical dimensions, but Idea A uses discourse analysis on textual data, while Idea B audits ASR performance. The Application Similarity score is low as their applications target different domains: educational evaluations in one case and technological service bias in the other."
+    },
+    {
+      "idea_id": "idea_007",
+      "score": 4.0,
+      "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+      "paper_year": "2025",
+      "reason": "Idea A focuses on analyzing language ideology and accent bias in educational contexts, specifically in student evaluations of NNES instructors, using enhanced NLP techniques for bias detection. In contrast, Idea B explores the use of LLMs for detecting sexism in political discourse and introduces a new algorithm for confidence estimation in predictions. Both ideas involve bias detection in text and the use of advanced NLP methods, but the specific problems, methods, and applications differ significantly. Idea A emphasizes educational settings and sociolinguistic bias, while Idea B targets online sexism in political discourse."
+    },
+    {
+      "idea_id": "idea_009",
+      "score": 4.0,
+      "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+      "paper_year": "2023",
+      "reason": "Idea A focuses on detecting racial and language biases in student evaluations using text mining, while Idea B audits ASR systems for nationality and language biases. The problems share a common theme of bias detection related to language and race but apply to different domains (educational evaluations vs. ASR performance). Methods involve bias detection, yet one is text-based sociolinguistic analysis and the other is an audit of speech recognition systems. Application scenarios differ, as Idea A targets educational equity in evaluations, whereas Idea B addresses geopolitical bias in ASR technologies."
+    },
+    {
+      "idea_id": "idea_011",
+      "score": 4.0,
+      "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+      "paper_year": "2025",
+      "reason": "Though both ideas involve advanced computational approaches to analyze text, the core problems they address are fundamentally different. Idea A focuses on sociolinguistic exclusion and language ideologies in academic evaluations, while Idea B targets detecting sexism within political discourse. Methodologically, both involve using advanced models (transformer models in A and LLMs in B) for text analysis, but the focus areas and the specific computational strategies differ significantly. The application contexts (academic evaluations vs. political discourse) are also distinct, leading to limited overall similarity."
+    },
+    {
+      "idea_id": "idea_012",
+      "score": 4.0,
+      "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+      "paper_year": "2025",
+      "reason": "虽然两个研究都涉及通过语言技术识别文本中的偏见，但其关注的具体问题和应用场景不同。Idea A解决的是学生评价中的语言意识形态和种族偏见问题，主要应用于教育场景；而Idea B研究的是政治话语中的性别偏见并评估LLM的有效性，尤其通过prompt engineering获取模型预测的确信度。两者都利用高级文本分析方法，但使用的技术路线和具体应用领域存在显著区别，因此匹配得分较低。"
+    },
+    {
+      "idea_id": "idea_013",
+      "score": 4.0,
+      "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+      "paper_year": "2023",
+      "reason": "Idea A focuses on uncovering biases in student evaluations using corpus linguistics combined with critical frameworks, while Idea B audits ASR services to reveal performance disparities based on racial and linguistic factors. Although both address bias and linguistic diversity, they tackle different types of data and systems (educational evaluations vs. speech recognition services) and employ different methodologies (corpus analysis vs. ASR performance audit). The application contexts differ, targeting academic evaluations in Idea A and ASR services in Idea B, leading to a moderately low overall match score."
+    },
+    {
+      "idea_id": "idea_015",
+      "score": 4.0,
+      "paper_title": "How (Un)Fair is Text Summarization?",
+      "paper_year": "2023",
+      "reason": "Idea A focuses specifically on adapting a summarization model for analyzing biased evaluations of nonnative English speaking instructors in educational settings, while Idea B addresses the broader issue of bias in summarization algorithms across under-represented groups. The core problem of bias in summarization is somewhat consistent, but the methods differ as Idea A applies domain-specific fine-tuning, whereas Idea B advocates for bias analysis in general. The application and target are not very similar, with Idea A targeted specifically at educational settings and language ideology, unlike the broader stance in Idea B."
+    }
+  ]
+}

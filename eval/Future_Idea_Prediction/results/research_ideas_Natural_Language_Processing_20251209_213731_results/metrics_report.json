@@ -1,0 +1,111 @@
+{
+  "total_ideas": 10,
+  "threshold": 7.0,
+  "hit_rate_at_k": {
+    "1": 0.0,
+    "3": 0.0,
+    "5": 0.0,
+    "10": 0.0,
+    "20": 0.0
+  },
+  "precision_at_5": 0.0,
+  "mrr": 0.0,
+  "average_max_score": 4.9,
+  "score_distribution": {
+    "0-2": 0,
+    "3-4": 4,
+    "5-6": 6,
+    "7-8": 0,
+    "9-10": 0
+  },
+  "year_wise_metrics": {
+    "2025": {
+      "total_ideas": 6,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 4.666666666666667,
+      "max_score": 6.0,
+      "min_score": 4.0
+    },
+    "2024": {
+      "total_ideas": 4,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 5.25,
+      "max_score": 6.0,
+      "min_score": 4.0
+    }
+  },
+  "top_matches": [
+    {
+      "idea_id": "idea_001",
+      "score": 6.0,
+      "paper_title": "Enabling Scalable Evaluation of Bias Patterns in Medical LLMs",
+      "paper_year": "2025",
+      "reason": "Both ideas address the challenge of biases and ethical concerns in deploying language models in specialized contexts; Idea A focuses on a broad range of contexts with ethical control frameworks while Idea B is specific to medical scenarios with automated bias evaluation. Their methods include adaptation and evaluation, though one emphasizes domain-specificity with bias detection modules (A) and the other involves generating test cases using medical knowledge (B). Application scenarios differ slightly; A is broader across various scientific areas, B is specific to medical contexts."
+    },
+    {
+      "idea_id": "idea_007",
+      "score": 6.0,
+      "paper_title": "Learning-Retrieval-Revision For Large Language Model Domain Adaptation",
+      "paper_year": "2024",
+      "reason": "Both ideas address the challenge of domain adaptation in large language models to prevent issues like hallucinations and to improve understanding of complex contexts. Idea A focuses on enhancing generative models with a novel training approach, while Idea B proposes a retrieval-based framework combining smaller model adaptation with evidence retrieval for larger models. While they both deal with domain-specific adaptation and aim to improve accuracy in responses, the technical approaches are distinct and cater to slightly different scenarios. Idea A is more about optimizing generative pretraining, whereas Idea B centers on an adapt-retrieve-revise cycle involving smaller LLM adaptation and evidence integration from knowledge bases."
+    },
+    {
+      "idea_id": "idea_009",
+      "score": 6.0,
+      "paper_title": "DebateGPT: Fine-tuning Large Language Models with Multi-agent Debate Supervision",
+      "paper_year": "2024",
+      "reason": "Idea A and Idea B both focus on improving language models' capabilities, including handling complex contexts. They diverge in their specific approaches and highlighted issues: Idea A emphasizes bias mitigation, fairness, and transparency, while Idea B focuses more on efficient model training using multi-agent debate without human feedback. Their methods both include multi-agent systems, but Idea A integrates multimodal analysis, and Idea B relies on dataset derived from the debate mechanism. Application-wise, both aim for better language models, but Idea A stresses ethical and trustworthy deployment in diverse domains, which is broader than the setup provided by DebateGPT."
+    },
+    {
+      "idea_id": "idea_002",
+      "score": 5.0,
+      "paper_title": "Enabling Scalable Evaluation of Bias Patterns in Medical LLMs",
+      "paper_year": "2025",
+      "reason": "Idea A aims to generalize LLM improvements across multiple domains, highlighting complex understanding and fairness beyond healthcare, whereas Idea B focuses specifically on bias evaluation in medical applications of LLMs. Both address issues of fairness and biased behaviors, although Idea A goes broader beyond healthcare, while Idea B deeply targets healthcare biases. The methods differ as Idea A proposes a unified multi-domain framework for instruction fine-tuning, while Idea B utilizes automated test case generation using medical knowledge graphs. Application-wise, Idea A is generalizable across domains, whereas Idea B specifically targets medical bias evaluation, showing they are partially related but not identical in scope."
+    },
+    {
+      "idea_id": "idea_005",
+      "score": 5.0,
+      "paper_title": "Do LLMs Have Political Correctness? Analyzing Ethical Biases and Jailbreak Vulnerabilities in AI Systems",
+      "paper_year": "2025",
+      "reason": "Both ideas aim to address biases and safety concerns in large language models. However, Idea A focuses on adapting methods from recommender systems to improve fairness, privacy, and ethical interaction in language models, while Idea B specifically investigates biases leading to jailbreaking and proposes a defense mechanism. The methods differ in their focus; Idea A is about transferring techniques for broader ethical control, whereas Idea B is concerned with preventing specific exploit scenarios. The application scenarios differ slightly, as Idea A aims for overall ethical improvement, while Idea B targets preventing unsafe outputs caused by biases."
+    },
+    {
+      "idea_id": "idea_006",
+      "score": 5.0,
+      "paper_title": "Unlocking Anticipatory Text Generation: A Constrained Approach for Faithful Decoding with Large Language Models",
+      "paper_year": "2024",
+      "reason": "Both ideas address issues in language model generation such as bias, understanding complex contexts, and undesirable behaviors. Idea A focuses on utilizing morpho-syntactic features and perplexity diagnostics for fairness and control, whereas Idea B formalizes text generation as future-constrained to mitigate issues like toxicity and hallucinations. There's moderate overlap in improving generation accuracy and reducing biases, but the methods and specific applications differ in approach and focus, with Idea A using linguistic diagnostics and Idea B employing future constraint satisfaction."
+    },
+    {
+      "idea_id": "idea_003",
+      "score": 4.0,
+      "paper_title": "Towards human-like spoken dialogue generation between AI agents from written dialogue",
+      "paper_year": "2024",
+      "reason": "Idea A primarily focuses on enhancing the conversational AI's understanding of multi-modal input forms (speech and gestures) with fairness controls, whereas Idea B targets improving the generation of spoken dialogues from written dialogues with natural turn-taking and expressiveness. While both deal with speech processing, their core issues diverge: Idea A aims at context understanding and ethical AI, while Idea B focuses on conversational fluidity and naturalistic speech generation. The methods differ with Idea A employing a transformer architecture for fairness and Idea B designing a token-based system for smooth dialogue generation. The target application is somewhat related but not directly aligned, as one seeks to enhance conversational AI holistically and the other improves text-to-speech interaction specifically."
+    },
+    {
+      "idea_id": "idea_004",
+      "score": 4.0,
+      "paper_title": "The Best of Both Worlds: Bridging Quality and Diversity in Data Selection with Bipartite Graph",
+      "paper_year": "2025",
+      "reason": "Idea A focuses on adapting diversity and bias mitigation strategies from recommender systems to enhance fairness and interpretability in ChatGPT. Idea B proposes a method for improving data selection in supervised fine-tuning of language models to balance data quality and diversity. Both address enhancing language model performance through diversity considerations but in different contexts and for different objectives. The core methods involve handling diversity, but Idea A applies cross-domain techniques from recommendation systems, whereas Idea B innovates within the domain of data selection. Thus, the problem, method, and application overlap to some extent but are not highly similar."
+    },
+    {
+      "idea_id": "idea_008",
+      "score": 4.0,
+      "paper_title": "ShieldHead: Decoding-time Safeguard for Large Language Models",
+      "paper_year": "2025",
+      "reason": "The two ideas differ fundamentally in their problem scope. Idea A focuses on improving ChatGPT's foundational capabilities and ethical response handling by integrating cyber-security inspired techniques. Idea B, however, is concerned with moderation of LLM-generated content to detect harmful content more efficiently. Methodologically, Idea A aims at adapting cybersecurity-based anomaly detection, while Idea B incorporates a classification head for real-time moderation, which is different from Idea A's domain adaptation approach. The application scenarios also differ: Idea A targets broad conversation AI improvements, whereas Idea B is specifically about efficient moderation during chatbot interactions."
+    },
+    {
+      "idea_id": "idea_010",
+      "score": 4.0,
+      "paper_title": "Correlating and Predicting Human Evaluations of Language Models from Natural Language Processing Benchmarks",
+      "paper_year": "2025",
+      "reason": "The two ideas address different core problems. Idea A focuses on embedding a continuous feedback loop of comprehensive benchmarks in the development of ChatGPT to advance its abilities systematically. Idea B investigates the correlation between automated benchmarks and human evaluations, assessing their predictive capability for human preferences in chat language models. Methodologically, Idea A proposes a systematic integration into the model refinement process, while Idea B centers around evaluating existing relationships and prediction capabilities between benchmarks and evaluations. The application of Idea A is aimed at improving ChatGPT's performance systematically, whereas Idea B seeks to understand and optimize evaluation processes for language models. There is some overlap in considering model evaluation, but the intentions and approaches differ significantly."
+    }
+  ]
+}

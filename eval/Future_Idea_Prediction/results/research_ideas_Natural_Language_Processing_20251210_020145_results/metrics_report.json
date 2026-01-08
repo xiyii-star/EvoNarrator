@@ -1,0 +1,119 @@
+{
+  "total_ideas": 10,
+  "threshold": 7.0,
+  "hit_rate_at_k": {
+    "1": 0.0,
+    "3": 0.0,
+    "5": 0.0,
+    "10": 0.0,
+    "20": 0.0
+  },
+  "precision_at_5": 0.0,
+  "mrr": 0.0,
+  "average_max_score": 3.9,
+  "score_distribution": {
+    "0-2": 0,
+    "3-4": 7,
+    "5-6": 3,
+    "7-8": 0,
+    "9-10": 0
+  },
+  "year_wise_metrics": {
+    "2023": {
+      "total_ideas": 1,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 4.0,
+      "max_score": 4.0,
+      "min_score": 4.0
+    },
+    "2025": {
+      "total_ideas": 7,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 3.857142857142857,
+      "max_score": 5.0,
+      "min_score": 3.0
+    },
+    "2024": {
+      "total_ideas": 2,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 4.0,
+      "max_score": 4.0,
+      "min_score": 4.0
+    }
+  },
+  "top_matches": [
+    {
+      "idea_id": "idea_006",
+      "score": 5.0,
+      "paper_title": "MIO: A Foundation Model on Multimodal Tokens",
+      "paper_year": "2025",
+      "reason": "Both ideas address multimodal generative tasks in AI and involve integrating various types of data (text, visuals, audio). However, Idea A focuses on extending categorial frameworks for theoretically principled composition in the metaverse, while Idea B develops a practical foundation model, MIO, aimed at achieving any-to-any modality generation. The methods diverge, with Idea A using category theory functors and constructs, whereas Idea B employs token-based autoregressive training across modalities. The application scenarios relate to multimodal generative models but differ in their intended theoretical versus practical contributions."
+    },
+    {
+      "idea_id": "idea_008",
+      "score": 5.0,
+      "paper_title": "Quantum Neural Fields",
+      "paper_year": "2025",
+      "reason": "Idea A and Idea B both focus on leveraging quantum computing principles for generative AI models. However, Idea A centers on content generation for the metaverse, specifically using a framework by Scott Aaronson, while Idea B introduces a quantum neural field network with applications in visual computing, not necessarily for the metaverse. The core methods both involve quantum principles, but differ in technical implementation and target application scenarios. Idea A prioritizes the metaverse context for immersive virtual worlds, whereas Idea B addresses visual computing with quantum hardware compatibility."
+    },
+    {
+      "idea_id": "idea_010",
+      "score": 5.0,
+      "paper_title": "MIO: A Foundation Model on Multimodal Tokens",
+      "paper_year": "2025",
+      "reason": "The suggested research ideas both address the challenge of enhancing multimodal content generation capabilities. However, the problems they solve are framed differently: Idea A focuses specifically on integrating categorical grammar into multimodal generative AI within metaverse settings, while Idea B concentrates on developing a foundation model (MIO) capable of any-to-any multimodal understanding and generation, though it doesn't mention metaverse environments explicitly. Methodologically, both propose integrating multimodal modalities, but Idea A emphasizes user interaction modeling and real-time content improvement within the metaverse, while Idea B details a four-stage training process for its foundation model. Application-wise, Idea A is targeted at metaverse ecosystem enhancements, whereas Idea B highlights end-to-end multimodal generation applicable across diverse tasks without narrowing it down to metaverse environments."
+    },
+    {
+      "idea_id": "idea_001",
+      "score": 4.0,
+      "paper_title": "BAT-Chain: Bayesian-Aware Transport Chain for Topic Hierarchies Discovery",
+      "paper_year": "2023",
+      "reason": "The two research ideas both address the need for enhanced topic modeling techniques capable of capturing complex structures, though Idea A focuses on linguistic and semantic integration specific to biomedical literature, whereas Idea B delves into hierarchical topic structures using Bayesian and transport theories. The core method in Idea A combines categorical grammar with topic models, while Idea B uses a transport chain mechanism for embedding-based hierarchy learning. The application target for Idea A is medical literature for public health, whereas Idea B explores general text and visual topic modeling, resulting in moderate similarity overall."
+    },
+    {
+      "idea_id": "idea_003",
+      "score": 4.0,
+      "paper_title": "Structure-Rich Text Benchmark for Knowledge Inference Evaluation",
+      "paper_year": "2024",
+      "reason": "The problems being addressed are somewhat aligned in terms of enhancing corpus resources, but differ in specific focus—one emphasizing a unified formalism across languages, the other creating a benchmark for LLMs. The methods differ in their approaches; Idea A focuses on integrating grammar semantics within a formalism, while Idea B is about evaluating structured text inference abilities. Application goals overlap regarding corpus improvement and NLP tasks but differ in their direct implementation towards multilingual parsing versus benchmarking for LLM evaluation."
+    },
+    {
+      "idea_id": "idea_004",
+      "score": 4.0,
+      "paper_title": "Semantic Parsing with Candidate Expressions for Knowledge Base Question Answering",
+      "paper_year": "2024",
+      "reason": "Idea A addresses the challenge of classifying ambiguous or noisy questions with a focus on question classification frameworks, while Idea B is focused on improving semantic parsing accuracy in the context of knowledge base question answering. The problems are related but not identical, as they both involve handling linguistic ambiguity but in slightly different domains. Methodologically, Idea A extends categorial grammar with probabilistic elements and neural intent classifiers, whereas Idea B uses grammar with constraints to aid seq2seq models, making the approaches somewhat similar but not identical. Application-wise, both are concerned with improving the accuracy of language processing systems, but Idea A is broader in scope with regards to general question classification, whereas Idea B is more specialized in knowledge base question answering."
+    },
+    {
+      "idea_id": "idea_002",
+      "score": 3.0,
+      "paper_title": "Multi-environment Topic Models",
+      "paper_year": "2025",
+      "reason": "Idea A focuses on integrating quantum computing principles into classical topic modeling to enhance semantic correlation and thematic granularity, specifically for biomedical text analysis. Idea B introduces a Multi-environment Topic Model (MTM) that deals with environment-specific topic modulation, particularly in political datasets, but does not involve quantum computation. Problem consistency is rated low as both ideas target topic modeling but address different issues and domains. Method similarity is low due to different underlying approaches, with quantum principles in Idea A and multi-environment factors in Idea B. Application similarity is minimal; Idea A targets biomedical literature while Idea B targets political content."
+    },
+    {
+      "idea_id": "idea_005",
+      "score": 3.0,
+      "paper_title": "Effective LLM Knowledge Learning Requires Rethinking Generalization",
+      "paper_year": "2025",
+      "reason": "Idea A focuses on improving question classification through hybrid models incorporating topic modeling and few-shot learning, addressing ambiguity and noise in questions. Idea B tackles the understanding and improvement of knowledge learning in large language models using data augmentation strategies. While both involve enhancing computational models with respect to language tasks, the specific problems, methods, and applications differ. Idea A deals with question classification in noisy conditions, while Idea B aims at better knowledge extraction and learning in LLMs. The techniques and application domains are distinct, with one in classification under noise and the other in the efficiency of neural language models' pre-training."
+    },
+    {
+      "idea_id": "idea_007",
+      "score": 3.0,
+      "paper_title": "Towards World Simulator: Crafting Physical Commonsense-Based Benchmark for Video Generation",
+      "paper_year": "2025",
+      "reason": "Idea A focuses on improving comprehension of complex generative AI systems through a cross-domain visualization approach adapted from quantum theory, specifically targeting the metaverse. Idea B, on the other hand, aims to evaluate and improve the understanding of physical commonsense in text-to-video (T2V) models. The problem spaces are different, with Idea A addressing model visualization and interpretability and Idea B addressing the accuracy of intuitive physics in content generation. The methods differ as Idea A employs a novel visualization adapted from quantum theory, while Idea B introduces a benchmark and evaluation for testing T2V models. The application scenario is only slightly similar, as both relate to AI-driven content creation, but with different focuses: Idea A on metaverse content and Idea B on physics in videos."
+    },
+    {
+      "idea_id": "idea_009",
+      "score": 3.0,
+      "paper_title": "EvidenceBench: A Benchmark for Extracting Evidence from Biomedical Papers",
+      "paper_year": "2025",
+      "reason": "Idea A focuses on integrating topic-metadata modeling with systematic reviews and meta-analyses of COVID-19 research, aiming to address study heterogeneity and quality issues. Idea B introduces a pipeline for evidence extraction related to hypotheses in biomedical papers, focusing on annotation guided by human judgment. While both employ advanced modeling or annotation techniques to improve information extraction, they tackle different aspects: Idea A centers around improving reviews and meta-analysis, while Idea B focuses on hypothesis relevance in systematic reviews. Application scenarios differ with Idea A focused on thematic synthesis in COVID-19 studies, whereas Idea B targets evidence retrieval for hypotheses across biomedical literature."
+    }
+  ]
+}

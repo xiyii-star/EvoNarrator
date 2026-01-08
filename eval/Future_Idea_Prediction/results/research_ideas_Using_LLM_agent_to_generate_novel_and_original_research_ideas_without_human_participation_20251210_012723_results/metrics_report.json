@@ -1,0 +1,119 @@
+{
+  "total_ideas": 10,
+  "threshold": 7.0,
+  "hit_rate_at_k": {
+    "1": 0.0,
+    "3": 0.0,
+    "5": 0.0,
+    "10": 0.0,
+    "20": 0.0
+  },
+  "precision_at_5": 0.0,
+  "mrr": 0.0,
+  "average_max_score": 3.2,
+  "score_distribution": {
+    "0-2": 2,
+    "3-4": 8,
+    "5-6": 0,
+    "7-8": 0,
+    "9-10": 0
+  },
+  "year_wise_metrics": {
+    "2025": {
+      "total_ideas": 7,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 3.4285714285714284,
+      "max_score": 4.0,
+      "min_score": 3.0
+    },
+    "2024": {
+      "total_ideas": 2,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 3.0,
+      "max_score": 4.0,
+      "min_score": 2.0
+    },
+    "2023": {
+      "total_ideas": 1,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 2.0,
+      "max_score": 2.0,
+      "min_score": 2.0
+    }
+  },
+  "top_matches": [
+    {
+      "idea_id": "idea_002",
+      "score": 4.0,
+      "paper_title": "Correlated dense associative memories",
+      "paper_year": "2024",
+      "reason": "Idea A focuses on modeling arousal-modulated neural competition using complex network dynamics, primarily targeting cognitive neuroscience to understand perception and memory under arousal. Idea B addresses associative memory networks and their application to represent temporal/spatial sequences, focusing more on memory storage and representation with implications for machine learning. The problem area slightly overlaps in the domain of neural modeling and cognitive processes, but the core methods differ significantly. Idea A uses complex network dynamics, while Idea B employs associative memory networks and anti-Hebbian learning rules. The applications diverge: Idea A targets arousal in neural competition, whereas Idea B applies to memory networks with potential machine learning relevance."
+    },
+    {
+      "idea_id": "idea_004",
+      "score": 4.0,
+      "paper_title": "Learnable Context-Aware Attention Mask for Multimodal Transformers",
+      "paper_year": "2025",
+      "reason": "虽然两者都涉及到增强注意力机制以改进模型性能，但它们针对的具体问题不同。Idea A 专注于通过贝叶斯惊讶指标增强个体识别模型的鲁棒性，而 Idea B 针对多模态任务中 Transformer 的自注意力机制。方法上，Idea A 使用信息论的惊讶度驱动注意力调整，而 Idea B 使用可学习的上下文感知注意力掩码。应用场景上，Idea A 用于识别任务，Idea B 涉及更复杂的多模态任务如电影理解。"
+    },
+    {
+      "idea_id": "idea_009",
+      "score": 4.0,
+      "paper_title": "Cross-Cultural Recipe Transformation via Neural Network and Encoder-Based Models",
+      "paper_year": "2025",
+      "reason": "The two ideas address different problems: Idea A is about optimizing recipes for flavor, novelty, and health by integrating diverse knowledge into a unified system, while Idea B focuses on transforming the culinary signature of recipes across different cuisines using computational models. The method involves AI-driven models in both cases but with different objectives; Idea A uses multi-source data fusion for recipe optimization, whereas Idea B uses neural network models for ingredient substitution. The application scenarios differ as Idea A aims to support culinary innovation broadly, while Idea B is about cross-cultural recipe transformation."
+    },
+    {
+      "idea_id": "idea_010",
+      "score": 4.0,
+      "paper_title": "Cross-Cultural Recipe Transformation via Neural Network and Encoder-Based Models",
+      "paper_year": "2025",
+      "reason": "The two ideas address different yet related problems in culinary innovation. Idea A focuses on enhancing recipe innovation through a novel theoretical approach involving Bayesian surprise and integrating multi-domain knowledge. Idea B focuses on transforming recipes across cuisines using clustering and neural network models. While both aim to innovate or transform recipes, their core methods differ significantly, with Idea A using Bayesian frameworks and Idea B using neural networks. The application goals also differ: Idea A seeks to optimize for novelty and health, while Idea B focuses on cross-cultural culinary transformation."
+    },
+    {
+      "idea_id": "idea_001",
+      "score": 3.0,
+      "paper_title": "Predicting Observation after Action in a Hierarchical Energy-based Model with Memory",
+      "paper_year": "2025",
+      "reason": "Idea A focuses on integrating free energy and Bayesian models to enhance understanding of attention mechanisms, while Idea B uses an energy-based model for prediction in neural systems. The problems addressed are different; Idea A targets attention processes, whereas Idea B aims at understanding prediction in neural systems. The methods share a common theme of using energy-based approaches but differ significantly in implementation and theoretical focus. The applications also diverge: Idea A is concerned with attention and perception-action loops, while Idea B involves prediction and learning with neural modeling."
+    },
+    {
+      "idea_id": "idea_005",
+      "score": 3.0,
+      "paper_title": "Math for AI: On the Generalization of Learning Mathematical Problem Solving",
+      "paper_year": "2025",
+      "reason": "Idea A focuses on understanding the historical evolution of mathematical reasoning using a hybrid complex systems framework applied to ancient contexts, whereas Idea B is concerned with enhancing mathematical problem-solving capabilities in AI models through different training approaches. The problems they address are not consistent, as one is historical and the other technological. The methods differ significantly; Idea A integrates qualitative analysis into complex systems models, while Idea B employs empirical analysis through AI training methods. Lastly, the application targets differ substantially, with Idea A aiming at cultural insights and Idea B targeting improvements in AI reasoning capabilities."
+    },
+    {
+      "idea_id": "idea_006",
+      "score": 3.0,
+      "paper_title": "Ontology-Retrieval Augmented Generation for Scientific Discovery",
+      "paper_year": "2025",
+      "reason": "Idea A focuses on integrating historical and cultural data for the analysis of ancient Greek mathematics using ontologies, whereas Idea B enhances LLMs in scientific domains by integrating ontologies to improve reasoning and reduce hallucinations. While both involve ontologies and knowledge integration, their problem statements and application scopes are quite different, with Idea A addressing historical data synthesis and Idea B targeting scientific computational improvement. The methods are somewhat similar in their use of ontologies, hence a slightly higher method similarity score."
+    },
+    {
+      "idea_id": "idea_008",
+      "score": 3.0,
+      "paper_title": "Cross-Cultural Recipe Transformation via Neural Network and Encoder-Based Models",
+      "paper_year": "2025",
+      "reason": "Idea A focuses on integrating diverse culinary data sources using complex network dynamics for multi-objective optimization, whereas Idea B centers on transforming culinary signatures using clustering and neural network models. Although both address culinary innovation, their problems, methods, and applications differ significantly. Idea A is about systemic modeling for recipe generation, while Idea B focuses on ingredient replacement for cultural fusion."
+    },
+    {
+      "idea_id": "idea_003",
+      "score": 2.0,
+      "paper_title": "Memory-Efficient Reinforcement Learning with Priority based on Surprise and On-policyness",
+      "paper_year": "2023",
+      "reason": "Idea A addresses the role of arousal in attentional and memory prioritization, integrating Bayesian surprise with arousal modulation, while Idea B focuses on optimizing memory consumption in reinforcement learning environments by pruning less important data using surprise and on-policyness metrics. Although both ideas mention surprise and its use in prioritization, the core problems, methods, and application scenarios diverge significantly; Idea A is rooted in cognitive neuroscience, whereas Idea B is concerned with computational efficiency in machine learning."
+    },
+    {
+      "idea_id": "idea_007",
+      "score": 2.0,
+      "paper_title": "Utility-based Adaptive Teaching Strategies using Bayesian Theory of Mind",
+      "paper_year": "2024",
+      "reason": "The two ideas address fundamentally different problems: Idea A tackles the evolution of mathematical reasoning in historical contexts, while Idea B focuses on optimizing teaching strategies based on Theory of Mind for improving learner efficiency. The methods share a Bayesian approach but diverge significantly in their implementation, with Idea A using Bayesian surprise models to understand cultural shifts and Idea B employing Bayesian ToM to tailor teaching. The application context and goals differ starkly, as one is historical-cultural and the other is educational technology."
+    }
+  ]
+}

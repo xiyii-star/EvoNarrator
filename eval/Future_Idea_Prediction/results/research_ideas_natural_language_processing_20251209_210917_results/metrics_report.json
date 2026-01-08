@@ -1,0 +1,119 @@
+{
+  "total_ideas": 10,
+  "threshold": 7.0,
+  "hit_rate_at_k": {
+    "1": 0.0,
+    "3": 0.0,
+    "5": 0.0,
+    "10": 0.0,
+    "20": 0.0
+  },
+  "precision_at_5": 0.0,
+  "mrr": 0.0,
+  "average_max_score": 4.4,
+  "score_distribution": {
+    "0-2": 0,
+    "3-4": 3,
+    "5-6": 7,
+    "7-8": 0,
+    "9-10": 0
+  },
+  "year_wise_metrics": {
+    "2023": {
+      "total_ideas": 2,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 4.0,
+      "max_score": 5.0,
+      "min_score": 3.0
+    },
+    "2025": {
+      "total_ideas": 4,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 4.0,
+      "max_score": 5.0,
+      "min_score": 3.0
+    },
+    "2024": {
+      "total_ideas": 4,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 5.0,
+      "max_score": 5.0,
+      "min_score": 5.0
+    }
+  },
+  "top_matches": [
+    {
+      "idea_id": "idea_003",
+      "score": 5.0,
+      "paper_title": "Multi-Instance Learning Based Anomaly Detection Method for Sequence Data with Application to the Credit Card Delinquency Risk Control",
+      "paper_year": "2024",
+      "reason": "Both ideas address anomaly or fraud detection in financial transaction data. However, Idea A focuses on real-time fraud detection using a hybrid AI framework in streaming e-commerce transactions, while Idea B targets anomaly detection specifically for credit card delinquency risk using Multi-Instance Learning. The methods differ as Idea A emphasizes online and ensemble learning for streaming data, whereas Idea B employs a specific MILAD approach. The application scenarios differ slightly in focus: online transaction streams for Idea A and credit card payment risks for Idea B."
+    },
+    {
+      "idea_id": "idea_004",
+      "score": 5.0,
+      "paper_title": "OML-AD: Online Machine Learning for Anomaly Detection in Time Series Data",
+      "paper_year": "2025",
+      "reason": "Idea A and Idea B both address the need for real-time or online processing in an evolving data environment, one in transaction fraud and the other in anomaly detection in time series. The problems they solve are related but not identical, with Idea A focused on transaction fraud and Idea B on detecting anomalies in non-stationary time series. Both involve online learning, but Idea A emphasizes multi-AI integration for real-time analysis in streaming transactions, whereas Idea B concentrates on non-stationary time series anomaly detection. The application scenarios differ, with Idea A targeting e-commerce and payment sectors and Idea B having broader applicability across domains involving time series data."
+    },
+    {
+      "idea_id": "idea_005",
+      "score": 5.0,
+      "paper_title": "Multi-Instance Learning Based Anomaly Detection Method for Sequence Data with Application to the Credit Card Delinquency Risk Control",
+      "paper_year": "2024",
+      "reason": "Both ideas address anomaly/fraud detection using advanced machine learning techniques. However, the specific problem focus differs: Idea A targets real-time fraud in online transactions with a streaming data approach, while Idea B focuses on detecting anomalies in credit card data to predict payment difficulties. The method similarity is moderate as both use machine learning but with differing approaches: hybrid machine learning leveraging multi-source fusion in Idea A versus multi-instance learning in Idea B. The application context shows low overlap; Idea A is more generalized for e-commerce platforms, while Idea B is specialized for credit card delinquency risk."
+    },
+    {
+      "idea_id": "idea_007",
+      "score": 5.0,
+      "paper_title": "A Simple Baseline for Predicting Future Events with Auto-Regressive Tabular Transformers",
+      "paper_year": "2025",
+      "reason": "Both ideas address the challenge of fraud detection using LLMs within streaming/tabular data contexts, but they approach the problem differently. Idea A focuses on real-time streaming transaction data fraud detection using a transaction-to-text embedding module, while Idea B introduces a flexible transformer model for predicting properties of tabular data, which may include fraud detection but isn't explicitly focused on real-time streaming transactions. The innovative methods differ as Idea A adapts LLMs for real-time structured data, whereas Idea B leverages standard autoregressive LLM-style transformers. Although they target applications in fraud detection within e-commerce, their goals and strategies differ."
+    },
+    {
+      "idea_id": "idea_008",
+      "score": 5.0,
+      "paper_title": "COTIC: Embracing Non-uniformity in Event Sequence Data via Multilayer Continuous Convolution",
+      "paper_year": "2024",
+      "reason": "Both ideas address the challenge of modeling and predicting patterns in transactional and event-based data streams, focusing on real-time constraints and complex dependencies. However, Idea A targets fraud detection specifically in e-commerce financial transactions using multimodal transformers and reinforcement learning, while Idea B deals with modeling non-uniform event sequences using continuous convolution networks across various domains. The methodological approaches differ significantly, as Idea A integrates transformer and reinforcement learning approaches, whereas Idea B employs continuous convolution layers for capturing dependencies. The application scenarios vary, with Idea A focusing on fraud detection and Idea B targeting a broader range of event sequence modeling tasks."
+    },
+    {
+      "idea_id": "idea_009",
+      "score": 5.0,
+      "paper_title": "Multi-Instance Learning Based Anomaly Detection Method for Sequence Data with Application to the Credit Card Delinquency Risk Control",
+      "paper_year": "2024",
+      "reason": "Both ideas address the detection of fraudulent activities in financial transactions, with Idea A tackling streaming data in e-commerce environments and Idea B focusing on anomaly detection in sequence data for credit card delinquency. Idea A proposes a hybrid framework involving ML-DL models for real-time processing, whereas Idea B utilizes a specific MILAD method for anomaly detection using deep learning networks. While both aim to enhance fraud detection capabilities, the exact problem, methods, and application scenarios differ in their specifics, thus resulting in moderate scores for match, consistency, and similarity."
+    },
+    {
+      "idea_id": "idea_010",
+      "score": 5.0,
+      "paper_title": "Recurrent Real-valued Neural Autoregressive Density Estimator for Online Density Estimation and Classification of Streaming Data",
+      "paper_year": "2023",
+      "reason": "Idea A and Idea B both tackle problems related to processing streaming data in an online fashion. However, Idea A focuses specifically on fraud detection in e-commerce with evolving fraud patterns using a deep reinforcement learning (RL) approach adapted from a hedging framework, whereas Idea B introduces a Recurrent Real-valued Neural Autoregressive Density Estimator (RRNADE) for general online classification and density estimation. While both ideas involve real-time data processing and adaptability to data changes, the core methods differ significantly: A uses a deep RL with hybrid ensemble models, while B uses a neural Gaussian mixture combined with recurrent modules. Their application scenarios also diverge, with A specifically addressing fraud in online payments and B being broader in the context of online classification tasks. These distinctions result in moderate to low scores across the criteria, reflecting differences in specific problems addressed, methods, and goals."
+    },
+    {
+      "idea_id": "idea_001",
+      "score": 3.0,
+      "paper_title": "MiDAS: Multi-integrated Domain Adaptive Supervision for Fake News Detection",
+      "paper_year": "2023",
+      "reason": "The two ideas address different main problems: Idea A focuses on enhancing fraud detection evaluation in e-commerce using a multi-dimensional framework, while Idea B aims to adapt model selection for fake news detection amidst domain drift. Although both utilize multi-domain adaptation concepts and enriched data contexts, their core techniques and intended applications differ. Idea A transfers an evaluation framework concept from ASR to fraud detection, whereas Idea B creates an adaptive model selection module for misinformation detection. Their application contexts, e-commerce fraud and fake news, are distinct."
+    },
+    {
+      "idea_id": "idea_002",
+      "score": 3.0,
+      "paper_title": "A Simple Baseline for Predicting Future Events with Auto-Regressive Tabular Transformers",
+      "paper_year": "2025",
+      "reason": "The two ideas address different problems: Idea A focuses on streaming fraud detection in structured, temporal financial transaction data using unsupervised domain-adaptive pre-training, while Idea B targets predictive problems in tabular historical event data using autoregressive transformers. Methodologically, Idea A innovates on pseudo-labeling and domain adaptation specifically for streaming data, whereas Idea B employs a baseline transformer for tabular predictive tasks. The application scenarios diverge significantly as Idea A aims at fraud detection in dynamic financial transactions and Idea B at generalized predictive tasks across various datasets."
+    },
+    {
+      "idea_id": "idea_006",
+      "score": 3.0,
+      "paper_title": "Towards zero shot multivariate time series anomaly detection - A Realistic Evaluation",
+      "paper_year": "2025",
+      "reason": "Idea A focuses on developing an online, adaptive multi-ranking significance testing framework specifically tailored for streaming fraud detection. Idea B addresses the shortcomings of existing MTAD approaches and proposes a zero-shot MTAD technique. The problems slightly overlap in that both deal with improving anomaly detection models, but they target different contexts (fraud detection vs. general time series anomaly detection). The methods differ significantly, with Idea A emphasizing online adaptive testing and hybrid model optimization, while Idea B focuses on model recovery without relying on point adjustment or threshold learning. The application scenarios and goals are notably different, given the specific focus on streaming environments in Idea A compared to the broader MTAD application in Idea B."
+    }
+  ]
+}

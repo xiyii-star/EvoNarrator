@@ -1,0 +1,742 @@
+[
+  {
+    "idea_text": "Background: The free energy principle and Bayesian surprise models provide complementary insights into attention mechanisms in perception and behavior. However, existing models lack a unified framework combining free energy minimization and formal statistical significance measures for attention selection. Gap: Previous approaches do not explicitly fuse free energy optimization with surprise-driven attention models or develop rigorous metrics to quantify the statistical significance of attentional choices, nor do they fully explore the role of selective sampling in perception-action loops from this perspective. Proposed Method: We propose an integration of the Bayesian surprise model with the free energy principle by extending surprise quantification into an optimization framework that minimizes free energy through selective attention deployment. This approach incorporates a novel statistical significance measure for attentional selection derived from free energy reduction and surprise metrics, enabling principled evaluation and interpretation of attention mechanisms. Expected Result: The framework offers a formalized, theoretically grounded explanation of attention as a surprise-driven, free energy minimizing selective sampling process that enhances perceptual inference and action efficacy, bridging gaps between theoretical neuroscience and computational models of saliency and attention.",
+    "all_results": [
+      {
+        "paper_id": "CNPLXcMcSP",
+        "paper_title": "Towards Sampling Data Structures for Tensor Products",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on integrating Bayesian surprise with free energy principle to enhance attention mechanisms in perception and behavior, emphasizing the theoretical framework in neuroscience. Idea B addresses computational challenges in artificial intelligence, specifically optimizing attention computation in large language models. The problems tackled, methodologies, and applications are quite different: Idea A targets neuroscience and theoretical modeling, while Idea B is concerned with practical AI model optimization. Therefore, both ideas are distinct in scope and approach.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Qi4oCA89CmO",
+        "paper_title": "Why Did This Model Forecast This Future? Information-Theoretic Temporal Saliency for Counterfactual Explanations of Probabilistic Forecasts",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on attention mechanisms using the free energy principle and Bayesian surprise, bridging theoretical neuroscience with computational models of saliency. Idea B addresses explainability in probabilistic forecasting using information-theoretic saliency. While both involve saliency, they tackle distinct problems: attention mechanisms vs. explainability in forecasting. Methods differ with Idea A integrating surprise quantification for attentional selection, whereas Idea B connects counterfactual reasoning to saliency-based explanations. Applications diverge: perception-action loops vs. multivariate time series forecasting. Overall, the ideas differ significantly in problem, method, and application.",
+        "is_match": false
+      },
+      {
+        "paper_id": "CN2bmVVpOh",
+        "paper_title": "Transformer Mechanisms Mimic Frontostriatal Gating Operations When Trained on Human Working Memory Tasks",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on integrating Bayesian surprise models with the free energy principle to develop a unified framework for attention mechanisms in perception and behavior, emphasizing optimization and statistical significance. Idea B, on the other hand, investigates how Transformer neural networks, specifically the self-attention mechanism, develop gating mechanisms akin to human cognitive processes. The problems addressed are fundamentally different: Idea A is concerned with theoretical frameworks in neuroscience, whereas Idea B explores emergent mechanisms in AI models. Methodologically, Idea A uses a principled optimization approach, while Idea B involves analysis of learned mechanisms in a model. The applications also differ, with Idea A targeting theoretical advancements in neuroscience and Idea B exploring computational similarities in AI and brain models.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Cj3B4SoWuT",
+        "paper_title": "Latte: Latent Attention for Linear Time Transformers",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on the integration of the free energy principle and Bayesian surprise models to explain attention mechanisms in perception and behavior, while Idea B addresses the time complexity issue of attention mechanisms in transformers and proposes a probabilistic framework for more efficient computation. The core problems, methods, and applications differ significantly, with Idea A rooted in theoretical neuroscience and computational models of saliency and Idea B in improving computational efficiency in machine learning models. Thus, they are fundamentally addressing different challenges with different approaches.",
+        "is_match": false
+      },
+      {
+        "paper_id": "DP3BwwTKbL",
+        "paper_title": "Predicting Observation after Action in a Hierarchical Energy-based Model with Memory",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on integrating free energy and Bayesian models to enhance understanding of attention mechanisms, while Idea B uses an energy-based model for prediction in neural systems. The problems addressed are different; Idea A targets attention processes, whereas Idea B aims at understanding prediction in neural systems. The methods share a common theme of using energy-based approaches but differ significantly in implementation and theoretical focus. The applications also diverge: Idea A is concerned with attention and perception-action loops, while Idea B involves prediction and learning with neural modeling.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "DP3BwwTKbL",
+      "paper_title": "Predicting Observation after Action in a Hierarchical Energy-based Model with Memory",
+      "paper_year": "2025",
+      "match_score": 3,
+      "problem_consistency": 3,
+      "method_similarity": 4,
+      "application_similarity": 2,
+      "reason": "Idea A focuses on integrating free energy and Bayesian models to enhance understanding of attention mechanisms, while Idea B uses an energy-based model for prediction in neural systems. The problems addressed are different; Idea A targets attention processes, whereas Idea B aims at understanding prediction in neural systems. The methods share a common theme of using energy-based approaches but differ significantly in implementation and theoretical focus. The applications also diverge: Idea A is concerned with attention and perception-action loops, while Idea B involves prediction and learning with neural modeling.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 3,
+    "idea_id": "idea_001"
+  },
+  {
+    "idea_text": "Background: Human perception and memory are limited resources, with arousal states biasing competition among stimuli for attention and memory encoding. Existing models often lack a systemic dynamic framework capturing the nonlinear and emergent nature of this process. Gap: Previous complex systems approaches focus on large-scale social or scientific activity networks without addressing neural-level arousal-biased competition mechanisms. Proposed Method: We introduce a novel adaptation of complex network dynamics modeling to cognitive neuroscience, representing neural populations and cognitive modules as nodes within a dynamic network whose competitive interactions are modulated by arousal-related parameters. This framework captures nonlinear interactions and emergent competition effects in perception and memory under arousal. Expected Result: The model elucidates how arousal modulates priority-based competition dynamically, offering new insights into the neural basis of selective attention and memory encoding, with potential predictive power validated against neurocognitive data. Core Innovation: Translating complex network dynamics modeling from multi-agent scientific systems to arousal-modulated neural competition provides a unified framework capturing nonlinear, emergent properties of attention and memory under arousal.",
+    "all_results": [
+      {
+        "paper_id": "cH4VTcCVYs",
+        "paper_title": "Policy optimization emerges from noisy representation learning",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "The two ideas address different problems; Idea A focuses on arousal-modulated neural competition in perception and memory, while Idea B discusses policy optimization through representation learning with a focus on reward-dependent noise. The methods differ with Idea A adapting complex network dynamics for arousal-related neural competition, while Idea B uses reward noise for policy optimization in learning networks. The applications are different as Idea A aims at understanding attention and memory under arousal, whereas Idea B targets neural code shifts during task learning.",
+        "is_match": false
+      },
+      {
+        "paper_id": "zbIS2r0t0F",
+        "paper_title": "Allostatic Control of Persistent States in Spiking Neural Networks for Perception and Computation",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 3,
+        "application_similarity": 4,
+        "reason": "Both ideas explore dynamic mechanisms in neural networks, but Idea A focuses on arousal-modulated neural competition in cognitive neuroscience, whereas Idea B deals with regulating internal representations via allostasis in numerical cognition. The core methods differ, with Idea A utilizing complex network dynamics modeling and Idea B implementing a Spiking Neural Network with allostatic regulation. The applications diverge as Idea A targets attention and memory modulation, while Idea B applies to perceptual belief updating in numerical cognition.",
+        "is_match": false
+      },
+      {
+        "paper_id": "DP3BwwTKbL",
+        "paper_title": "Predicting Observation after Action in a Hierarchical Energy-based Model with Memory",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "The two research ideas address related but distinct problems in cognitive neuroscience. Idea A focuses on arousal-modulated competition in attention and memory, proposing a complex network dynamics model, while Idea B deals with prediction mechanisms in the neural system using an energy-based model. The methods involve different modeling approaches, with Idea A using network dynamics for competition and Idea B using a hierarchical energy-based model for prediction. The application contexts also differ; Idea A focuses on understanding neural competition processes under arousal, whereas Idea B addresses prediction in dynamic scenarios. Overall, the core innovations and goals of each idea are different, leading to a low match score.",
+        "is_match": false
+      },
+      {
+        "paper_id": "sBSC0OXEQG",
+        "paper_title": "Correlated dense associative memories",
+        "paper_year": "2024",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 3,
+        "application_similarity": 4,
+        "reason": "Idea A focuses on modeling arousal-modulated neural competition using complex network dynamics, primarily targeting cognitive neuroscience to understand perception and memory under arousal. Idea B addresses associative memory networks and their application to represent temporal/spatial sequences, focusing more on memory storage and representation with implications for machine learning. The problem area slightly overlaps in the domain of neural modeling and cognitive processes, but the core methods differ significantly. Idea A uses complex network dynamics, while Idea B employs associative memory networks and anti-Hebbian learning rules. The applications diverge: Idea A targets arousal in neural competition, whereas Idea B applies to memory networks with potential machine learning relevance.",
+        "is_match": false
+      },
+      {
+        "paper_id": "9pA3oXBwYh7",
+        "paper_title": "Towards biologically plausible Dreaming and Planning",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on modeling the dynamic interactions of neural modules influenced by arousal, targeting attention and memory processes in cognitive neuroscience. Idea B, however, deals with enhancing learning efficacy in artificial systems by simulating experiences through dreaming, targeting reinforcement learning and biological plausibility. The problems they address (neural dynamics under arousal vs. efficient learning in AI) and their methods (complex network dynamics vs. neural networks with simulated environments) are fundamentally different. While both relate to cognitive processes, their application contexts (neuroscience vs. AI learning systems) are distinct.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "sBSC0OXEQG",
+      "paper_title": "Correlated dense associative memories",
+      "paper_year": "2024",
+      "match_score": 4,
+      "problem_consistency": 5,
+      "method_similarity": 3,
+      "application_similarity": 4,
+      "reason": "Idea A focuses on modeling arousal-modulated neural competition using complex network dynamics, primarily targeting cognitive neuroscience to understand perception and memory under arousal. Idea B addresses associative memory networks and their application to represent temporal/spatial sequences, focusing more on memory storage and representation with implications for machine learning. The problem area slightly overlaps in the domain of neural modeling and cognitive processes, but the core methods differ significantly. Idea A uses complex network dynamics, while Idea B employs associative memory networks and anti-Hebbian learning rules. The applications diverge: Idea A targets arousal in neural competition, whereas Idea B applies to memory networks with potential machine learning relevance.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_002"
+  },
+  {
+    "idea_text": "Background: The brain prioritizes perception and memory through a competitive process influenced by both bottom-up stimulus properties and top-down cognitive factors, known as arousal-biased competition. While Bayesian surprise models effectively quantify attention capture by novel or unexpected stimuli, they do not account for how arousal states modulate this competition. Gap: Current Bayesian surprise frameworks lack an explicit mechanism for incorporating neurocognitive arousal's influence on attentional and mnemonic prioritization. Proposed Method: We introduce a novel integrative model that combines Bayesian surprise with dynamic arousal-modulated weighting of attentional priority. By embedding a neurocognitive arousal variable into the Bayesian framework, the model adjusts the impact of surprise on stimulus competition according to arousal levels, reflecting the physiological and cognitive modulation observed experimentally. Expected Result: This integrated model provides a comprehensive theoretical and computational account of how arousal biases perception and memory toward high-priority stimuli, better reflecting empirical findings and advancing the understanding of attention and memory processes under naturalistic conditions.",
+    "all_results": [
+      {
+        "paper_id": "xkSlKCYyV_",
+        "paper_title": "Memory-Efficient Reinforcement Learning with Priority based on Surprise and On-policyness",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A addresses the role of arousal in attentional and memory prioritization, integrating Bayesian surprise with arousal modulation, while Idea B focuses on optimizing memory consumption in reinforcement learning environments by pruning less important data using surprise and on-policyness metrics. Although both ideas mention surprise and its use in prioritization, the core problems, methods, and application scenarios diverge significantly; Idea A is rooted in cognitive neuroscience, whereas Idea B is concerned with computational efficiency in machine learning.",
+        "is_match": false
+      },
+      {
+        "paper_id": "CN2bmVVpOh",
+        "paper_title": "Transformer Mechanisms Mimic Frontostriatal Gating Operations When Trained on Human Working Memory Tasks",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A and Idea B address very distinct problems: Idea A focuses on integrating neurocognitive arousal with Bayesian surprise models for attention and memory prioritization, while Idea B investigates gating mechanisms in Transformer models related to executive function in cognitive tasks. The methods differ fundamentally: Idea A proposes a neurocognitive model integrating arousal in Bayesian frameworks, whereas Idea B conducts an analysis of mechanisms emerging in AI architectures. The applications vary as well, with Idea A intending to advance understanding in attention and memory processes, and Idea B exploring computational analogies between AI models and the human brain's executive functions.",
+        "is_match": false
+      },
+      {
+        "paper_id": "DP3BwwTKbL",
+        "paper_title": "Predicting Observation after Action in a Hierarchical Energy-based Model with Memory",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "The two ideas are fundamentally different in their problems, methods, and applications. Idea A focuses on the integration of arousal states into Bayesian surprise models to explain attentional and mnemonic prioritization, while Idea B looks at predictive neural mechanisms using an energy-based model. The methods are dissimilar, with Idea A proposing a model that includes neurocognitive arousal, whereas Idea B uses a hierarchical structure with a continuous attractor neural network. The applications differ: Idea A aims to understand attention and memory processes, whereas Idea B targets broader predictive capabilities in neural systems.",
+        "is_match": false
+      },
+      {
+        "paper_id": "rpbzBXdo4x",
+        "paper_title": "Mind Your Step (by Step): Chain-of-Thought can Reduce Performance on Tasks where Thinking Makes Humans Worse",
+        "paper_year": "2025",
+        "match_score": 1,
+        "problem_consistency": 1,
+        "method_similarity": 1,
+        "application_similarity": 1,
+        "reason": "The two research ideas are fundamentally different in all aspects. Idea A focuses on integrating arousal into Bayesian models for predicting attention and memory processes, while Idea B investigates the limitations of chain-of-thought prompting in large language models. The problems addressed in each idea pertain to distinct cognitive processes and computational frameworks. Similarly, the methods proposed are specific to their respective domains: neurocognitive modeling versus evaluation of language model prompting strategies. Lastly, their applications aim at different goals, with Idea A centered on understanding physiological biases in attention and memory, and Idea B oriented towards optimizing model performance via prompt design. Thus, despite both drawing on cognitive principles, they do not share significant similarities in scope or approach.",
+        "is_match": false
+      },
+      {
+        "paper_id": "cHyQT6Y1jY",
+        "paper_title": "In Praise of Stubbornness: The Case for Cognitive-Dissonance Aware Continual Update of Knowledge in LLMs",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on integrating neurocognitive arousal into Bayesian surprise models to understand attention and memory processes, while Idea B centers on updating knowledge in large language models with a focus on cognitive-inspired mechanisms. The problems addressed are fundamentally different: one deals with human cognitive processes, and the other with AI model updating. The methods are distinct; one proposes a neurocognitive model, whereas the other draws inspiration from human cognition to manage neural network knowledge updating. The application scenarios differ significantly: Idea A applies to cognitive neuroscience, and Idea B to AI and machine learning. Hence, the overall match score is low.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "xkSlKCYyV_",
+      "paper_title": "Memory-Efficient Reinforcement Learning with Priority based on Surprise and On-policyness",
+      "paper_year": "2023",
+      "match_score": 2,
+      "problem_consistency": 1,
+      "method_similarity": 3,
+      "application_similarity": 2,
+      "reason": "Idea A addresses the role of arousal in attentional and memory prioritization, integrating Bayesian surprise with arousal modulation, while Idea B focuses on optimizing memory consumption in reinforcement learning environments by pruning less important data using surprise and on-policyness metrics. Although both ideas mention surprise and its use in prioritization, the core problems, methods, and application scenarios diverge significantly; Idea A is rooted in cognitive neuroscience, whereas Idea B is concerned with computational efficiency in machine learning.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 2,
+    "idea_id": "idea_003"
+  },
+  {
+    "idea_text": "Background: Person recognition models often rely on batch normalization and pre-processing steps to maintain performance across data variations. However, current methods may not adequately leverage the novelty or unexpectedness in data to refine feature representation. Gap: There is limited exploration of using cognitive-driven surprise metrics to guide attention mechanisms for improving model robustness under diverse and challenging conditions. Proposed Method: We introduce a Bayesian surprise-informed adaptive attention module that quantifies the information-theoretic novelty of features during training and dynamically modulates attention weights to emphasize unexpected or rare attribute signals. Expected Result: This approach complements existing normalization and pre-processing techniques, leading to improved recognition accuracy and robustness by focusing computational resources on the most informative aspects of the input under variable data scenarios.",
+    "all_results": [
+      {
+        "paper_id": "cqTUJRlcLU",
+        "paper_title": "Benign or Not-Benign Overfitting in Token Selection of Attention Mechanism",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on enhancing model robustness and recognition accuracy by using a cognitive-driven surprise metric to dynamically adjust attention weights based on Bayesian surprise, mainly addressing data variations. Idea B, on the other hand, deals with understanding benign overfitting in attention mechanisms within transformer models, primarily from a theoretical and generalization perspective. While both ideas involve attention mechanisms, their core problems, methodologies, and application goals differ significantly, as Idea A aims at adaptive attention in dynamic conditions, whereas Idea B explores theoretical aspects of learning under overfitting situations.",
+        "is_match": false
+      },
+      {
+        "paper_id": "abHtkQkumD",
+        "paper_title": "Learnable Context-Aware Attention Mask for Multimodal Transformers",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 3,
+        "method_similarity": 5,
+        "application_similarity": 4,
+        "reason": "虽然两者都涉及到增强注意力机制以改进模型性能，但它们针对的具体问题不同。Idea A 专注于通过贝叶斯惊讶指标增强个体识别模型的鲁棒性，而 Idea B 针对多模态任务中 Transformer 的自注意力机制。方法上，Idea A 使用信息论的惊讶度驱动注意力调整，而 Idea B 使用可学习的上下文感知注意力掩码。应用场景上，Idea A 用于识别任务，Idea B 涉及更复杂的多模态任务如电影理解。",
+        "is_match": false
+      },
+      {
+        "paper_id": "CNPLXcMcSP",
+        "paper_title": "Towards Sampling Data Structures for Tensor Products",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "The two ideas address different problems: Idea A focuses on improving person recognition model robustness using surprise metrics to guide attention, while Idea B focuses on optimizing attention mechanisms in large language models through efficient sampling. The methods involve attention mechanisms, but Idea A uses Bayesian surprise as an adaptive module, whereas Idea B focuses on sampling methods for computational efficiency. Their application domains are distinct, with Idea A aimed at person recognition and Idea B at large language models. Therefore, they have low overlap in problem, method, and application.",
+        "is_match": false
+      },
+      {
+        "paper_id": "XjlZJJFyla",
+        "paper_title": "Patch-Prompt Aligned Bayesian Prompt Tuning for Vision-Language Models",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "The core problems addressed by the two ideas are different. Idea A focuses on improving person recognition by utilizing cognitive-inspired attention mechanisms based on Bayesian surprise metrics, aiming to address robustness and feature representation. In contrast, Idea B addresses challenges in vision-language models, specifically in constructing prompts through a Bayesian framework to enhance generalization and transferability. Although both employ Bayesian techniques, their methods differ significantly; Idea A uses Bayesian surprise for attention modulation, while Idea B applies a hierarchical Bayesian approach for prompt generation and semantic regularization. The application domains also differ, with Idea A focused on person recognition and Idea B on vision-language tasks, reducing their overall similarity.",
+        "is_match": false
+      },
+      {
+        "paper_id": "yXklOV0ZIv",
+        "paper_title": "Learnable Counterfactual Attention for Singer Identification",
+        "paper_year": "2024",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 6,
+        "application_similarity": 2,
+        "reason": "Idea A and Idea B tackle problems related to refining attention mechanisms to improve model performance, but they focus on different cores of the problem. Idea A deploys a Bayesian surprise metric to improve handling of unexpected data, while Idea B uses counterfactual attention to avoid misleading signals. The methods both involve enhancing attention robustness, yet they rely on distinct theoretical foundations - information theory vs. counterfactual causality. Lastly, Idea A addresses person recognition in general, whereas Idea B specifically targets singer identification, indicating low application similarity.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "abHtkQkumD",
+      "paper_title": "Learnable Context-Aware Attention Mask for Multimodal Transformers",
+      "paper_year": "2025",
+      "match_score": 4,
+      "problem_consistency": 3,
+      "method_similarity": 5,
+      "application_similarity": 4,
+      "reason": "虽然两者都涉及到增强注意力机制以改进模型性能，但它们针对的具体问题不同。Idea A 专注于通过贝叶斯惊讶指标增强个体识别模型的鲁棒性，而 Idea B 针对多模态任务中 Transformer 的自注意力机制。方法上，Idea A 使用信息论的惊讶度驱动注意力调整，而 Idea B 使用可学习的上下文感知注意力掩码。应用场景上，Idea A 用于识别任务，Idea B 涉及更复杂的多模态任务如电影理解。",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_004"
+  },
+  {
+    "idea_text": "Background: Understanding the evolution of reasoning forms in ancient mathematical traditions, such as Greek mathematics, requires deep historical, philosophical, and cognitive analysis, supported by diverse historical and archaeological evidence. Gap: Existing complex systems approaches to science dynamics predominantly rely on quantitative data and statistical modeling, limiting their application to sparse, qualitative historical contexts. Proposed Method: We propose a hybrid complex systems framework integrating qualitative content analysis and expert annotations of historical texts, archaeological findings, and educational contexts into network-based models. This innovation enables the systemic study of how reasoning forms evolved under philosophical and educational influences. Expected Result: This approach reveals emergent structural and dynamic patterns in the evolution of mathematical reasoning across cultures, providing novel insights into the uniqueness and universality of Greek mathematical cognition.",
+    "all_results": [
+      {
+        "paper_id": "th63j8qHa6",
+        "paper_title": "Math for AI: On the Generalization of Learning Mathematical Problem Solving",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on understanding the historical evolution of mathematical reasoning using a hybrid complex systems framework applied to ancient contexts, whereas Idea B is concerned with enhancing mathematical problem-solving capabilities in AI models through different training approaches. The problems they address are not consistent, as one is historical and the other technological. The methods differ significantly; Idea A integrates qualitative analysis into complex systems models, while Idea B employs empirical analysis through AI training methods. Lastly, the application targets differ substantially, with Idea A aiming at cultural insights and Idea B targeting improvements in AI reasoning capabilities.",
+        "is_match": false
+      },
+      {
+        "paper_id": "lxMlenl3XU",
+        "paper_title": "An Empirical Study on Reconstructing Scientific History to Forecast Future Trends",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on the historical analysis of mathematical reasoning evolution using qualitative content integrated into complex systems models. Idea B aims at synthesizing past research and predicting future scientific trends using language models, emphasizing temporal analysis of scientific literature. The problems are distinct, with Idea A centered around historical analysis and Idea B around predictive synthesis of scientific knowledge. Methods differ significantly, involving historical content analysis in Idea A and dual-system leveraging LLMs in Idea B. The applications diverge, with Idea A targeting cultural mathematical cognition analysis and Idea B focusing on trend prediction in scientific literature.",
+        "is_match": false
+      },
+      {
+        "paper_id": "3BOwNcqM_Wq",
+        "paper_title": "Learning to reason with relational abstractions",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A is focused on analyzing the historical evolution of mathematical reasoning using a hybrid complex systems approach, whereas Idea B is concerned with improving mathematical reasoning capabilities in large language models using relational abstractions. The problems addressed are fundamentally different as one is historical and qualitative, while the other is computational and quantitative. The methods are different: Idea A integrates qualitative analysis with complex systems, while Idea B uses structured sequences for language models. The application scenarios are also distinct, with Idea A looking at cultural historical analysis and Idea B at enhancing AI capabilities in reasoning.",
+        "is_match": false
+      },
+      {
+        "paper_id": "5Ky0W6sp8W",
+        "paper_title": "The Buffer Mechanism for Multi-Step Information Reasoning in Language Models",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on the historical evolution of mathematical reasoning using a complex systems framework integrating qualitative analysis of historical texts. Idea B deals with enhancing the reasoning capability of large language models through symbolic datasets and a buffer mechanism. The problems are fundamentally different: historical analysis vs. modern AI capability enhancement. The methods differ as well, with Idea A using network models on historical contexts, while Idea B uses symbolic datasets and random matrix-based algorithms in AI. Both aim to understand cognitive processes, but in vastly different domains, leading to low application similarity.",
+        "is_match": false
+      },
+      {
+        "paper_id": "L9j8exYGUJ",
+        "paper_title": "Distributional reasoning in LLMs: Parallel Reasoning Processes in Multi-hop Reasoning",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on the historical and cognitive analysis of mathematical reasoning evolution using a hybrid complex systems framework, while Idea B investigates the interpretability of reasoning processes in large language models using semantic transformations. They address fundamentally different problems, apply distinct methodological approaches, and target different application areas: historical reasoning evolution versus artificial intelligence reasoning processes.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "th63j8qHa6",
+      "paper_title": "Math for AI: On the Generalization of Learning Mathematical Problem Solving",
+      "paper_year": "2025",
+      "match_score": 3,
+      "problem_consistency": 2,
+      "method_similarity": 2,
+      "application_similarity": 1,
+      "reason": "Idea A focuses on understanding the historical evolution of mathematical reasoning using a hybrid complex systems framework applied to ancient contexts, whereas Idea B is concerned with enhancing mathematical problem-solving capabilities in AI models through different training approaches. The problems they address are not consistent, as one is historical and the other technological. The methods differ significantly; Idea A integrates qualitative analysis into complex systems models, while Idea B employs empirical analysis through AI training methods. Lastly, the application targets differ substantially, with Idea A aiming at cultural insights and Idea B targeting improvements in AI reasoning capabilities.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 3,
+    "idea_id": "idea_005"
+  },
+  {
+    "idea_text": "Background: Understanding the evolution of reasoning forms in Greek mathematics necessitates integrating diverse historical, philosophical, and archaeological data sources. Current approaches lack systematic methodologies to synthesize these heterogeneous evidences comprehensively. Gap: Existing knowledge discovery methods excel in scientific literature mining but have not been tailored to sparse and multimodal historical datasets crucial for analyzing ancient cognitive and educational influences. Proposed Method: We propose adapting an ontology-based knowledge discovery framework that combines scientific literature mining, domain ontologies, and community interactions to the domain of historical and cultural analysis of Greek mathematics. This involves developing specialized ontologies for ancient texts and archaeological records, digitizing and structuring historical materials, and engaging scholarly communities for collaborative annotation and interpretation. Expected Result: This integrated approach is expected to provide deeper insights into the formation mechanisms and cultural specificity of deductive reasoning in Greek mathematics, advancing systematic cross-cultural and historical studies of mathematical cognition. Core Innovation: The core innovation is the extension of a scientific knowledge discovery framework to incorporate heterogeneous, multimodal historical data and expert community collaboration for enriched analysis of ancient mathematical reasoning evolution.",
+    "all_results": [
+      {
+        "paper_id": "DbZDbg2z9q",
+        "paper_title": "Ontology-Retrieval Augmented Generation for Scientific Discovery",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on integrating historical and cultural data for the analysis of ancient Greek mathematics using ontologies, whereas Idea B enhances LLMs in scientific domains by integrating ontologies to improve reasoning and reduce hallucinations. While both involve ontologies and knowledge integration, their problem statements and application scopes are quite different, with Idea A addressing historical data synthesis and Idea B targeting scientific computational improvement. The methods are somewhat similar in their use of ontologies, hence a slightly higher method similarity score.",
+        "is_match": false
+      },
+      {
+        "paper_id": "lxMlenl3XU",
+        "paper_title": "An Empirical Study on Reconstructing Scientific History to Forecast Future Trends",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on the historical analysis of Greek mathematics using an ontology-based framework, aiming to synthesize multimodal historical datasets. Idea B addresses the synthesis of historical and future scientific research trends using large language models and dual-system theory. Although both involve integrating past knowledge for discovery, they address different domains and purposes: A is historical analysis, while B is scientific prediction. Methodologically, both ideas involve knowledge organization and synthesis, but Idea A uses ontologies while Idea B employs a temporal knowledge graph and LLMs. Their applications differ significantly, as Idea A targets historical understanding, whereas Idea B seeks to predict future research trends.",
+        "is_match": false
+      },
+      {
+        "paper_id": "th63j8qHa6",
+        "paper_title": "Math for AI: On the Generalization of Learning Mathematical Problem Solving",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "The two ideas address distinct problems: Idea A focuses on historic Greek mathematics and its cultural evolution, while Idea B investigates the impact of mathematical problem-solving training on AI's general reasoning capabilities. Methodologically, Idea A proposes an ontology-based framework to synthesize historical data, whereas Idea B empirically tests AI training strategies. Their applications diverge significantly, with Idea A targeting historical research in ancient mathematics and Idea B aiming to improve LLM reasoning skills. Thus, their core innovations, objectives, and contexts are substantially different.",
+        "is_match": false
+      },
+      {
+        "paper_id": "8EM1A6qfX5",
+        "paper_title": "Unearthing Large Scale Domain-Specific Knowledge from Public Corpora",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 5,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on integrating diverse data sources to analyze the evolution of reasoning in Greek mathematics, using an ontology-based framework. Idea B addresses the challenge of domain-specific data collection using large language models, aiming to improve reasoning tasks performance across multiple domains. While both involve data mining and analysis, their core problems, methods, and application scenarios differ significantly. A adapts knowledge discovery to historical analysis, whereas B enhances reasoning capabilities with AI-driven data retrieval from a public corpus.",
+        "is_match": false
+      },
+      {
+        "paper_id": "clU5xWyItb",
+        "paper_title": "PaperQA: Retrieval-Augmented Generative Agent for Scientific Research",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on integrating heterogeneous historical data for understanding the evolution of reasoning in Greek mathematics using an ontology-based framework, whereas Idea B addresses improving the accuracy and interpretability of LLMs in scientific literature using RAG models for better question answering. The problems addressed are fundamentally different; one is historical analysis, the other is optimizing technological execution in scientific research domains. Methods are also distinct, as one adapts knowledge discovery frameworks to historical data, and the other improves LLM performance with retrieval augmentation. Applications differ too, with A targeting cultural understanding of ancient education, and B enhancing literature processing technology.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "DbZDbg2z9q",
+      "paper_title": "Ontology-Retrieval Augmented Generation for Scientific Discovery",
+      "paper_year": "2025",
+      "match_score": 3,
+      "problem_consistency": 2,
+      "method_similarity": 4,
+      "application_similarity": 3,
+      "reason": "Idea A focuses on integrating historical and cultural data for the analysis of ancient Greek mathematics using ontologies, whereas Idea B enhances LLMs in scientific domains by integrating ontologies to improve reasoning and reduce hallucinations. While both involve ontologies and knowledge integration, their problem statements and application scopes are quite different, with Idea A addressing historical data synthesis and Idea B targeting scientific computational improvement. The methods are somewhat similar in their use of ontologies, hence a slightly higher method similarity score.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 3,
+    "idea_id": "idea_006"
+  },
+  {
+    "idea_text": "Background: Understanding the evolution of mathematical reasoning, particularly in ancient Greek traditions, requires analyzing cognitive, philosophical, and educational influences over time. Current limitations lie in integrating these complex cultural factors with quantifiable cognitive models.\nGap: Traditional Bayesian surprise models effectively quantify individual cognitive responses to novelty but lack extension to cultural-historical evolution contexts.\nProposed Method: We propose adapting the Bayesian surprise model to capture the evolution of reasoning forms by mapping historical-philosophical-educational contexts to informational states, enabling quantification of surprise-driven attention shifts across cultural traditions. This framework leverages archaeological and textual data to model cognitive expectation dynamics influencing reasoning evolution.\nExpected Result: The adapted model will provide insights into how cognitive surprise mechanisms shaped the unique and universal aspects of Greek mathematical reasoning, facilitating a quantitative bridge between individual cognition and cultural-historical development.",
+    "all_results": [
+      {
+        "paper_id": "WcSofkUVge",
+        "paper_title": "Utility-based Adaptive Teaching Strategies using Bayesian Theory of Mind",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "The two ideas address fundamentally different problems: Idea A tackles the evolution of mathematical reasoning in historical contexts, while Idea B focuses on optimizing teaching strategies based on Theory of Mind for improving learner efficiency. The methods share a Bayesian approach but diverge significantly in their implementation, with Idea A using Bayesian surprise models to understand cultural shifts and Idea B employing Bayesian ToM to tailor teaching. The application context and goals differ starkly, as one is historical-cultural and the other is educational technology.",
+        "is_match": false
+      },
+      {
+        "paper_id": "th63j8qHa6",
+        "paper_title": "Math for AI: On the Generalization of Learning Mathematical Problem Solving",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 1,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on understanding cognitive and cultural evolution in Greek mathematical reasoning using Bayesian models, whereas Idea B is concerned with enhancing mathematical problem-solving capabilities in language models and their generalization to non-mathematical tasks. The problems addressed are not consistent, the methods proposed are fundamentally different, and the application scenarios aim for distinct outcomes—cultural-historical understanding in Idea A versus AI enhancement in Idea B.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Qi4oCA89CmO",
+        "paper_title": "Why Did This Model Forecast This Future? Information-Theoretic Temporal Saliency for Counterfactual Explanations of Probabilistic Forecasts",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "The two ideas address fundamentally different problems. Idea A focuses on modeling cultural and historical evolution of mathematical reasoning using adapted Bayesian surprise models, while Idea B deals with enhancing explainability in probabilistic forecasting of multivariate time series using saliency maps. The core methods involve different modeling approaches and underlying theories, and their applications target distinct domains: cultural evolution for Idea A and artificial intelligence explainability for Idea B.",
+        "is_match": false
+      },
+      {
+        "paper_id": "3wrMRYuLlQ",
+        "paper_title": "On the Language of Thoughts in Large Language Models",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on integrating cultural-historical contexts into cognitive models to understand ancient Greek mathematical reasoning through Bayesian surprise. Idea B addresses the discrepancy between language and thoughts in LLMs and suggests a prompt technique to mitigate biases. The problems, methods, and applications differ substantially, as Idea A deals with historical cognitive evolution while Idea B addresses modern AI reasoning enhancements.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Y2cGisOWPZ",
+        "paper_title": "Towards Machine Theory of Mind with Large Language Model-Augmented Inverse Planning",
+        "paper_year": "2025",
+        "match_score": 1,
+        "problem_consistency": 2,
+        "method_similarity": 1,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on adapting Bayesian surprise models to understand historical reasoning evolution in cultural contexts, specifically Greek mathematics. Idea B combines LLMs with Bayesian models to enhance ToM predictions in agents. The problems addressed are fundamentally different, as one deals with historical cognitive evolution while the other deal with machine ToM predictions. The methods differ significantly; one adapts Bayesian models to historical data, while the other integrates Bayesian models with LLMs for social reasoning tasks. Applications are distinct, with Idea A targeting historical analysis and Idea B focusing on agent model development.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "WcSofkUVge",
+      "paper_title": "Utility-based Adaptive Teaching Strategies using Bayesian Theory of Mind",
+      "paper_year": "2024",
+      "match_score": 2,
+      "problem_consistency": 2,
+      "method_similarity": 3,
+      "application_similarity": 1,
+      "reason": "The two ideas address fundamentally different problems: Idea A tackles the evolution of mathematical reasoning in historical contexts, while Idea B focuses on optimizing teaching strategies based on Theory of Mind for improving learner efficiency. The methods share a Bayesian approach but diverge significantly in their implementation, with Idea A using Bayesian surprise models to understand cultural shifts and Idea B employing Bayesian ToM to tailor teaching. The application context and goals differ starkly, as one is historical-cultural and the other is educational technology.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 2,
+    "idea_id": "idea_007"
+  },
+  {
+    "idea_text": "Background: Advances in culinary design require effective integration of diverse data sources, such as traditional cooking knowledge, chemoinformatics, and hedonic psychophysics, coupled with AI methods that jointly optimize for flavor, novelty, and health attributes. Existing approaches focus on isolated data fusion or heuristic optimization, lacking systemic modeling of the complex interactions underlying recipe innovation. Gap: While complex systems theory and complex network dynamics have successfully modeled scientific knowledge evolution as emergent phenomena in multi-agent systems, these frameworks have not yet been adapted to the heterogeneous data fusion and multi-objective optimization challenges in culinary innovation. Proposed Method: We propose a novel framework that leverages complex network dynamics to model interactions among heterogeneous culinary knowledge sources represented as dynamic multi-agent networks. By capturing emergent patterns from culinary traditions, chemical ingredient interactions, and human flavor perception, the framework informs advanced AI optimization algorithms designed to generate novel, healthy recipes. Expected Result: This approach is expected to enhance the system's capability to understand and generate innovative culinary designs with balanced flavor and health profiles, offering a systematic and scalable method to overcome existing cognitive and computational bottlenecks in culinary knowledge integration and recipe innovation. The core innovation is the application of complex network dynamics modeling as a unifying paradigm for multi-modal knowledge fusion and AI-driven multi-objective culinary design optimization.",
+    "all_results": [
+      {
+        "paper_id": "ZxQD6oYIOm",
+        "paper_title": "Cross-Cultural Recipe Transformation via Neural Network and Encoder-Based Models",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on integrating diverse culinary data sources using complex network dynamics for multi-objective optimization, whereas Idea B centers on transforming culinary signatures using clustering and neural network models. Although both address culinary innovation, their problems, methods, and applications differ significantly. Idea A is about systemic modeling for recipe generation, while Idea B focuses on ingredient replacement for cultural fusion.",
+        "is_match": false
+      },
+      {
+        "paper_id": "BO5_Lm7iD_",
+        "paper_title": "Social Network Structure Shapes Innovation: Experience-sharing in RL with SAPIENS",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "While both ideas involve innovation through complex systems and networks, the specific problems they address differ. Idea A focuses on culinary design optimization using multi-agent networks for heterogeneous data fusion, whereas Idea B explores innovation in machine learning through different social network topologies. The methods involve complex systems but differ in context and specifics; Idea A applies complex network dynamics for recipe generation, while Idea B uses dynamic social network topologies for AI learning tasks. The application and goals are distinct; culinary innovations vs. AI-driven collaborative networks for general tasks, resulting in limited overlap.",
+        "is_match": false
+      },
+      {
+        "paper_id": "hKMPz3wkPV",
+        "paper_title": "Towards a formal theory of compositionality",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A addresses the integration of heterogeneous culinary data for recipe innovation using complex networks, while Idea B proposes a definition for compositionality in intelligence and AI. The problems overlap in terms of data integration but differ significantly in context and domain. The methods are distinct: complex network dynamics versus representational compositionality. Applications differ as one is culinary-focused and the other on cognitive representation in AI.",
+        "is_match": false
+      },
+      {
+        "paper_id": "wrqAn3AJA1",
+        "paper_title": "Everybody Needs a Little HELP: Explaining Graphs via Hierarchical Concepts",
+        "paper_year": "2024",
+        "match_score": 1,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on applying complex network dynamics to culinary design optimization, addressing challenges in recipe innovation across diverse data sources. Idea B targets interpretability issues in graph neural networks, proposing a novel pooling method to enhance explainability in high-stakes decisions like chemistry and social networks. The problems addressed are fundamentally different: culinary innovation vs. GNN interpretability. The methods involve different computational approaches and domains: network dynamics vs. GNN pooling. Application scenarios are not aligned: AI-driven culinary design vs. interpretability in GNNs for high-stakes decisions. Overall, the ideas are distinct in their essence and goals.",
+        "is_match": false
+      },
+      {
+        "paper_id": "PQrkWvQSL0",
+        "paper_title": "DrugAgent: Multi-Agent Large Language Model-Based Reasoning for Drug-Target Interaction Prediction and Repurposing",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 4,
+        "reason": "Idea A focuses on culinary innovation using complex network dynamics for multi-modal knowledge fusion and AI optimization, whereas Idea B addresses drug-target interaction prediction using a multi-agent LLM system. The problems addressed differ significantly, as one pertains to culinary design and the other to biologically inspired data prediction. The methods involve using network models but vary greatly in application, with Idea A using complex systems theory for culinary purposes and Idea B using a multi-agent framework for drug-target prediction. Application scenarios and objectives differ as one strives for recipe innovation and the other for enhancing biological predictions, leading to low overall similarity.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "ZxQD6oYIOm",
+      "paper_title": "Cross-Cultural Recipe Transformation via Neural Network and Encoder-Based Models",
+      "paper_year": "2025",
+      "match_score": 3,
+      "problem_consistency": 4,
+      "method_similarity": 3,
+      "application_similarity": 2,
+      "reason": "Idea A focuses on integrating diverse culinary data sources using complex network dynamics for multi-objective optimization, whereas Idea B centers on transforming culinary signatures using clustering and neural network models. Although both address culinary innovation, their problems, methods, and applications differ significantly. Idea A is about systemic modeling for recipe generation, while Idea B focuses on ingredient replacement for cultural fusion.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 3,
+    "idea_id": "idea_008"
+  },
+  {
+    "idea_text": "Background: Current challenges in culinary innovation include effectively integrating heterogeneous domain knowledge — such as culinary traditions, chemoinformatics, and hedonic psychophysics — to support designers and planners in generating recipes optimized for flavor, novelty, and health. Existing methods for accelerating scientific progress via literature and community mining offer valuable frameworks for knowledge discovery but lack domain-specific adaptations for culinary data fusion and AI-driven recipe optimization. \n\nGap: There is a need to adapt multi-source knowledge integration approaches to incorporate diverse culinary domain data with structured ontologies and to embed this knowledge into advanced AI algorithms for comprehensive multi-objective optimization.\n\nProposed Method: We propose an extended multi-source data fusion framework that integrates culinary traditions, chemical knowledge, and hedonic psychophysical data into a unified structured knowledge base. This knowledge base augments domain ontologies and supports AI-driven recipe innovation algorithms, including generative and reinforcement learning models, enabling balanced optimization of flavor, novelty, and health attributes.\n\nExpected Result: The proposed approach will enhance the system's capacity to understand and generate innovative, healthy recipes by providing robust cognitive support for designers and enabling more effective optimization across multiple culinary objectives. This bridges the gap between high-level scientific knowledge mining and domain-specific culinary innovation needs.",
+    "all_results": [
+      {
+        "paper_id": "ZxQD6oYIOm",
+        "paper_title": "Cross-Cultural Recipe Transformation via Neural Network and Encoder-Based Models",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 4,
+        "method_similarity": 5,
+        "application_similarity": 3,
+        "reason": "The two ideas address different problems: Idea A is about optimizing recipes for flavor, novelty, and health by integrating diverse knowledge into a unified system, while Idea B focuses on transforming the culinary signature of recipes across different cuisines using computational models. The method involves AI-driven models in both cases but with different objectives; Idea A uses multi-source data fusion for recipe optimization, whereas Idea B uses neural network models for ingredient substitution. The application scenarios differ as Idea A aims to support culinary innovation broadly, while Idea B is about cross-cultural recipe transformation.",
+        "is_match": false
+      },
+      {
+        "paper_id": "DbZDbg2z9q",
+        "paper_title": "Ontology-Retrieval Augmented Generation for Scientific Discovery",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "The core problem, methods, and applications of both ideas are fundamentally different. Idea A deals with integrating culinary domain knowledge using AI for recipe optimization, focusing on flavor, novelty, and health, while Idea B focuses on using ontologies to improve LLMs' performance in scientific domains, particularly to reduce hallucinations and improve understanding of niche concepts. The methodologies overlap only slightly in their use of ontologies for knowledge organization, but are applied in entirely distinct fields with different goals.",
+        "is_match": false
+      },
+      {
+        "paper_id": "hKMPz3wkPV",
+        "paper_title": "Towards a formal theory of compositionality",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on integrating heterogeneous domain knowledge for culinary innovation using AI and multi-source data fusion, while Idea B attempts to define and validate a concept called representational compositionality in AI and cognitive science. The problems addressed are not consistent, as one deals with culinary data integration and optimization, and the other with defining a compositionality measure in AI. Similarly, the methods proposed in Idea A involve structured data fusion and generative model optimization, whereas Idea B involves theoretical and mathematical definition. The application areas and goals differ significantly, with one being culinary innovation and the other being a theoretical model applicable across AI and cognitive sciences. Thus, the overall match score is low.",
+        "is_match": false
+      },
+      {
+        "paper_id": "IhD1rBHhDy",
+        "paper_title": "Mining Patents with Large Language Models Demonstrates Congruence of Functional Labels and Chemical Structures",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on integrating diverse culinary data into AI algorithms for recipe optimization, while Idea B deals with predicting chemical functionality using machine learning and language models from patents. Although both involve multi-source data integration and predictive modeling, the domain, specific data types, and final objectives differ significantly. Idea A targets recipe innovation; Idea B targets chemical function prediction. The technical approaches in data fusion and AI modeling show some methodological similarity, but they are applied to divergent fields with distinct aims.",
+        "is_match": false
+      },
+      {
+        "paper_id": "2aSj08z30A1",
+        "paper_title": "ReaKE: Contrastive Molecular Representation Learning with Chemical Synthetic Knowledge Graph",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on integrating varied culinary domain knowledge for optimally generating recipes, whereas Idea B involves molecular representation learning for chemical discovery. The core problems are distinct: culinary innovation versus molecular representation and prediction. Methodologically, both leverage knowledge graphs and learning models (AI algorithms in Idea A and GNNs with SSL in Idea B), but the specifics and implementations differ significantly. Application-wise, they target different domains and goals: culinary recipe optimization versus chemical reaction prediction and property analysis.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "ZxQD6oYIOm",
+      "paper_title": "Cross-Cultural Recipe Transformation via Neural Network and Encoder-Based Models",
+      "paper_year": "2025",
+      "match_score": 4,
+      "problem_consistency": 4,
+      "method_similarity": 5,
+      "application_similarity": 3,
+      "reason": "The two ideas address different problems: Idea A is about optimizing recipes for flavor, novelty, and health by integrating diverse knowledge into a unified system, while Idea B focuses on transforming the culinary signature of recipes across different cuisines using computational models. The method involves AI-driven models in both cases but with different objectives; Idea A uses multi-source data fusion for recipe optimization, whereas Idea B uses neural network models for ingredient substitution. The application scenarios differ as Idea A aims to support culinary innovation broadly, while Idea B is about cross-cultural recipe transformation.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_009"
+  },
+  {
+    "idea_text": "Background: Current systems for recipe innovation face challenges in effectively integrating heterogeneous domain knowledge—culinary traditions, chemoinformatics, and hedonic psychophysics—to support designers' cognitive boundaries and optimize flavor, novelty, and health attributes. Gap: Existing AI methods inadequately quantify and leverage the nuanced notion of novelty and surprise within complex multi-source data contexts, limiting their capability in comprehensive recipe generation and evaluation. Proposed Method: We extend the Bayesian surprise model, originally formulated to quantify information novelty and attentional mechanisms, by embedding it within a multimodal culinary knowledge framework. This approach integrates chemical ingredient interactions, culinary cultural priors, and psychophysical preference models to construct a domain-aware surprise metric. Leveraging this, the system drives both automatic and semi-automatic design of innovative, health-conscious recipes optimized for flavor and novelty. Expected Result: The resulting framework enhances the cognitive support for designers and planners by providing a quantitatively principled mechanism to balance surprise-driven innovation with health considerations, leading to superior recipe generation performance and user satisfaction in culinary innovation tasks. The core innovation lies in the fusion of Bayesian surprise theory with heterogeneous domain knowledge to holistically guide recipe innovation.",
+    "all_results": [
+      {
+        "paper_id": "ZxQD6oYIOm",
+        "paper_title": "Cross-Cultural Recipe Transformation via Neural Network and Encoder-Based Models",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "The two ideas address different yet related problems in culinary innovation. Idea A focuses on enhancing recipe innovation through a novel theoretical approach involving Bayesian surprise and integrating multi-domain knowledge. Idea B focuses on transforming recipes across cuisines using clustering and neural network models. While both aim to innovate or transform recipes, their core methods differ significantly, with Idea A using Bayesian frameworks and Idea B using neural networks. The application goals also differ: Idea A seeks to optimize for novelty and health, while Idea B focuses on cross-cultural culinary transformation.",
+        "is_match": false
+      },
+      {
+        "paper_id": "APWIZgehDT",
+        "paper_title": "Synthesizing Images on Perceptual Boundaries of ANNs for Uncovering and Modulating Individual Human Percepts",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on recipe innovation through the integration of a Bayesian surprise model with culinary knowledge, aiming to optimize flavor, novelty, and health in recipes. It specifically addresses challenges in recipe generation and evaluation. Idea B, on the other hand, investigates perceptual variability in human decision-making using counterfactuals and generative models with neural networks, aiming to manipulate and understand individual decision behaviors. The core innovations and applications are fundamentally different: Idea A is about culinary innovation, while Idea B is about understanding and predicting human perception and decision-making. The methods involve different domains and objectives, hence the low scores in problem consistency and application similarity.",
+        "is_match": false
+      },
+      {
+        "paper_id": "HjfvnxaU5k",
+        "paper_title": "Enhanced Bayesian Optimization via Preferential Modeling of Abstract Properties",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "The two ideas address fundamentally different problems: Idea A focuses on designing innovative recipes by integrating culinary knowledge and psychophysics, whereas Idea B aims to enhance Bayesian Optimization by incorporating expert preferences in experimental design. Although both utilize Bayesian models, the specific methods and innovations differ, with Idea A extending the Bayesian surprise model within a multimodal framework, and Idea B enhancing Bayesian Optimization through expert input integration. The application domains are also distinct, with culinary innovation versus experimental design optimization, respectively.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Uj2Wjv0pMY",
+        "paper_title": "Put on your detective hat: What’s wrong in this video?",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on enhancing recipe innovation by integrating Bayesian surprise theory with culinary domain knowledge, whereas Idea B explores procedural error understanding in recipe-following tasks using an ego-centric dataset. The problems addressed are fundamentally different: novelty and recipe innovation versus error recognition in cooking procedures. Methods differ as Idea A utilizes Bayesian surprise modeling within a multimodal framework while Idea B involves dataset creation for visual procedure learning. The applications vaguely overlap in the culinary domain, but their goals differ significantly, as Idea A aims for innovation and user satisfaction, while Idea B targets error recognition and procedure learning.",
+        "is_match": false
+      },
+      {
+        "paper_id": "xU7VWHIo1i",
+        "paper_title": "Identifiable Latent Causal Content for Domain Adaptation under Latent Covariate Shift",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 1,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on innovating recipe generation by integrating various domain knowledge into a Bayesian framework for novelty and health optimization. Idea B addresses multi-source domain adaptation with a new approach to handle varying label distributions for improved generalization across domains. The problems addressed are fundamentally different; Idea A aims at culinary innovation, while Idea B is about domain adaptation in machine learning. The methodologies are distinct, with Idea A leveraging Bayesian principles for culinary data integration and Idea B proposing a causal generative model for domain shifts. The application domains diverge significantly: culinary arts versus machine learning domain adaptation. Thus, the core innovations and goals are not aligned.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "ZxQD6oYIOm",
+      "paper_title": "Cross-Cultural Recipe Transformation via Neural Network and Encoder-Based Models",
+      "paper_year": "2025",
+      "match_score": 4,
+      "problem_consistency": 5,
+      "method_similarity": 4,
+      "application_similarity": 3,
+      "reason": "The two ideas address different yet related problems in culinary innovation. Idea A focuses on enhancing recipe innovation through a novel theoretical approach involving Bayesian surprise and integrating multi-domain knowledge. Idea B focuses on transforming recipes across cuisines using clustering and neural network models. While both aim to innovate or transform recipes, their core methods differ significantly, with Idea A using Bayesian frameworks and Idea B using neural networks. The application goals also differ: Idea A seeks to optimize for novelty and health, while Idea B focuses on cross-cultural culinary transformation.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_010"
+  }
+]

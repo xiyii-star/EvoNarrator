@@ -1,0 +1,1482 @@
+[
+  {
+    "idea_text": "Background: Nonnative English speaking (NNES) instructors at English-medium institutions in the US face social exclusion manifested in student evaluations influenced by biased language ideologies. Existing research calls for ethical frameworks to understand and mitigate these biases. Gap: While translation ethics provides rich philosophical foundations for addressing ethical dilemmas in multilingual contexts, it has not been applied to the sociolinguistic and racialized bias in student evaluations. Proposed Method: This work extends translation ethics principles and frameworks to develop an ethical lens for analyzing and addressing language-based social exclusion in educational evaluations. By adapting ethical constructs and dilemmas from translation studies to the context of higher education, the approach critiques biased evaluative discourse and proposes guidelines for fair and inclusive evaluation practices. Expected Result: The extended framework offers novel theoretical insights and practical ethical tools to recognize and combat language ideology-driven exclusion in student evaluations of NNES instructors, fostering more equitable educational environments. Core Innovation: Adapting translation ethics frameworks to critically engage with and mitigate language ideology and racial bias in academic evaluations.",
+    "all_results": [
+      {
+        "paper_id": "cphaRg46jD",
+        "paper_title": "No Free Lunch: Retrieval-Augmented Generation Undermines Fairness in LLMs, Even for Vigilant Users",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "The two ideas address fundamentally different problems: Idea A deals with racial and language bias in educational evaluations, specifically focusing on NNES instructors, while Idea B explores fairness issues associated with retrieval-augmented generation in language models. The core methods differ as well; Idea A uses translation ethics frameworks to address social exclusion, whereas Idea B investigates the fairness costs of RAG methods in LLMs. The application contexts also diverge significantly, with one in the educational evaluation space and the other in AI and language model fairness. Thus, the overall match score is low.",
+        "is_match": false
+      },
+      {
+        "paper_id": "5G_SmGZlXQ",
+        "paper_title": "Toxicity in Multilingual Machine Translation at Scale",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on addressing language ideology and racial bias in academic evaluations using translation ethics frameworks, whereas Idea B deals with added toxicity in machine translation related to demographic biases. The problems they solve are different as one is about social exclusion in educational evaluations and the other is about translation errors affecting demographic groups. Methods differ as Idea A adapts philosophical ethical frameworks to educational contexts, and Idea B analyzes translation error types and proposes data curation and robustness checks. Their applications target different fields: educational evaluations and machine translation systems.",
+        "is_match": false
+      },
+      {
+        "paper_id": "oqSKdRyYO1g",
+        "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "Although both ideas address biases related to language, Idea A focuses on sociolinguistic and racialized biases in educational evaluations, particularly for NNES instructors, while Idea B examines performance disparities in ASR systems based on nationality and language. The core methodologies differ significantly: Idea A adapts translation ethics to mitigate evaluation biases, whereas Idea B audits ASR performance using linguistic data. The application scenarios are also distinct, with one targeting educational contexts and the other focusing on language technology services.",
+        "is_match": false
+      },
+      {
+        "paper_id": "jyjfRLnfww",
+        "paper_title": "Causal Abstraction Finds Universal Representation of Race in Large Language Models",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 1,
+        "application_similarity": 2,
+        "reason": "The two ideas address bias-related issues, but in distinct contexts and with different focuses: Idea A targets language and racial biases affecting NNES instructors in student evaluations, using translation ethics, while Idea B investigates racial bias in LLMs through causal abstraction. The methods differ substantially, as Idea A adapts translation ethics frameworks for educational evaluations, while Idea B employs causal analysis and constructs tasks for probing LLMs. Application scenarios and objectives differ as Idea A aims for fairness in academic evaluations and Idea B focuses on bias understanding and mitigation in AI systems.",
+        "is_match": false
+      },
+      {
+        "paper_id": "FEDnzAhIT4",
+        "paper_title": "Test-Time Fairness and Robustness in Large Language Models",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "While both ideas address issues of bias, their contexts and approaches are significantly different. Idea A deals with bias in student evaluations of NNES instructors using translation ethics, focusing on social exclusion in educational environments. Idea B tackles bias in language models utilizing causal debiasing strategies, emphasizing technological fairness. The problems they solve, the methodologies applied, and their target applications differ substantially.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "oqSKdRyYO1g",
+      "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+      "paper_year": "2023",
+      "match_score": 3,
+      "problem_consistency": 4,
+      "method_similarity": 2,
+      "application_similarity": 3,
+      "reason": "Although both ideas address biases related to language, Idea A focuses on sociolinguistic and racialized biases in educational evaluations, particularly for NNES instructors, while Idea B examines performance disparities in ASR systems based on nationality and language. The core methodologies differ significantly: Idea A adapts translation ethics to mitigate evaluation biases, whereas Idea B audits ASR performance using linguistic data. The application scenarios are also distinct, with one targeting educational contexts and the other focusing on language technology services.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 3,
+    "idea_id": "idea_001"
+  },
+  {
+    "idea_text": "Background: Student evaluations on platforms such as RateMyProfessors.com frequently reveal language and race-based biases against nonnative English speaking (NNES) instructors, reflecting broader social exclusion and language ideological projects. Existing research often lacks a nuanced interpersonal discourse framework to unpack these phenomena. Gap: While discourse and sociolinguistic analyses have elucidated interpersonal communication in corporate settings, their direct application to public student evaluations—marked by complex social bias and ideological underpinnings—is underexplored. Proposed Method: We propose adapting a discourse-analytic framework emphasizing interpersonal communication features (e.g., politeness, euphemisms, humor) from corporate dialogue research, integrating it with critical sociolinguistic perspectives that focus on race and language ideology. This combined approach will analyze the subtle ways student evaluative language enacts social exclusion and reproduces ideological norms. Expected Results: This enriched framework will yield deeper, multidimensional insights into how language ideologies operate within student evaluations, revealing covert mechanisms of bias and informing more equitable evaluative practices. Core Innovation: Extending interpersonal discourse analysis from corporate contexts to critically analyze public student evaluations, illuminating the intersection of language, race, and social exclusion in educational discourse.",
+    "all_results": [
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "Idea A and Idea B deal with different problems: Idea A focuses on discourse analysis of student evaluations with an emphasis on social exclusion and language ideology, whereas Idea B addresses bias in word embeddings in language models. The methods differ, as Idea A applies a discourse-analytic framework combined with sociolinguistics, while Idea B proposes a debiasing technique in computational linguistics. The application scenarios are distinct, with Idea A focusing on educational discourse and Idea B on improving word embeddings in NLP. Overall, there is minimal overlap between these research ideas.",
+        "is_match": false
+      },
+      {
+        "paper_id": "oqSKdRyYO1g",
+        "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 4,
+        "reason": "Idea A focuses on discourse analysis of student evaluations to reveal bias and exclusion based on race and language in educational contexts. Idea B audits ASR systems to identify performance disparities related to racial and national biases in technology use. Though both address bias based on language and race, they do so in different contexts (education vs. technology) and with different methodologies (discourse analysis vs. performance auditing). The applications are also distinct, targeting different audiences and outcomes.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Ns8zGZ0lmM",
+        "paper_title": "Self-Preference Bias in LLM-as-a-Judge",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 1,
+        "application_similarity": 4,
+        "reason": "The two ideas address fundamentally different problems: Idea A focuses on the biases in student evaluations with a sociolinguistic approach, while Idea B deals with self-preference bias in LLM evaluations. The methods proposed in each idea are distinct, with Idea A using discourse analysis in educational settings and Idea B introducing quantitative metrics for LLM bias. The application scenarios differ significantly, though both touch on evaluative processes in their respective fields, leading to a slightly higher application similarity score.",
+        "is_match": false
+      },
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A and Idea B address fundamentally different issues: Idea A focuses on bias in student evaluations regarding language and race, while Idea B is concerned with detecting sexism in political discourse using LLMs. The methodologies in these ideas differ, as Idea A adapts corporate interpersonal discourse analysis for educational contexts, whereas Idea B utilizes LLM prompt engineering for classification tasks. Additionally, the applications and goals diverge: Idea A aims to uncover bias in student evaluations and inform equitable practices, whereas Idea B evaluates LLM effectiveness in detecting sexism across different discourses. These differences contribute to the low match score.",
+        "is_match": false
+      },
+      {
+        "paper_id": "1FWDEIGm33",
+        "paper_title": "Large Language Models as superpositions of cultural perspectives",
+        "paper_year": "2024",
+        "match_score": 1,
+        "problem_consistency": 1,
+        "method_similarity": 1,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on addressing biases in student evaluations through an intersectional discourse analysis, specifically analyzing language, race, and social exclusion within educational settings. Idea B deals with interpreting large language models concerning context-dependent behaviors and metaphorical frameworks, focusing on psychological perspectives. The core problems, methodologies, and applications differ significantly between the two ideas.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "oqSKdRyYO1g",
+      "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+      "paper_year": "2023",
+      "match_score": 3,
+      "problem_consistency": 3,
+      "method_similarity": 2,
+      "application_similarity": 4,
+      "reason": "Idea A focuses on discourse analysis of student evaluations to reveal bias and exclusion based on race and language in educational contexts. Idea B audits ASR systems to identify performance disparities related to racial and national biases in technology use. Though both address bias based on language and race, they do so in different contexts (education vs. technology) and with different methodologies (discourse analysis vs. performance auditing). The applications are also distinct, targeting different audiences and outcomes.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 3,
+    "idea_id": "idea_002"
+  },
+  {
+    "idea_text": "Background: Research into student evaluations of NNES mathematics instructors often relies on large-scale textual data mining, where observed language patterns are interpreted as ideological constructs reinforcing social exclusion.\nGap: However, conflating statistical significance with meaningful ideological manifestations risks misleading conclusions in sociolinguistic analyses.\nProposed Method: We adapt a novel methodological framework that critically differentiates statistically significant linguistic patterns from those reflecting real social and ideological practices. By integrating statistical rigor with qualitative sociolinguistic interpretation, the framework identifies genuine manifestations of racialized language ideologies in large-scale evaluation texts.\nExpected Result: This approach improves the precision and validity of analyses on language ideologies in student evaluations, clarifying when observed patterns truly reflect social exclusion versus statistical randomness.",
+    "all_results": [
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on differentiating statistically significant linguistic patterns from real social and ideological practices in evaluations, aiming to clarify when language ideologies reflect social exclusion. Idea B addresses indirect societal biases in word embeddings and proposes a method to reduce these biases in computational models. While both involve linguistic analysis and biases, the problems addressed differ significantly, with Idea A focusing on evaluation texts and social exclusion, and Idea B on computational modeling of word embeddings. The methods also diverge, as Idea A combines statistical rigor with qualitative interpretation, while Idea B modifies word relationships before creating embeddings. The application scenarios are distinct, with A being sociolinguistic evaluations and B being computational debiasing, leading to low similarity across the criteria.",
+        "is_match": false
+      },
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "The two research ideas are fundamentally addressing different problems. Idea A focuses on improving the analysis of language ideologies in student evaluations of NNES instructors, whereas Idea B explores the use of LLMs to detect sexism in political discourse. The methods have a slight overlap in that both involve analysis of language, but the techniques and frameworks are different; Idea A uses a novel framework for distinguishing linguistic patterns, while Idea B compares LLMs' effectiveness and introduces a new algorithm. The applications are also different, with Idea A in academic evaluations and Idea B in political discourse.",
+        "is_match": false
+      },
+      {
+        "paper_id": "1tZLONFMjm",
+        "paper_title": "GAOKAO-Eval: Does High Scores Truly Reflect Strong Capabilities in LLMs?",
+        "paper_year": "2025",
+        "match_score": 1,
+        "problem_consistency": 2,
+        "method_similarity": 1,
+        "application_similarity": 0,
+        "reason": "The two ideas address fundamentally different problems: Idea A focuses on distinguishing meaningful linguistic patterns in student evaluations to identify social exclusion, while Idea B evaluates LLMs' capabilities through a new benchmarking system. Their methods are different, as Idea A combines statistical and sociolinguistic approaches, whereas Idea B introduces a benchmark and analytical model for LLMs. The applications are in different fields entirely; Idea A is sociolinguistic, and Idea B is in machine learning. Overall, the two ideas have distinct goals, methods, and applications.",
+        "is_match": false
+      },
+      {
+        "paper_id": "rAylWUIKtu",
+        "paper_title": "Benchmark Inflation: Revealing LLM Performance Gaps Using Retro-Holdouts",
+        "paper_year": "2025",
+        "match_score": 1,
+        "problem_consistency": 1,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on the sociolinguistic analysis of student evaluations to identify genuine manifestations of racialized language ideologies. Idea B relates to evaluating the accuracy of LLM performance scores by addressing contaminated test data in benchmarks. The problems addressed are different; Idea A deals with sociolinguistic analysis, while Idea B is concerned with the evaluation of language model benchmarks. The methods are somewhat similar in that both involve detailed analysis to improve data interpretation, yet they are applied in very different contexts. The applications have little overlap, leading to low scores across all criteria.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Ku1tUKnAnC",
+        "paper_title": "Measuring the Reliability of Causal Probing Methods: Tradeoffs, Limitations, and the Plight of Nullifying Interventions",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A addresses sociolinguistic analysis in student evaluations, aiming to separate statistical significance and ideological manifestations in language patterns. Idea B focuses on the effectiveness of probing interventions on latent properties in large language models, assessing causal probing criteria. The problems addressed differ: one is about language ideologies in educational texts, and the other is about evaluating intervention methods on language models. The methodologies are fundamentally different; Idea A combines statistical rigor with qualitative interpretation, whereas Idea B involves empirical analysis frameworks to measure completeness and selectivity in causal probing. The applications and goals are distinct, focusing on sociolinguistics versus language model probing.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "e-M4E3Jmnkq",
+      "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+      "paper_year": "2023",
+      "match_score": 3,
+      "problem_consistency": 4,
+      "method_similarity": 3,
+      "application_similarity": 2,
+      "reason": "Idea A focuses on differentiating statistically significant linguistic patterns from real social and ideological practices in evaluations, aiming to clarify when language ideologies reflect social exclusion. Idea B addresses indirect societal biases in word embeddings and proposes a method to reduce these biases in computational models. While both involve linguistic analysis and biases, the problems addressed differ significantly, with Idea A focusing on evaluation texts and social exclusion, and Idea B on computational modeling of word embeddings. The methods also diverge, as Idea A combines statistical rigor with qualitative interpretation, while Idea B modifies word relationships before creating embeddings. The application scenarios are distinct, with A being sociolinguistic evaluations and B being computational debiasing, leading to low similarity across the criteria.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 3,
+    "idea_id": "idea_003"
+  },
+  {
+    "idea_text": "Background: Nonnative English speaking instructors face social exclusion mediated through biased student evaluations, shaped by language ideologies and racial attitudes. Existing empirical studies often lack deep integration with the foundational sociolinguistic theories that contextualize these ideologies.\n\nGap: While historical sociolinguistic theory comprises rich insights into language, culture, and power, these theories have not been systematically applied to contemporary large-scale textual data such as RateMyProfessors.com comments.\n\nProposed Method: We propose to bridge this gap by leveraging the detailed historical and theoretical insights from sociolinguistics and linguistic anthropology to develop a critical discourse analytic framework tailored for mining and interpreting online student evaluation data. This framework will allow for nuanced identification of language ideology expressions and racialized discourse.\n\nExpected Result: This integrative approach is expected to produce theoretically grounded, empirically robust insights about the mechanisms of social exclusion through language bias, enabling recommendations for institutional policy and inclusion efforts.",
+    "all_results": [
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "The two ideas address fundamentally different problems. Idea A focuses on understanding the impact of language ideologies and racial attitudes on nonnative English speaking instructors through sociolinguistic theories, whereas Idea B targets the application of Large Language Models to detect sexism in political discourse. While both employ data analysis methods, the core techniques and objectives differ significantly. Idea A relies on sociolinguistic frameworks for discourse analysis, whereas Idea B leverages LLMs and explores model confidence. The application contexts also differ, with one in academic sociolinguistics and the other in computational social sciences focusing on sexism detection.",
+        "is_match": false
+      },
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 4,
+        "reason": "The two research ideas address different issues: Idea A focuses on language ideologies and racial biases in student evaluations, while Idea B focuses on societal biases in word embeddings. The methodologies are distinct, with Idea A leveraging sociolinguistic theories for discourse analysis in textual data, while Idea B modifies word embedding training for bias mitigation. Applications differ as Idea A targets educational policy, whereas Idea B targets improving machine learning models in NLP.",
+        "is_match": false
+      },
+      {
+        "paper_id": "oqSKdRyYO1g",
+        "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+        "paper_year": "2023",
+        "match_score": 4,
+        "problem_consistency": 3,
+        "method_similarity": 5,
+        "application_similarity": 3,
+        "reason": "While both ideas deal with linguistic biases and racial implications, the Problem Consistency score is low because Idea A focuses on social exclusion through student evaluations of nonnative instructors, whereas Idea B audits ASR systems for performance disparities based on language and geopolitical biases. The Method Similarity score is moderate because both involve analyzing large linguistic data with sociopolitical dimensions, but Idea A uses discourse analysis on textual data, while Idea B audits ASR performance. The Application Similarity score is low as their applications target different domains: educational evaluations in one case and technological service bias in the other.",
+        "is_match": false
+      },
+      {
+        "paper_id": "jyjfRLnfww",
+        "paper_title": "Causal Abstraction Finds Universal Representation of Race in Large Language Models",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A addresses bias in nonnative English speaking instructors' evaluations by applying sociolinguistic theories to social exclusion issues, while Idea B investigates biases in large language models concerning race in decision-making tasks using causal abstraction. The problems addressed are related to bias but in different contexts and scales. The methods differ significantly, with Idea A focusing on sociolinguistics and linguistic anthropology, while Idea B applies causal abstraction and introduces tasks to study biases in machine learning models. Applications are in distinct realms: human social interactions in academia versus algorithmic decision-making. Thus, their core innovations are generally dissimilar.",
+        "is_match": false
+      },
+      {
+        "paper_id": "52Idqv2FNY",
+        "paper_title": "Correlating and Predicting Human Evaluations of Language Models from Natural Language Processing Benchmarks",
+        "paper_year": "2025",
+        "match_score": 1,
+        "problem_consistency": 2,
+        "method_similarity": 1,
+        "application_similarity": 1,
+        "reason": "Idea A addresses social exclusion of nonnative English speaking instructors through biased evaluations influenced by language ideologies and racial attitudes. It proposes a critical discourse analytic framework integrating sociolinguistic theories to interpret online student evaluation data. In contrast, Idea B focuses on evaluating chat language models using human evaluations and automated NLP benchmarks, investigating their correlation. The problems, methods, and applications of both ideas differ significantly; one is rooted in sociolinguistics and education, the other in NLP and language model evaluations.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "oqSKdRyYO1g",
+      "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+      "paper_year": "2023",
+      "match_score": 4,
+      "problem_consistency": 3,
+      "method_similarity": 5,
+      "application_similarity": 3,
+      "reason": "While both ideas deal with linguistic biases and racial implications, the Problem Consistency score is low because Idea A focuses on social exclusion through student evaluations of nonnative instructors, whereas Idea B audits ASR systems for performance disparities based on language and geopolitical biases. The Method Similarity score is moderate because both involve analyzing large linguistic data with sociopolitical dimensions, but Idea A uses discourse analysis on textual data, while Idea B audits ASR performance. The Application Similarity score is low as their applications target different domains: educational evaluations in one case and technological service bias in the other.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_004"
+  },
+  {
+    "idea_text": "Background—Student evaluations often marginalize nonnative English speaking instructors through language ideologies embedded in evaluative comments, contributing to social exclusion. Gap—Existing corpus analysis tools lack direct mechanisms to reveal ideological bias in large-scale evaluative texts. Proposed Method—We propose adapting Sketch Engine, a sophisticated corpus linguistic platform, by constructing an ideology-annotated corpus from RateMyProfessors.com and integrating socio-linguistic annotation layers. This enables fine-grained collocation and phraseological analysis to detect linguistic patterns reflecting bias against NNES instructors. Expected Result—This approach will facilitate systematic uncovering of subtle language ideology patterns within student evaluations, supporting sociolinguistic research and potential interventions.",
+    "all_results": [
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on the detection of language biases against nonnative English speakers in educational evaluations, using corpus tools, whereas Idea B explores detecting sexism in political discourse using Large Language Models. While both deal with detecting bias in text, they target different types of bias and contexts. The methods differ significantly, with corpus linguistics versus LLMs affecting the analysis. Applications are in distinct domains: education for A and political analysis for B.",
+        "is_match": false
+      },
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 5,
+        "problem_consistency": 6,
+        "method_similarity": 5,
+        "application_similarity": 4,
+        "reason": "虽然Idea A和Idea B都涉及语言偏见的检测和处理，但它们关注的具体问题和应用场景有所不同。Idea A集中在学生评价对非英语母语教师的语言偏见，旨在通过语料库分析揭露这种偏见；而Idea B则关注于词嵌入中的间接语言偏见，并提出新方法来减小这种偏见。方法上，虽然两者都涉及语言处理技术，但具体实现和技术细节不同。应用场景差异也较大，Idea A专注于教育领域的语言评价，而Idea B则更广泛地影响到词嵌入技术的偏见减缓。",
+        "is_match": false
+      },
+      {
+        "paper_id": "IULlNTZZel",
+        "paper_title": "RedHat: Towards Reducing Hallucination in Essay Critiques with Large Language Models",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A addresses biased student evaluations against NNES instructors using corpus linguistics, while Idea B deals with reducing hallucinations in essay critiques using LLMs. The problems are different, as one focuses on linguistic bias detection while the other aims at refining critique generation. The methods vary; Idea A uses corpus annotation and linguistic analysis, whereas Idea B employs document-level question-answering to improve critique generation. Application scenarios differ in context - educational settings for biases vs. essay critique generation optimization.",
+        "is_match": false
+      },
+      {
+        "paper_id": "UnstiBOfnv",
+        "paper_title": "Style Over Substance: Evaluation Biases for Large Language Models",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "The two ideas address fundamentally different problems: Idea A focuses on linguistic biases in student evaluations of nonnative English speaking instructors, while Idea B explores biases in evaluation processes for large language models. The methods differ as Idea A involves constructing an ideology-annotated corpus, whereas Idea B develops a rating system for evaluating AI outputs. The application context and goals also differ, with Idea A targeting educational evaluations and sociolinguistic biases and Idea B aiming to improve AI model evaluations without direct sociolinguistic implications.",
+        "is_match": false
+      },
+      {
+        "paper_id": "XIIynqbMXgR",
+        "paper_title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on detecting ideological bias in student evaluations specifically against nonnative English speakers, using corpus linguistic tools enhanced with socio-linguistic annotations. Idea B addresses a broader challenge in NLP regarding discourse modeling, improving model evaluation on inter-sentence discourse phenomena. The problems addressed are distinct, with Idea A in sociolinguistic bias detection and Idea B in NLP discourse evaluation. The methodological approaches differ significantly since Idea A uses an adapted corpus analysis tool, while Idea B develops a new benchmark for testing NLP models. Application scenarios differ as well, with Idea A applied to educational evaluations and Idea B to broader NLP model development.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "e-M4E3Jmnkq",
+      "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+      "paper_year": "2023",
+      "match_score": 5,
+      "problem_consistency": 6,
+      "method_similarity": 5,
+      "application_similarity": 4,
+      "reason": "虽然Idea A和Idea B都涉及语言偏见的检测和处理，但它们关注的具体问题和应用场景有所不同。Idea A集中在学生评价对非英语母语教师的语言偏见，旨在通过语料库分析揭露这种偏见；而Idea B则关注于词嵌入中的间接语言偏见，并提出新方法来减小这种偏见。方法上，虽然两者都涉及语言处理技术，但具体实现和技术细节不同。应用场景差异也较大，Idea A专注于教育领域的语言评价，而Idea B则更广泛地影响到词嵌入技术的偏见减缓。",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 5,
+    "idea_id": "idea_005"
+  },
+  {
+    "idea_text": "Background: Nonnative English-speaking (NNES) instructors in U.S. English-medium institutions often face biased student evaluations rooted in language ideologies and racialized perceptions, manifesting as social exclusion. Gap: Existing research lacks an ethical framework to mediate and reinterpret the ideological biases embedded in these student evaluations. Proposed Method: We propose applying a balanced translation ethics framework—originally designed for reconciling meaning fidelity and target audience adaptation in translation—to the discourse of student evaluations. By conceptualizing evaluative language as a form of ideological translation, we develop strategies to ethically reinterpret and reframe bias-laden feedback, aligning it with inclusive pedagogical goals. Expected Result: This novel application offers a theoretical foundation and practical guidelines for educational stakeholders to understand, manage, and mitigate racialized language biases in evaluations, improving equity for NNES instructors. Core Innovation: Applying balanced translation ethics principles as a conceptual tool to ethically mediate and transform ideologically biased student evaluation discourse.",
+    "all_results": [
+      {
+        "paper_id": "cphaRg46jD",
+        "paper_title": "No Free Lunch: Retrieval-Augmented Generation Undermines Fairness in LLMs, Even for Vigilant Users",
+        "paper_year": "2025",
+        "match_score": 1,
+        "problem_consistency": 1,
+        "method_similarity": 1,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on addressing biases in student evaluations of NNES instructors using translation ethics, while Idea B examines fairness costs in the context of retrieval-augmented generation for large language models. The problems addressed, methods proposed, and application scenarios are fundamentally different, with no substantial overlap in core concepts or goals.",
+        "is_match": false
+      },
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 3,
+        "reason": "Idea A addresses the issue of bias in student evaluations of NNES instructors, focusing on racial and language ideologies, and uses a translation ethics framework. Idea B deals with bias in word embeddings, specifically related to language-based stereotypes and proposes a method for debiasing. The problems target different biases: educational evaluations vs. language model embeddings. Methods differ as Idea A applies translation ethics, while Idea B modifies co-occurrence relationships in word embeddings. Applications also differ: educational feedback vs. computational linguistics. Both address bias but in distinct contexts with different approaches.",
+        "is_match": false
+      },
+      {
+        "paper_id": "5G_SmGZlXQ",
+        "paper_title": "Toxicity in Multilingual Machine Translation at Scale",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "The two ideas address different issues: Idea A focuses on addressing biased student evaluations of NNES instructors in educational settings, while Idea B addresses added toxicity in machine translation outputs. They employ distinct methods, with Idea A leveraging translation ethics principles for educational purposes and Idea B focusing on detecting and analyzing errors in machine translation, particularly toxicity. Their applications differ as well, with Idea A aiming to improve educational equity and Idea B working to enhance machine translation quality. Thus, the core innovation and methodologies are not aligned.",
+        "is_match": false
+      },
+      {
+        "paper_id": "nLxH6a6Afe",
+        "paper_title": "CITING: Large Language Models Create Curriculum for Instruction Tuning",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 1,
+        "application_similarity": 1,
+        "reason": "The two ideas address fundamentally different issues: Idea A focuses on addressing ideological biases in student evaluations of NNES instructors, while Idea B is about improving large language model training using AI-driven instruction tuning. The methods differ as Idea A utilizes a balanced translation ethics framework to reinterpret biased feedback, whereas Idea B applies a curriculum-based learning approach using AI models. The application scenarios are also distinct, with Idea A aimed at equity in educational evaluations and Idea B targeting LLM development efficiency. Therefore, the overall match score is low.",
+        "is_match": false
+      },
+      {
+        "paper_id": "06ZvHHBR0i",
+        "paper_title": "Adversarial Multi-Agent Evaluation of Large Language Models through Iterative Debate",
+        "paper_year": "2025",
+        "match_score": 1,
+        "problem_consistency": 0,
+        "method_similarity": 1,
+        "application_similarity": 0,
+        "reason": "Idea A addresses the issue of biased student evaluations of NNES instructors using the concept of translation ethics, while Idea B focuses on the evaluation of LLM outputs using an adversarial debate system. The problems, methods, and applications are fundamentally different; Idea A deals with sociolinguistic biases in educational contexts, and Idea B deals with technical evaluation of AI models. The minor similarity is the conceptual use of frameworks to address bias, but implemented in entirely different domains.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "e-M4E3Jmnkq",
+      "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+      "paper_year": "2023",
+      "match_score": 3,
+      "problem_consistency": 2,
+      "method_similarity": 3,
+      "application_similarity": 3,
+      "reason": "Idea A addresses the issue of bias in student evaluations of NNES instructors, focusing on racial and language ideologies, and uses a translation ethics framework. Idea B deals with bias in word embeddings, specifically related to language-based stereotypes and proposes a method for debiasing. The problems target different biases: educational evaluations vs. language model embeddings. Methods differ as Idea A applies translation ethics, while Idea B modifies co-occurrence relationships in word embeddings. Applications also differ: educational feedback vs. computational linguistics. Both address bias but in distinct contexts with different approaches.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 3,
+    "idea_id": "idea_006"
+  },
+  {
+    "idea_text": "Background: Non-native English-speaking (NNES) instructors in U.S. institutions face social exclusion manifested in student evaluations influenced by language ideologies and accent bias. Existing research on neural NLP techniques focuses largely on unstructured medical text data, lacking adaptation for sociolinguistic and bias analysis in educational contexts.\nGap: There is a need to systematically adapt neural network NLP methods to detect and analyze linguistic bias and ideological patterns within student evaluations of NNES mathematics instructors.\nProposed Method: We propose to enhance neural NLP frameworks by integrating sociolinguistic feature extraction and bias detection layers trained on annotated student evaluation datasets. This approach leverages advances from medical NLP for unstructured text processing while addressing social exclusion mechanisms through interpretable neural models.\nExpected Result: The method will enable scalable, nuanced analysis of language ideology and accent bias within large corpora of student evaluations, informing interventions to mitigate social exclusion in academic settings.",
+    "all_results": [
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "The two ideas address problems related to biases, but differ in context and focus. Idea A targets sociolinguistic bias in educational settings using student evaluations of non-native instructors, whereas Idea B examines indirect bias in word embeddings across general datasets. The methods differ considerably; Idea A involves extending neural NLP models with sociolinguistic layers, while Idea B proposes adjusting word co-occurrence probabilities before embedding. The application contexts are distinct, with Idea A focusing on education and linguistic biases, and Idea B targeting language model biases broadly.",
+        "is_match": false
+      },
+      {
+        "paper_id": "GAXedKmbFZ",
+        "paper_title": "Disco-Bench: A Context-Aware Evaluation Benchmark for Language Modelling",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "The two ideas focus on different problems; Idea A is concerned with detecting linguistic bias in student evaluations, whereas Idea B introduces a benchmark for evaluating contextual properties in NLP models. Although both involve analyzing text documents, the core methodologies differ: Idea A leverages neural NLP models adapted for bias detection, whereas Idea B focuses on creating a benchmark for discourse analysis. The applications are also distinct: social exclusion in education versus linguistic model evaluation. Overall, there is limited overlap in problem, method, and application.",
+        "is_match": false
+      },
+      {
+        "paper_id": "XIIynqbMXgR",
+        "paper_title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "The two ideas address different problems: one focuses on detecting and analyzing bias in student evaluations, while the other is about modeling discourse phenomena. The methods differ as well, with Idea A proposing adaptations of neural NLP for bias detection in educational contexts, whereas Idea B develops a benchmark for discourse analysis. The application scenarios are quite distinct; Idea A is about sociolinguistic and bias analysis in educational settings, while Idea B aims at improving discourse modeling across various NLP tasks. Overall, the overlap is minimal.",
+        "is_match": false
+      },
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 4,
+        "method_similarity": 5,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on analyzing language ideology and accent bias in educational contexts, specifically in student evaluations of NNES instructors, using enhanced NLP techniques for bias detection. In contrast, Idea B explores the use of LLMs for detecting sexism in political discourse and introduces a new algorithm for confidence estimation in predictions. Both ideas involve bias detection in text and the use of advanced NLP methods, but the specific problems, methods, and applications differ significantly. Idea A emphasizes educational settings and sociolinguistic bias, while Idea B targets online sexism in political discourse.",
+        "is_match": false
+      },
+      {
+        "paper_id": "UZS6D7GfP1",
+        "paper_title": "Human-in-the-loop Detection of AI-generated Text via Grammatical Patterns",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "The two ideas address different problems: Idea A focuses on detecting linguistic bias in student evaluations, while Idea B concerns the detection of AI-generated text. The methods involve NLP techniques, but Idea A integrates sociolinguistic features for bias detection, whereas Idea B learns grammatical patterns for AI-text detection with a human-in-the-loop approach. The application domains differ significantly, with Idea A targeting educational bias and Idea B addressing AI detection across various domains.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "kXnk4uf1sK",
+      "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+      "paper_year": "2025",
+      "match_score": 4,
+      "problem_consistency": 4,
+      "method_similarity": 5,
+      "application_similarity": 3,
+      "reason": "Idea A focuses on analyzing language ideology and accent bias in educational contexts, specifically in student evaluations of NNES instructors, using enhanced NLP techniques for bias detection. In contrast, Idea B explores the use of LLMs for detecting sexism in political discourse and introduces a new algorithm for confidence estimation in predictions. Both ideas involve bias detection in text and the use of advanced NLP methods, but the specific problems, methods, and applications differ significantly. Idea A emphasizes educational settings and sociolinguistic bias, while Idea B targets online sexism in political discourse.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_007"
+  },
+  {
+    "idea_text": "Background: Nonnative English speaking (NNES) instructors at English-medium institutions often face social exclusion through language ideology biases manifesting in student evaluations, reflecting deep-seated power structures and exclusionary dynamics. Current computational linguistic models lack rigorous formal frameworks to analyze such social-pragmatic phenomena comprehensively. Gap: While category-theoretic frameworks for natural language processing provide a powerful foundation for modeling syntax, semantics, and pragmatics via functorial mappings and game-theoretic equilibria, they do not natively account for sociolinguistic contextual variables such as ideological bias or social exclusion dynamics in naturalistic evaluation discourse. Proposed Method: We extend the functorial categorical NLP framework by embedding ideological and social context variables into the pragmatic game-theoretic layer. This \"Functorial Socio-Pragmatics\" model represents student evaluations as strategic language games conditioned on social-ideological contexts, enabling formal modeling of exclusionary language ideology mechanisms. Expected Result: Our approach allows for novel mathematical and computational analysis of how language ideologies influence pragmatic interpretation in evaluation discourse, uncovering the interaction between linguistic structure, social bias, and exclusion. This bridges foundational NLP theory with applied sociolinguistic analysis, offering new insights and methodologies for studying social exclusion via language.",
+    "all_results": [
+      {
+        "paper_id": "srOVvTzgPo",
+        "paper_title": "Toward a Sheaf-Theoretic Understanding of Compositionality in Large Language Models",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on embedding sociolinguistic contextual variables into NLP frameworks to address biases in student evaluations, while Idea B applies formal cognitive notions to evaluate LLMs. The problems addressed are fundamentally different, with one dealing with social exclusion and the other focusing on compositionality evaluation. The methods involve different theoretical approaches; Idea A uses functorial categorical NLP with socio-contextual embeddings, while Idea B employs sheaf-theoretic cognitive formalization. The application and goals are separate: bridging NLP with sociolinguistic analysis versus enhancing LLM evaluation frameworks.",
+        "is_match": false
+      },
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on extending NLP frameworks to include socio-pragmatic context, primarily dealing with language and ideology biases impacting NNES instructors, whereas Idea B applies LLMs to text analysis for detecting sexism in political discourse. While both involve advanced NLP techniques and societal biases, their core issues, methodologies, and applications diverge significantly, with Idea A leveraging category-theoretic models and Idea B utilizing LLMs through prompt engineering in social contexts.",
+        "is_match": false
+      },
+      {
+        "paper_id": "WgbcOQMNXB",
+        "paper_title": "Large language models are not zero-shot communicators",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A and Idea B address different research questions: Idea A focuses on sociolinguistic exclusion dynamics through evaluations using categorical NLP frameworks, while Idea B investigates LLMs' ability to infer implicatures in discourse. The proposed methods differ significantly as Idea A extends functorial categorical frameworks to include social context, whereas Idea B evaluates LLMs for contextual interpretation without extending computational linguistic theory. The application scenarios are distinct, with Idea A targeting educational settings and exclusion mechanisms, and Idea B centered on improving LLM inference capabilities. Overall, the innovations are not similar in core concept, method, or application context.",
+        "is_match": false
+      },
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 3,
+        "application_similarity": 3,
+        "reason": "Idea A focuses specifically on tackling language ideology biases in student evaluations related to NNES instructors, employing a functorial categorical NLP framework with sociolinguistic context integration. Idea B addresses societal biases in word embeddings, particularly indirect bias, proposing a method to modify relationships prior to embedding. While both broadly aim to address bias, their focus and methods differ significantly; Idea A is about formal modeling of social exclusion in language interactions whereas Idea B deals with mathematical adjustments in word embeddings to mitigate stereotypes. The application settings and specific goals also differ; Idea A focuses on student evaluations and sociolinguistic dynamics, whereas Idea B aims at enhancing NLP bias mitigation techniques in embeddings.",
+        "is_match": false
+      },
+      {
+        "paper_id": "GAXedKmbFZ",
+        "paper_title": "Disco-Bench: A Context-Aware Evaluation Benchmark for Language Modelling",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on analyzing social-exclusion dynamics and ideological biases in language through advanced computational models, while Idea B aims to evaluate discourse properties beyond sentence level using benchmarks. The problems they solve are different: social exclusion through language vs. inter-sentence discourse phenomena. Methodologically, Idea A applies functorial categorical frameworks to integrate social variables, whereas Idea B uses a benchmark for interdisciplinary evaluation, hence moderate similarity in methods. In terms of application, Idea A deals with sociolinguistic pragmatism and exclusion in language, whereas Idea B targets discourse understanding and modeling, reflecting different focuses.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "kXnk4uf1sK",
+      "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+      "paper_year": "2025",
+      "match_score": 3,
+      "problem_consistency": 2,
+      "method_similarity": 3,
+      "application_similarity": 3,
+      "reason": "Idea A focuses on extending NLP frameworks to include socio-pragmatic context, primarily dealing with language and ideology biases impacting NNES instructors, whereas Idea B applies LLMs to text analysis for detecting sexism in political discourse. While both involve advanced NLP techniques and societal biases, their core issues, methodologies, and applications diverge significantly, with Idea A leveraging category-theoretic models and Idea B utilizing LLMs through prompt engineering in social contexts.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 3,
+    "idea_id": "idea_008"
+  },
+  {
+    "idea_text": "Background: Nonnative English-speaking (NNES) instructors in the United States often face student evaluations laden with biases related to race and language ideology, manifesting as complaints about accents and communication. Traditional analyses of such evaluations are qualitative and limited in scale. Gap: Existing text mining methods primarily applied in domains like COVID-19 business impact have not been adapted to extract nuanced sociolinguistic and racial bias themes from large-scale student evaluation texts. Proposed Method: We propose an adapted text mining approach informed by sociolinguistic theory and critical discourse analysis to systematically analyze student evaluations from RateMyProfessors.com. This method integrates linguistic bias detection features into topic modeling and sentiment analysis to uncover latent patterns of exclusion based on language and race. Expected Result: The approach is expected to reveal subtle and pervasive language ideology and racial biases in student feedback, providing empirical data to inform equity-focused interventions in higher education teaching evaluations. Core Innovation: Embedding sociolinguistic bias detection into automated text mining to identify and characterize racial and language-based exclusions in instructional evaluations.",
+    "all_results": [
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "The two research ideas focus on analyzing biases within text data, but they address different types of biases and contexts. Idea A is centered around sociolinguistic and racial biases in student evaluations, whereas Idea B deals with sexism and political discourse biases using LLMs. The methods differ in that Idea A uses adapted text mining informed by sociolinguistic theories, while Idea B employs LLMs with prompt engineering. Furthermore, the application domains—higher education evaluations versus political discourse—are distinct, leading to low alignment across the evaluated criteria.",
+        "is_match": false
+      },
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on identifying biases in student evaluations based on race and language ideology using text mining methods, while Idea B addresses mitigating indirect biases in word embeddings related to stereotypes. The problems both involve bias but are in different contexts: educational evaluations versus computational word embeddings. The methods both deal with bias detection and mitigation but utilize different approaches: sociolinguistic theory for text mining versus modifying co-occurrence in word embeddings. Applications differ as Idea A targets educational interventions and Idea B focuses on improving embedding technologies.",
+        "is_match": false
+      },
+      {
+        "paper_id": "jyjfRLnfww",
+        "paper_title": "Causal Abstraction Finds Universal Representation of Race in Large Language Models",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A addresses sociolinguistic and racial biases in student evaluations using adapted text mining, whereas Idea B investigates racial bias encoding in large language models using causal abstraction. Both concern bias, but in different contexts and mechanisms. Methodologically, Idea A focuses on embedding bias detection in text mining, while Idea B examines bias mechanisms in AI models, thus differing in technological approaches. Application-wise, Idea A targets higher education evaluations, while Idea B targets LLM decision-making, showcasing distinct domains and goals.",
+        "is_match": false
+      },
+      {
+        "paper_id": "XIIynqbMXgR",
+        "paper_title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A addresses sociolinguistic and racial biases in nonnative English-speaking instructors' evaluations using text mining, while Idea B focuses on modeling discourse in NLP, particularly discourse phenomena across sentences. The problems they aim to solve are fundamentally different, with Idea A dealing with social biases in educational evaluations and Idea B focusing on improving NLP's handling of discourse in texts. The methods also differ, as Idea A uses sociolinguistic-informed text mining, while Idea B develops a benchmark for evaluating discourse understanding. The application scenarios—educational evaluations for Idea A and discourse evaluation in NLP for Idea B—are unrelated, leading to low scores in each criterion.",
+        "is_match": false
+      },
+      {
+        "paper_id": "oqSKdRyYO1g",
+        "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+        "paper_year": "2023",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on detecting racial and language biases in student evaluations using text mining, while Idea B audits ASR systems for nationality and language biases. The problems share a common theme of bias detection related to language and race but apply to different domains (educational evaluations vs. ASR performance). Methods involve bias detection, yet one is text-based sociolinguistic analysis and the other is an audit of speech recognition systems. Application scenarios differ, as Idea A targets educational equity in evaluations, whereas Idea B addresses geopolitical bias in ASR technologies.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "oqSKdRyYO1g",
+      "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+      "paper_year": "2023",
+      "match_score": 4,
+      "problem_consistency": 5,
+      "method_similarity": 4,
+      "application_similarity": 3,
+      "reason": "Idea A focuses on detecting racial and language biases in student evaluations using text mining, while Idea B audits ASR systems for nationality and language biases. The problems share a common theme of bias detection related to language and race but apply to different domains (educational evaluations vs. ASR performance). Methods involve bias detection, yet one is text-based sociolinguistic analysis and the other is an audit of speech recognition systems. Application scenarios differ, as Idea A targets educational equity in evaluations, whereas Idea B addresses geopolitical bias in ASR technologies.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_009"
+  },
+  {
+    "idea_text": "Background: Nonnative English-speaking (NNES) instructors at English-medium institutions in the US often face negative student evaluations manifesting language-based social exclusion rooted in broader language ideologies. However, systematic linguistic analysis of such biases has been limited by the lack of large-scale, diverse linguistic resources capturing English variety and nonnative usage patterns. Gap: Existing research does not leverage extensive global English corpora to identify linguistic features contributing to biased evaluations or map these to language ideologies within student comments. Proposed Method: This study proposes integrating the Global Web-Based English (GloWbE) corpus—a 1.9 billion-word resource covering 20 English-speaking countries and multiple genres—with annotated datasets from RateMyProfessors.com. By computationally modeling linguistic variation and nonnative English features in student comments and comparing them with GloWbE benchmarks, we aim to systematically detect and analyze the language ideological mechanisms underpinning biased evaluations against NNES mathematics instructors. Expected Result: The approach will offer novel empirical insights into the linguistic bases of social exclusion in academia, showcasing the utility of global English corpora like GloWbE in sociolinguistic research on race and language ideology. Core Innovation: Leveraging GloWbE’s comprehensive global English variation data to computationally identify and analyze nonnative English linguistic features in student evaluations, thereby revealing the underlying language ideological biases.",
+    "all_results": [
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A and Idea B address different core problems: A focuses on identifying language-based bias in student evaluations of nonnative English speakers, whereas B deals with mitigating biases in word embeddings, specifically indirect stereotypes. The methods differ since A leverages large-scale linguistic corpora to analyze language ideologies, while B modifies co-occurrence probabilities to reduce biases in embeddings. The application contexts are distinct; A is concerned with sociolinguistic analysis in academic evaluations, while B focuses on improving machine learning models for better handling of biases in language processing applications.",
+        "is_match": false
+      },
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A investigates linguistic biases in student evaluations of NNES instructors using corpus analysis, while Idea B explores sexism detection in political discourse using LLMs. The problems addressed involve different domains of language bias (language ideology vs. sexism). The methods differ significantly; Idea A utilizes corpus-based analysis, whereas Idea B employs LLMs with prompt engineering. The application contexts are distinct: academia-focused evaluations vs. political discourse analysis.",
+        "is_match": false
+      },
+      {
+        "paper_id": "UnstiBOfnv",
+        "paper_title": "Style Over Substance: Evaluation Biases for Large Language Models",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 1,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on linguistic biases in student evaluations of nonnative English-speaking instructors using global corpora for analysis. Idea B examines the evaluation of large language models and the biases inherent in those evaluations, proposing a new evaluation system. The problems addressed are inconsistent, as one is sociolinguistic bias while the other is evaluation methodology for AI models. The methods differ significantly, with one leveraging corpus linguistic analysis and the other introducing a rating system for LLM performance. Application scenarios are distinct; one targets academic evaluations while the other targets AI model performance assessments.",
+        "is_match": false
+      },
+      {
+        "paper_id": "mhyl7HhNM5",
+        "paper_title": "Are LLMs Better than Reported? Detecting Label Errors and Mitigating Their Effect on Model Performance",
+        "paper_year": "2025",
+        "match_score": 1,
+        "problem_consistency": 1,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A is focused on analyzing linguistic biases in student evaluations of nonnative English-speaking instructors using global English corpora, while Idea B addresses improving NLP dataset label quality using large language models. The problems they address, methods used, and applications are fundamentally different, with only a very slight methodological overlap in using computational techniques to analyze text data.",
+        "is_match": false
+      },
+      {
+        "paper_id": "rAylWUIKtu",
+        "paper_title": "Benchmark Inflation: Revealing LLM Performance Gaps Using Retro-Holdouts",
+        "paper_year": "2025",
+        "match_score": 1,
+        "problem_consistency": 1,
+        "method_similarity": 1,
+        "application_similarity": 1,
+        "reason": "The two research ideas address fundamentally different problems: Idea A focuses on linguistic biases against nonnative English-speaking instructors, while Idea B tackles the contamination of LLM training data with public benchmarks. Their core methodologies differ significantly, with Idea A leveraging global English corpora, and Idea B developing a new mechanism for constructing holdout benchmarks. The application contexts are unique to each study, with Idea A rooted in sociolinguistics and academic evaluations, and Idea B in AI and machine learning evaluation practices.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "e-M4E3Jmnkq",
+      "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+      "paper_year": "2023",
+      "match_score": 3,
+      "problem_consistency": 4,
+      "method_similarity": 3,
+      "application_similarity": 2,
+      "reason": "Idea A and Idea B address different core problems: A focuses on identifying language-based bias in student evaluations of nonnative English speakers, whereas B deals with mitigating biases in word embeddings, specifically indirect stereotypes. The methods differ since A leverages large-scale linguistic corpora to analyze language ideologies, while B modifies co-occurrence probabilities to reduce biases in embeddings. The application contexts are distinct; A is concerned with sociolinguistic analysis in academic evaluations, while B focuses on improving machine learning models for better handling of biases in language processing applications.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 3,
+    "idea_id": "idea_010"
+  },
+  {
+    "idea_text": "Background: Nonnative English-speaking (NNES) instructors in US mathematics departments face social exclusion manifested via student complaints, reflecting embedded language ideologies. Existing analyses on RateMyProfessors.com evaluations lack advanced computational models to decode these complex sociolinguistic patterns. Gap: Current methods struggle to integrate nuanced social context and ideological constructs beyond sentiment analysis, limiting understanding of exclusion dynamics. Proposed Method: We introduce a context-enhanced transformer model augmented with a sociolinguistic knowledge graph representing constructs of language ideology, race, and social exclusion. Our adaptation of stacked pointer networks shifts from knowledge graph question answering to selective identification of ideological cues within user-generated evaluation texts. This enables comprehensive discourse-level modeling grounded in sociocultural knowledge. Expected Result: The proposed approach aims to achieve superior detection and interpretability of language ideology and exclusion patterns in student evaluations, providing a powerful tool for sociolinguistic research on NNES instructors' experiences.",
+    "all_results": [
+      {
+        "paper_id": "XIIynqbMXgR",
+        "paper_title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on analyzing sociolinguistic patterns in student evaluations related to NNES instructors by enhancing transformer models with sociolinguistic knowledge graphs. Idea B addresses evaluating discourse phenomena beyond inter-sentence properties in NLP models with a benchmark for diverse NLP tasks. While both work on discourse-level analysis using transformer models, their problems, methods, and applications differ. Idea A targets exclusion and language ideologies in a specific educational context, whereas Idea B provides benchmarks for general discourse modeling improvements in NLP.",
+        "is_match": false
+      },
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 3,
+        "method_similarity": 5,
+        "application_similarity": 3,
+        "reason": "Though both ideas involve advanced computational approaches to analyze text, the core problems they address are fundamentally different. Idea A focuses on sociolinguistic exclusion and language ideologies in academic evaluations, while Idea B targets detecting sexism within political discourse. Methodologically, both involve using advanced models (transformer models in A and LLMs in B) for text analysis, but the focus areas and the specific computational strategies differ significantly. The application contexts (academic evaluations vs. political discourse) are also distinct, leading to limited overall similarity.",
+        "is_match": false
+      },
+      {
+        "paper_id": "GAXedKmbFZ",
+        "paper_title": "Disco-Bench: A Context-Aware Evaluation Benchmark for Language Modelling",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 3,
+        "reason": "Idea A and Idea B address different problems; A focuses on decoding sociolinguistic patterns of exclusion in NNES instructors' evaluations, while B focuses on evaluating discourse phenomena in NLP. The methods differ as A uses a transformer model augmented with sociolinguistic knowledge graphs, whereas B uses a benchmark (Disco-Bench) for assessing discourse in NLP models. The application context varies too, with A being about sociolinguistic analysis and B about NLP model evaluation in discourse understanding. Thus, the match score is low due to limited overlap in problem, method, and application.",
+        "is_match": false
+      },
+      {
+        "paper_id": "M4fhjfGAsZ",
+        "paper_title": "Automated Knowledge Concept Annotation and Question Representation Learning for Knowledge Tracing",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 1,
+        "application_similarity": 2,
+        "reason": "Idea A addresses the sociolinguistic dynamics of NNES instructors' experiences of exclusion based on language ideologies, while Idea B focuses on knowledge tracing to improve personalized learning by automating KC annotation and learning representations. The problems they tackle are different, with one centered on social exclusion and language and the other on educational tool efficacy. The methods are distinct, with one using enhanced transformers for sociolinguistic analysis and the other using LLMs and contrastive learning for educational data. Application scenarios vary, with one targeting sociolinguistic research and the other enhancing learning models.",
+        "is_match": false
+      },
+      {
+        "paper_id": "1FWDEIGm33",
+        "paper_title": "Large Language Models as superpositions of cultural perspectives",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "Idea A addresses sociolinguistic analysis of NNES instructors in student evaluations using advanced computational methods. Idea B explores the metaphorical understanding and perspective changes of LLMs across contexts. The problems they solve are distinct, as A focuses on language bias and social exclusion in educational settings, while B deals with the conceptual and empirical study of LLMs' behavior and perspective shifts. Both involve computational models, but the methods and techniques greatly differ, with A utilizing a transformer model for discourse analysis while B focuses on psychological questionnaires to study context-dependent values in LLMs. Their applications are in different domains, one in sociolinguistics and the other in AI interpretation and behavior analysis.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "kXnk4uf1sK",
+      "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+      "paper_year": "2025",
+      "match_score": 4,
+      "problem_consistency": 3,
+      "method_similarity": 5,
+      "application_similarity": 3,
+      "reason": "Though both ideas involve advanced computational approaches to analyze text, the core problems they address are fundamentally different. Idea A focuses on sociolinguistic exclusion and language ideologies in academic evaluations, while Idea B targets detecting sexism within political discourse. Methodologically, both involve using advanced models (transformer models in A and LLMs in B) for text analysis, but the focus areas and the specific computational strategies differ significantly. The application contexts (academic evaluations vs. political discourse) are also distinct, leading to limited overall similarity.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_011"
+  },
+  {
+    "idea_text": "Background — Nonnative English-speaking mathematics instructors often face social exclusion manifesting as biased student evaluations influenced by language ideology and racial prejudice. Gap — Existing NLP frameworks primarily address formal policy texts and lack adaptation for detecting subtle ideological and racial biases in informal, user-generated educational reviews. Proposed Method — We propose an extension of policy-oriented NLP methodologies by integrating sociolinguistic theory-driven features and sentiment analysis tailored to capture language ideological constructs. Our framework applies enhanced text classification, topic modeling, and event extraction modules on RateMyProfessors.com reviews, identifying implicit language and race-based biases. Expected Result — This adapted NLP framework facilitates a nuanced understanding of sociolinguistic exclusion mechanisms, enabling automated large-scale analysis of student evaluation bias, thus informing institutional equity interventions. The core innovation is embedding sociolinguistic and affective computing features within a policy-NLP framework to detect subtle language ideological and racial biases in educational text data.",
+    "all_results": [
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 5,
+        "application_similarity": 3,
+        "reason": "虽然两个研究都涉及通过语言技术识别文本中的偏见，但其关注的具体问题和应用场景不同。Idea A解决的是学生评价中的语言意识形态和种族偏见问题，主要应用于教育场景；而Idea B研究的是政治话语中的性别偏见并评估LLM的有效性，尤其通过prompt engineering获取模型预测的确信度。两者都利用高级文本分析方法，但使用的技术路线和具体应用领域存在显著区别，因此匹配得分较低。",
+        "is_match": false
+      },
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "The problems addressed in Idea A and Idea B are related but distinct: Idea A focuses on detecting racial and linguistic biases in educational reviews, whereas Idea B targets indirect bias in word embeddings. Both methods involve addressing subtle biases, but Idea A employs NLP and sociolinguistic features for text analysis, while Idea B uses a debiasing technique in word embeddings. The applications differ significantly; Idea A is aimed at educational equity, and Idea B at improving word embeddings. Thus, while there's a thematic overlap in tackling bias, the specific problems, methods, and applications diverge.",
+        "is_match": false
+      },
+      {
+        "paper_id": "iGDWZFc7Ya",
+        "paper_title": "Language Models Linearly Represent Sentiment",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "The two ideas tackle fundamentally different problems: Idea A focuses on detecting biases in educational reviews using sociolinguistic theory and NLP, while Idea B explores sentiment representation in LLMs. Their methods differ, with Idea A integrating sociolinguistic features into NLP frameworks and Idea B analyzing sentiment embedding in LLMs using linear representation and causal interventions. The applications diverge — Idea A aims to inform institutional interventions concerning bias, whereas Idea B reveals sentiment mechanisms in LLMs for understanding model behaviors. Thus, there is low similarity across problems, methods, and applications.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Eaw1ZrsNUN",
+        "paper_title": "USDC: A Dataset of $\\underline{U}$ser $\\underline{S}$tance and $\\underline{D}$ogmatism in Long $\\underline{C}$onversations",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A addresses the issue of detecting racial and language bias in student evaluations using NLP frameworks adapted with sociolinguistic features. Idea B focuses on automating stance and dogmatism detection in conversation threads using LLMs. While both deal with bias detection, Idea A is specifically about educational text bias and sociolinguistic theory, whereas Idea B is about tracking opinion dynamics over conversation threads with user annotation automation. The methods involve different aspects of NLP and language model utilization, and their applications are in distinct domains (education vs. conversation analysis).",
+        "is_match": false
+      },
+      {
+        "paper_id": "UnstiBOfnv",
+        "paper_title": "Style Over Substance: Evaluation Biases for Large Language Models",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "The two ideas address different problems: Idea A focuses on detecting biases in educational reviews, while Idea B evaluates biases in language model evaluations. The methodologies involve NLP processes, but A focuses on sociolinguistic features for bias detection, whereas B uses a rating system to assess language model outputs. Their application contexts differ, as A is about institutional equity and educational evaluations, while B involves evaluating language model performance.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "kXnk4uf1sK",
+      "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+      "paper_year": "2025",
+      "match_score": 4,
+      "problem_consistency": 5,
+      "method_similarity": 5,
+      "application_similarity": 3,
+      "reason": "虽然两个研究都涉及通过语言技术识别文本中的偏见，但其关注的具体问题和应用场景不同。Idea A解决的是学生评价中的语言意识形态和种族偏见问题，主要应用于教育场景；而Idea B研究的是政治话语中的性别偏见并评估LLM的有效性，尤其通过prompt engineering获取模型预测的确信度。两者都利用高级文本分析方法，但使用的技术路线和具体应用领域存在显著区别，因此匹配得分较低。",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_012"
+  },
+  {
+    "idea_text": "Background: Student evaluations often reflect underlying racial and language biases, particularly against nonnative English-speaking mathematics instructors, contributing to social exclusion and unequal academic experiences. Gap: While corpus linguistics offers systematic tools to analyze large-scale text data, it lacks explicit integration with critical race theory and language ideology frameworks necessary to uncover subtle and systemic bias in such evaluations. Proposed Method: This study introduces an interdisciplinary methodology that combines corpus linguistics with critical discourse analysis and critical race theory-informed annotation to examine RateMyProfessors.com evaluations. By embedding culturally sensitive analytic frameworks, the method identifies linguistic patterns reflective of racialized language ideologies and accent bias. Expected Result: The approach enables comprehensive, scalable analysis of student language, revealing pervasive mechanisms of exclusion and informing interventions to foster equity in academic evaluations. Core Innovation: The key innovation lies in embedding socially and culturally informed critical frameworks into the quantitative rigor of corpus linguistics to illuminate implicit biases in educational discourse.",
+    "all_results": [
+      {
+        "paper_id": "jyjfRLnfww",
+        "paper_title": "Causal Abstraction Finds Universal Representation of Race in Large Language Models",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "While both ideas address the issue of bias, they tackle different contexts: Idea A focuses on student evaluations and their racial biases in academic settings, whereas Idea B focuses on biases in large language models used for high-stakes decision-making. The methods employed are also different; Idea A uses an interdisciplinary approach combining corpus linguistics with critical discourse analysis, while Idea B utilizes causal abstraction and tests biases through defined tasks like RaceQA. The application domains – educational evaluations versus language model decision-making – are distinct, resulting in a low application similarity score.",
+        "is_match": false
+      },
+      {
+        "paper_id": "oqSKdRyYO1g",
+        "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+        "paper_year": "2023",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on uncovering biases in student evaluations using corpus linguistics combined with critical frameworks, while Idea B audits ASR services to reveal performance disparities based on racial and linguistic factors. Although both address bias and linguistic diversity, they tackle different types of data and systems (educational evaluations vs. speech recognition services) and employ different methodologies (corpus analysis vs. ASR performance audit). The application contexts differ, targeting academic evaluations in Idea A and ASR services in Idea B, leading to a moderately low overall match score.",
+        "is_match": false
+      },
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on analyzing student evaluations for bias using corpus linguistics combined with critical race theory, whereas Idea B targets debiasing word embeddings with a focus on indirect biases. The problems pertain to biases in linguistic contexts but apply different methods and target different outputs. Idea A embeds social frameworks into linguistic analysis, while Idea B modifies word co-occurrence for debiasing. The applications differ; one aims to expose biases in academic evaluations, the other to reduce bias in word embeddings.",
+        "is_match": false
+      },
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on analyzing bias in student evaluations using corpus linguistics integrated with social theory frameworks, while Idea B uses Large Language Models to analyze sexism in political discourse. The problems being addressed differ in their specific contexts and types of bias, and their methods are fundamentally different, utilizing distinct technologies and theoretical approaches. Although both are concerned with revealing implicit biases, the application domains (academic evaluations vs. political discourse) and technology used (corpus linguistics vs. LLMs) are not directly comparable, resulting in low similarity scores in all criteria.",
+        "is_match": false
+      },
+      {
+        "paper_id": "UnstiBOfnv",
+        "paper_title": "Style Over Substance: Evaluation Biases for Large Language Models",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "Idea A addresses bias in student evaluations through corpus linguistics with a focus on racial and language biases, while Idea B focuses on biases in the evaluation of LLMs using human and machine judges. The problems they solve are different; one is related to social biases in education and the other to accuracy in AI evaluation. Methodologically, both involve analysis and evaluation frameworks but apply them in different contexts and disciplines, hence some similarity but not high. The applications differ as one is educational and social, while the other is technological and computational.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "oqSKdRyYO1g",
+      "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+      "paper_year": "2023",
+      "match_score": 4,
+      "problem_consistency": 5,
+      "method_similarity": 4,
+      "application_similarity": 3,
+      "reason": "Idea A focuses on uncovering biases in student evaluations using corpus linguistics combined with critical frameworks, while Idea B audits ASR services to reveal performance disparities based on racial and linguistic factors. Although both address bias and linguistic diversity, they tackle different types of data and systems (educational evaluations vs. speech recognition services) and employ different methodologies (corpus analysis vs. ASR performance audit). The application contexts differ, targeting academic evaluations in Idea A and ASR services in Idea B, leading to a moderately low overall match score.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_013"
+  },
+  {
+    "idea_text": "Background: Student evaluations of nonnative English speaking instructors often reflect language ideologies and social biases, manifesting through subtle linguistic cues. Current language models excel at form-based processing but lack true semantic understanding necessary to capture these social nuances.\nGap: Despite their widespread use, prevailing neural language models rely heavily on linguistic form, limiting their capacity to reveal deep meaning and ideological structures in evaluative discourse.\nProposed Method: We propose advancing natural language understanding by developing meaning-centered models that integrate sociolinguistic theories with semantic representations to detect language ideology and bias in student evaluations. This approach moves beyond form-focused embeddings to interpretative frameworks sensitive to social context and meaning.\nExpected Result: The method will enhance detection and understanding of social exclusion mechanisms embedded in language use, providing a computational tool that aligns with sociolinguistic insights and addresses biases against nonnative English speaking instructors.",
+    "all_results": [
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 4,
+        "method_similarity": 5,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on understanding and detecting language ideology and bias specifically in student evaluations of nonnative English-speaking instructors, relying on sociolinguistic theories. Idea B utilizes large language models for detecting sexism in political discourse, comparing different LLMs for their efficacy in classification tasks. Although both involve detection of biases and ideological issues through text analysis, they target different types of biases and contexts. The methodologies differ slightly, with Idea A proposing a new framework incorporating sociolinguistic insights, while Idea B focuses on prompt engineering and confidence measures with existing LLMs. Application scenarios differ as Idea A addresses educational evaluations while Idea B targets political discourse.",
+        "is_match": false
+      },
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 5,
+        "application_similarity": 3,
+        "reason": "Although both ideas address bias in language, the problems they tackle differ. Idea A focuses on detecting language ideology and bias in student evaluations of nonnative English speaking instructors, while Idea B targets indirect biases in word embeddings by modifying relationships before embedding. Their methods show some similarity in addressing bias through language, but Idea B specifically targets distributional word embeddings and indirect stereotypes. The applications differ in that Idea A is centered on improving understanding in educational evaluation contexts, whereas Idea B is broader, aiming at improving word embedding techniques to mitigate biases. Therefore, the overall match score is moderate.",
+        "is_match": false
+      },
+      {
+        "paper_id": "WgbcOQMNXB",
+        "paper_title": "Large language models are not zero-shot communicators",
+        "paper_year": "2023",
+        "match_score": 5,
+        "problem_consistency": 6,
+        "method_similarity": 5,
+        "application_similarity": 4,
+        "reason": "Idea A and Idea B both deal with understanding language in context, which provides a moderate level of problem consistency. However, Idea A focuses on capturing language ideology and bias specifically in student evaluations of nonnative speakers, integrating sociolinguistic theories. Idea B, on the other hand, investigates large language models' ability to make inferences (implicatures) in context-heavy communication in general. Thus, their core methods diverge, with Idea A integrating sociolinguistic theory, while Idea B focuses on evaluating models' performance via designed tasks. They have different application goals, as Idea A targets bias detection in educational settings, whereas Idea B seeks improvements in general inferential abilities of conversational models, hence a lower application similarity score.",
+        "is_match": false
+      },
+      {
+        "paper_id": "GAXedKmbFZ",
+        "paper_title": "Disco-Bench: A Context-Aware Evaluation Benchmark for Language Modelling",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 4,
+        "reason": "Idea A focuses on detecting ideological biases and language nuances in evaluations of nonnative instructors by developing meaning-centered language models integrating sociolinguistic theories. Idea B addresses modeling discourse phenomena across sentences with a focus on document-level contexts using a new benchmark, Disco-Bench, for evaluation. While both engage with deeper understanding in NLP, Idea A is centered on social biases and evaluations, and Idea B on discourse properties evaluation across broader contexts. Their approaches and applications thus differ significantly.",
+        "is_match": false
+      },
+      {
+        "paper_id": "XIIynqbMXgR",
+        "paper_title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A targets the detection of language ideologies and biases in student evaluations of nonnative English speaking instructors by integrating sociolinguistic theories into semantic models. In contrast, Idea B introduces the GuoFeng benchmark for evaluating discourse phenomena in NLP, without a specific focus on language ideologies or social biases. While both ideas utilize NLP techniques, their core problems, methods, and applications differ significantly, with Idea A focusing on bias detection and Idea B on discourse modeling.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "WgbcOQMNXB",
+      "paper_title": "Large language models are not zero-shot communicators",
+      "paper_year": "2023",
+      "match_score": 5,
+      "problem_consistency": 6,
+      "method_similarity": 5,
+      "application_similarity": 4,
+      "reason": "Idea A and Idea B both deal with understanding language in context, which provides a moderate level of problem consistency. However, Idea A focuses on capturing language ideology and bias specifically in student evaluations of nonnative speakers, integrating sociolinguistic theories. Idea B, on the other hand, investigates large language models' ability to make inferences (implicatures) in context-heavy communication in general. Thus, their core methods diverge, with Idea A integrating sociolinguistic theory, while Idea B focuses on evaluating models' performance via designed tasks. They have different application goals, as Idea A targets bias detection in educational settings, whereas Idea B seeks improvements in general inferential abilities of conversational models, hence a lower application similarity score.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 5,
+    "idea_id": "idea_014"
+  },
+  {
+    "idea_text": "Background: Social exclusion of nonnative English speaking (NNES) mathematics instructors in English-medium US institutions is often reflected through biased student evaluations, shaped by language ideology. Such evaluations, typically noisy and containing irrelevant or biased content, pose challenges for sociolinguistic analysis. Gap: Existing abstractive summarization models, though effective in domain-specific noisy data like consumer health questions, have not been adapted to handle the unique social and linguistic signals in student evaluations concerning language bias. Proposed Method: We propose adapting the PEGASUS abstractive summarization model via domain-specific fine-tuning on RateMyProfessors.com evaluations of NNES instructors, enhancing its ability to identify and preserve sociolinguistic markers related to language ideology while filtering noise. This domain adaptation enables distilled summaries that foreground biased language and accent-related evaluations. Expected Result: Our adapted summarization method will facilitate clearer extraction of language ideology themes from large-scale noisy student evaluations, supporting deeper quantitative and qualitative analyses of social exclusion phenomena affecting NNES instructors.",
+    "all_results": [
+      {
+        "paper_id": "-UsbRlXzMG",
+        "paper_title": "How (Un)Fair is Text Summarization?",
+        "paper_year": "2023",
+        "match_score": 4,
+        "problem_consistency": 6,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses specifically on adapting a summarization model for analyzing biased evaluations of nonnative English speaking instructors in educational settings, while Idea B addresses the broader issue of bias in summarization algorithms across under-represented groups. The core problem of bias in summarization is somewhat consistent, but the methods differ as Idea A applies domain-specific fine-tuning, whereas Idea B advocates for bias analysis in general. The application and target are not very similar, with Idea A targeted specifically at educational settings and language ideology, unlike the broader stance in Idea B.",
+        "is_match": false
+      },
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 4,
+        "reason": "The two ideas tackle different problems: Idea A focuses on language ideology in student evaluations for NNES instructors, while Idea B addresses sexism detection in political discourse. The methods differ with Idea A adapting abstractive summarization for sociolinguistic markers, and Idea B using LLMs and prompt engineering for sexism detection and confidence estimation. Although both involve text analysis and bias detection, their scopes and goals are specific to different domains and issues.",
+        "is_match": false
+      },
+      {
+        "paper_id": "GAXedKmbFZ",
+        "paper_title": "Disco-Bench: A Context-Aware Evaluation Benchmark for Language Modelling",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on adapting a summarization model to handle biased linguistic evaluations specifically related to NNES mathematics instructors, whereas Idea B proposes a benchmark for evaluating linguistic phenomena beyond individual sentences in a variety of NLP tasks. Idea A addresses social exclusion in educational evaluations, and Idea B focuses on discourse phenomena evaluation in NLP tasks. Their problems, methods, and application scenarios differ significantly, with minor overlap in addressing linguistic evaluation aspects.",
+        "is_match": false
+      },
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "The two research ideas tackle different problems; Idea A focuses on extracting language biases from student evaluations to understand social exclusion, whereas Idea B deals with mitigating indirect biases in word embeddings, fundamentally unrelated. The methods differ significantly: Idea A involves adapting a summarization model to detect language biases, while Idea B modifies co-occurrence probabilities to reduce bias in embeddings. The application contexts differ, with Idea A targeting educational evaluations and social exclusion, and Idea B focusing on linguistic bias in computational models. Therefore, there is minimal overlap or similarity in problem, method, and application.",
+        "is_match": false
+      },
+      {
+        "paper_id": "XIIynqbMXgR",
+        "paper_title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "These research ideas address different problems: Idea A focuses on handling biased student evaluations related to sociolinguistic aspects, while Idea B is about modeling discourse across sentences and evaluating discourse phenomena in NLP tasks. The methodologies differ as Idea A employs domain-specific fine-tuning on summarization models, whereas Idea B proposes a new benchmark for discourse properties. Their applications also diverge, with Idea A targeting social exclusion in educational settings and Idea B aiming at improving discourse evaluation in NLP. Hence, they are not fundamentally similar.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "-UsbRlXzMG",
+      "paper_title": "How (Un)Fair is Text Summarization?",
+      "paper_year": "2023",
+      "match_score": 4,
+      "problem_consistency": 6,
+      "method_similarity": 4,
+      "application_similarity": 3,
+      "reason": "Idea A focuses specifically on adapting a summarization model for analyzing biased evaluations of nonnative English speaking instructors in educational settings, while Idea B addresses the broader issue of bias in summarization algorithms across under-represented groups. The core problem of bias in summarization is somewhat consistent, but the methods differ as Idea A applies domain-specific fine-tuning, whereas Idea B advocates for bias analysis in general. The application and target are not very similar, with Idea A targeted specifically at educational settings and language ideology, unlike the broader stance in Idea B.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_015"
+  },
+  {
+    "idea_text": "Background: Nonnative English-speaking mathematics instructors in the US face social exclusion manifested in student evaluations, reflecting language ideologies and biases. Gap: Existing analyses lack tools for intuitive exploration of subtle biased language patterns in large corpora of student reviews. Proposed Method: We adapt embedding generation methods tailored to capture linguistic biases in evaluation texts and employ Embedding Projector for interactive visualization and exploration of these embeddings. Expected Result: This approach facilitates nuanced understanding and identification of sociolinguistic bias clusters, aiding interventions against social exclusion.",
+    "all_results": [
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 6,
+        "problem_consistency": 7,
+        "method_similarity": 5,
+        "application_similarity": 6,
+        "reason": "The problem consistency is relatively high since both ideas address linguistic biases in language used within certain corpora. However, Idea A focuses on bias in student evaluations of nonnative English-speaking instructors, while Idea B addresses societal biases in general word embeddings. The method similarity is moderate; both involve word embeddings but differ in their approaches and objectives—Idea A uses visualization tools to explore biases, while Idea B modifies relationships in embeddings to reduce bias. Application similarity is somewhat aligned as both aim to address and understand stereotypes, but they apply it in different contexts and target different outcomes.",
+        "is_match": false
+      },
+      {
+        "paper_id": "UnstiBOfnv",
+        "paper_title": "Style Over Substance: Evaluation Biases for Large Language Models",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "The two ideas address distinctly different problems: Idea A focuses on identifying sociolinguistic biases in student evaluations of nonnative English-speaking instructors, while Idea B addresses biases in evaluating the performance of large language models. The methods proposed also differ; Idea A proposes using embedding techniques for visualization of linguistic biases, whereas Idea B suggests a new rating system (Multi-Elo Rating System) for evaluating LLM outputs. The application scenarios are not similar, with Idea A being about sociolinguistic analysis in educational evaluations and Idea B about improving LLM evaluation metrics. Hence, the ideas share little to no core innovation similarities.",
+        "is_match": false
+      },
+      {
+        "paper_id": "QQt0MwXA81",
+        "paper_title": "Do LLMs exhibit human-like response biases? A case study in survey design",
+        "paper_year": "2024",
+        "match_score": 1,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "The problems addressed by the two ideas are fundamentally different. Idea A focuses on identifying linguistic biases in student evaluations of nonnative mathematics instructors, while Idea B investigates the capabilities of large language models to replicate human response biases in surveys. The methods are also distinct: Idea A uses embedding visualization to detect language biases, whereas Idea B evaluates LLM sensitivity to prompt changes in surveys. The application contexts and goals are not aligned, as Idea A targets sociolinguistic bias in education, while Idea B is about model-human proxy evaluation in surveys.",
+        "is_match": false
+      },
+      {
+        "paper_id": "dd2CABUZaw",
+        "paper_title": "ChartBench: A Benchmark for Complex Visual Reasoning in Charts",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 1,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on the sociolinguistic biases faced by nonnative English-speaking instructors in student evaluations, while Idea B is about enhancing chart comprehension evaluation for MLLMs. The problems they address are fundamentally different, with one being about language and social biases and the other concerning technical evaluation of AI models. The methods are also dissimilar; Idea A employs embedding generation and visualization to understand biases, whereas Idea B involves creating a benchmark and evaluation metric for AI models. The application scenarios and objectives do not intersect as Idea A is a linguistic evaluation tool, and Idea B pertains to AI model assessment.",
+        "is_match": false
+      },
+      {
+        "paper_id": "YrxOdjYd1j8",
+        "paper_title": "Latent Topology Induction for Understanding Contextualized Representations",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on detecting socio-linguistic biases in evaluation texts using embedding visualization, addressing social exclusion in an educational setting. Idea B explores the latent topology of language model representations through a novel topological approach. The problems addressed are distinct, with A focusing on linguistic bias in real-world evaluations and B on foundational language model representations. The methods differ as A uses embeddings for bias detection, while B uses a variational autoencoder for discovering latent topological structures. The applications and goals are also different, with A aimed at improving social interventions and B at advancing model understanding.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "e-M4E3Jmnkq",
+      "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+      "paper_year": "2023",
+      "match_score": 6,
+      "problem_consistency": 7,
+      "method_similarity": 5,
+      "application_similarity": 6,
+      "reason": "The problem consistency is relatively high since both ideas address linguistic biases in language used within certain corpora. However, Idea A focuses on bias in student evaluations of nonnative English-speaking instructors, while Idea B addresses societal biases in general word embeddings. The method similarity is moderate; both involve word embeddings but differ in their approaches and objectives—Idea A uses visualization tools to explore biases, while Idea B modifies relationships in embeddings to reduce bias. Application similarity is somewhat aligned as both aim to address and understand stereotypes, but they apply it in different contexts and target different outcomes.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 6,
+    "idea_id": "idea_016"
+  },
+  {
+    "idea_text": "Background: Nonnative English-speaking mathematics instructors face social exclusion manifested in student evaluations through complex language ideologies and racial biases. Existing sociolinguistic methods lack scalable computational models that capture nuanced ideological patterns in unstructured text. Gap: While LASAGNE, a novel combination of Transformer and graph attention networks, excels in multi-task semantic parsing over knowledge graphs, it has not been applied to analyze social-linguistic ideological biases in evaluative texts. Proposed Method: We propose LASAGNE-BIAS, adapting the multi-task Transformer+GAT architecture to model ideological bias by constructing socio-linguistic feature graphs from RateMyProfessors.com evaluations and learning their interrelations through graph attention. This approach leverages Transformer embeddings enriched with social and discourse markers, enabling detection of subtle exclusionary language patterns. Expected Result: LASAGNE-BIAS is expected to provide fine-grained, scalable analysis of language ideology in student evaluations, revealing the structural patterns of social exclusion and enhancing understanding of bias mechanisms. Core Innovation: Introducing a novel adaptation of multi-task Transformer and graph attention networks for modeling complex socio-linguistic relationships in ideological bias detection within unstructured textual evaluations.",
+    "all_results": [
+      {
+        "paper_id": "rIt0sJsZw9",
+        "paper_title": "Clustering Entity Specific Embeddings Towards a Prescribed Distribution",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 5,
+        "application_similarity": 1,
+        "reason": "Idea A and Idea B address different problems with Idea A focusing on ideological bias detection in student evaluations and Idea B addressing entity-specific tasks within transformer architectures. They share some methodological similarities in transformer adaptations but differ significantly in application areas, with Idea A applied to sociolinguistic biases and Idea B to NLP and sports analytics.",
+        "is_match": false
+      },
+      {
+        "paper_id": "XIIynqbMXgR",
+        "paper_title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "paper_year": "2023",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on detecting ideological bias in student evaluations using Transformer and graph attention networks, while Idea B evaluates discourse phenomena across NLP tasks. The problem areas overlap in linguistic analysis but differ in their specific focus (social exclusion vs. discourse modeling). The methods both involve advanced Transformer architectures, but Idea A applies these in the context of sociolinguistic analysis, whereas Idea B uses them for broader discourse evaluation. The application scenarios diverge: Idea A targets bias detection in educational evaluations, whereas Idea B addresses discourse phenomena in diverse NLP tasks.",
+        "is_match": false
+      },
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "虽然两者都涉及通过某种技术来分析和减轻语言中的偏见，但Idea A关注的是教师评估中的社会语言学偏见，主要通过文本分析和社会语言学特征图来揭示结构性排斥。Idea B则处理词嵌入中的间接语言偏见，通过对词共现概率进行调整来削弱这些偏见。因此，二者面临的具体问题、采用的技术路线和应用场景均存在显著差异。",
+        "is_match": false
+      },
+      {
+        "paper_id": "Sc5rcsoyKR",
+        "paper_title": "Enhancing Unsupervised Sentence Embeddings via Knowledge-Driven Data Augmentation and Gaussian-Decayed Contrastive Learning",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A addresses the analysis of sociolinguistic biases in student evaluations using Transformer and graph attention networks, while Idea B focuses on data augmentation using LLMs to improve sentence embeddings. The problems differ—one targets ideological bias in evaluations, the other improves semantic embeddings. Although both utilize graphs, their methods relate to different aspects: social-linguistic feature graphs versus knowledge graphs. Applications also differ: Idea A applies to social exclusion in educational evaluations, whereas Idea B deals with semantic textual similarity tasks.",
+        "is_match": false
+      },
+      {
+        "paper_id": "tmwR707odU",
+        "paper_title": "Curriculum GNN-LLM Alignment for Text-Attributed Graphs",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "The problems addressed by Idea A and Idea B are not consistent; Idea A focuses on sociolinguistic ideological bias in evaluations, while Idea B deals with text-structure imbalance in TAGs. The methods involve the integration of Transformer and GNN architectures, but differ significantly in their approach and focus—Idea A uses graph attention networks for ideological bias, whereas Idea B employs curriculum learning to balance textual and structural information. Applications differ too, as Idea A targets bias detection in student evaluations, and Idea B optimizes node classification in TAGs using curriculum alignment. Overall, while both use advanced computational models, their core innovations lie in different areas and applications.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "XIIynqbMXgR",
+      "paper_title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+      "paper_year": "2023",
+      "match_score": 4,
+      "problem_consistency": 5,
+      "method_similarity": 4,
+      "application_similarity": 3,
+      "reason": "Idea A focuses on detecting ideological bias in student evaluations using Transformer and graph attention networks, while Idea B evaluates discourse phenomena across NLP tasks. The problem areas overlap in linguistic analysis but differ in their specific focus (social exclusion vs. discourse modeling). The methods both involve advanced Transformer architectures, but Idea A applies these in the context of sociolinguistic analysis, whereas Idea B uses them for broader discourse evaluation. The application scenarios diverge: Idea A targets bias detection in educational evaluations, whereas Idea B addresses discourse phenomena in diverse NLP tasks.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_017"
+  },
+  {
+    "idea_text": "Background: Nonnative English-speaking (NNES) instructors in US English-medium institutions often face evaluative bias linked to language ideologies and accent discrimination, as manifested in student reviews. However, existing large-scale American English corpora like COCA have not been designed to capture such sociolinguistic phenomena within student evaluation texts.\n\nGap: There is a lack of systematic, data-driven approaches that integrate rich linguistic resources with sociolinguistic and ideological analysis methods to examine bias in online student evaluations.\n\nProposed Method: We propose extending the COCA corpus framework to include a domain-specific subcorpus of RateMyProfessors.com student evaluations themed around NNES instructors. By integrating sociolinguistic metadata and developing sentiment and discourse analysis tools within COCA’s relational database architecture, this approach facilitates comprehensive quantitative and qualitative analysis of language ideology and accent bias.\n\nExpected Result: This enhanced corpus-based method will enable researchers to systematically uncover linguistic patterns reflecting social exclusion and ideological positions in student evaluations, thereby providing empirical grounding for efforts to address bias against NNES instructors.\n\nCore Innovation: The core innovation lies in bridging a large, balanced corpus infrastructure with sociolinguistically-informed evaluative subcorpora and analytical tools to quantify and explicate language ideology and accent bias in educational settings.",
+    "all_results": [
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "Idea A and B address different types of biases: linguistic ideology/accent bias and indirect bias in word embeddings, respectively. The methods differ significantly—Idea A focuses on corpus enhancement and sociolinguistic analysis, whereas Idea B modifies word embedding methodologies to mitigate bias. The application contexts—educational settings and computational linguistic models—also differ, with Idea A aimed at educational biases and Idea B targeting bias in AI language models.",
+        "is_match": false
+      },
+      {
+        "paper_id": "oqSKdRyYO1g",
+        "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+        "paper_year": "2023",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 3,
+        "application_similarity": 4,
+        "reason": "Idea A focuses on the biases in student evaluations of NNES instructors, using corpus analysis to identify language ideology and accent bias in educational settings. Idea B deals with discriminatory performance of ASR services related to nationality and language background, with an emphasis on geopolitical power structures influencing biases in speech recognition. The problems both address language-related biases, but in different contexts and applications. The methods are distinct; Idea A uses corpus analysis with metadata integration, while Idea B performs audits of ASR services with statistical analysis relating to geopolitical factors. The applications differ as one is in educational evaluation and the other in ASR systems.",
+        "is_match": false
+      },
+      {
+        "paper_id": "52Idqv2FNY",
+        "paper_title": "Correlating and Predicting Human Evaluations of Language Models from Natural Language Processing Benchmarks",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on sociolinguistic bias in student evaluations of NNES instructors, while Idea B addresses the correlation between human evaluations and NLP benchmarks in language models. The problems are related to evaluation methods but in distinct fields and contexts. The methods differ, with Idea A integrating sociolinguistic metadata into corpus analysis and Idea B analyzing correlations between evaluation types for LMs. The applications are different, as Idea A aims at addressing bias in educational settings, whereas Idea B focuses on improving language model evaluation processes.",
+        "is_match": false
+      },
+      {
+        "paper_id": "UnstiBOfnv",
+        "paper_title": "Style Over Substance: Evaluation Biases for Large Language Models",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on language ideology biases in student evaluations of NNES instructors, while Idea B addresses biases in evaluations of machine-generated text by humans and LLMs. The methodological approaches differ significantly, with Idea A developing a corpus framework for sociolinguistic analysis and Idea B proposing a rating system for evaluation biases. The application and goals of the research are distinct, targeting different fields and types of evaluations.",
+        "is_match": false
+      },
+      {
+        "paper_id": "XIIynqbMXgR",
+        "paper_title": "GuoFeng: A Discourse-aware Evaluation Benchmark for Language Understanding, Translation and Generation",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on bias in student evaluations of NNES instructors through a sociolinguistic and corpus-based approach, whereas Idea B targets improving NLP discourse modeling across sentences using a new benchmark and evaluation of models. The problems addressed are different: linguistic bias vs. discourse evaluation. The methods differ with Idea A enhancing corpora for sociolinguistic bias analysis, while Idea B develops a benchmark for discourse phenomena. Applications diverge, targeting educational bias versus NLP model improvement.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "oqSKdRyYO1g",
+      "paper_title": "Performance Disparities Between Accents in Automatic Speech Recognition",
+      "paper_year": "2023",
+      "match_score": 4,
+      "problem_consistency": 5,
+      "method_similarity": 3,
+      "application_similarity": 4,
+      "reason": "Idea A focuses on the biases in student evaluations of NNES instructors, using corpus analysis to identify language ideology and accent bias in educational settings. Idea B deals with discriminatory performance of ASR services related to nationality and language background, with an emphasis on geopolitical power structures influencing biases in speech recognition. The problems both address language-related biases, but in different contexts and applications. The methods are distinct; Idea A uses corpus analysis with metadata integration, while Idea B performs audits of ASR services with statistical analysis relating to geopolitical factors. The applications differ as one is in educational evaluation and the other in ASR systems.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_018"
+  },
+  {
+    "idea_text": "Background: Evaluations of nonnative English speaking (NNES) mathematics instructors often reveal socially exclusionary language ideologies manifesting through subtle biases in student comments. However, analyzing these complex sociolinguistic phenomena requires flexible representation of multilayer, potentially conflicting annotations capturing race and language ideology constructs. Gap: Existing analysis methods lack a unified data structure to represent and query richly annotated heterogeneous linguistic data with social ideological dimensions. Proposed Method: We extend a generic graph-based model for heterogeneous language corpora by integrating a novel multi-layer annotation schema tailored to capture evaluative biases related to race and language ideology from RateMyProfessors student evaluations. NLP and manual annotations populate these layers, facilitating complex queries and visualizations of exclusionary discourse patterns. Expected Result: This approach enables nuanced, scalable analysis of social exclusion mechanisms in student evaluations, advancing understanding of language ideologies impacting NNES instructors and informing equitable educational practices. Core innovation: Integration of sociolinguistically motivated multilayer ideological annotations within a flexible graph-based corpus representation enables unprecedented analysis of biased student evaluations.",
+    "all_results": [
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "While both ideas address biases in language, they focus on different aspects and contexts. Idea A concerns biases in student evaluations of NNES instructors, involving a graph-based model integrating multilayer annotations. Idea B tackles indirect biases in word embeddings, focusing on adjusting biased relationships in word co-occurrences. The methods are distinct, with A employing sociolinguistic annotations and B employing modifications of word co-occurrence probabilities. The applications differ: A aims to inform educational practices regarding NNES instructors, while B addresses biases in word embeddings with broader NLP implications.",
+        "is_match": false
+      },
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on sociolinguistic biases related to race and language ideologies in educational evaluations, while Idea B addresses detecting sexism in political discourse using LLMs. The core problems, methods, and applications differ significantly, with minimal overlap in analyzing bias in language constructs.",
+        "is_match": false
+      },
+      {
+        "paper_id": "kFALGqLp46",
+        "paper_title": "Sanitizing LLMs: Retrospective Learning for Self-Correction of Inconsistent Samples via User Preferences",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "The two ideas address different problems: Idea A focuses on analyzing sociolinguistic biases in student evaluations of NNES instructors, whereas Idea B tackles inconsistencies in LLM-generated annotations for unsupervised tasks. Their core methods differ significantly, with Idea A using a graph-based model for multilayer annotations, and Idea B involving a CAI ratio and Retrospective Learning. The application scenarios do not align, as Idea A targets educational evaluations, while Idea B is applied to domain-specific NLP datasets.",
+        "is_match": false
+      },
+      {
+        "paper_id": "jyjfRLnfww",
+        "paper_title": "Causal Abstraction Finds Universal Representation of Race in Large Language Models",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 6,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "While both ideas address bias, Idea A focuses on sociolinguistic biases in student evaluations of NNES instructors and advances in corpus representation for analysis, and Idea B deals with racial bias mechanisms in LLM decision-making. Methodologically, Idea A uses multilayer annotation schemas, while Idea B uses causal abstraction and race alignment techniques, which are different approaches. The application contexts differ: education evaluations versus decisions in college admissions and hiring. Thus, these research ideas diverge, with some overlap in problem consistency regarding bias analysis.",
+        "is_match": false
+      },
+      {
+        "paper_id": "GAXedKmbFZ",
+        "paper_title": "Disco-Bench: A Context-Aware Evaluation Benchmark for Language Modelling",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "The core problems addressed by the ideas are different; Idea A focuses on sociolinguistic bias in student evaluations, while Idea B emphasizes modeling contextual discourse phenomena in NLP tasks. The methods differ significantly, with Idea A proposing a graph-based multilayer annotation for biased student evaluations and Idea B introducing a benchmark for inter-sentence discourse modeling. Application scenarios are also distinct, with Idea A targeting equitable educational practices for NNES instructors and Idea B aimed at improving NLP model discourse understanding.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "jyjfRLnfww",
+      "paper_title": "Causal Abstraction Finds Universal Representation of Race in Large Language Models",
+      "paper_year": "2025",
+      "match_score": 4,
+      "problem_consistency": 6,
+      "method_similarity": 4,
+      "application_similarity": 2,
+      "reason": "While both ideas address bias, Idea A focuses on sociolinguistic biases in student evaluations of NNES instructors and advances in corpus representation for analysis, and Idea B deals with racial bias mechanisms in LLM decision-making. Methodologically, Idea A uses multilayer annotation schemas, while Idea B uses causal abstraction and race alignment techniques, which are different approaches. The application contexts differ: education evaluations versus decisions in college admissions and hiring. Thus, these research ideas diverge, with some overlap in problem consistency regarding bias analysis.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_019"
+  },
+  {
+    "idea_text": "Background: Nonnative English-speaking (NNES) instructors in the US face social exclusion reflected in student evaluation comments that express language ideology and racial bias. Understanding these phenomena at scale remains challenging due to the qualitative nature of the data. Gap: Existing bibliometric and scientometric methods excel at analyzing research literature trends but have not been applied to socio-linguistic textual data such as student evaluations to identify ideological themes systematically. Proposed Method: We propose adapting bibliometric scientific mapping techniques, originally designed for COVID-19 management literature, to large-scale text mining of RateMyProfessors student evaluations. This approach integrates sociolinguistic coding with network analysis to detect theme clusters related to language ideology and racial bias against NNES mathematics instructors. Expected Result: This novel methodology enables quantification and visualization of ideological patterns in large textual datasets, providing new insights into the social processes driving exclusion in academia and informing interventions to improve equity and inclusion. The core innovation is the cross-disciplinary adaptation of bibliometric mapping frameworks to socio-linguistic textual data for analyzing language ideology in student evaluations.",
+    "all_results": [
+      {
+        "paper_id": "e-M4E3Jmnkq",
+        "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 4,
+        "reason": "The two ideas focus on different aspects of bias and exclusion; Idea A centers on language ideology and racial bias in student evaluations, whereas Idea B addresses indirect bias in word embeddings. Although both involve addressing bias in textual data, their core methodologies differ: Idea A applies bibliometric mapping to socio-linguistic data, while Idea B modifies word embedding processes to mitigate indirect bias. The application contexts are also distinct, with Idea A aiming to improve equity in academic settings and Idea B focusing on improving word embeddings in NLP tasks.",
+        "is_match": false
+      },
+      {
+        "paper_id": "kXnk4uf1sK",
+        "paper_title": "We are confident in trusting Language Models for annotating online sexism in political discourse, but are they good?",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "The core problems addressed by Idea A and Idea B are different, with A focusing on identifying language ideology and racial bias in student evaluations, while B examines sexism in political discourse using LLMs. While both involve text analysis, the methods differ, as A adapts bibliometric techniques for socio-linguistic analysis, whereas B employs LLMs for classification tasks. Application scenarios differ: A targets academia-induced exclusion for NNES instructors, while B addresses sexism within political discourse. Thus, overall similarity is low across all criteria.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Ncx0X8lcN1",
+        "paper_title": "HiReview: Hierarchical Taxonomy-Driven Automatic Literature Review Generation",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on analyzing student evaluations for language ideology and racial bias using adapted bibliometric mapping methods, while Idea B involves generating literature reviews using taxonomy-driven methods with LLMs. The problems addressed are different: socio-linguistic analysis vs. literature review generation. The methodologies have some similarities in using network-based analysis but differ in execution and purpose. The applications are distinct, focusing on socio-linguistic bias and academic document summarization, respectively.",
+        "is_match": false
+      },
+      {
+        "paper_id": "JsM46OZix7",
+        "paper_title": "BiMix: Bivariate Data Mixing Law for Language Model Pretraining",
+        "paper_year": "2025",
+        "match_score": 1,
+        "problem_consistency": 1,
+        "method_similarity": 1,
+        "application_similarity": 1,
+        "reason": "The two ideas address fundamentally different issues: Idea A focuses on sociolinguistic analysis of student evaluations to identify language ideology and racial bias, while Idea B concerns optimizing data composition in language model training. Their methods are distinct, with Idea A employing bibliometric mapping for text analysis and Idea B introducing a novel data mixing law for pretraining. The application scenarios and aims also diverge significantly, with Idea A targeting educational equity and Idea B enhancing LLM performance.",
+        "is_match": false
+      },
+      {
+        "paper_id": "IwhvaDrL39",
+        "paper_title": "Research Town: Simulator of Research Community",
+        "paper_year": "2025",
+        "match_score": 1,
+        "problem_consistency": 2,
+        "method_similarity": 1,
+        "application_similarity": 0,
+        "reason": "The problem in Idea A focuses on analyzing language ideology and racial bias in student evaluations of nonnative English-speaking instructors using socio-linguistic text data, while Idea B addresses the simulation of human research communities using LLMs. The core methods differ as Idea A proposes adapting bibliometric techniques for text mining and network analysis, whereas Idea B employs a multi-agent framework and a text-based inference model to simulate research processes. The applications and objectives are different: Idea A aims to provide insights into social exclusion in academia, and Idea B focuses on understanding research idea generation and fostering interdisciplinary research. Consequently, the overall similarity between the two ideas is minimal.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "e-M4E3Jmnkq",
+      "paper_title": "Detecting and Mitigating Indirect Stereotypes in Word Embeddings",
+      "paper_year": "2023",
+      "match_score": 3,
+      "problem_consistency": 2,
+      "method_similarity": 3,
+      "application_similarity": 4,
+      "reason": "The two ideas focus on different aspects of bias and exclusion; Idea A centers on language ideology and racial bias in student evaluations, whereas Idea B addresses indirect bias in word embeddings. Although both involve addressing bias in textual data, their core methodologies differ: Idea A applies bibliometric mapping to socio-linguistic data, while Idea B modifies word embedding processes to mitigate indirect bias. The application contexts are also distinct, with Idea A aiming to improve equity in academic settings and Idea B focusing on improving word embeddings in NLP tasks.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 3,
+    "idea_id": "idea_020"
+  }
+]

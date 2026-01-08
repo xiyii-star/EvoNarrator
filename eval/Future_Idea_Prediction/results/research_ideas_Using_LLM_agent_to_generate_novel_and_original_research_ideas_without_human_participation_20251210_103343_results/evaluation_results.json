@@ -1,0 +1,742 @@
+[
+  {
+    "idea_text": "Background: Understanding how opinions evolve in interactions among Large Language Models (LLMs) is critical for addressing challenges such as polarization and consensus formation. Existing studies often overlook the nuanced distinction between selective agreement and sycophantic behavior in opinion dynamics. Gap: There is a lack of formalized frameworks that capture the structured, asymmetric persuasion mechanisms underlying opinion evolution in LLM agent debates, specifically differentiating genuine selective agreement from blind conformity. Proposed Method: We introduce a novel framework embedding an interpretable persuasion-state transition model into multi-round debate simulations among LLM agents. This approach enables explicit quantification and tracking of opinion state changes attributed to selective influence rather than sycophantic mimicry. Expected Result: Our method elucidates the complex mechanisms of opinion dynamics in LLM interactions, offering richer insights into how consensus emerges through selective persuasion, advancing theoretical understanding and practical modeling of opinion formation in artificial agent societies.",
+    "all_results": [
+      {
+        "paper_id": "Yol6nUVIJD",
+        "paper_title": "ReConcile: Round-Table Conference Improves Reasoning via Consensus among Diverse LLMs",
+        "paper_year": "2024",
+        "match_score": 4,
+        "problem_consistency": 4,
+        "method_similarity": 5,
+        "application_similarity": 4,
+        "reason": "Both ideas deal with opinion dynamics among LLM agents but from different problem contexts. Idea A focuses on understanding and modeling opinion evolution and the mechanisms of selective persuasion versus conformity. Idea B aims to improve reasoning through collaboration and discussion among diverse LLMs to reach a consensus. The methods have some overlap in employing multi-round discussions among LLMs, but the core focus is different: Idea A is more about modeling opinion dynamics, while Idea B is about enhancing reasoning capabilities. As for applications, while both involve agent interactions, the specific goals are different, leading to moderate similarity.",
+        "is_match": false
+      },
+      {
+        "paper_id": "ueqTjOcuLc",
+        "paper_title": "Exploring Collaboration Mechanisms for LLM Agents: A Social Psychology View",
+        "paper_year": "2024",
+        "match_score": 6,
+        "problem_consistency": 7,
+        "method_similarity": 5,
+        "application_similarity": 6,
+        "reason": "Both ideas aim to understand interaction dynamics among LLMs, focusing on how opinions or decisions evolve in multi-agent systems. Idea A emphasizes the differentiation between selective agreement and sycophantic behavior using a persuasive model, while Idea B focuses on collaborative intelligence manifested through human-like social behaviors. The problem areas slightly overlap with a distinction in the emphasis on opinion dynamics (Idea A) vs. social collaboration mechanisms (Idea B). The methods are different in that Idea A proposes a novel framework for analyzing debates, whereas Idea B develops societies with inherent traits to study collaborative efficiency. The application contexts are similar, as both deal with LLM society interactions, but they differ in the specifics of what is being measured and analyzed.",
+        "is_match": false
+      },
+      {
+        "paper_id": "EP6n8LCEK6",
+        "paper_title": "Understanding Prejudice and Fidelity of Diverge-to-Converge Multi-Agent Systems",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on understanding opinion dynamics in LLM interactions, particularly the distinction between selective agreement and sycophantic behavior. Idea B addresses the prejudice and fidelity in Diverge-to-Converge systems, focusing more on biases and performance. Their problems, methods, and applications differ significantly, with A exploring opinion mechanisms and B analyzing system biases and agent scalability.",
+        "is_match": false
+      },
+      {
+        "paper_id": "06ZvHHBR0i",
+        "paper_title": "Adversarial Multi-Agent Evaluation of Large Language Models through Iterative Debate",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on understanding opinion dynamics among LLMs, particularly emphasizing the difference between genuine selective agreement and sycophantic behavior during interactions. Idea B, however, concentrates on using LLMs in an adversarial debate framework to evaluate their outputs, focusing primarily on improving evaluation metrics and methodologies. While both ideas involve interactions among LLMs, the specific problems they address are different: one about opinion dynamics and the other about evaluation strategies. The methods also differ: Idea A uses a persuasion-state model, while Idea B adopts a debate and scoring framework. Furthermore, the application objectives diverge as Idea A targets theoretical insights into opinion formation, and Idea B aims at enhancing LLM evaluation.",
+        "is_match": false
+      },
+      {
+        "paper_id": "WDheQxWAo4",
+        "paper_title": "Simple synthetic data reduces sycophancy in large language models",
+        "paper_year": "2025",
+        "match_score": 6,
+        "problem_consistency": 8,
+        "method_similarity": 5,
+        "application_similarity": 6,
+        "reason": "Both ideas address the issue of opinion dynamics in language models, specifically focusing on the distinction between genuine opinion formation and sycophantic behavior. However, Idea A dives deeper into creating a theoretical framework for understanding this in multi-agent LLM systems, while Idea B focuses on identifying and mitigating sycophancy through synthetic-data intervention. The method in Idea B is more practical and specific, whereas Idea A's method is more conceptual and broad. Application-wise, both aim to improve opinion modeling in LLMs but differ in scope and depth.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "ueqTjOcuLc",
+      "paper_title": "Exploring Collaboration Mechanisms for LLM Agents: A Social Psychology View",
+      "paper_year": "2024",
+      "match_score": 6,
+      "problem_consistency": 7,
+      "method_similarity": 5,
+      "application_similarity": 6,
+      "reason": "Both ideas aim to understand interaction dynamics among LLMs, focusing on how opinions or decisions evolve in multi-agent systems. Idea A emphasizes the differentiation between selective agreement and sycophantic behavior using a persuasive model, while Idea B focuses on collaborative intelligence manifested through human-like social behaviors. The problem areas slightly overlap with a distinction in the emphasis on opinion dynamics (Idea A) vs. social collaboration mechanisms (Idea B). The methods are different in that Idea A proposes a novel framework for analyzing debates, whereas Idea B develops societies with inherent traits to study collaborative efficiency. The application contexts are similar, as both deal with LLM society interactions, but they differ in the specifics of what is being measured and analyzed.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 6,
+    "idea_id": "idea_001"
+  },
+  {
+    "idea_text": "Background: Understanding how opinions evolve during interactions among language models is critical for addressing issues like polarization, consensus, and reliability. Reinforcement learning from human feedback (RLHF) is known to induce sycophantic behaviors in LLMs, biasing outputs toward user-aligned but potentially misleading answers.\nGap: Current studies identify RLHF-induced sycophancy but lack formal opinion dynamics models that incorporate this bias to distinguish genuine selective agreement from sycophantic responses in LLM interactions.\nProposed Method: We introduce an extended opinion dynamics framework embedding an \"RLHF-induced response bias\" parameter within multi-agent interaction models involving LLMs. This parameter modulates opinion update rules to simulate the tendency toward sycophancy. Metrics are designed to differentiate selective agreement from sycophancy by analyzing the nature and drivers of opinion convergence.\nExpected Result: Our framework enables granular analysis of opinion evolution and bias impact in LLM interactions, providing insights into how RLHF shapes output reliability and helping design strategies to mitigate unwanted sycophancy while preserving genuine agreement.",
+    "all_results": [
+      {
+        "paper_id": "Yol6nUVIJD",
+        "paper_title": "ReConcile: Round-Table Conference Improves Reasoning via Consensus among Diverse LLMs",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "The problems addressed are partially related as both concern the improvement of interaction outcomes among LLMs. However, Idea A focuses on modeling and mitigating sycophancy induced by RLHF, whereas Idea B aims to enhance reasoning through multi-agent discussion. The methods differ significantly: Idea A introduces an opinion dynamics framework with bias parameters, while Idea B implements a multi-agent consensus framework using confidence-weighted voting. The application scenarios diverge, with Idea A oriented towards understanding opinion bias and Idea B towards achieving improved reasoning through consensus. Consequently, the match score reflects a low level of convergence.",
+        "is_match": false
+      },
+      {
+        "paper_id": "hrGOMrfc2z",
+        "paper_title": "Interactive Dialogue Agents via Reinforcement Learning with Hindsight Regenerations",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "While both ideas involve understanding interactions involving language models, their core focuses diverge. Idea A centers on the concept of sycophancy and opinion dynamics in language models, introducing a new framework to study biased interactions specifically resulting from RLHF. Idea B, on the other hand, aims at steering conversations based on understanding human responses, particularly in dialogues, using offline reinforcement learning for better performance in practical applications like mental health and donations. The methodological similarity is limited as the approaches target different aspects and apply distinct techniques. Applications differ significantly given the focus on opinion dynamics in Idea A versus dialogue steering in specific domains for Idea B.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Hbbus5IOYt",
+        "paper_title": "How Does RLHF Shift Behavior Distributions? Distinguishability and Steerability",
+        "paper_year": "2024",
+        "match_score": 6,
+        "problem_consistency": 7,
+        "method_similarity": 5,
+        "application_similarity": 6,
+        "reason": "Both ideas address the impact of RLHF on LLM behavior, focusing on biases induced by this learning approach. However, Idea A aims to develop a formal opinion dynamics model incorporating RLHF-induced sycophancy, while Idea B analyzes RLHF's effect on behavior steerability with persona prompts, without explicitly modeling opinion dynamics. Thus, their methodologies diverge. The application scenarios are related but not identical, as Idea A seeks to understand opinion convergence, while Idea B examines behavior decomposition and steerability.",
+        "is_match": false
+      },
+      {
+        "paper_id": "QQt0MwXA81",
+        "paper_title": "Do LLMs exhibit human-like response biases? A case study in survey design",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on modeling the opinion dynamics in LLM interactions, emphasizing sycophancy caused by reinforcement learning from human feedback, while Idea B investigates LLMs acting as human proxies specifically in the context of survey responses and examines their sensitivity to prompt changes. The problems addressed are different, with Idea A targeting sycophantic behavior in opinion evolution and Idea B concentrating on prompt sensitivity and human-like biases. The methodologies differ as well, with Idea A proposing an opinion dynamics framework and Idea B using a survey-based evaluation approach. The application scenarios are also distinct, with Idea A aiming to understand opinion convergence in multi-agent systems, and Idea B dealing with reliability and biases in using LLMs for human-like tasks.",
+        "is_match": false
+      },
+      {
+        "paper_id": "dTQmayPKMs",
+        "paper_title": "Understanding Impact of Human Feedback via Influence Functions",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 3,
+        "method_similarity": 5,
+        "application_similarity": 4,
+        "reason": "Idea A and Idea B both address issues related to RLHF in LLMs, but with different focuses: Idea A is concerned with modeling opinion dynamics and sycophancy, while Idea B focuses on improving reward models by using influence functions to counteract bias in human feedback. The proposed methods are different, with Idea A suggesting an opinion dynamics framework and Idea B employing influence functions. The application scenarios overlap in the context of improving LLM reliability and alignment, but target different aspects of RLHF-induced bias.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "Hbbus5IOYt",
+      "paper_title": "How Does RLHF Shift Behavior Distributions? Distinguishability and Steerability",
+      "paper_year": "2024",
+      "match_score": 6,
+      "problem_consistency": 7,
+      "method_similarity": 5,
+      "application_similarity": 6,
+      "reason": "Both ideas address the impact of RLHF on LLM behavior, focusing on biases induced by this learning approach. However, Idea A aims to develop a formal opinion dynamics model incorporating RLHF-induced sycophancy, while Idea B analyzes RLHF's effect on behavior steerability with persona prompts, without explicitly modeling opinion dynamics. Thus, their methodologies diverge. The application scenarios are related but not identical, as Idea A seeks to understand opinion convergence, while Idea B examines behavior decomposition and steerability.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 6,
+    "idea_id": "idea_002"
+  },
+  {
+    "idea_text": "Background: Understanding opinion dynamics in large language model (LLM) interactions, particularly distinguishing selective agreement from sycophancy, is crucial for mitigating polarization and fostering consensus. Existing approaches lack sufficient labeled data capturing nuanced social behaviors, impeding reliable detection and analysis. Gap: While synthetic text generation has advanced supervised learning via data augmentation, its application to modeling social opinion dynamics and selective agreement within LLM interactions remains unexplored. Proposed Method: We propose a novel synthetic data generation framework that creates interaction data simulating diverse opinion dynamics behaviors, including selective agreement and sycophancy, by incorporating social influence constraints into transformer-based text generation models. This synthetic data serves to train classifiers and analytical models for robustly detecting and understanding opinion evolution patterns in LLM interactions. Expected Result: This approach is expected to provide richer, interpretable datasets enabling improved annotation and detection of selective agreement versus sycophantic behaviors, thereby advancing research on opinion dynamics and enhancing LLM interaction transparency. Core Innovation: The core innovation is the controllable synthetic generation of opinionated interaction data reflecting selective agreement and sycophancy patterns to enable targeted analysis and classification of complex opinion dynamics in LLMs.",
+    "all_results": [
+      {
+        "paper_id": "Eaw1ZrsNUN",
+        "paper_title": "USDC: A Dataset of $\\underline{U}$ser $\\underline{S}$tance and $\\underline{D}$ogmatism in Long $\\underline{C}$onversations",
+        "paper_year": "2025",
+        "match_score": 5,
+        "problem_consistency": 6,
+        "method_similarity": 4,
+        "application_similarity": 5,
+        "reason": "Both ideas address the challenge of understanding opinion dynamics in language model interactions. However, Idea A focuses specifically on selective agreement and sycophancy in LLM interactions using synthetic data generation, while Idea B targets user stance and dogmatism in long conversation threads on various topics, leveraging LLM for annotation. Methodologically, Idea A proposes synthetic data generation for opinion dynamics modeling, whereas Idea B uses existing LLMs for automated annotation and classification. The applications also differ with Idea A aiming at improving LLM interaction transparency and Idea B targeting personalization and other practical applications.",
+        "is_match": false
+      },
+      {
+        "paper_id": "GvMuB-YsiK6",
+        "paper_title": "Explaining Patterns in Data  with  Language Models via Interpretable Autoprompting",
+        "paper_year": "2023",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on understanding opinion dynamics and distinguishing selective agreement from sycophancy in LLM interactions, proposing synthetic data generation for classifier training. Idea B, however, involves generating human-interpretable prompts using pre-trained LLMs to explain and find patterns in data, aiming for scientific discovery and dataset generalization. The problems addressed and methods proposed are distinct, as Idea A is about opinion dynamics detection while Idea B emphasizes natural language explanations and pattern discovery. Applications are also different, with Idea A targeting LLM interaction transparency and Idea B aiming at dataset interpretation and scientific discovery.",
+        "is_match": false
+      },
+      {
+        "paper_id": "WDheQxWAo4",
+        "paper_title": "Simple synthetic data reduces sycophancy in large language models",
+        "paper_year": "2025",
+        "match_score": 8,
+        "problem_consistency": 8,
+        "method_similarity": 7,
+        "application_similarity": 8,
+        "reason": "Both ideas address the issue of sycophancy in large language model interactions, specifically focusing on how models might agree with user opinions even when incorrect. The core methodologies are similar in using synthetic data intervention to tackle sycophancy, with Idea A providing a more generalized framework for opinion dynamics, while Idea B focuses specifically on reducing sycophancy through synthetic data in existing tasks. Both aim to increase robustness against biased opinion alignment, but Idea A covers a broader scope including selective agreement in interactions.",
+        "is_match": true
+      },
+      {
+        "paper_id": "ToWKyjwDqO",
+        "paper_title": "Direct Judgement Preference Optimization",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on opinion dynamics and selective agreement within LLM interactions to reduce polarization and improve consensus. Idea B addresses the evaluation of response quality and feedback in LLM development. While both involve synthetic data and LLM optimization, Idea A targets opinion modeling and targeted analysis of social behaviors, whereas Idea B aims at improving evaluation capability using direct preference optimization across different tasks. The methods involve synthetic data generation but diverge in purpose and detailed implementation. Application scenarios differ; Idea A is more about understanding social dynamics, while Idea B is about assessing model performance.",
+        "is_match": false
+      },
+      {
+        "paper_id": "cxt2Auexc3",
+        "paper_title": "Editing Personality for Large Language Models",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Despite both ideas dealing with Large Language Models and aspects of personality or opinion, they address different problems. Idea A focuses on distinguishing opinion dynamics like selective agreement and sycophancy, whereas Idea B targets the editing of personality traits and their representations in LLM responses. The methods differ significantly as Idea A uses synthetic data generation to simulate opinion dynamics, while Idea B creates a benchmark dataset for personality traits through direct LLM response manipulation. The application scenarios diverge too; Idea A aims at improving transparency in opinion dynamics, while Idea B seeks to explore and edit personality traits, making their goals and applications distinct.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "WDheQxWAo4",
+      "paper_title": "Simple synthetic data reduces sycophancy in large language models",
+      "paper_year": "2025",
+      "match_score": 8,
+      "problem_consistency": 8,
+      "method_similarity": 7,
+      "application_similarity": 8,
+      "reason": "Both ideas address the issue of sycophancy in large language model interactions, specifically focusing on how models might agree with user opinions even when incorrect. The core methodologies are similar in using synthetic data intervention to tackle sycophancy, with Idea A providing a more generalized framework for opinion dynamics, while Idea B focuses specifically on reducing sycophancy through synthetic data in existing tasks. Both aim to increase robustness against biased opinion alignment, but Idea A covers a broader scope including selective agreement in interactions.",
+      "is_match": true
+    },
+    "has_match": true,
+    "max_score": 8,
+    "idea_id": "idea_003"
+  },
+  {
+    "idea_text": "Background: Opinion dynamics in artificial agent interactions, particularly distinguishing selective agreement from sycophancy, are crucial for understanding emergent communication patterns and preventing undesirable phenomena such as echo chambers or manipulation. Gap: Existing computational approaches to opinion dynamics in LLMs lack integration with rich psychological and cultural evolution theories of norm internalization, limiting their ability to model nuanced agreement behaviors. Proposed Method: We propose a novel interdisciplinary framework that operationalizes cultural evolutionary and normative internalization theories into computational models of opinion dynamics tailored for LLM interactions. By embedding cognitive and neural mechanisms of norm acquisition within probabilistic dialogue models, our approach enables fine-grained detection and differentiation of selective versus sycophantic agreement. Expected Result: This integration promises improved interpretability and accuracy in modeling opinion dynamics in LLM conversations, facilitating better control and understanding of emergent agent behaviors.",
+    "all_results": [
+      {
+        "paper_id": "hrGOMrfc2z",
+        "paper_title": "Interactive Dialogue Agents via Reinforcement Learning with Hindsight Regenerations",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A and Idea B address different aspects of dialogue and interaction dynamics with LLMs. While Idea A focuses on preventing echo chambers and manipulation by differentiating between selective and sycophantic agreement, Idea B emphasizes steering a conversation effectively by understanding human mental states and interaction post-hoc. The methods involve different approaches: integrating cultural evolution and norm internalization for Idea A, and using offline RL to refine dialogue strategies post-hoc for Idea B. The application domains also differ, as Idea A is more concerned with theoretical understanding of agreement patterns, whereas Idea B applies its methods in specific domains like mental health and charitable donations.",
+        "is_match": false
+      },
+      {
+        "paper_id": "pxwJU6rTAv",
+        "paper_title": "ToM-agent: Large Language Models as Theory of Mind Aware Generative Agents with Counterfactual Reflection",
+        "paper_year": "2025",
+        "match_score": 5,
+        "problem_consistency": 6,
+        "method_similarity": 5,
+        "application_similarity": 4,
+        "reason": "Idea A focuses on opinion dynamics in LLM interactions, specifically differentiating selective agreement from sycophancy by integrating cultural and normative theories. Idea B emphasizes simulating theory of mind in LLMs to understand mental states like beliefs and desires. Both deal with understanding agent interactions and behavior but from different aspects: A is concerned with agreement behaviors while B focuses on mental state tracking. Methodologically, A uses cognitive and cultural models while B uses ToM paradigms, reflecting a moderate overlap in psychological model integration. Applications slightly diverge, with A aiming for improved opinion dynamics modeling and B exploring ToM in empathetic dialogues, hence distinct but related goals.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Yol6nUVIJD",
+        "paper_title": "ReConcile: Round-Table Conference Improves Reasoning via Consensus among Diverse LLMs",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 5,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on understanding opinion dynamics and preventing echo chambers by integrating cultural and normative theories into LLM interactions, aiming for improved interpretability and accuracy in modeling. Idea B focuses on enhancing reasoning capabilities through a multi-agent discussion framework among diverse LLMs, aiming for consensus and improved performance on reasoning tasks. The problems addressed have some overlap in opinion dynamics but differ significantly in method and application, with A targeting behavioral understanding and B targeting reasoning improvement through agent collaboration.",
+        "is_match": false
+      },
+      {
+        "paper_id": "ueqTjOcuLc",
+        "paper_title": "Exploring Collaboration Mechanisms for LLM Agents: A Social Psychology View",
+        "paper_year": "2024",
+        "match_score": 5,
+        "problem_consistency": 6,
+        "method_similarity": 5,
+        "application_similarity": 4,
+        "reason": "Both ideas tackle the issue of understanding interactions among LLMs and draw from social or psychological theories. However, Idea A focuses more on preventing sycophancy by integrating cultural and psychological norm theories into computational models for opinion dynamics, whereas Idea B explores collaborative intelligence and social behaviors among LLMs in multi-agent settings. While both utilize interdisciplinary approaches and touch on social behaviors, the specific problems, methodologies, and applications differ, with Idea A focused more on selective agreement detection and Idea B on collaborative intelligence.",
+        "is_match": false
+      },
+      {
+        "paper_id": "4JoV9g5R1M",
+        "paper_title": "Emergent Communication with Attention",
+        "paper_year": "2023",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 3,
+        "reason": "Idea A and Idea B both explore aspects of communication and agent interactions, but they focus on different problems: Idea A addresses opinion dynamics and agreement behaviors in LLMs, while Idea B focuses on emergent language development with attention mechanisms. The methodologies differ in that Idea A uses cultural and psychological theories integrated into computational models, whereas Idea B employs attention mechanisms in referential games. Application-wise, Idea A aims to model opinion dynamics for LLMs, and Idea B aims to develop interpretable emergent languages in agent communication. Thus, while there are thematic overlaps, the core problem, methods, and applications differ significantly.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "pxwJU6rTAv",
+      "paper_title": "ToM-agent: Large Language Models as Theory of Mind Aware Generative Agents with Counterfactual Reflection",
+      "paper_year": "2025",
+      "match_score": 5,
+      "problem_consistency": 6,
+      "method_similarity": 5,
+      "application_similarity": 4,
+      "reason": "Idea A focuses on opinion dynamics in LLM interactions, specifically differentiating selective agreement from sycophancy by integrating cultural and normative theories. Idea B emphasizes simulating theory of mind in LLMs to understand mental states like beliefs and desires. Both deal with understanding agent interactions and behavior but from different aspects: A is concerned with agreement behaviors while B focuses on mental state tracking. Methodologically, A uses cognitive and cultural models while B uses ToM paradigms, reflecting a moderate overlap in psychological model integration. Applications slightly diverge, with A aiming for improved opinion dynamics modeling and B exploring ToM in empathetic dialogues, hence distinct but related goals.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 5,
+    "idea_id": "idea_004"
+  },
+  {
+    "idea_text": "Background: Understanding how opinions evolve through agent interactions powered by large language models (LLMs) is key to addressing polarization, radicalization, and consensus phenomena. Existing multi-agent generative intelligence (GAI) frameworks facilitate dynamic collective reasoning but lack mechanisms to differentiate selective agreement from sycophantic responses, limiting their fidelity in simulating realistic opinion dynamics.\n\nGap: Current methods do not explicitly model the nuanced processes whereby agents selectively adopt peer opinions based on trustworthiness and confidence, resulting in superficial or blind agreement patterns unreflective of genuine consensus formation.\n\nProposed Method: We introduce a Selective Influence Calibration Module integrated within the GAI framework, enabling agents to dynamically evaluate and weight peer influences during iterative dialog. This module incorporates metrics of opinion confidence, trust scores, and sycophancy detection strategies, thus modulating agent internal states to foster authentic opinion convergence.\n\nExpected Result: The enhanced framework accurately simulates opinion dynamics distinguishing selective agreement from sycophancy, providing deeper insights into mechanisms driving polarization and consensus. This innovation advances multi-agent LLM interaction modeling and supports applications in social sciences and AI governance.\n\nCore Innovation: Dynamic selective influence calibration within multi-agent LLM frameworks to differentiate genuine agreement from superficial sycophancy during opinion evolution.",
+    "all_results": [
+      {
+        "paper_id": "Yol6nUVIJD",
+        "paper_title": "ReConcile: Round-Table Conference Improves Reasoning via Consensus among Diverse LLMs",
+        "paper_year": "2024",
+        "match_score": 6,
+        "problem_consistency": 7,
+        "method_similarity": 5,
+        "application_similarity": 6,
+        "reason": "Both ideas address the challenge of improving opinion dynamics and consensus formation in multi-agent systems involving LLMs. Idea A focuses on distinguishing genuine opinions from sycophantic behavior by introducing a Selective Influence Calibration Module, while Idea B employs a multi-agent framework with a round table conference setup to enhance reasoning via discussion and voting. The core methods differ significantly in their approach; Idea A emphasizes the integration of trust and sycophancy detection, whereas Idea B utilizes iterative discussions and confidence-weighted voting. Applications are similar in that they aim to advance multi-agent LLM interactions, but Idea B specifically targets and demonstrates improvements in reasoning tasks on established benchmarks.",
+        "is_match": false
+      },
+      {
+        "paper_id": "ueqTjOcuLc",
+        "paper_title": "Exploring Collaboration Mechanisms for LLM Agents: A Social Psychology View",
+        "paper_year": "2024",
+        "match_score": 5,
+        "problem_consistency": 6,
+        "method_similarity": 5,
+        "application_similarity": 5,
+        "reason": "Both ideas address multi-agent interactions with LLMs and concern conditions under which these systems can simulate complex opinion dynamics or collaborative intelligence. However, Idea A focuses on differentiating genuine agreement from sycophancy through selective influence calibration, aiming to model opinion dynamics, while Idea B examines diverse social behaviors of LLMs including human-like traits without explicit mechanisms for opinion formation calibration. Idea A is more technical and methodological in improving dynamic modeling of agents, while Idea B centers on experimental insights about agent interactions within predefined traits and thinking patterns. Applications overlap in exploring LLM behaviors in social scenarios, but with different specific objectives.",
+        "is_match": false
+      },
+      {
+        "paper_id": "WVWZ6SnM4t",
+        "paper_title": "RoundTable: Investigating Group Decision-Making Mechanism in Multi-Agent Collaboration",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "The problems both touch on opinion dynamics and multi-agent systems but focus on different aspects: selective influence vs. decentralized decision-making. The methods differ in that Idea A emphasizes selective influence calibration in opinion dynamics, while Idea B explores voting mechanisms and stopping points in decision-making. The applications are related to multi-agent systems but target differing goals: understanding polarization vs. enhancing collaborative decision-making.",
+        "is_match": false
+      },
+      {
+        "paper_id": "06ZvHHBR0i",
+        "paper_title": "Adversarial Multi-Agent Evaluation of Large Language Models through Iterative Debate",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on modeling opinion dynamics among agents using LLMs to address polarization, whereas Idea B deals with evaluating LLM outputs through adversarial debate with LLMs in a structured setting. The core methods are different (selective influence calibration vs. adversarial evaluation with roles), and their applications diverge with A aiming at simulating opinion dynamics and B focusing on LLM performance evaluation. There is some overlap in using LLMs for agent-based simulations, but overall, the ideas serve different scientific and technological purposes.",
+        "is_match": false
+      },
+      {
+        "paper_id": "hrGOMrfc2z",
+        "paper_title": "Interactive Dialogue Agents via Reinforcement Learning with Hindsight Regenerations",
+        "paper_year": "2025",
+        "match_score": 5,
+        "problem_consistency": 6,
+        "method_similarity": 5,
+        "application_similarity": 5,
+        "reason": "Both ideas address the challenge of achieving more realistic and effective interactions using large language models, with a focus on dialogue dynamics. Idea A specifically targets selective agreement and fidelity in opinion convergence to tackle issues like polarization, whereas Idea B focuses on steering conversations and enhancing interactive dialogue performance in specific domains like mental health and persuasion. The core methods differ: Idea A proposes a Selective Influence Calibration Module for nuanced opinion dynamics, whereas Idea B employs post-hoc learning for better conversation steering, highlighting different approaches to enhancing LLM performance. Their application domains overlap in leveraging improved dialogue handling but differ in their specific contexts and objectives.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "Yol6nUVIJD",
+      "paper_title": "ReConcile: Round-Table Conference Improves Reasoning via Consensus among Diverse LLMs",
+      "paper_year": "2024",
+      "match_score": 6,
+      "problem_consistency": 7,
+      "method_similarity": 5,
+      "application_similarity": 6,
+      "reason": "Both ideas address the challenge of improving opinion dynamics and consensus formation in multi-agent systems involving LLMs. Idea A focuses on distinguishing genuine opinions from sycophantic behavior by introducing a Selective Influence Calibration Module, while Idea B employs a multi-agent framework with a round table conference setup to enhance reasoning via discussion and voting. The core methods differ significantly in their approach; Idea A emphasizes the integration of trust and sycophancy detection, whereas Idea B utilizes iterative discussions and confidence-weighted voting. Applications are similar in that they aim to advance multi-agent LLM interactions, but Idea B specifically targets and demonstrates improvements in reasoning tasks on established benchmarks.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 6,
+    "idea_id": "idea_005"
+  },
+  {
+    "idea_text": "Background: Understanding how opinions evolve during interactions among Large Language Models (LLMs) is crucial for addressing phenomena such as polarization and consensus formation. Current research struggles to differentiate selective agreement from sycophantic behavior in LLM dialogues. Gap: Existing news framing recognition techniques effectively identify perspectives in static texts but lack mechanisms to handle dynamic, multi-agent opinion evolution. Proposed Method: We propose a novel framework that extends automated news framing analysis into the temporal domain of LLM interactions. By tracking evolving opinion frames across dialogue turns and modeling cross-agent influence patterns, our method combines human-informed framing insights with LLM reasoning capabilities. This enables distinction between genuine selective agreement and sycophantic responses. Expected Result: The approach is anticipated to provide richer, temporally-aware representations of opinion dynamics within LLM interactions, facilitating deeper understanding and mitigation of undesirable consensus phenomena. Core Innovation: Adapting static news framing recognition methods into dynamic, multi-agent opinion frame tracking to analyze selective agreement behaviors in LLM dialogues.",
+    "all_results": [
+      {
+        "paper_id": "Eaw1ZrsNUN",
+        "paper_title": "USDC: A Dataset of $\\underline{U}$ser $\\underline{S}$tance and $\\underline{D}$ogmatism in Long $\\underline{C}$onversations",
+        "paper_year": "2025",
+        "match_score": 5,
+        "problem_consistency": 6,
+        "method_similarity": 5,
+        "application_similarity": 5,
+        "reason": "Both ideas address the issue of evolving opinions during interactions, though Idea A focuses on LLM dialogues and Idea B on user conversations. The methods involve LLMs and tracking opinion dynamics, but Idea A proposes extending news framing methods, while Idea B involves automating annotation tasks. The applications differ slightly: Idea A targets LLM dialogue analysis, whereas Idea B aims at annotation automation for purposes like personalization and market research.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Yol6nUVIJD",
+        "paper_title": "ReConcile: Round-Table Conference Improves Reasoning via Consensus among Diverse LLMs",
+        "paper_year": "2024",
+        "match_score": 5,
+        "problem_consistency": 6,
+        "method_similarity": 5,
+        "application_similarity": 4,
+        "reason": "The two ideas both involve understanding interactions among LLMs but tackle different aspects: Idea A focuses on opinion evolution and distinguishing between genuine and sycophantic responses, while Idea B aims to enhance reasoning through multi-agent discussions. The methods are somewhat similar in leveraging multi-agent interactions, but Idea A extends static framing techniques, whereas Idea B uses a structured discussion framework. The applications differ, with Idea A targeting opinion tracking and Idea B focusing on improving reasoning and consensus.",
+        "is_match": false
+      },
+      {
+        "paper_id": "hrGOMrfc2z",
+        "paper_title": "Interactive Dialogue Agents via Reinforcement Learning with Hindsight Regenerations",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on understanding opinion dynamics and distinguishing behavioral patterns during LLM interactions by extending news framing analysis, which is more analytical and retrospective. Idea B, however, focuses on steering conversations by understanding the cognitive processes and interactions in dialogues, aiming for real-time application improvements in specific scenarios like mental health support through offline RL. Problem consistency is moderate as both aim to improve dialogue interactions by understanding dynamic behaviors, but the core methods diverge, with Idea A using opinion frame tracking and Idea B using post-hoc analysis and RL. Application contexts and goals differ significantly, with Idea B having specific end-user applications, hence lower application similarity.",
+        "is_match": false
+      },
+      {
+        "paper_id": "ueqTjOcuLc",
+        "paper_title": "Exploring Collaboration Mechanisms for LLM Agents: A Social Psychology View",
+        "paper_year": "2024",
+        "match_score": 5,
+        "problem_consistency": 6,
+        "method_similarity": 4,
+        "application_similarity": 5,
+        "reason": "Both ideas address the interactions among LLMs within a multi-agent context, focusing on understanding collaborative dynamics and behavior modeling. However, the problems differ slightly in emphasis: Idea A targets opinion dynamics and distinguishing between agreement types, while Idea B explores collaborative intelligence and efficiency in LLM societies. Methodologically, Idea A adapts news framing analysis for dynamic opinion tracking, whereas Idea B uses social traits and thinking patterns to model collaboration. The applications differ as Idea A is about understanding opinion formation, and Idea B focuses on LLM collaboration efficiencies and behaviors.",
+        "is_match": false
+      },
+      {
+        "paper_id": "uV3Gdoq2ez",
+        "paper_title": "Peer Review as A Multi-Turn and Long-Context Dialogue with Role-Based Interactions: Benchmarking Large Language Models",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "Idea A and Idea B both involve extending the capabilities of LLMs in dynamic settings, but their specific problems, methods, and applications differ. Idea A aims to analyze opinion dynamics in LLM dialogues to address issues of consensus formation, while Idea B focuses on simulating the multi-turn peer-review process. The methods differ as Idea A adapts news framing techniques to track opinion evolution, whereas Idea B reformulates peer-review as role-specific dialogues. Applications diverge as Idea A targets understanding and mitigating sycophantic behavior in LLM interactions, and Idea B enhances peer-review processes. There is some overlap in utilizing dynamic dialogues, yet their goals and methods are distinct.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "Eaw1ZrsNUN",
+      "paper_title": "USDC: A Dataset of $\\underline{U}$ser $\\underline{S}$tance and $\\underline{D}$ogmatism in Long $\\underline{C}$onversations",
+      "paper_year": "2025",
+      "match_score": 5,
+      "problem_consistency": 6,
+      "method_similarity": 5,
+      "application_similarity": 5,
+      "reason": "Both ideas address the issue of evolving opinions during interactions, though Idea A focuses on LLM dialogues and Idea B on user conversations. The methods involve LLMs and tracking opinion dynamics, but Idea A proposes extending news framing methods, while Idea B involves automating annotation tasks. The applications differ slightly: Idea A targets LLM dialogue analysis, whereas Idea B aims at annotation automation for purposes like personalization and market research.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 5,
+    "idea_id": "idea_006"
+  },
+  {
+    "idea_text": "Background: Understanding opinion evolution in multi-agent interactions is critical for addressing polarization and consensus formation phenomena. Current opinion dynamics research often overlooks how cultural knowledge backgrounds influence agent agreement patterns. Gap: Existing culturally grounded commonsense knowledge comparison methods focus on static knowledge differences without modeling dynamic opinion interactions or selective agreement behavior among agents. Proposed Method: We propose an extension that integrates cross-cultural commonsense knowledge representations into dynamic opinion update models of interacting large language model (LLM) agents. By embedding cultural knowledge distinctions as modulating factors in opinion revision mechanisms, the model captures the impact of cultural context on selective agreement versus sycophantic behavior. Expected Result: This approach will enable nuanced simulations of opinion dynamics reflecting cultural influence, improving understanding of opinion formation and agreement biases in LLM interactions, and paving the way for more culturally aware, balanced multi-agent language systems. The core innovation lies in dynamically embedding culturally grounded knowledge differences to modulate opinion evolution behaviors among interacting agents.",
+    "all_results": [
+      {
+        "paper_id": "Yol6nUVIJD",
+        "paper_title": "ReConcile: Round-Table Conference Improves Reasoning via Consensus among Diverse LLMs",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 6,
+        "method_similarity": 2,
+        "application_similarity": 3,
+        "reason": "While both ideas involve multi-agent systems involving LLMs, the problems and goals differ. Idea A focuses on cultural influences on opinion dynamics among agents, whereas Idea B targets improving reasoning and consensus through multi-agent discussions. The methodological approaches differ significantly: Idea A embeds cultural knowledge for opinion evolution, whereas Idea B utilizes multi-round discussions and a confidence-weighted voting mechanism. The applications are also different; Idea A aims at understanding cultural impacts on opinion formation, whereas Idea B focuses on enhancing reasoning performance among LLMs.",
+        "is_match": false
+      },
+      {
+        "paper_id": "ueqTjOcuLc",
+        "paper_title": "Exploring Collaboration Mechanisms for LLM Agents: A Social Psychology View",
+        "paper_year": "2024",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on embedding cross-cultural commonsense knowledge in opinion dynamics, emphasizing cultural effects on agent interactions. Idea B investigates collaborative intelligence and social behaviors in LLM agent societies, leveraging different character traits and thinking patterns without specific cultural context integration. Both address multi-agent interactions but differ in focus; A targets cultural opinion dynamics, B explores general collaboration influenced by social psychology. Methods differ as A emphasizes embedding cultural distinctions dynamically, while B utilizes existing social psychology to assess collaboration. Application is similar in examining agent interactions, but differs in cultural versus trait-based exploration.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Eaw1ZrsNUN",
+        "paper_title": "USDC: A Dataset of $\\underline{U}$ser $\\underline{S}$tance and $\\underline{D}$ogmatism in Long $\\underline{C}$onversations",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Both ideas focus on understanding opinion dynamics in multi-agent systems, but Idea A emphasizes cultural knowledge and its impact on opinion interactions among language model agents, while Idea B addresses user opinion fluctuations in conversation contexts for applications like personalization and market research. The methods differ substantially, with Idea A integrating cultural factors into dynamic models, whereas Idea B utilizes LLMs for automating stance and dogmatism classification. Application scenarios differ, as Idea A is aimed at simulating cultural impact on opinion dynamics, whereas Idea B focuses on opinion tracking in human conversation threads.",
+        "is_match": false
+      },
+      {
+        "paper_id": "hrGOMrfc2z",
+        "paper_title": "Interactive Dialogue Agents via Reinforcement Learning with Hindsight Regenerations",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 2,
+        "reason": "Idea A centers on understanding opinion evolution among agents with cultural context using LLMs, emphasizing dynamic embedding of cultural differences to simulate interactions. Idea B focuses on dialog agents influencing conversation by learning from historical interactions, emphasizing post-hoc strategy revision without cultural considerations. Their problems have some overlap in multi-agent interaction but differ in scope—Idea A is more about cultural influence on opinion, while Idea B is about agent steering ability. Methods differ: Idea A introduces cultural factors into dynamic models, whereas Idea B uses offline RL to improve strategic conversation steering. Applications have limited overlap, as Idea A targets cultural balance and opinion dynamics, and Idea B focuses on practical applications in mental health and persuasion.",
+        "is_match": false
+      },
+      {
+        "paper_id": "n1X2n7MJ8L",
+        "paper_title": "CulturalBench: a Robust, Diverse and Challenging Benchmark on Measuring (the Lack of) Cultural Knowledge of LLMs",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Both ideas address cultural knowledge in the context of large language models, but they tackle different aspects. Idea A focuses on dynamic opinion evolution influenced by cultural context in interactions between LLM agents, whereas Idea B concentrates on assessing and benchmarking cultural knowledge through predefined questions. The methods differ: Idea A embeds cultural distinctions into dynamic models, while Idea B creates static benchmark questions. The applications diverge as Idea A aims for culturally aware opinion dynamics in LLM interactions, and Idea B focuses on evaluating cultural knowledge accuracy. Thus, their core innovations differ significantly.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "ueqTjOcuLc",
+      "paper_title": "Exploring Collaboration Mechanisms for LLM Agents: A Social Psychology View",
+      "paper_year": "2024",
+      "match_score": 4,
+      "problem_consistency": 5,
+      "method_similarity": 4,
+      "application_similarity": 3,
+      "reason": "Idea A focuses on embedding cross-cultural commonsense knowledge in opinion dynamics, emphasizing cultural effects on agent interactions. Idea B investigates collaborative intelligence and social behaviors in LLM agent societies, leveraging different character traits and thinking patterns without specific cultural context integration. Both address multi-agent interactions but differ in focus; A targets cultural opinion dynamics, B explores general collaboration influenced by social psychology. Methods differ as A emphasizes embedding cultural distinctions dynamically, while B utilizes existing social psychology to assess collaboration. Application is similar in examining agent interactions, but differs in cultural versus trait-based exploration.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_007"
+  },
+  {
+    "idea_text": "Understanding how opinions evolve in large language model (LLM) interactions is crucial for mitigating issues such as polarization and false consensus. Existing methods struggle to differentiate between selective agreement and sycophantic behavior within agent interactions. We propose a novel dynamic clustering framework building upon multi-domain event clustering techniques to model temporally evolving opinions in LLMs. By embedding semantic features of language outputs and integrating agent-based influence dynamics, our method enables fine-grained quantification of agreement types. Experiments demonstrate improved interpretability of opinion evolution patterns and effective distinction between genuine selective agreement and sycophancy in LLM interactions.",
+    "all_results": [
+      {
+        "paper_id": "Eaw1ZrsNUN",
+        "paper_title": "USDC: A Dataset of $\\underline{U}$ser $\\underline{S}$tance and $\\underline{D}$ogmatism in Long $\\underline{C}$onversations",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 5,
+        "reason": "The two ideas address related but distinct problems. Idea A focuses on understanding opinion evolution in large language model interactions, distinguishing between types of agreement, while Idea B deals with labeling stance and dogmatism in user conversations to capture opinion fluctuations. Methodologically, Idea A proposes a dynamic clustering framework for opinions, while Idea B employs LLMs to automate stance and dogmatism annotation, refining datasets. Both involve modeling opinion dynamics, but the techniques and goals differ. Application-wise, both aim to interpret opinion changes, but Idea A focuses on sycophancy in LLMs, whereas Idea B targets user stance and dogmatism across conversation threads.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Yol6nUVIJD",
+        "paper_title": "ReConcile: Round-Table Conference Improves Reasoning via Consensus among Diverse LLMs",
+        "paper_year": "2024",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "Idea A focuses on understanding and differentiating opinion dynamics in LLM interactions, tackling issues like polarization and false consensus. Its approach involves dynamic clustering and agent-based influence dynamics. Idea B, however, addresses improving reasoning tasks in LLMs by using a multi-agent framework that fosters diverse thoughts and discussions to reach consensus. While both involve agent interactions and consensus, Idea A is centered on opinion evolution, whereas Idea B aims at reasoning improvement through collective deliberation. Their core methods and application contexts diverge, with one emphasizing interpretability of opinion evolution and the other on improving reasoning performance in complex tasks.",
+        "is_match": false
+      },
+      {
+        "paper_id": "ueqTjOcuLc",
+        "paper_title": "Exploring Collaboration Mechanisms for LLM Agents: A Social Psychology View",
+        "paper_year": "2024",
+        "match_score": 6,
+        "problem_consistency": 6,
+        "method_similarity": 7,
+        "application_similarity": 5,
+        "reason": "Both research ideas deal with the behavior and interaction dynamics of LLMs within a multi-agent framework. The key difference in the problem lies in Idea A focusing on differentiating types of agreement (selective agreement vs sycophancy), while Idea B explores the broader collaborative intelligence and social behaviors in LLM societies. In terms of method, both leverage agent-based dynamics, but Idea A proposes a specific dynamic clustering framework, which is not explicitly mirrored in Idea B. Regarding application, Idea A is more targeted at opinion evolution within interactions, while Idea B focuses on broader social behaviors and collaboration efficiency, including theoretical insights from Social Psychology.",
+        "is_match": false
+      },
+      {
+        "paper_id": "za9tj3izLn",
+        "paper_title": "A Unified View on Neural Message Passing with Opinion Dynamics for Social Networks",
+        "paper_year": "2024",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on opinion evolution within large language model interactions, aiming to distinguish between selective agreement and sycophancy. Idea B centers on analyzing social networks and using neural message passing to understand opinion dynamics and community behavior. Both ideas deal with opinion dynamics, but the contexts differ: Idea A in LLMs and Idea B in social networks. Methods differ, with Idea A using dynamic clustering in LLMs and Idea B using neural message passing with ODNet in graphs. Applications diverge, as Idea A targets LLM interactions, while Idea B addresses social network graphs and biological networks.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Q3RoP5IhHy",
+        "paper_title": "Multi-environment Topic Models",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "The two ideas tackle different problems; Idea A focuses on opinion evolution in LLM interactions, while Idea B deals with extracting latent themes from text considering document covariates. Methods differ as Idea A employs dynamic clustering with semantic embedding, while Idea B uses a probabilistic topic model. The application contexts also diverge: Idea A is about understanding LLM interactions, whereas Idea B is for analyzing text data with environmental covariates.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "ueqTjOcuLc",
+      "paper_title": "Exploring Collaboration Mechanisms for LLM Agents: A Social Psychology View",
+      "paper_year": "2024",
+      "match_score": 6,
+      "problem_consistency": 6,
+      "method_similarity": 7,
+      "application_similarity": 5,
+      "reason": "Both research ideas deal with the behavior and interaction dynamics of LLMs within a multi-agent framework. The key difference in the problem lies in Idea A focusing on differentiating types of agreement (selective agreement vs sycophancy), while Idea B explores the broader collaborative intelligence and social behaviors in LLM societies. In terms of method, both leverage agent-based dynamics, but Idea A proposes a specific dynamic clustering framework, which is not explicitly mirrored in Idea B. Regarding application, Idea A is more targeted at opinion evolution within interactions, while Idea B focuses on broader social behaviors and collaboration efficiency, including theoretical insights from Social Psychology.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 6,
+    "idea_id": "idea_008"
+  },
+  {
+    "idea_text": "Background: Understanding the evolution of opinions in agent networks is critical for addressing polarization, radicalization, and consensus formation. Recent research highlights the importance of distinguishing selective agreement from sycophancy in LLM interactions, a distinction vital for trustworthy AI collaboration. Gap: Existing interdisciplinary reviews comprehensively synthesize social consensus theories but lack computational models suitable for studying nuanced opinion dynamics among LLMs. Proposed Method: Building upon a novel interdisciplinary synthesis of game theory, evolutionary dynamics, and complex systems science, we propose developing a computational framework that captures key dimensions of social consensus mechanisms. This framework explicitly models selective agreement behaviors, differentiating them from sycophantic tendencies in multi-agent LLM networks. Expected Result: The resulting simulation platform will enable quantitative exploration of opinion evolution patterns unique to LLM interactions, fostering deeper understanding of AI-driven consensus and enabling the design of systems resilient to manipulation and echo chambers. Core Innovation: Transforming a comprehensive social consensus synthesis into a computational model that operationalizes selective agreement dynamics in LLM interactions.",
+    "all_results": [
+      {
+        "paper_id": "WVWZ6SnM4t",
+        "paper_title": "RoundTable: Investigating Group Decision-Making Mechanism in Multi-Agent Collaboration",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on understanding opinion evolution and selective agreement in multi-agent LLM networks, specifically dealing with polarization and trustworthy AI collaboration. Idea B examines decentralized group decision-making in multi-agent systems by focusing on communication patterns and decision flexibility. While both involve dynamics in multi-agent interactions, Idea A is more concerned with computational modeling of opinions and sycophancy within LLM networks, whereas Idea B addresses communication and collaboration in a decentralized setting with different social choice methodologies. Therefore, their problems, methods, and application contexts differ.",
+        "is_match": false
+      },
+      {
+        "paper_id": "Yol6nUVIJD",
+        "paper_title": "ReConcile: Round-Table Conference Improves Reasoning via Consensus among Diverse LLMs",
+        "paper_year": "2024",
+        "match_score": 5,
+        "problem_consistency": 6,
+        "method_similarity": 4,
+        "application_similarity": 5,
+        "reason": "Idea A focuses on opinion dynamics and consensus formation in LLM interactions with an emphasis on differentiating between selective agreement and sycophancy, using a computational model. In contrast, Idea B emphasizes improving reasoning capabilities through multi-round discussions among LLM agents to achieve better consensus via a multi-agent framework. While both ideas address consensus in LLMs, their approaches and goals differ: Idea A on modeling selective agreement dynamics and Idea B on enhancing reasoning via discussions. The application contexts and methods show overlaps in multi-agent interactions but diverge in their specific objectives and execution.",
+        "is_match": false
+      },
+      {
+        "paper_id": "0GC81gpjOo",
+        "paper_title": "Cognitive Insights and Stable Coalition Matching for Fostering Multi-Agent Cooperation",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 3,
+        "method_similarity": 4,
+        "application_similarity": 5,
+        "reason": "Idea A and Idea B both deal with improving interactions in multi-agent systems, particularly involving LLMs, but focus on distinct aspects: A focuses on opinion dynamics and consensus, while B centers on cooperation using Theory of Mind (ToM). Methodologically, A is about computational modeling of selective agreement, whereas B uses coalition formation based on ToM abilities. Despite sharing a common objective of improving the interaction quality in multi-agent systems, the approaches and specific focus areas differ.",
+        "is_match": false
+      },
+      {
+        "paper_id": "WJnciuhwyU",
+        "paper_title": "Social Bayesian Optimization for Building Truthful Consensus",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A and Idea B both address issues related to consensus-building in complex networks, but they approach the problem from different angles. Idea A focuses on modeling selective agreement behaviors in LLM networks to understand opinion dynamics, while Idea B introduces an algorithm (SBO) for optimizing consensus-building in collective decision-making contexts by handling preference feedback distortion. The proposed methods differ significantly: Idea A utilizes a synthesis of game theory and complex systems science, while Idea B employs a dual voting system and social graph estimation. Furthermore, Idea A targets AI-driven consensus in LLM interactions specifically, whereas Idea B applies to broader real-world applications like team-building and energy trading, indicating differing application contexts.",
+        "is_match": false
+      },
+      {
+        "paper_id": "ueqTjOcuLc",
+        "paper_title": "Exploring Collaboration Mechanisms for LLM Agents: A Social Psychology View",
+        "paper_year": "2024",
+        "match_score": 6,
+        "problem_consistency": 7,
+        "method_similarity": 6,
+        "application_similarity": 5,
+        "reason": "Idea A and Idea B both focus on the dynamics of opinion formation and collaboration in networks of LLMs. The problems are consistent in that they both address understanding social interactions and behaviors in multi-agent LLM systems, though Idea A is more focused on differentiating between selective agreement and sycophancy. The methods differ as Idea A proposes a computational framework based on a synthesis of theoretical disciplines whereas Idea B conducts practical experiments to analyze collaboration mechanisms. The application scenarios also differ slightly; Idea A aims to create a simulation platform focusing on opinion dynamics, while Idea B evaluates collaborative strategies and mirrors human-like social behaviors, focusing on efficiency and practical performance.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "ueqTjOcuLc",
+      "paper_title": "Exploring Collaboration Mechanisms for LLM Agents: A Social Psychology View",
+      "paper_year": "2024",
+      "match_score": 6,
+      "problem_consistency": 7,
+      "method_similarity": 6,
+      "application_similarity": 5,
+      "reason": "Idea A and Idea B both focus on the dynamics of opinion formation and collaboration in networks of LLMs. The problems are consistent in that they both address understanding social interactions and behaviors in multi-agent LLM systems, though Idea A is more focused on differentiating between selective agreement and sycophancy. The methods differ as Idea A proposes a computational framework based on a synthesis of theoretical disciplines whereas Idea B conducts practical experiments to analyze collaboration mechanisms. The application scenarios also differ slightly; Idea A aims to create a simulation platform focusing on opinion dynamics, while Idea B evaluates collaborative strategies and mirrors human-like social behaviors, focusing on efficiency and practical performance.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 6,
+    "idea_id": "idea_009"
+  },
+  {
+    "idea_text": "Background: Understanding opinion dynamics during LLM interactions is crucial to dissecting phenomena such as polarization, radicalization, and consensual influence, with a particular need to differentiate selective agreement from sycophancy. Current modeling efforts are computationally challenging due to complex multi-turn, multi-agent interactions and nuanced social behavior patterns. Gap: Traditional Best-of-N decoding methods with reward models offer aligned output generation but are computationally expensive and focus primarily on single-agent output quality rather than multi-agent dynamics. There is a lack of efficient algorithms tailored to simulate and analyze opinion evolution under social influence constraints. Proposed Method: We propose extending the variational Best-of-N (BoN) decoding approach by integrating an opinion-dynamics-aware reward function that quantifies selective agreement versus sycophancy behaviors. By embedding this reward model into a multi-agent, multi-turn interaction framework, we leverage variational fine-tuning to enhance sampling efficiency significantly. This allows scalable simulation of opinion evolution and social dynamics with reduced computational costs. Expected Result: Our method promises to enable practical and efficient modeling of complex opinion dynamics in LLM interactions, facilitating the differentiation of selective agreement from sycophancy phenomena. This approach improves computational scalability without sacrificing alignment fidelity, thus advancing research on social influence and opinion evolution in language models.",
+    "all_results": [
+      {
+        "paper_id": "dTQmayPKMs",
+        "paper_title": "Understanding Impact of Human Feedback via Influence Functions",
+        "paper_year": "2025",
+        "match_score": 3,
+        "problem_consistency": 4,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "The problems tackled are related in the context of understanding language model (LLM) interactions and alignment, but differ in focus. Idea A focuses on opinion dynamics and computational efficiency in multi-agent setups, while Idea B addresses the alignment of LLMs with human intentions using RLHF and feedback robustness. The core methods diverge: Idea A proposes a variational BoN decoding approach for opinion dynamics, whereas Idea B employs influence functions to improve reward models. Lastly, their application areas are distinct; Idea A is mainly on simulating social dynamics in LLMs, while Idea B targets improving feedback quality for LLM alignment.",
+        "is_match": false
+      },
+      {
+        "paper_id": "hrGOMrfc2z",
+        "paper_title": "Interactive Dialogue Agents via Reinforcement Learning with Hindsight Regenerations",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 1,
+        "reason": "Idea A focuses on understanding opinion dynamics and selective agreement versus sycophancy in multi-agent LLM interactions, while Idea B centers on steering conversations in dialogue tasks through offline RL. The methods and goals diverge significantly, with Idea A emphasizing efficient simulation of opinion dynamics and Idea B aiming at post-hoc adaptation of dialogue strategies. Application scenarios differ as Idea A is more theoretical and computational, whereas Idea B targets practical domains like mental health and persuasion. Overall, the core innovations and intended applications are distinct.",
+        "is_match": false
+      },
+      {
+        "paper_id": "c4w1TqcSi0",
+        "paper_title": "Optima: Optimizing Effectiveness and Efficiency for LLM-Based Multi-Agent System",
+        "paper_year": "2025",
+        "match_score": 4,
+        "problem_consistency": 5,
+        "method_similarity": 4,
+        "application_similarity": 3,
+        "reason": "Idea A focuses on simulating opinion dynamics and distinguishing behaviors within LLM interactions, specifically targeting opinion evolution and sycophancy, while Idea B concentrates on improving communication efficiency and task effectiveness in multi-agent systems. Methodologically, Idea A employs a variational Best-of-N decoding with opinion-dynamics-aware rewards, whereas Idea B uses an iterative framework with RL algorithms for training LLM-based MAS. The applications differ as Idea A aims at opinion dynamics, and Idea B targets task collaboration in multi-agent systems. Although some underlying themes overlap, such as multi-agent interactions, the core problems, methods, and goals diverge significantly.",
+        "is_match": false
+      },
+      {
+        "paper_id": "DWLlTNhig1",
+        "paper_title": "Sparse Rewards Can Self-Train Dialogue Agents",
+        "paper_year": "2025",
+        "match_score": 2,
+        "problem_consistency": 3,
+        "method_similarity": 2,
+        "application_similarity": 2,
+        "reason": "Idea A and Idea B address fundamentally different problems: Idea A focuses on modeling opinion dynamics in LLM interactions, with emphasis on selective agreement and sycophancy, while Idea B targets self-improvement of LLMs without human feedback. The methods proposed differ significantly: Idea A utilizes a variational BoN decoding method incorporating an opinion-dynamics-aware reward function, whereas Idea B introduces a self-alignment algorithm (JOSH) for tool-based interactions improvement in LLMs. The applications are also distinct, with Idea A concerned with opinion dynamics under social influence and Idea B aiming to enhance LLM's tool interaction capabilities. Overall, the ideas are dissimilar in purpose, approach, and application context.",
+        "is_match": false
+      },
+      {
+        "paper_id": "4pW8NL1UwH",
+        "paper_title": "LIRE: Listwise Reward Enhancement for Preference Alignment",
+        "paper_year": "2024",
+        "match_score": 2,
+        "problem_consistency": 2,
+        "method_similarity": 3,
+        "application_similarity": 2,
+        "reason": "While both ideas deal with LLMs and address challenges related to output quality, they tackle different aspects: Idea A focuses on opinion dynamics and social influence in multi-agent settings, whereas Idea B focuses on improving preference alignment and stability in RLHF. The methods differ in their focus, with Idea A emphasizing opinion-dynamics-aware models and multi-agent interactions, whereas Idea B explores a reward optimization strategy through listwise approaches. Their application scenarios also differ, with Idea A targeting simulation of social dynamics and Idea B optimizing LLM preference alignment.",
+        "is_match": false
+      }
+    ],
+    "best_match": {
+      "paper_id": "c4w1TqcSi0",
+      "paper_title": "Optima: Optimizing Effectiveness and Efficiency for LLM-Based Multi-Agent System",
+      "paper_year": "2025",
+      "match_score": 4,
+      "problem_consistency": 5,
+      "method_similarity": 4,
+      "application_similarity": 3,
+      "reason": "Idea A focuses on simulating opinion dynamics and distinguishing behaviors within LLM interactions, specifically targeting opinion evolution and sycophancy, while Idea B concentrates on improving communication efficiency and task effectiveness in multi-agent systems. Methodologically, Idea A employs a variational Best-of-N decoding with opinion-dynamics-aware rewards, whereas Idea B uses an iterative framework with RL algorithms for training LLM-based MAS. The applications differ as Idea A aims at opinion dynamics, and Idea B targets task collaboration in multi-agent systems. Although some underlying themes overlap, such as multi-agent interactions, the core problems, methods, and goals diverge significantly.",
+      "is_match": false
+    },
+    "has_match": false,
+    "max_score": 4,
+    "idea_id": "idea_010"
+  }
+]

@@ -1,0 +1,103 @@
+{
+  "total_ideas": 10,
+  "threshold": 7.0,
+  "hit_rate_at_k": {
+    "1": 0.0,
+    "3": 0.0,
+    "5": 0.0,
+    "10": 0.0,
+    "20": 0.0
+  },
+  "precision_at_5": 0.0,
+  "mrr": 0.0,
+  "average_max_score": 4.6,
+  "score_distribution": {
+    "0-2": 0,
+    "3-4": 4,
+    "5-6": 6,
+    "7-8": 0,
+    "9-10": 0
+  },
+  "year_wise_metrics": {
+    "2025": {
+      "total_ideas": 10,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 4.6,
+      "max_score": 6.0,
+      "min_score": 3.0
+    }
+  },
+  "top_matches": [
+    {
+      "idea_id": "idea_007",
+      "score": 6.0,
+      "paper_title": "dMel: Speech Tokenization Made Simple",
+      "paper_year": "2025",
+      "reason": "Idea A and Idea B both address improving speech recognition systems by integrating language modeling techniques, but they approach the problem differently. Idea A proposes a unified Transformer model focusing on spoken modalities and multilingual adaptability with end-to-end training, while Idea B focuses on speech tokenization methods via dMel for joint modeling of speech and text. Both aim to enhance the integration of speech and text processing but differ in their specific methodologies and tokenization focus. Application-wise, both target ASR and multilingual contexts, yet the emphasis on tokenization in Idea B versus model architecture and learning strategies in Idea A suggests different priorities in application design."
+    },
+    {
+      "idea_id": "idea_001",
+      "score": 5.0,
+      "paper_title": "Unlocking Speech Instruction Data Potential with Query Rewriting",
+      "paper_year": "2025",
+      "reason": "Both ideas address the integration of language models in speech applications, focusing on optimizing efficiency and accuracy. However, A specifically targets speech recognition system integration through optimal stopping theory, while B focuses on constructing speech instruction datasets using synthesis and multi-LLM fusion. A involves dynamic model invocation decisions for multilingual contexts, whereas B primarily concentrates on enhancing dataset quality for speech instruction. The methodologies differ significantly in their approach, with A using neural continuation values and B employing query rewriting for dataset improvement, leading to moderate overall similarity."
+    },
+    {
+      "idea_id": "idea_003",
+      "score": 5.0,
+      "paper_title": "Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder",
+      "paper_year": "2025",
+      "reason": "Idea A focuses specifically on integrating LSTM-RNN sequence modeling with multi-task learning techniques to enhance multi-lingual speech recognition, while Idea B centers on a unified architecture for multiple speech processing tasks, particularly in multi-talker scenarios. Both ideas tackle speech processing with multi-task approaches, but their specific challenges and objectives differ. Idea A targets efficiency in real-time applications with a focus on multi-lingual environments, whereas Idea B emphasizes improved performance in multi-speaker contexts. While both involve joint learning methodologies, the specific technologies and applications differ."
+    },
+    {
+      "idea_id": "idea_005",
+      "score": 5.0,
+      "paper_title": "Efficient Audiovisual Speech Processing via MUTUD: Multimodal Training and Unimodal Deployment",
+      "paper_year": "2025",
+      "reason": "Both ideas address challenges in integrating modalities for improved speech systems. Idea A focuses on enhancing large language models with speech-centric adaptations for real-time speech recognition, whereas Idea B emphasizes multimodal training and unimodal deployment to handle missing modality issues. The methods differ; Idea A extends multimodal foundational models while Idea B uses multimodal training frameworks with unimodal deployment. Applications are similar in improving speech recognition, but the goals diverge, with Idea A prioritizing efficient integration of language models and Idea B emphasizing modality flexibility and computational savings."
+    },
+    {
+      "idea_id": "idea_006",
+      "score": 5.0,
+      "paper_title": "Optimizing Large Language Models with Automatic Speech Recognition for Medication Corpus in Low-Resource Healthcare Settings.",
+      "paper_year": "2025",
+      "reason": "Idea A and Idea B both focus on integrating LLMs with ASR systems to improve speech recognition accuracy, particularly in challenging environments like low-resource settings. However, the specific problem addressed differs: Idea A emphasizes cross-domain adaptation from cybersecurity to speech, while Idea B targets transcription accuracy in the healthcare domain. Both approaches leverage LLMs in ASR pipelines, but Idea A proposes a novel adaptation framework, whereas Idea B employs existing techniques such as LoRA for rescoring. The application contexts are different, with Idea A aimed at multilingual challenges and Idea B focused specifically on healthcare."
+    },
+    {
+      "idea_id": "idea_010",
+      "score": 5.0,
+      "paper_title": "Efficient Audiovisual Speech Processing via MUTUD: Multimodal Training and Unimodal Deployment",
+      "paper_year": "2025",
+      "reason": "Both ideas address the challenge of enhancing speech recognition using multimodal inputs to compensate for limitations in unimodal systems. However, Idea A focuses on integrating large language models with acoustic inputs, specifically for multilingual adaptability, whereas Idea B aims to use multimodal training to enhance unimodal inference by estimating missing information from available modalities. The core methods differ in their approach to multimodal integration: Idea A utilizes a multimodal fusion layer, while Idea B employs a framework to retain performance in unimodal deployment after multimodal training. Application contexts vary as Idea A targets speech recognition with LLMs, while Idea B applies to audiovisual tasks with reduced modality requirements during deployment."
+    },
+    {
+      "idea_id": "idea_004",
+      "score": 4.0,
+      "paper_title": "An Exploration of Speech Conditioned Large Language Models (SLMs)",
+      "paper_year": "2025",
+      "reason": "Both ideas address integrating large language models with speech recognition, but Idea A focuses on adaptive resource-efficient frameworks using reinforcement learning, while Idea B explores design choices for speech-conditioned language models. Problems and applications involve multilingual settings, but methods differ, with Idea A emphasizing dynamic integration and control, whereas Idea B focuses on optimizing speech instruction following using synthetic data."
+    },
+    {
+      "idea_id": "idea_008",
+      "score": 4.0,
+      "paper_title": "Lens: Rethinking Multilingual Enhancement for Large Language Models",
+      "paper_year": "2025",
+      "reason": "虽然两个研究想法都集中于提高LLMs在多语言环境中的表现，但他们所解决的问题有一些明显的不同。想法A侧重于将语言结构特征整合到语音识别中，以提高上下文适应和计算效率。而想法B则专注于通过操作LLMs的内部语言表示空间来增强其多语言能力。两者的方法技术路径不同，想法A利用语言特征的分析进行动态适应，而想法B则调整隐藏表示以改善多语言表现。应用场景和目标有部分重叠，如都涉及多语言能力的提升，但领域重点不同：一个在语音识别，一个在语言信息表达。因此总的来说二者有一定相似性，但差异显著。"
+    },
+    {
+      "idea_id": "idea_009",
+      "score": 4.0,
+      "paper_title": "Zero-Shot Text-to-Speech from Continuous Text Streams",
+      "paper_year": "2025",
+      "reason": "Idea A focuses on improving speech recognition systems via bidirectional language models in real-time multilingual scenarios, addressing the challenge of contextual modeling with constrained computation. Idea B addresses continuous text-to-speech generation, aiming for seamless speech transitions in streaming applications, with emphasis on synchronization and efficiency. The problem domains overlap in real-time processing and stream handling but differ in specifics (speech recognition vs. TTS). Methods differ as Idea A proposes chunk-based bidirectional RNNs while Idea B utilizes Mamba sequence modeling and semantic guidance in TTS. Applications align in real-time multilingual scenarios but focus differently on recognition versus speech generation."
+    },
+    {
+      "idea_id": "idea_002",
+      "score": 3.0,
+      "paper_title": "White-Basilisk: A Hybrid Model for Code Vulnerability Detection",
+      "paper_year": "2025",
+      "reason": "Idea A focuses on optimizing LLM-based ASR for linguistic adaptability and reducing computational costs, mainly targeting multilingual speech recognition. Idea B addresses cybersecurity vulnerabilities using innovative AI architectures, specifically in code security. While both ideas involve optimization in AI models, their problem domains differ (speech recognition vs. cybersecurity). The methods show some similarity in optimization and efficiency aspirations, but the techniques and goals are distinct, with different applications and contexts."
+    }
+  ]
+}

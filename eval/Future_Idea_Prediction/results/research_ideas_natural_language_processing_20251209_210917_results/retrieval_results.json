@@ -1,0 +1,472 @@
+{
+  "idea_001": [
+    {
+      "paper": {
+        "paper_id": "DaYt6DAA-JK",
+        "title": "MiDAS: Multi-integrated Domain Adaptive Supervision for Fake News Detection",
+        "abstract": "COVID-19 related misinformation and fake news, coined an 'infodemic', has dramatically increased over the past few years. This misinformation exhibits concept drift, where the distribution of fake news changes over time, reducing effectiveness of previously trained models for fake news detection. Given a set of fake news models trained on multiple domains, we propose an adaptive decision module to select the best-fit model for a new sample. We propose MiDAS, a multi-domain adaptative approach for fake news detection that ranks relevancy of existing models to new samples. MiDAS contains 2 components: a doman-invariant encoder, and an adaptive model selector. MiDAS integrates multiple pre-trained and fine-tuned models with their training data to create a domain-invariant representation. Then, MiDAS uses local Lipschitz smoothness of the invariant embedding space to estimate each model's relevance to a new sample. Higher ranked models provide predictions, and lower ranked models abstain. We evaluate MiDAS on generalization to drifted data with 9 fake news datasets, each obtained from different domains and modalities. MiDAS achieves new state-of-the-art performance on multi-domain adaptation for out-of-distribution fake news classification.  ",
+        "year": "2023"
+      },
+      "similarity": 0.552690327167511
+    },
+    {
+      "paper": {
+        "paper_id": "6UfYLQJ8pA",
+        "title": "Leveraging Object Detection for Diverse and Accurate Long-Horizon Events Forecasting",
+        "abstract": "Long-horizon event forecasting is critical across various domains, including retail, finance, healthcare, and social networks. Traditional methods, such as Marked Temporal Point Processes (MTPP), often rely on autoregressive models to predict multiple future events. However, these models frequently suffer from issues like converging to constant or repetitive outputs, which limits their effectiveness and general applicability. To address these challenges, we introduce DeTPP (Detection-based Temporal Point Processes), a novel approach inspired by a matching-based loss function from object detection. DeTPP employs a unique matching-based loss function that selectively prioritizes reliably predictable events, improving the accuracy and diversity of predictions during inference. Our method establishes a new state-of-the-art in long-horizon event forecasting, achieving up to a 77% relative improvement over existing MTPP and next-K methods. Furthermore, DeTPP enhances next-event prediction accuracy by up to 2.7\\% on a large transactions dataset and demonstrates high computational efficiency during inference.",
+        "year": "2025"
+      },
+      "similarity": 0.5493975281715393
+    },
+    {
+      "paper": {
+        "paper_id": "ns0KIpfQVy",
+        "title": "Multimodal Banking Dataset: Understanding Client Needs through Event Sequences",
+        "abstract": "Financial organizations collect a huge amount of data about clients that typi-\ncally has a temporal (sequential) structure and is collected from multiple sources\n(modalities). However, despite the urgent practical need, developing deep learn-\ning techniques suitable to handle such data is limited by the absence of large open-\nsource multi-source real-world datasets of event sequences. To fill this gap mainly\ncaused by security reasons, we present the industrial-scale publicly available mul-\ntimodal banking dataset, MBD, that contains more than 2M corporate clients with\nseveral data sources: 950M bank transactions, 1B geo position events, 5M em-\nbeddings of dialogues with technical support and monthly aggregated purchases\nof four bank’s products. All entries are properly anonymized from real proprietary\nbank data. Moreover, we introduce a novel multimodal benchmark incorporating\nour MBD and two open-source financial datasets. We provide numerical results\ndemonstrating the superiority of fusion baselines over single-modal techniques\nfor each task. Moreover, our anonymization techniques still save all significant\ninformation for introduced downstream tasks.",
+        "year": "2025"
+      },
+      "similarity": 0.5483911037445068
+    },
+    {
+      "paper": {
+        "paper_id": "_tfLpF9mFiq",
+        "title": "No Pairs Left Behind: Improving Metric Learning with Regularized Triplet Objective",
+        "abstract": "We propose a novel formulation of the triplet objective function that improves metric learning without additional sample mining or overhead costs. Our approach aims to explicitly regularize the distance between the positive and negative samples in a triplet with respect to the anchor-negative distance. As an initial validation, we show that our method (called No Pairs Left Behind [NPLB]) improves upon the traditional and current state-of-the-art triplet objective formulations on standard benchmark datasets. To show the effectiveness and potentials of NPLB on real-world complex data, we evaluate our approach on a large-scale healthcare dataset (UK Biobank), demonstrating that the embeddings learned by our model significantly outperform all other current representations on tested downstream tasks. Additionally, we provide a new model-agnostic single-time health risk definition that, when used in tandem with the learned representations, achieves the most accurate prediction of a patient's future health complications. Our results indicate that NPLB is a simple, yet effective framework for improving existing deep metric learning models, showcasing the potential implications of deep metric learning in more complex applications, especially in the biological and healthcare domains.",
+        "year": "2023"
+      },
+      "similarity": 0.5407434105873108
+    },
+    {
+      "paper": {
+        "paper_id": "1yJ3IDpb1D",
+        "title": "HoTPP Benchmark: Are We Good at the Long Horizon Events Forecasting?",
+        "abstract": "Accurately forecasting multiple future events within a given time horizon is crucial for applications in finance, retail, social networks, and healthcare. Event timing and labels are typically modeled using Marked Temporal Point Processes (MTPP), with evaluations often focused on next-event prediction quality. While some studies have extended evaluations to a fixed number of future events, we demonstrate that this approach leads to inaccuracies in handling false positives and false negatives. To address these issues, we propose a novel evaluation method inspired by object detection techniques from computer vision. Specifically, we introduce Temporal mean Average Precision (T-mAP), a temporal variant of mAP, which overcomes the limitations of existing long-horizon evaluation metrics. Our extensive experiments demonstrate that models with strong next-event prediction accuracy can yield poor long-horizon forecasts, and vice versa, indicating that specialized methods are needed for each task. To support further research, we release HoTPP, the first benchmark specifically designed for evaluating long-horizon MTPP predictions. HoTPP includes large-scale datasets with up to 43 million events and provides optimized procedures for both autoregressive and parallel inference, paving the way for future advancements in the field.",
+        "year": "2025"
+      },
+      "similarity": 0.5308026075363159
+    }
+  ],
+  "idea_002": [
+    {
+      "paper": {
+        "paper_id": "DNjHslZrqu",
+        "title": "A Simple Baseline for Predicting Future Events with Auto-Regressive Tabular Transformers",
+        "abstract": "Many real-world applications of tabular data involve using historic events to predict properties of new ones, for example whether a credit card transaction is fraudulent or what rating a customer will assign a product on a retail platform.\nExisting approaches to event prediction include costly, brittle, and application-dependent techniques such as time-aware positional embeddings, learned row and field encodings, and oversampling methods for addressing class imbalance.\nMoreover, these approaches often assume specific use-cases, for example that we know the labels of all historic events or that we only predict a pre-specified label and not the data’s features themselves.\nIn this work, we propose a simple but flexible baseline using standard autoregressive LLM-style transformers with elementary positional embeddings and a causal language modeling objective.\nOur baseline outperforms existing approaches across popular datasets and can be employed for various use-cases.\nWe demonstrate that the same model can predict labels, impute missing values, or model event sequences.",
+        "year": "2025"
+      },
+      "similarity": 0.5847507119178772
+    },
+    {
+      "paper": {
+        "paper_id": "Wfoiy6dIEk",
+        "title": "Multi-Instance Learning Based Anomaly Detection Method for Sequence Data with Application to the Credit Card Delinquency Risk Control",
+        "abstract": "Anomaly detection in sequence data is widely applicable to many fields and has significant commercial value to the financial industry. The focus of this paper is its utility as means to control credit card delinquency risk. Transactions that deviate from the typical data sequence are a common precursor of payment difficulty. Current detection methods do not effectively use transaction data to detect abnormal transactions. This makes it difficult to control the overdue payment risk. We propose a Multi-Instance Learning based anomaly detection (MILAD) method with well designed learning networks to address this problem. MILAD analyze users’ monthly transactions and payment history, and detect exceptions through well designed deep learning networks. By comparing the performance of MILAD and DAGMM, which is currently the most commonly used unsupervised deep learning algorithm for credit card risk control, MILAD best controls overdue risk by utilizing both transaction and payment information.",
+        "year": "2024"
+      },
+      "similarity": 0.5814642906188965
+    },
+    {
+      "paper": {
+        "paper_id": "DaYt6DAA-JK",
+        "title": "MiDAS: Multi-integrated Domain Adaptive Supervision for Fake News Detection",
+        "abstract": "COVID-19 related misinformation and fake news, coined an 'infodemic', has dramatically increased over the past few years. This misinformation exhibits concept drift, where the distribution of fake news changes over time, reducing effectiveness of previously trained models for fake news detection. Given a set of fake news models trained on multiple domains, we propose an adaptive decision module to select the best-fit model for a new sample. We propose MiDAS, a multi-domain adaptative approach for fake news detection that ranks relevancy of existing models to new samples. MiDAS contains 2 components: a doman-invariant encoder, and an adaptive model selector. MiDAS integrates multiple pre-trained and fine-tuned models with their training data to create a domain-invariant representation. Then, MiDAS uses local Lipschitz smoothness of the invariant embedding space to estimate each model's relevance to a new sample. Higher ranked models provide predictions, and lower ranked models abstain. We evaluate MiDAS on generalization to drifted data with 9 fake news datasets, each obtained from different domains and modalities. MiDAS achieves new state-of-the-art performance on multi-domain adaptation for out-of-distribution fake news classification.  ",
+        "year": "2023"
+      },
+      "similarity": 0.5697481036186218
+    },
+    {
+      "paper": {
+        "paper_id": "ns0KIpfQVy",
+        "title": "Multimodal Banking Dataset: Understanding Client Needs through Event Sequences",
+        "abstract": "Financial organizations collect a huge amount of data about clients that typi-\ncally has a temporal (sequential) structure and is collected from multiple sources\n(modalities). However, despite the urgent practical need, developing deep learn-\ning techniques suitable to handle such data is limited by the absence of large open-\nsource multi-source real-world datasets of event sequences. To fill this gap mainly\ncaused by security reasons, we present the industrial-scale publicly available mul-\ntimodal banking dataset, MBD, that contains more than 2M corporate clients with\nseveral data sources: 950M bank transactions, 1B geo position events, 5M em-\nbeddings of dialogues with technical support and monthly aggregated purchases\nof four bank’s products. All entries are properly anonymized from real proprietary\nbank data. Moreover, we introduce a novel multimodal benchmark incorporating\nour MBD and two open-source financial datasets. We provide numerical results\ndemonstrating the superiority of fusion baselines over single-modal techniques\nfor each task. Moreover, our anonymization techniques still save all significant\ninformation for introduced downstream tasks.",
+        "year": "2025"
+      },
+      "similarity": 0.5678013563156128
+    },
+    {
+      "paper": {
+        "paper_id": "sLtuNGkKfH",
+        "title": "Subject Information Extraction for Novelty Detection with Domain Shifts",
+        "abstract": "Unsupervised novelty detection (UND), aimed at identifying novel samples, is essential in fields like medical diagnosis, cybersecurity, and industrial quality control. Most existing UND methods assume that the training data and testing normal data originate from the same domain and only consider the distribution variation between training data and testing data. However, in real scenarios, it is common for normal testing and training data to originate from different domains, a challenge known as domain shift. The discrepancies between training and testing data often lead to incorrect classification of normal data as novel by existing methods. A typical situation is that testing normal data and training data describe the same subject, yet they differ in the background conditions. To address this problem, we introduce a novel method that separates subject information from background variation encapsulating the domain information to enhance detection performance under domain shifts. The proposed method minimizes the mutual information between the representations of the subject and background while modelling the background variation using a deep Gaussian mixture model, where the novelty detection is conducted on the subject representations solely and hence is not affected by the variation of domains. Extensive experiments demonstrate that our model generalizes effectively to unseen domains and significantly outperforms baseline methods, especially under substantial domain shifts between training and testing data.",
+        "year": "2025"
+      },
+      "similarity": 0.5667849183082581
+    }
+  ],
+  "idea_003": [
+    {
+      "paper": {
+        "paper_id": "Wfoiy6dIEk",
+        "title": "Multi-Instance Learning Based Anomaly Detection Method for Sequence Data with Application to the Credit Card Delinquency Risk Control",
+        "abstract": "Anomaly detection in sequence data is widely applicable to many fields and has significant commercial value to the financial industry. The focus of this paper is its utility as means to control credit card delinquency risk. Transactions that deviate from the typical data sequence are a common precursor of payment difficulty. Current detection methods do not effectively use transaction data to detect abnormal transactions. This makes it difficult to control the overdue payment risk. We propose a Multi-Instance Learning based anomaly detection (MILAD) method with well designed learning networks to address this problem. MILAD analyze users’ monthly transactions and payment history, and detect exceptions through well designed deep learning networks. By comparing the performance of MILAD and DAGMM, which is currently the most commonly used unsupervised deep learning algorithm for credit card risk control, MILAD best controls overdue risk by utilizing both transaction and payment information.",
+        "year": "2024"
+      },
+      "similarity": 0.5828492641448975
+    },
+    {
+      "paper": {
+        "paper_id": "8G2CvYlfjw",
+        "title": "Online Gradient Boosting Decision Tree: In-Place Updates for Adding/Deleting Data",
+        "abstract": "Gradient Boosting Decision Tree (GBDT) is one of the most popular machine learning models in various applications. But in the traditional settings, all data should be simultaneously accessed in the training procedure: it does not allow to add or delete any data instances after training. In this paper, we propose a novel online learning framework for GBDT supporting both incremental and decremental learning. To the best of our knowledge, this is the first work that considers an in-place unified incremental and decremental learning on GBDT. To reduce the learning cost, we present a collection of optimizations for our framework, so that it can add or delete a small fraction of data on the fly. We theoretically show the relationship between the hyper-parameters of the proposed optimizations, which enables trading off accuracy and cost on incremental and decremental learning. The backdoor attack results show that our framework can successfully inject and remove backdoor in a well-trained model using incremental and decremental learning, and the empirical results on public datasets confirm the effectiveness and efficiency of our proposed online learning framework and optimizations.",
+        "year": "2025"
+      },
+      "similarity": 0.539395809173584
+    },
+    {
+      "paper": {
+        "paper_id": "xFvHcgj1fO",
+        "title": "OML-AD: Online Machine Learning for Anomaly Detection in Time Series Data",
+        "abstract": "Time series are ubiquitous and occur naturally in a variety of applications -- from data recorded by sensors in manufacturing processes, over financial data streams to climate data. Different tasks arise, such as regression, classification or segmentation of the time series. However, to reliably solve these challenges, it is important to filter out abnormal observations that deviate from the usual behavior of the time series. While many anomaly detection methods exist for independent data and stationary time series, these methods are not applicable to non-stationary time series. To allow for non-stationarity in the data, while simultaneously detecting anomalies, we propose OML-AD, a novel approach for anomaly detection (AD) based on online machine learning (OML). We provide an implementation of OML-AD within the Python library River and show that it outperforms state-of-the-art baseline methods in terms of accuracy and computational efficiency.",
+        "year": "2025"
+      },
+      "similarity": 0.5371103882789612
+    },
+    {
+      "paper": {
+        "paper_id": "BhxsjonZ0z",
+        "title": "FedOD: Federated Outlier Detection via Neural Approximation",
+        "abstract": "Outlier detection (OD) is a crucial machine learning task with key applications in various sectors such as security, finance, and healthcare. Preserving data privacy has been increasingly important for OD due to the sensitivity of the data involved. While federated learning (FL) offers the potential in protecting data privacy, it is not yet available for most classical OD algorithms, such as those based on distance and density estimation. To address this, we introduce FedOD, the first FL-based system designed for general OD algorithms. FedOD effectively overcomes the privacy and efficiency challenges inherent in classical OD algorithms by automatically decomposing these algorithms into a set of basic operators and approximating their behaviors using neural networks. Given the inherent compatibility of neural networks with FL, the approximated OD algorithms also become capable of privacy-preserving learning without data exchange. With this design, FedOD supports over 20 popular classical OD algorithms and is readily extendable to other fields like classification. Evaluation on more than 30 benchmark and synthetic datasets demonstrates FedOD's accuracy and efficacy over state-of-the-art baselines---compared to existing OD systems, FedOD achieves up to 11x reduction in errors and 10x improvement in performance.",
+        "year": "2024"
+      },
+      "similarity": 0.5324099063873291
+    },
+    {
+      "paper": {
+        "paper_id": "6yXAKleluj",
+        "title": "Probabilistic Sampling-Enhanced Temporal-Spatial GCN: A Scalable Framework for Transaction Anomaly Detection in Ethereum Networks",
+        "abstract": "The rapid evolution of the Ethereum network necessitates sophisticated techniques to ensure its robustness against potential threats and to maintain transparency. While Graph Neural Networks (GNNs) have pioneered anomaly detection in such platforms, capturing the intricacies of both spatial and temporal transactional patterns has remained a challenge. This study presents a fusion of Graph Convolutional Networks (GCNs) with Temporal Random Walks (TRW) enhanced by probabilistic sampling to bridge this gap. Our approach, unlike traditional GCNs, leverages the strengths of TRW to discern complex temporal sequences in Ethereum transactions, thereby providing a more nuanced transaction anomaly detection mechanism. Preliminary evaluations demonstrate that our TRW-GCN framework substantially advances the performance metrics over conventional GCNs in detecting anomalies and transaction bursts. This research not only underscores the potential of temporal cues in Ethereum transactional data but also offers a scalable and effective methodology for ensuring the security and transparency of decentralized platforms. By harnessing both spatial relationships and time-based transactional sequences as node features, our model introduces an additional layer of granularity, making the detection process more robust and less prone to false positives. This work lays the foundation for future research aimed at optimizing and enhancing the transparency of blockchain technologies, and serves as a testament to the significance of considering both time and space dimensions in the ever-evolving landscape of the decentralized platforms.",
+        "year": "2024"
+      },
+      "similarity": 0.5299182534217834
+    }
+  ],
+  "idea_004": [
+    {
+      "paper": {
+        "paper_id": "Wfoiy6dIEk",
+        "title": "Multi-Instance Learning Based Anomaly Detection Method for Sequence Data with Application to the Credit Card Delinquency Risk Control",
+        "abstract": "Anomaly detection in sequence data is widely applicable to many fields and has significant commercial value to the financial industry. The focus of this paper is its utility as means to control credit card delinquency risk. Transactions that deviate from the typical data sequence are a common precursor of payment difficulty. Current detection methods do not effectively use transaction data to detect abnormal transactions. This makes it difficult to control the overdue payment risk. We propose a Multi-Instance Learning based anomaly detection (MILAD) method with well designed learning networks to address this problem. MILAD analyze users’ monthly transactions and payment history, and detect exceptions through well designed deep learning networks. By comparing the performance of MILAD and DAGMM, which is currently the most commonly used unsupervised deep learning algorithm for credit card risk control, MILAD best controls overdue risk by utilizing both transaction and payment information.",
+        "year": "2024"
+      },
+      "similarity": 0.5948577523231506
+    },
+    {
+      "paper": {
+        "paper_id": "xFvHcgj1fO",
+        "title": "OML-AD: Online Machine Learning for Anomaly Detection in Time Series Data",
+        "abstract": "Time series are ubiquitous and occur naturally in a variety of applications -- from data recorded by sensors in manufacturing processes, over financial data streams to climate data. Different tasks arise, such as regression, classification or segmentation of the time series. However, to reliably solve these challenges, it is important to filter out abnormal observations that deviate from the usual behavior of the time series. While many anomaly detection methods exist for independent data and stationary time series, these methods are not applicable to non-stationary time series. To allow for non-stationarity in the data, while simultaneously detecting anomalies, we propose OML-AD, a novel approach for anomaly detection (AD) based on online machine learning (OML). We provide an implementation of OML-AD within the Python library River and show that it outperforms state-of-the-art baseline methods in terms of accuracy and computational efficiency.",
+        "year": "2025"
+      },
+      "similarity": 0.514644205570221
+    },
+    {
+      "paper": {
+        "paper_id": "Ur4LqAOXIF",
+        "title": "SODA: Stream Out-of-Distribution Adaptation",
+        "abstract": "In open-context environments, machine learning models require out-of-distribution (OOD) awareness to ensure safe operation. However, existing OOD detection approaches have primarily focused on the offline setting, where OOD detectors remain static and fixed after deployment. This limits their ability to perform in real-world environments with unknown and ever-shifting out-of-distribution data. To address this limitation, we propose a novel online OOD detection framework that allows for continuous adaptation of the OOD detector. Our framework updates the ID classifier and OOD detector sequentially, based on samples observed from the deployed environment, and minimizes the risk of incorrect OOD predictions at each timestep. Unlike traditional offline OOD detection methods, our online framework provides the adaptivity and practicality needed for real-world environments. Theoretical analysis demonstrates that our algorithm provably achieves sub-linear regret and converges to the optimal OOD detector over time. Empirical evaluation in various environments shows that our online OOD detector significantly outperforms offline methods, highlighting the superiority of our framework for real-world applications of OOD detection.",
+        "year": "2024"
+      },
+      "similarity": 0.5014902949333191
+    },
+    {
+      "paper": {
+        "paper_id": "6yXAKleluj",
+        "title": "Probabilistic Sampling-Enhanced Temporal-Spatial GCN: A Scalable Framework for Transaction Anomaly Detection in Ethereum Networks",
+        "abstract": "The rapid evolution of the Ethereum network necessitates sophisticated techniques to ensure its robustness against potential threats and to maintain transparency. While Graph Neural Networks (GNNs) have pioneered anomaly detection in such platforms, capturing the intricacies of both spatial and temporal transactional patterns has remained a challenge. This study presents a fusion of Graph Convolutional Networks (GCNs) with Temporal Random Walks (TRW) enhanced by probabilistic sampling to bridge this gap. Our approach, unlike traditional GCNs, leverages the strengths of TRW to discern complex temporal sequences in Ethereum transactions, thereby providing a more nuanced transaction anomaly detection mechanism. Preliminary evaluations demonstrate that our TRW-GCN framework substantially advances the performance metrics over conventional GCNs in detecting anomalies and transaction bursts. This research not only underscores the potential of temporal cues in Ethereum transactional data but also offers a scalable and effective methodology for ensuring the security and transparency of decentralized platforms. By harnessing both spatial relationships and time-based transactional sequences as node features, our model introduces an additional layer of granularity, making the detection process more robust and less prone to false positives. This work lays the foundation for future research aimed at optimizing and enhancing the transparency of blockchain technologies, and serves as a testament to the significance of considering both time and space dimensions in the ever-evolving landscape of the decentralized platforms.",
+        "year": "2024"
+      },
+      "similarity": 0.4903072118759155
+    },
+    {
+      "paper": {
+        "paper_id": "hWF4KWeNgb",
+        "title": "Hierarchical Gaussian Mixture Normalizing Flows Modeling for Multi-Class Anomaly Detection",
+        "abstract": "One of the most challenges for anomaly detection (AD) is how to design one unified\nAD model, where the model is trained with normal instances from multiple classes\nwith the objective to detect anomalies in these classes. For such a challenging task,\npopular normalizing flow (NF) based AD methods may fall into a ”homogeneous\nmapping” issue, where the NF-based AD models are biased to generate large\nlog-likelihoods for both normal and abnormal samples, and thereby lead to a\nhigh missing rate of anomalies. In this paper, we propose a novel model with\nstronger unified AD performance, HGAD (Hierarchical Gaussian mixture). The\nproposed HGAD performs much better for multi-class anomaly detection by three\nkey improvements. First, we propose to model NF-based AD networks with\ninter-class Gaussian mixture prior for more effectively capturing the complex multiclass\ndistribution. Second, we propose a mutual information maximization loss to\nintroduce the class repulsion property to the model for better structuring the latent\nfeature space, where the class centers are repulsed from each other. In this way,\ndifferent class centers are more distinguishable and more conducive to avoid the\nbias issue. Third, we introduce an intra-class mixed class centers learning strategy\nthat can prompt the model to learn diverse normal patterns even within one class.\nTogether with the inter-class Gaussian mixture modeling, we form a hierarchical\nGaussian mixture normalizing flows modeling method to accomplish the multiclass\nAD task. We evaluate our method on four real-world AD benchmarks,\nwhere we can significantly improve the previous NF-based AD methods and also\noutperform the SOTA unified AD methods. Code will be available online.",
+        "year": "2024"
+      },
+      "similarity": 0.48640555143356323
+    }
+  ],
+  "idea_005": [
+    {
+      "paper": {
+        "paper_id": "Wfoiy6dIEk",
+        "title": "Multi-Instance Learning Based Anomaly Detection Method for Sequence Data with Application to the Credit Card Delinquency Risk Control",
+        "abstract": "Anomaly detection in sequence data is widely applicable to many fields and has significant commercial value to the financial industry. The focus of this paper is its utility as means to control credit card delinquency risk. Transactions that deviate from the typical data sequence are a common precursor of payment difficulty. Current detection methods do not effectively use transaction data to detect abnormal transactions. This makes it difficult to control the overdue payment risk. We propose a Multi-Instance Learning based anomaly detection (MILAD) method with well designed learning networks to address this problem. MILAD analyze users’ monthly transactions and payment history, and detect exceptions through well designed deep learning networks. By comparing the performance of MILAD and DAGMM, which is currently the most commonly used unsupervised deep learning algorithm for credit card risk control, MILAD best controls overdue risk by utilizing both transaction and payment information.",
+        "year": "2024"
+      },
+      "similarity": 0.578694760799408
+    },
+    {
+      "paper": {
+        "paper_id": "6yXAKleluj",
+        "title": "Probabilistic Sampling-Enhanced Temporal-Spatial GCN: A Scalable Framework for Transaction Anomaly Detection in Ethereum Networks",
+        "abstract": "The rapid evolution of the Ethereum network necessitates sophisticated techniques to ensure its robustness against potential threats and to maintain transparency. While Graph Neural Networks (GNNs) have pioneered anomaly detection in such platforms, capturing the intricacies of both spatial and temporal transactional patterns has remained a challenge. This study presents a fusion of Graph Convolutional Networks (GCNs) with Temporal Random Walks (TRW) enhanced by probabilistic sampling to bridge this gap. Our approach, unlike traditional GCNs, leverages the strengths of TRW to discern complex temporal sequences in Ethereum transactions, thereby providing a more nuanced transaction anomaly detection mechanism. Preliminary evaluations demonstrate that our TRW-GCN framework substantially advances the performance metrics over conventional GCNs in detecting anomalies and transaction bursts. This research not only underscores the potential of temporal cues in Ethereum transactional data but also offers a scalable and effective methodology for ensuring the security and transparency of decentralized platforms. By harnessing both spatial relationships and time-based transactional sequences as node features, our model introduces an additional layer of granularity, making the detection process more robust and less prone to false positives. This work lays the foundation for future research aimed at optimizing and enhancing the transparency of blockchain technologies, and serves as a testament to the significance of considering both time and space dimensions in the ever-evolving landscape of the decentralized platforms.",
+        "year": "2024"
+      },
+      "similarity": 0.5722435712814331
+    },
+    {
+      "paper": {
+        "paper_id": "xFvHcgj1fO",
+        "title": "OML-AD: Online Machine Learning for Anomaly Detection in Time Series Data",
+        "abstract": "Time series are ubiquitous and occur naturally in a variety of applications -- from data recorded by sensors in manufacturing processes, over financial data streams to climate data. Different tasks arise, such as regression, classification or segmentation of the time series. However, to reliably solve these challenges, it is important to filter out abnormal observations that deviate from the usual behavior of the time series. While many anomaly detection methods exist for independent data and stationary time series, these methods are not applicable to non-stationary time series. To allow for non-stationarity in the data, while simultaneously detecting anomalies, we propose OML-AD, a novel approach for anomaly detection (AD) based on online machine learning (OML). We provide an implementation of OML-AD within the Python library River and show that it outperforms state-of-the-art baseline methods in terms of accuracy and computational efficiency.",
+        "year": "2025"
+      },
+      "similarity": 0.5325231552124023
+    },
+    {
+      "paper": {
+        "paper_id": "ns0KIpfQVy",
+        "title": "Multimodal Banking Dataset: Understanding Client Needs through Event Sequences",
+        "abstract": "Financial organizations collect a huge amount of data about clients that typi-\ncally has a temporal (sequential) structure and is collected from multiple sources\n(modalities). However, despite the urgent practical need, developing deep learn-\ning techniques suitable to handle such data is limited by the absence of large open-\nsource multi-source real-world datasets of event sequences. To fill this gap mainly\ncaused by security reasons, we present the industrial-scale publicly available mul-\ntimodal banking dataset, MBD, that contains more than 2M corporate clients with\nseveral data sources: 950M bank transactions, 1B geo position events, 5M em-\nbeddings of dialogues with technical support and monthly aggregated purchases\nof four bank’s products. All entries are properly anonymized from real proprietary\nbank data. Moreover, we introduce a novel multimodal benchmark incorporating\nour MBD and two open-source financial datasets. We provide numerical results\ndemonstrating the superiority of fusion baselines over single-modal techniques\nfor each task. Moreover, our anonymization techniques still save all significant\ninformation for introduced downstream tasks.",
+        "year": "2025"
+      },
+      "similarity": 0.5083045363426208
+    },
+    {
+      "paper": {
+        "paper_id": "BJ9mzoSeu1",
+        "title": "Personalized Federated Learning via Variational Massage Passing",
+        "abstract": "Conventional federated learning (FL) aims to train a unified machine learning model that fits data distributed across various agents. However, statistical heterogeneity arising from diverse data resources renders the single global model trained by FL ineffective for all clients. Personalized federated learning (pFL) has been proposed to primarily address this challenge by tailoring individualized models to each client's specific dataset while integrating global information during feature aggregation. Achieving efficient pFL necessitates the accurate estimation of global feature information across all the training data. Nonetheless, balancing the personalization of individual models with the global consensus of feature information remains a significant challenge in existing approaches. \nIn this paper, we propose pFedVMP, a novel pFL approach that employs variational message passing (VMP) to design feature aggregation protocols.  By leveraging the mean and covariance, pFedVMP yields more precise estimates of the distributions of model parameters and global feature centroids. Additionally, pFedVMP is effective in boosting training accuracy and preventing overfitting by regularizing local training with global feature centroids. Extensive experiments on heterogeneous data conditions demonstrate that pFedVMP surpasses state-of-the-art methods in both effectiveness and fairness.",
+        "year": "2025"
+      },
+      "similarity": 0.5057423114776611
+    }
+  ],
+  "idea_006": [
+    {
+      "paper": {
+        "paper_id": "dugoA2gfhs",
+        "title": "Just Select Twice: Leveraging Low Quality Data to Improve Data Selection",
+        "abstract": "Data valuation is crucial for assessing the impact and quality of individual data points, enabling the ranking of data by importance for efficient data collection, storage, and training. Many data valuation methods are sensitive to outliers and require a certain level of noise to effectively distinguish low-quality data from high-quality data, making them particularly useful for data removal tasks. In particular, optimal transport-based methods exhibit notable performance in outlier detection but show only moderate effectiveness in high-quality data selection, due to their sensitivity to outliers and insensitivity to small variations. To mitigate the issue of insensitivity to high-quality data and facilitate effective data selection, in this paper, we propose a straightforward two-stage approach, JST, that initially does data valuation as usual, but then performs a second-round data selection where the identified low-quality data points are designated as the validation set to perform data valuation again. In this way, high-quality data become outliers with respect to the new validation set and can be naturally identified. We empirically evaluate an instantiation of our framework based on optimal transport method for data selection and data pruning on several standard datasets and our framework demonstrates superior performance compared to pure data valuation, especially under small noise conditions. Additionally, we show the general applicability of our framework to influence function based and reinforcement learning based data valuation methods.",
+        "year": "2025"
+      },
+      "similarity": 0.5051083564758301
+    },
+    {
+      "paper": {
+        "paper_id": "6yXAKleluj",
+        "title": "Probabilistic Sampling-Enhanced Temporal-Spatial GCN: A Scalable Framework for Transaction Anomaly Detection in Ethereum Networks",
+        "abstract": "The rapid evolution of the Ethereum network necessitates sophisticated techniques to ensure its robustness against potential threats and to maintain transparency. While Graph Neural Networks (GNNs) have pioneered anomaly detection in such platforms, capturing the intricacies of both spatial and temporal transactional patterns has remained a challenge. This study presents a fusion of Graph Convolutional Networks (GCNs) with Temporal Random Walks (TRW) enhanced by probabilistic sampling to bridge this gap. Our approach, unlike traditional GCNs, leverages the strengths of TRW to discern complex temporal sequences in Ethereum transactions, thereby providing a more nuanced transaction anomaly detection mechanism. Preliminary evaluations demonstrate that our TRW-GCN framework substantially advances the performance metrics over conventional GCNs in detecting anomalies and transaction bursts. This research not only underscores the potential of temporal cues in Ethereum transactional data but also offers a scalable and effective methodology for ensuring the security and transparency of decentralized platforms. By harnessing both spatial relationships and time-based transactional sequences as node features, our model introduces an additional layer of granularity, making the detection process more robust and less prone to false positives. This work lays the foundation for future research aimed at optimizing and enhancing the transparency of blockchain technologies, and serves as a testament to the significance of considering both time and space dimensions in the ever-evolving landscape of the decentralized platforms.",
+        "year": "2024"
+      },
+      "similarity": 0.47758305072784424
+    },
+    {
+      "paper": {
+        "paper_id": "rCaA79Obsj",
+        "title": "Towards zero shot multivariate time series anomaly detection - A Realistic Evaluation",
+        "abstract": "A long line of multivariate timeseries anomaly detection (MTAD) approaches use performance enhancement techniques that are not feasible in practical scenarios. In specific, a) point adjustment technique is employed which uses ground truth to forcefully convert false negatives to true positives and inflates precision to unrealistic proportions, and b) significant data leakage is introduced where anomaly score threshold is determined using the test data and test labels. In this paper, we show the real world performance of existing MTAD techniques when point adjustment and threshold learning on test data is disabled. Moreover, we show that anomalies introduced in real world benchmark datasets result in significant distribution shift between normal and anomalous data, and when point adjustment and threshold learning are used even untrained deterministic methods can perform on par or even beat baseline techniques. We then introduce six synthetic benchmark examples derived from real world systems, where anomalous data and normal data have statistically insignificant distribution shift. We propose, sparse model identification enhanced anomaly detection (SPIE-AD), a model recovery and conformance based zero shot MTAD approach that outperforms state of art MTAD techniques on three real world benchmark datasets without using point adjustment and threshold learning on test data. We evaluate state-of-art MTAD and SPIE-AD on the novel synthetic benchmarks. SPIE-AD outperforms state-of-art MTAD techniques on both standard and novel benchmarks.",
+        "year": "2025"
+      },
+      "similarity": 0.4736018180847168
+    },
+    {
+      "paper": {
+        "paper_id": "6UfYLQJ8pA",
+        "title": "Leveraging Object Detection for Diverse and Accurate Long-Horizon Events Forecasting",
+        "abstract": "Long-horizon event forecasting is critical across various domains, including retail, finance, healthcare, and social networks. Traditional methods, such as Marked Temporal Point Processes (MTPP), often rely on autoregressive models to predict multiple future events. However, these models frequently suffer from issues like converging to constant or repetitive outputs, which limits their effectiveness and general applicability. To address these challenges, we introduce DeTPP (Detection-based Temporal Point Processes), a novel approach inspired by a matching-based loss function from object detection. DeTPP employs a unique matching-based loss function that selectively prioritizes reliably predictable events, improving the accuracy and diversity of predictions during inference. Our method establishes a new state-of-the-art in long-horizon event forecasting, achieving up to a 77% relative improvement over existing MTPP and next-K methods. Furthermore, DeTPP enhances next-event prediction accuracy by up to 2.7\\% on a large transactions dataset and demonstrates high computational efficiency during inference.",
+        "year": "2025"
+      },
+      "similarity": 0.4605545401573181
+    },
+    {
+      "paper": {
+        "paper_id": "WbqBj2aC5k",
+        "title": "Online Detecting LLM-Generated Texts via Sequential Hypothesis Testing by Betting",
+        "abstract": "Developing algorithms to differentiate between machine-generated texts and human-written texts has garnered substantial attention in recent years. Existing methods in this direction typically concern an offline setting where a dataset containing a mix of real and machine-generated texts is given upfront, and the task is to determine whether each sample in the dataset is from a large language model (LLM) or a human. However, in many practical scenarios, sources such as news websites, social media accounts, or on other forums publish content in a streaming fashion. Therefore, in this online scenario, how to quickly and accurately determine whether the source is an LLM with strong statistical guarantees is crucial for these media or platforms to function effectively and prevent the spread of misinformation and other potential misuse of LLMs. To tackle the problem of online detection, we develop an algorithm based on the techniques of sequential hypothesis testing by betting that not only builds upon and complements existing offline detection techniques but also enjoys statistical guarantees, which include a controlled false positive rate and the expected time to correctly identify a source as an LLM. Experiments were conducted to demonstrate the effectiveness of our method.",
+        "year": "2025"
+      },
+      "similarity": 0.45845288038253784
+    }
+  ],
+  "idea_007": [
+    {
+      "paper": {
+        "paper_id": "LPXfOxe0zF",
+        "title": "BlockFound: Customized blockchain foundation model for anomaly detection",
+        "abstract": "We propose BlockFound, a customized foundation model for anomaly blockchain transaction detection. \nUnlike existing methods that rely on rule-based systems or directly apply off-the-shelf large language models, BlockFound introduces a series of customized designs to model the unique data structure of blockchain transactions. \nFirst, a blockchain transaction is multi-modal, containing blockchain-specific tokens, texts, and numbers. \nWe design a modularized tokenizer to handle these multi-modal inputs, balancing the information across different modalities. \nSecond, we design a customized mask language learning mechanism for pretraining with RoPE embedding and FlashAttention for handling longer sequences.\nAfter training the foundation model, we further design a novel detection method for anomaly detection. \nExtensive evaluations on Ethereum and Solana transactions demonstrate BlockFound's exceptional capability in anomaly detection while maintaining a low false positive rate. \nRemarkably, BlockFound is the only method that successfully detects anomalous transactions on Solana with high accuracy, whereas all other approaches achieved very low or zero detection recall scores.\nThis work not only provides new foundation models for blockchain but also sets a new benchmark for applying LLMs in blockchain data.",
+        "year": "2025"
+      },
+      "similarity": 0.6200408339500427
+    },
+    {
+      "paper": {
+        "paper_id": "Wfoiy6dIEk",
+        "title": "Multi-Instance Learning Based Anomaly Detection Method for Sequence Data with Application to the Credit Card Delinquency Risk Control",
+        "abstract": "Anomaly detection in sequence data is widely applicable to many fields and has significant commercial value to the financial industry. The focus of this paper is its utility as means to control credit card delinquency risk. Transactions that deviate from the typical data sequence are a common precursor of payment difficulty. Current detection methods do not effectively use transaction data to detect abnormal transactions. This makes it difficult to control the overdue payment risk. We propose a Multi-Instance Learning based anomaly detection (MILAD) method with well designed learning networks to address this problem. MILAD analyze users’ monthly transactions and payment history, and detect exceptions through well designed deep learning networks. By comparing the performance of MILAD and DAGMM, which is currently the most commonly used unsupervised deep learning algorithm for credit card risk control, MILAD best controls overdue risk by utilizing both transaction and payment information.",
+        "year": "2024"
+      },
+      "similarity": 0.6134873628616333
+    },
+    {
+      "paper": {
+        "paper_id": "ns0KIpfQVy",
+        "title": "Multimodal Banking Dataset: Understanding Client Needs through Event Sequences",
+        "abstract": "Financial organizations collect a huge amount of data about clients that typi-\ncally has a temporal (sequential) structure and is collected from multiple sources\n(modalities). However, despite the urgent practical need, developing deep learn-\ning techniques suitable to handle such data is limited by the absence of large open-\nsource multi-source real-world datasets of event sequences. To fill this gap mainly\ncaused by security reasons, we present the industrial-scale publicly available mul-\ntimodal banking dataset, MBD, that contains more than 2M corporate clients with\nseveral data sources: 950M bank transactions, 1B geo position events, 5M em-\nbeddings of dialogues with technical support and monthly aggregated purchases\nof four bank’s products. All entries are properly anonymized from real proprietary\nbank data. Moreover, we introduce a novel multimodal benchmark incorporating\nour MBD and two open-source financial datasets. We provide numerical results\ndemonstrating the superiority of fusion baselines over single-modal techniques\nfor each task. Moreover, our anonymization techniques still save all significant\ninformation for introduced downstream tasks.",
+        "year": "2025"
+      },
+      "similarity": 0.5964227914810181
+    },
+    {
+      "paper": {
+        "paper_id": "6yXAKleluj",
+        "title": "Probabilistic Sampling-Enhanced Temporal-Spatial GCN: A Scalable Framework for Transaction Anomaly Detection in Ethereum Networks",
+        "abstract": "The rapid evolution of the Ethereum network necessitates sophisticated techniques to ensure its robustness against potential threats and to maintain transparency. While Graph Neural Networks (GNNs) have pioneered anomaly detection in such platforms, capturing the intricacies of both spatial and temporal transactional patterns has remained a challenge. This study presents a fusion of Graph Convolutional Networks (GCNs) with Temporal Random Walks (TRW) enhanced by probabilistic sampling to bridge this gap. Our approach, unlike traditional GCNs, leverages the strengths of TRW to discern complex temporal sequences in Ethereum transactions, thereby providing a more nuanced transaction anomaly detection mechanism. Preliminary evaluations demonstrate that our TRW-GCN framework substantially advances the performance metrics over conventional GCNs in detecting anomalies and transaction bursts. This research not only underscores the potential of temporal cues in Ethereum transactional data but also offers a scalable and effective methodology for ensuring the security and transparency of decentralized platforms. By harnessing both spatial relationships and time-based transactional sequences as node features, our model introduces an additional layer of granularity, making the detection process more robust and less prone to false positives. This work lays the foundation for future research aimed at optimizing and enhancing the transparency of blockchain technologies, and serves as a testament to the significance of considering both time and space dimensions in the ever-evolving landscape of the decentralized platforms.",
+        "year": "2024"
+      },
+      "similarity": 0.5908544063568115
+    },
+    {
+      "paper": {
+        "paper_id": "DNjHslZrqu",
+        "title": "A Simple Baseline for Predicting Future Events with Auto-Regressive Tabular Transformers",
+        "abstract": "Many real-world applications of tabular data involve using historic events to predict properties of new ones, for example whether a credit card transaction is fraudulent or what rating a customer will assign a product on a retail platform.\nExisting approaches to event prediction include costly, brittle, and application-dependent techniques such as time-aware positional embeddings, learned row and field encodings, and oversampling methods for addressing class imbalance.\nMoreover, these approaches often assume specific use-cases, for example that we know the labels of all historic events or that we only predict a pre-specified label and not the data’s features themselves.\nIn this work, we propose a simple but flexible baseline using standard autoregressive LLM-style transformers with elementary positional embeddings and a causal language modeling objective.\nOur baseline outperforms existing approaches across popular datasets and can be employed for various use-cases.\nWe demonstrate that the same model can predict labels, impute missing values, or model event sequences.",
+        "year": "2025"
+      },
+      "similarity": 0.5895853638648987
+    }
+  ],
+  "idea_008": [
+    {
+      "paper": {
+        "paper_id": "Wfoiy6dIEk",
+        "title": "Multi-Instance Learning Based Anomaly Detection Method for Sequence Data with Application to the Credit Card Delinquency Risk Control",
+        "abstract": "Anomaly detection in sequence data is widely applicable to many fields and has significant commercial value to the financial industry. The focus of this paper is its utility as means to control credit card delinquency risk. Transactions that deviate from the typical data sequence are a common precursor of payment difficulty. Current detection methods do not effectively use transaction data to detect abnormal transactions. This makes it difficult to control the overdue payment risk. We propose a Multi-Instance Learning based anomaly detection (MILAD) method with well designed learning networks to address this problem. MILAD analyze users’ monthly transactions and payment history, and detect exceptions through well designed deep learning networks. By comparing the performance of MILAD and DAGMM, which is currently the most commonly used unsupervised deep learning algorithm for credit card risk control, MILAD best controls overdue risk by utilizing both transaction and payment information.",
+        "year": "2024"
+      },
+      "similarity": 0.6339993476867676
+    },
+    {
+      "paper": {
+        "paper_id": "ns0KIpfQVy",
+        "title": "Multimodal Banking Dataset: Understanding Client Needs through Event Sequences",
+        "abstract": "Financial organizations collect a huge amount of data about clients that typi-\ncally has a temporal (sequential) structure and is collected from multiple sources\n(modalities). However, despite the urgent practical need, developing deep learn-\ning techniques suitable to handle such data is limited by the absence of large open-\nsource multi-source real-world datasets of event sequences. To fill this gap mainly\ncaused by security reasons, we present the industrial-scale publicly available mul-\ntimodal banking dataset, MBD, that contains more than 2M corporate clients with\nseveral data sources: 950M bank transactions, 1B geo position events, 5M em-\nbeddings of dialogues with technical support and monthly aggregated purchases\nof four bank’s products. All entries are properly anonymized from real proprietary\nbank data. Moreover, we introduce a novel multimodal benchmark incorporating\nour MBD and two open-source financial datasets. We provide numerical results\ndemonstrating the superiority of fusion baselines over single-modal techniques\nfor each task. Moreover, our anonymization techniques still save all significant\ninformation for introduced downstream tasks.",
+        "year": "2025"
+      },
+      "similarity": 0.5760027170181274
+    },
+    {
+      "paper": {
+        "paper_id": "6yXAKleluj",
+        "title": "Probabilistic Sampling-Enhanced Temporal-Spatial GCN: A Scalable Framework for Transaction Anomaly Detection in Ethereum Networks",
+        "abstract": "The rapid evolution of the Ethereum network necessitates sophisticated techniques to ensure its robustness against potential threats and to maintain transparency. While Graph Neural Networks (GNNs) have pioneered anomaly detection in such platforms, capturing the intricacies of both spatial and temporal transactional patterns has remained a challenge. This study presents a fusion of Graph Convolutional Networks (GCNs) with Temporal Random Walks (TRW) enhanced by probabilistic sampling to bridge this gap. Our approach, unlike traditional GCNs, leverages the strengths of TRW to discern complex temporal sequences in Ethereum transactions, thereby providing a more nuanced transaction anomaly detection mechanism. Preliminary evaluations demonstrate that our TRW-GCN framework substantially advances the performance metrics over conventional GCNs in detecting anomalies and transaction bursts. This research not only underscores the potential of temporal cues in Ethereum transactional data but also offers a scalable and effective methodology for ensuring the security and transparency of decentralized platforms. By harnessing both spatial relationships and time-based transactional sequences as node features, our model introduces an additional layer of granularity, making the detection process more robust and less prone to false positives. This work lays the foundation for future research aimed at optimizing and enhancing the transparency of blockchain technologies, and serves as a testament to the significance of considering both time and space dimensions in the ever-evolving landscape of the decentralized platforms.",
+        "year": "2024"
+      },
+      "similarity": 0.556114673614502
+    },
+    {
+      "paper": {
+        "paper_id": "LPXfOxe0zF",
+        "title": "BlockFound: Customized blockchain foundation model for anomaly detection",
+        "abstract": "We propose BlockFound, a customized foundation model for anomaly blockchain transaction detection. \nUnlike existing methods that rely on rule-based systems or directly apply off-the-shelf large language models, BlockFound introduces a series of customized designs to model the unique data structure of blockchain transactions. \nFirst, a blockchain transaction is multi-modal, containing blockchain-specific tokens, texts, and numbers. \nWe design a modularized tokenizer to handle these multi-modal inputs, balancing the information across different modalities. \nSecond, we design a customized mask language learning mechanism for pretraining with RoPE embedding and FlashAttention for handling longer sequences.\nAfter training the foundation model, we further design a novel detection method for anomaly detection. \nExtensive evaluations on Ethereum and Solana transactions demonstrate BlockFound's exceptional capability in anomaly detection while maintaining a low false positive rate. \nRemarkably, BlockFound is the only method that successfully detects anomalous transactions on Solana with high accuracy, whereas all other approaches achieved very low or zero detection recall scores.\nThis work not only provides new foundation models for blockchain but also sets a new benchmark for applying LLMs in blockchain data.",
+        "year": "2025"
+      },
+      "similarity": 0.5527786016464233
+    },
+    {
+      "paper": {
+        "paper_id": "ZlZakr4GYK",
+        "title": "COTIC: Embracing Non-uniformity in Event Sequence Data via Multilayer Continuous Convolution",
+        "abstract": "Massive samples of event sequences occur in various domains, including e-commerce, healthcare, and finance. There are two main challenges regarding modeling such data: methodological and computational. The methodological peculiarity for event sequences is their non-uniformity and sparsity. These requirements make time series models unsuitable. The computational challenge arises from a large amount of available data and the significant length of each sequence. Thus, the problem requires complex and efficient models.\nExisting solutions include large recurrent and transformer neural network architectures. \nOn top of existing blocks, their authors introduce specific intensity functions defined at each moment.\nHowever, due to their parametric nature, these continuous-time-aware intensities represent only a limited class of event sequences. \n\nWe propose the COTIC method based on an efficient continuous convolution neural network suitable for the non-uniform occurrence of events in time. In COTIC, dilations and multi-layer architecture efficiently handle long-term dependencies between events. Furthermore, the model provides intensity dynamics in continuous time --- including self-excitement encountered in practice. Being the first to introduce multiple continuous convolution layers that can handle arbitrary complex dependencies via MLP-modeled convolutions, we obtain these properties.\n\nWhen benchmarked against existing models, the COTIC consistently outperforms them, especially in predicting the next event time and type: it has the average rank of 2.125 vs. 3.688 of the primal competitor. Additionally, its ability to produce effective embeddings showcases its potential for a range of downstream tasks, as produced embeddings are sufficient to solve various downstream tasks, e.g., 0.459 vs. 0.452 baseline accuracy on a 4-label age bin prediction for transactions dataset. The code of the proposed method is available at  https://anonymous.4open.science/r/COTIC-F47D/README.md",
+        "year": "2024"
+      },
+      "similarity": 0.5074512958526611
+    }
+  ],
+  "idea_009": [
+    {
+      "paper": {
+        "paper_id": "8G2CvYlfjw",
+        "title": "Online Gradient Boosting Decision Tree: In-Place Updates for Adding/Deleting Data",
+        "abstract": "Gradient Boosting Decision Tree (GBDT) is one of the most popular machine learning models in various applications. But in the traditional settings, all data should be simultaneously accessed in the training procedure: it does not allow to add or delete any data instances after training. In this paper, we propose a novel online learning framework for GBDT supporting both incremental and decremental learning. To the best of our knowledge, this is the first work that considers an in-place unified incremental and decremental learning on GBDT. To reduce the learning cost, we present a collection of optimizations for our framework, so that it can add or delete a small fraction of data on the fly. We theoretically show the relationship between the hyper-parameters of the proposed optimizations, which enables trading off accuracy and cost on incremental and decremental learning. The backdoor attack results show that our framework can successfully inject and remove backdoor in a well-trained model using incremental and decremental learning, and the empirical results on public datasets confirm the effectiveness and efficiency of our proposed online learning framework and optimizations.",
+        "year": "2025"
+      },
+      "similarity": 0.5385581851005554
+    },
+    {
+      "paper": {
+        "paper_id": "Wfoiy6dIEk",
+        "title": "Multi-Instance Learning Based Anomaly Detection Method for Sequence Data with Application to the Credit Card Delinquency Risk Control",
+        "abstract": "Anomaly detection in sequence data is widely applicable to many fields and has significant commercial value to the financial industry. The focus of this paper is its utility as means to control credit card delinquency risk. Transactions that deviate from the typical data sequence are a common precursor of payment difficulty. Current detection methods do not effectively use transaction data to detect abnormal transactions. This makes it difficult to control the overdue payment risk. We propose a Multi-Instance Learning based anomaly detection (MILAD) method with well designed learning networks to address this problem. MILAD analyze users’ monthly transactions and payment history, and detect exceptions through well designed deep learning networks. By comparing the performance of MILAD and DAGMM, which is currently the most commonly used unsupervised deep learning algorithm for credit card risk control, MILAD best controls overdue risk by utilizing both transaction and payment information.",
+        "year": "2024"
+      },
+      "similarity": 0.5369903445243835
+    },
+    {
+      "paper": {
+        "paper_id": "Ur4LqAOXIF",
+        "title": "SODA: Stream Out-of-Distribution Adaptation",
+        "abstract": "In open-context environments, machine learning models require out-of-distribution (OOD) awareness to ensure safe operation. However, existing OOD detection approaches have primarily focused on the offline setting, where OOD detectors remain static and fixed after deployment. This limits their ability to perform in real-world environments with unknown and ever-shifting out-of-distribution data. To address this limitation, we propose a novel online OOD detection framework that allows for continuous adaptation of the OOD detector. Our framework updates the ID classifier and OOD detector sequentially, based on samples observed from the deployed environment, and minimizes the risk of incorrect OOD predictions at each timestep. Unlike traditional offline OOD detection methods, our online framework provides the adaptivity and practicality needed for real-world environments. Theoretical analysis demonstrates that our algorithm provably achieves sub-linear regret and converges to the optimal OOD detector over time. Empirical evaluation in various environments shows that our online OOD detector significantly outperforms offline methods, highlighting the superiority of our framework for real-world applications of OOD detection.",
+        "year": "2024"
+      },
+      "similarity": 0.5174717903137207
+    },
+    {
+      "paper": {
+        "paper_id": "TmKeT3IFTZ",
+        "title": "Fair Anomaly Detection For Imbalanced Groups",
+        "abstract": "Anomaly detection (AD) has been widely studied for decades in many real-world applications, including fraud detection in finance, and intrusion detection for cybersecurity, etc. Due to the imbalanced nature between protected and unprotected groups and the imbalanced distributions of normal examples and anomalies, the learning objectives of most existing anomaly detection methods tend to solely concentrate on the dominating unprotected group. Thus, it has been recognized by many researchers about the significance of ensuring model fairness in anomaly detection. However, the existing fair anomaly detection methods tend to erroneously label most normal examples from the protected group as anomalies in the imbalanced scenario where the unprotected group is more abundant than the protected group. This phenomenon is caused by the improper design of learning objectives, which statistically focus on learning the frequent patterns (i.e., the unprotected group) while overlooking the under-represented patterns (i.e., the protected group). To address these issues, we propose FADIG, a fairness-aware anomaly detection method targeting the imbalanced scenario. It consists of a fairness-aware contrastive learning module and a rebalancing autoencoder module to ensure fairness and handle the imbalanced data issue, respectively. Moreover, we provide the theoretical analysis that shows our proposed contrastive learning regularization guarantees group fairness. Empirical studies demonstrate the effectiveness and efficiency of FADIG across multiple real-world datasets.",
+        "year": "2025"
+      },
+      "similarity": 0.5142649412155151
+    },
+    {
+      "paper": {
+        "paper_id": "yPEY9gvwoj",
+        "title": "Amicable Perturbations",
+        "abstract": "Machine learning based classifiers have achieved incredible success in a variety of sectors such as college admissions, hiring and banking.  However their ability to make classifications has not been fully exploited to understand how to improve undesirable classifications.  We propose a new framework for finding the most efficient changes that could be made in the real world to achieve a more favorable classification, and term these changes \\textit{amicable perturbations}.  We present a principled methodology for creating amicable perturbations and demonstrate their effectiveness on data sets from a variety of fields. Amicable perturbations differ from counterfactuals in that they are better suited to balance the effort-reward trade-off and lead to the most efficient plan of action. Unlike adversarial examples, which fool a classifier into making false prediction, amicable perturbations are intended to affect the true class of the data point.  To this end, we develop a novel method for verifying that a amicable perturbations change the true class probabilities. We also compare our results to those achieved by previous methods such as counterfactuals and adversarial attacks.",
+        "year": "2024"
+      },
+      "similarity": 0.5112003087997437
+    }
+  ],
+  "idea_010": [
+    {
+      "paper": {
+        "paper_id": "Wfoiy6dIEk",
+        "title": "Multi-Instance Learning Based Anomaly Detection Method for Sequence Data with Application to the Credit Card Delinquency Risk Control",
+        "abstract": "Anomaly detection in sequence data is widely applicable to many fields and has significant commercial value to the financial industry. The focus of this paper is its utility as means to control credit card delinquency risk. Transactions that deviate from the typical data sequence are a common precursor of payment difficulty. Current detection methods do not effectively use transaction data to detect abnormal transactions. This makes it difficult to control the overdue payment risk. We propose a Multi-Instance Learning based anomaly detection (MILAD) method with well designed learning networks to address this problem. MILAD analyze users’ monthly transactions and payment history, and detect exceptions through well designed deep learning networks. By comparing the performance of MILAD and DAGMM, which is currently the most commonly used unsupervised deep learning algorithm for credit card risk control, MILAD best controls overdue risk by utilizing both transaction and payment information.",
+        "year": "2024"
+      },
+      "similarity": 0.6438486576080322
+    },
+    {
+      "paper": {
+        "paper_id": "Jj8AAlNobk",
+        "title": "A Differentiable Sequence Model Perspective on Policy Gradients",
+        "abstract": "Progress in sequence modeling with deep learning has been driven by the advances in temporal credit assignment coming from better gradient propagation in neural network architectures. In this paper, we reveal that using deep dynamics models conditioned on sequences of actions allows to draw a direct connection between gradient propagation in neural networks and policy gradients, and to harness those advances for sequential decision-making. We leverage this connection to analyze, understand and improve policy gradient methods with tools that have been developed for deep sequence models, theoretically showing that modern architectures provably give better policy gradients. Furthermore, we empirically demonstrate that, in our algorithmic framework, better sequence models entail better policy optimization: when the environment dynamics is well-behaved, we find that better neural network architectures yield more accurate policy gradients; when it is chaotic or non-differentiable, we discover that neural networks are able to provide gradients better-suited for policy optimization compared to the real differentiable simulator. On an optimal control testbed, we show that, within our framework, agents enjoy increased long-term credit assignment capabilities and sample efficiency when compared to traditional model-based and model-free approaches.",
+        "year": "2024"
+      },
+      "similarity": 0.5793437957763672
+    },
+    {
+      "paper": {
+        "paper_id": "K1Z-P0Le0DT",
+        "title": "Recurrent Real-valued Neural Autoregressive Density Estimator for Online Density Estimation and Classification of Streaming Data",
+        "abstract": "In contrast with the traditional offline learning, where complete data accessibility is assumed, many modern applications involve processing data in a streaming fashion. This online learning setting raises various challenges, including concept drift, hardware memory constraints, etc. In this paper, we propose the Recurrent Real-valued Neural Autoregressive Density Estimator (RRNADE), a flexible density-based model for online classification and density estimation. RRNADE combines a neural Gaussian mixture density module with a recurrent module. This combination allows RRNADE to exploit possible sequential correlations in the streaming task, which are often ignored in the classical streaming setting where each input is assumed to be independent from the previous ones. We showcase the ability of RRNADE to adapt to concept drifts on synthetic density estimation tasks. We also apply RRNADE to online classification tasks on both real world and synthetic datasets and compare it with multiple density based as well as nondensity based online classification methods. In almost all of these tasks, RRNADE outperforms the other methods. Lastly, we conduct an ablation study demonstrating the complementary benefits of the density and the recurrent modules.",
+        "year": "2023"
+      },
+      "similarity": 0.5694974064826965
+    },
+    {
+      "paper": {
+        "paper_id": "iGX0lwpUYj",
+        "title": "When to retrain a machine learning model",
+        "abstract": "A significant challenge in maintaining real-world machine learning models is responding to the continuous and unpredictable evolution of data. Most practitioners are faced with the difficult question: when should I retrain or update my machine learning model? This seemingly straightforward problem is particularly challenging for three reasons: 1) decisions must be made based on very limited information - we usually have access to only a few examples, 2) the nature, extent, and impact of the distribution shift are unknown, and 3) it involves specifying a cost ratio between retraining and poor performance, which can be hard to characterize. Existing works address certain aspects of this problem, but none offer a comprehensive solution. Distribution shift detection falls short as it cannot account for the cost trade-off; the scarcity of the data, paired with its unusual structure, makes it a poor fit for existing offline reinforcement learning methods, and the online learning formulation overlooks key practical considerations.\nTo address this, we present a principled formulation of the retraining problem and propose an uncertainty-based method that makes decisions by continually forecasting the evolution of model performance evaluated with a bounded metric. Our experiments, addressing classification tasks, show that the method consistently outperforms existing baselines on 7 datasets. We thoroughly assess its robustness to varying cost trade-off values and mis-specified cost trade-offs.",
+        "year": "2025"
+      },
+      "similarity": 0.5601775646209717
+    },
+    {
+      "paper": {
+        "paper_id": "BKuboEUJd8u",
+        "title": "Return Augmentation gives Supervised RL Temporal Compositionality",
+        "abstract": "Offline Reinforcement Learning (RL) methods that use supervised learning or sequence modeling (e.g., Decision Transformer) work by training a return-conditioned policy. A fundamental limitation of these approaches, as compared to value-based methods, is that they have trouble generalizing to behaviors that have a higher return than what was seen at training. Value-based offline-RL algorithms like CQL use bootstrapping to combine training data from multiple trajectories to learn strong behaviors from sub-optimal data. We set out to endow RL via Supervised Learning (RvS) methods with this form of temporal compositionality. To do this, we introduce SuperB, a dynamic programming algorithm for data augmentation that augments the returns in the offline dataset by combining rewards from intersecting trajectories. We show theoretically that SuperB can improve sample complexity and enable RvS to find optimal policies in cases where it previously fell behind the performance of value-based methods. Empirically, we find that SuperB improves the performance of RvS in several offline RL environments, surpassing the prior state-of-the-art RvS agents in AntMaze by orders of magnitude and offering performance competitive with value-based algorithms on the D4RL-gym tasks.",
+        "year": "2023"
+      },
+      "similarity": 0.5515329837799072
+    }
+  ]
+}

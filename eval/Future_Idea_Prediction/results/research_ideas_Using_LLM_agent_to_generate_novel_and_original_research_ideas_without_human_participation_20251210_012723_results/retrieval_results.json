@@ -1,0 +1,472 @@
+{
+  "idea_001": [
+    {
+      "paper": {
+        "paper_id": "CNPLXcMcSP",
+        "title": "Towards Sampling Data Structures for Tensor Products",
+        "abstract": "This paper studies the computational challenges of attention-based models in artificial intelligence by introducing innovative sampling methods to accelerate attention computation in large language models (LLM). Inspired by the recent progress of LLM in real-life applications, we introduces a streaming sampler question for attention setting. Our approach significantly reduces the computational burden of traditional attention mechanisms while maintaining or enhancing model performance. We demonstrate these methods' effectiveness from theoretical perspective, including space, update time. Additionally, our framework exhibits scalability and broad applicability across various model architectures and domains.",
+        "year": "2025"
+      },
+      "similarity": 0.6265309453010559
+    },
+    {
+      "paper": {
+        "paper_id": "Qi4oCA89CmO",
+        "title": "Why Did This Model Forecast This Future? Information-Theoretic Temporal Saliency for Counterfactual Explanations of Probabilistic Forecasts",
+        "abstract": "Probabilistic forecasting of multivariate time series is significant to several research domains where multiple futures exist for a single observed sequence. Identifying the observations on which a well-performing model bases its forecasts can enable domain experts to form data-driven hypotheses about the causal relationships between features. Consequently, we begin by revisiting the question: what constitutes a causal explanation? One hurdle in the landscape of explainable artificial intelligence is that what constitutes an explanation is not well-grounded. We build upon Miller's framework of explanations derived from research in multiple social science disciplines, and establish a conceptual link between counterfactual reasoning and saliency-based explanation techniques. However, the complication is a lack of a consistent and principled notion of saliency. Also, commonly derived saliency maps may be inconsistent with the data generation process and the underlying model. We therefore leverage a unifying definition of information-theoretic saliency grounded in preattentive human visual cognition and extend it to forecasting settings. In contrast to existing methods that require either explicit training of the saliency mechanism or access to the internal parameters of the underlying model, we obtain a closed-form solution for the resulting saliency map for commonly used density functions in probabilistic forecasting. To empirically evaluate our explainability framework in a principled manner, we construct a synthetic dataset of conversation dynamics and demonstrate that our method recovers the true salient timesteps for a forecast given a well-performing underlying model.",
+        "year": "2023"
+      },
+      "similarity": 0.605864405632019
+    },
+    {
+      "paper": {
+        "paper_id": "CN2bmVVpOh",
+        "title": "Transformer Mechanisms Mimic Frontostriatal Gating Operations When Trained on Human Working Memory Tasks",
+        "abstract": "The Transformer neural network architecture has seen success on a wide variety of tasks that appear to require executive function - the ability to represent, coordinate, and manage multiple subtasks. In cognitive neuroscience, executive function is thought to rely on sophisticated frontostriatal mechanisms for selective gating, which enable role-addressable updating-- and later readout-- of information to and from distinct \"addresses\" of memory, in the form of clusters of neurons. However, Transformer models have no such mechanisms intentionally built-in. It is thus an open question how Transformers solve such tasks, and whether the mechanisms that emerge to help them to do so resemble the gating mechanisms in the human brain. In this work, we analyze the mechanisms that emerge within a vanilla attention-only Transformer when trained on a task from computational cognitive neuroscience explicitly designed to place demands on working memory gating. We find that the self-attention mechanism within the Transformer develops input and output gating mechanisms, particularly when task demands require them. These gating mechanisms mirror those  incorporated into earlier biologically-inspired architectures and mimic those in human studies.  When learned effectively,  these gating strategies support enhanced generalization  and increase the models' effective capacity to store and access multiple items in memory. Despite not having memory limits, we also find that storing and accessing multiple items requires an efficient gating policy, resembling the constraints found in frontostriatal models.  \nThese results suggest opportunities for future research on computational similarities between modern AI architectures and models of the human brain.",
+        "year": "2025"
+      },
+      "similarity": 0.5773918032646179
+    },
+    {
+      "paper": {
+        "paper_id": "Cj3B4SoWuT",
+        "title": "Latte: Latent Attention for Linear Time Transformers",
+        "abstract": "The time complexity of the standard attention mechanism in transformers scales quadratically with sequence length. We propose a probabilistic framework for attention, enabling us to derive a novel low-rank linear re-parameterisation of both bidirectional and causal cases, based on defining a latent variable model. Our method can be seamlessly integrated as a drop-in replacement for the standard attention mechanism. Additionally, this framework provides a natural extension for combining local standard attention with our global linear attention. This approach allows us to extend the context length of existing large pre-trained models with only a few additional training steps. The resulting ``Latte Transformer'' achieves performance comparable to standard attention and other state-of-the-art models, while maintaining linear time and memory complexity, along with constant-time next-token prediction during inference.",
+        "year": "2025"
+      },
+      "similarity": 0.5701708793640137
+    },
+    {
+      "paper": {
+        "paper_id": "DP3BwwTKbL",
+        "title": "Predicting Observation after Action in a Hierarchical Energy-based Model with Memory",
+        "abstract": "Understanding the mechanisms of brain function is greatly advanced by predictive models. Recent advancements in machine learning further underscore the potency of prediction for learning optimal representation. However, there remains a gap in creating a biologically plausible model that explains how the neural system achieves prediction. In this paper, we introduce a framework employing an energy-based model (EBM) to capture the nuanced processes of predicting observation after action within the neural system, encompassing prediction, learning, and inference. We implement the EBM with a hierarchical structure and integrate a continuous attractor neural network for memory, constructing a biologically plausible model. In experimental evaluations, our model demonstrates efficacy across diverse scenarios. The range of actions includes eye movement, motion in environments, head turning, and static observation while the environment changes. Our model not only makes accurate predictions for environments it was trained on, but also provides reasonable predictions for unseen environments, matching the performances of machine learning methods in multiple tasks. We hope that this study contributes to a deep understanding of how the neural system performs prediction.",
+        "year": "2025"
+      },
+      "similarity": 0.5623617172241211
+    }
+  ],
+  "idea_002": [
+    {
+      "paper": {
+        "paper_id": "cH4VTcCVYs",
+        "title": "Policy optimization emerges from noisy representation learning",
+        "abstract": "Nervous systems learn representations of the world and policies to act within it. We present a framework that uses reward-dependent noise to facilitate policy optimization in representation learning networks. These networks balance extracting normative features and task-relevant information to solve tasks. Moreover, their representation changes reproduce several experimentally observed shifts in the neural code during task learning. Our framework presents a biologically plausible mechanism for emergent policy optimization amid evidence that representation learning plays a vital role in governing neural dynamics.",
+        "year": "2025"
+      },
+      "similarity": 0.5730674266815186
+    },
+    {
+      "paper": {
+        "paper_id": "zbIS2r0t0F",
+        "title": "Allostatic Control of Persistent States in Spiking Neural Networks for Perception and Computation",
+        "abstract": "We introduce a novel model for updating perceptual beliefs about the environment\nby extending the concept of Allostasis to the control of internal representations.\nAllostasis is a fundamental regulatory mechanism observed in animal physiology\nthat orchestrates responses to maintain a dynamic equilibrium in bodily needs and\ninternal states. In this paper, we focus on an application in numerical cognition,\nwhere a bump of activity in an attractor network is used as a spatial-numerical\nrepresentation. While existing neural networks can maintain persistent states, to\ndate, there is no unified framework for dynamically controlling spatial changes in\nneuronal activity in response to enviromental changes. To address this, we couple\na well-known allostatic microcircuit, the Hammel model, with a ring attractor, re-\nsulting in a Spiking Neural Network architecture that can modulate the location of\nthe bump as a function of some reference input. This localised activity in turn is\nused as a perceptual belief in a simulated subitization task – a quick enumeration\nprocess without counting. We provide a general procedure to fine-tune the model\nand demonstrate the successful control of the bump location. We also study the\nresponse time in the model with respect to changes in parameters and compare\nit with biological data. Finally, we analyze the dynamics of the network to un-\nderstand the selectivity and specificity of different neurons to different categories\npresent in the input. The results of this paper, particularly the mechanism for mov-\ning persistent states, are not limited to numerical cognition but can be applied to a\nwide range of tasks involving similar representations.",
+        "year": "2025"
+      },
+      "similarity": 0.559394896030426
+    },
+    {
+      "paper": {
+        "paper_id": "DP3BwwTKbL",
+        "title": "Predicting Observation after Action in a Hierarchical Energy-based Model with Memory",
+        "abstract": "Understanding the mechanisms of brain function is greatly advanced by predictive models. Recent advancements in machine learning further underscore the potency of prediction for learning optimal representation. However, there remains a gap in creating a biologically plausible model that explains how the neural system achieves prediction. In this paper, we introduce a framework employing an energy-based model (EBM) to capture the nuanced processes of predicting observation after action within the neural system, encompassing prediction, learning, and inference. We implement the EBM with a hierarchical structure and integrate a continuous attractor neural network for memory, constructing a biologically plausible model. In experimental evaluations, our model demonstrates efficacy across diverse scenarios. The range of actions includes eye movement, motion in environments, head turning, and static observation while the environment changes. Our model not only makes accurate predictions for environments it was trained on, but also provides reasonable predictions for unseen environments, matching the performances of machine learning methods in multiple tasks. We hope that this study contributes to a deep understanding of how the neural system performs prediction.",
+        "year": "2025"
+      },
+      "similarity": 0.5531463623046875
+    },
+    {
+      "paper": {
+        "paper_id": "sBSC0OXEQG",
+        "title": "Correlated dense associative memories",
+        "abstract": "Associative memory networks store memory patterns by forming dynamic attractors around chosen states of neurons. These attractors do not, however, need to be fixed points or single memory patterns. By correlating attractors, we may represent temporally or spatially related sequences or groups of stimuli. By further modulating these correlations using inhibitory (anti-Hebbian) learning rules, we show how such sequences and groups may be hierarchically-segmented at multiple scales. In combination with the dramatically-increased storage capacity of dense associative memory networks (also known as modern Hopfield networks) and their connection to Transformers, our results have implications for both machine learning and neurobiology. We demonstrate this by applying our networks, dubbed *Correlated Dense Associative Memory (CDAM)*, to model multi-scale representations of community structures in graphs, oriented recall in a symmetric connection regime, and temporal sequences with distractors in an asymmetric connection regime.",
+        "year": "2024"
+      },
+      "similarity": 0.550740122795105
+    },
+    {
+      "paper": {
+        "paper_id": "9pA3oXBwYh7",
+        "title": "Towards biologically plausible Dreaming and Planning",
+        "abstract": "Humans and animals can learn new skills after practicing for a few hours, while current reinforcement learning algorithms require a large amount of data to achieve good performances. \nRecent model-based approaches show promising results by reducing the number of necessary interactions with the environment to learn a desirable policy. However, these methods require biological implausible ingredients, such as the detailed storage of older experiences, and long periods of offline learning. The optimal way to learn and exploit word-models is still an open question.\nTaking inspiration from biology, we suggest that dreaming might be an efficient expedient to use an inner model. We propose a two-module (agent and model) neural network in which \"dreaming\" (living new experiences in a model-based simulated environment) significantly boosts learning. We also explore \"planning\", an online alternative to dreaming, that shows comparable performances. Importantly, our model does not require the detailed storage of experiences, and learns online the world-model. This is a key ingredient for biological plausibility and implementability (e.g., in neuromorphic hardware).",
+        "year": "2023"
+      },
+      "similarity": 0.5383521914482117
+    }
+  ],
+  "idea_003": [
+    {
+      "paper": {
+        "paper_id": "xkSlKCYyV_",
+        "title": "Memory-Efficient Reinforcement Learning with Priority based on Surprise and On-policyness",
+        "abstract": "In off-policy reinforcement learning, an agent collects transition data (a.k.a. experience tuples) from the environment and stores them in a replay buffer for the incoming parameter updates. Storing those tuples consumes a large amount of memory when the environment observations are given as images. Large memory consumption is especially problematic when reinforcement learning methods are applied in scenarios where the computational resources are limited. In this paper, we introduce a method to prune relatively unimportant experience tuples by a simple metric that estimates the importance of experiences and saves the overall memory consumption by the buffer. To measure the importance of experiences, we use $\\textit{surprise}$ and $\\textit{on-policyness}$. Surprise is quantified by the information gain the model can obtain from the experiences and on-policyness ensures that they are relevant to the current policy. In our experiments, we empirically show that our method can significantly reduce the memory consumption by the replay buffer without decreasing the performance in vision-based environments.",
+        "year": "2023"
+      },
+      "similarity": 0.496913343667984
+    },
+    {
+      "paper": {
+        "paper_id": "CN2bmVVpOh",
+        "title": "Transformer Mechanisms Mimic Frontostriatal Gating Operations When Trained on Human Working Memory Tasks",
+        "abstract": "The Transformer neural network architecture has seen success on a wide variety of tasks that appear to require executive function - the ability to represent, coordinate, and manage multiple subtasks. In cognitive neuroscience, executive function is thought to rely on sophisticated frontostriatal mechanisms for selective gating, which enable role-addressable updating-- and later readout-- of information to and from distinct \"addresses\" of memory, in the form of clusters of neurons. However, Transformer models have no such mechanisms intentionally built-in. It is thus an open question how Transformers solve such tasks, and whether the mechanisms that emerge to help them to do so resemble the gating mechanisms in the human brain. In this work, we analyze the mechanisms that emerge within a vanilla attention-only Transformer when trained on a task from computational cognitive neuroscience explicitly designed to place demands on working memory gating. We find that the self-attention mechanism within the Transformer develops input and output gating mechanisms, particularly when task demands require them. These gating mechanisms mirror those  incorporated into earlier biologically-inspired architectures and mimic those in human studies.  When learned effectively,  these gating strategies support enhanced generalization  and increase the models' effective capacity to store and access multiple items in memory. Despite not having memory limits, we also find that storing and accessing multiple items requires an efficient gating policy, resembling the constraints found in frontostriatal models.  \nThese results suggest opportunities for future research on computational similarities between modern AI architectures and models of the human brain.",
+        "year": "2025"
+      },
+      "similarity": 0.49591657519340515
+    },
+    {
+      "paper": {
+        "paper_id": "DP3BwwTKbL",
+        "title": "Predicting Observation after Action in a Hierarchical Energy-based Model with Memory",
+        "abstract": "Understanding the mechanisms of brain function is greatly advanced by predictive models. Recent advancements in machine learning further underscore the potency of prediction for learning optimal representation. However, there remains a gap in creating a biologically plausible model that explains how the neural system achieves prediction. In this paper, we introduce a framework employing an energy-based model (EBM) to capture the nuanced processes of predicting observation after action within the neural system, encompassing prediction, learning, and inference. We implement the EBM with a hierarchical structure and integrate a continuous attractor neural network for memory, constructing a biologically plausible model. In experimental evaluations, our model demonstrates efficacy across diverse scenarios. The range of actions includes eye movement, motion in environments, head turning, and static observation while the environment changes. Our model not only makes accurate predictions for environments it was trained on, but also provides reasonable predictions for unseen environments, matching the performances of machine learning methods in multiple tasks. We hope that this study contributes to a deep understanding of how the neural system performs prediction.",
+        "year": "2025"
+      },
+      "similarity": 0.4858728051185608
+    },
+    {
+      "paper": {
+        "paper_id": "rpbzBXdo4x",
+        "title": "Mind Your Step (by Step): Chain-of-Thought can Reduce Performance on Tasks where Thinking Makes Humans Worse",
+        "abstract": "Chain-of-thought (CoT) prompting has become a widely used strategy for working with large language and multimodal models. While CoT has been shown to improve performance across many tasks, determining the settings in which it is effective remains an ongoing effort. In particular, it is still an open question in what settings CoT systematically reduces model performance. In this paper, we seek to identify the characteristics of tasks where CoT reduces performance by drawing inspiration from cognitive psychology, looking at cases where (i) verbal thinking or deliberation hurts performance in humans, and (ii) the constraints governing human performance generalize to language models. Three such cases are implicit statistical learning, visual recognition, and classifying with patterns containing exceptions. In extensive experiments across all three settings, we find that a diverse collection of state-of-the-art models exhibit significant drop-offs in performance (e.g., up to 36.3\\% absolute accuracy for GPT-o1 compared to GPT-4o) when using CoT compared to zero-shot counterparts. We also identify three tasks that satisfy condition (i) but not (ii), and find that while verbal thinking reduces human performance in these tasks, CoT retains or increases model performance. Overall, our results show that even though there is not an exact parallel between the cognitive processes of models and those of humans, considering cases where thinking has negative consequences for human performance can help us identify settings where it has negative consequences for models. By connecting the literature on human deliberation with evaluation of CoT, we offer a new tool that can be used in understanding the impact of prompt choices and inference-time reasoning.",
+        "year": "2025"
+      },
+      "similarity": 0.48313257098197937
+    },
+    {
+      "paper": {
+        "paper_id": "cHyQT6Y1jY",
+        "title": "In Praise of Stubbornness: The Case for Cognitive-Dissonance Aware Continual Update of Knowledge in LLMs",
+        "abstract": "Despite remarkable capabilities, large language models (LLMs) struggle to continually update their knowledge without catastrophic forgetting. In contrast, humans effortlessly integrate new information, detect conflicts with existing beliefs, and selectively update their mental models. This paper introduces a cognitive-inspired investigation paradigm to study knowledge updating in LLMs. We implement two key components inspired by human cognition: (1) *Dissonance and Familiarity Awareness*, analyzing model behavior to classify information as novel, familiar, or dissonant; and (2) *Targeted Network Updates*, which track neural activity to identify frequently used (*stubborn*) and rarely used (*plastic*) neurons.\n\nThrough carefully designed experiments in controlled settings, we uncover a number of empirical findings demonstrating the potential of this approach. First, dissonance detection is feasible using simple activation and gradient features, suggesting potential for cognitive-inspired training. Second, we find that non-dissonant updates largely preserve prior knowledge regardless of targeting strategy, revealing inherent robustness in LLM knowledge integration. Most critically, we discover that dissonant updates prove catastrophically destructive to the model's knowledge base, indiscriminately affecting even information unrelated to the current updates. This suggests fundamental limitations in how neural networks handle contradictions and motivates the need for new approaches to knowledge updating that better mirror human cognitive mechanisms.",
+        "year": "2025"
+      },
+      "similarity": 0.47670483589172363
+    }
+  ],
+  "idea_004": [
+    {
+      "paper": {
+        "paper_id": "cqTUJRlcLU",
+        "title": "Benign or Not-Benign Overfitting in Token Selection of Attention Mechanism",
+        "abstract": "Modern over-parameterized neural networks can be trained to fit the training data perfectly while still maintaining a high generalization performance. This “benign overfitting” phenomenon has been studied in a surge of recent theoretical work; however, most of these studies have been limited to linear models or two-layer neural networks. \nIn this work, we analyze benign overfitting in the token selection mechanism of the attention architecture, which characterizes the success of transformer models. We first show the existence of a benign overfitting solution and explain its mechanism in the attention architecture. Next, we discuss whether the model converges to such a solution, raising the difficulties specific to the attention architecture. We then present benign overfitting cases and not-benign overfitting cases by conditioning different scenarios based on the behavior of attention probabilities during training. To the best of our knowledge, this is the first study to characterize benign overfitting for the attention mechanism.",
+        "year": "2025"
+      },
+      "similarity": 0.5633842945098877
+    },
+    {
+      "paper": {
+        "paper_id": "abHtkQkumD",
+        "title": "Learnable Context-Aware Attention Mask for Multimodal Transformers",
+        "abstract": "The Self-Attention mechanism in Transformer models has shown great success across many domains, but its effectiveness can diminish in complex settings, such as multimodal tasks. This is due to the varying token granularity and the high computational cost of processing long sequences. To overcome these limitations, we propose the Learnable Context-Aware Attention Mask (LCAAM), a novel method that globally adjusts attention maps to prioritize the most important tokens in a sequence. Our approach integrates LCAAM into a BERT-like Transformer network, enhancing the Self-Attention mechanism by capturing token relationships while accounting for their contextual relevance. Additionally, we extend LCAAM to a multi-layer framework, enabling it to capture diverse information across the layers of the Transformer. Extensive experiments on datasets including MADv2, QVHighlights, ImageNet-1K, and MSRVTT demonstrate that LCAAM improves model performance while reducing redundant computations. This innovation offers a significant improvement in tackling complex tasks, such as movie understanding.",
+        "year": "2025"
+      },
+      "similarity": 0.5524290800094604
+    },
+    {
+      "paper": {
+        "paper_id": "CNPLXcMcSP",
+        "title": "Towards Sampling Data Structures for Tensor Products",
+        "abstract": "This paper studies the computational challenges of attention-based models in artificial intelligence by introducing innovative sampling methods to accelerate attention computation in large language models (LLM). Inspired by the recent progress of LLM in real-life applications, we introduces a streaming sampler question for attention setting. Our approach significantly reduces the computational burden of traditional attention mechanisms while maintaining or enhancing model performance. We demonstrate these methods' effectiveness from theoretical perspective, including space, update time. Additionally, our framework exhibits scalability and broad applicability across various model architectures and domains.",
+        "year": "2025"
+      },
+      "similarity": 0.546233057975769
+    },
+    {
+      "paper": {
+        "paper_id": "XjlZJJFyla",
+        "title": "Patch-Prompt Aligned Bayesian Prompt Tuning for Vision-Language Models",
+        "abstract": "For downstream applications of vision-language pre-trained models, there has been significant interest in constructing effective prompts. Existing works on prompt engineering, which either require laborious manual designs or optimize the prompt tuning as a point estimation problem, may fail to describe diverse characteristics of categories and limit their applications. We introduce a Bayesian probabilistic resolution to prompt tuning, where the label-specific stochastic prompts are generated hierarchically by first sampling a latent vector from an underlying distribution and then employing a lightweight generative model. Importantly, we semantically regularize the tuning process by minimizing the statistic distance between the visual patches and linguistic prompts, which pushes the stochastic label representations to faithfully capture diverse visual concepts, instead of overfitting the training categories. We evaluate the effectiveness of our approach on four tasks: few-shot image recognition, base-to-new generalization, dataset transfer learning, and domain shifts. Extensive results on over 15 datasets show promising transferability and generalization performance of our proposed model, both quantitatively and qualitatively.",
+        "year": "2024"
+      },
+      "similarity": 0.5456653833389282
+    },
+    {
+      "paper": {
+        "paper_id": "yXklOV0ZIv",
+        "title": "Learnable Counterfactual Attention for Singer Identification",
+        "abstract": "Counterfactual attention learning (Rao et al., 2021) utilizes counterfactual causality to guide attention learning and has demonstrated great potential in fine-grained recognition tasks. Despite its excellent performance, existing counterfactual attention is not learned directly from the network itself; instead, it relies on employing random attentions. To address the limitation, we target at singer identification (SID) task and present a learnable counterfactual attention (LCA) mechanism, to enhance the ability of counterfactual attention to help identify fine-grained vocals. Specifically, our LCA mechanism is implemented by introducing a counterfactual attention branch into the original attention-based deep-net model. Guided by multiple well-designed loss functions, the model pushes the counterfactual attention branch to uncover attention regions that are meaningful yet not overly discriminative (seemingly accurate but ultimately misleading), while guiding the main branch to deviate from those regions, thereby focusing attention on discriminative regions to learn singer-specific features in fine-grained vocals. Evaluation on the benchmark artist20 dataset (Ellis, 2007) demonstrates that our LCA mechanism brings a comprehensive performance improvement for the deep-net model of SID. Moreover, since the LCA mechanism is only used during training, it doesn't impact testing efficiency.",
+        "year": "2024"
+      },
+      "similarity": 0.5452276468276978
+    }
+  ],
+  "idea_005": [
+    {
+      "paper": {
+        "paper_id": "th63j8qHa6",
+        "title": "Math for AI: On the Generalization of Learning Mathematical Problem Solving",
+        "abstract": "There has been a growing interest in enhancing the mathematical problem-solving (MPS) capabilities of LLMs. While some researchers focus on developing specialized math models to advance AI for math, others study mathematical reasoning with a ''math for AI'' perspective, positing that integrating mathematical reasoning data could enable LLMs to perform complex reasoning more broadly. This hypothesis draws from neuroscience studies which show that solving mathematical problems aids in the development of general reasoning skills in humans. The concept of ''math for AI'' has gained particular relevance as the research community increasingly focuses on complex reasoning -- Given the scarcity of complex and lengthy chain-of-thought data, MPS emerges as a prime candidate for collecting or synthesizing substantial volumes of intricate thought processes, thus serving as a potential key resource for enhancing general complex reasoning. However, it remains unclear whether skills acquired through learning MPS can extend to other reasoning tasks or merely improve MPS-specific benchmark scores. \nIn this paper, we present a comprehensive empirical analysis to address this question.\nSpecifically, we explore three prevalent methods for improving MPS: (1) continual pretraining on mathematical text; (2) instruction pretraining on large-scale QA pairs synthesized from raw text; and (3) instruction tuning on MPS datasets. \nThrough controlled experiments and evaluations across seven distinct reasoning domains, \nwhile no approaches consistently generalize across all non-mathematical tasks, both continual pretraining and instruction pretraining outperform instruction tuning, with continual pretraining often yielding greater gains when effective.\nThese findings indicate that most readily available data sources do not support the ''math for AI'' objective in enhancing non-MPS tasks. Identifying which data sources best contribute to the acquisition of complex reasoning skills remains a crucial question for future research.",
+        "year": "2025"
+      },
+      "similarity": 0.5240235328674316
+    },
+    {
+      "paper": {
+        "paper_id": "lxMlenl3XU",
+        "title": "An Empirical Study on Reconstructing Scientific History to Forecast Future Trends",
+        "abstract": "The advancement of scientific knowledge relies on synthesizing prior research to forecast future developments, a task that has become increasingly intricate. The emergence of large language models (LLMs) offers a transformative opportunity to automate and streamline this process, enabling faster and more accurate academic discovery. However, recent attempts either limit to producing surveys or focus overly on downstream tasks. To this end, we introduce a novel task that bridges two key challenges: the comprehensive synopsis of past research and the accurate prediction of emerging trends, dubbed $\\textit{Dual Temporal Research Analysis}$. This dual approach requires not only an understanding of historical knowledge but also the ability to predict future developments based on detected patterns. To evaluate, we present an evaluation benchmark encompassing 20 research topics and 210 key AI papers, based on the completeness of historical coverage and predictive reliability. We further draw inspirations from dual-system theory and propose a framework $\\textit{HorizonAI}$ which utilizes a specialized temporal knowledge graph for papers, to capture and organize past research patterns (System 1), while leveraging LLMs for deeper analytical reasoning (System 2) to enhance both summarization and prediction. Our framework demonstrates a robust capacity to accurately summarize historical research trends and predict future developments, achieving significant improvements in both areas. For summarizing historical research, we achieve a 18.99% increase over AutoSurvey; for predicting future developments, we achieve a 10.37% increase over GPT-4o.",
+        "year": "2025"
+      },
+      "similarity": 0.4120694398880005
+    },
+    {
+      "paper": {
+        "paper_id": "3BOwNcqM_Wq",
+        "title": "Learning to reason with relational abstractions",
+        "abstract": "Large language models have recently shown promising progress in mathematical reasoning when fine-tuned with human-generated sequences walking through a sequence of solution steps. However, the solution sequences are not formally structured and the resulting model-generated sequences may not reflect the kind of systematic reasoning we might expect an expert human to produce.\nIn this paper, we study how to build stronger reasoning capability in language models using the idea of relational abstractions. We introduce new types of sequences that more explicitly provide an abstract characterization of the transitions through intermediate solution steps to the goal state. We found that models that are supplied with such sequences as prompts can solve tasks with a significantly higher accuracy, and models that are trained to produce such sequences solve problems better than those that are trained with previously used human-generated sequences and other baselines. Our work thus takes several steps toward elucidating and improving how language models perform on tasks requiring multi-step mathematical reasoning.",
+        "year": "2023"
+      },
+      "similarity": 0.41083574295043945
+    },
+    {
+      "paper": {
+        "paper_id": "5Ky0W6sp8W",
+        "title": "The Buffer Mechanism for Multi-Step Information Reasoning in Language Models",
+        "abstract": "Large language models have consistently struggled with complex reasoning tasks, such as mathematical problem-solving. Investigating the internal reasoning mechanisms of these models can help us design better model architectures and training strategies, ultimately enhancing their reasoning capability. In this study, we constructed a symbolic dataset to investigate the mechanisms by which Transformer models employ vertical thinking strategy based on their inherent structure and horizontal thinking strategy based on Chain of Thought to achieve multi-step reasoning. We introduced the concept of buffer mechanism: the model stores various information in distinct buffers and selectively extracts them through the query-key matrix. We proposed a random matrix-based algorithm to enhance the model's reasoning ability, resulting in a 75\\% reduction in the training time required for the GPT-2 model to achieve generalization capability on the PrOntoQA dataset. These findings provide new insights into understanding the mechanisms of large language models.",
+        "year": "2025"
+      },
+      "similarity": 0.4098166227340698
+    },
+    {
+      "paper": {
+        "paper_id": "L9j8exYGUJ",
+        "title": "Distributional reasoning in LLMs: Parallel Reasoning Processes in Multi-hop Reasoning",
+        "abstract": "Large language models (LLMs) have shown an impressive ability to perform tasks believed to require \"thought processes”. When the model does not document an explicit thought process, it's difficult to understand the processes occurring within its hidden layers, and to determine if this process can be referred to as reasoning. We introduce a novel and interpretable analysis of internal multi-hop reasoning processes in LLMs. We demonstrate that the prediction process for compositional reasoning questions can be modeled using a simple linear transformation between two semantic category spaces. We show that during inference, the middle layers of the network generate highly interpretable embeddings that represent a set of potential intermediate answers for the multi-hop question. We use statistical analyses to show that a corresponding subset of tokens is activated in the model's output, implying the existence of parallel reasoning paths. These observations hold true even when the model lacks the necessary knowledge to solve the task. Our findings can help uncover the strategies that LLMs use to solve reasoning tasks, offering insights into the types of thought processes that can emerge from artificial intelligence. Finally, we also discuss the implication of cognitive modeling of these results.",
+        "year": "2025"
+      },
+      "similarity": 0.3999246060848236
+    }
+  ],
+  "idea_006": [
+    {
+      "paper": {
+        "paper_id": "DbZDbg2z9q",
+        "title": "Ontology-Retrieval Augmented Generation for Scientific Discovery",
+        "abstract": "Large Language Models (LLMs) have demonstrated remarkable capabilities across a wide range of tasks, sparkling an increasing interest for their application in science. However, in scientific domains, their utility is often limited by hallucinations that violate established relationships between concepts or ignore their meaning; problems that are not entirely eliminated with Retrieval Augmented Generation (RAG) techniques. A key feature of science is the use of niche concepts, abbreviations and implicit relationships, which may deem RAG approaches less powerful due to the lack of understanding of concepts, especially in emerging and less known fields. Ontologies, as structured frameworks for organizing knowledge and establishing relationships between concepts, offer a potential solution to this challenge. In this work we introduce OntoRAG, a novel approach that enhances RAG by retrieving taxonomical knowledge from ontologies. We evaluate the performance of this method on three common biomedical benchmarks. To extend the value of OntoRAG to emerging fields, where ontologies have not yet been developed, we also present OntoGen, a methodology for generating ontologies from a set of documents. We apply the combined OntoGen+OntoRAG pipeline to a novel benchmark of scientific discovery in the emerging field of single-atom catalysis. Our results demonstrate the promise of this method for improving reasoning and suppressing hallucinations in LLMs, potentially accelerating scientific discovery across various domains.",
+        "year": "2025"
+      },
+      "similarity": 0.47885632514953613
+    },
+    {
+      "paper": {
+        "paper_id": "lxMlenl3XU",
+        "title": "An Empirical Study on Reconstructing Scientific History to Forecast Future Trends",
+        "abstract": "The advancement of scientific knowledge relies on synthesizing prior research to forecast future developments, a task that has become increasingly intricate. The emergence of large language models (LLMs) offers a transformative opportunity to automate and streamline this process, enabling faster and more accurate academic discovery. However, recent attempts either limit to producing surveys or focus overly on downstream tasks. To this end, we introduce a novel task that bridges two key challenges: the comprehensive synopsis of past research and the accurate prediction of emerging trends, dubbed $\\textit{Dual Temporal Research Analysis}$. This dual approach requires not only an understanding of historical knowledge but also the ability to predict future developments based on detected patterns. To evaluate, we present an evaluation benchmark encompassing 20 research topics and 210 key AI papers, based on the completeness of historical coverage and predictive reliability. We further draw inspirations from dual-system theory and propose a framework $\\textit{HorizonAI}$ which utilizes a specialized temporal knowledge graph for papers, to capture and organize past research patterns (System 1), while leveraging LLMs for deeper analytical reasoning (System 2) to enhance both summarization and prediction. Our framework demonstrates a robust capacity to accurately summarize historical research trends and predict future developments, achieving significant improvements in both areas. For summarizing historical research, we achieve a 18.99% increase over AutoSurvey; for predicting future developments, we achieve a 10.37% increase over GPT-4o.",
+        "year": "2025"
+      },
+      "similarity": 0.4616251587867737
+    },
+    {
+      "paper": {
+        "paper_id": "th63j8qHa6",
+        "title": "Math for AI: On the Generalization of Learning Mathematical Problem Solving",
+        "abstract": "There has been a growing interest in enhancing the mathematical problem-solving (MPS) capabilities of LLMs. While some researchers focus on developing specialized math models to advance AI for math, others study mathematical reasoning with a ''math for AI'' perspective, positing that integrating mathematical reasoning data could enable LLMs to perform complex reasoning more broadly. This hypothesis draws from neuroscience studies which show that solving mathematical problems aids in the development of general reasoning skills in humans. The concept of ''math for AI'' has gained particular relevance as the research community increasingly focuses on complex reasoning -- Given the scarcity of complex and lengthy chain-of-thought data, MPS emerges as a prime candidate for collecting or synthesizing substantial volumes of intricate thought processes, thus serving as a potential key resource for enhancing general complex reasoning. However, it remains unclear whether skills acquired through learning MPS can extend to other reasoning tasks or merely improve MPS-specific benchmark scores. \nIn this paper, we present a comprehensive empirical analysis to address this question.\nSpecifically, we explore three prevalent methods for improving MPS: (1) continual pretraining on mathematical text; (2) instruction pretraining on large-scale QA pairs synthesized from raw text; and (3) instruction tuning on MPS datasets. \nThrough controlled experiments and evaluations across seven distinct reasoning domains, \nwhile no approaches consistently generalize across all non-mathematical tasks, both continual pretraining and instruction pretraining outperform instruction tuning, with continual pretraining often yielding greater gains when effective.\nThese findings indicate that most readily available data sources do not support the ''math for AI'' objective in enhancing non-MPS tasks. Identifying which data sources best contribute to the acquisition of complex reasoning skills remains a crucial question for future research.",
+        "year": "2025"
+      },
+      "similarity": 0.4524667263031006
+    },
+    {
+      "paper": {
+        "paper_id": "8EM1A6qfX5",
+        "title": "Unearthing Large Scale Domain-Specific Knowledge from Public Corpora",
+        "abstract": "Large language models (LLMs) have demonstrated remarkable potential in various tasks, however, there remains a significant lack of open-source models and data for specific domains. Previous work has primarily focused on manually specifying resources and collecting high-quality data for specific domains, which is extremely time-consuming and labor-intensive. To address this limitation, we introduce large models into the data collection pipeline to guide the generation of domain-specific information and retrieve relevant data from Common Crawl (CC), a large public corpus. We refer to this approach as Retrieve-from-CC. It not only collects data related to domain-specific knowledge but also mines the data containing potential reasoning procedures from the public corpus. By applying this method, we have collected a knowledge domain-related dataset named Retrieve-Pile, which covers four main domains, including the sciences, humanities, and other categories. Through the analysis of Retrieve-Pile, Retrieve-from-CC can effectively retrieve relevant data from the covered knowledge domains and significantly improve the performance in tests of mathematical and knowledge-related reasoning abilities.",
+        "year": "2025"
+      },
+      "similarity": 0.4334193468093872
+    },
+    {
+      "paper": {
+        "paper_id": "clU5xWyItb",
+        "title": "PaperQA: Retrieval-Augmented Generative Agent for Scientific Research",
+        "abstract": "Large Language Models (LLMs) generalize well across language tasks, but suffer from hallucinations and uninterpretability, making it difficult to assess their accuracy without ground-truth. Retrieval-Augmented Generation (RAG) models have been proposed to reduce hallucinations and provide provenance for how an answer was generated. Applying such models to the scientific literature may enable large-scale, systematic processing of scientific knowledge. We present PaperQA, a RAG agent for answering questions over the scientific literature. PaperQA is an agent that performs information retrieval across full-text scientific articles, assesses the relevance of sources and passages, and uses RAG to provide answers. Viewing this agent as a question-answering model, we find it exceeds performance of existing LLMs and LLM agents on current science QA benchmarks. To push the field closer to how humans perform research on scientific literature, we also introduce LitQA, a more complex benchmark that requires retrieval and synthesis of information from full-text scientific papers across the literature. Finally, we demonstrate PaperQA's matches expert human researchers on LitQA.",
+        "year": "2024"
+      },
+      "similarity": 0.41128456592559814
+    }
+  ],
+  "idea_007": [
+    {
+      "paper": {
+        "paper_id": "WcSofkUVge",
+        "title": "Utility-based Adaptive Teaching Strategies using Bayesian Theory of Mind",
+        "abstract": "Good teachers always tailor their explanations to the learners. Cognitive scientists model this process under the rationality principle: teachers try to maximise the learner's utility while minimising teaching costs. To this end, human teachers seem to build mental models of the learner's internal state, a capacity known as Theory of Mind (ToM). Inspired by cognitive science, we build on Bayesian ToM mechanisms to design teacher agents that, like humans, tailor their teaching strategies to the learners. Our ToM-equipped teachers construct models of learners' internal states from observations and leverage them to select demonstrations that maximise the learners' rewards while minimising teaching costs. Our experiments in simulated environments demonstrate that learners taught this way are more efficient than those taught in a learner-agnostic way. This effect gets stronger when the teacher's model of the learner better aligns with the actual learner's state, either using a more accurate prior or after accumulating observations of the learner's behaviour. This work is a first step towards social machines that teach us and each other, see https://teacher-with-tom.github.io.",
+        "year": "2024"
+      },
+      "similarity": 0.45500361919403076
+    },
+    {
+      "paper": {
+        "paper_id": "th63j8qHa6",
+        "title": "Math for AI: On the Generalization of Learning Mathematical Problem Solving",
+        "abstract": "There has been a growing interest in enhancing the mathematical problem-solving (MPS) capabilities of LLMs. While some researchers focus on developing specialized math models to advance AI for math, others study mathematical reasoning with a ''math for AI'' perspective, positing that integrating mathematical reasoning data could enable LLMs to perform complex reasoning more broadly. This hypothesis draws from neuroscience studies which show that solving mathematical problems aids in the development of general reasoning skills in humans. The concept of ''math for AI'' has gained particular relevance as the research community increasingly focuses on complex reasoning -- Given the scarcity of complex and lengthy chain-of-thought data, MPS emerges as a prime candidate for collecting or synthesizing substantial volumes of intricate thought processes, thus serving as a potential key resource for enhancing general complex reasoning. However, it remains unclear whether skills acquired through learning MPS can extend to other reasoning tasks or merely improve MPS-specific benchmark scores. \nIn this paper, we present a comprehensive empirical analysis to address this question.\nSpecifically, we explore three prevalent methods for improving MPS: (1) continual pretraining on mathematical text; (2) instruction pretraining on large-scale QA pairs synthesized from raw text; and (3) instruction tuning on MPS datasets. \nThrough controlled experiments and evaluations across seven distinct reasoning domains, \nwhile no approaches consistently generalize across all non-mathematical tasks, both continual pretraining and instruction pretraining outperform instruction tuning, with continual pretraining often yielding greater gains when effective.\nThese findings indicate that most readily available data sources do not support the ''math for AI'' objective in enhancing non-MPS tasks. Identifying which data sources best contribute to the acquisition of complex reasoning skills remains a crucial question for future research.",
+        "year": "2025"
+      },
+      "similarity": 0.45293641090393066
+    },
+    {
+      "paper": {
+        "paper_id": "Qi4oCA89CmO",
+        "title": "Why Did This Model Forecast This Future? Information-Theoretic Temporal Saliency for Counterfactual Explanations of Probabilistic Forecasts",
+        "abstract": "Probabilistic forecasting of multivariate time series is significant to several research domains where multiple futures exist for a single observed sequence. Identifying the observations on which a well-performing model bases its forecasts can enable domain experts to form data-driven hypotheses about the causal relationships between features. Consequently, we begin by revisiting the question: what constitutes a causal explanation? One hurdle in the landscape of explainable artificial intelligence is that what constitutes an explanation is not well-grounded. We build upon Miller's framework of explanations derived from research in multiple social science disciplines, and establish a conceptual link between counterfactual reasoning and saliency-based explanation techniques. However, the complication is a lack of a consistent and principled notion of saliency. Also, commonly derived saliency maps may be inconsistent with the data generation process and the underlying model. We therefore leverage a unifying definition of information-theoretic saliency grounded in preattentive human visual cognition and extend it to forecasting settings. In contrast to existing methods that require either explicit training of the saliency mechanism or access to the internal parameters of the underlying model, we obtain a closed-form solution for the resulting saliency map for commonly used density functions in probabilistic forecasting. To empirically evaluate our explainability framework in a principled manner, we construct a synthetic dataset of conversation dynamics and demonstrate that our method recovers the true salient timesteps for a forecast given a well-performing underlying model.",
+        "year": "2023"
+      },
+      "similarity": 0.4459432363510132
+    },
+    {
+      "paper": {
+        "paper_id": "3wrMRYuLlQ",
+        "title": "On the Language of Thoughts in Large Language Models",
+        "abstract": "System 2 reasoning is one of the defining characteristics of intelligence, which requires slow and logical thinking. Human conducts System 2 reasoning via the language of thoughts that organizes the reasoning process as *a causal sequence of mental language*, or thoughts. Recently, it has been observed that System 2 reasoning can be elicited from Large Language Models (LLMs) pre-trained on large-scale natural languages. However, in this work, we show that there is a significant gap between the modeling of languages and thoughts. As language is primarily a tool for humans to share knowledge and thinking, *modeling human language can easily integrate into language biases* that are not related to thoughts. Furthermore, we show that the biases may mislead the eliciting of “thoughts” in LLMs to focus only on a given part of the premise. To this end, we propose a new prompt technique termed **L**anguage-**o**f-**T**houghts ( LoT ) to alleviate the issue. Instead of directly eliciting the chain of thoughts from partial information, LoT instructs LLMs to focus and expand based on all the relevant information. We show that the simple strategy significantly reduces the language modeling biases in LLMs and improves the performance of LLMs across a variety of reasoning tasks.",
+        "year": "2025"
+      },
+      "similarity": 0.4445136785507202
+    },
+    {
+      "paper": {
+        "paper_id": "Y2cGisOWPZ",
+        "title": "Towards Machine Theory of Mind with Large Language Model-Augmented Inverse Planning",
+        "abstract": "We propose a hybrid approach to machine Theory of Mind (ToM) that uses large language models (LLMs) as a mechanism for generating hypotheses and likelihood functions with a Bayesian inverse planning model that computes posterior probabilities for an agent’s likely mental states given its actions. Bayesian inverse planning models can accurately predict human reasoning on a variety of ToM tasks, but these models are constrained in their ability to scale these predictions to scenarios with a large number of possible hypotheses and actions. Conversely, LLM-based approaches have recently demonstrated promise in solving ToM benchmarks, but can exhibit brittleness and failures on reasoning tasks even when they pass otherwise structurally identical versions. By combining these two methods, our approach leverages the strengths of each component, closely matching optimal results on a task inspired by prior inverse planning models and improving performance relative to models that utilize LLMs alone or with chain-of-thought prompting. We also exhibit the model’s potential to predict mental states on open-ended tasks, offering a promising direction for future development of ToM models and the creation of socially intelligent generative agent models.",
+        "year": "2025"
+      },
+      "similarity": 0.43780747056007385
+    }
+  ],
+  "idea_008": [
+    {
+      "paper": {
+        "paper_id": "ZxQD6oYIOm",
+        "title": "Cross-Cultural Recipe Transformation via Neural Network and Encoder-Based Models",
+        "abstract": "Every cuisine has a culinary fingerprint characterized by its idiosyncratic ingredient composition. Transforming the culinary signature of a recipe is a creative endeavor. Traditionally, such fusion recipes have arisen from creative human interventions as a product of trial and error. Herein, we present a framework to transform the culinary signature of a recipe from one regional cuisine to another. A clustering-based computational strategy was developed, which replaces the ingredients of a recipe, one at a time, to achieve the transformation of the cuisine. We used a neural network-based Word2Vec-Doc2Vec model and three encoder-based BERT models to capture the context of an ingredient within the culinary landscape. The performance of recipe transformation strategies was evaluated by scoring their success at ‘Recipe Transformation’ and manually assessing the most frequent ingredient replacements for every fusion experiment. We observe that the encoder-based models perform better at transforming recipes with fewer ingredient replacements needed, suggesting that BERT-based models are better at providing more meaningful ingredient replacements to transform the culinary signature of recipes. The percentage of successful recipe transformations in the case of Word2Vec-Doc2Vec, BERT-Mean Pooling, BERT-CLS Pooling, and BERT-SBERT model are 99.95%, 43.1%, 41.65%, and 41.45% respectively, indicating that the neural network-based model can better cluster the cuisine-wise ingredient embeddings. On the other hand, for a successful recipe transformation, the average percentage of ingredients replaced for Word2Vec-Doc2Vec, BERT-Mean Pooling, BERT-CLS Pooling, and BERT-SBERT model are 77%, 52.3%, 51.6% and 51.5%, respectively. Our study shows a way forward for implementing cross-cultural fusion of recipes.",
+        "year": "2025"
+      },
+      "similarity": 0.6892932653427124
+    },
+    {
+      "paper": {
+        "paper_id": "BO5_Lm7iD_",
+        "title": "Social Network Structure Shapes Innovation: Experience-sharing in RL with SAPIENS",
+        "abstract": "\nThe human cultural repertoire relies on innovation: our ability to continuously explore how existing elements can be combined to create new ones. Innovation is not solitary, it relies on collective accumulation and merging of previous solutions. Machine learning approaches commonly assume that fully connected multi-agent networks are best suited for innovation. However, human laboratory and field studies have shown that hierarchical innovation is more robustly achieved by dynamic social network structures. In dynamic settings, humans oscillate between innovating individually or in small clusters, and then sharing outcomes with others. To our knowledge, the role of multi-agent topology on innovation has not been systematically studied in machine learning. It remains unclear a) which social network topologies are optimal for which innovation tasks, and b) which properties of experience sharing improve multi-level innovation. Here we use a multi-level hierarchical problem setting (WordCraft), with three different innovation tasks. We systematically design networks of DQNs sharing experiences from their replay buffers in varying topologies (fully connected, small world, dynamic, ring). Comparing the level of innovation achieved by different experience-sharing topologies across different tasks shows that, first, consistent with human findings, experience sharing within a dynamic topology achieves the highest level of innovation across tasks. Second, experience sharing is not as helpful when there is a single clear path to innovation. Third, two metrics we propose, conformity and diversity of shared experience, can explain the success of different topologies on different tasks. These contributions can advance our understanding of optimal AI-AI, human-human, and human-AI collaborative networks, inspiring future tools for fostering collective innovation in large organizations.",
+        "year": "2023"
+      },
+      "similarity": 0.5324394702911377
+    },
+    {
+      "paper": {
+        "paper_id": "hKMPz3wkPV",
+        "title": "Towards a formal theory of compositionality",
+        "abstract": "Compositionality is believed to be fundamental to intelligence. In humans, it underlies the structure of thought, language, and higher-level reasoning. In AI, it enables a powerful form of out-of-distribution generalization, in which a model systematically adapts to novel combinations of known concepts. However, while we have strong intuitions about what compositionality is, there currently exists no formal definition for it that is measurable and mathematical. Here, we propose such a definition, which we call representational compositionality. The definition is conceptually simple, quantitative, and grounded in algorithmic information theory. Intuitively, representational compositionality states that a compositional representation is both expressive and describable as a simple function of discrete parts. We validate our definition on both real and synthetic data, and show how it unifies disparate intuitions from across the literature in both AI and cognitive science. We also show that representational compositionality, while theoretically intractable, can be readily estimated using standard deep learning tools. Our definition has the potential to inspire the design of novel, theoretically-driven models that better capture the mechanisms of higher-level human thought.",
+        "year": "2025"
+      },
+      "similarity": 0.5079050660133362
+    },
+    {
+      "paper": {
+        "paper_id": "wrqAn3AJA1",
+        "title": "Everybody Needs a Little HELP: Explaining Graphs via Hierarchical Concepts",
+        "abstract": "Graph neural networks (GNNs) have led to major breakthroughs in a variety of domains such as drug discovery, social network analysis, and travel time estimation. However, they lack interpretability which hinders human trust and thereby deployment to settings with high-stakes decisions. A line of interpretable methods approach this by discovering a small set of relevant concepts as subgraphs in the last GNN layer that together explain the prediction. This can yield oversimplified explanations, failing to explain the interaction between GNN layers. To address this oversight, we provide HELP (Hierarchical Explainable Latent Pooling), a novel, inherently interpretable graph pooling approach that reveals how concepts from different GNN layers compose to new ones in later steps. HELP is more than 1-WL expressive and is the first non-spectral, end-to-end-learnable, hierarchical graph pooling method that can learn to pool a variable number of arbitrary connected components. We empirically demonstrate that it performs on-par with standard GCNs and popular pooling methods in terms of accuracy while yielding explanations that are aligned with expert knowledge in the domains of chemistry and social networks. In addition to a qualitative analysis, we employ concept completeness scores as well as concept conformity, a novel metric to measure the noise in discovered concepts, quantitatively verifying that the discovered concepts are significantly easier to fully understand than those from previous work. Our work represents a first step towards an understanding of graph neural networks that goes beyond a set of concepts from the final layer and instead explains the complex interplay of concepts on different levels.",
+        "year": "2024"
+      },
+      "similarity": 0.4889836311340332
+    },
+    {
+      "paper": {
+        "paper_id": "PQrkWvQSL0",
+        "title": "DrugAgent: Multi-Agent Large Language Model-Based Reasoning for Drug-Target Interaction Prediction and Repurposing",
+        "abstract": "Advancements in large language models (LLMs) allow them to address a wide set of questions from diverse topics using human-like text interfaces, but limitations in their training prevent them from answering accurately in scenarios that could benefit from multiple perspectives. Multi-agent systems allow the resolution of questions to enhance result consistency and reliability. Here we create a multi-perspective (i.e., unstructured text, structured knowledge graph, and Machine Learning (ML) prediction) multi-agent LLM system. We apply this system to the biologically inspired problem of predicting drug-target interaction. Our system uses a coordinator agent to assign and integrate results for tasks given to three specialized agents: an AI agent for ML predictions, a  knowledge graph (KG) agent for KG retrieval, and a search agent for web-based information retrieval. \n\nWe conducted experiments using our LLM-based system for predicting drug-target interaction constants that reflect binding affinities using the BindingDB dataset. Our multi-agent LLM method significantly outperformed GPT-4 across multiple evaluation metrics by a significant margin. An ablation study revealed the contributions by each agent; ranked in terms of a contribution: the AI agent (i.e., ML prediction) was the most important followed by the KG agent then the search agent. The large contribution by the AI agent highlights the importance of LLM tool use in addressing questions that may not be part of text corpora. While our use case was related to biology, our presented architecture is applicable to other integrative prediction tasks. Code is available https://anonymous.4open.science/r/DrugAgent-2BB7/",
+        "year": "2025"
+      },
+      "similarity": 0.47351253032684326
+    }
+  ],
+  "idea_009": [
+    {
+      "paper": {
+        "paper_id": "ZxQD6oYIOm",
+        "title": "Cross-Cultural Recipe Transformation via Neural Network and Encoder-Based Models",
+        "abstract": "Every cuisine has a culinary fingerprint characterized by its idiosyncratic ingredient composition. Transforming the culinary signature of a recipe is a creative endeavor. Traditionally, such fusion recipes have arisen from creative human interventions as a product of trial and error. Herein, we present a framework to transform the culinary signature of a recipe from one regional cuisine to another. A clustering-based computational strategy was developed, which replaces the ingredients of a recipe, one at a time, to achieve the transformation of the cuisine. We used a neural network-based Word2Vec-Doc2Vec model and three encoder-based BERT models to capture the context of an ingredient within the culinary landscape. The performance of recipe transformation strategies was evaluated by scoring their success at ‘Recipe Transformation’ and manually assessing the most frequent ingredient replacements for every fusion experiment. We observe that the encoder-based models perform better at transforming recipes with fewer ingredient replacements needed, suggesting that BERT-based models are better at providing more meaningful ingredient replacements to transform the culinary signature of recipes. The percentage of successful recipe transformations in the case of Word2Vec-Doc2Vec, BERT-Mean Pooling, BERT-CLS Pooling, and BERT-SBERT model are 99.95%, 43.1%, 41.65%, and 41.45% respectively, indicating that the neural network-based model can better cluster the cuisine-wise ingredient embeddings. On the other hand, for a successful recipe transformation, the average percentage of ingredients replaced for Word2Vec-Doc2Vec, BERT-Mean Pooling, BERT-CLS Pooling, and BERT-SBERT model are 77%, 52.3%, 51.6% and 51.5%, respectively. Our study shows a way forward for implementing cross-cultural fusion of recipes.",
+        "year": "2025"
+      },
+      "similarity": 0.6882259845733643
+    },
+    {
+      "paper": {
+        "paper_id": "DbZDbg2z9q",
+        "title": "Ontology-Retrieval Augmented Generation for Scientific Discovery",
+        "abstract": "Large Language Models (LLMs) have demonstrated remarkable capabilities across a wide range of tasks, sparkling an increasing interest for their application in science. However, in scientific domains, their utility is often limited by hallucinations that violate established relationships between concepts or ignore their meaning; problems that are not entirely eliminated with Retrieval Augmented Generation (RAG) techniques. A key feature of science is the use of niche concepts, abbreviations and implicit relationships, which may deem RAG approaches less powerful due to the lack of understanding of concepts, especially in emerging and less known fields. Ontologies, as structured frameworks for organizing knowledge and establishing relationships between concepts, offer a potential solution to this challenge. In this work we introduce OntoRAG, a novel approach that enhances RAG by retrieving taxonomical knowledge from ontologies. We evaluate the performance of this method on three common biomedical benchmarks. To extend the value of OntoRAG to emerging fields, where ontologies have not yet been developed, we also present OntoGen, a methodology for generating ontologies from a set of documents. We apply the combined OntoGen+OntoRAG pipeline to a novel benchmark of scientific discovery in the emerging field of single-atom catalysis. Our results demonstrate the promise of this method for improving reasoning and suppressing hallucinations in LLMs, potentially accelerating scientific discovery across various domains.",
+        "year": "2025"
+      },
+      "similarity": 0.5385000109672546
+    },
+    {
+      "paper": {
+        "paper_id": "hKMPz3wkPV",
+        "title": "Towards a formal theory of compositionality",
+        "abstract": "Compositionality is believed to be fundamental to intelligence. In humans, it underlies the structure of thought, language, and higher-level reasoning. In AI, it enables a powerful form of out-of-distribution generalization, in which a model systematically adapts to novel combinations of known concepts. However, while we have strong intuitions about what compositionality is, there currently exists no formal definition for it that is measurable and mathematical. Here, we propose such a definition, which we call representational compositionality. The definition is conceptually simple, quantitative, and grounded in algorithmic information theory. Intuitively, representational compositionality states that a compositional representation is both expressive and describable as a simple function of discrete parts. We validate our definition on both real and synthetic data, and show how it unifies disparate intuitions from across the literature in both AI and cognitive science. We also show that representational compositionality, while theoretically intractable, can be readily estimated using standard deep learning tools. Our definition has the potential to inspire the design of novel, theoretically-driven models that better capture the mechanisms of higher-level human thought.",
+        "year": "2025"
+      },
+      "similarity": 0.5034116506576538
+    },
+    {
+      "paper": {
+        "paper_id": "IhD1rBHhDy",
+        "title": "Mining Patents with Large Language Models Demonstrates Congruence of Functional Labels and Chemical Structures",
+        "abstract": "Predicting chemical function from structure is a major goal of the chemical sciences, from the discovery and repurposing of novel drugs to the creation of new materials. Recently, new machine learning algorithms are opening up the possibility of general predictive models spanning many different chemical functions. Here, we consider the challenge of applying large language models to chemical patents in order to consolidate and leverage the information about chemical functionality captured by these resources. Chemical patents contain vast knowledge on chemical function, but their usefulness as a dataset has historically been neglected due to the impracticality of extracting high-quality functional labels. Using a scalable ChatGPT-assisted patent summarization and word-embedding label cleaning pipeline, we derive a Chemical Function (CheF) dataset, containing 100K molecules and their patent-derived functional labels. The functional labels were validated to be of high quality, allowing us to detect a strong relationship between functional label and chemical structural spaces. Further, we find that the co-occurrence graph of the functional labels contains a robust semantic structure, which allowed us in turn to examine functional relatedness among the compounds. We then trained a model on the CheF dataset, allowing us to assign new functional labels to compounds. Using this model, we were able to retrodict approved Hepatitis C antivirals, uncover an antiviral mechanism undisclosed in the patent, and identify plausible serotonin-related drugs. The CheF dataset and associated model offers a promising new approach to predict chemical functionality.",
+        "year": "2024"
+      },
+      "similarity": 0.5034096240997314
+    },
+    {
+      "paper": {
+        "paper_id": "2aSj08z30A1",
+        "title": "ReaKE: Contrastive Molecular Representation Learning with Chemical Synthetic Knowledge Graph",
+        "abstract": "Molecular representation learning has demonstrated great promise in bridging machine learning and chemical science and in supporting novel chemical discoveries. State-of-the-art methods mostly employ graph neural networks (GNNs) with self-supervised learning (SSL) and extra chemical reaction knowledge to empower the learned embeddings. However, prior works ignore three major issues in modeling reaction data, that is abnormal energy flow, ambiguous embeddings, and sparse embedding space problems. To address these problems, we propose ReaKE, a chemical synthetic knowledge graph-driven pre-training framework for molecular representation learning. We first construct a large-scale chemical synthetic knowledge graph comprising reactants, products and reaction rules. We then propose triplet-level and graph-level contrastive learning strategies to jointly optimize the knowledge graph and molecular embeddings. Representations learned by ReaKE can capture intermolecular relationships reflected in the semantic knowledge graph and molecular structures. By comparing with other state-of-the-art methods, we show that ReaKE can achieve competitive performance on the reaction prediction pretext task and the learned representations transfer well to various downstream tasks, including reaction classification, yield prediction, and molecule property prediction. Further visualization shows that the learned representations can capture the fine-grained differences both between reactions and between molecules.",
+        "year": "2023"
+      },
+      "similarity": 0.5029717683792114
+    }
+  ],
+  "idea_010": [
+    {
+      "paper": {
+        "paper_id": "ZxQD6oYIOm",
+        "title": "Cross-Cultural Recipe Transformation via Neural Network and Encoder-Based Models",
+        "abstract": "Every cuisine has a culinary fingerprint characterized by its idiosyncratic ingredient composition. Transforming the culinary signature of a recipe is a creative endeavor. Traditionally, such fusion recipes have arisen from creative human interventions as a product of trial and error. Herein, we present a framework to transform the culinary signature of a recipe from one regional cuisine to another. A clustering-based computational strategy was developed, which replaces the ingredients of a recipe, one at a time, to achieve the transformation of the cuisine. We used a neural network-based Word2Vec-Doc2Vec model and three encoder-based BERT models to capture the context of an ingredient within the culinary landscape. The performance of recipe transformation strategies was evaluated by scoring their success at ‘Recipe Transformation’ and manually assessing the most frequent ingredient replacements for every fusion experiment. We observe that the encoder-based models perform better at transforming recipes with fewer ingredient replacements needed, suggesting that BERT-based models are better at providing more meaningful ingredient replacements to transform the culinary signature of recipes. The percentage of successful recipe transformations in the case of Word2Vec-Doc2Vec, BERT-Mean Pooling, BERT-CLS Pooling, and BERT-SBERT model are 99.95%, 43.1%, 41.65%, and 41.45% respectively, indicating that the neural network-based model can better cluster the cuisine-wise ingredient embeddings. On the other hand, for a successful recipe transformation, the average percentage of ingredients replaced for Word2Vec-Doc2Vec, BERT-Mean Pooling, BERT-CLS Pooling, and BERT-SBERT model are 77%, 52.3%, 51.6% and 51.5%, respectively. Our study shows a way forward for implementing cross-cultural fusion of recipes.",
+        "year": "2025"
+      },
+      "similarity": 0.6375398635864258
+    },
+    {
+      "paper": {
+        "paper_id": "APWIZgehDT",
+        "title": "Synthesizing Images on Perceptual Boundaries of ANNs for Uncovering and Modulating Individual Human Percepts",
+        "abstract": "Human decision-making in cognitive tasks and daily life exhibits considerable variability, shaped by factors such as task difficulty, individual preferences, and personal experiences. Understanding this variability across individuals is essential for uncovering the perceptual and decision-making mechanisms that humans rely on when faced with uncertainty and ambiguity.  In this study, we present a counterfactual-based approach to investigate the subject-level decision-making behaviors and reveal the underlying perceptual mechanisms by synthesizing visual stimuli. First, we developed an efficient generative model that samples along an artificial neural network (ANN)’s perceptual boundary, generating image samples designed to induce high variability in human perception. Using these generated samples, combined with behavioral data from 246 human participants across 116,715 trials, we constructed the varMNIST dataset. Then, we presented a subject-specific fine-tuning approach to align the perceptual variability of ANNs with that of humans. It allows us to successfully predict human decision-making behaviors on varMNIST. Finally, we verified the ability to selectively manipulate individual behaviors by generating tailored controversial stimuli, which highlighted significant inter-subject perceptual variability. Together, our work illuminated key distinctions between human and machine perceptual variability and established an effective strategy for manipulating individual decision-making behaviors. This study paves the way for artificial intelligence models with personalized perceptual capabilities.",
+        "year": "2025"
+      },
+      "similarity": 0.45348915457725525
+    },
+    {
+      "paper": {
+        "paper_id": "HjfvnxaU5k",
+        "title": "Enhanced Bayesian Optimization via Preferential Modeling of Abstract Properties",
+        "abstract": "Experimental (design) optimization is a key driver in designing and discovering new products and processes. Bayesian Optimization (BO) is an effective tool for optimizing expensive and black-box experimental design processes. While Bayesian optimization is a principled data-driven approach to experimental optimization, it learns everything from scratch and could greatly benefit from the expertise of its human (domain) experts who often reason about systems at different abstraction levels using physical properties that are not necessarily directly measured (or measurable). In this paper, we propose a human-AI collaborative Bayesian framework to incorporate expert preferences about unmeasured abstract properties into the surrogate modeling to further boost the performance of BO. We provide an efficient strategy that can also handle any incorrect/misleading expert bias in preferential judgments. We discuss the convergence details of our proposed framework. The empirical results show the efficacy of our proposed method.",
+        "year": "2024"
+      },
+      "similarity": 0.452358603477478
+    },
+    {
+      "paper": {
+        "paper_id": "Uj2Wjv0pMY",
+        "title": "Put on your detective hat: What’s wrong in this video?",
+        "abstract": "Following step-by-step procedures is an essential component of various activities carried out by individuals in their everyday lives. These procedures serve as a guiding framework that helps achieve goals efficiently, whether assembling furniture or preparing a recipe. However, the complexity and duration of procedural activities inherently increase the likelihood of making errors. Understanding such procedural activities from a sequence of frames is a challenging task that demands an accurate interpretation of visual information and an ability to reason about the structure of the activity. To this end, we collected a new ego-centric 4D dataset comprising 384 recordings (94.5 hrs) of people performing recipes in kitchen environments. This dataset consists of two distinct activity types: one in which participants adhere to the provided recipe instructions and another where they deviate and induce errors. We provide 5.3K step annotations and 10K fine-grained action annotations for 20% of the collected data and benchmark it on two tasks: error recognition, multi step localization and procedure learning.",
+        "year": "2024"
+      },
+      "similarity": 0.45212194323539734
+    },
+    {
+      "paper": {
+        "paper_id": "xU7VWHIo1i",
+        "title": "Identifiable Latent Causal Content for Domain Adaptation under Latent Covariate Shift",
+        "abstract": "Multi-source domain adaptation (MSDA) addresses the challenge of learning a label prediction function for an unlabeled target domain by leveraging both the labeled data from multiple source domains and the unlabeled data from the target domain. Conventional MSDA approaches often rely on covariate shift or conditional shift paradigms, which assume a consistent label distribution across domains. However, this assumption proves limiting in practical scenarios where label distributions do vary across domains, diminishing its applicability in real-world settings. For example, animals from different regions exhibit diverse characteristics due to varying diets and genetics.\n\nMotivated by this, we propose a novel paradigm called latent covariate shift (LCS), which introduces significantly greater variability and adaptability across domains. Notably, it provides a theoretical assurance for recovering the latent cause of the label variable, which we refer to as the latent content variable. Within this new paradigm, we present an intricate causal generative model by introducing latent noises across domains, along with a latent content variable and a latent style variable to achieve more nuanced rendering of observational data. We demonstrate that the latent content variable can be identified up to block identifiability due to its versatile yet distinct causal structure. We anchor our theoretical insights into a novel MSDA method, which learns the label distribution conditioned on the identifiable latent content variable, thereby accommodating more substantial distribution shifts. The proposed approach showcases exceptional performance and efficacy on both simulated and real-world datasets.",
+        "year": "2024"
+      },
+      "similarity": 0.4503377079963684
+    }
+  ]
+}

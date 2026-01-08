@@ -1,0 +1,119 @@
+{
+  "total_ideas": 11,
+  "threshold": 7.0,
+  "hit_rate_at_k": {
+    "1": 0.36363636363636365,
+    "3": 0.36363636363636365,
+    "5": 0.36363636363636365,
+    "10": 0.36363636363636365,
+    "20": 0.36363636363636365
+  },
+  "precision_at_5": 0.10909090909090909,
+  "mrr": 0.29545454545454547,
+  "average_max_score": 5.909090909090909,
+  "score_distribution": {
+    "0-2": 0,
+    "3-4": 1,
+    "5-6": 6,
+    "7-8": 4,
+    "9-10": 0
+  },
+  "year_wise_metrics": {
+    "2025": {
+      "total_ideas": 7,
+      "matched_ideas": 3,
+      "hit_rate": 0.42857142857142855,
+      "average_score": 6.285714285714286,
+      "max_score": 7.0,
+      "min_score": 5.0
+    },
+    "2024": {
+      "total_ideas": 3,
+      "matched_ideas": 1,
+      "hit_rate": 0.3333333333333333,
+      "average_score": 5.666666666666667,
+      "max_score": 7.0,
+      "min_score": 5.0
+    },
+    "2023": {
+      "total_ideas": 1,
+      "matched_ideas": 0,
+      "hit_rate": 0.0,
+      "average_score": 4.0,
+      "max_score": 4.0,
+      "min_score": 4.0
+    }
+  },
+  "top_matches": [
+    {
+      "idea_id": "idea_002",
+      "score": 7.0,
+      "paper_title": "GIVE: Structured Reasoning with Knowledge Graph Inspired Veracity Extrapolation",
+      "paper_year": "2025",
+      "reason": "Both ideas address the challenge of improving reasoning and knowledge integration in models to handle domain-specific tasks with limited labeled data. The problems are consistent as both focus on enhancing reasoning by combining external knowledge with internal model capabilities. The methods overlap in dynamically integrating non-parametric knowledge and using structured information for reasoning, but their technical approaches differ—Idea A emphasizes iterative refinement and dynamic retrieval, while Idea B uses graph-based entity grouping and relationship extrapolation. The applications overlap to an extent but differ in emphasis; Idea A highlights adaptability to specific domains like legal or medical fields, whereas Idea B focuses more on structured reasoning processes across both domain-specific and open-domain benchmarks."
+    },
+    {
+      "idea_id": "idea_006",
+      "score": 7.0,
+      "paper_title": "SHARCS: SHARed Concept Space for\\\\Explainable Multimodal Learning",
+      "paper_year": "2024",
+      "reason": "Both ideas focus on explainable multimodal reasoning, addressing challenges of interpretability and integration of heterogeneous modalities. However, the technical approaches differ: Idea A uses modular architectures with modality-specific interpretability modules and graph-based neural networks, while Idea B focuses on mapping interpretable concepts into a shared concept space. Application scenarios overlap in general areas like real-world problem solving, but the emphasis on specific applications such as retrieval of missing modalities in Idea B introduces a distinction."
+    },
+    {
+      "idea_id": "idea_008",
+      "score": 7.0,
+      "paper_title": "Counterfactual Causal Inference in Natural Language with Large Language Models",
+      "paper_year": "2025",
+      "reason": "Both Idea A and Idea B address the challenge of causal reasoning and causal graph generation in natural language. However, their focus and approaches show differences. Idea A emphasizes integrating causal graph modules directly into transformer architecture for enhanced reasoning capabilities with tasks such as multi-hop QA, counterfactual reasoning, and narrative understanding. In contrast, Idea B is more focused on applying LLMs as a tool for causal variable extraction, graph building, and counterfactual inference, highlighting LLM limitations and proposing mitigation strategies. While there is overlap in causality and NLP goals, Idea A focuses more on designing a novel system combining transformers and causal mechanisms, while Idea B provides an end-to-end pipeline leveraging existing LLM capabilities. The application goals are related but not identical, with varying emphasis on the reasoning context and scope of interpretability."
+    },
+    {
+      "idea_id": "idea_010",
+      "score": 7.0,
+      "paper_title": "Almost Sure Reasoning: Generating Verified Formalizations with Language Models and Logical Solvers",
+      "paper_year": "2025",
+      "reason": "The two ideas address similar problems related to improving reasoning robustness and accuracy in language models by combining neural architectures with logical reasoning systems. However, Idea B employs a specific semantic self-verification mechanism, while Idea A focuses on a broader integration of symbolic reasoning modules, such as Prolog or ASP, into transformer-based models. Both aim to achieve reliable reasoning and reduce manual verification, but differ in technical approaches and specificity of methods. The application scenarios also overlap in reasoning tasks like multi-hop question answering, though the goals in Idea A include reducing biases and expanding domain adaptability, whereas Idea B emphasizes verification precision and near-certainty formalizations."
+    },
+    {
+      "idea_id": "idea_001",
+      "score": 6.0,
+      "paper_title": "Transformers meet Neural Algorithmic Reasoners",
+      "paper_year": "2025",
+      "reason": "Both ideas aim to enhance the robustness, interpretability, and generalization of neural models through hybrid architectures combining neural (Transformer) and reasoning components (GNNs). However, Idea A focuses on using domain-adaptive knowledge graphs for interpretability and domain-specific adaptability, while Idea B introduces neural algorithmic reasoners (NARs) for algorithmic reasoning. The core methods differ: Idea A employs knowledge graphs explicitly as reasoning layers, whereas Idea B integrates graph embeddings into a Transformer via neural algorithmic reasoning. Application goals partially overlap in improving out-of-distribution generalization, but Idea A centers on domain-specific NLP tasks, whereas Idea B evaluates performance on algorithmic reasoning benchmarks. While related, the innovations and technical approaches are distinct."
+    },
+    {
+      "idea_id": "idea_004",
+      "score": 6.0,
+      "paper_title": "Efficient Audiovisual Speech Processing via MUTUD: Multimodal Training and Unimodal Deployment",
+      "paper_year": "2025",
+      "reason": "Both ideas address challenges in computational efficiency and generalization in multimodal systems, indicating high problem consistency. However, the methods differ moderately: Idea A focuses on dynamic, adaptive modality integration using a gating mechanism and self-supervised learning, while Idea B focuses on training with all modalities and deploying with fewer modalities using a modality estimation module. Application scenarios overlap partially but differ in emphasis, with Idea A targeting general multimodal NLP tasks and Idea B focusing on audiovisual speech tasks specifically."
+    },
+    {
+      "idea_id": "idea_007",
+      "score": 6.0,
+      "paper_title": "Domain Shift Tuning over Knowledge Gap",
+      "paper_year": "2025",
+      "reason": "Both ideas address domain adaptability for NLP models, emphasizing resource-efficient integration of domain-specific knowledge. However, their technical approaches differ: Idea A uses modular adapters with interpretability via interpretable attention mechanisms, whereas Idea B employs Knowledge Steering Layers and Knowledge Distribution Modeling to mitigate domain gaps. Application scenarios overlap partially, as both aim to improve NLP in specialized domains, but Idea A explicitly targets interpretability and ethics, which are less emphasized in Idea B."
+    },
+    {
+      "idea_id": "idea_003",
+      "score": 5.0,
+      "paper_title": "Contextually Guided Transformers via Low-Rank Adaptation",
+      "paper_year": "2025",
+      "reason": "Both ideas address the issue of adapting language models to contextual shifts and improving model efficiency, suggesting moderate problem consistency. However, the methods differ significantly: Idea A employs memory-augmented neural networks and a modular transformer architecture with a semantic drift detection mechanism, while Idea B modifies the Transformer by encoding context directly into the model's weights for self-specialization. The application goals also diverge slightly, as Idea A emphasizes continual learning and ethical transparency, whereas Idea B focuses on computational efficiency and context integration. This leads to a moderate similarity overall."
+    },
+    {
+      "idea_id": "idea_005",
+      "score": 5.0,
+      "paper_title": "A Unified Causal View of Instruction Tuning",
+      "paper_year": "2024",
+      "reason": "Both ideas address challenges in NLP with a focus on improving generalization and explainability. However, Idea A specifically targets low-resource language settings with an emphasis on using meta-learning and explainable AI to handle data scarcity and interpretability. Idea B, on the other hand, focuses on overcoming spurious correlations in instruction tuning by leveraging structural causal models and causal representations for task generalization. The methods use distinct technical approaches (meta-learning with explainability in Idea A versus meta-structural causal models in Idea B), and the application scenarios diverge, with Idea A prioritizing low-resource languages and Idea B emphasizing instruction-based generalization and zero-shot transfer. The overlap lies in their shared broad goal of enhancing NLP models' adaptability and reliability."
+    },
+    {
+      "idea_id": "idea_009",
+      "score": 5.0,
+      "paper_title": "DECOUPLING REASONING FROM OBSERVATIONS FOR EFFICIENT AUGMENTED LANGUAGE MODELS",
+      "paper_year": "2024",
+      "reason": "Both ideas address the challenge of optimizing language models for efficiency and adaptability, but Idea A focuses on modular architectures with explainability constraints while Idea B emphasizes token efficiency and decoupling reasoning from observations. The methodologies differ in their technical implementation, with A aiming for interpretability via specialized modules and B focusing on data flow and reasoning decoupling. The application goals differ significantly, as A seeks adaptable and explainable models across various domains, while B prioritizes computational efficiency and scalability in ALM systems."
+    }
+  ]
+}
