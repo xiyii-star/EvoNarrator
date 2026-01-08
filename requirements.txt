@@ -1,0 +1,35 @@
+# Core Dependencies
+requests>=2.28.0
+networkx>=2.8
+matplotlib>=3.5.0
+plotly>=5.10.0
+PyPDF2>=3.0.0
+pyyaml>=6.0
+arxiv
+
+# RAG and Embedding Dependencies
+sentence-transformers>=2.2.0
+scikit-learn>=1.0.0
+numpy>=1.21.0
+
+# Deep Learning Dependencies (for sentence-transformers and local models)
+torch>=1.13.0
+transformers>=4.20.0
+
+# Model Download (using ModelScope as alternative to HuggingFace for Chinese users)
+modelscope>=1.9.0
+
+# LLM Enhancement (Optional but recommended)
+openai>=1.0.0  # Supports OpenAI and OpenAI-compatible APIs (e.g., local Ollama, DeepSeek, etc.)
+anthropic>=0.18.0  # Supports Claude (Optional)
+
+# LangChain Dependencies (for research idea generation)
+langchain>=0.1.0
+langchain-openai>=0.1.0
+langchain-core>=0.1.0
+pydantic>=2.0.0
+
+# Note: GROBID PDF parsing (optional, requires separate GROBID service deployment)
+# GROBID service deployment:
+# docker run -d -p 8070:8070 lfoppiano/grobid:0.8.0
+# No Python dependency needed, accessed via HTTP API
