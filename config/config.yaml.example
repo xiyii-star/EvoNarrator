@@ -60,7 +60,7 @@ llm:
   # LLM服务提供商配置
   provider: openai                  # 支持: openai, anthropic, local
   model: gpt-4o-2024-11-20         # 模型名称gpt-4o-2024-11-20，deepseek-v3.2，gpt-3.5-turbo，glm-4.6
-  api_key: sk-yaIAjZfRYCEQe1NtCtlDpQTATjqyUCTRoV6aTiMSXdlejv8a
+  api_key: sk-XXX
   base_url: https://api.huiyan-ai.cn/v1  # API基础URL（可选）
 
   # LLM生成参数
