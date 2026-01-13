@@ -133,7 +133,6 @@ class CitationTypeInferencer:
             'match_future_work_problem': 'match_future_work_problem.txt',
             'match_method_extension': 'match_method_extension.txt',
             'match_problem_adaptation': 'match_problem_adaptation.txt',
-            'classify_relationship': 'classify_relationship.txt'
         }
 
         for key, filename in prompt_files.items():
