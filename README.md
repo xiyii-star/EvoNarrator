@@ -1,184 +1,252 @@
-📚 Evonarrator: Evolutionary-Narrative–Driven Scientific Hypothesis Generation
-Evonarrator is an end-to-end academic paper analysis system that closes the loop from literature retrieval to research idea generation by constructing citation knowledge graphs, performing deep information extraction, and mining semantic relationships across papers.
+# 📚 Evonarrator: Evolutionary Narrative-Driven Research Hypothesis Generation
 
-🌟 Core Features
-The system supports the full research workflow through five tightly integrated modules:
+An end-to-end academic paper analysis system that creates a complete closed loop from paper retrieval to research idea generation through the construction of citation knowledge graphs, deep information extraction, and relationship mining.
 
-Paper Retrieval and Citation Network Construction – a six-step snowballing strategy
-Paper Downloading, Parsing, and Deep Information Extraction – a multi-agent extraction framework
-Citation Relation Enrichment – socket-based semantic matching
-Knowledge Graph Construction and Evolutionary Path Modeling – deep evolutionary narrative discovery
-Research Idea Generation – creative synthesis based on limitation pools and method libraries
-🔍 Module 1: Paper Retrieval and Citation Network Construction
-Objective
-Retrieve papers highly relevant to a given research topic
-Construct a rich and well-connected citation network
-Method: Six-Step Snowballing Retrieval Pipeline
-<TEXT>
+## 🌟 Core Features
+
+This system realizes the full-process automated analysis of academic research through five core modules:
+
+1. **Paper Retrieval & Citation Network Construction** - Six-step snowballing retrieval strategy
+2. **Paper Download, Parsing & Deep Extraction** - Multi-agent collaborative extraction system
+3. **Citation Relationship Enrichment** - Socket interface matching mechanism
+4. **Knowledge Graph & Evolution Trajectory Mapping** - Deep evolutionary trajectory generation
+5. **Research Idea Generation** - Creative combination based on defect pools and method libraries
+
+---
+
+## 🔍 Module 1: Paper Retrieval and Citation Network Construction
+
+### Goal
+- Retrieve papers highly relevant to the target topic.
+- Build a rich and comprehensive citation relationship network.
+
+### Method: Six-Step Snowballing Retrieval Pipeline
+
+```text
 Step 1: Foundational Seeds
-├─ Query arXiv to identify seminal and foundational papers as seed nodes
+├─ Call arXiv API to find classic papers in the field as seed nodes
+
 Step 2: Forward Snowballing
-├─ Who cites the seed papers? → identify descendant nodes
-└─ Retrieve citation links via the OpenAlex API
+├─ Who cited the Seed? → Find child nodes
+└─ Retrieve cited relationships via OpenAlex
+
 Step 3: Backward Snowballing
-├─ Who is cited by the seed papers? → identify parent and ancestor nodes
-└─ Trace the technical origins of the field
-Step 4: Lateral Expansion / Co-citation Mining
-├─ Which papers are repeatedly co-cited but missing from the corpus?
-└─ Supplement overlooked but influential works
-🔄 Step 5 (Optional): Second-Round Snowball Expansion
-├─ Forward: expand from first-round papers
-├─ Backward: trace their references
-└─ Co-citation: analyze second-round co-citation patterns
-Step 6: SOTA Completion
-├─ Add the most recent state-of-the-art papers
-└─ Ensure temporal coverage and freshness
-Step 7: Citation Closure
-└─ Build a complete citation graph across all collected papers
-Technical Implementation
-Seed Source: arXiv API
-Expansion Engine: OpenAlex API
-Citation Network: multi-layer snowballing + co-citation analysis
-📄 Module 2: Paper Parsing and Deep Information Extraction
-Objective
-Parse PDF files into structured sections
-Accurately extract deep semantic information (Problem, Contribution, Limitation, Future Work)
-Method: Multi-Agent Collaborative Extraction
-<TEXT>
+├─ Who did the Seed cite? → Find parent/ancestor nodes
+└─ Trace technological origins
+
+Step 4: Horizontal Supplement / Co-citation Mining
+├─ Among child and parent nodes, who is frequently mentioned but missing in the library?
+└─ Supplement missing key papers
+
+🔄 Step 5 (Optional): Second-Round Snowballing Expansion
+├─ Forward: Find child nodes from first-round papers
+├─ Backward: Find parent nodes from first-round papers
+└─ Co-citation: Analyze co-citation patterns of second-round papers
+
+Step 6: Supplement Latest SOTA (State-of-the-Art)
+├─ Add cutting-edge research in the field
+└─ Ensure timeliness and relevance
+
+Step 7: Build Citation Closure
+└─ Establish a complete citation relationship network for all retrieved papers
+```
+
+### Technical Implementation
+- **Seed Source**: arXiv API
+- **Expansion Engine**: OpenAlex API
+- **Citation Network**: Multi-level snowball sampling + Co-citation analysis
+
+---
+
+## 📄 Module 2: Paper Parsing and Deep Information Extraction
+
+### Goal
+- Parse PDFs to extract information section by section.
+- Accurately extract deep semantic information (Problem, Contribution, Limitation, Future Work).
+
+### Method: Multi-Agent Collaborative System
+
+```text
 ┌─────────────────────────────────────────────┐
-│            Multi-Agent Extraction            │
+│           Multi-Agent Extraction            │
 └─────────────────────────────────────────────┘
            ↓
     ┌──────────────┐
-    │  Navigator   │  Locates sections
-    │    Agent     │  "Which section contains this information?"
+    │  Navigator   │  Locate Sections
+    │    Agent     │  "Which section contains this info?"
     └──────┬───────┘
            ↓
     ┌──────────────┐
-    │  Extractor   │  Extracts sentences
-    │    Agent     │  "Extract relevant content from the section"
+    │  Extractor   │  Extract Sentences
+    │    Agent     │  "Extract relevant content from sections"
     └──────┬───────┘
            ↓
     ┌──────────────┐
-    │    Critic    │  Quality assessment
-    │    Agent     │  "Is the extraction accurate? Re-extract if needed."
+    │   Critic     │  Quality Assessment
+    │    Agent     │  "Is the result accurate? Re-extract?"
     └──────┬───────┘
            ↓
     ┌──────────────┐
-    │ Synthesizer  │  Aggregation and scoring
-    │    Agent     │  "Produce final output and assign confidence scores"
+    │ Synthesizer  │  Summarize & Score
+    │    Agent     │  "Generate final output and scoring"
     └──────────────┘
-Extracted Information Dimensions
-Dimension	Description	Typical Sections
-Problem–Contribution	Problem–method pairing	Abstract, Introduction
-Limitation	Limitations and weaknesses	Discussion, Conclusion, Limitations
-Future Work	Open directions and future research	Discussion, Conclusion, Future Work
-Key Properties
-Section-aware extraction: automatic recognition of paper structure
-Iterative correction: critic-driven re-extraction loop
-Quality control: each extracted item is associated with a confidence score
-🔗 Module 3: Citation Relation Enrichment
-Objective
-Discover deep semantic relationships between papers
-Avoid conflating different citation semantics
-Method: Socket-Based Matching Mechanism
-Each paper’s deep information is treated as a semantic “socket”, and citation relationships are inferred by determining whether sockets can be meaningfully connected using LLM reasoning and citation context.
+```
 
-Matching Logic Matrix (4 Matches → 6 Relation Types)
-<TEXT>
+### Extraction Dimensions
+
+| Dimension | Description | Target Sections |
+| --- | --- | --- |
+| **Problem-Contribution** | Problem-Method Pair | Abstract, Introduction |
+| **Limitation** | Shortcomings/Defects | Discussion, Conclusion, Limitation |
+| **Future Work** | Future research directions | Discussion, Conclusion, Future Work |
+
+### Key Features
+- **Section Awareness**: Automatically identifies paper structure.
+- **Iterative Correction**: Critic-driven re-extraction mechanism.
+- **Quality Assurance**: Every extracted result comes with a quality score.
+
+---
+
+## 🔗 Module 3: Citation Relationship Enrichment
+
+### Goal
+- Mine deep semantic relationships between papers.
+- Prevent the confusion of different relationship types.
+
+### Method: Socket Matching Mechanism
+Treat the deep information of papers as **"Interfaces (Sockets)"**. The system uses LLMs and citation contexts to determine if these interfaces can be successfully connected.
+
+### Logical Docking Matrix (4 Matches → 6 Relation Types)
+
+```text
 ┌─────────────────────────────────────────────────────┐
-│               Socket Matching Logic                  │
+│              Socket Matching Logic                  │
 └─────────────────────────────────────────────────────┘
+
 Match 1: Limitation → Problem
-├─ A limitation in Paper A is addressed by Paper B
-└─ Relation: Overcomes
-Match 2: Future Work → Problem
-├─ A future direction proposed in Paper A is realized by Paper B
-└─ Relation: Realizes
-Match 3: Same Method, Different Problems
-├─ A method applied to new problem settings
-└─ Relation: Adapts_to
-Match 4: Same Problem, Different Methods
-├─ Alternative solutions to the same problem
-├─ 4a. Same direction → Extends
-├─ 4b. Different direction → Alternative
-└─ 4c. No clear semantic relation → Baselines
-No Match
-└─ Relation: Baselines
-Inputs
-Deep paper information (Problem, Contribution, Limitation, Future Work)
-Citation context
-LLM-based reasoning
-Outputs
-One of six relation types per citation edge
-Relation strength score
-Supporting evidence (citation context snippets)
-🕸️ Module 4: Knowledge Graph Construction and Evolutionary Path Modeling
-Objective
-Leverage deep semantic information and enriched citation relations to construct a multi-dimensional knowledge graph that captures the evolutionary logic of a research field.
+├─ Paper A's limitation → Paper B solved this problem
+└─ Relation Type: Overcomes
 
-Rather than maximizing breadth, the goal is to extract a small number of high-quality evolutionary narratives with strong logical coherence.
+Match 2: Future_Work → Problem
+├─ Paper A's future work → Paper B realized this idea
+└─ Relation Type: Realizes
 
-Method
-High-quality paper selection via relation-based pruning, followed by identification of evolutionary patterns and structured survey generation.
+Match 3: Problem → Problem (Under Same Method)
+├─ Same method used to solve different problems
+└─ Relation Type: Adapts_to (Transfer application)
 
-Step 1: Relation-Based Graph Pruning
-Traverse the graph and apply bidirectional BFS to identify strongly connected components
-Retain only strong semantic relations (excluding baseline-only links)
-Step 2: Critical Evolutionary Path Identification
-Select key nodes within each connected component
-Identify three evolutionary patterns:
-Chains (A → B → C): linear evolutionary paths discovered via DFS over strong relations
-Divergence: one paper giving rise to multiple development branches
-Convergence: multiple independent prior works integrated by a single paper
-💡 Module 5: Research Idea Generation
-Objective
-Generate novel and feasible research ideas
-Automatically assess idea quality
-Method: Limitation Pool × Method Library → Idea Synthesis
-Step 1: Fragment Pool Construction (Based on Socket Matching)
-<TEXT>
-Pool A: Unresolved Limitations
-├─ Limitations not addressed by any Overcomes relation
-Pool B: Frequently Extended Methods
-├─ Methods extended by two or more papers
-└─ Indicative of robustness and generality
-Pool C: Adapted Methods
-├─ Methods successfully transferred across domains
-└─ High cross-domain potential
-Pool D: Unrealized Future Work
-├─ Future directions not realized by any Realizes relation
-Step 2: Idea Generation and Filtering
-<TEXT>
-Cartesian product
+Match 4: Method → Method (Under Same Problem)
+├─ Same problem, different methods
+├─ 4a. Extension in same direction → Extends
+├─ 4b. Alternative in different direction → Alternative
+└─ 4c. No clear explicit relation → Baselines
+
+No Matches Found
+└─ Relation Type: Baselines (Baseline comparison)
+```
+
+### Input Data
+- Deep information of papers (Problem, Contribution, Limitation, Future_Work)
+- Citation contexts
+- LLM reasoning capabilities
+
+### Output Results
+- Each citation edge is annotated with one of the 6 relation types
+- Relationship strength score
+- Supporting evidence (citation context snippets)
+
+---
+
+## 🕸️ Module 4: Knowledge Graph Construction & Evolution Trajectory Mapping
+
+### Goal
+Fully utilize the deep information and citation relationships of papers to capture the deep logic of a literature review.
+Papers serve as nodes and citation relationships as edges, integrating into a multi-dimensional knowledge graph. 
+The goal is to find a small but highly refined set of key evolutionary trajectories from a massive pool of papers. The focus is on logical **"depth"** rather than superficial "breadth."
+
+### Method
+**Retain high-quality papers via strong-relation pruning, then identify three evolutionary patterns (chain, divergence, convergence) to generate a structured academic review report.**
+
+**Step 1: Relation-Based Pruning**
+- Traverse the entire graph using Bidirectional BFS to find strongly connected components (excluding `baselines` citation types).
+
+**Step 2: Critical Evolutionary Paths Identification**
+1. Select key nodes from the scoped connected components.
+2. Identify three evolutionary patterns:
+  - **Chain (A→B→C)**: Starting from a node within a specific scope, perform Depth-First Search (DFS) along strong relation edges to identify linear evolutionary chains.
+  - **Divergence (Center ← Multiple branches)**: A single foundational paper sparks multiple branch development directions.
+  - **Convergence (Center → Multiple baselines)**: Multiple independent prior works are integrated and built upon by a single subsequent paper.
+
+---
+
+## 💡 Module 5: Research Idea Generation
+
+### Goal
+- Generate novel and highly feasible research ideas.
+- Automatically evaluate the quality of the generated ideas.
+
+### Method: Defect Pool × Method Pool → Idea Combination
+
+#### Step 1: Construct Fragment Pools (Based on Socket Matching)
+
+```text
+Pool A: Un-Overcome Limitations
+├─ Filtered from Limitations of all papers
+└─ Excludes those already solved via "Overcomes" relations
+
+Pool B: Methods Extended ≥ 2 times
+├─ Identifies successfully and repeatedly extended methods
+└─ Indicates method versatility and transferability
+
+Pool C: Methods from "Adapts_to"
+├─ Methods successfully transferred to other domains
+└─ Indicates cross-domain application potential
+
+Pool D: Un-Realized Future Work
+├─ Filtered from Future_Work of all papers
+└─ Excludes those already achieved via "Realizes" relations
+```
+
+#### Step 2: Idea Generation (with Auto-Filtering)
+
+```text
+Cartesian Product Combination
     ↓
-Limitation × Method → Candidate ideas
+Limitation × Method → Candidate Ideas
     ↓
-Chain-of-Thought reasoning
+Chain of Thought (CoT) Reasoning
     ↓
 ┌────────────────────────────────────┐
-│  1. Compatibility Analysis          │
-│     Can the method address the gap? │
+│  1. Compatibility Analysis         │
+│     Can the method solve the bug?  │
 ├────────────────────────────────────┤
-│  2. Gap Identification              │
-│     What extensions or changes are  │
-│     required?                       │
+│  2. Gap Identification             │
+│     What improvements are needed?  │
 ├────────────────────────────────────┤
-│  3. Idea Drafting                   │
-│     Generate a complete proposal    │
+│  3. Idea Drafting                  │
+│     Generate full research proposal│
 └────────────────────────────────────┘
     ↓
-Automatic filtering (status = "SUCCESS")
+Auto-Filtering: Keep only ideas with status="SUCCESS"
     ↓
-Final high-quality idea list
-🙏 Acknowledgements
+Output High-Quality Idea List
+```
+
+---
+
+## 🙏 Acknowledgments
+
 This system is built upon the following open-source projects and data sources:
+- [OpenAlex](https://openalex.org/) - Open catalog to the global research system
+- [arXiv](https://arxiv.org/) - Preprint repository
+- Excellent open-source libraries including NetworkX, Plotly, Sentence-Transformers, etc.
 
-OpenAlex – Open scholarly metadata API
-arXiv – Open-access preprint repository
-NetworkX, Plotly, Sentence-Transformers, and other open-source libraries
-📧 Contact
-For questions or collaboration, please contact:
+---
 
-Email: 1743623557@qq.com
-🎓 Empowering scientific discovery with AI.
+## 📧 Contact
+
+For any questions or collaboration inquiries, please contact:
+- **Email**: 1743623557@qq.com
+
+---
+**🎓 Let AI empower research innovation!**
