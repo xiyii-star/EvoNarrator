@@ -2,6 +2,9 @@
 
 An end-to-end academic paper analysis system that creates a complete closed loop from paper retrieval to research idea generation through the construction of citation knowledge graphs, deep information extraction, and relationship mining.
 
+## 🌐 Online Experience
+Welcome to the online Demo environment: https://intelligent-unity-production.up.railway.app/
+
 ## 🌟 Core Features
 
 This system realizes the full-process automated analysis of academic research through five core modules:
